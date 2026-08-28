@@ -1,0 +1,34 @@
+name: Apply Wasl Tech brand refresh
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: read
+
+jobs:
+  apply-refresh:
+    if: github.event.issue.title == 'RUN_WASL_REFRESH_APPLY'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply approved brand refresh
+        shell: bash
+        run: |
+          set -euo pipefail
+          base64 -d .refresh/refresh_apply.b64 > /tmp/refresh.patch
+          git apply --check /tmp/refresh.patch
+          git apply /tmp/refresh.patch
+          rm -rf .refresh
+          rm -f .github/workflows/apply-refresh.yml
+          git add -A
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Apply Wasl Tech approved brand refresh"
+          git push origin main
