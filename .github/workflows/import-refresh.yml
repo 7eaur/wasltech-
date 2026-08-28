@@ -18,13 +18,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Import original source snapshot
+      - name: Import current original source
         shell: bash
         run: |
           set -euo pipefail
           tmp="$(mktemp -d)"
-          git clone https://github.com/7eaur/wasl_tech.git "$tmp/source"
-          git -C "$tmp/source" checkout 04cc4993eb1e773e5c38ba0b2c86768c3c34a3b3
+          git clone --depth 1 https://github.com/7eaur/wasl_tech.git "$tmp/source"
           rm -rf "$tmp/source/.git"
           find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
           cp -a "$tmp/source"/. .
