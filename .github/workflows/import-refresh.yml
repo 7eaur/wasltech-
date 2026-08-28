@@ -1,0 +1,37 @@
+name: Import refreshed Wasl Tech baseline
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.refresh/**'
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout target repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build refreshed baseline from original source
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp .refresh/wasl_brand_refresh.patch /tmp/wasl_brand_refresh.patch
+          tmp="$(mktemp -d)"
+          git clone https://github.com/7eaur/wasl_tech.git "$tmp/source"
+          git -C "$tmp/source" checkout 04cc4993eb1e773e5c38ba0b2c86768c3c34a3b3
+          git -C "$tmp/source" apply --index --binary /tmp/wasl_brand_refresh.patch
+          rm -rf "$tmp/source/.git"
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -a "$tmp/source"/. .
+          git add -A
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Refresh Wasl Tech identity and fix audited issues"
+          git push --force origin main
