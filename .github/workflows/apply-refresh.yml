@@ -22,7 +22,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          base64 -d .refresh/refresh_apply.b64 > /tmp/refresh.patch
+          cat .refresh/refresh_apply.b64 .refresh/chunk_02.b64 .refresh/chunk_03.b64 .refresh/chunk_04.b64 .refresh/chunk_05.b64 > /tmp/refresh.patch.gz.b64
+          base64 -d /tmp/refresh.patch.gz.b64 > /tmp/refresh.patch.gz
+          gzip -dc /tmp/refresh.patch.gz > /tmp/refresh.patch
           git apply --check /tmp/refresh.patch
           git apply /tmp/refresh.patch
           rm -rf .refresh
