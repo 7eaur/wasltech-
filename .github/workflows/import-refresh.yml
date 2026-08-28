@@ -1,16 +1,16 @@
 name: Import Wasl Tech original baseline
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.refresh/**'
+  issues:
+    types: [opened]
 
 permissions:
   contents: write
+  issues: read
 
 jobs:
   import:
+    if: github.event.issue.title == 'RUN_WASL_BASELINE_IMPORT'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout target repository
