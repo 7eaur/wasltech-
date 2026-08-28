@@ -1,0 +1,437 @@
+/**
+ * =====================================================
+ * WASL TECH - PROCESS PAGE CSS (كيف نعمل)
+ * =====================================================
+ */
+
+/* ── Hero Section ── */
+.pr-hero {
+  background: linear-gradient(135deg, #eef7ff 0%, #ffffff 100%);
+  padding: 130px 0 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pr-hero-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.pr-hero-text {
+  flex: 1;
+  text-align: right;
+}
+
+.pr-hero-text h1 {
+  font-size: 3rem;
+  color: var(--primary-dark);
+  font-weight: 900;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.pr-hero-text p {
+  font-size: 1.15rem;
+  color: var(--text-light);
+  font-weight: 500;
+  line-height: 1.8;
+  max-width: 480px;
+}
+
+.pr-hero-img {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pr-hero-img img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+  animation: heroFloat 4s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@media (max-width: 992px) {
+  .pr-hero { padding: 120px 0 40px; }
+  .pr-hero-grid {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .pr-hero-text { text-align: center; }
+  .pr-hero-text p { margin: 0 auto; }
+  .pr-hero-img { justify-content: center; }
+}
+
+/* ── Section Titles ── */
+.pr-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.pr-section-title h2 {
+  font-size: 2rem;
+  color: var(--primary-dark);
+  font-weight: 800;
+  margin: 0;
+}
+
+.pr-title-line {
+  height: 2px;
+  width: 50px;
+  background: var(--primary-light);
+  position: relative;
+}
+
+.pr-title-line::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary-light);
+}
+
+.pr-section-title .pr-title-line:first-child::after { right: -3px; }
+.pr-section-title .pr-title-line:last-child::after { left: -3px; }
+
+/* ── Steps Section ── */
+.pr-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+  position: relative;
+}
+
+@media (max-width: 1200px) {
+  .pr-steps-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  .pr-step-arrow { display: none !important; }
+}
+@media (max-width: 768px) {
+  .pr-steps-grid { grid-template-columns: 1fr; }
+}
+
+.pr-step-card {
+  background: #fff;
+  border: 1px solid #dcebfa;
+  border-radius: 12px;
+  padding: 35px 15px 25px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pr-step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  border-color: var(--primary-light);
+}
+
+.pr-step-num {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  background: #0d6efd;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.pr-step-icon {
+  font-size: 2.5rem;
+  color: #0d6efd;
+  margin-bottom: 15px;
+}
+
+.pr-step-card h3 {
+  font-size: 1.1rem;
+  color: var(--primary-dark);
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.pr-step-card p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Connect arrows */
+.pr-step-arrow {
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #0d6efd;
+  font-size: 1.5rem;
+  z-index: 2;
+}
+
+.pr-step-card:last-child .pr-step-arrow {
+  display: none;
+}
+
+/* ── Why Section ── */
+.pr-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 992px) {
+  .pr-why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 576px) {
+  .pr-why-grid { grid-template-columns: 1fr; }
+}
+
+.pr-why-card {
+  background: #fff;
+  border: 1px solid #dcebfa;
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.pr-why-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.pr-why-icon {
+  font-size: 3rem;
+  color: #0d6efd;
+  margin-bottom: 15px;
+}
+
+.pr-why-card h3 {
+  font-size: 1.2rem;
+  color: var(--primary-dark);
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.pr-why-card p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── FAQ Section ── */
+.pr-faqs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pr-faq {
+  background: #fff;
+  border: 1px solid #dcebfa;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.pr-faq summary {
+  padding: 18px 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none; /* remove default arrow */
+}
+
+.pr-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.pr-faq summary i {
+  color: #0d6efd;
+  transition: transform 0.3s ease;
+}
+
+.pr-faq[open] summary i {
+  transform: rotate(180deg);
+}
+
+.pr-faq p {
+  padding: 0 20px 20px;
+  margin: 0;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* ── Consultation Banner ── */
+.pr-consult-banner {
+  background: #f0f7ff;
+  border-radius: 20px;
+  position: relative;
+  border: 1px solid #dcebfa;
+}
+
+.prcb-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.prcb-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+}
+
+.prcb-grid {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prcb-actions {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 40px 40px 40px 20px;
+  z-index: 2;
+}
+
+.prcb-text {
+  flex: 1;
+  text-align: right;
+  padding: 40px 20px 40px 320px;
+  z-index: 2;
+}
+
+.prcb-text h2 {
+  font-size: 2.2rem;
+  color: var(--primary-dark);
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.prcb-text p {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.prcb-character {
+  position: absolute;
+  left: 40px;
+  bottom: -2px;
+  width: 280px;
+  z-index: 10;
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1));
+  transition: transform 0.3s ease;
+}
+
+.prcb-character img {
+  width: 100%;
+  display: block;
+}
+
+.prcb-character:hover {
+  transform: translateY(-10px);
+}
+
+.btn-tواصل {
+  background: #0d6efd;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+}
+
+.btn-tواصل i {
+  font-size: 1.1rem;
+}
+
+.btn-tواصل:hover {
+  background: #0b5ed7;
+  transform: translateY(-2px);
+}
+
+.link-استشارة {
+  color: #0d6efd;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.link-استشارة:hover {
+  color: #0a58ca;
+}
+
+@media (max-width: 992px) {
+  .prcb-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+  .prcb-actions {
+    padding: 20px;
+    align-items: center;
+    order: 3;
+  }
+  .prcb-text {
+    padding: 30px 20px;
+    order: 1;
+  }
+  .prcb-character {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    order: 2;
+    flex: 0 0 auto;
+    width: 200px;
+    margin: 0 auto;
+  }
+  .prcb-character img {
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلياس الشعيبي | مهندس برمجيات ومطوّر واجهات ويب وتطبيقات</title>
+    <meta name="description"
+        content="بورتفوليو المهندس إلياس الشعيبي - خبير تطوير واجهات المستخدم وتطبيقات الويب والجوال في اليمن. حلول برمجية متكاملة وتصاميم UI/UX عصرية.">
+    <meta name="keywords" content="إلياس الشعيبي, مطور ويب اليمن, مبرمج تطبيقات صنعاء, مهندس برمجيات, مصمم واجهات, UI/UX Designer, React Developer, Flutter Developer, Next.js, Tailwind CSS, مبرمج فريلانسر, برمجة مواقع, تصميم تطبيقات, الحلول الرقمية, متخصص سيو SEO">
+    <meta name="author" content="إلياس الشعيبي">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE">
+    <link rel="canonical" href="http://eng-elyas.xo.je/">
+
+    <!-- SEO & Indexing (Google) -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="description" content="البورتفوليو الشخصي للمهندس إلياس الشعيبي - مطور واجهات أمامية ومصمم تجارب مستخدم (UI/UX) متخصص في بناء تطبيقات الويب والجوال الحديثة.">
+    
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://eng-elyas.xo.je/">
+    <meta property="og:title" content="إلياس الشعيبي | مهندس برمجيات ومطور واجهات">
+    <meta property="og:description" content="استعرض أعمالي في تطوير الويب وتطبيقات الجوال. حلول رقمية مبتكرة وتصاميم عصرية.">
+    <meta property="og:image" content="http://eng-elyas.xo.je/images/photo1.jpg">
+    <meta property="og:site_name" content="إلياس الشعيبي">
+    <meta property="og:locale" content="ar_AR">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://eng-elyas.xo.je/">
+    <meta property="twitter:title" content="إلياس الشعيبي | مهندس برمجيات ومطور واجهات">
+    <meta property="twitter:description" content="استعرض أعمالي في تطوير الويب وتطبيقات الجوال. حلول رقمية مبتكرة وتصاميم عصرية.">
+    <meta property="twitter:image" content="http://eng-elyas.xo.je/images/photo1.jpg">
+
+    <!-- JSON-LD Structured Data for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "إلياس الشعيبي",
+      "url": "http://eng-elyas.xo.je/",
+      "image": "http://eng-elyas.xo.je/images/photo1.jpg",
+      "jobTitle": "Front-End Developer & UI/UX Designer",
+      "sameAs": [
+        "https://github.com/elyas",
+        "https://linkedin.com/in/elyas",
+        "https://twitter.com/elyas"
+      ],
+      "description": "مهندس برمجيات متخصص في بناء واجهات المستخدم الحديثة وتجربة المستخدم الرقمية."
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&family=Tajawal:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                fontFamily: {
+                    sans: ['Tajawal', 'sans-serif'],
+                    display: ['Tajawal', 'sans-serif'],
+                },
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#4f46e5',
+                        dark: '#050505',
+                        surface: '#0a0a0a',
+                        whatsapp: '#25D366',
+                    },
+                    animation: {
+                        'fade-up': 'fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+                        'marquee': 'marquee 30s linear infinite',
+                        'spin-slow': 'spin 15s linear infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'text-reveal': 'textReveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+                    },
+                    keyframes: {
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)', filter: 'blur(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)', filter: 'blur(0)' },
+                        },
+                        textReveal: {
+                            '0%': { transform: 'translateY(100%)' },
+                            '100%': { transform: 'translateY(0)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/engineering.png">
+    
+    <!-- External Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body
+    class="bg-slate-50 text-slate-800 dark:bg-dark dark:text-slate-200 transition-colors duration-500 selection:bg-primary selection:text-white overflow-x-hidden">
+
+    <!-- [NEW] Noise Texture Overlay -->
+    <div class="fixed inset-0 z-[1] bg-noise pointer-events-none opacity-40 mix-blend-overlay"></div>
+
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-[9999] bg-slate-50 dark:bg-dark flex items-center justify-center">
+        <div class="flex flex-col items-center gap-4">
+            <div class="relative w-16 h-16">
+                <div class="absolute inset-0 border-4 border-slate-200 dark:border-white/10 rounded-full"></div>
+                <div class="absolute inset-0 border-4 border-primary rounded-full border-t-transparent animate-spin">
+                </div>
+            </div>
+            <span class="text-sm font-bold tracking-widest uppercase animate-pulse">جارٍ التحميل...</span>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container"
+        class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Background Elements -->
+    <div class="fixed inset-0 z-0 bg-grid-pattern pointer-events-none"></div>
+    <div
+        class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary/20 rounded-full blur-[120px] pointer-events-none opacity-50 dark:opacity-20 z-0">
+    </div>
+
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-6">
+        <nav
+            class="bg-white/70 dark:bg-surface/70 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-full px-6 py-3 flex items-center gap-8 shadow-sm transition-all duration-300 w-full max-w-4xl justify-between md:justify-start reveal-on-scroll">
+
+            <a href="#"
+                class="text-xl font-bold font-display tracking-tight text-slate-900 dark:text-white hoverable magnetic-btn focus:outline-none relative z-20">
+                ELYAS<span class="text-primary">.</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium ml-auto relative z-20" id="desktop-menu">
+                <a href="#home"
+                    class="nav-link text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors hoverable magnetic-btn">الرئيسية</a>
+                <a href="#about"
+                    class="nav-link text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors hoverable magnetic-btn">عني</a>
+                <a href="#work"
+                    class="nav-link text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors hoverable magnetic-btn">المشاريع</a>
+                <a href="#writing"
+                    class="nav-link text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors hoverable magnetic-btn">المقالات</a>
+                <a href="#contact"
+                    class="px-5 py-2 bg-slate-900 dark:bg-white text-white dark:text-black rounded-full font-bold text-xs hover:scale-105 transition-transform hoverable magnetic-btn">وظّفني</a>
+            </div>
+
+            <div
+                class="flex items-center gap-3 md:ml-4 border-l border-slate-200 dark:border-white/10 pl-4 md:pl-6 relative z-20">
+                <button id="theme-toggle" aria-label="Ganti Mode Gelap"
+                    class="w-8 h-8 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-100 dark:hover:bg-white/10 transition-colors hoverable magnetic-btn focus:outline-none">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="mobile-menu-btn" aria-label="Buka Menu"
+                    class="md:hidden text-slate-900 dark:text-white p-1 hoverable magnetic-btn focus:outline-none">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 bg-white/95 dark:bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-all duration-300">
+        <a href="#home" class="text-3xl font-display font-bold mobile-link hover:text-primary hoverable">الرئيسية</a>
+        <a href="#about" class="text-3xl font-display font-bold mobile-link hover:text-primary hoverable">عني</a>
+        <a href="#work" class="text-3xl font-display font-bold mobile-link hover:text-primary hoverable">المشاريع</a>
+        <a href="#writing" class="text-3xl font-display font-bold mobile-link hover:text-primary hoverable">المقالات</a>
+        <a href="#contact" class="text-3xl font-display font-bold mobile-link hover:text-primary hoverable">تواصل</a>
+        <button id="close-menu" aria-label="إغلاق القائمة"
+            class="absolute top-8 right-8 text-slate-500 hover:text-black dark:hover:text-white hoverable">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="section-spy relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10 max-w-6xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-x-16 items-center">
+
+                <!-- 1. المحتوى النصي (يمين في الويب / أعلى في الجوال) -->
+                <div class="text-center lg:text-right order-1 lg:col-start-1 lg:row-start-1">
+                    <div
+                        class="hero-badge inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/60 dark:bg-white/5 border border-slate-200 dark:border-white/10 backdrop-blur-sm mb-6">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </span>
+                        <span
+                            class="text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">مرحباً</span>
+                    </div>
+
+                    <h1 class="font-display mb-6 text-slate-900 dark:text-white">
+                        <!-- الاسم الكبير -->
+                        <div class="hero-heading-line overflow-hidden mb-2">
+                            <span class="block text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">أنا إلياس
+                                الشعيبي</span>
+                        </div>
+                        <!-- التخصص في سطر واحد أصغر -->
+                        <div class="hero-heading-line overflow-hidden">
+                            <span
+                                class="block text-xl md:text-2xl lg:text-3xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">مطوّر
+                                ومصمم تطبيقات ومواقع ويب.</span>
+                        </div>
+                    </h1>
+
+                    <p
+                        class="hero-description text-lg text-slate-600 dark:text-slate-400 max-w-md mx-auto lg:mx-0 mb-8 leading-relaxed italic">
+                        أحوّل الأفكار المعقدة إلى <span class="text-slate-900 dark:text-white font-semibold">تجارب
+                            رقمية</span> مذهلة وعالية الأداء.
+                    </p>
+                </div>
+
+                <!-- 2. الصورة الشخصية (يسار في الويب / وسط في الجوال) -->
+                <div
+                    class="hero-image-container relative h-[380px] md:h-[500px] lg:h-[600px] flex items-center justify-center order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 perspective-1000">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-full blur-3xl animate-pulse-slow">
+                    </div>
+                    <div
+                        class="hero-circle-outer absolute w-64 h-64 md:w-96 md:h-96 border border-slate-200 dark:border-white/10 rounded-full animate-spin-slow">
+                    </div>
+                    <div
+                        class="hero-circle-middle absolute w-48 h-48 md:w-72 md:h-72 border border-dashed border-slate-300 dark:border-white/20 rounded-full animate-spin-slow [animation-direction:reverse]">
+                    </div>
+                    <div
+                        class="hero-profile-img hero-image-glow relative w-60 h-60 md:w-85 md:h-85 rounded-full overflow-hidden border-4 border-white dark:border-white/10 shadow-2xl animate-[float_6s_ease-in-out_infinite] z-10 group cursor-pointer hoverable">
+                        <img src="images/photo1.jpg" alt="الياس الشعيبي" width="800" height="800"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                </div>
+
+                <!-- 3. الأزرار (يمين في الويب / أسفل في الجوال) -->
+                    <div class="hero-buttons flex flex-wrap gap-4 justify-center lg:justify-start order-3 lg:col-start-1 lg:row-start-2">
+                        <a href="#work"
+                            class="group relative px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-black rounded-full font-bold overflow-hidden hover:scale-[1.02] transition-transform shadow-xl shadow-primary/10 hoverable magnetic-btn flex items-center gap-3">
+                            <span class="relative z-10">استكشف مشاريعي</span>
+                            <i class="fas fa-rocket relative z-10 text-xs"></i>
+                            <div
+                                class="absolute inset-0 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-right duration-300">
+                            </div>
+                        </a>
+                        <a href="#contact"
+                            class="group px-8 py-4 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-full font-bold hover:bg-slate-50 dark:hover:bg-white/5 transition-all hoverable magnetic-btn flex items-center gap-2">
+                            <span>ابدأ مشروعك الآن</span>
+                            <i class="fas fa-arrow-left text-xs group-hover:-translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Marquee -->
+    <div class="py-10 bg-white/30 dark:bg-white/5 border-y border-slate-200 dark:border-white/5 overflow-hidden group select-none relative z-10">
+        <div class="flex animate-marquee whitespace-nowrap gap-12 items-center">
+            <span class="text-2xl md:text-4xl font-display font-bold text-slate-300 dark:text-white/10 group-hover:text-primary/40 transition-colors">REACT.JS</span>
+            <span class="text-2xl md:text-4xl font-display font-bold text-slate-300 dark:text-white/10 group-hover:text-primary/40 transition-colors">NEXT.JS</span>
+            <span class="text-2xl md:text-4xl font-display font-bold text-slate-300 dark:text-white/10 group-hover:text-primary/40 transition-colors">NODE.JS</span>
+            <span class="text-2xl md:text-4xl font-display font-bold text-slate-300 dark:text-white/10 group-hover:text-primary/40 transition-colors">ARTIFICIAL INTELLIGENCE</span>
+            <span class="text-2xl md:text-4xl font-display font-bold text-slate-300 dark:text-white/10 group-hover:text-primary/40 transition-colors">FLUTTER</span>
+            <span class="text-2xl md:text-4xl font-display font-bold text-slate-300 dark:text-white/10 group-hover:text-primary/40 transition-colors">PYTHON</span>
+            <span class="text-2xl md:text-4xl font-display font-bold text-slate-300 dark:text-white/10 group-hover:text-primary/40 transition-colors">TYPESCRIPT</span>
+            <span class="text-2xl md:text-4xl font-display font-bold text-slate-300 dark:text-white/10 group-hover:text-primary/40 transition-colors">MONGODB</span>
+            <span class="text-2xl md:text-4xl font-display font-bold text-slate-300 dark:text-white/10 group-hover:text-primary/40 transition-colors">TAILWIND CSS</span>
+            <!-- Duplicate for loop -->
+            <span class="text-2xl md:text-4xl font-display font-bold text-slate-300 dark:text-white/10 group-hover:text-primary/40 transition-colors">REACT.JS</span>
+            <span class="text-2xl md:text-4xl font-display font-bold text-slate-300 dark:text-white/10 group-hover:text-primary/40 transition-colors">NEXT.JS</span>
+            <span class="text-2xl md:text-4xl font-display font-bold text-slate-300 dark:text-white/10 group-hover:text-primary/40 transition-colors">NODE.JS</span>
+            <span class="text-2xl md:text-4xl font-display font-bold text-slate-300 dark:text-white/10 group-hover:text-primary/40 transition-colors">ARTIFICIAL INTELLIGENCE</span>
+        </div>
+    </div>
+
+
+    <section id="about"
+        class="section-spy py-20 bg-white/50 dark:bg-white/5 border-y border-slate-200 dark:border-white/5 backdrop-blur-sm relative z-10">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <h2 class="font-display text-4xl font-bold text-slate-900 dark:text-white mb-12 reveal-on-scroll">عني
+                <span class="text-primary">.</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 h-auto md:h-[500px]">
+
+                <!-- Card 1: Bio -->
+                <div
+                    class="bento-card spotlight-card col-span-1 md:col-span-2 bg-white dark:bg-surface border border-slate-200 dark:border-white/10 rounded-3xl p-8 hoverable reveal-on-scroll">
+                    <div class="spotlight-overlay"></div>
+                    <div class="relative z-10 h-full flex flex-col justify-center">
+                        <h3 class="text-3xl font-bold font-display text-slate-900 dark:text-white mb-6">من أنا</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                            أنا المهندس <span class="text-primary font-bold">إلياس الشعيبي (Elyas Al-Shaibi)</span>، مبرمج خبير ومتخصص في <span class="text-primary font-bold">هندسة البرمجيات</span> وتطوير الواجهات وتطبيقات الويب الذكية. أجمع بين الدقة الهندسية والإبداع الفني لبناء
+                            تطبيقات ومواقع ويب متكاملة، تركز على الأداء العالي والجمالية الفائقة. أقدم أفضل الخدمات البرمجية في <span class="text-primary font-bold">اليمن - صنعاء</span> وللعملاء في سائر الدول كـ <span class="text-primary font-bold">مبرمج مستقل (Freelancer)</span>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: ابرز التقنيات -->
+                <div
+                    class="bento-card spotlight-card col-span-1 bg-slate-900 text-white rounded-3xl p-8 flex flex-col relative overflow-hidden hoverable reveal-on-scroll delay-100">
+                    <div class="spotlight-overlay"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-primary blur-3xl opacity-30 rounded-full"></div>
+                    <div class="relative z-10 h-full">
+                        <h3 class="text-xl font-bold mb-6">التقنيات الحديثة</h3>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="p-2.5 bg-white/5 rounded-xl border border-white/10 flex flex-col items-center text-center">
+                                <i class="fab fa-react text-primary mb-2"></i>
+                                <span class="text-[9px] font-bold uppercase tracking-tighter">React & Next.js</span>
+                            </div>
+                            <div class="p-2.5 bg-white/5 rounded-xl border border-white/10 flex flex-col items-center text-center">
+                                <i class="fab fa-node-js text-green-400 mb-2"></i>
+                                <span class="text-[9px] font-bold uppercase tracking-tighter">Node.js & Express</span>
+                            </div>
+                            <div class="p-2.5 bg-white/5 rounded-xl border border-white/10 flex flex-col items-center text-center">
+                                <i class="fas fa-brain text-purple-400 mb-2"></i>
+                                <span class="text-[9px] font-bold uppercase tracking-tighter">AI & LLM Integration</span>
+                            </div>
+                            <div class="p-2.5 bg-white/5 rounded-xl border border-white/10 flex flex-col items-center text-center">
+                                <i class="fas fa-mobile-alt text-secondary mb-2"></i>
+                                <span class="text-[9px] font-bold uppercase tracking-tighter">Flutter & Native</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: الاتاحة والموقع -->
+                <div
+                    class="bento-card spotlight-card col-span-1 bg-white dark:bg-surface border border-slate-200 dark:border-white/10 rounded-3xl p-8 flex flex-col justify-between hoverable reveal-on-scroll delay-200">
+                    <div class="spotlight-overlay"></div>
+                    <div class="relative z-10 space-y-4">
+                        <span
+                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-bold uppercase tracking-wide">
+                            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> متاح للمشاريع
+                        </span>
+                        <div class="pt-4 border-t border-slate-100 dark:border-white/5">
+                            <p class="text-xs text-slate-400 uppercase tracking-wider mb-1">الموقع</p>
+                            <p class="text-slate-900 dark:text-white font-bold">اليمن- صنعاء</p>
+                            <p id="local-time" class="text-2xl font-display font-bold text-primary mt-2">00:00</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 text-xl text-slate-600 dark:text-slate-400 relative z-10 mt-6">
+                        <a href="https://github.com/elyas-alshaibi" target="_blank" class="hover:text-primary transition-colors hoverable"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/elyas-alshaibi" target="_blank" class="hover:text-primary transition-colors hoverable"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://instagram.com/elyas" target="_blank" class="hover:text-primary transition-colors hoverable"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/967775377979" target="_blank" class="hover:text-primary transition-colors hoverable"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                    class="bento-card spotlight-card col-span-1 md:col-span-2 bg-gradient-to-br from-primary to-secondary text-white rounded-3xl p-8 flex flex-col justify-center relative overflow-hidden hoverable reveal-on-scroll delay-300">
+                    <div class="spotlight-overlay"></div>
+                    <i class="fas fa-quote-left absolute top-8 left-8 text-6xl text-white/10"></i>
+                    <h3 class="text-2xl md:text-3xl font-display font-bold leading-tight relative z-10 max-w-lg">
+                        "التصميم ليس فقط كيف يبدو الشيء. التصميم هو كيف يعمل."
+                    </h3>
+                    <p class="mt-4 text-white/80 text-sm font-mono relative z-10">— إلياس الشعيبي</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-spy py-24 relative z-10">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">مهاراتي<span
+                        class="text-primary">.</span>
+                </h2>
+                <p class="text-slate-500 max-w-lg mx-auto">
+                    أقدّم حلولاً رقمية شاملة تساعد عملك على النمو.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="p-8 rounded-3xl bg-white dark:bg-surface border border-slate-200 dark:border-white/10 hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 group hoverable reveal-on-scroll spotlight-card text-center md:text-right">
+                    <div class="spotlight-overlay"></div>
+                    <div
+                        class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 text-2xl group-hover:bg-primary group-hover:text-white transition-colors relative z-10 mx-auto md:mr-0 md:ml-auto">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white mb-3 relative z-10">حلول الذكاء الاصطناعي</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed relative z-10">
+                        دمج تقنيات الـ AI و LLMs مثل OpenAI في تطبيقاتك لزيادة الإنتاجية وتقديم تجربة مستخدم ذكية.
+                    </p>
+                </div>
+                <div
+                    class="p-8 rounded-3xl bg-white dark:bg-surface border border-slate-200 dark:border-white/10 hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 group hoverable reveal-on-scroll delay-100 spotlight-card text-center md:text-right">
+                    <div class="spotlight-overlay"></div>
+                    <div
+                        class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 text-2xl group-hover:bg-primary group-hover:text-white transition-colors relative z-10 mx-auto md:mr-0 md:ml-auto">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white mb-3 relative z-10">برمجة الـ Backend</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed relative z-10">
+                        بناء أنظمة خلفية قوية وقابلة للتوسع باستخدام Node.js و Express مع قواعد بيانات SQL و NoSQL.
+                    </p>
+                </div>
+                <div
+                    class="p-8 rounded-3xl bg-white dark:bg-surface border border-slate-200 dark:border-white/10 hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 group hoverable reveal-on-scroll delay-200 spotlight-card text-center md:text-right">
+                    <div class="spotlight-overlay"></div>
+                    <div
+                        class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 text-2xl group-hover:bg-primary group-hover:text-white transition-colors relative z-10 mx-auto md:mr-0 md:ml-auto">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white mb-3 relative z-10">تطبيقات الويب الحديثة</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed relative z-10">
+                        تطوير واجهات SPA و SSR باستخدام React.js و Next.js مع التركيز على الأداء العالي وممارسات SEO.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white dark:bg-dark border-y border-slate-200 dark:border-white/10 relative z-10">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center reveal-on-scroll">
+                    <p class="text-4xl md:text-5xl font-display font-bold text-primary mb-2">+25</p>
+                    <p class="text-xs md:text-sm text-slate-500 font-bold uppercase tracking-widest">مشروع مكتمل</p>
+                </div>
+                <div class="text-center reveal-on-scroll delay-100">
+                    <p class="text-4xl md:text-5xl font-display font-bold text-secondary mb-2">+15</p>
+                    <p class="text-xs md:text-sm text-slate-500 font-bold uppercase tracking-widest">عميل سعيد</p>
+                </div>
+                <div class="text-center reveal-on-scroll delay-200">
+                    <p class="text-4xl md:text-5xl font-display font-bold text-slate-900 dark:text-white mb-2">+3</p>
+                    <p class="text-xs md:text-sm text-slate-500 font-bold uppercase tracking-widest">سنوات خبرة</p>
+                </div>
+                <div class="text-center reveal-on-scroll delay-300">
+                    <p class="text-4xl md:text-5xl font-display font-bold text-primary mb-2">+10</p>
+                    <p class="text-xs md:text-sm text-slate-500 font-bold uppercase tracking-widest">تقنيات متقنة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section-spy py-24 bg-slate-50 dark:bg-[#080808]">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2
+                class="font-display text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-16 text-center reveal-on-scroll">
+                الخبرة<span class="text-primary">.</span>
+            </h2>
+
+            <div class="relative border-r border-slate-200 dark:border-white/10 mr-4 md:mr-10 space-y-12">
+
+                <!-- Item 1 -->
+                <div class="relative pr-8 md:pr-12 group reveal-on-scroll">
+                    <span
+                        class="absolute -right-[5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700 group-hover:bg-primary transition-colors ring-4 ring-transparent group-hover:ring-primary/20"></span>
+                    <div class="flex flex-col sm:flex-row gap-2 sm:items-center mb-2">
+                        <h3
+                            class="text-xl font-bold font-display text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                            مطوّر واجهات أمامية</h3>
+                        <span
+                            class="text-xs font-bold px-2 py-1 rounded bg-slate-200 dark:bg-white/10 text-slate-600 dark:text-slate-300 w-fit">2024</span>
+                    </div>
+                    <p class="text-primary font-medium mb-2">Tech</p>
+                    <p class="text-slate-500 text-sm leading-relaxed max-w-2xl">
+                        قيادة فريق من 5 مطورين لبناء منصة SaaS. تطبيق بنية micro-frontend وتحسين أداء الموقع بنسبة 40٪.
+                    </p>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="relative pr-8 md:pr-12 group reveal-on-scroll delay-100">
+                    <span
+                        class="absolute -right-[5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700 group-hover:bg-primary transition-colors ring-4 ring-transparent group-hover:ring-primary/20"></span>
+                    <div class="flex flex-col sm:flex-row gap-2 sm:items-center mb-2">
+                        <h3
+                            class="text-xl font-bold font-display text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                            مصمّم UI/UX</h3>
+                        <span
+                            class="text-xs font-bold px-2 py-1 rounded bg-slate-200 dark:bg-white/10 text-slate-600 dark:text-slate-300 w-fit">2021
+                            - 2023</span>
+                    </div>
+                    <p class="text-primary font-medium mb-2">Creative Studio</p>
+                    <p class="text-slate-500 text-sm leading-relaxed max-w-2xl">
+                        تصميم واجهات المستخدم وتحسين تجربة المستخدم لعملاء متعددين.
+                    </p>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative pr-8 md:pr-12 group reveal-on-scroll delay-200">
+                    <span
+                        class="absolute -right-[5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700 group-hover:bg-primary transition-colors ring-4 ring-transparent group-hover:ring-primary/20"></span>
+                    <div class="flex flex-col sm:flex-row gap-2 sm:items-center mb-2">
+                        <h3
+                            class="text-xl font-bold font-display text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                            مطوّر ويب</h3>
+                        <span
+                            class="text-xs font-bold px-2 py-1 rounded bg-slate-200 dark:bg-white/10 text-slate-600 dark:text-slate-300 w-fit">2024
+                            - 2026</span>
+                    </div>
+                    <p class="text-primary font-medium mb-2">Web</p>
+                    <p class="text-slate-500 text-sm leading-relaxed max-w-2xl">
+                        تطوير وبناء مواقع ويب وتطبيقات باستخدام أحدث التقنيات.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Work -->
+    <section id="work" class="section-spy py-24 relative z-10">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div
+                class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6 reveal-on-scroll">
+                <h2 class="font-display text-4xl md:text-6xl font-bold text-slate-900 dark:text-white text-right">
+                    مشاريع<br>مختارة<span class="text-primary">.</span>
+                </h2>
+                <p class="text-slate-500 text-sm md:text-base max-w-xs text-right">
+                    مزيج من استراتيجية الأعمال، والتصميم الجمالي، والكود النظيف.
+                </p>
+            </div>
+
+            <!-- Project Filters -->
+            <div class="flex flex-wrap gap-4 mb-16 reveal-on-scroll delay-100" id="portfolio-filters">
+                <button
+                    class="filter-btn active px-5 py-2 rounded-full border border-slate-200 dark:border-white/10 text-sm font-bold text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all hoverable magnetic-btn"
+                    data-filter="all">الكل</button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full border border-slate-200 dark:border-white/10 text-sm font-bold text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all hoverable magnetic-btn"
+                    data-filter="design">تصميم UI/UX</button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full border border-slate-200 dark:border-white/10 text-sm font-bold text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all hoverable magnetic-btn"
+                    data-filter="dev">تطوير</button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full border border-slate-200 dark:border-white/10 text-sm font-bold text-slate-600 dark:text-slate-300 hover:border-primary hover:text-primary transition-all hoverable magnetic-btn"
+                    data-filter="mobile">جوال</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 md:gap-y-32" id="projects-grid">
+
+                <!-- Project 1 -->
+                <article
+                    class="project-item spotlight-card group cursor-pointer project-trigger hoverable reveal-on-scroll"
+                    data-filter-category="dev" data-title="منصة صوركم الرقمية"
+                    data-category="منصة ويب لإدارة المحتوى المرئي" data-image="images/1.jpg"
+                    data-desc="منصة متخصصة لإدارة ومشاركة الصور المدرسية بخصوصية عالية، تربط المصورين والمدارس وأولياء الأمور. توفر نظام وصول آمن عبر أكواد مخصصة لكل طالب، مع ميزات حماية الصور بالعلامات المائية وإدارة الألبومات حسب الصفوف والفعاليات.">
+                    <div class="spotlight-overlay"></div>
+                    <div
+                        class="project-card relative w-full aspect-[4/3] bg-slate-200 dark:bg-surface rounded-2xl overflow-hidden mb-6 preserve-3d transition-transform duration-300 shadow-lg group-hover:shadow-xl border border-slate-200 dark:border-white/5">
+                        <div class="absolute inset-0 overflow-hidden transform-gpu">
+                            <img src="images/1.jpg" loading="lazy" width="1200" height="900"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 parallax-img"
+                                alt="Project 1">
+                            <div
+                                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between items-start border-b border-slate-200 dark:border-white/10 pb-4 relative z-10">
+                        <div>
+                            <h3
+                                class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+                                منصة صوركم الرقمية</h3>
+                            <p class="text-slate-500 text-sm">منصة ويب لإدارة المحتوى المرئي</p>
+                        </div>
+                        <span
+                            class="w-8 h-8 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-all">
+                            <i class="fas fa-plus group-hover:rotate-90 transition-transform"></i>
+                        </span>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article
+                    class="project-item spotlight-card group cursor-pointer md:mt-24 project-trigger hoverable reveal-on-scroll delay-100"
+                    data-filter-category="dev" data-title="منصة وصّل للخدمات والعمل الحر"
+                    data-category="تطبيق ويب متكامل" data-image="images/2.jpg"
+                    data-desc="منصة عربية حديثة تعمل كوسيط آمن بين مقدمي الخدمات والعملاء. تشمل نظاماً كاملاً لإدارة الطلبات، محادثات فورية بين الأطراف، ونظام دفع وتدقيق يضمن حقوق الجميع، مع لوحة تحكم إدارية شاملة لمراقبة العمليات.">
+                    <div class="spotlight-overlay"></div>
+                    <div
+                        class="project-card relative w-full aspect-[4/3] bg-slate-200 dark:bg-surface rounded-2xl overflow-hidden mb-6 preserve-3d transition-transform duration-300 shadow-lg group-hover:shadow-xl border border-slate-200 dark:border-white/5">
+                        <div class="absolute inset-0 overflow-hidden transform-gpu">
+                            <img src="images/2.jpg" loading="lazy" width="1200" height="900"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 parallax-img"
+                                alt="Project 2">
+                            <div
+                                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between items-start border-b border-slate-200 dark:border-white/10 pb-4 relative z-10">
+                        <div>
+                            <h3
+                                class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+                                منصة وصّل للخدمات والعمل الحر</h3>
+                            <p class="text-slate-500 text-sm">تطبيق ويب متكامل</p>
+                        </div>
+                        <span
+                            class="w-8 h-8 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-all">
+                            <i class="fas fa-plus group-hover:rotate-90 transition-transform"></i>
+                        </span>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article
+                    class="project-item spotlight-card group cursor-pointer project-trigger hoverable reveal-on-scroll delay-200"
+                    data-filter-category="dev" data-title="لوحة تحكم ذكية لإدارة سيرفرات الميكروتيك"
+                    data-category="نظام إدارة وتراقب شبكات" data-image="images/3.jpg"
+                    data-desc="نظام متقدم لإدارة وتتبع مستخدمي شبكات الواي فاي (Hotspot). يعتمد على تقنيات الوقت الفعلي (Real-time) لمراقبة الاستهلاك، وتوليد الكروت، وإدارة الجلسات والسرعات عبر واجهة برمجية (API) متصلة بالسيرفر مباشرة.">
+                    <div class="spotlight-overlay"></div>
+                    <div
+                        class="project-card relative w-full aspect-[4/3] bg-slate-200 dark:bg-surface rounded-2xl overflow-hidden mb-6 preserve-3d transition-transform duration-300 shadow-lg group-hover:shadow-xl border border-slate-200 dark:border-white/5">
+                        <div class="absolute inset-0 overflow-hidden transform-gpu">
+                            <img src="images/3.jpg" loading="lazy" width="1200" height="900"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 parallax-img"
+                                alt="Project 3">
+                            <div
+                                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between items-start border-b border-slate-200 dark:border-white/10 pb-4 relative z-10">
+                        <div>
+                            <h3
+                                class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+                                لوحة تحكم ذكية لإدارة الميكروتيك</h3>
+                            <p class="text-slate-500 text-sm">نظام إدارة وتراقب شبكات</p>
+                        </div>
+                        <span
+                            class="w-8 h-8 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-all">
+                            <i class="fas fa-plus group-hover:rotate-90 transition-transform"></i>
+                        </span>
+                    </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article
+                    class="project-item spotlight-card group cursor-pointer md:mt-24 project-trigger hoverable reveal-on-scroll delay-300"
+                    data-filter-category="dev" data-title="نظام Dashboard المتكامل لإدارة المواقع التعريفية"
+                    data-category="لوحة تحكم محتوى (CMS)" data-image="images/4.jpg"
+                    data-desc="لوحة تحكم مركزية تتيح للشركات تغيير محتوى مواقعها بالكامل (من نحن، الخدمات، آراء العملاء) ديناميكياً دون لمس الكود. يتميز النظام بمرونة عالية في رفع الوسائط وتخصيص الأقسام بما يتناسب مع هوية الشركة.">
+                    <div class="spotlight-overlay"></div>
+                    <div
+                        class="project-card relative w-full aspect-[4/3] bg-slate-200 dark:bg-surface rounded-2xl overflow-hidden mb-6 preserve-3d transition-transform duration-300 shadow-lg group-hover:shadow-xl border border-slate-200 dark:border-white/5">
+                        <div class="absolute inset-0 overflow-hidden transform-gpu">
+                            <img src="images/4.jpg" loading="lazy" width="1200" height="900"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 parallax-img"
+                                alt="Project 4">
+                            <div
+                                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between items-start border-b border-slate-200 dark:border-white/10 pb-4 relative z-10">
+                        <div>
+                            <h3
+                                class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+                                نظام Dashboard المحتوى</h3>
+                            <p class="text-slate-500 text-sm">لوحة تحكم محتوى (CMS)</p>
+                        </div>
+                        <span
+                            class="w-8 h-8 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-all">
+                            <i class="fas fa-plus group-hover:rotate-90 transition-transform"></i>
+                        </span>
+                    </div>
+                </article>
+
+                <!-- Project 5 -->
+                <article
+                    class="project-item spotlight-card group cursor-pointer project-trigger hoverable reveal-on-scroll delay-400"
+                    data-filter-category="dev mobile" data-title="متجر تيك زون (TechZone Store)"
+                    data-category="متجر إلكتروني متكامل" data-image="images/5.jpg"
+                    data-desc="تطبيق متجر إلكتروني يركز على تجربة المستخدم، يضم تصنيفات للمنتجات، سلة تسوق ذكية، نظام تتبع الطلبات، وبوابة دفع تجريبية. تم التركيز فيه على سرعة الأداء وتجاوب الواجهات مع جميع الشاشات.">
+                    <div class="spotlight-overlay"></div>
+                    <div
+                        class="project-card relative w-full aspect-[4/3] bg-slate-200 dark:bg-surface rounded-2xl overflow-hidden mb-6 preserve-3d transition-transform duration-300 shadow-lg group-hover:shadow-xl border border-slate-200 dark:border-white/5">
+                        <div class="absolute inset-0 overflow-hidden transform-gpu">
+                            <img src="images/5.jpg" loading="lazy" width="1200" height="900"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 parallax-img"
+                                alt="Project 5">
+                            <div
+                                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between items-start border-b border-slate-200 dark:border-white/10 pb-4 relative z-10">
+                        <div>
+                            <h3
+                                class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+                                متجر تيك زون الإلكتروني</h3>
+                            <p class="text-slate-500 text-sm">متجر إلكتروني متكامل</p>
+                        </div>
+                        <span
+                            class="w-8 h-8 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-all">
+                            <i class="fas fa-plus group-hover:rotate-90 transition-transform"></i>
+                        </span>
+                    </div>
+                </article>
+
+                <!-- Project 6 -->
+                <article
+                    class="project-item spotlight-card group cursor-pointer md:mt-24 project-trigger hoverable reveal-on-scroll delay-500"
+                    data-filter-category="design mobile" data-title="تطبيق أروما كافيه (Aroma Coffee App)"
+                    data-category="تطبيق هاتف لطلب القهوة" data-image="images/6.jpg"
+                    data-desc="تطبيق يهدف لتسهيل عملية طلب القهوة وتخصيص المكونات (نوع الحليب، مستوى السكر). يشمل نظام ولاء (نقاط) لكل عملية شراء، وخرائط توضح أقرب الفروع، مع واجهات داكنة (Dark Theme) مريحة للعين.">
+                    <div class="spotlight-overlay"></div>
+                    <div
+                        class="project-card relative w-full aspect-[4/3] bg-slate-200 dark:bg-surface rounded-2xl overflow-hidden mb-6 preserve-3d transition-transform duration-300 shadow-lg group-hover:shadow-xl border border-slate-200 dark:border-white/5">
+                        <div class="absolute inset-0 overflow-hidden transform-gpu">
+                            <img src="images/6.jpg" loading="lazy" width="1200" height="900"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 parallax-img"
+                                alt="Project 6">
+                            <div
+                                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between items-start border-b border-slate-200 dark:border-white/10 pb-4 relative z-10">
+                        <div>
+                            <h3
+                                class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+                                تطبيق أروما كافيه</h3>
+                            <p class="text-slate-500 text-sm">تطبيق هاتف لطلب القهوة</p>
+                        </div>
+                        <span
+                            class="w-8 h-8 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-all">
+                            <i class="fas fa-plus group-hover:rotate-90 transition-transform"></i>
+                        </span>
+                    </div>
+                </article>
+
+                <!-- Project 7 -->
+                <article
+                    class="project-item spotlight-card group cursor-pointer project-trigger hoverable reveal-on-scroll delay-600"
+                    data-filter-category="mobile design" data-title="مدير المهام" data-category="تصميم جوال • Flutter"
+                    data-image="images/Task manager app.jpg"
+                    data-desc="تطبيق لإدارة المهام بأسلوب عصري. مطوّر بـ Flutter. يتميز بواجهات بسيطة وسهولة في تتبع الانتاجية.">
+                    <div class="spotlight-overlay"></div>
+                    <div
+                        class="project-card relative w-full aspect-[4/3] bg-slate-200 dark:bg-surface rounded-2xl overflow-hidden mb-6 preserve-3d transition-transform duration-300 shadow-lg group-hover:shadow-xl border border-slate-200 dark:border-white/5">
+                        <div class="absolute inset-0 overflow-hidden transform-gpu">
+                            <img src="images/Task manager app.jpg" loading="lazy" width="1200" height="900"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 parallax-img"
+                                alt="Project 7">
+                            <div
+                                class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="flex justify-between items-start border-b border-slate-200 dark:border-white/10 pb-4 relative z-10">
+                        <div>
+                            <h3
+                                class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary transition-colors">
+                                تطبيق مدير المهام</h3>
+                            <p class="text-slate-500 text-sm">تصميم جوال • Flutter</p>
+                        </div>
+                        <span
+                            class="w-8 h-8 flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-all">
+                            <i class="fas fa-plus group-hover:rotate-90 transition-transform"></i>
+                        </span>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="text-center mt-24">
+                <a href="#"
+                    class="inline-block px-8 py-3 rounded-full border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all text-sm font-semibold tracking-wide hoverable magnetic-btn focus:outline-none">
+                    عرض جميع الأعمال
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="writing" class="section-spy py-24 bg-slate-50 dark:bg-[#080808]">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div
+                class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6 reveal-on-scroll">
+                <h2 class="font-display text-4xl font-bold text-slate-900 dark:text-white text-right">
+                    مقالات<br>تقنية<span class="text-primary">.</span>
+                </h2>
+                <a href="#"
+                    class="text-slate-500 text-sm font-bold hover:text-primary transition-colors hoverable magnetic-btn">عرض
+                    جميع المقالات ←</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <article class="group block hoverable reveal-on-scroll">
+                    <div class="h-64 rounded-2xl overflow-hidden mb-6 relative group">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80"
+                            alt="AI Article"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+                        <div class="absolute bottom-4 right-4 flex gap-2">
+                            <span class="px-2 py-1 bg-white/20 backdrop-blur-md rounded text-[10px] text-white font-bold">5 دقيقة قراءة</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        <p class="text-primary text-xs font-bold uppercase tracking-wider">ذكاء اصطناعي</p>
+                        <span class="text-slate-400 text-[10px]">12 أبريل 2025</span>
+                    </div>
+                    <h3
+                        class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary transition-colors leading-tight">
+                        كيف تدمج تقنيات الـ AI في تطبيقات الـ Web الحديثة؟</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed line-clamp-2">دليل شامل لاستخدام واجهات OpenAI و LangChain لبناء تطبيقات ويب ذكية تتفاعل مع المستخدمين وتفهم احتياجاتهم.</p>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="group block hoverable reveal-on-scroll delay-100">
+                    <div class="h-64 rounded-2xl overflow-hidden mb-6 relative group">
+                        <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=800&q=80"
+                            alt="NodeJS Article"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+                        <div class="absolute bottom-4 right-4 flex gap-2">
+                            <span class="px-2 py-1 bg-white/20 backdrop-blur-md rounded text-[10px] text-white font-bold">8 دقيقة قراءة</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                        <p class="text-green-500 text-xs font-bold uppercase tracking-wider">برمجة Backend</p>
+                        <span class="text-slate-400 text-[10px]">05 أبريل 2025</span>
+                    </div>
+                    <h3
+                        class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary transition-colors leading-tight">
+                        بناء أنظمة Backend قوية وقابلة للتوسع باستخدام Node.js</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed line-clamp-2">استكشاف بنية Microservices وكيفية إدارة قواعد البيانات الضخمة باستخدام Node.js و Express لضمان استقرار التطبيق.</p>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="group block hoverable reveal-on-scroll delay-200">
+                    <div class="h-64 rounded-2xl overflow-hidden mb-6 relative group">
+                        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&q=80"
+                            alt="SEO Article"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+                        <div class="absolute bottom-4 right-4 flex gap-2">
+                            <span class="px-2 py-1 bg-white/20 backdrop-blur-md rounded text-[10px] text-white font-bold">6 دقيقة قراءة</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                        <p class="text-secondary text-xs font-bold uppercase tracking-wider">أرشفة و SEO</p>
+                        <span class="text-slate-400 text-[10px]">28 مارس 2025</span>
+                    </div>
+                    <h3
+                        class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary transition-colors leading-tight">
+                        أفضل ممارسات الـ SEO لتصدر نتائج البحث في 2025</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed line-clamp-2">تعلم كيف تجعل موقعك صديقاً لمحركات البحث عبر تحسين السرعة، الكلمات المفتاحية، والبيانات المنظمة (Structured Data).</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="testimonials" class="section-spy py-24 relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-6xl relative z-10">
+            <h2
+                class="font-display text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-16 text-center reveal-on-scroll">
+                آراء العملاء<span class="text-primary">.</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div
+                    class="bg-slate-50 dark:bg-surface border border-slate-200 dark:border-white/10 p-8 rounded-2xl relative reveal-on-scroll">
+                    <div class="text-primary text-4xl absolute top-6 left-8 opacity-20"><i
+                            class="fas fa-quote-right"></i></div>
+                    <p class="text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-6 italic">
+                        “المهندس إلياس مبدع بمعنى الكلمة، حوّل فكرتنا المعقدة إلى تطبيق سلس وجميل جداً. التزامه
+                        بالمواعيد ودقته الهندسية جعلت العمل معه تجربة ناجحة بكل المقاييس.”
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary text-xl">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 dark:text-white">أحمد المطري</h4>
+                            <p class="text-xs text-slate-500 uppercase tracking-wider">مؤسس تقني</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-slate-50 dark:bg-surface border border-slate-200 dark:border-white/10 p-8 rounded-2xl relative reveal-on-scroll delay-100">
+                    <div class="text-primary text-4xl absolute top-6 left-8 opacity-20"><i
+                            class="fas fa-quote-right"></i></div>
+                    <p class="text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-6 italic">
+                        “من أفضل المطورين الذين تعاملت معهم. إلياس يجمع بين لمسة المصمم الفنية وعقلية المهندس البرمجية.
+                        زاد تفاعل المستخدمين في موقعنا بشكل ملحوظ بعد تطويره.”
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary text-xl">
+                            <i class="fas fa-user-astronaut"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 dark:text-white">منى العبسي</h4>
+                            <p class="text-xs text-slate-500 uppercase tracking-wider">مديرة مشاريع</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="contact" class="section-spy py-24 md:py-32 relative overflow-hidden bg-slate-100 dark:bg-[#080808]">
+        <div class="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10 max-w-5xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="text-center lg:text-right">
+                    <h2
+                        class="font-display text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6 tracking-tighter leading-tight reveal-on-scroll">
+                        لنبني شيئاً مذهلاً معاً.<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">بلمسة
+                            إبداعية أسطورية.</span>
+                    </h2>
+                    <p class="text-slate-500 mb-8 text-lg reveal-on-scroll delay-100">
+                        سواء كان لديك مشروع أو تريد فقط التواصل، صندوق واردتي مفتوح دائماً.
+                    </p>
+                    <div class="space-y-4 text-right hidden lg:block reveal-on-scroll delay-200">
+                        <div class="flex items-center gap-4 text-slate-600 dark:text-slate-400 flex-row-reverse">
+                            <i class="fas fa-envelope text-primary w-6"></i>
+                            <span>a775377979@gmail.com</span>
+                        </div>
+                        <div class="flex items-center gap-4 text-slate-600 dark:text-slate-400 flex-row-reverse">
+                            <i class="fab fa-whatsapp text-primary w-6"></i>
+                            <span>775377979</span>
+                        </div>
+                        <div class="flex items-center gap-4 text-slate-600 dark:text-slate-400 flex-row-reverse">
+                            <i class="fas fa-map-marker-alt text-primary w-6"></i>
+                            <span>اليمن- صنعاء</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div
+                    class="bg-white dark:bg-surface p-8 rounded-3xl shadow-xl border border-slate-200 dark:border-white/10 reveal-on-scroll delay-300">
+                    <form class="space-y-6" id="contact-form">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">الاسم</label>
+                            <input type="text"
+                                class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all dark:text-white hoverable magnetic-btn"
+                                placeholder="اسمك الكريم" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">البريد
+                                الإلكتروني</label>
+                            <input type="email"
+                                class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all dark:text-white hoverable magnetic-btn"
+                                placeholder="example@email.com" required>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">الرسالة</label>
+                            <textarea rows="4"
+                                class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all dark:text-white hoverable magnetic-btn"
+                                placeholder="أخبرني عن مشروعك..." required></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full py-4 bg-slate-900 dark:bg-white text-white dark:text-black rounded-xl font-bold text-lg hover:scale-[1.02] transition-transform shadow-lg hoverable magnetic-btn focus:outline-none">
+                            إرسال الرسالة
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <footer
+                class="mt-24 pt-8 border-t border-slate-200 dark:border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 reveal-on-scroll">
+                <div class="flex gap-6 mb-4 md:mb-0">
+                    <a href="https://linkedin.com/in/elyas" target="_blank"
+                        class="hover:text-primary transition-colors hoverable focus:outline-none magnetic-btn">LinkedIn</a>
+                    <a href="https://instagram.com/elyas" target="_blank"
+                        class="hover:text-primary transition-colors hoverable focus:outline-none magnetic-btn">Instagram</a>
+                    <a href="https://github.com/elyas" target="_blank"
+                        class="hover:text-primary transition-colors hoverable focus:outline-none magnetic-btn">GitHub</a>
+                    <a href="https://wa.me/967775377979" target="_blank"
+                        class="hover:text-whatsapp transition-colors hoverable focus:outline-none magnetic-btn">WhatsApp</a>
+                </div>
+                <div>© <span id="year">2025</span> إلياس الشعيبي. جميع الحقوق محفوظة.</div>
+            </footer>
+        </div>
+    </section>
+
+    <div id="project-modal" class="fixed inset-0 z-[100] hidden">
+
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity opacity-0" id="modal-backdrop">
+        </div>
+
+        <div class="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
+            <div class="bg-white dark:bg-[#111] w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl transform scale-95 opacity-0 transition-all duration-300 pointer-events-auto border border-slate-200 dark:border-white/10"
+                id="modal-content">
+                <div class="relative">
+
+                    <button id="close-modal" aria-label="إغلاق النافذة"
+                        class="absolute top-4 left-4 w-10 h-10 bg-white/50 dark:bg-black/50 backdrop-blur rounded-full flex items-center justify-center text-slate-900 dark:text-white hover:bg-red-500 hover:text-white transition-colors z-10 hoverable focus:outline-none">
+                        <i class="fas fa-times"></i>
+                    </button>
+
+                    <div class="h-64 md:h-96 w-full overflow-hidden">
+                        <img id="modal-image" src="" class="w-full h-full object-cover" alt="Detail Proyek">
+                    </div>
+
+                    <div class="p-8 md:p-12">
+                        <div class="flex flex-col md:flex-row justify-between items-start gap-4 mb-6">
+                            <div>
+                                <span id="modal-category"
+                                    class="text-primary font-bold text-sm tracking-widest uppercase mb-2 block">Category</span>
+                                <h2 id="modal-title"
+                                    class="text-3xl md:text-5xl font-display font-bold text-slate-900 dark:text-white">
+                                    Project Title</h2>
+                            </div>
+                            <a href="#"
+                                class="px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-black rounded-full font-bold text-sm hover:scale-105 transition-transform whitespace-nowrap hoverable focus:outline-none">
+                                زيارة الموقع <i class="fas fa-external-link-alt mr-2"></i>
+                            </a>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                            <div class="md:col-span-2">
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">عن المشروع</h3>
+                                <p id="modal-desc" class="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
+                                    وصف المشروع.</p>
+                            </div>
+                            <div class="space-y-6">
+                                <div>
+                                    <h4
+                                        class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
+                                        التقنيات</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 bg-slate-100 dark:bg-white/10 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300">React</span>
+                                        <span
+                                            class="px-3 py-1 bg-slate-100 dark:bg-white/10 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300">Tailwind</span>
+                                        <span
+                                            class="px-3 py-1 bg-slate-100 dark:bg-white/10 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300">GSAP</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4
+                                        class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2">
+                                        السنة</h4>
+                                    <p class="text-slate-600 dark:text-slate-400">2026</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Actions -->
+    <div class="fixed bottom-8 right-8 z-[60] flex flex-col gap-4">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/967775377979?text=مرحباً إلياس، أود التواصل معك بخصوص مشروع..." 
+            target="_blank" aria-label="Chat WhatsApp"
+            class="w-14 h-14 bg-whatsapp text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 hoverable magnetic-btn group relative">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-whatsapp opacity-30 animate-pulse"></span>
+            <i class="fab fa-whatsapp text-2xl z-10 group-hover:rotate-12 transition-transform"></i>
+            <span class="absolute right-[120%] top-1/2 -translate-y-1/2 px-3 py-1.5 bg-slate-900 border border-white/10 text-white text-[10px] font-bold rounded-lg opacity-0 group-hover:opacity-100 transition-all pointer-events-none whitespace-nowrap shadow-xl">تواصل عبر واتساب</span>
+        </a>
+
+        <!-- Scroll to Top -->
+        <button id="scrollToTopBtn" aria-label="العودة للأعلى"
+            class="w-14 h-14 bg-white dark:bg-surface border border-slate-200 dark:border-white/20 rounded-full flex items-center justify-center text-slate-600 dark:text-white shadow-lg translate-y-20 opacity-0 transition-all duration-300 hover:border-primary hover:text-primary hover:-translate-y-1 hoverable focus:outline-none group relative">
+            <i class="fas fa-arrow-up"></i>
+            <span class="absolute right-[120%] top-1/2 -translate-y-1/2 px-3 py-1.5 bg-slate-900 border border-white/10 text-white text-[10px] font-bold rounded-lg opacity-0 group-hover:opacity-100 transition-all pointer-events-none whitespace-nowrap shadow-xl">رجوع للأعلى</span>
+        </button>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
