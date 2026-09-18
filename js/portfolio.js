@@ -147,107 +147,94 @@ const portfolioData = [
     description: "موقع إلكتروني احترافي لمكتب محاماة واستشارات قانونية، صُمم لإبراز الخدمات القانونية وتعزيز الثقة من خلال واجهة أنيقة وتجربة استخدام سلسة.",
     link: "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن برمجة موقع مشابه لمكتب الحباري."
   }
-];
+];\n\n
+function initPortfolioV2() {
+  const grid = document.getElementById('portfolioGrid');
+  const filters = document.getElementById('portfolioFilters');
+  const overlay = document.getElementById('projectDrawerOverlay');
+  const drawerClose = document.getElementById('drawerClose');
+  const drawerCloseSecondary = document.getElementById('drawerCloseSecondary');
+  if (!grid || !filters || !overlay) return;
 
-// 2. دالة عرض الأعمال في الشبكة
-function renderPortfolio(filter = 'all', limit = null) {
-  const grid = document.getElementById('portfolio-grid');
-  if (!grid) return; // الخروج إذا لم تكن في صفحة تحتوي على معرض أعمال
+  const categories = [...new Map(portfolioData.map(item => [item.category, item.categoryName])).entries()];
+  let current = 'all';
+  let lastTrigger = null;
 
-  // تصفية الأعمال بناءً على التصنيف
-  let filteredData = portfolioData;
-  if (filter !== 'all') {
-    filteredData = portfolioData.filter(item => item.category === filter);
+  function renderFilters() {
+    const items = [['all', 'الكل'], ...categories];
+    filters.innerHTML = items.map(([value, label]) => `
+      <button class="filter-btn ${value === current ? 'active' : ''}" type="button" data-filter="${value}" aria-pressed="${value === current}">${label}</button>
+    `).join('');
   }
 
-  // هل نحن في وضع السلايدر؟ (الصفحه الرئيسية)
-  const isSlider = grid.getAttribute('data-mode') === 'slider';
-
-  if (isSlider) {
-    grid.classList.add('pf-slider-mode');
-    // جلب عمل واحد فقط من كل تصنيف
-    const uniqueCategories = new Set();
-    filteredData = portfolioData.filter(item => {
-      if (!uniqueCategories.has(item.category)) {
-        uniqueCategories.add(item.category);
-        return true;
-      }
-      return false;
-    });
-  } else {
-    grid.classList.remove('pf-slider-mode');
-    // تحديد عدد الأعمال المراد عرضها فقط إذا لم نكن في السلايدر
-    if (limit) {
-      filteredData = filteredData.slice(0, limit);
-    }
+  function render() {
+    const items = current === 'all' ? portfolioData : portfolioData.filter(item => item.category === current);
+    grid.innerHTML = items.map(item => `
+      <article class="project-card-v2">
+        <div class="project-image-v2">
+          <img src="${item.image}" alt="${item.title}" loading="lazy" width="900" height="560" />
+        </div>
+        <div class="project-body-v2">
+          <span class="project-meta-v2">${item.categoryName}</span>
+          <h2>${item.title}</h2>
+          <p>${item.description}</p>
+          <div class="project-actions">
+            <button class="btn btn-outline js-project-details" type="button" data-id="${item.id}">استعرض التفاصيل</button>
+          </div>
+        </div>
+      </article>
+    `).join('');
   }
 
-  // توليد كود الـ HTML وإدخاله في الحاوية
-  grid.innerHTML = filteredData.map((item, index) => {
-    // توزيع تأخير الحركة بشكل جمالي
-    const delayClass = index % 3 === 1 ? 'delay-100' : index % 3 === 2 ? 'delay-200' : '';
-    
-    return `
-      <div class="pf-card fade-up ${delayClass}" data-category="${item.category}">
-        <div class="pfc-img">
-          <img src="${item.image}" alt="${item.title}" loading="lazy">
-        </div>
-        <div class="pfc-content">
-          <h3>${item.title}</h3>
-          <div class="pfc-cat"><i class="fas ${item.icon}"></i> ${item.categoryName}</div>
-          <p>${item.description || 'تصميم وتطوير احترافي يعكس رؤيتك ويحقق أهدافك.'}</p>
-          <a href="${item.link}" target="_blank" class="btn-pf-details">اطلب مثل هذا <i class="fas fa-chevron-left"></i></a>
-        </div>
-      </div>
-    `;
-  }).join('');
+  function openDrawer(item, trigger) {
+    lastTrigger = trigger;
+    const image = document.getElementById('drawerImage');
+    image.src = item.image;
+    image.alt = item.title;
+    document.getElementById('drawerCategory').textContent = item.categoryName;
+    document.getElementById('drawerTitle').textContent = item.title;
+    document.getElementById('drawerDescription').textContent = item.description;
+    const cta = document.getElementById('drawerCta');
+    cta.href = item.link;
+    cta.target = '_blank';
+    cta.rel = 'noopener';
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => drawerClose?.focus());
+  }
 
-  // إظهار البطاقات فوراً لأنها تولدت برمجياً وقد يفوتها IntersectionObserver
-  setTimeout(() => {
-    const newCards = grid.querySelectorAll('.pf-card');
-    newCards.forEach(card => card.classList.add('visible'));
-  }, 50);
-}
+  function closeDrawer() {
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lastTrigger?.focus();
+  }
 
-// 3. تهيئة الفلتر والعرض
-function initPortfolio() {
-  const grid = document.getElementById('portfolio-grid');
-  if (!grid) return;
-
-  // إضافة بعض التنسيقات للانتقال السلس
-  grid.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-
-  // هل نحن في الصفحة الرئيسية ونحتاج لعدد محدود؟ (مثلاً 6 أعمال فقط)
-  const isHome = grid.hasAttribute('data-limit');
-  const limit = isHome ? parseInt(grid.getAttribute('data-limit')) : null;
-
-  // العرض المبدئي
-  renderPortfolio('all', limit);
-
-  // منطق أزرار الفلترة
-  const filterBtns = document.querySelectorAll('.pf-filter');
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // إزالة الكلاس النشط من جميع الأزرار
-      filterBtns.forEach(f => f.classList.remove('active'));
-      // إضافة الكلاس للزر المضغوط
-      btn.classList.add('active');
-
-      // جلب نوع الفلتر وتحديث العرض
-      const filterValue = btn.getAttribute('data-filter');
-      
-      // إضافة تأثير إخفاء وإظهار سريع
-      grid.style.opacity = '0';
-      grid.style.transform = 'translateY(10px)';
-      
-      setTimeout(() => {
-        renderPortfolio(filterValue, limit);
-        grid.style.opacity = '1';
-        grid.style.transform = 'translateY(0)';
-      }, 300); // 300ms للانتظار حتى ينتهي التأثير
-    });
+  filters.addEventListener('click', event => {
+    const button = event.target.closest('[data-filter]');
+    if (!button) return;
+    current = button.dataset.filter;
+    renderFilters();
+    render();
   });
+
+  grid.addEventListener('click', event => {
+    const button = event.target.closest('.js-project-details');
+    if (!button) return;
+    const item = portfolioData.find(project => String(project.id) === button.dataset.id);
+    if (item) openDrawer(item, button);
+  });
+
+  drawerClose?.addEventListener('click', closeDrawer);
+  drawerCloseSecondary?.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', event => { if (event.target === overlay) closeDrawer(); });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && overlay.classList.contains('active')) closeDrawer();
+  });
+
+  renderFilters();
+  render();
 }
 
-// تشغيل التهيئة فوراً (بما أن السكربت موجود في أسفل الصفحة)
-initPortfolio();
+document.addEventListener('DOMContentLoaded', initPortfolioV2);
