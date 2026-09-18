@@ -147,7 +147,9 @@ const portfolioData = [
     description: "موقع إلكتروني احترافي لمكتب محاماة واستشارات قانونية، صُمم لإبراز الخدمات القانونية وتعزيز الثقة من خلال واجهة أنيقة وتجربة استخدام سلسة.",
     link: "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن برمجة موقع مشابه لمكتب الحباري."
   }
-];\n\n
+];
+
+
 function initPortfolioV2() {
   const grid = document.getElementById('portfolioGrid');
   const filters = document.getElementById('portfolioFilters');
