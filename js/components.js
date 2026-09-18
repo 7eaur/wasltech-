@@ -6,7 +6,7 @@ class SiteHeader extends HTMLElement {
         <div class="container">
           <nav class="navbar" aria-label="التنقل الرئيسي">
             <a href="index.html" class="logo" aria-label="وصل تك - الرئيسية">
-              <img src="assets/1.png" alt="وصل تك | Wasl Tech" class="logo-img" width="190" height="72" />
+              <img src="assets/brand/wasl-tech-horizontal.svg" alt="وصل تك | Wasl Tech" class="logo-img" width="190" height="72" />
             </a>
             <ul class="nav-links" id="navLinks">
               <li><a href="index.html" class="nav-link">الرئيسية</a></li>
@@ -41,7 +41,7 @@ class SiteFooter extends HTMLElement {
         <div class="container">
           <div class="footer-grid">
             <div class="footer-brand">
-              <img src="assets/5.png" alt="وصل تك | Wasl Tech" class="footer-logo" width="220" height="84" loading="lazy" />
+              <img src="assets/brand/wasl-tech-horizontal-white.svg" alt="وصل تك | Wasl Tech" class="footer-logo" width="220" height="84" loading="lazy" />
               <p>نبني حضورك الرقمي باحتراف؛ من الفكرة إلى تجربة رقمية واضحة وسريعة وقابلة للنمو.</p>
               <div class="social-links" aria-label="شبكات التواصل">
                 <a href="https://www.facebook.com/share/1DtjBgZgad/?mibextid=qi2Omg" target="_blank" rel="noopener" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
