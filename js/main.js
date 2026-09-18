@@ -1,106 +1,93 @@
-/**
- * =====================================================
- * WASL TECH - MAIN JS (مشترك بين جميع الصفحات)
- * =====================================================
- */
+/** WASL TECH — shared runtime behavior */
+function motionReduced() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
 
-/**
- * تأثير الظهور عند التمرير (Scroll Animation)
- * يستخدم IntersectionObserver لأداء عالي
- */
 function initFadeUpAnimation() {
-  const observer = new IntersectionObserver((entries) => {
+  const items = [...document.querySelectorAll('.fade-up')];
+  if (!items.length) return;
+  if (motionReduced() || !('IntersectionObserver' in window)) {
+    items.forEach(el => el.classList.add('visible'));
+    return;
+  }
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // توقف عن المراقبة بعد الظهور
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  }, { threshold: .08, rootMargin: '0px 0px -24px 0px' });
+  items.forEach(el => observer.observe(el));
 }
 
-/**
- * تمييز رابط الصفحة الحالية في الهيدر
- */
 function initActiveNavLink() {
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-
+  const current = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPage) {
-      link.classList.add('active');
-    } else {
-      link.classList.remove('active');
-    }
+    const target = (link.getAttribute('href') || '').split('?')[0];
+    link.classList.toggle('active', target === current);
+    if (target === current) link.setAttribute('aria-current', 'page');
   });
 }
 
-/**
- * سلوك الهيدر عند التمرير (Sticky Shadow)
- */
 function initHeaderScroll() {
   const header = document.getElementById('header');
-  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-  
-  window.addEventListener('scroll', () => {
-    if (header) {
-      header.classList.toggle('scrolled', window.scrollY > 50);
-    }
-    if (scrollToTopBtn) {
-      if (window.scrollY > 300) {
-        scrollToTopBtn.classList.add('visible');
-      } else {
-        scrollToTopBtn.classList.remove('visible');
-      }
-    }
-  }, { passive: true });
-  
-  if (scrollToTopBtn) {
-    scrollToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
+  const top = document.getElementById('scrollToTopBtn');
+  const sync = () => {
+    header?.classList.toggle('scrolled', window.scrollY > 32);
+    top?.classList.toggle('visible', window.scrollY > 420);
+  };
+  sync();
+  window.addEventListener('scroll', sync, { passive: true });
+  top?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: motionReduced() ? 'auto' : 'smooth' }));
 }
 
-/**
- * قائمة الجوال (Hamburger Menu)
- */
+function initTheme() {
+  const button = document.getElementById('themeToggle');
+  const saved = localStorage.getItem('wt-theme');
+  const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  const set = theme => {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem('wt-theme', theme);
+    if (!button) return;
+    const dark = theme === 'dark';
+    button.setAttribute('aria-pressed', String(dark));
+    button.setAttribute('aria-label', dark ? 'تفعيل الوضع الفاتح' : 'تفعيل الوضع الداكن');
+    button.innerHTML = dark
+      ? '<i class="far fa-sun" aria-hidden="true"></i>'
+      : '<i class="far fa-moon" aria-hidden="true"></i>';
+  };
+  set(saved || preferred);
+  button?.addEventListener('click', () => set(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
+}
+
 function initMobileMenu() {
-  const hamburger = document.getElementById('hamburger');
-  const navLinks  = document.getElementById('navLinks');
-  if (!hamburger || !navLinks) return;
+  const button = document.getElementById('hamburger');
+  const nav = document.getElementById('navLinks');
+  const scrim = document.getElementById('navScrim');
+  if (!button || !nav) return;
 
-  hamburger.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('active');
-    const spans  = hamburger.querySelectorAll('span');
+  const setOpen = open => {
+    nav.classList.toggle('active', open);
+    button.classList.toggle('active', open);
+    button.setAttribute('aria-expanded', String(open));
+    button.setAttribute('aria-label', open ? 'إغلاق القائمة' : 'فتح القائمة');
+    if (scrim) scrim.hidden = !open;
+    document.body.classList.toggle('menu-open', open);
+  };
 
-    spans[0].style.transform = isOpen ? 'rotate(45deg) translate(5px, 6px)' : '';
-    spans[1].style.opacity   = isOpen ? '0' : '1';
-    spans[2].style.transform = isOpen ? 'rotate(-45deg) translate(5px, -6px)' : '';
-    
-    // Prevent background scrolling when menu is open
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  });
-
-  // إغلاق القائمة عند النقر على الروابط
-  navLinks.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-      hamburger.querySelectorAll('span').forEach(s => s.style = '');
-      document.body.style.overflow = '';
-    });
+  button.addEventListener('click', () => setOpen(!nav.classList.contains('active')));
+  scrim?.addEventListener('click', () => setOpen(false));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') setOpen(false);
   });
 }
 
-// ── تشغيل جميع الدوال عند اكتمال تحميل الصفحة ──
 document.addEventListener('DOMContentLoaded', () => {
-  initFadeUpAnimation();
+  initTheme();
   initActiveNavLink();
   initHeaderScroll();
   initMobileMenu();
+  initFadeUpAnimation();
 });
-
-// ── إخفاء شاشة التحميل عند اكتمال تحميل كل شيء ──
-// تمت الإزالة بناءً على طلب المستخدم

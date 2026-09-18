@@ -1,55 +1,112 @@
 /**
- * =====================================================
- * WASL TECH - CSS VARIABLES (Design Tokens)
- * ملف المتغيرات والألوان الموحدة لموقع وصل تك
- * =====================================================
+ * WASL TECH — Visual Identity Tokens v1.0
+ * Source: approved Wasl Tech visual identity package.
  */
-
 :root {
-  /* ── Brand Colors ── */
-  --primary-dark:    #123B8F;
-  --primary-light:   #19B5FF;
-  --primary-mid:     #0A1E4A;
+  --wt-primary-50:#EAF0F7;
+  --wt-primary-100:#D6E1EF;
+  --wt-primary-200:#AEC3DE;
+  --wt-primary-300:#819FC7;
+  --wt-primary-400:#5579AC;
+  --wt-primary-500:#315A91;
+  --wt-primary-600:#234678;
+  --wt-primary-700:#14305F;
+  --wt-primary-800:#10264B;
+  --wt-primary-900:#0B1B38;
+  --wt-primary-950:#071127;
 
-  /* ── Text Colors ── */
-  --text-dark:       #1A1A2E;
-  --text-light:      #5A6A85;
+  --wt-accent-50:#E9F8F7;
+  --wt-accent-100:#CFF0ED;
+  --wt-accent-200:#9DDED8;
+  --wt-accent-300:#66C9C0;
+  --wt-accent-400:#37B2AA;
+  --wt-accent-500:#0E8889;
+  --wt-accent-600:#0B7678;
+  --wt-accent-700:#096B70;
+  --wt-accent-800:#07565B;
+  --wt-accent-900:#064448;
 
-  /* ── Background Colors ── */
-  --bg-color:        #F5FAFF;
-  --bg-white:        #FFFFFF;
-  --card-bg:         #FFFFFF;
+  --wt-bg-canvas:#FFFFFF;
+  --wt-bg-subtle:#F5F8FA;
+  --wt-bg-dark:#071127;
+  --wt-bg-dark-surface:#0B1B38;
+  --wt-text-primary:#0B1730;
+  --wt-text-secondary:#46566F;
+  --wt-text-inverse:#FFFFFF;
+  --wt-border-default:#D8E1EA;
+  --wt-border-strong:#AEC3DE;
 
-  /* ── Footer ── */
-  --footer-bg:       #0D1B3E;
+  --wt-radius-xs:4px;
+  --wt-radius-sm:6px;
+  --wt-radius-md:10px;
+  --wt-radius-lg:16px;
+  --wt-radius-xl:24px;
+  --wt-radius-full:999px;
 
-  /* ── Shadows ── */
-  --shadow-sm:  0 4px 20px rgba(18, 59, 143, 0.06);
-  --shadow-md:  0 10px 40px rgba(18, 59, 143, 0.12);
-  --shadow-lg:  0 20px 60px rgba(18, 59, 143, 0.18);
+  --wt-shadow-xs:0 1px 2px rgb(11 23 48 / 6%);
+  --wt-shadow-sm:0 8px 24px rgb(11 23 48 / 8%);
+  --wt-shadow-md:0 18px 48px rgb(11 23 48 / 12%);
+  --wt-focus-ring:0 0 0 3px #9DDED8;
 
-  /* ── Border Radius ── */
-  --radius-sm:  8px;
-  --radius-md:  16px;
-  --radius-lg:  24px;
-  --radius-xl:  40px;
+  --wt-space-1:4px;
+  --wt-space-2:8px;
+  --wt-space-3:12px;
+  --wt-space-4:16px;
+  --wt-space-5:20px;
+  --wt-space-6:24px;
+  --wt-space-8:32px;
+  --wt-space-10:40px;
+  --wt-space-12:48px;
+  --wt-space-16:64px;
+  --wt-space-20:80px;
+  --wt-space-24:96px;
 
-  /* ── Transitions ── */
-  --transition:       all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow:  all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --wt-font-ar:'IBM Plex Sans Arabic','Noto Sans Arabic',sans-serif;
+  --wt-font-en:'IBM Plex Sans',Inter,sans-serif;
 
-  /* ── Spacing (Fluid) ── */
-  --section-pad:  clamp(40px, 8vw, 80px) 0;
+  /* Backwards-compatible aliases used by the existing site. */
+  --primary-dark:var(--wt-primary-700);
+  --primary-light:var(--wt-accent-500);
+  --primary-mid:var(--wt-primary-950);
+  --text-dark:var(--wt-text-primary);
+  --text-light:var(--wt-text-secondary);
+  --bg-color:var(--wt-bg-subtle);
+  --bg-white:var(--wt-bg-canvas);
+  --card-bg:var(--wt-bg-canvas);
+  --footer-bg:var(--wt-primary-950);
+  --shadow-sm:var(--wt-shadow-xs);
+  --shadow-md:var(--wt-shadow-sm);
+  --shadow-lg:var(--wt-shadow-md);
+  --radius-sm:var(--wt-radius-sm);
+  --radius-md:var(--wt-radius-md);
+  --radius-lg:var(--wt-radius-lg);
+  --radius-xl:var(--wt-radius-xl);
+  --transition:200ms ease-out;
+  --transition-slow:320ms ease-out;
+  --section-pad:clamp(64px,8vw,112px) 0;
+  --font-main:var(--wt-font-ar);
+  --font-size-xs:.78rem;
+  --font-size-sm:.9rem;
+  --font-size-base:1rem;
+  --font-size-md:1.08rem;
+  --font-size-lg:1.18rem;
+  --font-size-xl:clamp(1.35rem,2vw,1.65rem);
+  --font-size-2xl:clamp(1.9rem,3vw,2.6rem);
+  --font-size-3xl:clamp(2.35rem,4vw,3.4rem);
+  --font-size-hero:clamp(2.5rem,5.4vw,4.8rem);
+}
 
-  /* ── Typography (Fluid) ── */
-  --font-main:  'Cairo', sans-serif;
-  --font-size-xs:   clamp(0.75rem, 1vw + 0.5rem, 0.8rem);
-  --font-size-sm:   clamp(0.85rem, 1.2vw + 0.5rem, 0.9rem);
-  --font-size-base: clamp(0.95rem, 1.5vw + 0.5rem, 1rem);
-  --font-size-md:   clamp(1.05rem, 2vw + 0.5rem, 1.1rem);
-  --font-size-lg:   clamp(1.15rem, 2.5vw + 0.5rem, 1.3rem);
-  --font-size-xl:   clamp(1.3rem, 3vw + 0.5rem, 1.6rem);
-  --font-size-2xl:  clamp(1.6rem, 4vw + 0.5rem, 2rem);
-  --font-size-3xl:  clamp(2rem, 5vw + 0.5rem, 2.5rem);
-  --font-size-hero: clamp(2.2rem, 6vw + 0.5rem, 3.5rem);
+html[data-theme='dark'] {
+  --wt-bg-canvas:#071127;
+  --wt-bg-subtle:#0B1B38;
+  --wt-text-primary:#F5F8FA;
+  --wt-text-secondary:#B7C4D3;
+  --wt-border-default:rgb(255 255 255 / 16%);
+  --wt-border-strong:rgb(255 255 255 / 25%);
+  --bg-color:var(--wt-bg-dark);
+  --bg-white:var(--wt-bg-dark-surface);
+  --card-bg:var(--wt-bg-dark-surface);
+  --text-dark:var(--wt-text-primary);
+  --text-light:var(--wt-text-secondary);
+  --footer-bg:#050C1B;
 }

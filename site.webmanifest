@@ -1,0 +1,14 @@
+{
+  "name": "Wasl Tech",
+  "short_name": "Wasl Tech",
+  "icons": [
+    {
+      "src": "assets/brand/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#14305F",
+  "background_color": "#FFFFFF",
+  "display": "standalone"
+}
