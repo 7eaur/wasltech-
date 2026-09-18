@@ -5,6 +5,13 @@ Date: 2026-09-19
 
 ## Verification status
 
+### Final PR sanitation
+- Removed accidental literal `\\n` artifacts from all rebuilt HTML files, shared component markup, portfolio JS and `brand-v2.css`.
+- Re-scanned all rebuilt HTML: literal escaped-newline artifacts = 0.
+- The only remaining `\\n` is intentional inside `contact-v2.js` to format the generated WhatsApp message.
+- Normalized four inline heading colors to `--wt-text-primary` so they preserve contrast in Dark Mode.
+- Re-verified the dynamic service schema: all six services contain `heroCards`, `targets`, `features`, `steps`, `faqs` and `cta`.
+
 ### VERIFIED — repository/static
 - All primary rebuilt pages contain exactly one `h1`.
 - All primary rebuilt pages use `css/brand-v2.css`.
