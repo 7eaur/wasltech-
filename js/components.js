@@ -6,7 +6,7 @@ class SiteHeader extends HTMLElement {
         <div class="container">
           <nav class="navbar" aria-label="التنقل الرئيسي">
             <a href="index.html" class="logo" aria-label="وصل تك - الرئيسية">
-              <img src="assets/brand/wasl-tech-horizontal.svg" alt="وصل تك | Wasl Tech" class="logo-img" width="190" height="72" />
+              <img src="assets/brand/wasl-tech-horizontal.svg" alt="وصل تك | Wasl Tech" class="logo-img logo-light" width="190" height="72" />\n              <img src="assets/brand/wasl-tech-horizontal-white.svg" alt="" class="logo-img logo-dark" width="190" height="72" aria-hidden="true" />
             </a>
             <ul class="nav-links" id="navLinks">
               <li><a href="index.html" class="nav-link">الرئيسية</a></li>
