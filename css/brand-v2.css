@@ -93,7 +93,7 @@ html[data-theme="dark"] .btn-outline:hover { background:rgb(255 255 255 / 8%); }
 .header.scrolled { border-color: var(--wt-border-default); box-shadow: var(--wt-shadow-xs); }
 .navbar { min-height: 84px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
 .logo { display:flex; align-items:center; flex:0 0 auto; }
-.logo-img { height: 58px; width:auto; object-fit:contain; }
+.logo-img { height: 58px; width:auto; object-fit:contain; }\n.logo-dark { display:none; }\nhtml[data-theme="dark"] .logo-light { display:none; }\nhtml[data-theme="dark"] .logo-dark { display:block; }
 .nav-links { display:flex; align-items:center; gap:clamp(16px,2vw,28px); margin:0; padding:0; }
 .nav-link { color: var(--wt-primary-700); font-size:.95rem; font-weight:600; padding:12px 0; position:relative; }
 .nav-link::after { content:""; position:absolute; right:0; left:0; bottom:6px; height:2px; background:var(--wt-accent-500); transform:scaleX(0); transform-origin:right; transition:transform .18s ease-out; }
