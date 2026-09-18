@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   let id = params.get('id');
-  if (!id || !window.servicesData || !servicesData[id]) id = 'web';
+  if (typeof servicesData === 'undefined') return;
+  if (!id || !servicesData[id]) id = 'web';
 
   const data = servicesData[id];
   const byId = value => document.getElementById(value);
