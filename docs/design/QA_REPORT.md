@@ -26,13 +26,53 @@ Date: 2026-09-19
 - Mobile navigation has explicit aria state, Escape close behavior, scrim and body scroll lock.
 - Portfolio drawer returns focus to its trigger and closes via Escape/backdrop.
 
-### CI
+## Visual Runtime QA — desktop + mobile
+
+A local browser QA harness was built from the branch's current layout/CSS and official identity assets. Project screenshots were represented with same-ratio placeholders because private-repository binary assets could not be directly materialized into the browser container; the real referenced project image files were separately verified to exist in GitHub.
+
+### Viewports reviewed
+- Desktop: 1440×900
+- Mobile: 390×844
+
+### Themes reviewed
+- Light
+- Dark
+
+### Surfaces visually reviewed
+- Homepage
+- Services overview
+- Representative service detail
+- Portfolio
+- Contact
+
+### Runtime layout checks
+- No horizontal overflow was observed at 1440px or 390px in reviewed surfaces.
+- Desktop header composition is balanced with five primary navigation links and a distinct CTA.
+- Mobile header cleanly reduces to logo + theme + menu controls.
+- Homepage hero retains clear hierarchy in both themes and stacks intentionally on mobile.
+- Credibility strip, grouped services, work showcase, process, FAQ and final CTA remain legible in both themes.
+- Services grouping remains understandable on mobile without reverting to a 3-column card grid.
+- Service detail hierarchy remains readable on mobile; highlights, audience chips, deliverables and steps collapse without horizontal overflow.
+- Portfolio cards retain clear image → category → title → action hierarchy on mobile and desktop.
+- Contact hero, direct-contact option, contact channels and form remain visually separated and readable on mobile.
+- Dark mode preserves hierarchy and the approved white logo; no dark-mode icon/label collision observed in reviewed layouts.
+
+### Visual critique result
+- The refresh no longer reads as a generic particles + floating-icon SaaS template.
+- Navy leads the composition and teal is used as a controlled accent.
+- Card usage is limited to meaningful groups and interactive surfaces rather than every content item.
+- Mobile vertical length is still substantial on the homepage, but the sequence has distinct purpose and no repeated decorative sections; no carousel/accordion was introduced solely to shorten the page.
+- Bright project screenshots will naturally create stronger light/dark contrast than placeholders; this is acceptable because project imagery is proof content rather than a decorative surface.
+
+## CI
 No GitHub Actions workflow/status checks were attached to the branch head during verification.
 
-### RUNTIME PREVIEW REQUIRED
-A visual browser run of this branch is still required before merging to production/main because the private repository branch was not available as a runnable preview in this environment.
+## Preview deployment boundary
+No hosted preview deployment was available through the connected deployment tools for this repository. Therefore this report distinguishes:
+- `VERIFIED STATIC / LOCAL VISUAL QA`
+- from a future hosted-preview/network verification.
 
-Required viewports:
+A hosted preview, if later configured, should repeat the same checks at:
 - 1920×1080
 - 1366×768
 - 1024×768
@@ -40,7 +80,7 @@ Required viewports:
 - 390×844
 - 360×740
 
-Required states:
+and verify:
 - light / dark
 - RTL
 - mobile drawer open/closed
@@ -49,7 +89,8 @@ Required states:
 - all six dynamic service ids
 - contact-form validation and WhatsApp preparation
 - reduced motion
-- horizontal overflow check
+- zero horizontal overflow
+- zero console/network errors.
 
 ## Known content/asset boundaries
 - No project metrics/results/technologies were invented.
@@ -59,4 +100,4 @@ Required states:
 - There is no new backend form delivery in this refresh.
 
 ## Merge recommendation
-Do not treat static verification as visual runtime verification. Run a preview/browser QA pass before merging to production.
+The branch is visually and structurally coherent enough to open for review. Merge should still be treated as a production decision because the repository currently has no automated CI or hosted branch preview.
