@@ -68,8 +68,10 @@ class SiteFooter extends HTMLElement {
                 <li><a href="service-web.html?id=web">تطوير المواقع</a></li>
                 <li><a href="service-web.html?id=app">تطبيقات الجوال</a></li>
                 <li><a href="service-web.html?id=store">المتاجر الإلكترونية</a></li>
+                <li><a href="service-web.html?id=programming">البرمجة</a></li>
                 <li><a href="service-web.html?id=tech">الحلول التقنية</a></li>
                 <li><a href="service-web.html?id=design">الهوية والتصميم</a></li>
+                <li><a href="service-web.html?id=profiles">البروفايلات</a></li>
                 <li><a href="service-web.html?id=marketing">التسويق الرقمي</a></li>
               </ul>
             </div>
