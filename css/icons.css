@@ -50,6 +50,15 @@
 .fa-moon::before{content:"\f186";}
 .fa-sun::before{content:"\f185";}
 
+.fa-globe::before{content:"\f0ac";}
+.fa-server::before{content:"\f233";}
+.fa-desktop::before{content:"\f390";}
+.fa-shopping-cart::before{content:"\f07a";}
+.fa-mobile-alt::before{content:"\f3cd";}
+.fa-pen-nib::before{content:"\f5ad";}
+.fa-bullhorn::before{content:"\f0a1";}
+.fa-balance-scale::before{content:"\f24e";}
+
 .fa-whatsapp::before{content:"\f232";}
 .fa-facebook-f::before{content:"\f39e";}
 .fa-x-twitter::before{content:"\e61b";}
