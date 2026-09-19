@@ -3,24 +3,6 @@ function motionReduced() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
-function initFadeUpAnimation() {
-  const items = [...document.querySelectorAll('.fade-up')];
-  if (!items.length) return;
-  if (motionReduced() || !('IntersectionObserver' in window)) {
-    items.forEach(el => el.classList.add('visible'));
-    return;
-  }
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: .08, rootMargin: '0px 0px -24px 0px' });
-  items.forEach(el => observer.observe(el));
-}
-
 function initActiveNavLink() {
   const current = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(link => {
@@ -119,5 +101,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNavLink();
   initHeaderScroll();
   initMobileMenu();
-  initFadeUpAnimation();
 });
