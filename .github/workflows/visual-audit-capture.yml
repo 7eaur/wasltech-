@@ -1,0 +1,143 @@
+name: Visual Audit Capture
+
+on:
+  push:
+    branches:
+      - audit/visual-capture-20260920
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start local site
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/wasl-http.log 2>&1 &
+          echo $! > /tmp/wasl-http.pid
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/wasl-http.log
+          exit 1
+
+      - name: Capture screenshots
+        run: |
+          mkdir -p visual-audit
+          node <<'NODE'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+
+          (async () => {
+            const browser = await chromium.launch({ headless: true });
+            const base = 'http://127.0.0.1:4173';
+
+            const shots = [
+              { name:'home-desktop-light', path:'/', width:1440, height:900, theme:'light' },
+              { name:'home-mobile-light', path:'/', width:390, height:844, theme:'light' },
+              { name:'home-mobile-dark', path:'/', width:390, height:844, theme:'dark' },
+              { name:'services-desktop-light', path:'/services.html', width:1440, height:900, theme:'light' },
+              { name:'services-mobile-light', path:'/services.html', width:390, height:844, theme:'light' },
+              { name:'service-web-desktop-light', path:'/service-web.html?id=web', width:1440, height:900, theme:'light' },
+              { name:'service-web-mobile-light', path:'/service-web.html?id=web', width:390, height:844, theme:'light' },
+              { name:'portfolio-desktop-light', path:'/portfolio.html', width:1440, height:900, theme:'light' },
+              { name:'portfolio-mobile-light', path:'/portfolio.html', width:390, height:844, theme:'light' },
+              { name:'about-mobile-light', path:'/about.html', width:390, height:844, theme:'light' },
+              { name:'process-mobile-light', path:'/process.html', width:390, height:844, theme:'light' },
+              { name:'contact-mobile-light', path:'/contact.html', width:390, height:844, theme:'light' },
+              { name:'faq-mobile-light', path:'/faq.html', width:390, height:844, theme:'light' }
+            ];
+
+            const report = [];
+
+            for (const shot of shots) {
+              const context = await browser.newContext({
+                viewport: { width: shot.width, height: shot.height },
+                colorScheme: shot.theme === 'dark' ? 'dark' : 'light',
+                reducedMotion: 'reduce'
+              });
+              const page = await context.newPage();
+              const consoleErrors = [];
+              const failed = [];
+              page.on('console', msg => { if (msg.type() === 'error') consoleErrors.push(msg.text()); });
+              page.on('requestfailed', req => failed.push({ url:req.url(), failure:req.failure()?.errorText || 'failed' }));
+
+              await page.addInitScript(theme => {
+                localStorage.setItem('wt-theme', theme);
+              }, shot.theme);
+
+              const response = await page.goto(base + shot.path, { waitUntil:'networkidle' });
+              await page.emulateMedia({ reducedMotion:'reduce', colorScheme: shot.theme === 'dark' ? 'dark' : 'light' });
+              await page.screenshot({
+                path: `visual-audit/${shot.name}.png`,
+                fullPage: true,
+                animations: 'disabled'
+              });
+
+              const metrics = await page.evaluate(() => ({
+                title: document.title,
+                scrollWidth: document.documentElement.scrollWidth,
+                clientWidth: document.documentElement.clientWidth,
+                scrollHeight: document.documentElement.scrollHeight,
+                h1: document.querySelector('h1')?.innerText || '',
+                bodyTextSample: document.body.innerText.slice(0, 1000)
+              }));
+
+              report.push({
+                ...shot,
+                status: response?.status() || null,
+                ...metrics,
+                horizontalOverflow: metrics.scrollWidth > metrics.clientWidth + 1,
+                consoleErrors,
+                failedRequests: failed
+              });
+
+              await context.close();
+            }
+
+            const mobile = await browser.newContext({ viewport:{ width:390, height:844 }, reducedMotion:'reduce' });
+            const menuPage = await mobile.newPage();
+            await menuPage.addInitScript(() => localStorage.setItem('wt-theme','light'));
+            await menuPage.goto(base + '/', { waitUntil:'networkidle' });
+            await menuPage.locator('#hamburger').click();
+            await menuPage.screenshot({
+              path:'visual-audit/home-mobile-menu-open.png',
+              fullPage:false,
+              animations:'disabled'
+            });
+            await mobile.close();
+
+            fs.writeFileSync('visual-audit/report.json', JSON.stringify(report, null, 2));
+            await browser.close();
+          })().catch(err => {
+            console.error(err);
+            process.exit(1);
+          });
+          NODE
+
+      - name: Upload visual audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: wasltech-visual-audit
+          path: visual-audit/
+          if-no-files-found: error
+          retention-days: 7
