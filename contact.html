@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#14305F" />
   <title>تواصل معنا | وصل تك — Wasl Tech</title>
-  <meta name="description" content="شارك وصل تك نوع مشروعك واحتياجك الأساسي، وجهز رسالة منظمة للمتابعة عبر واتساب." />
+  <meta name="description" content="شارك وصل تك نوع مشروعك ومرحلته واحتياجك الأساسي، وجهّز رسالة واتساب منظمة لبدء النقاش." />
   <link rel="canonical" href="https://www.wasl-tech.com/contact.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="تواصل معنا | وصل تك — Wasl Tech" />
+  <meta property="og:description" content="ابدأ مشروعك من تفاصيل واضحة وسياق منظم." />
+  <meta property="og:image" content="https://www.wasl-tech.com/assets/brand/wasl-tech-horizontal.svg" />
   <link rel="icon" href="assets/brand/favicon.svg" />
   <link rel="manifest" href="site.webmanifest" />
   <link rel="stylesheet" href="css/fonts.css" />
@@ -16,6 +20,7 @@
   <link rel="stylesheet" href="css/brand-v2.css" />
   <link rel="stylesheet" href="css/craft-system.css" />
   <link rel="stylesheet" href="css/shell.css" />
+  <link rel="stylesheet" href="css/contact-page.css" />
   <script src="js/components.js" defer></script>
   <script src="js/contact-v2.js" defer></script>
   <script src="js/main.js" defer></script>
@@ -23,77 +28,156 @@
 <body>
   <site-header></site-header>
 
-  <main>
-    <section class="page-intro">
+  <main class="contact9">
+    <section class="contact9-hero">
       <div class="container">
-        <div class="page-intro-grid">
-          <div class="fade-up">
-            <div class="page-kicker">تواصل معنا</div>
-            <h1>ابدأ من تفاصيل واضحة، لا من رسالة عامة.</h1>
-            <p>اختر نوع المشروع واكتب احتياجك باختصار. النموذج لا يدّعي إرسال البيانات إلى خادم؛ بل يجهز لك رسالة مرتبة لتكملها عبر واتساب.</p>
+        <div class="contact9-hero-shell">
+          <div class="contact9-hero-copy fade-up">
+            <span class="eyebrow">تواصل معنا</span>
+            <h1>ابدأ من سياق واضح، وليس من رسالة عامة.</h1>
+            <p>إذا عندك فكرة جديدة، مشروع قائم، أو حتى مشكلة وما تعرف أي خدمة تناسبها، شارك المعلومات الأساسية ونبدأ من النقطة الصحيحة.</p>
+            <a class="btn btn-primary" href="#project-form">جهّز تفاصيل مشروعك</a>
           </div>
-          <div class="service-panel fade-up">
-            <span class="panel-kicker">قناة مباشرة</span>
-            <h3>واتساب الرسمي</h3>
-            <p style="color:var(--wt-text-secondary);margin:0 0 18px">يمكنك تجاوز النموذج والتواصل مباشرة إذا كانت تفاصيل المشروع جاهزة لديك.</p>
-            <a class="btn btn-primary" href="https://wa.me/967775377979?text=مرحباً، أود مناقشة مشروع رقمي مع وصل تك." target="_blank" rel="noopener">فتح واتساب</a>
-          </div>
+
+          <aside class="contact9-channels fade-up" aria-label="قنوات التواصل الرسمية">
+            <a class="contact9-channel-primary" href="https://wa.me/967775377979?text=مرحباً، أود مناقشة مشروع مع وصل تك." target="_blank" rel="noopener">
+              <span><i class="fab fa-whatsapp" aria-hidden="true"></i></span>
+              <div><small>القناة الأسرع</small><strong>واتساب مباشر</strong><em dir="ltr">+967 775 377 979</em></div>
+              <i class="fas fa-arrow-left" aria-hidden="true"></i>
+            </a>
+            <a href="mailto:wasltechp@gmail.com">
+              <span><i class="far fa-envelope" aria-hidden="true"></i></span>
+              <div><small>البريد الإلكتروني</small><strong>wasltechp@gmail.com</strong></div>
+              <i class="fas fa-arrow-left" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.instagram.com/wasltech.yem" target="_blank" rel="noopener">
+              <span><i class="fab fa-instagram" aria-hidden="true"></i></span>
+              <div><small>إنستغرام</small><strong>@wasltech.yem</strong></div>
+              <i class="fas fa-arrow-left" aria-hidden="true"></i>
+            </a>
+          </aside>
         </div>
       </div>
     </section>
 
-    <section class="section-pad">
-      <div class="container contact-layout">
-        <aside class="contact-aside fade-up">
-          <span class="eyebrow" style="color:var(--wt-accent-200)">قنوات التواصل</span>
-          <h2>تواصل بالطريقة الأنسب لك.</h2>
-          <p>بيانات التواصل هنا موحدة مع الهوية والمكونات المشتركة في الموقع.</p>
-          <div class="contact-methods">
-            <a class="contact-method" href="https://wa.me/967775377979" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i><span>واتساب: 775377979</span></a>
-            <a class="contact-method" href="mailto:wasltechp@gmail.com"><i class="far fa-envelope"></i><span>wasltechp@gmail.com</span></a>
-            <a class="contact-method" href="https://www.instagram.com/wasltech.yem" target="_blank" rel="noopener"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+    <section class="contact9-form-section" id="project-form">
+      <div class="container contact9-form-shell">
+        <aside class="contact9-context fade-up">
+          <span class="eyebrow">قبل أن ترسل</span>
+          <h2>أربع معلومات تجعل بداية النقاش أوضح.</h2>
+          <div class="contact9-context-list">
+            <article><span>01</span><div><strong>نوع المشروع</strong><small>اختر الخدمة الأقرب أو “غير متأكد”.</small></div></article>
+            <article><span>02</span><div><strong>مرحلته الحالية</strong><small>فكرة جديدة، مشروع قائم، أو تعديل محدد.</small></div></article>
+            <article><span>03</span><div><strong>الهدف الأساسي</strong><small>ما الذي تريد أن يتغير أو يصبح ممكنًا؟</small></div></article>
+            <article><span>04</span><div><strong>رابط موجود إن وجد</strong><small>يساعدنا على فهم الوضع الحالي بسرعة.</small></div></article>
           </div>
+          <a class="text-link" href="services.html">راجع الخدمات الثمانية <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
         </aside>
 
-        <section class="contact-form-v2 fade-up" aria-labelledby="contactFormTitle">
+        <section class="contact9-form-card fade-up" aria-labelledby="contactFormTitle">
           <span class="eyebrow">تفاصيل المشروع</span>
-          <h2 id="contactFormTitle" style="color:var(--wt-text-primary);margin:0 0 8px;font-size:clamp(1.6rem,3vw,2.35rem)">جهّز طلبك في أقل عدد ممكن من الخطوات.</h2>
-          <p style="color:var(--wt-text-secondary);margin:0 0 28px">الحقول الأساسية فقط. لا يوجد إرسال خلفي مخفي أو رسالة نجاح وهمية.</p>
+          <h2 id="contactFormTitle">جهّز رسالتك قبل فتح واتساب.</h2>
+          <p>النموذج لا يرسل البيانات إلى خادم. بعد التحقق من الحقول يجهّز لك رسالة واتساب مرتبة لتراجعها وترسلها بنفسك.</p>
 
           <form id="contactForm" novalidate>
-            <div class="form-grid">
+            <div class="contact9-form-grid">
               <div class="form-field">
-                <label for="contactName">الاسم</label>
+                <label for="contactName">الاسم <span aria-hidden="true">*</span></label>
                 <input id="contactName" name="name" type="text" autocomplete="name" required minlength="2" placeholder="اسمك" />
               </div>
               <div class="form-field">
-                <label for="contactPhone">رقم الهاتف / واتساب</label>
+                <label for="contactPhone">رقم الهاتف / واتساب <span aria-hidden="true">*</span></label>
                 <input id="contactPhone" name="phone" type="tel" autocomplete="tel" required placeholder="مثال: 77xxxxxxx" />
               </div>
-              <div class="form-field full">
-                <label for="contactService">نوع المشروع</label>
+
+              <div class="form-field">
+                <label for="contactService">الخدمة الأقرب <span aria-hidden="true">*</span></label>
                 <select id="contactService" name="service" required>
-                  <option value="">اختر الخدمة الأقرب</option>
+                  <option value="">اختر الخدمة</option>
                   <option>تطوير موقع إلكتروني</option>
                   <option>تطوير تطبيق جوال</option>
                   <option>متجر إلكتروني</option>
-                  <option>برمجة وحلول تقنية</option>
-                  <option>هوية بصرية وتصميم</option>
-                  <option>تسويق رقمي وإدارة محتوى</option>
+                  <option>البرمجة وتطوير الأنظمة</option>
+                  <option>الحلول التقنية</option>
+                  <option>الهوية البصرية والتصميم</option>
+                  <option>تصميم بروفايل</option>
+                  <option>التسويق الرقمي وإدارة المحتوى</option>
                   <option>غير متأكد — أحتاج توجيهًا</option>
                 </select>
               </div>
-              <div class="form-field full">
-                <label for="contactDetails">ما الذي تريد تنفيذه؟</label>
-                <textarea id="contactDetails" name="details" required minlength="10" placeholder="اكتب الفكرة أو الهدف وأهم شيء تحتاجه الآن."></textarea>
+
+              <div class="form-field">
+                <label for="contactStage">مرحلة المشروع <span aria-hidden="true">*</span></label>
+                <select id="contactStage" name="stage" required>
+                  <option value="">اختر المرحلة</option>
+                  <option>فكرة جديدة</option>
+                  <option>مشروع قائم أريد تطويره</option>
+                  <option>أحتاج تعديلًا أو إضافة محددة</option>
+                  <option>غير متأكد من نقطة البداية</option>
+                </select>
               </div>
+
               <div class="form-field full">
-                <button class="btn btn-primary" type="submit">تجهيز الطلب للواتساب <i class="fab fa-whatsapp" aria-hidden="true"></i></button>
+                <label for="contactProjectLink">رابط المشروع الحالي <span class="contact9-optional">(اختياري)</span></label>
+                <input id="contactProjectLink" name="projectLink" type="url" inputmode="url" placeholder="https://example.com" />
+              </div>
+
+              <div class="form-field full">
+                <label for="contactDetails">ما الذي تريد تنفيذه أو تحسينه؟ <span aria-hidden="true">*</span></label>
+                <textarea id="contactDetails" name="details" required minlength="10" placeholder="اكتب الهدف أو المشكلة الحالية وأهم شيء تحتاجه الآن."></textarea>
+              </div>
+
+              <div class="form-field full">
+                <button class="btn btn-primary contact9-submit" type="submit">تجهيز الطلب للواتساب <i class="fab fa-whatsapp" aria-hidden="true"></i></button>
               </div>
             </div>
-            <div class="form-status" id="contactStatus" role="status" aria-live="polite"></div>
+            <div class="contact9-status form-status" id="contactStatus" role="status" aria-live="polite" tabindex="-1"></div>
           </form>
         </section>
+      </div>
+    </section>
+
+    <section class="contact9-next">
+      <div class="container contact9-next-shell">
+        <header class="contact9-next-head fade-up">
+          <span class="eyebrow">بعد الرسالة</span>
+          <h2>ماذا يحدث بعد أن ترسل التفاصيل؟</h2>
+        </header>
+        <ol class="contact9-next-list fade-up">
+          <li><span>01</span><strong>نفهم السياق</strong><small>نوع المشروع، مرحلته والهدف الذي ذكرته.</small></li>
+          <li><span>02</span><strong>نحدد السؤال التالي</strong><small>نسأل فقط عن المعلومات التي نحتاجها لفهم النطاق.</small></li>
+          <li><span>03</span><strong>نرتب الخطوة المناسبة</strong><small>تحديد خدمة، مراجعة مشروع قائم، أو فهم متطلبات أعمق.</small></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="contact9-faq">
+      <div class="container contact9-faq-shell">
+        <header class="contact9-faq-head fade-up">
+          <span class="eyebrow">قبل التواصل</span>
+          <h2>أسئلة تختصر عليك الحيرة قبل إرسال الطلب.</h2>
+        </header>
+        <div class="contact9-faq-list fade-up">
+          <details><summary>ماذا لو لم أعرف الخدمة المناسبة؟</summary><p>اختر “غير متأكد” واشرح الهدف أو المشكلة الحالية، ويمكن تحديد المسار الأقرب بعد فهم السياق.</p></details>
+          <details><summary>هل يمكن التواصل بخصوص مشروع قائم؟</summary><p>نعم، أرسل رابطه أو وصفًا لحالته الحالية وما الذي تريد تطويره أو تغييره.</p></details>
+          <details><summary>هل النموذج يرسل بياناتي مباشرة؟</summary><p>لا. النموذج الحالي يجهز نص الرسالة محليًا، وأنت تختار فتح واتساب وإرسالها بنفسك.</p></details>
+          <details><summary>هل يجب أن أكتب كل التفاصيل من البداية؟</summary><p>لا، يكفي وصف الهدف والمشكلة وأهم المتطلبات المعروفة، ويمكن استكمال التفاصيل خلال النقاش.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact9-closing">
+      <div class="container">
+        <div class="contact9-closing-shell fade-up">
+          <div>
+            <span>تفضل التواصل المباشر؟</span>
+            <h2>النموذج يساعدك على ترتيب الرسالة، لكنه ليس شرطًا.</h2>
+          </div>
+          <div class="contact9-closing-actions">
+            <a class="btn btn-primary" href="https://wa.me/967775377979?text=مرحباً، أود مناقشة مشروع مع وصل تك." target="_blank" rel="noopener">فتح واتساب</a>
+            <a class="btn btn-outline" href="services.html">استكشف الخدمات</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
