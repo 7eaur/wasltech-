@@ -134,13 +134,20 @@ html[data-theme="dark"] :where(option) {
     min-height:46px;
   }
 
-  /* Comfortable tap targets for navigation, accordion and form surfaces. */
+  /* Comfortable tap targets for navigation, controls, filters and form surfaces. */
   .nav-link,
   .mobile-contact-links a,
+  .theme-toggle,
+  .hamburger,
+  .fw-btn,
+  .social-links a,
+  .portfolio6-filters .filter-btn,
+  .portfolio6-drawer-close,
   .faq-stack summary,
   .faq-stack-refined summary,
   .home3-faq-list summary,
   .contact9-faq-list summary {
+    min-width:44px;
     min-height:44px;
   }
 
@@ -171,8 +178,8 @@ html[data-theme="dark"] :where(option) {
   }
 
   .fw-btn {
-    width:42px;
-    height:42px;
+    width:44px;
+    height:44px;
   }
 }
 
