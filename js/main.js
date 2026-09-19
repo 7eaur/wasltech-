@@ -47,21 +47,33 @@ function initHeaderScroll() {
 
 function initTheme() {
   const button = document.getElementById('themeToggle');
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
   const saved = localStorage.getItem('wt-theme');
-  const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  const set = theme => {
-    document.documentElement.dataset.theme = theme;
-    localStorage.setItem('wt-theme', theme);
-    if (!button) return;
+
+  const apply = (theme, persist = false) => {
     const dark = theme === 'dark';
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    themeMeta?.setAttribute('content', dark ? '#0B1320' : '#FFFFFF');
+    if (persist) localStorage.setItem('wt-theme', dark ? 'dark' : 'light');
+
+    if (!button) return;
     button.setAttribute('aria-pressed', String(dark));
     button.setAttribute('aria-label', dark ? 'تفعيل الوضع الفاتح' : 'تفعيل الوضع الداكن');
     button.innerHTML = dark
       ? '<i class="far fa-sun" aria-hidden="true"></i>'
       : '<i class="far fa-moon" aria-hidden="true"></i>';
   };
-  set(saved || preferred);
-  button?.addEventListener('click', () => set(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
+
+  apply(saved || (media.matches ? 'dark' : 'light'));
+
+  button?.addEventListener('click', () => {
+    apply(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark', true);
+  });
+
+  media.addEventListener?.('change', event => {
+    if (!localStorage.getItem('wt-theme')) apply(event.matches ? 'dark' : 'light');
+  });
 }
 
 function initMobileMenu() {
@@ -93,6 +105,10 @@ function initMobileMenu() {
   button.addEventListener('click', () => setOpen(!nav.classList.contains('active')));
   scrim?.addEventListener('click', () => setOpen(false));
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900 && nav.classList.contains('active')) setOpen(false);
+  }, { passive: true });
 
   document.addEventListener('keydown', event => {
     if (!nav.classList.contains('active')) return;
