@@ -26,6 +26,14 @@ PAGES = [
 ]
 NOINDEX_PAGES = {"blog.html", "404.html"}
 SERVICE_IDS = ["web", "app", "store", "programming", "tech", "profiles", "design", "marketing"]
+PUBLIC_RUNTIME_JS = [
+    "js/components.js",
+    "js/main.js",
+    "js/contact-v2.js",
+    "js/faq.js",
+    "js/portfolio.js",
+    "js/service-detail.js",
+]
 ERRORS: list[str] = []
 
 
@@ -174,6 +182,17 @@ service_js = (ROOT / "js/service-detail.js").read_text(encoding="utf-8")
 for required in ("document.title", "serviceMetaDescription", "serviceOgTitle", "serviceOgDescription", "serviceCanonical"):
     if required not in service_js:
         fail("service-detail", f"dynamic metadata hook missing: {required}")
+
+# Minimal icon subset must cover every icon class used by rendered public HTML/runtime scripts.
+icon_css = (ROOT / "css/icons.css").read_text(encoding="utf-8")
+used_icons: set[str] = set()
+for page in PAGES:
+    used_icons.update(re.findall(r"\\bfa-[a-z0-9-]+\\b", (ROOT / page).read_text(encoding="utf-8")))
+for script in PUBLIC_RUNTIME_JS:
+    used_icons.update(re.findall(r"\\bfa-[a-z0-9-]+\\b", (ROOT / script).read_text(encoding="utf-8")))
+mapped_icons = set(re.findall(r"\\.(fa-[a-z0-9-]+)::before\\s*\\{", icon_css))
+for icon in sorted(used_icons - mapped_icons):
+    fail("icons", f"runtime icon is not mapped by css/icons.css: {icon}")
 
 # Sitemap: indexable core pages + exactly all 8 service query routes; never blog/404.
 sitemap = ET.parse(ROOT / "sitemap.xml")
