@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#14305F" />
   <meta name="robots" content="noindex,follow" />
   <title>المحتوى المعرفي | وصل تك — Wasl Tech</title>
-  <meta name="description" content="يتم إعداد محتوى معرفي حقيقي من وصل تك. الصفحة غير مدرجة حاليًا في التنقل الرئيسي." />
+  <meta name="description" content="صفحة المحتوى المعرفي في وصل تك غير منشورة حاليًا في التنقل حتى يتوفر محتوى مكتمل يستحق القراءة." />
   <link rel="icon" href="assets/brand/favicon.svg" />
   <link rel="manifest" href="site.webmanifest" />
   <link rel="stylesheet" href="css/fonts.css" />
@@ -16,23 +16,52 @@
   <link rel="stylesheet" href="css/brand-v2.css" />
   <link rel="stylesheet" href="css/craft-system.css" />
   <link rel="stylesheet" href="css/shell.css" />
+  <link rel="stylesheet" href="css/secondary.css" />
   <script src="js/components.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 <body>
   <site-header></site-header>
-  <main>
-    <section class="page-intro">
-      <div class="container">
-        <div class="service-panel fade-up" style="max-width:820px;margin-inline:auto;text-align:center;padding-block:64px">
-          <span class="eyebrow" style="justify-content:center">المحتوى المعرفي</span>
-          <h1 style="color:var(--wt-text-primary);font-size:clamp(2rem,4vw,3.3rem);margin:0 0 16px">نجهّز محتوى يستحق القراءة.</h1>
-          <p style="color:var(--wt-text-secondary);max-width:60ch;margin:0 auto 26px">أزلنا المقالات والروابط الصورية مؤقتًا بدل إبقاء واجهة تبدو مكتملة وهي ليست كذلك. عند توفر مقالات حقيقية ستعود المدونة إلى التنقل الرئيسي.</p>
-          <div class="hero-actions" style="justify-content:center"><a class="btn btn-primary" href="services.html">استكشف الخدمات</a><a class="btn btn-outline" href="portfolio.html">شاهد الأعمال</a></div>
+
+  <main class="utility-page">
+    <section class="utility-hero">
+      <div class="container utility-grid">
+        <div class="utility-copy">
+          <span class="page-kicker">المحتوى المعرفي</span>
+          <h1>لن نملأ المدونة لمجرد أن الموقع “يحتاج مدونة”.</h1>
+          <p>هذه الصفحة خارج التنقل الرئيسي حاليًا. عندما يتوفر محتوى مكتمل ومفيد فعلًا، سيتم نشره هنا بدل روابط فارغة أو مقالات شكلية.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="services.html">استكشف الخدمات</a>
+            <a class="btn btn-outline" href="portfolio.html">شاهد الأعمال</a>
+          </div>
+        </div>
+
+        <aside class="utility-status" aria-label="حالة الصفحة">
+          <span class="utility-status-dot" aria-hidden="true"></span>
+          <div>
+            <small>حالة الصفحة</small>
+            <strong>غير مدرجة في التنقل</strong>
+            <p>لا توجد مقالات منشورة نعتمدها كمحتوى نهائي حتى الآن.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-pad utility-next">
+      <div class="container utility-next-grid">
+        <div>
+          <span class="eyebrow">بدل المحتوى المؤقت</span>
+          <h2>استخدم الصفحات التي تحتوي على معلومات مثبتة الآن.</h2>
+        </div>
+        <div class="utility-link-list">
+          <a href="services.html"><span>01</span><strong>الخدمات الثمانية</strong><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+          <a href="portfolio.html"><span>02</span><strong>معرض الأعمال</strong><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+          <a href="faq.html"><span>03</span><strong>الأسئلة الشائعة</strong><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
         </div>
       </div>
     </section>
   </main>
+
   <site-footer></site-footer>
 </body>
 </html>
