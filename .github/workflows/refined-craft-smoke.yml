@@ -1,0 +1,12 @@
+name: Refined Craft CI Smoke
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "runner-ok"
