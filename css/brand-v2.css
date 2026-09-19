@@ -1325,3 +1325,159 @@ html[data-theme="dark"] .portfolio-drawer-content > h2 { color:#fff; }
   .portfolio-drawer-v2 { transition:none; }
   .portfolio-project-card:hover .portfolio-project-image img { transform:none; }
 }
+
+
+/* ==========================================================
+   ABOUT DEPTH PASS
+   ========================================================== */
+.about-hero-v2 { overflow:hidden; }
+.about-hero-grid {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(420px,.95fr);
+  gap:clamp(54px,8vw,100px);
+  align-items:center;
+}
+.about-hero-actions { margin-top:28px; }
+.about-hero-visual { position:relative; min-height:480px; }
+.about-hero-main,
+.about-hero-small {
+  position:absolute; margin:0; overflow:hidden;
+  border:1px solid var(--wt-border-default);
+  background:var(--wt-bg-canvas);
+  box-shadow:var(--wt-shadow-sm);
+}
+.about-hero-main { inset:14px 0 62px 66px; border-radius:24px; }
+.about-hero-small { width:42%; height:36%; left:0; bottom:0; border-radius:17px; transform:rotate(-2deg); }
+.about-hero-main img,
+.about-hero-small img { width:100%; height:100%; object-fit:cover; display:block; }
+.about-hero-label {
+  position:absolute; right:17px; bottom:17px; z-index:2;
+  padding:11px 14px; border-radius:13px;
+  border:1px solid var(--wt-border-default);
+  background:var(--wt-bg-canvas); box-shadow:var(--wt-shadow-xs);
+}
+.about-hero-label strong { display:block; color:var(--wt-primary-700); font:700 .78rem/1.4 var(--wt-font-en); }
+.about-hero-label span { display:block; color:var(--wt-text-secondary); font-size:.76rem; margin-top:2px; }
+
+.about-story-grid {
+  display:grid;
+  grid-template-columns:minmax(380px,.9fr) minmax(0,1.1fr);
+  gap:clamp(54px,8vw,100px);
+  align-items:center;
+}
+.about-story-image {
+  margin:0; overflow:hidden; border-radius:var(--wt-radius-xl);
+  border:1px solid var(--wt-border-default); background:var(--wt-bg-subtle);
+}
+.about-story-image img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
+.about-story-copy h2 {
+  color:var(--wt-primary-700); font-size:clamp(2rem,3.5vw,3rem);
+  line-height:1.3; margin:7px 0 17px;
+}
+.about-story-copy > p { color:var(--wt-text-secondary); margin:0 0 14px; max-width:64ch; }
+.about-story-points { border-top:1px solid var(--wt-border-default); margin-top:24px; }
+.about-story-points > div {
+  min-height:56px; display:grid; grid-template-columns:38px 1fr;
+  gap:14px; align-items:center; border-bottom:1px solid var(--wt-border-default);
+}
+.about-story-points span { color:var(--wt-accent-700); font:700 .75rem/1 var(--wt-font-en); }
+.about-story-points strong { color:var(--wt-text-primary); font-size:.95rem; }
+
+.about-belief-list { border-top:1px solid var(--wt-border-default); }
+.about-belief-list article {
+  display:grid; grid-template-columns:64px minmax(0,1fr);
+  gap:22px; padding:26px 0; border-bottom:1px solid var(--wt-border-default);
+}
+.about-belief-num { color:var(--wt-accent-700); font:700 .8rem/1 var(--wt-font-en); padding-top:6px; }
+.about-belief-list h3 { margin:0 0 6px; color:var(--wt-primary-700); font-size:1.2rem; }
+.about-belief-list p { margin:0; color:var(--wt-text-secondary); max-width:70ch; }
+
+.about-build-grid {
+  display:grid; grid-template-columns:.72fr 1.28fr;
+  gap:clamp(48px,7vw,92px); align-items:start;
+}
+.about-build-grid .section-heading { margin:0; }
+.about-build-groups { border-top:1px solid var(--wt-border-default); }
+.about-build-groups article {
+  display:grid; grid-template-columns:44px minmax(0,1fr) minmax(180px,.55fr);
+  gap:18px; align-items:center;
+  padding:24px 0; border-bottom:1px solid var(--wt-border-default);
+}
+.about-build-groups article > span { color:var(--wt-accent-700); font:700 .76rem/1 var(--wt-font-en); }
+.about-build-groups h3 { margin:0 0 5px; color:var(--wt-primary-700); font-size:1.12rem; }
+.about-build-groups p { margin:0; color:var(--wt-text-secondary); }
+.about-build-links { display:flex; flex-wrap:wrap; gap:7px; }
+.about-build-links a {
+  border:1px solid var(--wt-border-default); border-radius:var(--wt-radius-full);
+  padding:7px 10px; color:var(--wt-primary-700); font-size:.8rem; font-weight:700;
+}
+.about-build-links a:hover { color:var(--wt-accent-700); border-color:var(--wt-accent-700); }
+
+.about-approach-v2 { background:var(--wt-primary-950); color:#fff; }
+.about-approach-grid {
+  display:grid; grid-template-columns:minmax(380px,.9fr) minmax(0,1.1fr);
+  gap:clamp(52px,8vw,96px); align-items:center;
+}
+.about-approach-image {
+  margin:0; overflow:hidden; border-radius:var(--wt-radius-xl);
+  border:1px solid rgb(255 255 255 / 14%);
+}
+.about-approach-image img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
+.about-approach-v2 .eyebrow { color:var(--wt-accent-200); }
+.about-approach-v2 h2 {
+  color:#fff; font-size:clamp(2rem,3.4vw,3rem); line-height:1.3; margin:7px 0 20px;
+}
+.about-approach-v2 .text-link { color:#fff; }
+.about-approach-list { border-top:1px solid rgb(255 255 255 / 14%); margin-bottom:22px; }
+.about-approach-list article {
+  display:grid; grid-template-columns:46px minmax(0,1fr); gap:16px;
+  padding:21px 0; border-bottom:1px solid rgb(255 255 255 / 14%);
+}
+.about-approach-list article > span { color:var(--wt-accent-200); font:700 .75rem/1 var(--wt-font-en); padding-top:5px; }
+.about-approach-list h3 { margin:0 0 5px; color:#fff; font-size:1.06rem; }
+.about-approach-list p { margin:0; color:#B7C4D3; max-width:62ch; }
+
+.about-principles-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.about-principle-block {
+  min-height:260px; display:flex; flex-direction:column; justify-content:flex-end;
+  border:1px solid var(--wt-border-default); border-radius:var(--wt-radius-xl);
+  padding:clamp(28px,4vw,42px); background:var(--wt-bg-canvas);
+}
+.about-principle-block h2 {
+  margin:6px 0 0; color:var(--wt-primary-700);
+  font-size:clamp(1.55rem,2.5vw,2.15rem); line-height:1.45;
+}
+
+html[data-theme="dark"] .about-hero-label strong,
+html[data-theme="dark"] .about-story-copy h2,
+html[data-theme="dark"] .about-belief-list h3,
+html[data-theme="dark"] .about-build-groups h3,
+html[data-theme="dark"] .about-principle-block h2 { color:#fff; }
+html[data-theme="dark"] .about-build-links a { color:#fff; }
+
+@media (max-width: 980px) {
+  .about-hero-grid,
+  .about-story-grid,
+  .about-build-grid,
+  .about-approach-grid { grid-template-columns:1fr; }
+  .about-hero-visual { min-height:420px; }
+  .about-story-grid,
+  .about-approach-grid { gap:38px; }
+}
+
+@media (max-width: 700px) {
+  .about-hero-actions { display:grid; grid-template-columns:1fr; }
+  .about-hero-actions .btn { width:100%; }
+  .about-hero-visual { min-height:330px; }
+  .about-hero-main { inset:8px 0 54px 38px; border-radius:18px; }
+  .about-hero-small { width:44%; height:37%; border-radius:14px; transform:none; }
+  .about-hero-label { right:10px; bottom:9px; padding:9px 11px; }
+
+  .about-belief-list article { grid-template-columns:40px 1fr; gap:12px; padding:22px 0; }
+
+  .about-build-groups article { grid-template-columns:34px 1fr; gap:12px 14px; }
+  .about-build-links { grid-column:2; }
+
+  .about-principles-grid { grid-template-columns:1fr; }
+  .about-principle-block { min-height:220px; }
+}
