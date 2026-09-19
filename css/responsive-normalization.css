@@ -48,6 +48,27 @@ div {
   scroll-margin-top:calc(var(--wt-header-height) + 24px);
 }
 
+
+/* Progressive enhancement: content remains visible if JS never runs. */
+.fade-up {
+  opacity:1;
+  transform:none;
+  transition:none;
+}
+
+.fade-up.will-animate {
+  opacity:0;
+  transform:translateY(12px);
+  transition:
+    opacity var(--wt-motion-base) var(--wt-ease),
+    transform var(--wt-motion-base) var(--wt-ease);
+}
+
+.fade-up.will-animate.visible {
+  opacity:1;
+  transform:none;
+}
+
 /* Fixed controls respect notches / browser safe areas. */
 .floating-widgets {
   left:max(12px, env(safe-area-inset-left));
