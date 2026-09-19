@@ -28,9 +28,9 @@
   <site-header></site-header>
 
   <main id="serviceDetailRoot">
-    <section class="service-detail-hero service-detail-hero-v2">
+    <section class="craft-page-hero craft-service-hero">
       <div class="container">
-        <nav class="service-breadcrumb fade-up" aria-label="مسار الصفحة">
+        <nav class="craft-service-breadcrumb fade-up" aria-label="مسار الصفحة">
           <a href="index.html">الرئيسية</a>
           <i class="fas fa-chevron-left" aria-hidden="true"></i>
           <a href="services.html">الخدمات</a>
@@ -38,84 +38,84 @@
           <span id="serviceBreadcrumbCurrent">الخدمة</span>
         </nav>
 
-        <div class="service-detail-grid service-detail-grid-v2">
-          <div class="service-detail-copy fade-up">
-            <span class="eyebrow" id="serviceGroupLabel">خدمة من وصل تك</span>
+        <div class="craft-page-hero-shell craft-service-hero-shell fade-up">
+          <div class="craft-page-hero-copy craft-service-hero-copy">
+            <div class="craft-service-meta-row">
+              <span class="eyebrow" id="serviceGroupLabel">خدمة من وصل تك</span>
+              <span id="serviceIndex">01 / 08</span>
+            </div>
             <h1 id="sd-title">تفاصيل الخدمة</h1>
             <h2 id="sd-subtitle">حل رقمي مبني حول احتياجك</h2>
             <p id="sd-desc">تعرف على ما تتضمنه الخدمة وكيف يمكن أن تناسب مشروعك.</p>
-            <div class="service-hero-actions">
+
+            <div class="craft-page-hero-actions">
               <a id="serviceHeroCta" class="btn btn-primary" href="contact.html">ناقش هذه الخدمة</a>
               <a class="btn btn-outline" href="services.html">كل الخدمات</a>
             </div>
-            <div class="service-highlights service-highlights-v2" id="serviceHighlights"></div>
+
+            <div class="craft-service-highlights" id="serviceHighlights"></div>
           </div>
 
-          <div class="service-detail-stage fade-up">
-            <figure class="service-detail-visual service-detail-visual-v2">
-              <img id="sd-hero-image" src="assets/works/project_1.jpg" alt="" width="900" height="640" />
-            </figure>
-            <figure class="service-detail-secondary" id="serviceSecondaryVisual" hidden>
-              <img id="serviceSecondaryImage" src="" alt="" width="520" height="360" loading="eager" />
-            </figure>
-            <div class="service-detail-label">
-              <span id="serviceIndex">01 / 08</span>
-              <strong id="serviceLabelTitle">خدمة رقمية</strong>
-            </div>
-          </div>
+          <figure class="craft-page-hero-media craft-service-hero-media">
+            <img id="sd-hero-image" src="assets/works/project_1.jpg" alt="" width="900" height="640" />
+            <figcaption><span id="serviceLabelTitle">خدمة رقمية</span><strong>من وصل تك</strong></figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <section class="section-pad service-fit">
-      <div class="container service-fit-grid">
+    <section class="section-pad craft-service-fit">
+      <div class="container craft-service-fit-shell">
         <header class="section-heading fade-up">
           <span class="eyebrow">هل تناسب مشروعك؟</span>
           <h2 id="serviceFitTitle">هذه الخدمة مناسبة لعدة أنواع من المشاريع.</h2>
           <p>إذا وجدت طبيعة مشروعك أو احتياجك قريبًا من هذه الفئات، فهذه نقطة بداية جيدة للنقاش.</p>
         </header>
-        <div class="target-list fade-up" id="serviceTargets"></div>
+        <div class="craft-service-targets fade-up" id="serviceTargets"></div>
       </div>
     </section>
 
-    <section class="section-pad bg-light service-deliverables-section">
+    <section class="section-pad bg-light craft-service-deliverables">
       <div class="container">
-        <header class="section-heading services-directory-heading fade-up">
+        <header class="craft-home-section-head fade-up">
           <div>
             <span class="eyebrow">ما الذي تتضمنه الخدمة؟</span>
             <h2 id="deliverablesTitle">مكونات ومخرجات مرتبة حسب طبيعة الخدمة.</h2>
-            <p id="deliverablesIntro">يتم تحديد النطاق النهائي بعد فهم مشروعك، لكن هذه أهم العناصر التي يمكن أن تدخل ضمن الخدمة.</p>
+            <p id="deliverablesIntro">يتم تحديد النطاق النهائي بعد فهم مشروعك.</p>
           </div>
           <a class="text-link" href="contact.html">ناقش النطاق <i class="fas fa-arrow-left"></i></a>
         </header>
-        <div class="deliverables-list deliverables-list-v2 fade-up" id="serviceDeliverables"></div>
+        <div class="craft-service-deliverable-list fade-up" id="serviceDeliverables"></div>
       </div>
     </section>
 
-    <section class="section-pad service-related" id="serviceRelatedSection" hidden>
+    <section class="section-pad craft-service-related" id="serviceRelatedSection" hidden>
       <div class="container">
-        <header class="section-heading fade-up">
-          <span class="eyebrow">أعمال مرتبطة</span>
-          <h2>نماذج من المعرض قريبة من نوع هذه الخدمة.</h2>
-          <p>هذه المشاريع معروضة كما هي في معرض الأعمال، لتشاهد نوع التنفيذ بصريًا قبل التواصل.</p>
+        <header class="craft-home-section-head fade-up">
+          <div>
+            <span class="eyebrow">أعمال مرتبطة</span>
+            <h2>نماذج من المعرض قريبة من نوع هذه الخدمة.</h2>
+          </div>
+          <a href="portfolio.html" class="text-link">كل الأعمال <i class="fas fa-arrow-left"></i></a>
         </header>
-        <div class="service-related-grid" id="serviceRelatedWork"></div>
-        <p class="service-related-more"><a href="portfolio.html" class="text-link">عرض معرض الأعمال كاملًا <i class="fas fa-arrow-left"></i></a></p>
+        <div class="craft-service-related-grid" id="serviceRelatedWork"></div>
       </div>
     </section>
 
-    <section class="section-pad service-process-section">
+    <section class="section-pad craft-service-process">
       <div class="container">
-        <header class="section-heading center fade-up">
-          <span class="eyebrow">كيف نعمل عليها؟</span>
-          <h2>أربع محطات من فهم الاحتياج حتى التسليم.</h2>
-          <p>تفاصيل كل مرحلة تتغير حسب المشروع، لكن المسار يبقى واضحًا من البداية.</p>
-        </header>
-        <div class="service-steps service-steps-v2 fade-up" id="serviceSteps"></div>
+        <div class="craft-service-process-shell fade-up">
+          <header>
+            <span class="eyebrow">كيف نعمل عليها؟</span>
+            <h2>أربع محطات من فهم الاحتياج حتى التسليم.</h2>
+            <p>تفاصيل كل مرحلة تتغير حسب المشروع، لكن المسار يبقى واضحًا من البداية.</p>
+          </header>
+          <div class="craft-service-steps" id="serviceSteps"></div>
+        </div>
       </div>
     </section>
 
-    <section class="section-pad bg-light">
+    <section class="section-pad bg-light craft-service-faq">
       <div class="container faq-inline">
         <header class="section-heading fade-up">
           <span class="eyebrow">أسئلة مرتبطة بالخدمة</span>
@@ -126,24 +126,24 @@
       </div>
     </section>
 
-    <section class="service-sibling-nav" aria-label="التنقل بين الخدمات">
-      <div class="container service-sibling-grid">
-        <a id="servicePrev" class="service-sibling-link" href="services.html">
+    <section class="craft-service-sibling-nav" aria-label="التنقل بين الخدمات">
+      <div class="container craft-service-sibling-grid">
+        <a id="servicePrev" class="craft-service-sibling-link" href="services.html">
           <span>الخدمة السابقة</span>
           <strong>الخدمات</strong>
         </a>
-        <a id="serviceNext" class="service-sibling-link service-sibling-next" href="services.html">
+        <a id="serviceNext" class="craft-service-sibling-link craft-service-sibling-next" href="services.html">
           <span>الخدمة التالية</span>
           <strong>الخدمات</strong>
         </a>
       </div>
     </section>
 
-    <section class="section-pad">
+    <section class="craft-page-closing">
       <div class="container">
-        <div class="cta-stage fade-up">
+        <div class="craft-page-closing-shell fade-up">
           <div>
-            <span class="cta-kicker">الخطوة التالية</span>
+            <span class="eyebrow">الخطوة التالية</span>
             <h2 id="sd-cta-title">جاهز للبدء؟</h2>
             <p id="sd-cta-desc">شاركنا احتياجك ونرتب معك الخطوة التالية.</p>
           </div>
