@@ -1,0 +1,58 @@
+/*
+ * Wasl Tech — Font Awesome Free 6.5.0 minimal icon subset
+ * Icons: CC BY 4.0 · Fonts: SIL OFL 1.1 · CSS: MIT
+ * https://fontawesome.com/license/free
+ * Only classes used by the current public site are mapped here.
+ */
+@font-face {
+  font-family:"Font Awesome 6 Free";
+  font-style:normal;
+  font-weight:900;
+  font-display:block;
+  src:url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2") format("woff2");
+}
+@font-face {
+  font-family:"Font Awesome 6 Free";
+  font-style:normal;
+  font-weight:400;
+  font-display:block;
+  src:url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-regular-400.woff2") format("woff2");
+}
+@font-face {
+  font-family:"Font Awesome 6 Brands";
+  font-style:normal;
+  font-weight:400;
+  font-display:block;
+  src:url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2") format("woff2");
+}
+
+.fa,.fas,.far,.fab {
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:inline-block;
+  font-style:normal;
+  font-variant:normal;
+  line-height:1;
+  text-rendering:auto;
+}
+.fa,.fas { font-family:"Font Awesome 6 Free"; font-weight:900; }
+.far { font-family:"Font Awesome 6 Free"; font-weight:400; }
+.fab { font-family:"Font Awesome 6 Brands"; font-weight:400; }
+
+.fa-check::before{content:"\f00c";}
+.fa-arrow-left::before{content:"\f060";}
+.fa-arrow-down::before{content:"\f063";}
+.fa-chevron-left::before{content:"\f053";}
+.fa-times::before{content:"\f00d";}
+.fa-chevron-up::before{content:"\f077";}
+.fa-phone::before{content:"\f095";}
+.fa-envelope::before{content:"\f0e0";}
+.fa-moon::before{content:"\f186";}
+.fa-sun::before{content:"\f185";}
+
+.fa-whatsapp::before{content:"\f232";}
+.fa-facebook-f::before{content:"\f39e";}
+.fa-x-twitter::before{content:"\e61b";}
+.fa-instagram::before{content:"\f16d";}
+.fa-telegram-plane::before{content:"\f2c6";}
+.fa-tiktok::before{content:"\e07b";}
