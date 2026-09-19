@@ -118,3 +118,19 @@ Do not claim completion without evidence.
 13. Performance/Core Web Vitals.
 14. SEO/semantics.
 15. Cross-page QA.
+
+
+## Current execution checkpoint
+Before continuing design/engineering work, read:
+1. `PROJECT_STATUS.md`
+2. `PROJECT_HANDOFF.md`
+3. `docs/design/WASL_REFINED_WEB_CRAFT_STANDARD.md`
+4. `docs/design/REFINED_CRAFT_REBUILD_PLAN.md`
+
+Current handoff checkpoint (2026-09-19):
+- Refined Craft Phases 1–11 are merged to `main`.
+- Current verified HEAD when the handoff was created: `9a0204f28c3075f0cddae3b5ae94c45ec84c7a39`.
+- Next phase: **Phase 12 — Motion + Accessibility + Performance/Core Web Vitals + SEO/Semantics**.
+- Final remaining phase after that: **Phase 13 — Cross-Page Craft Normalization + Final Runtime QA**.
+- Do not restart earlier phases unless live code supplies new evidence of a regression.
+- `docs/design/QA_REPORT.md` is legacy historical evidence and must not override current live code, `PROJECT_STATUS.md`, `PROJECT_HANDOFF.md`, or current `PHASE_*_QA.md` files.
