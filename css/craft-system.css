@@ -3739,3 +3739,175 @@ html[data-theme="dark"] .craft-faq-hero-shell h1 {
     border-radius:14px;
   }
 }
+
+
+/* ==========================================================
+   PHASE 11 — MOBILE & DARK MODE NORMALIZATION
+   ========================================================== */
+html,
+body {
+  max-width:100%;
+}
+
+:where(
+  .craft-home-hero-shell,
+  .craft-home-about-shell,
+  .craft-home-services-panel,
+  .craft-home-service-groups,
+  .craft-home-work-grid,
+  .craft-page-hero-shell,
+  .craft-services-groups,
+  .craft-services-chooser-shell,
+  .craft-service-fit-shell,
+  .craft-service-deliverable-list,
+  .craft-service-related-grid,
+  .craft-about-story-shell,
+  .craft-about-scope-shell,
+  .craft-about-approach-shell,
+  .craft-process-stage-list,
+  .craft-process-clarity-shell,
+  .craft-contact-form-shell,
+  .craft-contact-channel-grid,
+  .craft-faq-groups
+) > * {
+  min-width:0;
+}
+
+/* Keep dark surfaces quiet and differentiated without glow. */
+html[data-theme="dark"] .craft-page-hero-shell,
+html[data-theme="dark"] .craft-home-hero-shell,
+html[data-theme="dark"] .craft-home-about-shell,
+html[data-theme="dark"] .craft-home-services-panel,
+html[data-theme="dark"] .craft-services-group,
+html[data-theme="dark"] .craft-services-chooser-shell,
+html[data-theme="dark"] .craft-about-story-shell,
+html[data-theme="dark"] .craft-contact-form,
+html[data-theme="dark"] .craft-faq-group,
+html[data-theme="dark"] .craft-portfolio-grid .portfolio-project-card {
+  border-color:rgb(255 255 255 / 13%);
+  box-shadow:none;
+}
+
+html[data-theme="dark"] :where(
+  .craft-home-about-copy h2,
+  .craft-home-section-head h2,
+  .craft-services-chooser-shell header h2,
+  .craft-about-story-shell h2,
+  .craft-contact-context h2,
+  .craft-contact-form > h2,
+  .craft-faq-hero-shell h1
+) {
+  color:var(--wt-text-primary);
+}
+
+/* Tablet is intentionally a compact mobile-shell experience. */
+@media (min-width:701px) and (max-width:1060px) {
+  .container {
+    width:min(var(--craft-container), calc(100% - 40px));
+  }
+
+  .craft-page-hero-shell,
+  .craft-home-hero-shell {
+    padding:28px;
+  }
+
+  .craft-home-section-head,
+  .craft-page-hero-actions {
+    max-width:100%;
+  }
+
+  .craft-footer-grid {
+    gap:24px;
+  }
+}
+
+/* Mobile interaction targets and density. */
+@media (max-width:700px) {
+  :where(
+    .craft-services-choice-list article > div:last-child a,
+    .craft-about-scope-list article > div:last-child a,
+    .craft-portfolio-toolbar .filter-btn
+  ) {
+    min-height:44px;
+  }
+
+  .craft-footer .social-links a {
+    width:44px;
+    height:44px;
+  }
+
+  .craft-footer .footer-col li a {
+    min-height:36px;
+    display:inline-flex;
+    align-items:center;
+  }
+
+  .craft-page-hero-meta {
+    gap:7px 12px;
+    font-size:.7rem;
+  }
+
+  .craft-service-meta-row {
+    align-items:flex-start;
+  }
+
+  .craft-service-meta-row > span:last-child {
+    padding-top:4px;
+  }
+
+  .faq-inline {
+    gap:26px;
+  }
+}
+
+@media (max-width:390px) {
+  .container {
+    width:calc(100% - 20px);
+  }
+
+  .craft-home-hero-shell,
+  .craft-page-hero-shell,
+  .craft-home-about-shell,
+  .craft-home-services-panel,
+  .craft-service-process-shell,
+  .craft-about-story-shell,
+  .craft-about-approach-shell,
+  .craft-process-clarity-shell,
+  .craft-contact-form,
+  .craft-faq-hero-shell,
+  .craft-faq-group {
+    padding-inline:16px;
+  }
+
+  .craft-home-hero-copy h1,
+  .craft-page-hero-copy h1,
+  .craft-faq-hero-shell h1 {
+    overflow-wrap:normal;
+    word-break:normal;
+  }
+
+  .craft-home-facts {
+    grid-template-columns:1fr 1fr;
+  }
+
+  .craft-home-facts li:nth-child(3) {
+    grid-column:1/-1;
+  }
+
+  .craft-contact-channel {
+    grid-template-columns:34px minmax(0,1fr);
+  }
+
+  .craft-contact-channel > b {
+    display:none;
+  }
+
+  .craft-service-sibling-link strong {
+    overflow-wrap:anywhere;
+  }
+
+  .floating-widgets {
+    left:10px;
+    bottom:max(10px, env(safe-area-inset-bottom));
+  }
+}
