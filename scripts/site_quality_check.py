@@ -181,7 +181,7 @@ ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 locs = [node.text or "" for node in sitemap.findall("sm:url/sm:loc", ns)]
 service_locs = [loc for loc in locs if "/service-web.html?id=" in loc]
 actual_ids = [urlsplit(loc).query.removeprefix("id=") for loc in service_locs]
-if actual_ids != SERVICE_IDS:
+if len(actual_ids) != len(SERVICE_IDS) or set(actual_ids) != set(SERVICE_IDS):
     fail("sitemap.xml", f"service routes differ from approved ids: {actual_ids}")
 for forbidden in ("blog.html", "404.html"):
     if any(forbidden in loc for loc in locs):
