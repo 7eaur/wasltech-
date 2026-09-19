@@ -17,8 +17,11 @@ function initFadeUpAnimation() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: .08, rootMargin: '0px 0px -24px 0px' });
-  items.forEach(el => observer.observe(el));
+  }, { threshold: .08, rootMargin: '0px 0px -16px 0px' });
+  items.forEach(el => {
+    el.classList.add('will-animate');
+    observer.observe(el);
+  });
 }
 
 function initActiveNavLink() {
@@ -139,6 +142,9 @@ function initMobileMenu() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const main = document.querySelector('main');
+  if (main && !main.id) main.id = 'main-content';
+
   initTheme();
   initActiveNavLink();
   initHeaderScroll();
