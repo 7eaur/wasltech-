@@ -366,10 +366,10 @@ html[data-theme="dark"] .timeline-content h2 { color:#fff; }
 .form-status.active { display:block; }
 .form-status a { font-weight:700; text-decoration:underline; }
 
-/* legacy cleanup + motion */
+/* legacy cleanup — reveal motion runtime was removed in Phase 12. */
 #heroParticles, .floating-icon, .floating-circle-icon { display:none!important; }
-.fade-up { opacity:0; transform:translateY(14px); transition:opacity .3s ease-out, transform .3s ease-out; }
-.fade-up.visible { opacity:1; transform:none; }
+.fade-up,
+.fade-up.visible { opacity:1; transform:none; transition:none; }
 .delay-100,.delay-200,.delay-300 { transition-delay:0s!important; }
 
 @media (max-width: 1080px) {
