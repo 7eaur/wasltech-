@@ -3,11 +3,11 @@
 Last updated: 2026-09-19  
 Repository: `7eaur/wasltech-`  
 Official branch: `main`  
-Current verified HEAD at handoff creation: `9a0204f28c3075f0cddae3b5ae94c45ec84c7a39`
+Current verified HEAD after Phase 12 merge: `0ee23fd7b36d0ed38d8b9ba7335d8fc65781fe92`
 
 ## Current execution state
 
-The Refined Craft rebuild has completed **Phases 1–11**.
+The Refined Craft rebuild has completed **Phases 1–12**.
 
 Completed:
 1. Global Design System & Layout Architecture
@@ -21,9 +21,9 @@ Completed:
 9. Contact rebuild
 10. FAQ + secondary/public utility pages
 11. Mobile + Dark Mode normalization
+12. Motion + Accessibility + Performance/Core Web Vitals + SEO/Semantics quality pass
 
 Remaining:
-12. **Motion + Accessibility + Performance/Core Web Vitals + SEO/Semantics audit and fixes**
 13. **Cross-page Refined Craft normalization + final runtime QA**
 
 Do **not** restart the redesign from Phase 1.
@@ -41,6 +41,7 @@ Do **not** restart the redesign from Phase 1.
 - Phase 9: `8393a9b9a9022faab58fb29555ead7d4068663a6`
 - Phase 10: `99171be786a640f291bb81aa3ca3d703a7af9153`
 - Phase 11: `9a0204f28c3075f0cddae3b5ae94c45ec84c7a39`
+- Phase 12: `0ee23fd7b36d0ed38d8b9ba7335d8fc65781fe92` (PR #28, squash merge)
 
 ## Current product facts from live code
 
@@ -151,39 +152,59 @@ Phase 11 added:
 Representative contrast ratios recorded in Phase 11 QA pass WCAG AA, with one important rule:
 **base Teal `#0E8889` is not for normal-size text on white; use `#096B70`.**
 
+## Phase 12 quality state
+
+Phase 12 is merged. See:
+`docs/design/PHASE_12_QUALITY_QA.md`
+
+Implemented and verified from the live PR head:
+- decorative reveal observer removed,
+- continuous legacy particle/motion runtime removed,
+- closed mobile navigation removed from focus order using `inert` / `aria-hidden`,
+- skip-to-main link added,
+- broken global Font Awesome resource path replaced by a minimal used-icon subset,
+- Google Fonts `@import` waterfall removed,
+- custom 404 server target corrected,
+- robots/sitemap/FAQ schema/dynamic service metadata checked,
+- dependency-free static quality gate added.
+
+GitHub Actions runner limitation:
+- the new `Site quality` workflow was triggered twice on PR #28,
+- both attempts ended before Checkout with `runner_id: 0` and no executed steps,
+- direct repository verification of the same invariants passed,
+- therefore the workflow remains in place but hosted-runner execution is not treated as evidence of a code failure.
+
 ## Current limitation / release gate
 
-The current environment has not produced a reliable exact hosted/browser screenshot pass for the latest full Phase 1–11 state.
+A reliable hosted/browser screenshot pass has still not been completed for the merged Phase 12 state.
 
 Therefore:
 - do not claim final visual production approval yet,
 - do not mark the site fully complete yet,
-- Phase 13 must still perform the final cross-page runtime visual gate when browser/preview access is available.
+- Phase 13 must perform the final cross-page runtime visual gate when browser/preview access is available.
 
 ## Next task
 
-Start with **Phase 12**, from the current live `main` HEAD.
+Start **Phase 13** from the latest live `main`.
 
-Phase 12 scope:
-- remove/deactivate any remaining unnecessary motion,
-- accessibility audit and fixes,
-- semantics/keyboard/focus audit,
-- performance and image-loading audit,
-- Core Web Vitals-oriented fixes,
-- dead CSS/JS/resource cleanup,
-- SEO metadata/canonical/sitemap/structured-data audit,
-- no business-content invention.
-
-Then execute **Phase 13**:
-- cross-page refined-craft critique,
-- Desktop + Mobile,
-- Light + Dark,
-- representative breakpoints,
-- navigation/menu,
+Phase 13 scope:
+- cross-page Refined Craft normalization,
+- Home / Services / all 8 service ids / Portfolio / About / Process / Contact / FAQ / Blog placeholder / 404,
+- Desktop + Tablet + Mobile,
+- Light + Dark + RTL,
+- menu closed/open,
 - portfolio drawer,
-- all 8 service routes,
-- contact form,
-- 404/FAQ,
-- no overflow,
-- no console/network errors,
-- final fix loop before any completion claim.
+- service modes,
+- contact validation,
+- reduced motion,
+- 0 horizontal overflow,
+- 0 missing assets,
+- 0 console errors,
+- 0 dead links,
+- image crop/focal point review,
+- page density / spacing / surfaces / radius / shadow / CTA consistency,
+- final runtime fix loop before completion claim.
+
+Required output:
+`docs/design/PHASE_13_FINAL_QA.md`
+and then reconcile `PROJECT_STATUS.md` + `PROJECT_HANDOFF.md`.
