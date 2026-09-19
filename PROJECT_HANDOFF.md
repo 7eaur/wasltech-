@@ -15,7 +15,7 @@ The next conversation must:
 1. verify live `main` first,
 2. read this file and `PROJECT_STATUS.md`,
 3. read design authority files,
-4. continue from the **production exact-head deployment + final browser visual gate**, unless the live repository proves that newer work already exists.
+4. continue from the **final exact-head browser visual gate on Vercel**, unless the live repository proves that newer work already exists.
 
 Do not restart from Phase 1.
 Do not redesign already-approved pages from scratch without new evidence.
@@ -507,8 +507,7 @@ GitHub Actions attempted the new quality workflow twice on PR #28, but both runs
 Phase 13 repository-level QA/fixes have been merged to `main` via PR #29.
 
 Remaining release work is now limited to:
-- deploy/confirm current `main` on production,
-- run the exact-head screenshot/browser matrix,
+- run the exact-head screenshot/browser matrix against the Vercel production build,
 - close any runtime/visual regressions found there.
 
 ---
@@ -578,11 +577,21 @@ Repository-level Phase 13 QA found and fixed a real icon-subset regression: 8 Fo
 Created:
 `docs/design/PHASE_13_FINAL_QA.md`
 
-Important production evidence from 2026-09-19:
-- `https://www.wasl-tech.com/` exposed an older information architecture and did not match the current 8-service repository state.
-- A screenshot-capable browser for the exact current branch was unavailable in the execution environment.
+Current production runtime evidence:
 
-Therefore the final screenshot-based production visual gate is still OPEN.
+- Vercel project: `wasltech`
+- Project ID: `prj_tp7lDumOID2XusRHkPvYayybihVe`
+- Production alias: `https://wasltech.vercel.app`
+- Verified deployment: `dpl_FVJ9pEFJtkfVdP3rLTTvo9r5qMK3`
+- Deployment state: `READY`
+- Git ref: `main`
+- Verified deployed commit: `27d732f98c6ec08deff865476546e9ee77420fa8`
+- Home, Services, Portfolio and Contact returned HTTP 200.
+- The served homepage contains the current 8-service architecture.
+- Vercel runtime error scan for the last hour returned no errors.
+- `www.wasl-tech.com` is not used as current release evidence until that domain points to this Vercel project/deployment.
+
+Therefore the exact-head deployment gate is closed, while the final screenshot-based production visual gate remains OPEN.
 Only after current `main` is live and that gate passes can the website be described as fully production-verified.
 
 ---
@@ -643,8 +652,7 @@ Legacy warning:
 The repository-level Refined Craft implementation and Phase 13 source QA are complete, but the project is **not fully production-verified yet**.
 
 Done requires:
-- current `main` deployed/confirmed on production,
-- final exact-head runtime/browser visual gate completed,
+- final exact-head runtime/browser visual gate completed against Vercel production,
 - no critical visual/interaction/accessibility regressions left open,
 - final status/handoff reconciled with the production result.
 
