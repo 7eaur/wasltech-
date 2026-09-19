@@ -1,0 +1,149 @@
+name: Refined Craft Visual QA
+
+on:
+  push:
+    branches:
+      - design/refined-craft-rebuild-20260919
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  visual-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start static server
+        run: |
+          python3 -m http.server 4173 >/tmp/wasl-http.log 2>&1 &
+          echo $! >/tmp/wasl-http.pid
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:4173/index.html >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/wasl-http.log
+          exit 1
+
+      - name: Run visual QA
+        run: |
+          mkdir -p visual-qa
+          cat > /tmp/visual-qa.mjs <<'NODE'
+          import { chromium } from 'playwright';
+          import fs from 'node:fs';
+
+          const base = 'http://127.0.0.1:4173';
+          const pages = [
+            ['home', '/index.html'],
+            ['services', '/services.html'],
+            ['portfolio', '/portfolio.html'],
+            ['contact', '/contact.html']
+          ];
+          const viewports = [
+            ['desktop', { width: 1440, height: 900 }],
+            ['mobile', { width: 390, height: 844 }]
+          ];
+          const themes = ['light', 'dark'];
+
+          const browser = await chromium.launch({ headless: true });
+          const results = [];
+          let failed = false;
+
+          for (const [viewportName, viewport] of viewports) {
+            for (const theme of themes) {
+              const context = await browser.newContext({ viewport });
+              await context.addInitScript(value => {
+                localStorage.setItem('theme', value);
+                document.documentElement.setAttribute('data-theme', value);
+              }, theme);
+
+              for (const [name, path] of pages) {
+                const page = await context.newPage();
+                const consoleErrors = [];
+                const pageErrors = [];
+
+                page.on('console', msg => {
+                  if (msg.type() === 'error') consoleErrors.push(msg.text());
+                });
+                page.on('pageerror', error => pageErrors.push(String(error)));
+
+                await page.goto(base + path, { waitUntil: 'networkidle' });
+                await page.evaluate(value => {
+                  document.documentElement.setAttribute('data-theme', value);
+                  localStorage.setItem('theme', value);
+                }, theme);
+                await page.waitForTimeout(250);
+
+                const metrics = await page.evaluate(() => ({
+                  scrollWidth: document.documentElement.scrollWidth,
+                  clientWidth: document.documentElement.clientWidth,
+                  bodyScrollWidth: document.body.scrollWidth,
+                  bodyClientWidth: document.body.clientWidth,
+                  h1: document.querySelectorAll('h1').length,
+                  craftLoaded: [...document.styleSheets].some(sheet => sheet.href?.includes('craft-system.css'))
+                }));
+
+                const overflow = metrics.scrollWidth > metrics.clientWidth + 1 ||
+                                 metrics.bodyScrollWidth > metrics.bodyClientWidth + 1;
+                const ok = !overflow && consoleErrors.length === 0 && pageErrors.length === 0 &&
+                           metrics.h1 === 1 && metrics.craftLoaded;
+                if (!ok) failed = true;
+
+                const file = `visual-qa/${name}-${viewportName}-${theme}.png`;
+                await page.screenshot({ path: file, fullPage: true });
+
+                results.push({
+                  page: name,
+                  path,
+                  viewport: viewportName,
+                  theme,
+                  metrics,
+                  overflow,
+                  consoleErrors,
+                  pageErrors,
+                  ok
+                });
+
+                await page.close();
+              }
+
+              await context.close();
+            }
+          }
+
+          fs.writeFileSync('visual-qa/results.json', JSON.stringify(results, null, 2));
+          fs.writeFileSync(
+            'visual-qa/summary.txt',
+            results.map(r =>
+              `${r.ok ? 'PASS' : 'FAIL'} ${r.page} ${r.viewport} ${r.theme} overflow=${r.overflow} console=${r.consoleErrors.length} pageErrors=${r.pageErrors.length}`
+            ).join('\n')
+          );
+
+          await browser.close();
+          if (failed) process.exit(1);
+          NODE
+          node /tmp/visual-qa.mjs
+
+      - name: Upload visual QA artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: refined-craft-visual-qa
+          path: visual-qa/
+          if-no-files-found: error
+          retention-days: 7
