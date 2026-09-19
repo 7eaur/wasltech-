@@ -1,7 +1,11 @@
 /** WASL TECH — shared header/footer */
 class SiteHeader extends HTMLElement {
   connectedCallback() {
+    const main = document.querySelector('main');
+    if (main && !main.id) main.id = 'main-content';
+
     this.innerHTML = `
+      <a class="skip-link" href="#main-content">تجاوز إلى المحتوى الرئيسي</a>
       <header class="header" id="header">
         <div class="container">
           <nav class="navbar header-shell" aria-label="التنقل الرئيسي">
@@ -18,7 +22,7 @@ class SiteHeader extends HTMLElement {
               <li><a href="about.html" class="nav-link">من نحن</a></li>
               <li class="mobile-only mobile-contact">
                 <a href="contact.html" class="btn btn-primary">ابدأ مشروعك</a>
-                <div class="mobile-contact-links" aria-label="قنوات تواصل سريعة">
+                <div class="mobile-contact-links" role="group" aria-label="قنوات تواصل سريعة">
                   <a href="https://wa.me/967775377979" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> واتساب</a>
                   <a href="mailto:wasltechp@gmail.com"><i class="far fa-envelope" aria-hidden="true"></i> البريد</a>
                 </div>
