@@ -1,0 +1,490 @@
+/* ==========================================================
+   WASL TECH — About Refined Craft v1.0
+   Phase 7 only.
+   ========================================================== */
+
+.about7 {
+  background:var(--wt-bg-canvas);
+}
+
+.about7-hero {
+  padding:calc(var(--wt-header-height) + 22px) 0 18px;
+}
+
+.about7-hero-shell {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(390px,.9fr);
+  gap:clamp(30px,5vw,58px);
+  align-items:center;
+  padding:28px;
+  border:1px solid var(--wt-border-default);
+  border-radius:20px;
+  background:var(--wt-bg-subtle);
+}
+
+.about7-hero-copy h1 {
+  max-width:12ch;
+  margin:0 0 12px;
+  color:var(--wt-primary-700);
+  font-size:clamp(2.45rem,4.8vw,4rem);
+  line-height:1.14;
+  letter-spacing:-.03em;
+}
+
+.about7-hero-copy > p {
+  max-width:57ch;
+  margin:0;
+  color:var(--wt-text-secondary);
+  font-size:.95rem;
+  line-height:1.8;
+}
+
+.about7-hero-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:20px;
+}
+
+.about7-hero-media {
+  overflow:hidden;
+  margin:0;
+  border:1px solid var(--wt-border-default);
+  border-radius:14px;
+  background:var(--wt-bg-canvas);
+}
+
+.about7-hero-media > img {
+  width:100%;
+  aspect-ratio:16/11;
+  object-fit:cover;
+  display:block;
+}
+
+.about7-hero-media figcaption {
+  min-height:56px;
+  padding:9px 13px;
+  border-top:1px solid var(--wt-border-default);
+}
+
+.about7-hero-media figcaption strong,
+.about7-hero-media figcaption span {
+  display:block;
+}
+
+.about7-hero-media figcaption strong {
+  color:var(--wt-text-primary);
+  font:.76rem/1.3 var(--wt-font-en);
+  font-weight:700;
+}
+
+.about7-hero-media figcaption span {
+  margin-top:3px;
+  color:var(--wt-text-secondary);
+  font-size:.7rem;
+}
+
+.about7-section {
+  padding:54px 0;
+}
+
+.about7-story-shell,
+.about7-beliefs-shell {
+  display:grid;
+  grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
+  gap:clamp(34px,6vw,76px);
+  align-items:start;
+}
+
+.about7-story-copy h2,
+.about7-heading h2,
+.about7-beliefs-head h2,
+.about7-principles h2 {
+  margin:0;
+  color:var(--wt-primary-700);
+  font-size:clamp(1.8rem,3.15vw,2.65rem);
+  line-height:1.3;
+  letter-spacing:-.02em;
+}
+
+.about7-story-copy > p {
+  max-width:58ch;
+  margin:12px 0 0;
+  color:var(--wt-text-secondary);
+  font-size:.9rem;
+  line-height:1.75;
+}
+
+.about7-story-rules,
+.about7-beliefs-list {
+  border-top:1px solid var(--wt-border-default);
+}
+
+.about7-story-rules article,
+.about7-beliefs-list article {
+  min-height:72px;
+  display:grid;
+  grid-template-columns:38px minmax(0,1fr);
+  gap:12px;
+  align-items:center;
+  border-bottom:1px solid var(--wt-border-default);
+}
+
+.about7-story-rules article > span,
+.about7-beliefs-list article > span {
+  color:var(--wt-accent-700);
+  font:700 .7rem/1 var(--wt-font-en);
+}
+
+.about7-story-rules strong,
+.about7-story-rules small,
+.about7-beliefs-list strong,
+.about7-beliefs-list small {
+  display:block;
+}
+
+.about7-story-rules strong,
+.about7-beliefs-list strong {
+  color:var(--wt-text-primary);
+  font-size:.9rem;
+}
+
+.about7-story-rules small,
+.about7-beliefs-list small {
+  margin-top:3px;
+  color:var(--wt-text-secondary);
+  font-size:.75rem;
+  line-height:1.55;
+}
+
+/* What we build */
+.about7-build {
+  background:var(--wt-bg-subtle);
+}
+
+.about7-heading {
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:22px;
+  margin-bottom:22px;
+}
+
+.about7-heading > div {
+  max-width:720px;
+}
+
+.about7-build-list {
+  border-top:1px solid var(--wt-border-default);
+}
+
+.about7-build-list article {
+  min-height:92px;
+  display:grid;
+  grid-template-columns:38px minmax(0,1fr) minmax(190px,.52fr);
+  gap:16px;
+  align-items:center;
+  border-bottom:1px solid var(--wt-border-default);
+}
+
+.about7-build-list article > span {
+  color:var(--wt-accent-700);
+  font:700 .7rem/1 var(--wt-font-en);
+}
+
+.about7-build-list h3 {
+  margin:0;
+  color:var(--wt-text-primary);
+  font-size:1rem;
+}
+
+.about7-build-list p {
+  margin:4px 0 0;
+  color:var(--wt-text-secondary);
+  font-size:.77rem;
+  line-height:1.6;
+}
+
+.about7-links {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.about7-links a {
+  min-height:34px;
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border:1px solid var(--wt-border-default);
+  border-radius:999px;
+  color:var(--wt-primary-700);
+  font-size:.72rem;
+  font-weight:700;
+}
+
+.about7-links a:hover {
+  border-color:var(--wt-accent-700);
+  color:var(--wt-accent-700);
+}
+
+/* Beliefs */
+.about7-beliefs {
+  background:var(--wt-primary-950);
+  color:#fff;
+}
+
+.about7-beliefs .eyebrow {
+  color:var(--wt-accent-200);
+}
+
+.about7-beliefs-head h2 {
+  color:#fff;
+}
+
+.about7-beliefs-head .text-link {
+  margin-top:16px;
+  color:#fff;
+}
+
+.about7-beliefs-list {
+  border-color:rgb(255 255 255 / 14%);
+}
+
+.about7-beliefs-list article {
+  border-color:rgb(255 255 255 / 14%);
+}
+
+.about7-beliefs-list article > span {
+  color:var(--wt-accent-200);
+}
+
+.about7-beliefs-list strong {
+  color:#fff;
+}
+
+.about7-beliefs-list small {
+  color:#B7C4D3;
+}
+
+/* Vision / mission */
+.about7-principles {
+  background:var(--wt-bg-subtle);
+}
+
+.about7-principles-shell {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border:1px solid var(--wt-border-default);
+  border-radius:14px;
+  overflow:hidden;
+  background:var(--wt-bg-canvas);
+}
+
+.about7-principles article {
+  min-height:220px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:28px;
+}
+
+.about7-principles article + article {
+  border-inline-start:1px solid var(--wt-border-default);
+}
+
+.about7-principles article > span {
+  color:var(--wt-accent-700);
+  font-size:.72rem;
+  font-weight:700;
+}
+
+.about7-principles h2 {
+  margin-top:8px;
+  font-size:clamp(1.45rem,2.45vw,2rem);
+}
+
+/* Closing */
+.about7-closing {
+  padding:8px 0 48px;
+}
+
+.about7-closing-shell {
+  min-height:142px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:26px;
+  padding:26px 30px;
+  border-radius:14px;
+  background:var(--wt-primary-700);
+  color:#fff;
+}
+
+.about7-closing-shell > div:first-child > span {
+  color:var(--wt-accent-200);
+  font-size:.72rem;
+  font-weight:700;
+}
+
+.about7-closing h2 {
+  max-width:25ch;
+  margin:5px 0 0;
+  color:#fff;
+  font-size:clamp(1.5rem,2.6vw,2.2rem);
+  line-height:1.35;
+}
+
+.about7-closing-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  flex:0 0 auto;
+}
+
+.about7-closing .btn-primary {
+  background:#fff;
+  color:var(--wt-primary-700);
+}
+
+.about7-closing .btn-outline {
+  color:#fff;
+  border-color:rgb(255 255 255 / 32%);
+}
+
+.about7-closing .btn-outline:hover {
+  background:rgb(255 255 255 / 7%);
+}
+
+html[data-theme="dark"] .about7-hero-shell {
+  background:var(--wt-bg-subtle);
+}
+
+html[data-theme="dark"] .about7-hero-copy h1,
+html[data-theme="dark"] .about7-story-copy h2,
+html[data-theme="dark"] .about7-heading h2,
+html[data-theme="dark"] .about7-principles h2 {
+  color:#F5F8FA;
+}
+
+html[data-theme="dark"] .about7-links a {
+  color:#fff;
+}
+
+@media (max-width:980px) {
+  .about7-hero {
+    padding-top:88px;
+  }
+
+  .about7-hero-shell,
+  .about7-story-shell,
+  .about7-beliefs-shell {
+    grid-template-columns:1fr;
+  }
+
+  .about7-hero-shell {
+    padding:24px;
+    gap:22px;
+  }
+
+  .about7-story-shell,
+  .about7-beliefs-shell {
+    gap:28px;
+  }
+}
+
+@media (max-width:700px) {
+  .about7-hero {
+    padding:76px 0 10px;
+  }
+
+  .about7-hero-shell {
+    padding:17px;
+    border-radius:14px;
+  }
+
+  .about7-hero-copy h1 {
+    max-width:none;
+    font-size:clamp(2.1rem,10.5vw,2.85rem);
+  }
+
+  .about7-hero-copy > p {
+    font-size:.9rem;
+  }
+
+  .about7-hero-actions {
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .about7-hero-actions .btn {
+    width:100%;
+  }
+
+  .about7-hero-media {
+    border-radius:11px;
+  }
+
+  .about7-section {
+    padding:42px 0;
+  }
+
+  .about7-story-copy h2,
+  .about7-heading h2,
+  .about7-beliefs-head h2,
+  .about7-principles h2 {
+    font-size:clamp(1.65rem,8vw,2.05rem);
+  }
+
+  .about7-heading {
+    align-items:start;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .about7-build-list article {
+    grid-template-columns:30px minmax(0,1fr);
+    gap:10px;
+    padding:15px 0;
+  }
+
+  .about7-links {
+    grid-column:2;
+  }
+
+  .about7-principles-shell {
+    grid-template-columns:1fr;
+  }
+
+  .about7-principles article {
+    min-height:180px;
+    padding:22px;
+  }
+
+  .about7-principles article + article {
+    border-inline-start:0;
+    border-top:1px solid var(--wt-border-default);
+  }
+
+  .about7-closing {
+    padding:4px 0 34px;
+  }
+
+  .about7-closing-shell {
+    min-height:0;
+    flex-direction:column;
+    align-items:flex-start;
+    padding:22px 18px;
+    border-radius:12px;
+  }
+
+  .about7-closing-actions {
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .about7-closing-actions .btn {
+    width:100%;
+  }
+}
