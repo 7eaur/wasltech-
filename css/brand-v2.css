@@ -1731,3 +1731,130 @@ html[data-theme="dark"] .form-status a { color:#fff; }
   }
   .contact-next-steps article:first-child { border-top:0; }
 }
+
+
+/* ==========================================================
+   CONTACT CRAFT NORMALIZATION
+   Derived from the approved Wasl refined craft standard.
+   ========================================================== */
+.contact-hero-v2 {
+  padding:112px 0 18px;
+  background:var(--wt-bg-canvas);
+  border-bottom:0;
+}
+.contact-hero-grid {
+  gap:clamp(30px,5vw,58px);
+  min-height:390px;
+  padding:clamp(24px,4vw,38px);
+  border:1px solid var(--wt-border-default);
+  border-radius:20px;
+  background:var(--wt-bg-subtle);
+}
+.contact-hero-grid h1 { font-size:clamp(2.25rem,4vw,3.65rem); }
+.contact-hero-visual {
+  border-radius:14px;
+  box-shadow:0 8px 26px rgb(20 48 95 / 6%);
+}
+.contact-hero-visual img { aspect-ratio:16/11; }
+
+.contact-channels {
+  padding:12px 0 26px;
+  background:var(--wt-bg-canvas);
+  color:var(--wt-text-primary);
+}
+.contact-channels-grid {
+  grid-template-columns:1.18fr .91fr .91fr;
+  overflow:hidden;
+  border:1px solid var(--wt-border-default);
+  border-radius:14px;
+  background:var(--wt-bg-canvas);
+  box-shadow:0 5px 18px rgb(20 48 95 / 5%);
+}
+.contact-channels-grid > a {
+  min-height:94px;
+  padding:17px 22px;
+  border-inline-start:1px solid var(--wt-border-default);
+}
+.contact-channels-grid > a:hover { background:var(--wt-bg-subtle); }
+.contact-channels-grid > a:first-child { border-inline-start:0; }
+.contact-channels-grid small { color:var(--wt-text-secondary); }
+.contact-channels-grid strong { color:var(--wt-text-primary); }
+.contact-channels-grid > a > i { color:var(--wt-accent-700); }
+.contact-channel-icon {
+  background:var(--wt-accent-50);
+  color:var(--wt-accent-700);
+}
+.contact-channels-grid > .contact-channel-primary {
+  background:var(--wt-primary-700);
+}
+.contact-channels-grid > .contact-channel-primary:hover { background:var(--wt-primary-800); }
+.contact-channel-primary small { color:#B9C6D8; }
+.contact-channel-primary strong,
+.contact-channel-primary > i { color:#fff; }
+.contact-channel-primary .contact-channel-icon {
+  background:rgb(255 255 255 / 10%);
+  color:var(--wt-accent-200);
+}
+
+.contact-form-section { padding:56px 0 68px; }
+.contact-depth-grid {
+  grid-template-columns:minmax(280px,.68fr) minmax(0,1.32fr);
+  gap:clamp(30px,5vw,58px);
+}
+.contact-form-depth {
+  border-radius:16px;
+  box-shadow:0 8px 28px rgb(20 48 95 / 5%);
+}
+.contact-context h2 { font-size:clamp(1.75rem,2.8vw,2.45rem); }
+.contact-context-list article { padding:16px 0; }
+
+.contact-next-section { padding:52px 0; }
+.contact-next-steps article { padding:24px 22px; }
+.contact-faq-section { padding:60px 0; }
+.contact-final-section { padding:10px 0 54px; }
+.contact-final-section .cta-stage {
+  padding:clamp(28px,4vw,46px);
+  border-radius:16px;
+}
+
+html[data-theme="dark"] .contact-hero-grid,
+html[data-theme="dark"] .contact-channels-grid {
+  background:var(--wt-bg-canvas);
+}
+html[data-theme="dark"] .contact-channel-primary {
+  background:var(--wt-primary-700);
+}
+html[data-theme="dark"] .contact-channels-grid > a:not(.contact-channel-primary):hover {
+  background:var(--wt-bg-subtle);
+}
+
+@media (max-width: 980px) {
+  .contact-hero-v2 { padding-top:102px; }
+  .contact-hero-grid { min-height:0; padding:26px; }
+}
+
+@media (max-width: 700px) {
+  .contact-hero-v2 { padding:90px 0 10px; }
+  .contact-hero-grid { padding:18px; border-radius:14px; gap:24px; }
+  .contact-hero-grid h1 { font-size:clamp(2rem,10vw,2.65rem); }
+  .contact-hero-visual { border-radius:11px; }
+
+  .contact-channels { padding:8px 0 18px; }
+  .contact-channels-grid {
+    grid-template-columns:1fr;
+    border-radius:12px;
+  }
+  .contact-channels-grid > a {
+    min-height:74px;
+    padding:13px 14px;
+    border-inline-start:0;
+    border-top:1px solid var(--wt-border-default);
+  }
+  .contact-channels-grid > a:first-child { border-top:0; }
+
+  .contact-form-section { padding:40px 0 48px; }
+  .contact-depth-grid { gap:26px; }
+  .contact-next-section { padding:40px 0; }
+  .contact-faq-section { padding:46px 0; }
+  .contact-final-section { padding:4px 0 38px; }
+}
