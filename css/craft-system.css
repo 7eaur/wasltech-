@@ -2780,3 +2780,298 @@ html[data-theme="dark"] .craft-portfolio-toolbar .filter-btn {
     transform:none;
   }
 }
+
+
+/* ==========================================================
+   PHASE 7 — ABOUT
+   ========================================================== */
+.craft-about-story {
+  padding-block:56px;
+}
+
+.craft-about-story-shell {
+  display:grid;
+  grid-template-columns:minmax(340px,.88fr) minmax(0,1.12fr);
+  gap:clamp(30px,5vw,58px);
+  align-items:center;
+  padding:clamp(22px,3.4vw,34px);
+  border:1px solid var(--wt-border-default);
+  border-radius:var(--craft-panel-radius);
+  background:var(--wt-bg-canvas);
+}
+
+.craft-about-story-shell > figure {
+  margin:0;
+  overflow:hidden;
+  border-radius:12px;
+  background:var(--wt-bg-subtle);
+}
+
+.craft-about-story-shell > figure img {
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  display:block;
+}
+
+.craft-about-story-shell h2 {
+  margin:0 0 10px;
+  color:var(--wt-primary-700);
+  font-size:clamp(1.8rem,3.1vw,2.55rem);
+  line-height:1.32;
+}
+
+.craft-about-story-shell p {
+  max-width:62ch;
+  margin:0 0 10px;
+  color:var(--wt-text-secondary);
+  font-size:.9rem;
+  line-height:1.72;
+}
+
+.craft-about-story-points {
+  margin:18px 0 0;
+  padding:0;
+  border-top:1px solid var(--wt-border-default);
+}
+
+.craft-about-story-points li {
+  min-height:48px;
+  display:grid;
+  grid-template-columns:34px 1fr;
+  gap:10px;
+  align-items:center;
+  border-bottom:1px solid var(--wt-border-default);
+}
+
+.craft-about-story-points span {
+  color:var(--wt-accent-700);
+  font:700 .7rem/1 var(--wt-font-en);
+}
+
+.craft-about-story-points strong {
+  color:var(--wt-text-primary);
+  font-size:.82rem;
+}
+
+/* Beliefs */
+.craft-about-beliefs {
+  padding-block:54px;
+}
+
+.craft-about-belief-list {
+  border-top:1px solid var(--wt-border-default);
+}
+
+.craft-about-belief-list article {
+  display:grid;
+  grid-template-columns:44px minmax(0,1fr);
+  gap:14px;
+  padding:18px 0;
+  border-bottom:1px solid var(--wt-border-default);
+}
+
+.craft-about-belief-list article > span {
+  color:var(--wt-accent-700);
+  font:700 .72rem/1 var(--wt-font-en);
+  padding-top:5px;
+}
+
+.craft-about-belief-list h3 {
+  margin:0 0 4px;
+  color:var(--wt-text-primary);
+  font-size:.98rem;
+}
+
+.craft-about-belief-list p {
+  max-width:68ch;
+  margin:0;
+  color:var(--wt-text-secondary);
+  font-size:.8rem;
+  line-height:1.62;
+}
+
+/* Scope */
+.craft-about-scope {
+  padding-block:56px;
+}
+
+.craft-about-scope-shell {
+  display:grid;
+  grid-template-columns:minmax(250px,.64fr) minmax(0,1.36fr);
+  gap:clamp(30px,5vw,58px);
+  align-items:start;
+}
+
+.craft-about-scope-shell .section-heading {
+  margin:0;
+}
+
+.craft-about-scope-list {
+  border-top:1px solid var(--wt-border-default);
+}
+
+.craft-about-scope-list article {
+  min-height:82px;
+  display:grid;
+  grid-template-columns:34px minmax(0,1fr) minmax(160px,.5fr);
+  gap:12px;
+  align-items:center;
+  padding:14px 0;
+  border-bottom:1px solid var(--wt-border-default);
+}
+
+.craft-about-scope-list article > span {
+  color:var(--wt-accent-700);
+  font:700 .7rem/1 var(--wt-font-en);
+}
+
+.craft-about-scope-list h3 {
+  margin:0 0 3px;
+  color:var(--wt-text-primary);
+  font-size:.94rem;
+}
+
+.craft-about-scope-list p {
+  margin:0;
+  color:var(--wt-text-secondary);
+  font-size:.76rem;
+  line-height:1.58;
+}
+
+.craft-about-scope-list article > div:last-child {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.craft-about-scope-list article > div:last-child a {
+  min-height:31px;
+  display:inline-flex;
+  align-items:center;
+  padding:5px 9px;
+  border:1px solid var(--wt-border-default);
+  border-radius:999px;
+  color:var(--wt-text-primary);
+  font-size:.7rem;
+  font-weight:700;
+}
+
+.craft-about-scope-list article > div:last-child a:hover {
+  color:var(--wt-accent-700);
+  border-color:var(--wt-accent-700);
+}
+
+/* Approach */
+.craft-about-approach {
+  padding-block:56px;
+  background:var(--wt-bg-canvas);
+}
+
+.craft-about-approach-shell {
+  display:grid;
+  grid-template-columns:minmax(340px,.88fr) minmax(0,1.12fr);
+  gap:clamp(30px,5vw,58px);
+  align-items:center;
+  padding:clamp(24px,3.5vw,38px);
+  border-radius:var(--craft-major-radius);
+  background:var(--wt-primary-950);
+  color:#fff;
+}
+
+.craft-about-approach-shell > figure {
+  margin:0;
+  overflow:hidden;
+  border-radius:12px;
+  border:1px solid rgb(255 255 255 / 11%);
+}
+
+.craft-about-approach-shell > figure img {
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  display:block;
+}
+
+.craft-about-approach-shell .eyebrow {
+  color:var(--wt-accent-200);
+}
+
+.craft-about-approach-shell h2 {
+  margin:0 0 13px;
+  color:#fff;
+  font-size:clamp(1.8rem,3vw,2.5rem);
+  line-height:1.32;
+}
+
+.craft-about-approach-shell .text-link {
+  color:#fff;
+}
+
+.craft-about-approach-list {
+  margin-bottom:18px;
+  border-top:1px solid rgb(255 255 255 / 13%);
+}
+
+.craft-about-approach-list article {
+  display:grid;
+  grid-template-columns:34px minmax(0,1fr);
+  gap:11px;
+  padding:13px 0;
+  border-bottom:1px solid rgb(255 255 255 / 13%);
+}
+
+.craft-about-approach-list article > span {
+  color:var(--wt-accent-200);
+  font:700 .7rem/1 var(--wt-font-en);
+  padding-top:5px;
+}
+
+.craft-about-approach-list h3 {
+  margin:0 0 3px;
+  color:#fff;
+  font-size:.88rem;
+}
+
+.craft-about-approach-list p {
+  margin:0;
+  color:#B7C4D3;
+  font-size:.74rem;
+  line-height:1.58;
+}
+
+html[data-theme="dark"] .craft-about-story-shell h2 {
+  color:#F5F8FA;
+}
+
+@media (max-width: 980px) {
+  .craft-about-story-shell,
+  .craft-about-scope-shell,
+  .craft-about-approach-shell {
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .craft-about-story,
+  .craft-about-beliefs,
+  .craft-about-scope,
+  .craft-about-approach {
+    padding-block:42px;
+  }
+
+  .craft-about-story-shell,
+  .craft-about-approach-shell {
+    padding:18px;
+    border-radius:14px;
+  }
+
+  .craft-about-scope-list article {
+    grid-template-columns:28px minmax(0,1fr);
+    gap:9px 10px;
+  }
+
+  .craft-about-scope-list article > div:last-child {
+    grid-column:2;
+  }
+}
