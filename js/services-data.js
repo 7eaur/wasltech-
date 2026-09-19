@@ -164,7 +164,7 @@ const servicesData = {
     steps: [
       { title: "نفهم المتطلبات", desc: "نحدد ما الذي يجب أن يفعله النظام ومن سيستخدمه.", icon: "fas fa-comments" },
       { title: "نرسم التدفق", desc: "نرتب البيانات والشاشات والصلاحيات والعلاقات.", icon: "fas fa-project-diagram" },
-      { title: "نبرمج ونختبر", desc: "ننفيذ الوظائف ونراجع السيناريوهات الأساسية.", icon: "fas fa-laptop-code" },
+      { title: "نبرمج ونختبر", desc: "ننفذ الوظائف ونراجع السيناريوهات الأساسية.", icon: "fas fa-laptop-code" },
       { title: "نسلّم ونطوّر", desc: "نجهز النسخة للعمل ونرتب أي مراحل لاحقة حسب الاتفاق.", icon: "fas fa-check-circle" }
     ],
     faqs: [

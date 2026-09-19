@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="css/brand-v2.css" />
   <link rel="stylesheet" href="css/craft-system.css" />
   <link rel="stylesheet" href="css/shell.css" />
+  <link rel="stylesheet" href="css/service-detail-page.css" />
   <script src="js/components.js" defer></script>
   <script src="js/services-data.js" defer></script>
   <script src="js/service-detail.js" defer></script>
@@ -28,127 +29,126 @@
 <body>
   <site-header></site-header>
 
-  <main id="serviceDetailRoot">
-    <section class="service-detail-hero service-detail-hero-v2">
+  <main class="service5" id="serviceDetailRoot">
+    <section class="service5-hero">
       <div class="container">
-        <nav class="service-breadcrumb fade-up" aria-label="مسار الصفحة">
-          <a href="index.html">الرئيسية</a>
-          <i class="fas fa-chevron-left" aria-hidden="true"></i>
-          <a href="services.html">الخدمات</a>
-          <i class="fas fa-chevron-left" aria-hidden="true"></i>
-          <span id="serviceBreadcrumbCurrent">الخدمة</span>
-        </nav>
+        <div class="service5-hero-shell">
+          <nav class="service5-breadcrumb fade-up" aria-label="مسار الصفحة">
+            <a href="index.html">الرئيسية</a>
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+            <a href="services.html">الخدمات</a>
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+            <span id="serviceBreadcrumbCurrent">الخدمة</span>
+          </nav>
 
-        <div class="service-detail-grid service-detail-grid-v2">
-          <div class="service-detail-copy fade-up">
-            <span class="eyebrow" id="serviceGroupLabel">خدمة من وصل تك</span>
-            <h1 id="sd-title">تفاصيل الخدمة</h1>
-            <h2 id="sd-subtitle">حل رقمي مبني حول احتياجك</h2>
-            <p id="sd-desc">تعرف على ما تتضمنه الخدمة وكيف يمكن أن تناسب مشروعك.</p>
-            <div class="service-hero-actions">
-              <a id="serviceHeroCta" class="btn btn-primary" href="contact.html">ناقش هذه الخدمة</a>
-              <a class="btn btn-outline" href="services.html">كل الخدمات</a>
+          <div class="service5-hero-grid">
+            <div class="service5-hero-copy fade-up">
+              <span class="eyebrow" id="serviceGroupLabel">خدمة من وصل تك</span>
+              <h1 id="sd-title">تفاصيل الخدمة</h1>
+              <h2 id="sd-subtitle">حل رقمي مبني حول احتياجك</h2>
+              <p id="sd-desc">تعرف على ما تتضمنه الخدمة وكيف يمكن أن تناسب مشروعك.</p>
+              <div class="service5-actions">
+                <a id="serviceHeroCta" class="btn btn-primary" href="contact.html">ناقش هذه الخدمة</a>
+                <a class="btn btn-outline" href="services.html">كل الخدمات</a>
+              </div>
+              <div class="service5-highlights" id="serviceHighlights"></div>
             </div>
-            <div class="service-highlights service-highlights-v2" id="serviceHighlights"></div>
-          </div>
 
-          <div class="service-detail-stage fade-up">
-            <figure class="service-detail-visual service-detail-visual-v2">
-              <img id="sd-hero-image" src="assets/works/project_1.jpg" alt="" width="900" height="640" />
+            <figure class="service5-hero-media fade-up">
+              <img id="sd-hero-image" src="assets/works/project_1.jpg" alt="" width="900" height="640" fetchpriority="high" />
+              <figcaption>
+                <span id="serviceIndex">01 / 08</span>
+                <strong id="serviceLabelTitle">خدمة رقمية</strong>
+              </figcaption>
             </figure>
-            <figure class="service-detail-secondary" id="serviceSecondaryVisual" hidden>
-              <img id="serviceSecondaryImage" src="" alt="" width="520" height="360" loading="eager" />
-            </figure>
-            <div class="service-detail-label">
-              <span id="serviceIndex">01 / 08</span>
-              <strong id="serviceLabelTitle">خدمة رقمية</strong>
-            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section-pad service-fit">
-      <div class="container service-fit-grid">
-        <header class="section-heading fade-up">
+    <section class="service5-section service5-fit">
+      <div class="container service5-fit-shell">
+        <header class="service5-heading fade-up">
           <span class="eyebrow">هل تناسب مشروعك؟</span>
           <h2 id="serviceFitTitle">هذه الخدمة مناسبة لعدة أنواع من المشاريع.</h2>
           <p>إذا وجدت طبيعة مشروعك أو احتياجك قريبًا من هذه الفئات، فهذه نقطة بداية جيدة للنقاش.</p>
         </header>
-        <div class="target-list fade-up" id="serviceTargets"></div>
+        <div class="service5-targets fade-up" id="serviceTargets"></div>
       </div>
     </section>
 
-    <section class="section-pad bg-light service-deliverables-section">
+    <section class="service5-section service5-deliverables">
       <div class="container">
-        <header class="section-heading services-directory-heading fade-up">
+        <header class="service5-heading service5-heading-row fade-up">
           <div>
             <span class="eyebrow">ما الذي تتضمنه الخدمة؟</span>
             <h2 id="deliverablesTitle">مكونات ومخرجات مرتبة حسب طبيعة الخدمة.</h2>
             <p id="deliverablesIntro">يتم تحديد النطاق النهائي بعد فهم مشروعك، لكن هذه أهم العناصر التي يمكن أن تدخل ضمن الخدمة.</p>
           </div>
-          <a class="text-link" href="contact.html">ناقش النطاق <i class="fas fa-arrow-left"></i></a>
+          <a class="text-link" href="contact.html">ناقش النطاق <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
         </header>
-        <div class="deliverables-list deliverables-list-v2 fade-up" id="serviceDeliverables"></div>
+        <div class="service5-deliverables-list fade-up" id="serviceDeliverables"></div>
       </div>
     </section>
 
-    <section class="section-pad service-related" id="serviceRelatedSection" hidden>
+    <section class="service5-section service5-related" id="serviceRelatedSection" hidden>
       <div class="container">
-        <header class="section-heading fade-up">
-          <span class="eyebrow">أعمال مرتبطة</span>
-          <h2>نماذج من المعرض قريبة من نوع هذه الخدمة.</h2>
-          <p>هذه المشاريع معروضة كما هي في معرض الأعمال، لتشاهد نوع التنفيذ بصريًا قبل التواصل.</p>
+        <header class="service5-heading service5-heading-row fade-up">
+          <div>
+            <span class="eyebrow">أعمال مرتبطة</span>
+            <h2>نماذج من المعرض قريبة من نوع هذه الخدمة.</h2>
+            <p>نعرض هنا المشاريع المرتبطة فعليًا بهذا المسار، بدون تحويلها إلى نتائج أو أرقام غير موثقة.</p>
+          </div>
+          <a href="portfolio.html" class="text-link">كل الأعمال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
         </header>
-        <div class="service-related-grid" id="serviceRelatedWork"></div>
-        <p class="service-related-more"><a href="portfolio.html" class="text-link">عرض معرض الأعمال كاملًا <i class="fas fa-arrow-left"></i></a></p>
+        <div class="service5-related-grid" id="serviceRelatedWork"></div>
       </div>
     </section>
 
-    <section class="section-pad service-process-section">
-      <div class="container">
-        <header class="section-heading center fade-up">
+    <section class="service5-section service5-process">
+      <div class="container service5-process-shell">
+        <header class="service5-process-head fade-up">
           <span class="eyebrow">كيف نعمل عليها؟</span>
-          <h2>أربع محطات من فهم الاحتياج حتى التسليم.</h2>
-          <p>تفاصيل كل مرحلة تتغير حسب المشروع، لكن المسار يبقى واضحًا من البداية.</p>
+          <h2>أربع محطات، وتفاصيل التنفيذ تتغير حسب المشروع.</h2>
+          <a class="text-link" href="process.html">طريقة العمل كاملة <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
         </header>
-        <div class="service-steps service-steps-v2 fade-up" id="serviceSteps"></div>
+        <ol class="service5-steps fade-up" id="serviceSteps"></ol>
       </div>
     </section>
 
-    <section class="section-pad bg-light">
-      <div class="container faq-inline">
-        <header class="section-heading fade-up">
+    <section class="service5-section service5-faq">
+      <div class="container service5-faq-shell">
+        <header class="service5-faq-head fade-up">
           <span class="eyebrow">أسئلة مرتبطة بالخدمة</span>
           <h2>قبل أن تبدأ، هذه أهم النقاط التي قد تحتاج توضيحها.</h2>
-          <p>إذا كان سؤالك مرتبطًا بتفاصيل مشروعك، الأفضل ترسل لنا السياق مباشرة.</p>
+          <p>إذا كان السؤال مرتبطًا بتفاصيل مشروعك نفسه، الأفضل أن ترسل لنا السياق مباشرة.</p>
         </header>
-        <div class="faq-stack fade-up" id="serviceFaqs"></div>
+        <div class="service5-faq-list fade-up" id="serviceFaqs"></div>
       </div>
     </section>
 
-    <section class="service-sibling-nav" aria-label="التنقل بين الخدمات">
-      <div class="container service-sibling-grid">
-        <a id="servicePrev" class="service-sibling-link" href="services.html">
+    <nav class="service5-siblings" aria-label="التنقل بين الخدمات">
+      <div class="container service5-siblings-grid">
+        <a id="servicePrev" href="services.html">
           <span>الخدمة السابقة</span>
           <strong>الخدمات</strong>
         </a>
-        <a id="serviceNext" class="service-sibling-link service-sibling-next" href="services.html">
+        <a id="serviceNext" href="services.html">
           <span>الخدمة التالية</span>
           <strong>الخدمات</strong>
         </a>
       </div>
-    </section>
+    </nav>
 
-    <section class="section-pad">
+    <section class="service5-closing">
       <div class="container">
-        <div class="cta-stage fade-up">
+        <div class="service5-closing-shell fade-up">
           <div>
-            <span class="cta-kicker">الخطوة التالية</span>
+            <span>الخطوة التالية</span>
             <h2 id="sd-cta-title">جاهز للبدء؟</h2>
             <p id="sd-cta-desc">شاركنا احتياجك ونرتب معك الخطوة التالية.</p>
           </div>
-          <div class="cta-actions">
+          <div class="service5-closing-actions">
             <a id="sd-cta-btn" class="btn btn-primary" href="contact.html">ابدأ مشروعك</a>
             <a class="btn btn-outline" href="services.html">العودة للخدمات</a>
           </div>
