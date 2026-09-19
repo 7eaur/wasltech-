@@ -7,7 +7,7 @@ Current verified main after Phase 13 merge: `5bc890b3107f5923d1c06e6bab5931ebbf5
 
 ## Current execution state
 
-The Refined Craft rebuild has completed **Phases 1–13 on main at repository level**. The production screenshot/browser gate remains open.
+The Refined Craft rebuild has completed **Phases 1–13 on main**. The current `main` build is live on Vercel; only the final screenshot/browser visual gate remains open.
 
 Completed:
 1. Global Design System & Layout Architecture
@@ -25,8 +25,7 @@ Completed:
 13. Cross-page repository-level final QA + icon regression fix
 
 Remaining release gate:
-- deploy/confirm the current main build on production,
-- execute the exact-head screenshot/browser matrix,
+- execute the exact-head screenshot/browser matrix on the Vercel production build,
 - close any visual/runtime regressions found there.
 
 Do **not** restart the redesign from Phase 1.
@@ -194,23 +193,32 @@ Repository-level findings:
 - `scripts/site_quality_check.py` now guards runtime icon coverage,
 - PR #29 `Site quality` run `35467612840` failed before any workflow step executed; the job exposed an empty step list, matching the earlier hosted-runner failure pattern.
 
-Production finding on 2026-09-19:
-- `https://www.wasl-tech.com/` still exposed an older site state and did not match the current 8-service repository architecture,
-- therefore production cannot be treated as exact-head Phase 13 visual evidence.
+Production runtime verified on Vercel:
+
+- Project: `wasltech` (`prj_tp7lDumOID2XusRHkPvYayybihVe`)
+- Production alias: `https://wasltech.vercel.app`
+- Deployment: `dpl_FVJ9pEFJtkfVdP3rLTTvo9r5qMK3`
+- State: `READY`
+- Git ref: `main`
+- Deployed commit verified: `27d732f98c6ec08deff865476546e9ee77420fa8`
+- Home / Services / Portfolio / Contact returned HTTP 200 from Vercel.
+- The live Vercel homepage exposes the current 8-service architecture.
+- Vercel runtime error scan for the last hour returned no errors.
+- `www.wasl-tech.com` is not currently treated as the release runtime until it is attached to this Vercel project/deployment.
 
 ## Current limitation / release gate
 
-A screenshot-capable browser/preview for the exact current branch was not available in this environment, and the public production URL appears stale.
+A screenshot-capable browser/preview for the exact Vercel production build was not available in this environment.
 
 Therefore:
 - repository-level Phase 13 QA/fixes are complete,
-- exact-head production deployment is NOT VERIFIED,
+- exact-head Vercel production deployment is VERIFIED READY,
 - final screenshot-based production visual approval remains OPEN,
 - do not mark the site fully production-verified yet.
 
 ## Next task
 
-After the Phase 13 branch is merged, deploy/confirm current `main` on production and execute the final exact-head browser matrix.
+Execute the final exact-head browser matrix against the current Vercel production build.
 
 Final visual/runtime scope:
 - cross-page Refined Craft normalization,
