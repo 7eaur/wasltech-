@@ -1,8 +1,8 @@
+# عرض صفحة 404 المخصصة حتى لو لم يكن mod_rewrite متاحًا
+ErrorDocument 404 /404.html
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    
-    # عرض صفحة 404 المخصصة مع الحفاظ على حالة الخطأ الحقيقية
-    ErrorDocument 404 /404.html
     
     # يمكنك تفعيل السطر التالي إذا أردت تحويلاً دائماً (301) لأي رابط قديم إلى الرئيسية (يجب توفر إعدادات السيرفر المناسبة)
     # RewriteCond %{REQUEST_FILENAME} !-f
