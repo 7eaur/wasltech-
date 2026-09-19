@@ -3266,3 +3266,322 @@ html[data-theme="dark"] .craft-about-story-shell h2 {
     border-radius:14px;
   }
 }
+
+
+/* ==========================================================
+   PHASE 9 — CONTACT
+   ========================================================== */
+.craft-contact-channels {
+  padding:10px 0 24px;
+  background:var(--wt-bg-canvas);
+}
+
+.craft-contact-channel-grid {
+  display:grid;
+  grid-template-columns:1.12fr .94fr .94fr;
+  overflow:hidden;
+  border:1px solid var(--wt-border-default);
+  border-radius:var(--craft-panel-radius);
+  background:var(--wt-bg-canvas);
+}
+
+.craft-contact-channel {
+  min-width:0;
+  min-height:88px;
+  display:grid;
+  grid-template-columns:36px minmax(0,1fr) auto;
+  gap:12px;
+  align-items:center;
+  padding:15px 18px;
+  border-inline-start:1px solid var(--wt-border-default);
+  transition:background-color var(--wt-motion-fast) var(--wt-ease);
+}
+
+.craft-contact-channel:first-child {
+  border-inline-start:0;
+}
+
+.craft-contact-channel:hover {
+  background:var(--wt-bg-subtle);
+}
+
+.craft-contact-channel > i {
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:9px;
+  background:var(--wt-accent-50);
+  color:var(--wt-accent-700);
+}
+
+.craft-contact-channel small {
+  display:block;
+  color:var(--wt-text-secondary);
+  font-size:.68rem;
+}
+
+.craft-contact-channel strong {
+  display:block;
+  margin-top:2px;
+  color:var(--wt-text-primary);
+  font-size:.82rem;
+  line-height:1.45;
+  overflow-wrap:anywhere;
+}
+
+.craft-contact-channel > b {
+  color:var(--wt-text-secondary);
+  font-size:.7rem;
+}
+
+.craft-contact-channel-primary {
+  background:var(--wt-primary-700);
+}
+
+.craft-contact-channel-primary:hover {
+  background:var(--wt-primary-800);
+}
+
+.craft-contact-channel-primary > i {
+  background:rgb(255 255 255 / 10%);
+  color:var(--wt-accent-200);
+}
+
+.craft-contact-channel-primary small {
+  color:#B8C7DA;
+}
+
+.craft-contact-channel-primary strong,
+.craft-contact-channel-primary > b {
+  color:#fff;
+}
+
+/* Contact context + form */
+.craft-contact-form-section {
+  padding-block:56px;
+}
+
+.craft-contact-form-shell {
+  display:grid;
+  grid-template-columns:minmax(250px,.66fr) minmax(0,1.34fr);
+  gap:clamp(28px,5vw,56px);
+  align-items:start;
+}
+
+.craft-contact-context {
+  padding-top:5px;
+}
+
+.craft-contact-context h2 {
+  margin:0 0 18px;
+  color:var(--wt-primary-700);
+  font-size:clamp(1.7rem,3vw,2.35rem);
+  line-height:1.34;
+}
+
+.craft-contact-context ol {
+  margin:0 0 18px;
+  padding:0;
+  border-top:1px solid var(--wt-border-default);
+}
+
+.craft-contact-context li {
+  min-height:54px;
+  display:grid;
+  grid-template-columns:32px minmax(0,1fr);
+  gap:10px;
+  align-items:center;
+  border-bottom:1px solid var(--wt-border-default);
+}
+
+.craft-contact-context li > span {
+  color:var(--wt-accent-700);
+  font:700 .68rem/1 var(--wt-font-en);
+}
+
+.craft-contact-context li strong {
+  display:block;
+  color:var(--wt-text-primary);
+  font-size:.82rem;
+}
+
+.craft-contact-context li small {
+  display:block;
+  margin-top:2px;
+  color:var(--wt-text-secondary);
+  font-size:.7rem;
+}
+
+.craft-contact-form {
+  padding:clamp(22px,3.3vw,34px);
+  border:1px solid var(--wt-border-default);
+  border-radius:var(--craft-panel-radius);
+  background:var(--wt-bg-canvas);
+}
+
+.craft-contact-form > h2 {
+  margin:0 0 7px;
+  color:var(--wt-primary-700);
+  font-size:clamp(1.65rem,2.8vw,2.25rem);
+  line-height:1.35;
+}
+
+.craft-contact-form > p {
+  max-width:64ch;
+  margin:0 0 22px;
+  color:var(--wt-text-secondary);
+  font-size:.82rem;
+  line-height:1.65;
+}
+
+.craft-contact-form .form-grid {
+  gap:14px;
+}
+
+.craft-contact-form .form-field label {
+  margin-bottom:6px;
+  font-size:.8rem;
+}
+
+.craft-contact-form input,
+.craft-contact-form select,
+.craft-contact-form textarea {
+  min-height:44px;
+  padding:10px 12px;
+  font-size:.86rem;
+}
+
+.craft-contact-form textarea {
+  min-height:116px;
+}
+
+.craft-contact-submit {
+  min-width:190px;
+}
+
+.craft-contact-form .form-status {
+  margin-top:14px;
+  padding:12px;
+  border:1px solid var(--wt-accent-200);
+  border-radius:10px;
+  background:var(--wt-accent-50);
+  color:var(--wt-primary-700);
+  font-size:.8rem;
+}
+
+/* Next steps */
+.craft-contact-next {
+  padding-block:52px;
+}
+
+.craft-contact-next-list {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  border-block:1px solid var(--wt-border-default);
+}
+
+.craft-contact-next-list article {
+  min-height:126px;
+  padding:20px;
+  border-inline-start:1px solid var(--wt-border-default);
+}
+
+.craft-contact-next-list article:first-child {
+  border-inline-start:0;
+}
+
+.craft-contact-next-list article > span {
+  color:var(--wt-accent-700);
+  font:700 .72rem/1 var(--wt-font-en);
+}
+
+.craft-contact-next-list h3 {
+  margin:11px 0 5px;
+  color:var(--wt-text-primary);
+  font-size:.94rem;
+}
+
+.craft-contact-next-list p {
+  margin:0;
+  color:var(--wt-text-secondary);
+  font-size:.76rem;
+  line-height:1.6;
+}
+
+.craft-contact-faq {
+  padding-block:52px;
+}
+
+html[data-theme="dark"] .craft-contact-context h2,
+html[data-theme="dark"] .craft-contact-form > h2 {
+  color:#F5F8FA;
+}
+
+html[data-theme="dark"] .craft-contact-form .form-status {
+  background:rgb(14 136 137 / 12%);
+  color:#DFF7F5;
+}
+
+@media (max-width: 980px) {
+  .craft-contact-form-shell {
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+}
+
+@media (max-width: 700px) {
+  .craft-contact-channels {
+    padding:8px 0 18px;
+  }
+
+  .craft-contact-channel-grid {
+    grid-template-columns:1fr;
+    border-radius:12px;
+  }
+
+  .craft-contact-channel {
+    min-height:72px;
+    padding:12px 14px;
+    border-inline-start:0;
+    border-top:1px solid var(--wt-border-default);
+  }
+
+  .craft-contact-channel:first-child {
+    border-top:0;
+  }
+
+  .craft-contact-channel-primary {
+    border-color:transparent;
+  }
+
+  .craft-contact-form-section,
+  .craft-contact-next,
+  .craft-contact-faq {
+    padding-block:42px;
+  }
+
+  .craft-contact-form {
+    padding:18px;
+    border-radius:14px;
+  }
+
+  .craft-contact-submit {
+    width:100%;
+  }
+
+  .craft-contact-next-list {
+    grid-template-columns:1fr;
+  }
+
+  .craft-contact-next-list article {
+    min-height:0;
+    padding:17px 0;
+    border-inline-start:0;
+    border-top:1px solid var(--wt-border-default);
+  }
+
+  .craft-contact-next-list article:first-child {
+    border-top:0;
+  }
+}
