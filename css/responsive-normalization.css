@@ -31,7 +31,7 @@ div {
 }
 
 :where(input, select, textarea)::placeholder {
-  color:var(--wt-text-muted);
+  color:var(--wt-text-secondary);
   opacity:1;
 }
 
@@ -183,9 +183,3 @@ html[data-theme="dark"] :where(option) {
   }
 }
 
-@media (prefers-reduced-motion:reduce) {
-  .fade-up {
-    opacity:1!important;
-    transform:none!important;
-  }
-}
