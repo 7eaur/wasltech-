@@ -3911,3 +3911,45 @@ html[data-theme="dark"] :where(
     bottom:max(10px, env(safe-area-inset-bottom));
   }
 }
+
+
+/* ==========================================================
+   PHASE 12 — ACCESSIBILITY / MOTION / PERFORMANCE BASELINE
+   ========================================================== */
+/* Content is visible by default. Motion must never gate readability. */
+.fade-up,
+.fade-up.visible {
+  opacity:1 !important;
+  transform:none !important;
+  transition:none !important;
+}
+
+/* Functional hover motion only on devices that actually hover. */
+@media (hover:hover) and (pointer:fine) {
+  .btn:hover,
+  .fw-btn:hover {
+    transform:translateY(-1px);
+  }
+}
+
+/* Consistent keyboard focus without relying on browser defaults. */
+:where(
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  summary,
+  [tabindex]:not([tabindex="-1"])
+):focus-visible {
+  outline:3px solid var(--wt-accent-300);
+  outline-offset:3px;
+}
+
+/* Prevent controls from becoming too small on touch interfaces. */
+@media (pointer:coarse) {
+  :where(button, .btn, .theme-toggle, .hamburger, .fw-btn) {
+    min-width:44px;
+    min-height:44px;
+  }
+}
