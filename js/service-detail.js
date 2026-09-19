@@ -110,14 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
   hero.alt = data.heroAlt || data.title;
 
   const related = ui.related || [];
-  const secondary = related.find(item => item.image !== data.heroImage);
-  const secondaryVisual = byId('serviceSecondaryVisual');
-  if (secondary && secondaryVisual) {
-    const secondaryImage = byId('serviceSecondaryImage');
-    secondaryImage.src = secondary.image;
-    secondaryImage.alt = secondary.title;
-    secondaryVisual.hidden = false;
-  }
 
   const ctaText = encodeURIComponent(`مرحباً، أود الاستفسار عن خدمة: ${data.title}`);
   const whatsappUrl = `https://wa.me/967775377979?text=${ctaText}`;
@@ -128,8 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const highlights = byId('serviceHighlights');
   highlights.innerHTML = data.heroCards.map(card => `
-    <article class="service-highlight">
-      <span class="service-highlight-icon"><i class="${card.icon}" aria-hidden="true"></i></span>
+    <article class="craft-service-highlight">
+      <span class="craft-service-highlight-icon"><i class="${card.icon}" aria-hidden="true"></i></span>
       <div><h3>${card.title}</h3><p>${card.desc}</p></div>
     </article>
   `).join('');
@@ -137,9 +129,9 @@ document.addEventListener('DOMContentLoaded', () => {
   byId('serviceFitTitle').textContent = `لمن يمكن أن تكون ${data.title} مناسبة؟`;
   const targets = byId('serviceTargets');
   targets.innerHTML = data.targets.map((item, targetIndex) => `
-    <div class="target-row">
-      <span class="target-index">${String(targetIndex + 1).padStart(2, '0')}</span>
-      <span class="target-icon"><i class="${item.icon}" aria-hidden="true"></i></span>
+    <div class="craft-service-target-row">
+      <span class="craft-service-target-index">${String(targetIndex + 1).padStart(2, '0')}</span>
+      <span class="craft-service-target-icon"><i class="${item.icon}" aria-hidden="true"></i></span>
       <strong>${item.title}</strong>
     </div>
   `).join('');
@@ -164,9 +156,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const deliverables = byId('serviceDeliverables');
   deliverables.innerHTML = data.features.map((item, featureIndex) => `
-    <article class="deliverable">
-      <span class="deliverable-index">${String(featureIndex + 1).padStart(2, '0')}</span>
-      <span class="icon"><i class="${item.icon}" aria-hidden="true"></i></span>
+    <article class="craft-service-deliverable">
+      <span class="craft-service-deliverable-index">${String(featureIndex + 1).padStart(2, '0')}</span>
+      <span class="craft-service-deliverable-icon"><i class="${item.icon}" aria-hidden="true"></i></span>
       <div><h3>${item.title}</h3><p>${item.desc}</p></div>
     </article>
   `).join('');
@@ -175,10 +167,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const relatedWork = byId('serviceRelatedWork');
   if (related.length && relatedSection && relatedWork) {
     relatedWork.innerHTML = related.map(item => `
-      <article class="service-related-card">
+      <article class="craft-service-related-card">
         <a href="portfolio.html" aria-label="عرض ${item.title} ضمن معرض الأعمال">
-          <div class="service-related-media"><img src="${item.image}" alt="${item.title}" width="760" height="500" loading="lazy" /></div>
-          <div class="service-related-copy"><span>${item.category}</span><h3>${item.title}</h3><strong>عرض ضمن الأعمال <i class="fas fa-arrow-left" aria-hidden="true"></i></strong></div>
+          <div class="craft-service-related-media"><img src="${item.image}" alt="${item.title}" width="760" height="500" loading="lazy" /></div>
+          <div class="craft-service-related-copy"><span>${item.category}</span><h3>${item.title}</h3><strong>عرض ضمن الأعمال <i class="fas fa-arrow-left" aria-hidden="true"></i></strong></div>
         </a>
       </article>
     `).join('');
@@ -187,8 +179,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const steps = byId('serviceSteps');
   steps.innerHTML = data.steps.map((item, stepIndex) => `
-    <article class="service-step">
-      <span class="service-step-number">${String(stepIndex + 1).padStart(2, '0')}</span>
+    <article class="craft-service-step">
+      <span class="craft-service-step-number">${String(stepIndex + 1).padStart(2, '0')}</span>
       <h3>${item.title}</h3>
       <p>${item.desc}</p>
     </article>
