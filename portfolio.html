@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#14305F" />
   <title>أعمالنا | وصل تك — Wasl Tech</title>
-  <meta name="description" content="استكشف نماذج من أعمال وصل تك في المواقع والمنصات والتطبيقات والمتاجر والهوية والتسويق." />
+  <meta name="description" content="استكشف أعمال وصل تك في المواقع والمنصات والتطبيقات والمتاجر والهوية البصرية والتسويق الرقمي." />
   <link rel="canonical" href="https://www.wasl-tech.com/portfolio.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="أعمالنا | وصل تك — Wasl Tech" />
+  <meta property="og:description" content="نماذج من أعمال وصل تك في المواقع والتطبيقات والمتاجر والهوية والتسويق." />
+  <meta property="og:image" content="https://www.wasl-tech.com/assets/works/project_1.jpg" />
   <link rel="icon" href="assets/brand/favicon.svg" />
   <link rel="manifest" href="site.webmanifest" />
   <link rel="stylesheet" href="css/fonts.css" />
@@ -20,54 +24,126 @@
 </head>
 <body>
   <site-header></site-header>
+
   <main>
-    <section class="page-intro">
+    <section class="page-intro portfolio-hero">
+      <div class="container portfolio-hero-grid">
+        <div class="fade-up">
+          <div class="page-kicker">أعمالنا</div>
+          <h1>أعمال حقيقية توضّح كيف يتحول الاحتياج إلى تجربة رقمية.</h1>
+          <p>تصفح المشاريع حسب نوعها، افتح تفاصيل المشروع داخل الموقع، ثم انتقل للتواصل فقط عندما تجد اتجاهًا قريبًا من فكرتك.</p>
+          <div class="portfolio-hero-actions">
+            <a class="btn btn-primary" href="#portfolio-directory">استكشف المشاريع <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
+            <a class="btn btn-outline" href="contact.html">ناقش مشروعك</a>
+          </div>
+        </div>
+
+        <div class="portfolio-hero-visual fade-up" aria-label="نماذج متنوعة من أعمال وصل تك">
+          <figure class="portfolio-hero-main"><img src="assets/works/project_1.jpg" alt="منصة صوركم الرقمية" width="820" height="560" loading="eager" /></figure>
+          <figure class="portfolio-hero-small portfolio-hero-store"><img src="assets/works/project_10.jpg" alt="متجر النخبة للإلكترونيات" width="460" height="320" loading="eager" /></figure>
+          <figure class="portfolio-hero-small portfolio-hero-brand"><img src="assets/works/project_7.jpg" alt="هوية بصرية لمطعم الملكي" width="460" height="320" loading="eager" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio-summary" aria-label="ملخص معرض الأعمال">
+      <div class="container portfolio-summary-grid">
+        <div><span id="portfolioProjectCount">14</span><strong>مشروعًا في المعرض</strong></div>
+        <div><span id="portfolioCategoryCount">5</span><strong>تصنيفات أعمال</strong></div>
+        <div><span>01</span><strong>اضغط على أي مشروع لرؤية تفاصيله داخل الموقع</strong></div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="portfolio-directory">
       <div class="container">
-        <div class="page-intro-grid">
-          <div class="fade-up">
-            <div class="page-kicker">أعمالنا</div>
-            <h1>شاهد العمل قبل أن تبدأ المحادثة.</h1>
-            <p>المعرض يعرض البيانات والصور الموجودة فعليًا في المشروع. لا نضيف نتائج أو أرقامًا أو تقنيات غير مثبتة.</p>
+        <header class="section-heading portfolio-directory-heading fade-up">
+          <div>
+            <span class="eyebrow">استكشف الأعمال</span>
+            <h2>اختر التصنيف، ثم قارن المشاريع بصريًا.</h2>
+            <p>كل مشروع يحتفظ بالمعلومات المثبتة عنه، مع أبرز النقاط الواردة في وصفه وخدمة وصل تك المرتبطة به.</p>
           </div>
-          <div class="service-panel fade-up">
-            <span class="panel-kicker">Browse → Understand → Act</span>
-            <h3>تصفح، افهم، ثم تواصل.</h3>
-            <p style="color:var(--wt-text-secondary);margin:0">التفاصيل تبقى داخل الموقع أولًا، ثم يصبح واتساب خطوة اختيارية في نهاية الرحلة بدل أن يكون هو صفحة التفاصيل.</p>
-          </div>
+          <a class="text-link" href="services.html">استكشف الخدمات <i class="fas fa-arrow-left"></i></a>
+        </header>
+
+        <div class="portfolio-toolbar portfolio-toolbar-v2 fade-up" id="portfolioFilters" aria-label="تصفية المشاريع"></div>
+        <div class="portfolio-project-grid" id="portfolioGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section-pad bg-light portfolio-note">
+      <div class="container portfolio-note-grid">
+        <div class="fade-up">
+          <span class="eyebrow">ما الذي ستجده داخل التفاصيل؟</span>
+          <h2>المعلومة المتاحة أولًا، ثم قرار التواصل.</h2>
+        </div>
+        <div class="portfolio-note-list fade-up">
+          <div><span>01</span><strong>وصف المشروع ونوعه.</strong></div>
+          <div><span>02</span><strong>أبرز العناصر المذكورة في بيانات المشروع.</strong></div>
+          <div><span>03</span><strong>الخدمة المرتبطة ومشاريع قريبة من نفس التصنيف.</strong></div>
         </div>
       </div>
     </section>
 
     <section class="section-pad">
       <div class="container">
-        <div class="portfolio-toolbar fade-up" id="portfolioFilters" aria-label="تصفية المشاريع"></div>
-        <div class="portfolio-grid-v2" id="portfolioGrid" aria-live="polite"></div>
-      </div>
-    </section>
-
-    <section class="section-pad bg-light">
-      <div class="container">
         <div class="cta-stage fade-up">
           <div>
-            <h2>وجدت عملًا قريبًا من فكرتك؟</h2>
-            <p>شاهد التفاصيل المتاحة ثم ابدأ المحادثة باسم المشروع حتى يكون السياق واضحًا من أول رسالة.</p>
+            <span class="cta-kicker">عندك فكرة قريبة من أحد الأعمال؟</span>
+            <h2>ابدأ من المشروع الأقرب بدل شرح كل شيء من الصفر.</h2>
+            <p>افتح تفاصيل المشروع، ثم استخدم زر “أريد مشروعًا مشابهًا” حتى تبدأ المحادثة بسياق واضح.</p>
           </div>
-          <div class="cta-actions"><a class="btn btn-primary" href="contact.html">ناقش مشروعك</a></div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="contact.html">ناقش مشروعك</a>
+            <a class="btn btn-outline" href="services.html">شاهد الخدمات</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <div class="drawer-overlay" id="projectDrawerOverlay" aria-hidden="true">
-    <aside class="project-drawer" id="projectDrawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
-      <button class="drawer-close" id="drawerClose" type="button" aria-label="إغلاق تفاصيل المشروع"><i class="fas fa-times"></i></button>
-      <div class="drawer-image"><img id="drawerImage" src="" alt="" width="900" height="560" /></div>
-      <span class="drawer-kicker" id="drawerCategory"></span>
-      <h2 id="drawerTitle"></h2>
-      <p id="drawerDescription"></p>
-      <div class="project-actions" style="margin-top:24px">
-        <a id="drawerCta" class="btn btn-primary" href="contact.html">اطلب مشروعًا مشابهًا</a>
-        <button class="btn btn-outline" id="drawerCloseSecondary" type="button">متابعة التصفح</button>
+  <div class="portfolio-drawer-overlay" id="projectDrawerOverlay" aria-hidden="true">
+    <aside class="portfolio-drawer-v2" id="projectDrawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" tabindex="-1">
+      <div class="portfolio-drawer-header">
+        <div>
+          <span>تفاصيل المشروع</span>
+          <strong id="drawerHeaderCategory">عمل من وصل تك</strong>
+        </div>
+        <button class="drawer-close" id="drawerClose" type="button" aria-label="إغلاق تفاصيل المشروع"><i class="fas fa-times" aria-hidden="true"></i></button>
+      </div>
+
+      <div class="portfolio-drawer-scroll">
+        <figure class="portfolio-drawer-image"><img id="drawerImage" src="" alt="" width="1000" height="650" /></figure>
+
+        <div class="portfolio-drawer-content">
+          <span class="drawer-kicker" id="drawerCategory"></span>
+          <h2 id="drawerTitle"></h2>
+          <p class="portfolio-drawer-description" id="drawerDescription"></p>
+
+          <section class="portfolio-drawer-section" aria-labelledby="drawerHighlightsTitle">
+            <span class="portfolio-drawer-label">أبرز ما يوضحه المشروع</span>
+            <h3 id="drawerHighlightsTitle">نقاط من الوصف المتاح للمشروع.</h3>
+            <div class="portfolio-highlight-list" id="drawerHighlights"></div>
+          </section>
+
+          <section class="portfolio-drawer-service">
+            <div>
+              <span>الخدمة المرتبطة</span>
+              <strong id="drawerServiceName">خدمة وصل تك</strong>
+            </div>
+            <a id="drawerServiceLink" class="text-link" href="services.html">تفاصيل الخدمة <i class="fas fa-arrow-left"></i></a>
+          </section>
+
+          <div class="project-actions drawer-actions">
+            <a id="drawerCta" class="btn btn-primary" href="contact.html">أريد مشروعًا مشابهًا</a>
+            <button class="btn btn-outline" id="drawerCloseSecondary" type="button">متابعة التصفح</button>
+          </div>
+
+          <section class="portfolio-drawer-related" id="drawerRelatedSection" hidden>
+            <span class="portfolio-drawer-label">من نفس التصنيف</span>
+            <h3>أعمال أخرى قد تهمك.</h3>
+            <div class="portfolio-related-list" id="drawerRelatedProjects"></div>
+          </section>
+        </div>
       </div>
     </aside>
   </div>
