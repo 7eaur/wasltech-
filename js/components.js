@@ -1,6 +1,50 @@
 /** WASL TECH — shared header/footer */
 class SiteHeader extends HTMLElement {
   connectedCallback() {
+    const useV2 = document.body?.dataset.shell === 'v2';
+    if (useV2) {
+      const main = document.querySelector('main');
+      if (main && !main.id) main.id = 'main-content';
+      const mainTarget = main?.id || 'main-content';
+
+      this.innerHTML = `
+        <a class="skip-link" href="#${mainTarget}">تجاوز إلى المحتوى الرئيسي</a>
+        <header class="header v2-header" id="header">
+          <div class="container">
+            <nav class="header-shell" aria-label="التنقل الرئيسي">
+              <a href="index.html" class="logo" aria-label="وصل تك - الرئيسية">
+                <img src="assets/brand/wasl-tech-horizontal.svg" alt="وصل تك | Wasl Tech" class="logo-img logo-light" width="190" height="72" />
+                <img src="assets/brand/wasl-tech-horizontal-white.svg" alt="" class="logo-img logo-dark" width="190" height="72" aria-hidden="true" />
+              </a>
+
+              <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                <li><a href="services.html" class="nav-link">الخدمات</a></li>
+                <li><a href="portfolio.html" class="nav-link">الأعمال</a></li>
+                <li><a href="process.html" class="nav-link">كيف نعمل</a></li>
+                <li><a href="about.html" class="nav-link">من نحن</a></li>
+                <li class="mobile-only mobile-contact">
+                  <a href="contact.html" class="v2-btn v2-btn-primary">ناقش مشروعك</a>
+                </li>
+              </ul>
+
+              <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="تفعيل الوضع الداكن" aria-pressed="false">
+                  <i class="far fa-moon" aria-hidden="true"></i>
+                </button>
+                <a href="contact.html" class="nav-btn">ناقش مشروعك</a>
+                <button class="hamburger" id="hamburger" type="button" aria-label="فتح القائمة" aria-controls="navLinks" aria-expanded="false">
+                  <span></span><span></span><span></span>
+                </button>
+              </div>
+            </nav>
+          </div>
+        </header>
+        <div class="nav-scrim" id="navScrim" hidden></div>
+      `;
+      return;
+    }
+
     const main = document.querySelector('main');
     if (main && !main.id) main.id = 'main-content';
     const mainTarget = main?.id || 'main-content';
@@ -49,6 +93,46 @@ class SiteHeader extends HTMLElement {
 
 class SiteFooter extends HTMLElement {
   connectedCallback() {
+    const useV2 = document.body?.dataset.shell === 'v2';
+    if (useV2) {
+      const year = new Date().getFullYear();
+      this.innerHTML = `
+        <footer class="v2-footer">
+          <div class="container">
+            <div class="v2-footer-main">
+              <section class="v2-footer-brand" aria-labelledby="v2FooterBrand">
+                <img src="assets/brand/wasl-tech-horizontal-white.svg" alt="وصل تك | Wasl Tech" class="footer-logo" width="220" height="84" loading="lazy" />
+                <h2 id="v2FooterBrand" class="sr-only">وصل تك</h2>
+                <p>تصميم وتطوير منتجات وحضور رقمي للمشاريع في اليمن والخليج.</p>
+              </section>
+
+              <nav class="v2-footer-links" aria-label="روابط الموقع">
+                <a href="services.html">الخدمات</a>
+                <a href="portfolio.html">الأعمال</a>
+                <a href="process.html">كيف نعمل</a>
+                <a href="about.html">من نحن</a>
+                <a href="faq.html">الأسئلة الشائعة</a>
+                <a href="contact.html">ابدأ مشروعك</a>
+              </nav>
+
+              <section class="v2-footer-contact" aria-label="بيانات التواصل">
+                <strong>تواصل معنا</strong>
+                <a href="https://wa.me/967775377979" target="_blank" rel="noopener">واتساب: <span dir="ltr">+967 775 377 979</span></a>
+                <a href="mailto:wasltechp@gmail.com">wasltechp@gmail.com</a>
+                <a href="https://www.wasl-tech.com/">www.wasl-tech.com</a>
+              </section>
+            </div>
+
+            <div class="v2-footer-bottom">
+              <span>© ${year} وصل تك — جميع الحقوق محفوظة.</span>
+              <span>نبني حضورك الرقمي باحتراف.</span>
+            </div>
+          </div>
+        </footer>
+      `;
+      return;
+    }
+
     const year = new Date().getFullYear();
     this.innerHTML = `
       <footer class="footer">
