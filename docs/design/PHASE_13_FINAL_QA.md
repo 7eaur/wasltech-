@@ -89,15 +89,24 @@ No speculative redesign was made during Phase 13.
 
 ## Live production finding
 
-The public URL `https://www.wasl-tech.com/` does **not** currently represent the Phase 12/13 repository state.
+Vercel is now the authoritative runtime for the current release.
 
-Observed on 2026-09-19:
+Verified on 2026-09-20:
 
-- the live homepage still exposes an older information architecture,
-- the visible service presentation is older than the current 8-service repository architecture,
-- therefore it cannot be used as exact-head visual evidence for this Phase 13 branch.
+- Vercel project: `wasltech`
+- Project ID: `prj_tp7lDumOID2XusRHkPvYayybihVe`
+- Production deployment: `dpl_FVJ9pEFJtkfVdP3rLTTvo9r5qMK3`
+- Production alias: `https://wasltech.vercel.app`
+- Deployment state: `READY`
+- Git ref: `main`
+- Deployed commit: `27d732f98c6ec08deff865476546e9ee77420fa8`
 
-This is a deployment/runtime-version mismatch, not evidence that the current repository reverted.
+Runtime checks from the connected Vercel project:
+
+- Home, Services, Portfolio and Contact returned HTTP 200 from the production deployment.
+- The served homepage exposes the current 8-service architecture.
+- Runtime error scan for the last hour returned no errors.
+- The older `https://www.wasl-tech.com/` deployment is not used as Phase 13 runtime evidence until that domain is attached to the current Vercel project/deployment.
 
 ## Browser / screenshot gate
 
@@ -131,7 +140,7 @@ Visual-only claims such as exact crop/focal-point quality, zero rendered horizon
 
 Repository-level Phase 13 fixes and static/runtime-adjacent QA: **PASSED**.
 
-Production exact-head deployment: **NOT VERIFIED / currently appears stale**.
+Production exact-head deployment on Vercel: **VERIFIED READY** at `27d732f98c6ec08deff865476546e9ee77420fa8`.
 
 Final screenshot-based production visual gate: **OPEN**.
 
@@ -140,11 +149,11 @@ CI note for PR #29:
 - the associated job exposed an empty step list,
 - this matches the earlier hosted-runner failure pattern and is not treated as a code assertion failure.
 
-Do not describe the website as fully production-verified until the current main build is deployed and the exact-head browser matrix is executed.
+Do not describe the website as fully visually production-verified until the exact-head browser matrix is executed.
 
 ## Final required loop after deployment
 
-Once current `main` is live:
+Current `main` is live on Vercel. Remaining gate:
 
 **Inspect → Critique → Fix → Re-run → Verify**
 
