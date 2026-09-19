@@ -1,3 +1,21 @@
+/* Keyboard bypass link: hidden visually until focused. */
+.skip-link {
+  position:fixed;
+  top:8px;
+  inset-inline-start:8px;
+  z-index:2000;
+  padding:10px 14px;
+  border-radius:8px;
+  background:var(--wt-primary-700);
+  color:#fff;
+  font-weight:700;
+  box-shadow:var(--wt-shadow-sm);
+  translate:0 -160%;
+}
+.skip-link:focus {
+  translate:0;
+}
+
 /* ==========================================================
    WASL TECH — Shared Shell v1.0
    Header, navigation, footer and floating utility controls only.
