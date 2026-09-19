@@ -15,7 +15,7 @@ The next conversation must:
 1. verify live `main` first,
 2. read this file and `PROJECT_STATUS.md`,
 3. read design authority files,
-4. continue from **Phase 13**, unless the live repository proves that newer work already exists.
+4. continue from the **production exact-head deployment + final browser visual gate**, unless the live repository proves that newer work already exists.
 
 Do not restart from Phase 1.
 Do not redesign already-approved pages from scratch without new evidence.
@@ -504,13 +504,19 @@ GitHub Actions attempted the new quality workflow twice on PR #28, but both runs
 
 # 12. Remaining work
 
-Only **Phase 13** remains in the current rebuild plan.
+Phase 13 repository-level QA/fixes have been completed on the active Phase 13 branch.
+
+Remaining release work is now limited to:
+- merge the Phase 13 branch if its PR/diff is clean,
+- deploy/confirm current `main` on production,
+- run the exact-head screenshot/browser matrix,
+- close any runtime/visual regressions found there.
 
 ---
 
-# 13. Final Phase 13 release gate
+# 13. Phase 13 result and remaining production gate
 
-Phase 13 is not another redesign.
+Phase 13 was not another redesign.
 
 It is:
 **Cross-Page Craft Normalization + Final Runtime QA**
@@ -568,12 +574,17 @@ Check:
 Final fix loop:
 **Inspect → Critique → Fix → Re-run → Verify**
 
-Only after this gate can the website be described as complete.
+Repository-level Phase 13 QA found and fixed a real icon-subset regression: 8 Font Awesome classes still used by public pages were missing from `css/icons.css`. The mappings were restored and `scripts/site_quality_check.py` now checks icon coverage.
 
-Create:
+Created:
 `docs/design/PHASE_13_FINAL_QA.md`
-and update:
-`PROJECT_STATUS.md`
+
+Important production evidence from 2026-09-19:
+- `https://www.wasl-tech.com/` exposed an older information architecture and did not match the current 8-service repository state.
+- A screenshot-capable browser for the exact current branch was unavailable in the execution environment.
+
+Therefore the final screenshot-based production visual gate is still OPEN.
+Only after current `main` is live and that gate passes can the website be described as fully production-verified.
 
 ---
 
@@ -630,13 +641,13 @@ Legacy warning:
 
 # 17. Definition of done
 
-The project is **not done yet**.
+The repository-level Refined Craft implementation and Phase 13 source QA are complete, but the project is **not fully production-verified yet**.
 
 Done requires:
-- Phase 13 final cross-page QA completed,
-- current live code and docs reconciled,
-- no known critical visual/interaction/accessibility issues,
-- final runtime/browser visual gate when available,
-- final status document updated.
+- Phase 13 PR merged,
+- current `main` deployed/confirmed on production,
+- final exact-head runtime/browser visual gate completed,
+- no critical visual/interaction/accessibility regressions left open,
+- final status/handoff reconciled with the production result.
 
 No completion claim before that.

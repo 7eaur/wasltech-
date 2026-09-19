@@ -7,7 +7,7 @@ Current verified HEAD after Phase 12 merge: `0ee23fd7b36d0ed38d8b9ba7335d8fc6578
 
 ## Current execution state
 
-The Refined Craft rebuild has completed **Phases 1–12**.
+The Refined Craft rebuild has completed **Phases 1–12 on main**. Phase 13 repository-level QA/fixes are complete on the current Phase 13 branch; the production screenshot gate remains open.
 
 Completed:
 1. Global Design System & Layout Architecture
@@ -23,8 +23,10 @@ Completed:
 11. Mobile + Dark Mode normalization
 12. Motion + Accessibility + Performance/Core Web Vitals + SEO/Semantics quality pass
 
-Remaining:
-13. **Cross-page Refined Craft normalization + final runtime QA**
+Remaining release gate:
+- deploy/confirm the current main build on production,
+- execute the exact-head screenshot/browser matrix,
+- close any visual/runtime regressions found there.
 
 Do **not** restart the redesign from Phase 1.
 
@@ -174,20 +176,38 @@ GitHub Actions runner limitation:
 - direct repository verification of the same invariants passed,
 - therefore the workflow remains in place but hosted-runner execution is not treated as evidence of a code failure.
 
+## Phase 13 quality state
+
+See: `docs/design/PHASE_13_FINAL_QA.md`.
+
+Phase 13 repository-level findings:
+- all 10 public surfaces and 8 dynamic service ids were rechecked,
+- internal page/fragment targets resolved,
+- dynamic service and portfolio image paths resolved,
+- service modes, portfolio drawer behavior, contact validation behavior and reduced-motion runtime were reviewed from current source,
+- a real regression was found in the minimal icon subset: 8 public runtime icons were unmapped,
+- the missing glyph mappings were restored in `css/icons.css`,
+- `scripts/site_quality_check.py` now guards runtime icon coverage.
+
+Production finding on 2026-09-19:
+- `https://www.wasl-tech.com/` still exposed an older site state and did not match the current 8-service repository architecture,
+- therefore production cannot be treated as exact-head Phase 13 visual evidence.
+
 ## Current limitation / release gate
 
-A reliable hosted/browser screenshot pass has still not been completed for the merged Phase 12 state.
+A screenshot-capable browser/preview for the exact current branch was not available in this environment, and the public production URL appears stale.
 
 Therefore:
-- do not claim final visual production approval yet,
-- do not mark the site fully complete yet,
-- Phase 13 must perform the final cross-page runtime visual gate when browser/preview access is available.
+- repository-level Phase 13 QA/fixes are complete,
+- exact-head production deployment is NOT VERIFIED,
+- final screenshot-based production visual approval remains OPEN,
+- do not mark the site fully production-verified yet.
 
 ## Next task
 
-Start **Phase 13** from the latest live `main`.
+After the Phase 13 branch is merged, deploy/confirm current `main` on production and execute the final exact-head browser matrix.
 
-Phase 13 scope:
+Final visual/runtime scope:
 - cross-page Refined Craft normalization,
 - Home / Services / all 8 service ids / Portfolio / About / Process / Contact / FAQ / Blog placeholder / 404,
 - Desktop + Tablet + Mobile,
