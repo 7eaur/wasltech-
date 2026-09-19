@@ -3,10 +3,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const status = document.getElementById('contactStatus');
   if (!form || !status) return;
 
-  const showStatus = html => {
-    status.innerHTML = html;
+  const showStatus = (message, linkUrl = '') => {
+    status.replaceChildren();
+
+    const text = document.createElement('span');
+    text.textContent = message;
+    status.append(text);
+
+    if (linkUrl) {
+      status.append(' ');
+      const link = document.createElement('a');
+      link.href = linkUrl;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = 'افتح واتساب لإرسالها الآن';
+      status.append(link, '.');
+    }
+
     status.classList.add('active');
+    status.focus({ preventScroll: true });
   };
+
+  form.addEventListener('input', () => {
+    status.classList.remove('active');
+  });
 
   form.addEventListener('submit', event => {
     event.preventDefault();
@@ -22,18 +42,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const name = String(data.get('name') || '').trim();
     const phone = String(data.get('phone') || '').trim();
     const service = String(data.get('service') || '').trim();
+    const stage = String(data.get('stage') || '').trim();
+    const projectLink = String(data.get('projectLink') || '').trim();
     const details = String(data.get('details') || '').trim();
 
-    const message = [
-      'مرحباً وصل تك، أود مناقشة مشروع جديد.',
+    const messageParts = [
+      'مرحباً وصل تك، أود مناقشة مشروع.',
       '',
       'الاسم: ' + name,
       'رقم التواصل: ' + phone,
-      'نوع المشروع: ' + service,
-      'التفاصيل: ' + details
-    ].join('\n');
+      'الخدمة الأقرب: ' + service,
+      'مرحلة المشروع: ' + stage
+    ];
 
+    if (projectLink) {
+      messageParts.push('رابط المشروع الحالي: ' + projectLink);
+    }
+
+    messageParts.push('التفاصيل: ' + details);
+
+    const message = messageParts.join('\n');
     const url = 'https://wa.me/967775377979?text=' + encodeURIComponent(message);
-    showStatus('تم تجهيز تفاصيل طلبك. <a href="' + url + '" target="_blank" rel="noopener">افتح واتساب لإرسالها الآن</a>.');
+
+    showStatus('تم تجهيز تفاصيل طلبك.', url);
   });
 });
