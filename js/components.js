@@ -6,8 +6,8 @@ class SiteHeader extends HTMLElement {
         <div class="container">
           <nav class="navbar craft-navbar" aria-label="التنقل الرئيسي">
             <a href="index.html" class="logo" aria-label="وصل تك - الرئيسية">
-              <img src="assets/brand/wasl-tech-horizontal.svg" alt="وصل تك | Wasl Tech" class="logo-img logo-light" width="190" height="72" />
-              <img src="assets/brand/wasl-tech-horizontal-white.svg" alt="" class="logo-img logo-dark" width="190" height="72" aria-hidden="true" />
+              <img src="assets/brand/wasl-tech-horizontal.svg" alt="وصل تك | Wasl Tech" class="logo-img logo-light" width="190" height="72" / decoding="async">
+              <img src="assets/brand/wasl-tech-horizontal-white.svg" alt="" class="logo-img logo-dark" width="190" height="72" aria-hidden="true" / decoding="async">
             </a>
 
             <ul class="nav-links craft-nav-links" id="navLinks">
@@ -51,7 +51,7 @@ class SiteFooter extends HTMLElement {
         <div class="container">
           <div class="footer-grid craft-footer-grid">
             <div class="footer-brand">
-              <img src="assets/brand/wasl-tech-horizontal-white.svg" alt="وصل تك | Wasl Tech" class="footer-logo" width="220" height="84" loading="lazy" />
+              <img src="assets/brand/wasl-tech-horizontal-white.svg" alt="وصل تك | Wasl Tech" class="footer-logo" width="220" height="84" loading="lazy" / decoding="async">
               <p>نبني حضورك الرقمي باحتراف؛ من الفكرة إلى تجربة واضحة تجمع التصميم والتقنية.</p>
               <div class="social-links" aria-label="شبكات التواصل">
                 <a href="https://www.facebook.com/share/1DtjBgZgad/?mibextid=qi2Omg" target="_blank" rel="noopener" aria-label="فيسبوك"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
