@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     relatedWork.innerHTML = related.map(item => `
       <article class="craft-service-related-card">
         <a href="portfolio.html" aria-label="عرض ${item.title} ضمن معرض الأعمال">
-          <div class="craft-service-related-media"><img src="${item.image}" alt="${item.title}" width="760" height="500" loading="lazy" /></div>
+          <div class="craft-service-related-media"><img src="${item.image}" alt="${item.title}" width="760" height="500" loading="lazy" decoding="async" /></div>
           <div class="craft-service-related-copy"><span>${item.category}</span><h3>${item.title}</h3><strong>عرض ضمن الأعمال <i class="fas fa-arrow-left" aria-hidden="true"></i></strong></div>
         </a>
       </article>
