@@ -190,7 +190,7 @@ function initPortfolioV2() {
   const drawer = document.getElementById('projectDrawer');
   const drawerClose = document.getElementById('drawerClose');
   const drawerCloseSecondary = document.getElementById('drawerCloseSecondary');
-  const drawerScroll = drawer?.querySelector('.portfolio-drawer-scroll');
+  const drawerScroll = drawer?.querySelector('.portfolio6-drawer-scroll');
   if (!grid || !filters || !overlay || !drawer) return;
 
   const categories = [...new Map(portfolioData.map(item => [item.category, item.categoryName])).entries()];
