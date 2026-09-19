@@ -3953,3 +3953,85 @@ html[data-theme="dark"] :where(
     min-height:44px;
   }
 }
+
+
+/* Lightweight editorial alternative to image-heavy inner heroes. */
+.craft-page-hero-aside-panel {
+  align-self:stretch;
+  display:grid;
+  align-content:center;
+  gap:0;
+  padding:18px 20px;
+  border:1px solid var(--wt-border-default);
+  border-radius:13px;
+  background:var(--wt-bg-canvas);
+}
+
+.craft-page-hero-aside-kicker {
+  display:block;
+  margin-bottom:8px;
+  color:var(--wt-accent-700);
+  font-size:.72rem;
+  font-weight:700;
+}
+
+.craft-page-hero-aside-panel > div {
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  border-top:1px solid var(--wt-border-default);
+}
+
+.craft-page-hero-aside-panel strong {
+  color:var(--wt-text-primary);
+  font-size:.9rem;
+}
+
+.craft-page-hero-aside-panel small {
+  color:var(--wt-text-secondary);
+  font-size:.72rem;
+  text-align:left;
+}
+
+/* Text-led About variants remove multi-megabyte decorative imagery. */
+.craft-about-story-shell-text {
+  grid-template-columns:minmax(0,1.12fr) minmax(250px,.88fr);
+  align-items:start;
+}
+
+.craft-about-story-shell-text .craft-about-story-points {
+  margin-top:32px;
+}
+
+.craft-about-approach-shell-text {
+  grid-template-columns:minmax(260px,.7fr) minmax(0,1.3fr);
+  align-items:start;
+}
+
+.craft-about-approach-shell-text header h2 {
+  margin-bottom:18px;
+}
+
+@media (max-width:980px) {
+  .craft-about-story-shell-text,
+  .craft-about-approach-shell-text {
+    grid-template-columns:1fr;
+  }
+
+  .craft-about-story-shell-text .craft-about-story-points {
+    margin-top:0;
+  }
+}
+
+@media (max-width:700px) {
+  .craft-page-hero-aside-panel {
+    padding:15px;
+    border-radius:11px;
+  }
+
+  .craft-page-hero-aside-panel > div {
+    min-height:52px;
+  }
+}
