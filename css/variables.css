@@ -37,15 +37,15 @@
   --wt-border-strong:#AEC3DE;
 
   --wt-radius-xs:4px;
-  --wt-radius-sm:6px;
+  --wt-radius-sm:8px;
   --wt-radius-md:10px;
-  --wt-radius-lg:16px;
-  --wt-radius-xl:24px;
+  --wt-radius-lg:14px;
+  --wt-radius-xl:20px;
   --wt-radius-full:999px;
 
-  --wt-shadow-xs:0 1px 2px rgb(11 23 48 / 6%);
-  --wt-shadow-sm:0 8px 24px rgb(11 23 48 / 8%);
-  --wt-shadow-md:0 18px 48px rgb(11 23 48 / 12%);
+  --wt-shadow-xs:0 1px 2px rgb(11 23 48 / 5%);
+  --wt-shadow-sm:0 5px 18px rgb(11 23 48 / 7%);
+  --wt-shadow-md:0 14px 34px rgb(11 23 48 / 10%);
   --wt-focus-ring:0 0 0 3px #9DDED8;
 
   --wt-space-1:4px;
@@ -60,6 +60,17 @@
   --wt-space-16:64px;
   --wt-space-20:80px;
   --wt-space-24:96px;
+
+  --wt-container:1220px;
+  --wt-container-narrow:860px;
+  --wt-section-desktop:72px;
+  --wt-section-tablet:56px;
+  --wt-section-mobile:42px;
+  --wt-header-height:74px;
+  --wt-control-height:44px;
+  --wt-ease:cubic-bezier(.2,.7,.2,1);
+  --wt-motion-fast:160ms;
+  --wt-motion-base:220ms;
 
   --wt-font-ar:'IBM Plex Sans Arabic','Noto Sans Arabic',sans-serif;
   --wt-font-en:'IBM Plex Sans',Inter,sans-serif;
@@ -83,7 +94,7 @@
   --radius-xl:var(--wt-radius-xl);
   --transition:200ms ease-out;
   --transition-slow:320ms ease-out;
-  --section-pad:clamp(64px,8vw,112px) 0;
+  --section-pad:clamp(42px,6vw,72px) 0;
   --font-main:var(--wt-font-ar);
   --font-size-xs:.78rem;
   --font-size-sm:.9rem;
