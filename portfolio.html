@@ -10,7 +10,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="أعمالنا | وصل تك — Wasl Tech" />
   <meta property="og:description" content="نماذج من أعمال وصل تك في المواقع والتطبيقات والمتاجر والهوية والتسويق." />
-  <meta property="og:image" content="https://www.wasl-tech.com/assets/works/project_1.jpg" />
+  <meta property="og:image" content="https://www.wasl-tech.com/assets/gen/hero_portfolio.png" />
   <link rel="icon" href="assets/brand/favicon.svg" />
   <link rel="manifest" href="site.webmanifest" />
   <link rel="stylesheet" href="css/fonts.css" />
@@ -27,69 +27,49 @@
   <site-header></site-header>
 
   <main>
-    <section class="page-intro portfolio-hero">
-      <div class="container portfolio-hero-grid">
-        <div class="fade-up">
-          <div class="page-kicker">أعمالنا</div>
-          <h1>أعمال حقيقية توضّح كيف يتحول الاحتياج إلى تجربة رقمية.</h1>
-          <p>تصفح المشاريع حسب نوعها، افتح تفاصيل المشروع داخل الموقع، ثم انتقل للتواصل فقط عندما تجد اتجاهًا قريبًا من فكرتك.</p>
-          <div class="portfolio-hero-actions">
+    <section class="craft-page-hero craft-portfolio-hero">
+      <div class="container craft-page-hero-shell fade-up">
+        <div class="craft-page-hero-copy">
+          <span class="eyebrow">أعمالنا</span>
+          <h1>العمل الحقيقي أوضح من أي وعد تسويقي.</h1>
+          <p>تصفح المشاريع حسب نوعها، افتح تفاصيل المشروع داخل الموقع، وشاهد نماذج من المواقع والتطبيقات والمتاجر والهوية والتسويق.</p>
+          <div class="craft-page-hero-actions">
             <a class="btn btn-primary" href="#portfolio-directory">استكشف المشاريع <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
             <a class="btn btn-outline" href="contact.html">ناقش مشروعك</a>
           </div>
+          <div class="craft-page-hero-meta">
+            <span><strong id="portfolioProjectCount">14</strong> مشروعًا في المعرض</span>
+            <span><strong id="portfolioCategoryCount">5</strong> تصنيفات أعمال</span>
+          </div>
         </div>
 
-        <div class="portfolio-hero-visual fade-up" aria-label="نماذج متنوعة من أعمال وصل تك">
-          <figure class="portfolio-hero-main"><img src="assets/works/project_1.jpg" alt="منصة صوركم الرقمية" width="820" height="560" loading="eager" /></figure>
-          <figure class="portfolio-hero-small portfolio-hero-store"><img src="assets/works/project_10.jpg" alt="متجر النخبة للإلكترونيات" width="460" height="320" loading="eager" /></figure>
-          <figure class="portfolio-hero-small portfolio-hero-brand"><img src="assets/works/project_7.jpg" alt="هوية بصرية لمطعم الملكي" width="460" height="320" loading="eager" /></figure>
-        </div>
+        <figure class="craft-page-hero-media">
+          <img src="assets/gen/hero_portfolio.png" alt="معرض أعمال وصل تك" width="900" height="600" loading="eager" />
+          <figcaption><span>Portfolio</span><strong>نماذج من أعمال وصل تك</strong></figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="portfolio-summary" aria-label="ملخص معرض الأعمال">
-      <div class="container portfolio-summary-grid">
-        <div><span id="portfolioProjectCount">14</span><strong>مشروعًا في المعرض</strong></div>
-        <div><span id="portfolioCategoryCount">5</span><strong>تصنيفات أعمال</strong></div>
-        <div><span>01</span><strong>اضغط على أي مشروع لرؤية تفاصيله داخل الموقع</strong></div>
-      </div>
-    </section>
-
-    <section class="section-pad" id="portfolio-directory">
+    <section class="section-pad craft-portfolio-directory" id="portfolio-directory">
       <div class="container">
-        <header class="section-heading portfolio-directory-heading fade-up">
+        <header class="craft-home-section-head fade-up">
           <div>
             <span class="eyebrow">استكشف الأعمال</span>
-            <h2>اختر التصنيف، ثم قارن المشاريع بصريًا.</h2>
-            <p>كل مشروع يحتفظ بالمعلومات المثبتة عنه، مع أبرز النقاط الواردة في وصفه وخدمة وصل تك المرتبطة به.</p>
+            <h2>صفِّ المشاريع حسب النوع، ثم افتح التفاصيل بدون مغادرة الصفحة.</h2>
           </div>
           <a class="text-link" href="services.html">استكشف الخدمات <i class="fas fa-arrow-left"></i></a>
         </header>
 
-        <div class="portfolio-toolbar portfolio-toolbar-v2 fade-up" id="portfolioFilters" aria-label="تصفية المشاريع"></div>
-        <div class="portfolio-project-grid" id="portfolioGrid" aria-live="polite"></div>
+        <div class="craft-portfolio-toolbar fade-up" id="portfolioFilters" aria-label="تصفية المشاريع"></div>
+        <div class="craft-portfolio-grid" id="portfolioGrid" aria-live="polite"></div>
       </div>
     </section>
 
-    <section class="section-pad bg-light portfolio-note">
-      <div class="container portfolio-note-grid">
-        <div class="fade-up">
-          <span class="eyebrow">ما الذي ستجده داخل التفاصيل؟</span>
-          <h2>المعلومة المتاحة أولًا، ثم قرار التواصل.</h2>
-        </div>
-        <div class="portfolio-note-list fade-up">
-          <div><span>01</span><strong>وصف المشروع ونوعه.</strong></div>
-          <div><span>02</span><strong>أبرز العناصر المذكورة في بيانات المشروع.</strong></div>
-          <div><span>03</span><strong>الخدمة المرتبطة ومشاريع قريبة من نفس التصنيف.</strong></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-pad">
+    <section class="craft-page-closing">
       <div class="container">
-        <div class="cta-stage fade-up">
+        <div class="craft-page-closing-shell fade-up">
           <div>
-            <span class="cta-kicker">عندك فكرة قريبة من أحد الأعمال؟</span>
+            <span class="eyebrow">وجدت اتجاهًا قريبًا من فكرتك؟</span>
             <h2>ابدأ من المشروع الأقرب بدل شرح كل شيء من الصفر.</h2>
             <p>افتح تفاصيل المشروع، ثم استخدم زر “أريد مشروعًا مشابهًا” حتى تبدأ المحادثة بسياق واضح.</p>
           </div>
@@ -103,7 +83,7 @@
   </main>
 
   <div class="portfolio-drawer-overlay" id="projectDrawerOverlay" aria-hidden="true">
-    <aside class="portfolio-drawer-v2" id="projectDrawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" tabindex="-1">
+    <aside class="portfolio-drawer-v2 craft-portfolio-drawer" id="projectDrawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" tabindex="-1">
       <div class="portfolio-drawer-header">
         <div>
           <span>تفاصيل المشروع</span>
