@@ -1,0 +1,184 @@
+/* ==========================================================
+   WASL TECH — Mobile & Dark Normalization v1.0
+   Phase 11 guard layer. Loaded last on every public page.
+   ========================================================== */
+
+html {
+  -webkit-text-size-adjust:100%;
+}
+
+html[data-theme="light"] { color-scheme:light; }
+html[data-theme="dark"] { color-scheme:dark; }
+
+body,
+main,
+section,
+article,
+aside,
+nav,
+header,
+footer,
+div {
+  min-width:0;
+}
+
+:where(a, button, input, select, textarea, summary) {
+  -webkit-tap-highlight-color:transparent;
+}
+
+:where(input, select, textarea) {
+  max-width:100%;
+}
+
+:where(input, select, textarea)::placeholder {
+  color:var(--wt-text-muted);
+  opacity:1;
+}
+
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline:3px solid color-mix(in srgb, var(--wt-accent-500) 58%, transparent);
+  outline-offset:3px;
+}
+
+:where(p, li, strong, small, span, a) {
+  overflow-wrap:break-word;
+}
+
+[id] {
+  scroll-margin-top:calc(var(--wt-header-height) + 24px);
+}
+
+/* Fixed controls respect notches / browser safe areas. */
+.floating-widgets {
+  left:max(12px, env(safe-area-inset-left));
+  bottom:max(12px, env(safe-area-inset-bottom));
+}
+
+/* Drawer and modal surfaces must never exceed the visible viewport. */
+.nav-links,
+.portfolio6-drawer,
+.portfolio-drawer-v2 {
+  max-height:100dvh;
+}
+
+/* Dark form controls: keep native widgets readable without glows. */
+html[data-theme="dark"] :where(input, select, textarea) {
+  background:var(--wt-bg-canvas);
+  color:var(--wt-text-primary);
+  border-color:var(--wt-border-default);
+}
+
+html[data-theme="dark"] :where(input, select, textarea):focus {
+  border-color:var(--wt-accent-500);
+  box-shadow:0 0 0 3px rgb(14 136 137 / 12%);
+}
+
+html[data-theme="dark"] :where(option) {
+  background:var(--wt-bg-canvas);
+  color:var(--wt-text-primary);
+}
+
+/* Keep embedded/project media from forcing horizontal layout. */
+:where(figure, picture, .craft-media, .home3-work-image, .portfolio6-media, .service5-media) {
+  max-width:100%;
+}
+
+@media (max-width:1024px) {
+  /* Tablet should prefer the menu before navigation becomes cramped. */
+  .nav-btn {
+    white-space:nowrap;
+  }
+}
+
+@media (max-width:700px) {
+  /* Prevent iOS from zooming the page when a form field receives focus. */
+  :where(input, select, textarea) {
+    font-size:16px;
+  }
+
+  /* Main action groups become deliberate mobile stacks. */
+  .hero-actions,
+  .home3-actions,
+  .home3-closing-actions,
+  .services4-hero-actions,
+  .services4-closing-actions,
+  .service5-actions,
+  .service5-closing-actions,
+  .portfolio6-hero-actions,
+  .portfolio6-closing-actions,
+  .about7-hero-actions,
+  .about7-closing-actions,
+  .process8-hero-actions,
+  .process8-closing-actions,
+  .contact9-closing-actions {
+    display:grid;
+    grid-template-columns:1fr;
+    width:100%;
+  }
+
+  .hero-actions .btn,
+  .home3-actions .btn,
+  .home3-closing-actions .btn,
+  .services4-hero-actions .btn,
+  .services4-closing-actions .btn,
+  .service5-actions .btn,
+  .service5-closing-actions .btn,
+  .portfolio6-hero-actions .btn,
+  .portfolio6-closing-actions .btn,
+  .about7-hero-actions .btn,
+  .about7-closing-actions .btn,
+  .process8-hero-actions .btn,
+  .process8-closing-actions .btn,
+  .contact9-closing-actions .btn {
+    width:100%;
+    min-height:46px;
+  }
+
+  /* Comfortable tap targets for navigation, accordion and form surfaces. */
+  .nav-link,
+  .mobile-contact-links a,
+  .faq-stack summary,
+  .faq-stack-refined summary,
+  .home3-faq-list summary,
+  .contact9-faq-list summary {
+    min-height:44px;
+  }
+
+  :where(button, input, select) {
+    min-height:44px;
+  }
+
+  /* Long addresses/emails stay inside their columns. */
+  .footer-contact a,
+  .contact9-channels a,
+  .contact9-channel-primary {
+    overflow-wrap:anywhere;
+  }
+
+  /* Fixed utilities should not cover the bottom of short utility pages. */
+  .utility-page {
+    padding-bottom:18px;
+  }
+}
+
+@media (max-width:420px) {
+  .container {
+    width:calc(100% - 24px);
+  }
+
+  .floating-widgets {
+    gap:6px;
+  }
+
+  .fw-btn {
+    width:42px;
+    height:42px;
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .fade-up {
+    opacity:1!important;
+    transform:none!important;
+  }
+}
