@@ -1,3 +1,11 @@
+# LEGACY / SUPERSEDED QA REPORT
+
+> Historical document only. This report predates the Refined Craft Phase 1–11 rebuild and contains stale facts such as a six-service taxonomy.  
+> Current authority is: live `main` → `PROJECT_STATUS.md` → `PROJECT_HANDOFF.md` → current `docs/design/PHASE_*_QA.md`.  
+> Do not use this file as the current project state.
+
+---
+
 # Wasl Tech Website Refresh — QA Report
 
 Branch: `design/tech-forward-partner-20260919`
