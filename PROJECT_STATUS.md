@@ -3,11 +3,11 @@
 Last updated: 2026-09-19  
 Repository: `7eaur/wasltech-`  
 Official branch: `main`  
-Current verified HEAD after Phase 12 merge: `0ee23fd7b36d0ed38d8b9ba7335d8fc65781fe92`
+Current verified main after Phase 13 merge: `5bc890b3107f5923d1c06e6bab5931ebbf5d1625`
 
 ## Current execution state
 
-The Refined Craft rebuild has completed **Phases 1–12 on main**. Phase 13 repository-level QA/fixes are complete on the current Phase 13 branch; the production screenshot gate remains open.
+The Refined Craft rebuild has completed **Phases 1–13 on main at repository level**. The production screenshot/browser gate remains open.
 
 Completed:
 1. Global Design System & Layout Architecture
@@ -22,6 +22,7 @@ Completed:
 10. FAQ + secondary/public utility pages
 11. Mobile + Dark Mode normalization
 12. Motion + Accessibility + Performance/Core Web Vitals + SEO/Semantics quality pass
+13. Cross-page repository-level final QA + icon regression fix
 
 Remaining release gate:
 - deploy/confirm the current main build on production,
@@ -44,6 +45,7 @@ Do **not** restart the redesign from Phase 1.
 - Phase 10: `99171be786a640f291bb81aa3ca3d703a7af9153`
 - Phase 11: `9a0204f28c3075f0cddae3b5ae94c45ec84c7a39`
 - Phase 12: `0ee23fd7b36d0ed38d8b9ba7335d8fc65781fe92` (PR #28, squash merge)
+- Phase 13: `5bc890b3107f5923d1c06e6bab5931ebbf5d1625` (PR #29, squash merge)
 
 ## Current product facts from live code
 
@@ -180,14 +182,17 @@ GitHub Actions runner limitation:
 
 See: `docs/design/PHASE_13_FINAL_QA.md`.
 
-Phase 13 repository-level findings:
+Phase 13 is merged via PR #29 (`5bc890b3107f5923d1c06e6bab5931ebbf5d1625`).
+
+Repository-level findings:
 - all 10 public surfaces and 8 dynamic service ids were rechecked,
 - internal page/fragment targets resolved,
 - dynamic service and portfolio image paths resolved,
 - service modes, portfolio drawer behavior, contact validation behavior and reduced-motion runtime were reviewed from current source,
 - a real regression was found in the minimal icon subset: 8 public runtime icons were unmapped,
 - the missing glyph mappings were restored in `css/icons.css`,
-- `scripts/site_quality_check.py` now guards runtime icon coverage.
+- `scripts/site_quality_check.py` now guards runtime icon coverage,
+- PR #29 `Site quality` run `35467612840` failed before any workflow step executed; the job exposed an empty step list, matching the earlier hosted-runner failure pattern.
 
 Production finding on 2026-09-19:
 - `https://www.wasl-tech.com/` still exposed an older site state and did not match the current 8-service repository architecture,
