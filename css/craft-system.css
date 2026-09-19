@@ -1962,3 +1962,520 @@ html[data-theme="dark"] .craft-services-chooser-shell header h2 {
     transform:none;
   }
 }
+
+
+/* ==========================================================
+   PHASE 5 — ADAPTIVE SERVICE DETAIL
+   ========================================================== */
+.craft-service-breadcrumb {
+  display:flex;
+  align-items:center;
+  gap:7px;
+  flex-wrap:wrap;
+  margin:0 0 12px;
+  color:var(--wt-text-secondary);
+  font-size:.72rem;
+}
+
+.craft-service-breadcrumb a:hover {
+  color:var(--wt-accent-700);
+}
+
+.craft-service-breadcrumb i {
+  font-size:.56rem;
+  opacity:.55;
+}
+
+.craft-service-breadcrumb span {
+  color:var(--wt-text-primary);
+  font-weight:700;
+}
+
+.craft-service-meta-row {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:7px;
+}
+
+.craft-service-meta-row .eyebrow {
+  margin-bottom:0;
+}
+
+.craft-service-meta-row > span:last-child {
+  color:var(--wt-text-secondary);
+  font:700 .72rem/1 var(--wt-font-en);
+}
+
+.craft-service-hero-copy h2 {
+  max-width:34ch;
+  margin:0 0 8px;
+  color:var(--wt-text-primary);
+  font-size:1.02rem;
+  line-height:1.55;
+}
+
+.craft-service-highlights {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0;
+  margin-top:22px;
+  border-block:1px solid var(--wt-border-default);
+}
+
+.craft-service-highlight {
+  min-width:0;
+  display:grid;
+  grid-template-columns:34px minmax(0,1fr);
+  gap:10px;
+  padding:12px 0;
+}
+
+.craft-service-highlight + .craft-service-highlight {
+  padding-inline-start:14px;
+  border-inline-start:1px solid var(--wt-border-default);
+}
+
+.craft-service-highlight-icon {
+  width:32px;
+  height:32px;
+  display:grid;
+  place-items:center;
+  border-radius:9px;
+  background:var(--wt-accent-50);
+  color:var(--wt-accent-700);
+}
+
+.craft-service-highlight h3 {
+  margin:0 0 2px;
+  color:var(--wt-text-primary);
+  font-size:.82rem;
+}
+
+.craft-service-highlight p {
+  margin:0;
+  color:var(--wt-text-secondary);
+  font-size:.7rem;
+  line-height:1.5;
+}
+
+/* Fit */
+.craft-service-fit {
+  padding-block:52px;
+}
+
+.craft-service-fit-shell {
+  display:grid;
+  grid-template-columns:minmax(260px,.68fr) minmax(0,1.32fr);
+  gap:clamp(28px,5vw,56px);
+  align-items:start;
+}
+
+.craft-service-fit-shell .section-heading {
+  margin:0;
+}
+
+.craft-service-targets {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  border-top:1px solid var(--wt-border-default);
+}
+
+.craft-service-target-row {
+  min-height:56px;
+  display:grid;
+  grid-template-columns:30px 34px minmax(0,1fr);
+  gap:8px;
+  align-items:center;
+  border-bottom:1px solid var(--wt-border-default);
+}
+
+.craft-service-target-row:nth-child(odd) {
+  padding-inline-end:14px;
+  border-inline-end:1px solid var(--wt-border-default);
+}
+
+.craft-service-target-row:nth-child(even) {
+  padding-inline-start:14px;
+}
+
+.craft-service-target-index {
+  color:var(--wt-accent-700);
+  font:700 .68rem/1 var(--wt-font-en);
+}
+
+.craft-service-target-icon {
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  color:var(--wt-accent-700);
+}
+
+.craft-service-target-row strong {
+  color:var(--wt-text-primary);
+  font-size:.84rem;
+}
+
+/* Deliverables */
+.craft-service-deliverables {
+  padding-block:56px;
+}
+
+.craft-service-deliverable-list {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  border-top:1px solid var(--wt-border-default);
+}
+
+.craft-service-deliverable {
+  min-height:88px;
+  display:grid;
+  grid-template-columns:30px 36px minmax(0,1fr);
+  gap:10px;
+  align-items:start;
+  padding:16px 12px;
+  border-bottom:1px solid var(--wt-border-default);
+}
+
+.craft-service-deliverable:nth-child(odd) {
+  border-inline-end:1px solid var(--wt-border-default);
+}
+
+.craft-service-deliverable-index {
+  color:var(--wt-accent-700);
+  font:700 .68rem/1.5 var(--wt-font-en);
+  padding-top:6px;
+}
+
+.craft-service-deliverable-icon {
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:9px;
+  background:var(--wt-accent-50);
+  color:var(--wt-accent-700);
+}
+
+.craft-service-deliverable h3 {
+  margin:0 0 3px;
+  color:var(--wt-text-primary);
+  font-size:.88rem;
+}
+
+.craft-service-deliverable p {
+  margin:0;
+  color:var(--wt-text-secondary);
+  font-size:.72rem;
+  line-height:1.55;
+}
+
+/* System mode is specification-like and denser. */
+body[data-service-mode="system"] .craft-service-deliverable-list {
+  grid-template-columns:1fr;
+}
+
+body[data-service-mode="system"] .craft-service-deliverable {
+  grid-template-columns:32px minmax(0,1fr);
+  min-height:62px;
+  padding:11px 4px;
+  border-inline-end:0;
+}
+
+body[data-service-mode="system"] .craft-service-deliverable-icon {
+  display:none;
+}
+
+/* Presence mode has slightly more breathing room for visual deliverables. */
+body[data-service-mode="presence"] .craft-service-deliverable {
+  min-height:96px;
+}
+
+/* Related proof */
+.craft-service-related {
+  padding-block:56px;
+}
+
+.craft-service-related-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+
+.craft-service-related-card {
+  overflow:hidden;
+  border:1px solid var(--wt-border-default);
+  border-radius:var(--craft-panel-radius);
+  background:var(--wt-bg-canvas);
+}
+
+.craft-service-related-media {
+  overflow:hidden;
+  background:var(--wt-bg-subtle);
+}
+
+.craft-service-related-media img {
+  width:100%;
+  aspect-ratio:16/10;
+  object-fit:cover;
+  display:block;
+  transition:transform var(--wt-motion-base) var(--wt-ease);
+}
+
+.craft-service-related-copy {
+  padding:14px 16px 17px;
+}
+
+.craft-service-related-copy span {
+  color:var(--wt-accent-700);
+  font-size:.7rem;
+  font-weight:700;
+}
+
+.craft-service-related-copy h3 {
+  margin:3px 0 10px;
+  color:var(--wt-text-primary);
+  font-size:.96rem;
+}
+
+.craft-service-related-copy strong {
+  color:var(--wt-primary-700);
+  font-size:.76rem;
+}
+
+.craft-service-related-card:hover img {
+  transform:scale(1.015);
+}
+
+/* Service process */
+.craft-service-process {
+  padding-block:54px;
+}
+
+.craft-service-process-shell {
+  display:grid;
+  grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);
+  gap:clamp(28px,5vw,58px);
+  align-items:start;
+  padding:clamp(24px,3.5vw,38px);
+  border-radius:var(--craft-major-radius);
+  background:var(--wt-primary-950);
+  color:#fff;
+}
+
+.craft-service-process-shell .eyebrow {
+  color:var(--wt-accent-200);
+}
+
+.craft-service-process-shell header h2 {
+  margin:0 0 7px;
+  color:#fff;
+  font-size:clamp(1.7rem,2.8vw,2.35rem);
+  line-height:1.34;
+}
+
+.craft-service-process-shell header p {
+  margin:0;
+  color:#B7C4D3;
+  font-size:.84rem;
+  line-height:1.65;
+}
+
+.craft-service-steps {
+  border-top:1px solid rgb(255 255 255 / 13%);
+}
+
+.craft-service-step {
+  min-height:62px;
+  display:grid;
+  grid-template-columns:34px minmax(0,.52fr) minmax(0,1fr);
+  gap:11px;
+  align-items:center;
+  padding:10px 0;
+  border-bottom:1px solid rgb(255 255 255 / 13%);
+}
+
+.craft-service-step-number {
+  color:var(--wt-accent-200);
+  font:700 .7rem/1 var(--wt-font-en);
+}
+
+.craft-service-step h3 {
+  margin:0;
+  color:#fff;
+  font-size:.86rem;
+}
+
+.craft-service-step p {
+  margin:0;
+  color:#B7C4D3;
+  font-size:.72rem;
+  line-height:1.55;
+}
+
+.craft-service-faq {
+  padding-block:54px;
+}
+
+/* Sibling navigation */
+.craft-service-sibling-nav {
+  margin-bottom:44px;
+  border-block:1px solid var(--wt-border-default);
+  background:var(--wt-bg-subtle);
+}
+
+.craft-service-sibling-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+
+.craft-service-sibling-link {
+  min-height:84px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:14px 20px;
+  border-inline-end:1px solid var(--wt-border-default);
+  transition:background-color var(--wt-motion-fast) var(--wt-ease);
+}
+
+.craft-service-sibling-next {
+  align-items:flex-end;
+  text-align:left;
+  border-inline-end:0;
+}
+
+.craft-service-sibling-link:hover {
+  background:var(--wt-bg-canvas);
+}
+
+.craft-service-sibling-link span {
+  color:var(--wt-text-secondary);
+  font-size:.68rem;
+}
+
+.craft-service-sibling-link strong {
+  margin-top:2px;
+  color:var(--wt-text-primary);
+  font-size:.88rem;
+}
+
+html[data-theme="dark"] .craft-service-related-copy strong {
+  color:#F5F8FA;
+}
+
+@media (max-width: 980px) {
+  .craft-service-fit-shell,
+  .craft-service-process-shell {
+    grid-template-columns:1fr;
+  }
+
+  .craft-service-related-grid {
+    grid-template-columns:1fr 1fr;
+  }
+
+  .craft-service-related-card:first-child:nth-last-child(3) {
+    grid-column:1/-1;
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+  }
+
+  .craft-service-related-card:first-child:nth-last-child(3) .craft-service-related-media img {
+    height:100%;
+    min-height:270px;
+  }
+}
+
+@media (max-width: 700px) {
+  .craft-service-breadcrumb {
+    margin-bottom:10px;
+  }
+
+  .craft-service-highlights {
+    grid-template-columns:1fr;
+  }
+
+  .craft-service-highlight + .craft-service-highlight {
+    padding-inline-start:0;
+    border-inline-start:0;
+    border-top:1px solid var(--wt-border-default);
+  }
+
+  .craft-service-fit,
+  .craft-service-deliverables,
+  .craft-service-related,
+  .craft-service-process,
+  .craft-service-faq {
+    padding-block:42px;
+  }
+
+  .craft-service-targets,
+  .craft-service-deliverable-list {
+    grid-template-columns:1fr;
+  }
+
+  .craft-service-target-row:nth-child(odd),
+  .craft-service-target-row:nth-child(even) {
+    padding-inline:0;
+    border-inline-end:0;
+  }
+
+  .craft-service-deliverable {
+    min-height:0;
+    padding:14px 2px;
+    border-inline-end:0 !important;
+  }
+
+  .craft-service-related-grid {
+    grid-template-columns:1fr;
+  }
+
+  .craft-service-related-card:first-child:nth-last-child(3) {
+    grid-column:auto;
+    display:block;
+  }
+
+  .craft-service-related-card:first-child:nth-last-child(3) .craft-service-related-media img {
+    height:auto;
+    min-height:0;
+  }
+
+  .craft-service-process-shell {
+    padding:20px;
+    border-radius:14px;
+  }
+
+  .craft-service-step {
+    grid-template-columns:30px minmax(0,1fr);
+    gap:8px 10px;
+  }
+
+  .craft-service-step p {
+    grid-column:2;
+  }
+
+  .craft-service-sibling-nav {
+    margin-bottom:34px;
+  }
+
+  .craft-service-sibling-link {
+    min-height:78px;
+    padding:12px 10px;
+  }
+
+  .craft-service-sibling-link strong {
+    font-size:.78rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .craft-service-related-media img {
+    transition:none;
+  }
+
+  .craft-service-related-card:hover img {
+    transform:none;
+  }
+}
