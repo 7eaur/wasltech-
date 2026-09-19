@@ -177,6 +177,16 @@ if "@keyframes" in base_css or re.search(r"\banimation\s*:", base_css):
 if (ROOT / "js/particles.js").exists():
     fail("motion", "unused particle runtime must not exist")
 
+# Public content marked with .fade-up must never depend on the removed reveal runtime.
+for css_path in sorted((ROOT / "css").glob("*.css")):
+    css_source = css_path.read_text(encoding="utf-8")
+    for match in re.finditer(r"\.fade-up\s*\{([^}]*)\}", css_source, flags=re.IGNORECASE | re.DOTALL):
+        rule = match.group(1)
+        if re.search(r"\bopacity\s*:\s*0(?:\s*!important)?\s*;", rule, flags=re.IGNORECASE):
+            fail("motion", f"{css_path.name} hides .fade-up even though the reveal runtime is removed")
+        if re.search(r"\bvisibility\s*:\s*hidden\b", rule, flags=re.IGNORECASE):
+            fail("motion", f"{css_path.name} hides .fade-up visibility even though the reveal runtime is removed")
+
 # Dynamic service metadata must remain unique per service id.
 service_js = (ROOT / "js/service-detail.js").read_text(encoding="utf-8")
 for required in ("document.title", "serviceMetaDescription", "serviceOgTitle", "serviceOgDescription", "serviceCanonical"):
