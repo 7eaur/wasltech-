@@ -2479,3 +2479,304 @@ html[data-theme="dark"] .craft-service-related-copy strong {
     transform:none;
   }
 }
+
+
+/* ==========================================================
+   PHASE 6 — PORTFOLIO
+   ========================================================== */
+.craft-portfolio-directory {
+  padding-block:58px;
+}
+
+.craft-portfolio-toolbar {
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-bottom:24px;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--wt-border-default);
+}
+
+.craft-portfolio-toolbar .filter-btn {
+  min-height:36px;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 11px;
+  border:1px solid var(--wt-border-default);
+  border-radius:999px;
+  background:var(--wt-bg-canvas);
+  color:var(--wt-text-secondary);
+  font:700 .78rem/1 var(--wt-font-ar);
+  cursor:pointer;
+  transition:
+    background-color var(--wt-motion-fast) var(--wt-ease),
+    border-color var(--wt-motion-fast) var(--wt-ease),
+    color var(--wt-motion-fast) var(--wt-ease);
+}
+
+.craft-portfolio-toolbar .filter-btn small {
+  min-width:20px;
+  height:20px;
+  display:grid;
+  place-items:center;
+  border-radius:999px;
+  background:var(--wt-bg-subtle);
+  color:inherit;
+  font:700 .66rem/1 var(--wt-font-en);
+}
+
+.craft-portfolio-toolbar .filter-btn:hover,
+.craft-portfolio-toolbar .filter-btn.active {
+  border-color:var(--wt-primary-700);
+  background:var(--wt-primary-700);
+  color:#fff;
+}
+
+.craft-portfolio-toolbar .filter-btn.active small,
+.craft-portfolio-toolbar .filter-btn:hover small {
+  background:rgb(255 255 255 / 14%);
+}
+
+.craft-portfolio-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+}
+
+.craft-portfolio-grid .portfolio-project-card {
+  min-width:0;
+  overflow:hidden;
+  border:1px solid var(--wt-border-default);
+  border-radius:var(--craft-panel-radius);
+  background:var(--wt-bg-canvas);
+}
+
+.craft-portfolio-grid .portfolio-project-featured {
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:1.16fr .84fr;
+}
+
+.craft-portfolio-grid .portfolio-project-image {
+  overflow:hidden;
+  background:var(--wt-bg-subtle);
+}
+
+.craft-portfolio-grid .portfolio-project-image img {
+  width:100%;
+  aspect-ratio:16/10;
+  object-fit:cover;
+  display:block;
+  transition:transform var(--wt-motion-base) var(--wt-ease);
+}
+
+.craft-portfolio-grid .portfolio-project-featured .portfolio-project-image img {
+  height:100%;
+  min-height:340px;
+  aspect-ratio:auto;
+}
+
+.craft-portfolio-grid .portfolio-project-body {
+  padding:18px 20px 21px;
+}
+
+.craft-portfolio-grid .portfolio-project-featured .portfolio-project-body {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:clamp(24px,4vw,40px);
+}
+
+.craft-portfolio-grid .portfolio-project-meta {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+
+.craft-portfolio-grid .portfolio-project-meta span {
+  color:var(--wt-accent-700);
+  font-size:.72rem;
+  font-weight:700;
+}
+
+.craft-portfolio-grid .portfolio-project-meta small {
+  color:var(--wt-text-secondary);
+  font:700 .68rem/1 var(--wt-font-en);
+}
+
+.craft-portfolio-grid .portfolio-project-body h2 {
+  margin:5px 0 7px;
+  color:var(--wt-text-primary);
+  font-size:1.08rem;
+  line-height:1.4;
+}
+
+.craft-portfolio-grid .portfolio-project-featured h2 {
+  font-size:clamp(1.45rem,2.4vw,1.95rem);
+}
+
+.craft-portfolio-grid .portfolio-project-body p {
+  margin:0 0 14px;
+  color:var(--wt-text-secondary);
+  font-size:.78rem;
+  line-height:1.65;
+}
+
+.craft-portfolio-grid .portfolio-detail-trigger {
+  padding:0;
+  border:0;
+  background:transparent;
+  font-family:var(--wt-font-ar);
+  cursor:pointer;
+}
+
+.craft-portfolio-grid .portfolio-project-card:hover .portfolio-project-image img {
+  transform:scale(1.015);
+}
+
+/* Drawer */
+.portfolio-drawer-overlay {
+  background:rgb(7 17 39 / 48%);
+  backdrop-filter:blur(1px);
+}
+
+.craft-portfolio-drawer {
+  width:min(620px,94vw);
+  box-shadow:-18px 0 48px rgb(7 17 39 / 20%);
+}
+
+.craft-portfolio-drawer .portfolio-drawer-header {
+  min-height:66px;
+  padding:11px 16px;
+}
+
+.craft-portfolio-drawer .drawer-close {
+  width:38px;
+  height:38px;
+  border-radius:9px;
+}
+
+.craft-portfolio-drawer .portfolio-drawer-image img {
+  aspect-ratio:16/9.5;
+}
+
+.craft-portfolio-drawer .portfolio-drawer-content {
+  padding:24px 24px 30px;
+}
+
+.craft-portfolio-drawer .portfolio-drawer-content > h2 {
+  margin:5px 0 9px;
+  font-size:clamp(1.55rem,3vw,2.15rem);
+}
+
+.craft-portfolio-drawer .portfolio-drawer-description {
+  font-size:.9rem;
+  line-height:1.7;
+}
+
+.craft-portfolio-drawer .portfolio-drawer-section,
+.craft-portfolio-drawer .portfolio-drawer-related {
+  margin-top:24px;
+  padding-top:20px;
+}
+
+.craft-portfolio-drawer .portfolio-highlight-row {
+  min-height:48px;
+}
+
+.craft-portfolio-drawer .portfolio-drawer-service {
+  margin-top:22px;
+  padding:14px 0;
+}
+
+.craft-portfolio-drawer .drawer-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:18px;
+}
+
+.craft-portfolio-drawer .portfolio-related-item {
+  grid-template-columns:64px minmax(0,1fr) 16px;
+  padding:7px;
+}
+
+.craft-portfolio-drawer .portfolio-related-item img {
+  width:64px;
+  height:46px;
+}
+
+html[data-theme="dark"] .craft-portfolio-toolbar .filter-btn {
+  background:var(--wt-bg-canvas);
+}
+
+@media (max-width: 700px) {
+  .craft-portfolio-directory {
+    padding-block:42px;
+  }
+
+  .craft-portfolio-toolbar {
+    flex-wrap:nowrap;
+    overflow:auto;
+    scrollbar-width:none;
+    margin-inline:-12px;
+    padding-inline:12px;
+  }
+
+  .craft-portfolio-toolbar::-webkit-scrollbar {
+    display:none;
+  }
+
+  .craft-portfolio-toolbar .filter-btn {
+    flex:0 0 auto;
+  }
+
+  .craft-portfolio-grid {
+    grid-template-columns:1fr;
+  }
+
+  .craft-portfolio-grid .portfolio-project-featured {
+    grid-column:auto;
+    display:block;
+  }
+
+  .craft-portfolio-grid .portfolio-project-featured .portfolio-project-image img {
+    min-height:0;
+    height:auto;
+    aspect-ratio:16/10;
+  }
+
+  .craft-portfolio-grid .portfolio-project-body,
+  .craft-portfolio-grid .portfolio-project-featured .portfolio-project-body {
+    padding:17px;
+  }
+
+  .craft-portfolio-drawer {
+    width:100%;
+  }
+
+  .craft-portfolio-drawer .portfolio-drawer-content {
+    padding:20px 16px 28px;
+  }
+
+  .craft-portfolio-drawer .drawer-actions {
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .craft-portfolio-drawer .drawer-actions .btn {
+    width:100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .craft-portfolio-grid .portfolio-project-image img {
+    transition:none;
+  }
+
+  .craft-portfolio-grid .portfolio-project-card:hover .portfolio-project-image img {
+    transform:none;
+  }
+}
