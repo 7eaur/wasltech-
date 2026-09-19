@@ -80,7 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!id || !servicesData[id]) id = 'web';
 
   const data = servicesData[id];
-  const ui = presentation[id] || { group: 'خدمات وصل تك', label: 'خدمة رقمية', mode: 'product', related: [] };
+  const ui = presentation[id] || {
+    group: 'خدمات وصل تك',
+    label: 'خدمة رقمية',
+    mode: 'product',
+    related: []
+  };
+
   const byId = value => document.getElementById(value);
   const index = serviceOrder.indexOf(id);
   const absoluteImage = path => 'https://www.wasl-tech.com/' + path.replace(/^\//, '');
@@ -93,14 +99,16 @@ document.addEventListener('DOMContentLoaded', () => {
   byId('serviceOgTitle')?.setAttribute('content', `${data.title} | وصل تك`);
   byId('serviceOgDescription')?.setAttribute('content', data.desc);
   byId('serviceOgImage')?.setAttribute('content', absoluteImage(data.heroImage));
+
   const canonical = byId('serviceCanonical');
-  if (canonical) canonical.href = `https://www.wasl-tech.com/service-web.html?id=${encodeURIComponent(id)}`;
+  if (canonical) {
+    canonical.href = `https://www.wasl-tech.com/service-web.html?id=${encodeURIComponent(id)}`;
+  }
 
   byId('serviceBreadcrumbCurrent').textContent = data.title;
   byId('serviceGroupLabel').textContent = ui.group;
   byId('serviceIndex').textContent = `${String(index + 1).padStart(2, '0')} / ${String(serviceOrder.length).padStart(2, '0')}`;
   byId('serviceLabelTitle').textContent = ui.label;
-
   byId('sd-title').textContent = data.title;
   byId('sd-subtitle').textContent = data.subtitle;
   byId('sd-desc').textContent = data.desc;
@@ -109,37 +117,25 @@ document.addEventListener('DOMContentLoaded', () => {
   hero.src = data.heroImage;
   hero.alt = data.heroAlt || data.title;
 
-  const related = ui.related || [];
-  const secondary = related.find(item => item.image !== data.heroImage);
-  const secondaryVisual = byId('serviceSecondaryVisual');
-  if (secondary && secondaryVisual) {
-    const secondaryImage = byId('serviceSecondaryImage');
-    secondaryImage.src = secondary.image;
-    secondaryImage.alt = secondary.title;
-    secondaryVisual.hidden = false;
-  }
-
-  const ctaText = encodeURIComponent(`مرحباً، أود الاستفسار عن خدمة: ${data.title}`);
-  const whatsappUrl = `https://wa.me/967775377979?text=${ctaText}`;
+  const whatsappUrl = `https://wa.me/967775377979?text=${encodeURIComponent(`مرحباً، أود الاستفسار عن خدمة: ${data.title}`)}`;
   const heroCta = byId('serviceHeroCta');
   heroCta.href = whatsappUrl;
   heroCta.target = '_blank';
   heroCta.rel = 'noopener';
 
   const highlights = byId('serviceHighlights');
-  highlights.innerHTML = data.heroCards.map(card => `
-    <article class="service-highlight">
-      <span class="service-highlight-icon"><i class="${card.icon}" aria-hidden="true"></i></span>
-      <div><h3>${card.title}</h3><p>${card.desc}</p></div>
+  highlights.innerHTML = data.heroCards.map((card, highlightIndex) => `
+    <article class="service5-highlight">
+      <span>${String(highlightIndex + 1).padStart(2, '0')}</span>
+      <div><strong>${card.title}</strong><small>${card.desc}</small></div>
     </article>
   `).join('');
 
   byId('serviceFitTitle').textContent = `لمن يمكن أن تكون ${data.title} مناسبة؟`;
   const targets = byId('serviceTargets');
   targets.innerHTML = data.targets.map((item, targetIndex) => `
-    <div class="target-row">
-      <span class="target-index">${String(targetIndex + 1).padStart(2, '0')}</span>
-      <span class="target-icon"><i class="${item.icon}" aria-hidden="true"></i></span>
+    <div class="service5-target">
+      <span>${String(targetIndex + 1).padStart(2, '0')}</span>
       <strong>${item.title}</strong>
     </div>
   `).join('');
@@ -151,47 +147,47 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     system: {
       title: 'ما الذي يمكن أن نبنيه أو نربطه ضمن هذه الخدمة؟',
-      intro: 'التركيز هنا على الوظائف والبيانات والتكاملات التي يحتاجها العمل فعليًا، وليس إضافة تعقيد غير ضروري.'
+      intro: 'نركز على الوظائف والبيانات والتكاملات التي يحتاجها العمل فعليًا، بدون إضافة تعقيد غير ضروري.'
     },
     presence: {
       title: 'ما الذي يمكن أن تستلمه ضمن هذه الخدمة؟',
-      intro: 'يتغير نطاق التسليم حسب احتياج المشروع، وهذه أهم المخرجات التي يمكن أن تدخل ضمن العمل.'
+      intro: 'يتغير نطاق التسليم حسب احتياج المشروع، وهذه أبرز المخرجات التي يمكن أن تدخل ضمن العمل.'
     }
   };
+
   const deliverableText = deliverableCopy[ui.mode] || deliverableCopy.product;
   byId('deliverablesTitle').textContent = deliverableText.title;
   byId('deliverablesIntro').textContent = deliverableText.intro;
 
   const deliverables = byId('serviceDeliverables');
   deliverables.innerHTML = data.features.map((item, featureIndex) => `
-    <article class="deliverable">
-      <span class="deliverable-index">${String(featureIndex + 1).padStart(2, '0')}</span>
-      <span class="icon"><i class="${item.icon}" aria-hidden="true"></i></span>
+    <article class="service5-deliverable">
+      <span>${String(featureIndex + 1).padStart(2, '0')}</span>
       <div><h3>${item.title}</h3><p>${item.desc}</p></div>
     </article>
   `).join('');
 
   const relatedSection = byId('serviceRelatedSection');
   const relatedWork = byId('serviceRelatedWork');
+  const related = ui.related || [];
+
   if (related.length && relatedSection && relatedWork) {
     relatedWork.innerHTML = related.map(item => `
-      <article class="service-related-card">
-        <a href="portfolio.html" aria-label="عرض ${item.title} ضمن معرض الأعمال">
-          <div class="service-related-media"><img src="${item.image}" alt="${item.title}" width="760" height="500" loading="lazy" /></div>
-          <div class="service-related-copy"><span>${item.category}</span><h3>${item.title}</h3><strong>عرض ضمن الأعمال <i class="fas fa-arrow-left" aria-hidden="true"></i></strong></div>
-        </a>
-      </article>
+      <a class="service5-related-card" href="portfolio.html" aria-label="عرض ${item.title} ضمن معرض الأعمال">
+        <img src="${item.image}" alt="${item.title}" width="760" height="500" loading="lazy" />
+        <div><span>${item.category}</span><strong>${item.title}</strong></div>
+      </a>
     `).join('');
     relatedSection.hidden = false;
   }
 
   const steps = byId('serviceSteps');
   steps.innerHTML = data.steps.map((item, stepIndex) => `
-    <article class="service-step">
-      <span class="service-step-number">${String(stepIndex + 1).padStart(2, '0')}</span>
-      <h3>${item.title}</h3>
-      <p>${item.desc}</p>
-    </article>
+    <li>
+      <span>${String(stepIndex + 1).padStart(2, '0')}</span>
+      <strong>${item.title}</strong>
+      <small>${item.desc}</small>
+    </li>
   `).join('');
 
   const faqs = byId('serviceFaqs');
@@ -204,6 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   byId('sd-cta-title').textContent = data.cta.title;
   byId('sd-cta-desc').textContent = data.cta.desc;
+
   const cta = byId('sd-cta-btn');
   cta.textContent = data.cta.btnText;
   cta.href = whatsappUrl;
@@ -212,10 +209,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const previousId = serviceOrder[(index - 1 + serviceOrder.length) % serviceOrder.length];
   const nextId = serviceOrder[(index + 1) % serviceOrder.length];
+
   const previousLink = byId('servicePrev');
-  const nextLink = byId('serviceNext');
   previousLink.href = `service-web.html?id=${previousId}`;
   previousLink.querySelector('strong').textContent = servicesData[previousId].title;
+
+  const nextLink = byId('serviceNext');
   nextLink.href = `service-web.html?id=${nextId}`;
   nextLink.querySelector('strong').textContent = servicesData[nextId].title;
 });
