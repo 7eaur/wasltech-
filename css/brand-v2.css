@@ -1678,7 +1678,6 @@ html[data-theme="dark"] .process-deep-copy h3 { color:#fff; }
 .field-optional { color:var(--wt-text-secondary); font-size:.78rem; font-weight:500; }
 .contact-submit { justify-self:start; }
 .form-status {
-  tabindex:-1;
   border:1px solid var(--wt-accent-200);
 }
 .form-status a { color:var(--wt-primary-700); }
