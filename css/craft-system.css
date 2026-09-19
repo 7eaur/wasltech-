@@ -3585,3 +3585,157 @@ html[data-theme="dark"] .craft-contact-form .form-status {
     border-top:0;
   }
 }
+
+
+/* ==========================================================
+   PHASE 10 — FAQ & SECONDARY PAGES
+   ========================================================== */
+.craft-faq-hero {
+  padding-bottom:24px;
+}
+
+.craft-faq-hero-shell {
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);
+  gap:clamp(28px,5vw,56px);
+  align-items:end;
+  padding:clamp(24px,3.6vw,38px);
+  border:1px solid var(--wt-border-default);
+  border-radius:var(--craft-major-radius);
+  background:var(--wt-bg-subtle);
+}
+
+.craft-faq-hero-shell h1 {
+  max-width:12ch;
+  margin:0 0 11px;
+  color:var(--wt-primary-700);
+  font-size:clamp(2.2rem,4.3vw,3.6rem);
+  line-height:1.16;
+  letter-spacing:-.03em;
+}
+
+.craft-faq-hero-shell > div:first-child > p {
+  max-width:60ch;
+  margin:0;
+  color:var(--wt-text-secondary);
+  font-size:.96rem;
+  line-height:1.72;
+}
+
+.craft-faq-hero-aside {
+  padding:18px 0 2px;
+  border-top:1px solid var(--wt-border-default);
+}
+
+.craft-faq-hero-aside > span {
+  display:block;
+  color:var(--wt-accent-700);
+  font-size:.72rem;
+  font-weight:700;
+}
+
+.craft-faq-hero-aside > strong {
+  display:block;
+  max-width:34ch;
+  margin:5px 0 12px;
+  color:var(--wt-text-primary);
+  font-size:.94rem;
+  line-height:1.55;
+}
+
+.craft-faq-directory {
+  padding-block:54px;
+}
+
+.craft-faq-groups {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  align-items:start;
+}
+
+.craft-faq-group {
+  min-width:0;
+  padding:20px;
+  border:1px solid var(--wt-border-default);
+  border-radius:var(--craft-panel-radius);
+  background:var(--wt-bg-canvas);
+}
+
+.craft-faq-group > header {
+  display:grid;
+  grid-template-columns:30px 1fr;
+  gap:10px;
+  align-items:start;
+  margin-bottom:8px;
+}
+
+.craft-faq-group > header > span {
+  color:var(--wt-accent-700);
+  font:700 .7rem/1.5 var(--wt-font-en);
+  padding-top:3px;
+}
+
+.craft-faq-group h2 {
+  margin:0 0 2px;
+  color:var(--wt-text-primary);
+  font-size:1rem;
+}
+
+.craft-faq-group header p {
+  margin:0;
+  color:var(--wt-text-secondary);
+  font-size:.72rem;
+  line-height:1.5;
+}
+
+.craft-faq-group .faq-stack {
+  gap:0;
+}
+
+.craft-faq-group .faq-stack summary {
+  padding:14px 0;
+  font-size:.84rem;
+}
+
+.craft-faq-group .faq-stack details p {
+  padding-bottom:14px;
+  font-size:.76rem;
+  line-height:1.62;
+}
+
+html[data-theme="dark"] .craft-faq-hero-shell h1 {
+  color:#F5F8FA;
+}
+
+@media (max-width: 900px) {
+  .craft-faq-hero-shell,
+  .craft-faq-groups {
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .craft-faq-hero {
+    padding:calc(var(--wt-header-height) + 14px) 0 20px;
+  }
+
+  .craft-faq-hero-shell {
+    padding:20px;
+    border-radius:14px;
+  }
+
+  .craft-faq-hero-shell h1 {
+    max-width:none;
+    font-size:clamp(2rem,10vw,2.75rem);
+  }
+
+  .craft-faq-directory {
+    padding-block:42px;
+  }
+
+  .craft-faq-group {
+    padding:17px;
+    border-radius:14px;
+  }
+}
