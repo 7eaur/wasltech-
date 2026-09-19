@@ -3,9 +3,10 @@ class SiteHeader extends HTMLElement {
   connectedCallback() {
     const main = document.querySelector('main');
     if (main && !main.id) main.id = 'main-content';
+    const mainTarget = main?.id || 'main-content';
 
     this.innerHTML = `
-      <a class="skip-link" href="#main-content">تجاوز إلى المحتوى الرئيسي</a>
+      <a class="skip-link" href="#${mainTarget}">تجاوز إلى المحتوى الرئيسي</a>
       <header class="header" id="header">
         <div class="container">
           <nav class="navbar header-shell" aria-label="التنقل الرئيسي">
