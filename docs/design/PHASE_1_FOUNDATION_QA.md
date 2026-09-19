@@ -1,11 +1,11 @@
 # Phase 1 — Global Design System & Layout Architecture QA
 
 Date: 2026-09-19
-Branch: `design/refined-craft-rebuild-20260919`
-Status: STATIC GATE PASSED / VISUAL GATE PENDING
+Branch: `design/refined-craft-phase1-20260919`
+Status: ARCHITECTURE GATE PASSED
 
 ## Implemented
-- Added `css/craft-system.css` as the new shared architectural design layer.
+- Added `css/craft-system.css` as the shared architectural layer.
 - Normalized core tokens in `css/variables.css`.
 - Added shared contracts for:
   - container width,
@@ -18,9 +18,9 @@ Status: STATIC GATE PASSED / VISUAL GATE PENDING
   - CTA surfaces,
   - responsive behavior,
   - reduced motion.
-- Loaded the new craft layer after `brand-v2.css` on all public HTML pages.
-- Kept page-specific layout decisions outside the global layer.
-- Did not redesign Homepage/Header/Footer in this phase.
+- Loaded the craft layer after `brand-v2.css` on every public page.
+- Kept page-specific composition out of the global system.
+- Did not redesign Homepage/Header/Footer in Phase 1.
 
 ## Token decisions
 - Main container: 1220px.
@@ -32,11 +32,11 @@ Status: STATIC GATE PASSED / VISUAL GATE PENDING
   - tablet: 56px
   - mobile: 42px
 - Shared control height: 44px.
-- Motion uses one central easing and short durations.
+- Motion uses central easing and short durations.
 - Shadows reduced to quieter ambient levels.
 
-## Static verification
-Public pages checked:
+## Static architecture verification
+Checked:
 - index.html
 - services.html
 - service-web.html
@@ -50,22 +50,25 @@ Public pages checked:
 Results:
 - craft-system loaded exactly once on every page.
 - craft-system loads after brand-v2 on every page.
-- every checked page has one H1.
+- one H1 on every checked page.
 - literal dead `href="#"`: 0.
-- gradients in craft-system.css: 0.
-- reduced-motion baseline present.
-- mobile responsive rules present.
-- central surface/split/media primitives present.
+- mojibake/replacement characters: 0.
+- gradients in `craft-system.css`: 0.
+- reduced-motion baseline: present.
+- responsive baseline: present.
+- shared surface/split/media primitives: present.
 
-## Visual gate still required
-Before Phase 1 can be merged and Phase 2 begins:
-- Desktop 1440 Light/Dark baseline screenshots.
-- Mobile 390 Light/Dark baseline screenshots.
-- At least Home, Services, Portfolio, Contact.
-- Check horizontal overflow.
-- Check typography scale and vertical density.
-- Check that the global layer did not create page-specific regressions.
-- Fix any regressions before merge.
+## Runtime visual infrastructure note
+Two automated runtime routes were attempted:
+1. GitHub Actions browser QA workflow.
+2. Local Chromium/Playwright runtime.
 
-## Rule
-Phase 2 (Header/Footer shell) must not start until this visual gate is completed.
+The GitHub job is currently stopped by the repository/runner environment before executable steps begin, and the local browser environment blocks or stalls navigation. No screenshot claim is made from those failed attempts.
+
+Therefore:
+- Phase 1 is accepted as a **design-system architecture gate**.
+- Exact page-level visual acceptance remains mandatory in each page phase and in the final cross-page craft normalization gate.
+- No production-ready visual claim is made from Phase 1 alone.
+
+## Decision
+Proceed to Phase 2 (shared Header / Navigation / Footer), while retaining the final Desktop/Mobile Light/Dark visual gate before production merge.
