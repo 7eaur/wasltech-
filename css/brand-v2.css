@@ -812,8 +812,7 @@ html[data-theme="dark"] .service-editorial-icon { background:rgb(14 136 137 / 16
    ========================================================== */
 .service-detail-hero-v2 {
   padding:132px 0 78px;
-  background:
-    linear-gradient(180deg, var(--wt-bg-subtle) 0%, color-mix(in srgb, var(--wt-bg-subtle) 68%, var(--wt-bg-canvas)) 100%);
+  background:var(--wt-bg-subtle);
   overflow:hidden;
 }
 .service-breadcrumb {
