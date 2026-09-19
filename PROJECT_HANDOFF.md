@@ -3,7 +3,7 @@
 Last updated: 2026-09-19  
 Repository: `7eaur/wasltech-`  
 Official branch: `main`  
-Verified HEAD after Phase 12 merge/docs reconciliation: `b54c203afe345a76197fb074ccc980595c87bbff`
+Verified main after Phase 13 merge: `5bc890b3107f5923d1c06e6bab5931ebbf5d1625`
 
 ---
 
@@ -504,10 +504,9 @@ GitHub Actions attempted the new quality workflow twice on PR #28, but both runs
 
 # 12. Remaining work
 
-Phase 13 repository-level QA/fixes have been completed on the active Phase 13 branch.
+Phase 13 repository-level QA/fixes have been merged to `main` via PR #29.
 
 Remaining release work is now limited to:
-- merge the Phase 13 branch if its PR/diff is clean,
 - deploy/confirm current `main` on production,
 - run the exact-head screenshot/browser matrix,
 - close any runtime/visual regressions found there.
@@ -574,7 +573,7 @@ Check:
 Final fix loop:
 **Inspect → Critique → Fix → Re-run → Verify**
 
-Repository-level Phase 13 QA found and fixed a real icon-subset regression: 8 Font Awesome classes still used by public pages were missing from `css/icons.css`. The mappings were restored and `scripts/site_quality_check.py` now checks icon coverage.
+Repository-level Phase 13 QA found and fixed a real icon-subset regression: 8 Font Awesome classes still used by public pages were missing from `css/icons.css`. The mappings were restored and `scripts/site_quality_check.py` now checks icon coverage. Phase 13 was squash-merged via PR #29 at `5bc890b3107f5923d1c06e6bab5931ebbf5d1625`.
 
 Created:
 `docs/design/PHASE_13_FINAL_QA.md`
@@ -644,7 +643,6 @@ Legacy warning:
 The repository-level Refined Craft implementation and Phase 13 source QA are complete, but the project is **not fully production-verified yet**.
 
 Done requires:
-- Phase 13 PR merged,
 - current `main` deployed/confirmed on production,
 - final exact-head runtime/browser visual gate completed,
 - no critical visual/interaction/accessibility regressions left open,
