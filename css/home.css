@@ -120,12 +120,6 @@
   font-size:.7rem;
 }
 
-.home3-mascot {
-  width:58px;
-  height:auto;
-  flex:0 0 auto;
-  object-fit:contain;
-}
 
 .home3-hero-facts {
   grid-area:facts;
@@ -772,10 +766,6 @@ html[data-theme="dark"] .home3-closing {
   .home3-hero-media figcaption {
     min-height:54px;
     padding:7px 9px 7px 12px;
-  }
-
-  .home3-mascot {
-    width:48px;
   }
 
   .home3-hero-facts {
