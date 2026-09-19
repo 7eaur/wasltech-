@@ -274,7 +274,7 @@ function initPortfolioV2() {
 
     container.innerHTML = related.map(project => `
       <button class="portfolio-related-item" type="button" data-related-id="${project.id}">
-        <img src="${project.image}" alt="" width="220" height="150" loading="lazy" />
+        <img src="${project.image}" alt="" width="220" height="150" loading="lazy" decoding="async" />
         <span><small>${project.categoryName}</small><strong>${project.title.trim()}</strong></span>
         <i class="fas fa-arrow-left" aria-hidden="true"></i>
       </button>
