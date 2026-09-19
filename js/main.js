@@ -25,8 +25,11 @@ function initActiveNavLink() {
   const current = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(link => {
     const target = (link.getAttribute('href') || '').split('?')[0];
-    link.classList.toggle('active', target === current);
-    if (target === current) link.setAttribute('aria-current', 'page');
+    const serviceRoute = current === 'service-web.html' && target === 'services.html';
+    const active = target === current || serviceRoute;
+    link.classList.toggle('active', active);
+    if (active) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
   });
 }
 
@@ -67,20 +70,55 @@ function initMobileMenu() {
   const scrim = document.getElementById('navScrim');
   if (!button || !nav) return;
 
+  let lastFocused = null;
+
   const setOpen = open => {
+    if (open) lastFocused = document.activeElement;
+
     nav.classList.toggle('active', open);
     button.classList.toggle('active', open);
     button.setAttribute('aria-expanded', String(open));
     button.setAttribute('aria-label', open ? 'إغلاق القائمة' : 'فتح القائمة');
     if (scrim) scrim.hidden = !open;
     document.body.classList.toggle('menu-open', open);
+
+    if (open) {
+      requestAnimationFrame(() => nav.querySelector('a[href]')?.focus());
+    } else if (lastFocused instanceof HTMLElement) {
+      lastFocused.focus();
+      lastFocused = null;
+    }
   };
 
   button.addEventListener('click', () => setOpen(!nav.classList.contains('active')));
   scrim?.addEventListener('click', () => setOpen(false));
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') setOpen(false);
+
+  document.addEventListener('keydown', event => {
+    if (!nav.classList.contains('active')) return;
+
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      setOpen(false);
+      return;
+    }
+
+    if (event.key !== 'Tab') return;
+
+    const focusable = [...nav.querySelectorAll('a[href], button:not([disabled])')]
+      .filter(element => element.offsetParent !== null);
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
   });
 }
 
