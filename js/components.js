@@ -2,6 +2,7 @@
 class SiteHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
+      <a class="skip-link" href="#main-content">تجاوز إلى المحتوى الرئيسي</a>
       <header class="header" id="header">
         <div class="container">
           <nav class="navbar header-shell" aria-label="التنقل الرئيسي">
