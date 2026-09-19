@@ -47,3 +47,25 @@ Branch: `design/tech-forward-partner-20260919`
 
 ## Phase 9–15 — Quality
 Shared footer → responsive/dark mode → motion → accessibility → performance → SEO/semantics → cross-page visual QA.
+
+
+## Phase 16 — Refined Craft Normalization
+After all page-specific work is complete, re-open the entire public site against `docs/design/WASL_REFINED_WEB_CRAFT_STANDARD.md`.
+
+This phase is mandatory because the craft standard was adopted after several early page passes.
+
+Review and normalize:
+- page density and vertical rhythm,
+- contained page-hero shells where appropriate,
+- surface/radius/shadow consistency,
+- image ratios and crop purpose,
+- repeated section patterns,
+- header/footer compactness,
+- CTA composition,
+- mobile editing vs simple stacking,
+- typography scale and line lengths,
+- removal of excessive whitespace or oversized blocks.
+
+The goal is the same level of polish and organization demonstrated by UPDATE CARD, while preserving Wasl Tech's own identity, content and page architecture.
+
+Every previously completed page must be visually re-checked after any global token/spacing adjustment.
