@@ -3,7 +3,7 @@
 Last updated: 2026-09-19  
 Repository: `7eaur/wasltech-`  
 Official branch: `main`  
-Verified HEAD when this handoff was written: `9a0204f28c3075f0cddae3b5ae94c45ec84c7a39`
+Verified HEAD after Phase 12 merge/docs reconciliation: `b54c203afe345a76197fb074ccc980595c87bbff`
 
 ---
 
@@ -15,7 +15,7 @@ The next conversation must:
 1. verify live `main` first,
 2. read this file and `PROJECT_STATUS.md`,
 3. read design authority files,
-4. continue from **Phase 12**, unless the live repository proves that newer work already exists.
+4. continue from **Phase 13**, unless the live repository proves that newer work already exists.
 
 Do not restart from Phase 1.
 Do not redesign already-approved pages from scratch without new evidence.
@@ -479,92 +479,32 @@ Key outcome:
 QA:
 `docs/design/PHASE_11_MOBILE_DARK_QA.md`
 
+## Phase 12 — Motion, Accessibility, Performance, SEO/Semantics
+Merged via PR #28:
+`0ee23fd7b36d0ed38d8b9ba7335d8fc65781fe92`
+
+Key outcome:
+- decorative reveal observer removed,
+- continuous particle runtime removed,
+- mobile drawer focus-order bug fixed with `inert` / `aria-hidden`,
+- shared skip-to-main link added,
+- broken Font Awesome runtime dependency replaced with a minimal icon subset,
+- Google Fonts `@import` waterfall removed,
+- custom 404 server handling corrected,
+- sitemap/robots/dynamic metadata/FAQ schema statically verified,
+- repeatable static quality gate added.
+
+QA:
+`docs/design/PHASE_12_QUALITY_QA.md`
+
+Important CI note:
+GitHub Actions attempted the new quality workflow twice on PR #28, but both runs ended before any job step started (`runner_id: 0`). Direct verification against the same PR head passed. Do not reinterpret those runner failures as code-test failures.
+
 ---
 
 # 12. Remaining work
 
-Only Phases 12–13 remain in the current rebuild plan.
-
-## Phase 12 — Motion, Accessibility, Performance, Core Web Vitals, SEO/Semantics
-
-Start here.
-
-### Motion
-Audit all CSS/JS animation/transition behavior.
-Remove anything:
-- decorative,
-- continuous,
-- unnecessary,
-- expensive,
-- blocking content reveal.
-
-Keep:
-- short functional micro-interactions,
-- drawers/menus,
-- clear hover/focus feedback.
-
-Verify `prefers-reduced-motion`.
-
-### Accessibility
-Audit:
-- semantic landmarks,
-- headings,
-- labels,
-- ARIA only where necessary,
-- focus order,
-- focus trapping,
-- Escape behavior,
-- keyboard navigation,
-- mobile drawer,
-- portfolio drawer,
-- forms,
-- details/summary,
-- contrast,
-- touch targets,
-- link names,
-- alt text.
-
-Target WCAG 2.2 AA.
-
-### Performance / Core Web Vitals
-Audit:
-- LCP candidate,
-- image loading,
-- fetchpriority/eager/lazy,
-- dimensions,
-- unused assets,
-- duplicate CSS,
-- dead JS,
-- render-blocking resources,
-- font behavior,
-- layout shift risks,
-- long tasks / interaction overhead where measurable.
-
-Do not claim CWV numbers unless they are actually measured.
-
-### SEO / Semantics
-Audit:
-- title,
-- description,
-- canonical,
-- OG,
-- structured data,
-- sitemap,
-- robots behavior,
-- noindex pages,
-- heading hierarchy,
-- crawlable content,
-- organization schema,
-- FAQ schema consistency.
-
-Do not invent local business fields or business claims.
-
-### Phase 12 output
-Create:
-`docs/design/PHASE_12_QUALITY_QA.md`
-
-Use a dedicated branch and PR.
-Merge only after fixes/checks pass.
+Only **Phase 13** remains in the current rebuild plan.
 
 ---
 
@@ -693,7 +633,6 @@ Legacy warning:
 The project is **not done yet**.
 
 Done requires:
-- Phase 12 merged,
 - Phase 13 final cross-page QA completed,
 - current live code and docs reconciled,
 - no known critical visual/interaction/accessibility issues,
