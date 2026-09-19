@@ -624,6 +624,14 @@ html[data-theme="dark"] .home-work-copy h3 { color:#fff; }
 }
 
 @media (max-width: 620px) {
+  .proof-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .proof-item { padding:16px 12px; border-top:1px solid var(--wt-border-default); border-inline-start:1px solid var(--wt-border-default); }
+  .proof-item:nth-child(-n+2) { border-top:0; }
+  .proof-item:nth-child(odd) { border-inline-start:0; }
+  .proof-item:first-child { border-top:0; border-inline-start:0; }
+  .proof-item strong { font-size:.9rem; }
+  .proof-item span { font-size:.78rem; }
+
   .hero-stage-rich { min-height:340px; }
   .hero-mini { width:108px; }
   .hero-mini-app { left:0; top:28px; }
