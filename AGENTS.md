@@ -27,6 +27,8 @@ Use `CONTENT REQUIRED` or `NOT VERIFIED` when evidence is missing.
 ## Design authority
 The website direction is **The Tech-Forward Partner**: structured, modern, clear, credible, human, and technically polished.
 
+The detailed craft authority is `docs/design/WASL_REFINED_WEB_CRAFT_STANDARD.md`. It adapts the proven composition, spacing, surface, imagery, mobile-first and component discipline used in `7eaur/update_card` without copying UPDATE CARD branding or page layouts. Future design work must follow it, and final cross-page QA must re-check earlier pages against it.
+
 ### Required design behavior
 - Clarity before decoration.
 - Proof before claims.
