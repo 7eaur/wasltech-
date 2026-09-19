@@ -1,0 +1,443 @@
+/* ==========================================================
+   WASL TECH — Process Refined Craft v1.0
+   Phase 8 only.
+   ========================================================== */
+
+.process8 { background:var(--wt-bg-canvas); }
+
+.process8-hero {
+  padding:calc(var(--wt-header-height) + 22px) 0 18px;
+}
+
+.process8-hero-shell {
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(300px,.72fr);
+  gap:clamp(28px,5vw,58px);
+  align-items:center;
+  padding:28px;
+  border:1px solid var(--wt-border-default);
+  border-radius:20px;
+  background:var(--wt-bg-subtle);
+}
+
+.process8-hero-copy h1 {
+  max-width:12ch;
+  margin:0 0 12px;
+  color:var(--wt-primary-700);
+  font-size:clamp(2.45rem,4.8vw,4rem);
+  line-height:1.14;
+  letter-spacing:-.03em;
+}
+
+.process8-hero-copy > p {
+  max-width:58ch;
+  margin:0;
+  color:var(--wt-text-secondary);
+  font-size:.95rem;
+  line-height:1.8;
+}
+
+.process8-hero-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:20px;
+}
+
+.process8-start {
+  padding:17px 18px;
+  border:1px solid var(--wt-border-default);
+  border-radius:13px;
+  background:var(--wt-bg-canvas);
+}
+
+.process8-start-kicker {
+  display:block;
+  margin-bottom:8px;
+  color:var(--wt-accent-700);
+  font-size:.72rem;
+  font-weight:700;
+}
+
+.process8-start > div {
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  border-top:1px solid var(--wt-border-default);
+}
+
+.process8-start strong {
+  color:var(--wt-text-primary);
+  font-size:.88rem;
+}
+
+.process8-start small {
+  color:var(--wt-text-secondary);
+  font-size:.7rem;
+  text-align:left;
+}
+
+/* Stages */
+.process8-stages {
+  padding:54px 0 58px;
+}
+
+.process8-heading {
+  max-width:760px;
+  margin-bottom:24px;
+}
+
+.process8-heading h2,
+.process8-clarity-head h2,
+.process8-faq-head h2 {
+  margin:0;
+  color:var(--wt-primary-700);
+  font-size:clamp(1.8rem,3.15vw,2.65rem);
+  line-height:1.3;
+  letter-spacing:-.02em;
+}
+
+.process8-heading p,
+.process8-clarity-head p,
+.process8-faq-head p {
+  max-width:62ch;
+  margin:10px 0 0;
+  color:var(--wt-text-secondary);
+  font-size:.9rem;
+  line-height:1.75;
+}
+
+.process8-stage-list {
+  border-top:1px solid var(--wt-border-default);
+}
+
+.process8-stage-list article {
+  display:grid;
+  grid-template-columns:54px minmax(0,1fr) minmax(220px,.48fr);
+  gap:20px;
+  align-items:center;
+  padding:24px 0;
+  border-bottom:1px solid var(--wt-border-default);
+}
+
+.process8-stage-num {
+  color:var(--wt-accent-700);
+  font:700 .78rem/1 var(--wt-font-en);
+}
+
+.process8-stage-list article > div:nth-child(2) > small {
+  display:block;
+  color:var(--wt-accent-700);
+  font-size:.7rem;
+  font-weight:700;
+}
+
+.process8-stage-list h3 {
+  margin:4px 0 5px;
+  color:var(--wt-text-primary);
+  font-size:1.05rem;
+}
+
+.process8-stage-list p {
+  max-width:66ch;
+  margin:0;
+  color:var(--wt-text-secondary);
+  font-size:.78rem;
+  line-height:1.65;
+}
+
+.process8-focus {
+  padding-inline-start:20px;
+  border-inline-start:1px solid var(--wt-border-default);
+}
+
+.process8-focus span,
+.process8-focus strong {
+  display:block;
+}
+
+.process8-focus span {
+  color:var(--wt-text-secondary);
+  font-size:.68rem;
+}
+
+.process8-focus strong {
+  margin-top:4px;
+  color:var(--wt-text-primary);
+  font-size:.8rem;
+  line-height:1.65;
+}
+
+/* Clarity */
+.process8-clarity {
+  padding:54px 0;
+  background:var(--wt-primary-950);
+  color:#fff;
+}
+
+.process8-clarity-shell {
+  display:grid;
+  grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);
+  gap:clamp(32px,5vw,64px);
+  align-items:start;
+}
+
+.process8-clarity .eyebrow { color:var(--wt-accent-200); }
+.process8-clarity-head h2 { color:#fff; }
+.process8-clarity-head p { color:#B7C4D3; }
+
+.process8-clarity-list {
+  border-top:1px solid rgb(255 255 255 / 14%);
+}
+
+.process8-clarity-list article {
+  min-height:64px;
+  display:grid;
+  grid-template-columns:38px minmax(0,1fr);
+  gap:12px;
+  align-items:center;
+  border-bottom:1px solid rgb(255 255 255 / 14%);
+}
+
+.process8-clarity-list article > span {
+  color:var(--wt-accent-200);
+  font:700 .7rem/1 var(--wt-font-en);
+}
+
+.process8-clarity-list strong,
+.process8-clarity-list small {
+  display:block;
+}
+
+.process8-clarity-list strong {
+  color:#fff;
+  font-size:.86rem;
+}
+
+.process8-clarity-list small {
+  margin-top:3px;
+  color:#B7C4D3;
+  font-size:.74rem;
+  line-height:1.55;
+}
+
+/* FAQ */
+.process8-faq {
+  padding:54px 0;
+  background:var(--wt-bg-subtle);
+}
+
+.process8-faq-shell {
+  display:grid;
+  grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);
+  gap:clamp(34px,6vw,76px);
+  align-items:start;
+}
+
+.process8-faq-list {
+  border-top:1px solid var(--wt-border-default);
+}
+
+.process8-faq-list details {
+  border-bottom:1px solid var(--wt-border-default);
+}
+
+.process8-faq-list summary {
+  position:relative;
+  padding:16px 27px 16px 0;
+  cursor:pointer;
+  list-style:none;
+  color:var(--wt-text-primary);
+  font-size:.88rem;
+  font-weight:700;
+}
+
+.process8-faq-list summary::-webkit-details-marker { display:none; }
+
+.process8-faq-list summary::before {
+  content:"+";
+  position:absolute;
+  inset-inline-start:0;
+  top:50%;
+  translate:0 -50%;
+  color:var(--wt-accent-700);
+  font-size:1.1rem;
+}
+
+.process8-faq-list details[open] summary::before { content:"−"; }
+
+.process8-faq-list p {
+  max-width:62ch;
+  margin:0;
+  padding:0 27px 16px 0;
+  color:var(--wt-text-secondary);
+  font-size:.82rem;
+  line-height:1.7;
+}
+
+/* Closing */
+.process8-closing { padding:6px 0 48px; }
+
+.process8-closing-shell {
+  min-height:142px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:26px;
+  padding:26px 30px;
+  border-radius:14px;
+  background:var(--wt-primary-700);
+  color:#fff;
+}
+
+.process8-closing-shell > div:first-child > span {
+  color:var(--wt-accent-200);
+  font-size:.72rem;
+  font-weight:700;
+}
+
+.process8-closing h2 {
+  max-width:24ch;
+  margin:5px 0 0;
+  color:#fff;
+  font-size:clamp(1.5rem,2.6vw,2.2rem);
+  line-height:1.35;
+}
+
+.process8-closing-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  flex:0 0 auto;
+}
+
+.process8-closing .btn-primary {
+  background:#fff;
+  color:var(--wt-primary-700);
+}
+
+.process8-closing .btn-outline {
+  color:#fff;
+  border-color:rgb(255 255 255 / 32%);
+}
+
+.process8-closing .btn-outline:hover {
+  background:rgb(255 255 255 / 7%);
+}
+
+html[data-theme="dark"] .process8-hero-shell {
+  background:var(--wt-bg-subtle);
+}
+
+html[data-theme="dark"] .process8-hero-copy h1,
+html[data-theme="dark"] .process8-heading h2,
+html[data-theme="dark"] .process8-faq-head h2 {
+  color:#F5F8FA;
+}
+
+@media (max-width:980px) {
+  .process8-hero { padding-top:88px; }
+
+  .process8-hero-shell,
+  .process8-clarity-shell,
+  .process8-faq-shell {
+    grid-template-columns:1fr;
+  }
+
+  .process8-hero-shell {
+    padding:24px;
+    gap:22px;
+  }
+
+  .process8-clarity-shell,
+  .process8-faq-shell {
+    gap:28px;
+  }
+
+  .process8-stage-list article {
+    grid-template-columns:46px minmax(0,1fr);
+  }
+
+  .process8-focus {
+    grid-column:2;
+    padding-inline-start:0;
+    border-inline-start:0;
+  }
+}
+
+@media (max-width:700px) {
+  .process8-hero { padding:76px 0 10px; }
+
+  .process8-hero-shell {
+    padding:17px;
+    border-radius:14px;
+  }
+
+  .process8-hero-copy h1 {
+    max-width:none;
+    font-size:clamp(2.1rem,10.5vw,2.85rem);
+  }
+
+  .process8-hero-copy > p { font-size:.9rem; }
+
+  .process8-hero-actions {
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .process8-hero-actions .btn { width:100%; }
+
+  .process8-start {
+    padding:13px 14px;
+    border-radius:11px;
+  }
+
+  .process8-start > div {
+    min-height:54px;
+  }
+
+  .process8-stages,
+  .process8-clarity,
+  .process8-faq {
+    padding:42px 0;
+  }
+
+  .process8-heading h2,
+  .process8-clarity-head h2,
+  .process8-faq-head h2 {
+    font-size:clamp(1.65rem,8vw,2.05rem);
+  }
+
+  .process8-stage-list article {
+    grid-template-columns:34px minmax(0,1fr);
+    gap:10px;
+    padding:20px 0;
+  }
+
+  .process8-focus { grid-column:2; }
+
+  .process8-faq-list summary {
+    padding-block:15px;
+    font-size:.86rem;
+  }
+
+  .process8-closing { padding:4px 0 34px; }
+
+  .process8-closing-shell {
+    min-height:0;
+    flex-direction:column;
+    align-items:flex-start;
+    padding:22px 18px;
+    border-radius:12px;
+  }
+
+  .process8-closing-actions {
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .process8-closing-actions .btn { width:100%; }
+}
