@@ -171,7 +171,28 @@ The gate uses only Python/Node standard tooling and checks:
 - visible FAQ questions vs FAQPage JSON-LD,
 - JavaScript syntax via `node --check`.
 
-Final CI result is recorded after the Phase 12 pull request run.
+### CI execution result
+
+PR #28 triggered the new `Site quality` workflow twice. Both attempts ended before any workflow step started:
+
+- attempt 1: `runner_id: 0`, no Checkout/Setup/Test steps,
+- attempt 2: `runner_id: 0`, no Checkout/Setup/Test steps.
+
+This is an execution-environment / GitHub Actions runner failure, not a reported assertion failure from `site_quality_check.py`.
+
+Because the runner never executed the repository code, the same invariants were re-run directly against PR head `86ee48a7b6da3efed7c750cab9518673194ca0ae` through the live repository contents:
+
+- 10/10 public pages: expected H1/main/meta/canonical/noindex policy passed,
+- local resource-reference check: 0 missing references,
+- static images: required alt/width/height checks passed,
+- legacy Font Awesome and `css/fonts.css`: not loaded,
+- `responsive-normalization.css`: last stylesheet on all public pages,
+- motion invariants: no reveal observer, no base keyframes/animation,
+- sitemap: all 8 approved service ids present; blog/404 absent,
+- FAQ: 12 visible questions = 12 FAQPage schema questions,
+- JavaScript source syntax check performed directly on all current `js/*.js` files: passed.
+
+The workflow file remains in the repository so CI will become executable automatically once GitHub-hosted runner execution is available.
 
 ## Measured vs not measured
 
@@ -201,5 +222,6 @@ NOT VERIFIED in this phase:
 
 ## Phase 12 decision
 
-Code/static quality gate: READY FOR PR.  
+Code/static quality gate: PASS on PR head via direct repository verification.  
+GitHub-hosted runner execution: BLOCKED BY ENVIRONMENT — no job steps started in two attempts.  
 Production visual/CWV gate: NOT VERIFIED — intentionally deferred to Phase 13 runtime QA.
