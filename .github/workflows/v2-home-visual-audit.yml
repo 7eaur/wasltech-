@@ -1,0 +1,96 @@
+name: V2 Homepage Visual Audit
+
+on:
+  push:
+    branches:
+      - rebuild/v2-home-architecture-20260920
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Static quality
+        run: python3 scripts/site_quality_check.py
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Serve site
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/v2-http.log 2>&1 &
+          for i in {1..30}; do
+            curl -fsS http://127.0.0.1:4173/ >/dev/null && exit 0
+            sleep 1
+          done
+          cat /tmp/v2-http.log
+          exit 1
+
+      - name: Capture and inspect
+        run: |
+          mkdir -p v2-home-audit
+          node <<'NODE'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+          (async () => {
+            const browser = await chromium.launch({headless:true});
+            const base='http://127.0.0.1:4173/';
+            const cases=[
+              {name:'home-v2-desktop-light',width:1440,height:900,theme:'light'},
+              {name:'home-v2-mobile-light',width:390,height:844,theme:'light'},
+              {name:'home-v2-mobile-dark',width:390,height:844,theme:'dark'}
+            ];
+            const report=[];
+            for(const item of cases){
+              const context=await browser.newContext({
+                viewport:{width:item.width,height:item.height},
+                colorScheme:item.theme,
+                reducedMotion:'reduce'
+              });
+              const page=await context.newPage();
+              const consoleErrors=[]; const failed=[];
+              page.on('console',m=>{if(m.type()==='error') consoleErrors.push(m.text())});
+              page.on('requestfailed',r=>failed.push({url:r.url(),error:r.failure()?.errorText}));
+              await page.addInitScript(theme=>localStorage.setItem('wt-theme',theme),item.theme);
+              const response=await page.goto(base,{waitUntil:'networkidle'});
+              const data=await page.evaluate(()=>({
+                title:document.title,
+                h1:document.querySelector('h1')?.innerText||'',
+                width:document.documentElement.clientWidth,
+                scrollWidth:document.documentElement.scrollWidth,
+                height:document.documentElement.scrollHeight,
+                sectionCount:document.querySelectorAll('main > section').length
+              }));
+              await page.screenshot({path:`v2-home-audit/${item.name}.png`,fullPage:true,animations:'disabled'});
+              report.push({...item,status:response?.status(),...data,horizontalOverflow:data.scrollWidth>data.width+1,consoleErrors,failed});
+              await context.close();
+            }
+            const mobile=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'reduce'});
+            const page=await mobile.newPage();
+            await page.addInitScript(()=>localStorage.setItem('wt-theme','light'));
+            await page.goto(base,{waitUntil:'networkidle'});
+            await page.locator('#hamburger').click();
+            await page.screenshot({path:'v2-home-audit/home-v2-mobile-menu.png',fullPage:false,animations:'disabled'});
+            await mobile.close();
+            fs.writeFileSync('v2-home-audit/report.json',JSON.stringify(report,null,2));
+            await browser.close();
+          })().catch(e=>{console.error(e);process.exit(1)});
+          NODE
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wasltech-v2-home-audit
+          path: v2-home-audit/
+          retention-days: 7
