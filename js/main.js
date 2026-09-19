@@ -3,24 +3,6 @@ function motionReduced() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
-function initFadeUpAnimation() {
-  const items = [...document.querySelectorAll('.fade-up')];
-  if (!items.length) return;
-  if (motionReduced() || !('IntersectionObserver' in window)) {
-    items.forEach(el => el.classList.add('visible'));
-    return;
-  }
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: .08, rootMargin: '0px 0px -24px 0px' });
-  items.forEach(el => observer.observe(el));
-}
-
 function initActiveNavLink() {
   const current = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(link => {
@@ -42,7 +24,9 @@ function initHeaderScroll() {
   };
   sync();
   window.addEventListener('scroll', sync, { passive: true });
-  top?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: motionReduced() ? 'auto' : 'smooth' }));
+  top?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: motionReduced() ? 'auto' : 'smooth' });
+  });
 }
 
 function initTheme() {
@@ -82,9 +66,22 @@ function initMobileMenu() {
   const scrim = document.getElementById('navScrim');
   if (!button || !nav) return;
 
+  const drawerQuery = window.matchMedia('(max-width: 900px)');
   let lastFocused = null;
 
-  const setOpen = open => {
+  const syncAvailability = open => {
+    const hiddenDrawer = drawerQuery.matches && !open;
+    if (hiddenDrawer) {
+      nav.setAttribute('inert', '');
+      nav.setAttribute('aria-hidden', 'true');
+    } else {
+      nav.removeAttribute('inert');
+      nav.removeAttribute('aria-hidden');
+    }
+  };
+
+  const setOpen = requestedOpen => {
+    const open = Boolean(requestedOpen && drawerQuery.matches);
     if (open) lastFocused = document.activeElement;
 
     nav.classList.toggle('active', open);
@@ -93,6 +90,7 @@ function initMobileMenu() {
     button.setAttribute('aria-label', open ? 'إغلاق القائمة' : 'فتح القائمة');
     if (scrim) scrim.hidden = !open;
     document.body.classList.toggle('menu-open', open);
+    syncAvailability(open);
 
     if (open) {
       requestAnimationFrame(() => nav.querySelector('a[href]')?.focus());
@@ -102,13 +100,17 @@ function initMobileMenu() {
     }
   };
 
+  syncAvailability(false);
+
   button.addEventListener('click', () => setOpen(!nav.classList.contains('active')));
   scrim?.addEventListener('click', () => setOpen(false));
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
 
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 900 && nav.classList.contains('active')) setOpen(false);
-  }, { passive: true });
+  const onDrawerModeChange = () => {
+    if (nav.classList.contains('active')) setOpen(false);
+    else syncAvailability(false);
+  };
+  drawerQuery.addEventListener?.('change', onDrawerModeChange);
 
   document.addEventListener('keydown', event => {
     if (!nav.classList.contains('active')) return;
@@ -143,5 +145,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNavLink();
   initHeaderScroll();
   initMobileMenu();
-  initFadeUpAnimation();
 });
