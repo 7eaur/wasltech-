@@ -87,7 +87,7 @@ class SiteHeader extends HTMLElement {
 
 class SiteFooter extends HTMLElement {
   connectedCallback() {
-    const isReferenceHome = document.body?.dataset.layout === 'reference-home';
+    const isReferenceHome = ['reference-home', 'reference-site'].includes(document.body?.dataset.layout);
     if (isReferenceHome) {
       const year = new Date().getFullYear();
       this.innerHTML = `
