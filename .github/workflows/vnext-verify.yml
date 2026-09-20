@@ -1,0 +1,40 @@
+name: VNext verify
+
+on:
+  push:
+    branches:
+      - rebuild/vnext-foundation-20260921
+  pull_request:
+    paths:
+      - "src/**"
+      - "scripts/build.mjs"
+      - "scripts/check.mjs"
+      - "package.json"
+      - "docs/core/**"
+      - "PROJECT_STATUS.md"
+      - "PROJECT_HANDOFF.md"
+      - "AGENTS.md"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Build and check VNext
+        run: npm run vnext:verify
+
+      - name: Upload foundation preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: wasltech-vnext-foundation
+          path: dist/
+          retention-days: 7
