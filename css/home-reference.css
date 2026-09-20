@@ -194,7 +194,13 @@ body[data-layout="reference-home"] .nav-btn:hover{
   min-height:500px;
   display:grid;
   grid-template-columns:1fr 1fr;
-  background:linear-gradient(90deg,#fff 0%,#fff 48%,#F9FBFC 100%);
+  direction:ltr;
+  background:#fff;
+}
+
+.ref-hero-media,
+.ref-hero-copy{
+  direction:rtl;
 }
 
 .ref-hero-media{
@@ -337,6 +343,13 @@ body[data-layout="reference-home"] .nav-btn:hover{
   grid-template-columns:1.15fr 1fr .45fr;
   gap:30px;
   align-items:center;
+  direction:ltr;
+}
+
+.ref-about-image,
+.ref-about-copy,
+.ref-about-facts{
+  direction:rtl;
 }
 
 .ref-about-image{
