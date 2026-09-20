@@ -34,6 +34,7 @@ function initTheme() {
   const themeMeta = document.querySelector('meta[name="theme-color"]');
   const media = window.matchMedia('(prefers-color-scheme: dark)');
   const saved = localStorage.getItem('wt-theme');
+  const referenceLayout = ['reference-home', 'reference-site'].includes(document.body?.dataset.layout);
 
   const apply = (theme, persist = false) => {
     const dark = theme === 'dark';
@@ -48,6 +49,11 @@ function initTheme() {
       ? '<i class="far fa-sun" aria-hidden="true"></i>'
       : '<i class="far fa-moon" aria-hidden="true"></i>';
   };
+
+  if (referenceLayout) {
+    apply('light');
+    return;
+  }
 
   apply(saved || (media.matches ? 'dark' : 'light'));
 
