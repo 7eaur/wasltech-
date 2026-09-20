@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - rebuild/home-reference-match-20260920
+      - audit/content-icons-logo-20260920
   workflow_dispatch:
 
 permissions:
