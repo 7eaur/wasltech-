@@ -1,0 +1,2 @@
+.page-hero__media{overflow:hidden;border-radius:var(--radius-card);background:var(--color-white)}
+.page-hero__media img{width:100%;height:100%;object-fit:cover}
