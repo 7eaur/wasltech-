@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#14305F" />
+  <meta name="theme-color" content="#ffffff" />
   <meta name="robots" content="noindex,follow" />
   <base href="/" />
   <title>الصفحة غير موجودة | وصل تك — Wasl Tech</title>
@@ -13,57 +13,36 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <link rel="stylesheet" href="/css/icons.css" />
   <link rel="stylesheet" href="/css/variables.css" />
   <link rel="stylesheet" href="/css/base.css" />
   <link rel="stylesheet" href="/css/brand-v2.css" />
-  <link rel="stylesheet" href="/css/craft-system.css" />
   <link rel="stylesheet" href="/css/shell.css" />
-  <link rel="stylesheet" href="/css/secondary.css" />
+  <link rel="stylesheet" href="/css/reference-pages.css" />
   <link rel="stylesheet" href="/css/responsive-normalization.css" />
   <script src="/js/components.js" defer></script>
   <script src="/js/main.js" defer></script>
 </head>
-<body>
+<body data-layout="reference-site">
   <site-header></site-header>
-
-  <main class="utility-page error-page">
-    <section class="utility-hero error-hero">
-      <div class="container utility-grid error-grid">
-        <div class="utility-copy">
-          <span class="error-code">404</span>
-          <span class="page-kicker">هذه الصفحة غير موجودة</span>
-          <h1>يبدو أن الرابط لم يعد يقود إلى صفحة متاحة.</h1>
-          <p>يمكنك الرجوع للرئيسية، استكشاف الخدمات، أو فتح معرض الأعمال بدل البقاء في مسار مسدود.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="/index.html">العودة للرئيسية</a>
-            <a class="btn btn-outline" href="/services.html">استكشف الخدمات</a>
-          </div>
-        </div>
-
-        <div class="error-mark" aria-hidden="true">
-          <span>W</span>
-          <small>Wasl Tech</small>
-        </div>
+  <main class="site-main">
+    <section class="site-utility">
+      <div class="site-container">
+        <span class="site-utility-code">404</span>
+        <p class="site-kicker">الصفحة غير موجودة</p>
+        <h1>الرابط لا يقود إلى صفحة متاحة.</h1>
+        <p>يمكنك العودة للرئيسية، استكشاف الخدمات، أو فتح معرض الأعمال للوصول إلى المحتوى الذي تحتاجه.</p>
+        <div class="site-actions" style="justify-content:center"><a class="site-btn site-btn--primary" href="/index.html">العودة للرئيسية</a><a class="site-btn site-btn--secondary" href="/services.html">الخدمات</a></div>
       </div>
     </section>
-
-    <section class="section-pad utility-next">
-      <div class="container utility-next-grid">
-        <div>
-          <span class="eyebrow">مسارات مفيدة</span>
-          <h2>اختر المكان الأقرب لما كنت تبحث عنه.</h2>
-        </div>
-        <div class="utility-link-list">
-          <a href="/portfolio.html"><span>01</span><strong>أعمالنا</strong><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
-          <a href="/process.html"><span>02</span><strong>كيف نعمل</strong><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
-          <a href="/contact.html"><span>03</span><strong>تواصل معنا</strong><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
-        </div>
-      </div>
+    <section class="site-section site-section--soft">
+      <div class="site-container"><div class="site-feature-grid">
+        <article class="site-feature"><i class="fas fa-layer-group"></i><h3>الخدمات</h3><p>ثمان خدمات من المنتج والتقنية إلى الهوية والحضور.</p></article>
+        <article class="site-feature"><i class="fas fa-briefcase"></i><h3>الأعمال</h3><p>نماذج من المشاريع المنفذة ضمن معرض وصل تك.</p></article>
+        <article class="site-feature"><i class="far fa-envelope"></i><h3>التواصل</h3><p>شاركنا ما كنت تبحث عنه وسنساعدك في الوصول للمسار الصحيح.</p></article>
+      </div></div>
     </section>
   </main>
-
   <site-footer></site-footer>
 </body>
 </html>
