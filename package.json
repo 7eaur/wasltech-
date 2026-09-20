@@ -1,0 +1,14 @@
+{
+  "name": "wasltech-vnext",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "vnext:build": "node scripts/build.mjs",
+    "vnext:check": "node scripts/check.mjs",
+    "vnext:verify": "npm run vnext:build && npm run vnext:check"
+  }
+}
