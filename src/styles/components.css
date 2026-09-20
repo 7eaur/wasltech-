@@ -1,4 +1,4 @@
-.button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:.45rem;padding:.65rem 1rem;border:1px solid transparent;border-radius:var(--radius-control);font-weight:700;transition:background-color .18s var(--ease),border-color .18s var(--ease),transform .18s var(--ease)}
+.button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:.45rem;padding:.65rem 1rem;border:1px solid transparent;border-radius:var(--radius-control);font-weight:700;}
 .button:hover{transform:translateY(-1px)}
 .button--primary{background:var(--color-teal);color:#fff}
 .button--primary:hover{background:var(--color-teal-dark)}
@@ -36,3 +36,5 @@
   .page-hero__actions{display:grid;grid-template-columns:1fr 1fr}
   .page-hero__actions .button{min-width:0}
 }
+
+@media(prefers-reduced-motion:no-preference){.button{transition:background-color .18s var(--ease),border-color .18s var(--ease),transform .18s var(--ease)}}
