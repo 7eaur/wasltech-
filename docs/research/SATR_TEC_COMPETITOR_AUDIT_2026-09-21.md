@@ -996,3 +996,1049 @@ External technology lookup services were searched, but no domain-specific stack 
 > **Do not build Wasl to look like SATR. Build Wasl to be as structurally intentional as SATR, with stronger evidence, stronger mobile UX, cleaner content, and a distinct Wasl visual identity.**
 
 This is the rule that should govern future implementation decisions derived from this audit.
+
+
+---
+
+# 31. Deep Visual Design Reading — كيف يصنع الموقع إحساس الأناقة
+
+هذا القسم لا ينسخ CSS أو أبعاداً غير متاحة لنا كدليل مباشر؛ بل يوثق **القرارات التصميمية المرصودة من ترتيب المحتوى، طريقة العرض، الصور، التسلسل، وأنماط التفاعل العامة**.
+
+## 31.1 الأناقة ليست في عنصر واحد
+
+الانطباع العام للموقع ناتج من تكرار قواعد ثابتة:
+
+- كل قسم يحمل فكرة واحدة.
+- العنوان كبير وواضح، لكن النص المساعد مختصر.
+- هناك توازن بين النص والصورة بدل ازدحام الاثنين معاً.
+- الأعمال تُستخدم كدليل بصري حقيقي.
+- الأرقام والسنة والتصنيف تُعرض كمعلومات ثانوية، لا كعناوين منافسة.
+- CTA لا يظهر كزر عشوائي؛ يأتي بعد منطق يقود إليه.
+- الأقسام تتناوب بين تعريف، شرح، إثبات، ثم تحويل.
+- المساحات البيضاء جزء من التصميم وليست فراغاً ضائعاً.
+
+### قاعدة Wasl
+الأناقة = **وضوح hierarchy + ضبط spacing + تقليل المنافسة البصرية + إثبات حقيقي بالصور**.
+
+---
+
+# 32. Visual Hierarchy System
+
+## 32.1 طبقات النص المتكررة
+
+يمكن استخلاص نظام هرمي شبه ثابت:
+
+1. **Eyebrow / Orientation label**
+   - مثال وظيفي: من نحن، خدماتنا، معرض المشاريع، دراسة حالة، قبل التنفيذ، ما قمنا به، الأثر.
+   - دوره: تعريف نوع القسم، لا حمل الرسالة الرئيسية.
+
+2. **Main heading**
+   - يحمل الفكرة أو الوعد.
+   - غالباً جملة قصيرة لها معنى، لا مجرد اسم القسم.
+
+3. **Supporting copy**
+   - يشرح كيف أو لماذا.
+   - غالباً فقرة واحدة أو فقرتان قصيرتان.
+
+4. **Metadata**
+   - سنة، تصنيف، عميل، مدة، فئة.
+
+5. **Action**
+   - "تفاصيل المشروع"، "مشاهدة تفاصيل الخدمة"، "خطط لمشروعك"، إلخ.
+
+### قاعدة Wasl
+لا نستخدم H2 مثل "خدماتنا" إذا كان الـeyebrow يقول "الخدمات".  
+الأفضل:
+- Eyebrow: الخدمات
+- H2: حلول رقمية مرتبة حول احتياج مشروعك
+
+---
+
+# 33. Hero System — دراسة عميقة
+
+## 33.1 Homepage Hero
+
+وظيفته الرئيسية **Positioning + Direction**:
+
+- H1 = ماذا تفعل الشركة بصورة عامة.
+- Supporting = كيف تفعل ذلك / ما الذي يجمع تخصصاتها.
+- Primary CTA = بدء المشروع.
+- Secondary CTA = دليل الثقة / الأعمال.
+- Visual = يمثل "المنتج الرقمي" أو مخرجات الشركة.
+
+الـHero لا يحاول شرح كل الخدمات أو كل المزايا.
+
+### Writing formula
+**[تحويل/نتيجة] + [الشيء الذي نبنيه]**
+
+ثم:
+**[كيف نعمل] + [لماذا يفيد العميل]**
+
+ثم CTA:
+- ابدأ
+- شاهد الدليل
+
+## 33.2 Inner-page Hero
+
+من الصفحات الداخلية يتضح أن وظيفة Hero تختلف حسب الصفحة:
+
+### Services hero
+- يعرّف نطاق الحلول.
+- يشرح أن الخدمات مرتبطة بالأهداف.
+- يدفع للاستكشاف.
+
+### Service detail hero
+- اسم الخدمة.
+- جملة قيمة قصيرة.
+- صورة/visual للخدمة.
+- Breadcrumb للتوجيه.
+
+### Portfolio hero
+- يضع المستخدم في وضع "استكشاف أعمال".
+- يوضح أن المعروض مشاريع/دراسات حالة، لا مجرد Gallery.
+
+### Case study hero
+- Badge/eyebrow: دراسة حالة.
+- اسم المشروع.
+- وصف واحد مركز.
+- Metadata مباشر بعد العنوان.
+- Hero screenshot.
+
+### Contact hero
+- "ابدأ الخطوة الأولى".
+- عنوان يدعو للتخطيط لا للإرسال فقط.
+- سطر يخفف الغموض ويوضح أن الفريق سيصيغ الحل مع العميل.
+
+### Careers hero
+- توظيف/انضمام.
+- رسالة ثقافية أكثر من كونها خدمة.
+
+## 33.3 قاعدة Wasl للـHero
+
+يجب ألا يكون لدينا **Hero واحد يُنسخ في كل الصفحات**.
+
+نعتمد 5 أنواع:
+
+1. Brand Hero — الرئيسية.
+2. Directory Hero — الخدمات/الأعمال.
+3. Detail Hero — الخدمة.
+4. Evidence Hero — دراسة الحالة.
+5. Action Hero — التواصل/Project Planner.
+
+لكنها تشترك في:
+- نفس typography.
+- نفس spacing grammar.
+- نفس CTA language.
+- نفس الهوية.
+- نفس طريقة التعامل مع الصور.
+
+---
+
+# 34. Section Sequencing — لماذا التسلسل يبدو طبيعياً
+
+## 34.1 Homepage
+
+التسلسل المرصود:
+
+1. Positioning.
+2. About preview.
+3. Values.
+4. Services.
+5. Selected work.
+6. Knowledge/articles.
+7. Final CTA.
+8. Footer.
+
+### المنطق
+**اعرفنا → افهم كيف نعمل → ماذا نقدم → شاهد الدليل → تعلم أكثر → ابدأ.**
+
+## 34.2 Service Detail
+
+التسلسل المرصود:
+
+1. Breadcrumb.
+2. Hero.
+3. Scope/details.
+4. Duration / pricing / support where present.
+5. Deliverables.
+6. Integrations.
+7. Delivery process.
+8. Related work where present.
+9. FAQ.
+10. Service CTA.
+
+### المنطق
+**ما الخدمة؟ → ماذا تعني؟ → ماذا سأستلم؟ → ما الذي يمكن ربطه؟ → كيف ستنفذ؟ → هل فعلتم شيئاً شبيهاً؟ → أسئلتي؟ → ابدأ.**
+
+## 34.3 Case Study
+
+1. Breadcrumb.
+2. Case-study label.
+3. Project title.
+4. One-paragraph summary.
+5. Metadata.
+6. Hero image.
+7. Overview.
+8. Challenge.
+9. Solution.
+10. Verified results.
+11. Live project.
+12. Related studies.
+13. Similar-project CTA.
+
+### المنطق
+**ما المشروع؟ → ما السياق؟ → ما المشكلة؟ → ماذا صنعنا؟ → ماذا تحقق؟ → شاهد/قارن → ابدأ مشروعاً مشابهاً.**
+
+## 34.4 Contact / Planner
+
+1. Orientation.
+2. Title + reassurance.
+3. Direct channels.
+4. Choice between general message / project request.
+5. Planner Step 1: type.
+6. Step 2: budget.
+7. Step 3: details + contact.
+8. Consent statement.
+9. Submit.
+
+### المنطق
+**اعرف طريقة التواصل → اختر مستوى الجدية → حدّد نوع الطلب → أعط سياقاً → أرسل.**
+
+---
+
+# 35. Page-by-Page Anatomy Reference
+
+## 35.1 Home
+**Purpose:** Positioning + proof + conversion.
+
+Must contain:
+- Brand statement.
+- concise support line.
+- dual CTA.
+- about teaser.
+- operating values.
+- service families.
+- selected proof.
+- optional knowledge section only when maintained.
+- final project CTA.
+
+## 35.2 About
+**Purpose:** Explain how the company thinks.
+
+Strong content types:
+- origin/evolution.
+- working method.
+- principles.
+- vision.
+- mission.
+- team.
+
+Avoid:
+- generic "we are a leading company".
+- long history with no relevance.
+- invented milestones.
+
+## 35.3 Services Directory
+**Purpose:** Help user identify the correct solution family.
+
+Strong content:
+- category headline.
+- one sentence per service.
+- service detail link.
+- custom-needs CTA.
+
+## 35.4 Service Detail
+**Purpose:** Reduce purchase uncertainty.
+
+Strong content:
+- short promise.
+- service scope.
+- estimated duration only if approved.
+- price/range only if approved.
+- support only if contractual.
+- deliverables.
+- integrations.
+- phases.
+- related work.
+- FAQ.
+- service CTA.
+
+## 35.5 Portfolio Listing
+**Purpose:** Evidence browser.
+
+Strong content:
+- category filters.
+- count.
+- project title.
+- category/year.
+- short summary.
+- case-study link.
+- live link where allowed.
+
+## 35.6 Case Study
+**Purpose:** Convert work into evidence.
+
+Strong content:
+- project identity.
+- context.
+- challenge.
+- solution.
+- verified outcomes.
+- screenshots.
+- related work.
+- project-specific CTA.
+
+## 35.7 Contact
+**Purpose:** Minimize friction while gathering enough context.
+
+Strong content:
+- phone/email/location.
+- general inquiry.
+- project planner.
+- progressive questions.
+- privacy consent.
+
+## 35.8 Blog
+**Purpose:** Decision education and SEO support.
+
+Strong content:
+- search.
+- category.
+- article cards.
+- reading time.
+- author/date.
+- useful CTA tied to topic.
+
+## 35.9 Careers
+**Purpose:** Employer brand / hiring.
+
+Even empty state is written as:
+- culture/ambition first.
+- current opportunities second.
+- honest "no openings" state.
+
+---
+
+# 36. Writing System — كيف يكتبون
+
+## 36.1 النبرة الأساسية
+
+النبرة تميل إلى:
+- B2B.
+- مباشرة.
+- تقنية لكن مفهومة.
+- تستخدم كلمات business + engineering معاً.
+- تربط كل تقنية بنتيجة أو استخدام.
+- تتجنب الفكاهة واللغة غير الرسمية.
+- تستخدم أفعالاً واضحة: نصمم، نطور، نحلل، نربط، ننشر، ندرب.
+
+## 36.2 بنية الجملة
+
+النمط المتكرر:
+
+**فعل + مفعول واضح + سبب/نتيجة**
+
+مثال منهجي غير منقول:
+> نطوّر نظاماً مخصصاً لإدارة العمليات، مع صلاحيات وتقارير تساعد الفريق على متابعة العمل.
+
+بدل:
+> نقدم حلولاً مبتكرة وفريدة بأعلى جودة.
+
+## 36.3 كيف يكتبون الـH1
+
+H1 غالباً واحد من الأنواع التالية:
+
+### Transformational
+تحويل فكرة إلى نتيجة رقمية.
+
+### Category + value
+اسم الخدمة + قيمتها.
+
+### Action
+دعوة لتخطيط/بدء المشروع.
+
+### Story
+قصة الشركة / دراسة الحالة.
+
+## 36.4 كيف يكتبون Supporting line
+
+وظيفته ليست إعادة H1.
+
+H1 يذكر **ماذا**.
+Supporting يشرح:
+- كيف،
+- لمن،
+- أو ما الفائدة.
+
+### Wasl rule
+إذا لم يضف supporting معلومة، احذفه.
+
+---
+
+# 37. Service Copy Formula
+
+صياغة صفحة الخدمة يمكن تحويلها إلى نظام:
+
+## 37.1 Service title
+اسم مفهوم للسوق.
+
+## 37.2 Promise line
+**ما الذي سنبنيه + ما السمة الأساسية التي تهم العميل.**
+
+## 37.3 Scope paragraph
+ثلاثة مكونات:
+1. من نخدم.
+2. ماذا نبني.
+3. ما الذي نركز عليه.
+
+## 37.4 Deliverables
+تكتب كـ **أشياء قابلة للتسليم**:
+- واجهات.
+- صفحات.
+- لوحة تحكم.
+- API.
+- إعداد SEO.
+- ربط.
+- ملفات نهائية.
+
+لا تكتب:
+- "احترافية".
+- "إبداع".
+- "جودة".
+كأنها Deliverables.
+
+## 37.5 Integrations
+تنظم كأسماء أنظمة/قنوات:
+- payment.
+- maps.
+- email.
+- WhatsApp.
+- analytics.
+- CRM/ERP.
+- external API.
+
+## 37.6 Process copy
+كل خطوة:
+**اسم مرحلة + ماذا نفعل فيها + ما الناتج.**
+
+## 37.7 FAQ
+السؤال يجب أن يعكس اعتراضاً حقيقياً:
+- هل يعمل على الهاتف؟
+- هل أستطيع التعديل؟
+- هل يمكن إضافة خصائص؟
+- هل ترفعون التطبيق؟
+- هل أحتاج لوحة تحكم؟
+
+---
+
+# 38. Portfolio Writing Formula
+
+## 38.1 Listing card
+
+Card =
+
+**Category/year → title → one-sentence project definition → action**
+
+لا يحتاج card إلى قصة كاملة.
+
+## 38.2 Case-study summary
+
+يشرح المنتج في سطر أو سطرين:
+- ما هو.
+- لمن.
+- ماذا يدير/يسمح.
+
+## 38.3 Overview
+
+يجيب:
+- ما الهدف؟
+- من المستخدم؟
+- ما النطاق العام؟
+
+## 38.4 Challenge
+
+يكتب بصيغة **قبل التنفيذ**:
+- ما المشكلة الحالية؟
+- ما التعقيد؟
+- ما الذي كان يجب تحسينه؟
+
+## 38.5 Solution
+
+يكتب بصيغة **ما قمنا به**:
+- architecture/technology only if relevant.
+- flows.
+- modules.
+- UX.
+- responsive.
+- data organization.
+
+## 38.6 Results
+
+النتائج الجيدة عندهم غالباً **مخرجات قابلة للتحقق**:
+- إطلاق الموقع.
+- دعم RTL.
+- نشر التطبيق.
+- إضافة بحث.
+- توحيد العمليات.
+- تفعيل تقارير.
+
+### Wasl rule
+نفضل output evidence على claims مثل:
+- "رفع المبيعات 200%".
+- "حسن الكفاءة 70%".
+إلا إذا لدينا قياس مثبت.
+
+---
+
+# 39. Microcopy System
+
+## 39.1 Eyebrows
+تستخدم للتوجيه:
+- من نحن
+- خدماتنا
+- معرض المشاريع
+- المعرفة والخبرة
+- دراسة حالة
+- قبل التنفيذ
+- ما قمنا به
+- الأثر
+- ابدأ خطوتك الأولى
+
+## 39.2 CTA language
+
+الـCTA عندهم مبني على intent:
+
+### Explore
+- مشاهدة الأعمال
+- تصفح الأعمال
+- تفاصيل المشروع
+- تفاصيل الخدمة
+
+### Start
+- ابدأ مشروعك
+- طلب مشروع
+- خطط لمشروعك
+- اطلب دراسة مشروعك
+
+### Learn
+- اقرأ القصة
+- اقرأ المقال
+
+### Form progression
+- الخطوة التالية
+- السابق
+- تقديم الطلب
+
+### Wasl rule
+CTA يجب أن يصف **الخطوة التالية** وليس كلمة عامة مثل "المزيد".
+
+---
+
+# 40. How Skills / Technologies Are Organized
+
+المنافس لا يضع في الرئيسية "مهاراتنا: Laravel, Flutter, React..." كشبكة شعارات.
+
+بدلاً من ذلك تظهر التقنية في سياق:
+
+## A. Service context
+Flutter / React Native / native كخيارات تنفيذ للتطبيق.
+
+## B. Integration context
+Maps, payment, API, analytics etc.
+
+## C. Case study context
+Laravel عند وصف ما بُني فعلاً.
+
+### لماذا هذا أفضل؟
+لأن العميل يهتم أولاً بالحل، ثم يهتم بالتقنية إذا أثرت على:
+- التكامل،
+- التوسع،
+- الأداء،
+- الصيانة،
+- المنصة المستهدفة.
+
+### Wasl Rule
+لا ننشئ "Tech Logo Wall" كقسم رئيسي إلا إذا كان له هدف بيع واضح.
+
+بدلاً منه:
+- service page → technology approach.
+- project case study → verified stack.
+- about/process → engineering principles.
+
+---
+
+# 41. Data Organization Model Inferred from Public Pages
+
+من تكرار الأنماط يمكن استنتاج أن المحتوى العام **يبدو منظماً ككيانات متكررة**، حتى لو backend الفعلي غير معروف.
+
+## Service entity likely needs
+- slug
+- locale
+- title
+- promise
+- description
+- image
+- duration
+- price
+- support
+- deliverables
+- integrations
+- process
+- related projects
+- FAQ
+- CTA
+
+## Project entity likely needs
+- slug
+- locale
+- title
+- summary
+- client
+- year
+- duration
+- category
+- cover
+- overview
+- challenge
+- solution
+- outcomes
+- live URL
+- related projects
+
+## Article entity likely needs
+- slug
+- category
+- title
+- summary
+- author
+- date
+- read time
+- body
+- CTA
+
+### Important
+هذا **استنتاج من بنية الصفحات العامة** وليس إثباتاً لبنية قاعدة البيانات الفعلية.
+
+---
+
+# 42. Editorial Design — كيف يجعلون النص يبدو أجمل
+
+حتى النص الجيد ينهار إذا عرض ككتلة.
+
+الأسلوب المرصود يعتمد على:
+
+- عنوان قوي ثم مساحة.
+- paragraph قصير.
+- metadata في كتلة مستقلة.
+- lists للتسليمات/النتائج.
+- cards للعناصر المتساوية.
+- horizontal browsing للأعمال.
+- accordion للأسئلة.
+- multi-step forms للمعلومات الطويلة.
+- small labels لتقسيم القصة.
+
+### Wasl rule
+**نحوّل المحتوى إلى شكل العرض المناسب لنوعه.**
+
+لا نحول:
+- Process إلى فقرة.
+- FAQ إلى 12 بطاقة.
+- Portfolio إلى جريدة.
+- Deliverables إلى paragraph.
+- Metadata إلى description.
+
+---
+
+# 43. Elegance Rules To Port Into Wasl
+
+1. لا تجعل كل الأقسام لها نفس layout.
+2. لا تجعل كل المحتوى داخل cards.
+3. استخدم صورة واحدة قوية بدلاً من عدة decorations.
+4. حافظ على hierarchy واضح.
+5. اجعل كل Section يجيب سؤالاً واحداً.
+6. العنوان يحمل الفكرة؛ الـeyebrow يحمل اسم النوع.
+7. الـCTA يأتي بعد سبب منطقي.
+8. الأعمال تُعرض كدليل.
+9. الـmetadata secondary.
+10. الأرقام تستخدم للتوجيه، لا للاستعراض.
+11. الحركة تخدم الاستكشاف.
+12. المحتوى الطويل يتجزأ إلى مراحل.
+13. لا تضع التقنية قبل حاجة العميل.
+14. Footer يختم الرحلة بدل تكرار الصفحة.
+15. Empty states صريحة وليست fake content.
+
+---
+
+# 44. Wasl Content Voice Standard Derived from the Benchmark
+
+هذه ليست نبرة SATR نفسها، بل النسخة المناسبة لوصل تك.
+
+## 44.1 Wasl voice
+- واثقة بدون مبالغة.
+- تقنية بدون استعراض.
+- مختصرة.
+- بشرية.
+- تشرح القرار.
+- تربط التنفيذ بالهدف.
+- تستخدم مفردات واضحة لليمن والخليج.
+
+## 44.2 كلمات نفضلها
+- واضح
+- منظم
+- متجاوب
+- مترابط
+- مناسب للنطاق
+- قابل للتطوير
+- تجربة استخدام
+- مسار
+- احتياج
+- هدف
+- تنفيذ
+- مراجعة
+- إطلاق
+
+## 44.3 كلمات نستخدمها بحذر
+- احترافي
+- مبتكر
+- متكامل
+- ذكي
+- قوي
+- فاخر
+- مذهل
+- الأفضل
+- ضمان
+
+تستخدم فقط عندما يكون لها معنى محدد أو دليل.
+
+---
+
+# 45. Wasl Headline Writing Patterns
+
+## Homepage
+**نبني [نتيجة/حضور/منتج] يخدم [الهدف].**
+
+## Services
+**حلول رقمية مرتبة حول [احتياج العميل].**
+
+## Service
+**[الخدمة] تساعدك على [نتيجة عملية].**
+
+## Portfolio
+**أعمال منفذة تشرح ما بنيناه، لا صور للعرض فقط.**
+
+## Case study
+**[اسم المشروع] — [تعريف وظيفي قصير].**
+
+## About
+**نربط [التصميم] بـ[التقنية] حتى يعمل المشروع كمنظومة واحدة.**
+
+## Process
+**مسار واضح من [الفهم] إلى [الإطلاق].**
+
+## Contact
+**شاركنا [الفكرة/الاحتياج] ونرتب معك نقطة البداية.**
+
+---
+
+# 46. Wasl Supporting Copy Rules
+
+Supporting line يجب أن يحقق واحداً فقط من التالي:
+
+1. يحدد الجمهور.
+2. يشرح كيف.
+3. يوضح النطاق.
+4. يقلل الغموض.
+5. يربط العنوان بالخطوة التالية.
+
+### Length
+- Hero: جملة أو جملتان قصيرتان.
+- Section: جملة واحدة غالباً.
+- Card: 1–2 lines.
+- Case study: يمكن أن يطول عند الحاجة.
+
+---
+
+# 47. Content Density Rules
+
+## Hero
+- H1
+- supporting
+- 1–2 CTA
+- optional visual/meta
+
+## Service card
+- title
+- one sentence
+- action
+
+## Project card
+- category/year
+- title
+- one sentence
+- action
+
+## Feature/value
+- short title
+- one sentence
+
+## CTA band
+- one heading
+- one support line
+- one/two actions
+
+### Anti-pattern
+لا نكرر:
+- headline
+- paragraph
+- 3 bullets
+- 2 buttons
+داخل كل Card.
+
+---
+
+# 48. Page Flow Questions — اختبار أي صفحة قبل اعتمادها
+
+قبل اعتماد الصفحة، يجب أن نعرف هل تجيب بالترتيب:
+
+1. أين أنا؟
+2. لماذا هذه الصفحة مهمة؟
+3. ماذا تقدم؟
+4. هل هذا يناسبني؟
+5. ماذا سأحصل؟
+6. هل عندكم دليل؟
+7. كيف يتم التنفيذ؟
+8. ما الأسئلة المتبقية؟
+9. ما الخطوة التالية؟
+
+إذا أجابت الصفحة كل الأسئلة لكن بترتيب عشوائي، فهي ما زالت ضعيفة.
+
+---
+
+# 49. Visual Proof Rules
+
+من المنافس نتعلم أن proof يمكن أن يكون:
+
+- project screenshot.
+- case study.
+- live project.
+- structured outcome.
+- process specificity.
+- deliverables.
+- integrations.
+- exact scope.
+
+### Wasl priority
+Proof hierarchy:
+
+1. Real project screenshot.
+2. Case study.
+3. Verified deliverable.
+4. Verified process.
+5. Client/public project metadata.
+6. Technology only when verified.
+
+---
+
+# 50. Mobile Content Interpretation
+
+لا يوجد لدينا في هذا التدقيق قياسات CSS مؤكدة لكل breakpoint في SATR، لذلك لا ننسخ أبعاداً.
+
+لكن من بنية المحتوى يمكن اعتماد:
+
+- horizontal portfolio is intentional.
+- long project form is converted to steps.
+- FAQ is collapsed.
+- cards carry limited copy.
+- navigation has dedicated project CTA.
+
+### Wasl improvement
+نستمر بقاعدة:
+- two-up cards where readable.
+- no horizontal page overflow.
+- shorter footer.
+- line clamp.
+- dedicated mobile crop.
+- no desktop section stacked blindly.
+
+---
+
+# 51. Blog Writing Lessons
+
+المقال الذي تم فحصه يستخدم أسلوباً تعليمياً منظماً:
+
+1. Context/problem.
+2. Why it matters.
+3. Numbered sections.
+4. Questions to ask.
+5. Lists.
+6. Practical summary.
+7. CTA tied to article topic.
+8. About author/team.
+
+## Good principle
+المقال يشرح **كيف يقرر صاحب المشروع**، وليس مجرد "10 أسباب تحتاج موقعاً".
+
+### Wasl rule
+إذا أطلقنا Blog:
+- guides for decisions.
+- checklists.
+- comparisons.
+- project planning.
+- UX/content/business system explanations.
+
+ولا نكتب SEO filler.
+
+---
+
+# 52. Contact Writing Lessons
+
+نبرة Contact مهمة لأنها تقلل الخوف من التواصل.
+
+الصفحة تستخدم:
+- orientation: بداية الخطوة.
+- action title: تواصل + خطط.
+- reassurance: نستمع ونصيغ الحل.
+- direct channels.
+- choice of inquiry type.
+- progressive form.
+- small explanatory line before each step.
+
+### Wasl rule
+كل خطوة في planner يجب أن تحتوي:
+**Question + why we ask it.**
+
+مثال:
+- ما نوع المشروع؟
+- يساعدنا ذلك على ترتيب الأسئلة التالية.
+
+---
+
+# 53. Empty-State Writing Lessons
+
+Careers وBlog يوضحان نمطاً مفيداً:
+
+بدل صفحة فارغة:
+- page context.
+- heading.
+- honest empty message.
+- next useful action.
+
+### Wasl rule
+لا نخترع محتوى لسد الفراغ.
+
+Empty state:
+**ما الموجود الآن + ماذا يفعل المستخدم بعد ذلك.**
+
+---
+
+# 54. Footer Information Architecture
+
+Footer المرصود ليس مجرد روابط قانونية.
+
+هو يقسم الاستخدام إلى:
+
+## Quick links
+معلومات/تصفح.
+
+## Start with us
+خدمات، أعمال، Planner، وظائف.
+
+## Contact
+هاتف، بريد، موقع.
+
+## Legal
+Privacy + Terms + measurement preferences.
+
+### Wasl adaptation
+Footer يمكن أن يكون:
+
+**وصل تك**
+- slogan
+
+**استكشف**
+- الخدمات
+- الأعمال
+- من نحن
+- كيف نعمل
+
+**ابدأ**
+- خطط مشروعك
+- واتساب
+- تواصل
+
+**تواصل**
+- phone
+- email
+- domain
+
+**Legal**
+- Privacy عند وجود analytics/forms policy.
+- Terms when needed.
+
+---
+
+# 55. Design Review Checklist Inspired by SATR, Improved for Wasl
+
+## Hero
+- هل H1 يحمل فكرة لا اسم صفحة فقط؟
+- هل supporting يضيف معلومة؟
+- هل CTA الأول واضح؟
+- هل الـvisual له وظيفة؟
+
+## Sections
+- هل كل section له سؤال واحد؟
+- هل يوجد تكرار؟
+- هل نوع العرض مناسب لنوع البيانات؟
+
+## Services
+- هل الخدمة تشرح scope؟
+- هل هناك deliverables؟
+- هل هناك proof؟
+- هل FAQ حقيقي؟
+
+## Portfolio
+- هل المشروع مكتوب كقصة؟
+- هل النتائج موثقة؟
+- هل الصور حقيقية؟
+- هل الرابط يعمل؟
+
+## Mobile
+- هل الصفحة صارت جريدة؟
+- هل البطاقات مختصرة؟
+- هل touch targets واضحة؟
+- هل الصور مقصوصة بشكل سليم؟
+
+## Copy
+- هل هناك مبالغة؟
+- هل كل adjective له معنى؟
+- هل CTA واضح؟
+- هل paragraph يمكن اختصاره؟
+
+## Trust
+- هل أي رقم أو مدة أو سعر معتمد؟
+- هل stack verified؟
+- هل privacy copy يطابق التنفيذ؟
+
+---
+
+# 56. Final Deep-Learning Rule
+
+الشيء الأهم الذي نتعلمه من SATR ليس لوناً أو Radius أو Hero بعينه.
+
+هو أن الموقع يعامل كل صفحة كـ **منتج مصغر له هدف ومسار محتوى وتحويل**:
+
+- الرئيسية = Positioning.
+- About = Philosophy.
+- Services = Decision directory.
+- Service = Scope & confidence.
+- Portfolio = Evidence.
+- Case study = Story + proof.
+- Blog = Education.
+- Contact = Qualification.
+- Careers = Employer signal.
+- Footer = Navigation closure.
+
+## معيار Wasl النهائي
+نبني كل صفحة بناءً على **وظيفتها**، ثم نجعل الهوية البصرية توحّدها.
+
+لا نبني Template واحداً ونضع داخله نصوصاً مختلفة.
