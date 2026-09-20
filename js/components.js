@@ -1,7 +1,7 @@
 /** WASL TECH — shared header/footer */
 class SiteHeader extends HTMLElement {
   connectedCallback() {
-    const isReferenceHome = document.body?.dataset.layout === 'reference-home';
+    const isReferenceHome = ['reference-home', 'reference-site'].includes(document.body?.dataset.layout);
     if (isReferenceHome) {
       const main = document.querySelector('main');
       if (main && !main.id) main.id = 'main-content';
