@@ -3,69 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#14305F" />
+  <meta name="theme-color" content="#ffffff" />
   <meta name="robots" content="noindex,follow" />
   <title>المحتوى المعرفي | وصل تك — Wasl Tech</title>
-  <meta name="description" content="صفحة المحتوى المعرفي في وصل تك غير منشورة حاليًا في التنقل حتى يتوفر محتوى مكتمل يستحق القراءة." />
+  <meta name="description" content="المحتوى المعرفي في وصل تك سيُنشر عندما تتوفر مواد مكتملة ومفيدة تستحق القراءة." />
   <link rel="icon" href="assets/brand/favicon.svg" />
   <link rel="manifest" href="site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <link rel="stylesheet" href="css/icons.css" />
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/brand-v2.css" />
-  <link rel="stylesheet" href="css/craft-system.css" />
   <link rel="stylesheet" href="css/shell.css" />
-  <link rel="stylesheet" href="css/secondary.css" />
+  <link rel="stylesheet" href="css/reference-pages.css" />
   <link rel="stylesheet" href="css/responsive-normalization.css" />
   <script src="js/components.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
-<body>
+<body data-layout="reference-site">
   <site-header></site-header>
-
-  <main class="utility-page">
-    <section class="utility-hero">
-      <div class="container utility-grid">
-        <div class="utility-copy">
-          <span class="page-kicker">المحتوى المعرفي</span>
-          <h1>لن نملأ المدونة لمجرد أن الموقع “يحتاج مدونة”.</h1>
-          <p>هذه الصفحة خارج التنقل الرئيسي حاليًا. عندما يتوفر محتوى مكتمل ومفيد فعلًا، سيتم نشره هنا بدل روابط فارغة أو مقالات شكلية.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="services.html">استكشف الخدمات</a>
-            <a class="btn btn-outline" href="portfolio.html">شاهد الأعمال</a>
-          </div>
-        </div>
-
-        <aside class="utility-status" aria-label="حالة الصفحة">
-          <span class="utility-status-dot" aria-hidden="true"></span>
-          <div>
-            <small>حالة الصفحة</small>
-            <strong>غير مدرجة في التنقل</strong>
-            <p>لا توجد مقالات منشورة نعتمدها كمحتوى نهائي حتى الآن.</p>
-          </div>
-        </aside>
+  <main class="site-main">
+    <section class="site-utility">
+      <div class="site-container">
+        <p class="site-kicker">المحتوى المعرفي</p>
+        <h1>المحتوى الجيد أهم من وجود مدونة فارغة.</h1>
+        <p>هذه الصفحة غير مدرجة في التنقل الرئيسي حاليًا. سننشر هنا محتوى عمليًا عندما يكون مكتملًا ومفيدًا، بدل إضافة مقالات شكلية لمجرد ملء الموقع.</p>
+        <div class="site-actions" style="justify-content:center"><a class="site-btn site-btn--primary" href="services.html">استكشف الخدمات</a><a class="site-btn site-btn--secondary" href="portfolio.html">شاهد الأعمال</a></div>
       </div>
     </section>
-
-    <section class="section-pad utility-next">
-      <div class="container utility-next-grid">
-        <div>
-          <span class="eyebrow">بدل المحتوى المؤقت</span>
-          <h2>استخدم الصفحات التي تحتوي على معلومات مثبتة الآن.</h2>
-        </div>
-        <div class="utility-link-list">
-          <a href="services.html"><span>01</span><strong>الخدمات الثمانية</strong><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
-          <a href="portfolio.html"><span>02</span><strong>معرض الأعمال</strong><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
-          <a href="faq.html"><span>03</span><strong>الأسئلة الشائعة</strong><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+    <section class="site-section site-section--soft">
+      <div class="site-container">
+        <header class="site-section-head"><div><p class="site-kicker">محتوى متاح الآن</p><h2 class="site-title">ابدأ من الصفحات التي تحتوي على معلومات فعلية.</h2></div></header>
+        <div class="site-feature-grid">
+          <article class="site-feature"><i class="fas fa-layer-group"></i><h3>الخدمات</h3><p>تعرف على الخدمات الثمانية وما الذي يمكن أن يناسب مشروعك.</p></article>
+          <article class="site-feature"><i class="fas fa-briefcase"></i><h3>الأعمال</h3><p>شاهد مشاريع حقيقية من أكثر من نوع ومسار.</p></article>
+          <article class="site-feature"><i class="far fa-question-circle"></i><h3>الأسئلة الشائعة</h3><p>إجابات مختصرة عن البداية والتنفيذ والخدمات.</p></article>
         </div>
       </div>
     </section>
   </main>
-
   <site-footer></site-footer>
 </body>
 </html>
