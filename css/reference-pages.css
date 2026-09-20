@@ -330,3 +330,12 @@ body[data-layout="reference-site"] .portfolio6-grid{
     font-size:.61rem;
   }
 }
+
+/* Final readability polish for two-up portfolio cards */
+@media(max-width:700px){
+  body[data-layout="reference-site"] .portfolio6-grid .portfolio-project-body h2,
+  body[data-layout="reference-site"] .portfolio6-grid .portfolio-project-featured .portfolio-project-body h2{font-size:.78rem}
+  body[data-layout="reference-site"] .portfolio6-grid .portfolio-project-body p,
+  body[data-layout="reference-site"] .portfolio6-grid .portfolio-project-featured .portfolio-project-body p{font-size:.62rem}
+  body[data-layout="reference-site"] .portfolio6-grid .portfolio-detail-trigger{font-size:.64rem}
+}
