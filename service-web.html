@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#14305F" />
+  <meta name="theme-color" content="#ffffff" />
   <title>تفاصيل الخدمة | وصل تك</title>
   <meta name="description" id="serviceMetaDescription" content="تعرف على تفاصيل خدمات وصل تك." />
   <meta property="og:type" content="website" />
@@ -16,147 +16,96 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <link rel="stylesheet" href="css/icons.css" />
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/brand-v2.css" />
-  <link rel="stylesheet" href="css/craft-system.css" />
   <link rel="stylesheet" href="css/shell.css" />
-  <link rel="stylesheet" href="css/service-detail-page.css" />
+  <link rel="stylesheet" href="css/reference-pages.css" />
   <link rel="stylesheet" href="css/responsive-normalization.css" />
   <script src="js/components.js" defer></script>
   <script src="js/services-data.js" defer></script>
   <script src="js/service-detail.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
-<body>
+<body data-layout="reference-site">
   <site-header></site-header>
 
-  <main class="service5" id="serviceDetailRoot">
-    <section class="service5-hero">
-      <div class="container">
-        <div class="service5-hero-shell">
-          <nav class="service5-breadcrumb fade-up" aria-label="مسار الصفحة">
-            <a href="index.html">الرئيسية</a>
-            <i class="fas fa-chevron-left" aria-hidden="true"></i>
-            <a href="services.html">الخدمات</a>
-            <i class="fas fa-chevron-left" aria-hidden="true"></i>
-            <span id="serviceBreadcrumbCurrent">الخدمة</span>
+  <main class="site-main" id="serviceDetailRoot">
+    <section class="site-hero">
+      <div class="site-hero-grid">
+        <figure class="site-hero-media">
+          <img id="sd-hero-image" src="assets/works/project_1.jpg" alt="" width="1200" height="760" fetchpriority="high" />
+        </figure>
+        <div class="site-hero-copy">
+          <nav aria-label="مسار الصفحة" style="font-size:.7rem;color:#7a8798;margin-bottom:10px">
+            <a href="index.html">الرئيسية</a> / <a href="services.html">الخدمات</a> / <span id="serviceBreadcrumbCurrent">الخدمة</span>
           </nav>
-
-          <div class="service5-hero-grid">
-            <div class="service5-hero-copy fade-up">
-              <span class="eyebrow" id="serviceGroupLabel">خدمة من وصل تك</span>
-              <h1 id="sd-title">تفاصيل الخدمة</h1>
-              <h2 id="sd-subtitle">حل رقمي مبني حول احتياجك</h2>
-              <p id="sd-desc">تعرف على ما تتضمنه الخدمة وكيف يمكن أن تناسب مشروعك.</p>
-              <div class="service5-actions">
-                <a id="serviceHeroCta" class="btn btn-primary" href="contact.html">ناقش هذه الخدمة</a>
-                <a class="btn btn-outline" href="services.html">كل الخدمات</a>
-              </div>
-              <div class="service5-highlights" id="serviceHighlights"></div>
-            </div>
-
-            <figure class="service5-hero-media fade-up">
-              <img id="sd-hero-image" src="assets/works/project_1.jpg" alt="" width="900" height="640" fetchpriority="high" />
-              <figcaption>
-                <span id="serviceIndex">01 / 08</span>
-                <strong id="serviceLabelTitle">خدمة رقمية</strong>
-              </figcaption>
-            </figure>
+          <p class="site-kicker" id="serviceGroupLabel">خدمة من وصل تك</p>
+          <h1 id="sd-title">تفاصيل الخدمة</h1>
+          <p id="sd-subtitle" style="color:#14305F;font-weight:600;margin-top:10px">حل رقمي مبني حول احتياجك</p>
+          <p id="sd-desc">تعرف على ما تتضمنه الخدمة وكيف يمكن أن تناسب مشروعك.</p>
+          <div class="site-actions">
+            <a id="serviceHeroCta" class="site-btn site-btn--primary" href="contact.html">ناقش هذه الخدمة</a>
+            <a class="site-btn site-btn--secondary" href="services.html">كل الخدمات</a>
           </div>
+          <div class="ref-service-highlights" id="serviceHighlights"></div>
         </div>
       </div>
     </section>
 
-    <section class="service5-section service5-fit">
-      <div class="container service5-fit-shell">
-        <header class="service5-heading fade-up">
-          <span class="eyebrow">هل تناسب مشروعك؟</span>
-          <h2 id="serviceFitTitle">هذه الخدمة مناسبة لعدة أنواع من المشاريع.</h2>
-          <p>إذا وجدت طبيعة مشروعك أو احتياجك قريبًا من هذه الفئات، فهذه نقطة بداية جيدة للنقاش.</p>
+    <section class="site-section site-section--soft">
+      <div class="site-container">
+        <header class="site-section-head">
+          <div><p class="site-kicker"><span id="serviceIndex">01 / 08</span> · <span id="serviceLabelTitle">خدمة رقمية</span></p><h2 class="site-title" id="serviceFitTitle">لمن تناسب هذه الخدمة؟</h2><p class="site-lead">هذه أمثلة على أنواع المشاريع التي يمكن أن تستفيد من الخدمة، ويتم تحديد الملاءمة النهائية بعد فهم احتياجك.</p></div>
         </header>
-        <div class="service5-targets fade-up" id="serviceTargets"></div>
+        <div class="ref-target-grid" id="serviceTargets"></div>
       </div>
     </section>
 
-    <section class="service5-section service5-deliverables">
-      <div class="container">
-        <header class="service5-heading service5-heading-row fade-up">
-          <div>
-            <span class="eyebrow">ما الذي تتضمنه الخدمة؟</span>
-            <h2 id="deliverablesTitle">مكونات ومخرجات مرتبة حسب طبيعة الخدمة.</h2>
-            <p id="deliverablesIntro">يتم تحديد النطاق النهائي بعد فهم مشروعك، لكن هذه أهم العناصر التي يمكن أن تدخل ضمن الخدمة.</p>
-          </div>
-          <a class="text-link" href="contact.html">ناقش النطاق <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+    <section class="site-section">
+      <div class="site-container">
+        <header class="site-section-head">
+          <div><p class="site-kicker">نطاق التنفيذ</p><h2 class="site-title" id="deliverablesTitle">ما الذي يمكن أن يدخل ضمن هذه الخدمة؟</h2><p class="site-lead" id="deliverablesIntro">يتم تحديد النطاق النهائي بعد فهم المشروع.</p></div>
         </header>
-        <div class="service5-deliverables-list fade-up" id="serviceDeliverables"></div>
+        <div class="ref-deliverables" id="serviceDeliverables"></div>
       </div>
     </section>
 
-    <section class="service5-section service5-related" id="serviceRelatedSection" hidden>
-      <div class="container">
-        <header class="service5-heading service5-heading-row fade-up">
-          <div>
-            <span class="eyebrow">أعمال مرتبطة</span>
-            <h2>نماذج من المعرض قريبة من نوع هذه الخدمة.</h2>
-            <p>نعرض هنا المشاريع المرتبطة فعليًا بهذا المسار، بدون تحويلها إلى نتائج أو أرقام غير موثقة.</p>
-          </div>
-          <a href="portfolio.html" class="text-link">كل الأعمال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
-        </header>
-        <div class="service5-related-grid" id="serviceRelatedWork"></div>
+    <section class="site-section site-section--soft" id="serviceRelatedSection" hidden>
+      <div class="site-container">
+        <header class="site-section-head"><div><p class="site-kicker">أعمال مرتبطة</p><h2 class="site-title">نماذج قريبة من هذا المسار.</h2></div><a href="portfolio.html">كل الأعمال ←</a></header>
+        <div class="ref-related-grid" id="serviceRelatedWork"></div>
       </div>
     </section>
 
-    <section class="service5-section service5-process">
-      <div class="container service5-process-shell">
-        <header class="service5-process-head fade-up">
-          <span class="eyebrow">كيف نعمل عليها؟</span>
-          <h2>أربع محطات، وتفاصيل التنفيذ تتغير حسب المشروع.</h2>
-          <a class="text-link" href="process.html">طريقة العمل كاملة <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
-        </header>
-        <ol class="service5-steps fade-up" id="serviceSteps"></ol>
+    <section class="site-section">
+      <div class="site-container">
+        <header class="site-section-head"><div><p class="site-kicker">كيف ننفذها؟</p><h2 class="site-title">مسار واضح من الفهم إلى الإطلاق.</h2></div></header>
+        <ol class="site-process" id="serviceSteps"></ol>
       </div>
     </section>
 
-    <section class="service5-section service5-faq">
-      <div class="container service5-faq-shell">
-        <header class="service5-faq-head fade-up">
-          <span class="eyebrow">أسئلة مرتبطة بالخدمة</span>
-          <h2>قبل أن تبدأ، هذه أهم النقاط التي قد تحتاج توضيحها.</h2>
-          <p>إذا كان السؤال مرتبطًا بتفاصيل مشروعك نفسه، الأفضل أن ترسل لنا السياق مباشرة.</p>
-        </header>
-        <div class="service5-faq-list fade-up" id="serviceFaqs"></div>
+    <section class="site-section site-section--soft">
+      <div class="site-container">
+        <header class="site-section-head"><div><p class="site-kicker">أسئلة شائعة</p><h2 class="site-title">ما الذي تحتاج معرفته قبل البداية؟</h2></div></header>
+        <div class="site-faq" id="serviceFaqs"></div>
       </div>
     </section>
 
-    <nav class="service5-siblings" aria-label="التنقل بين الخدمات">
-      <div class="container service5-siblings-grid">
-        <a id="servicePrev" href="services.html">
-          <span>الخدمة السابقة</span>
-          <strong>الخدمات</strong>
-        </a>
-        <a id="serviceNext" href="services.html">
-          <span>الخدمة التالية</span>
-          <strong>الخدمات</strong>
-        </a>
-      </div>
-    </nav>
-
-    <section class="service5-closing">
-      <div class="container">
-        <div class="service5-closing-shell fade-up">
-          <div>
-            <span>الخطوة التالية</span>
-            <h2 id="sd-cta-title">جاهز للبدء؟</h2>
-            <p id="sd-cta-desc">شاركنا احتياجك ونرتب معك الخطوة التالية.</p>
-          </div>
-          <div class="service5-closing-actions">
-            <a id="sd-cta-btn" class="btn btn-primary" href="contact.html">ابدأ مشروعك</a>
-            <a class="btn btn-outline" href="services.html">العودة للخدمات</a>
-          </div>
+    <section class="site-section">
+      <div class="site-container">
+        <div class="ref-service-nav">
+          <a id="servicePrev" href="services.html"><span>الخدمة السابقة</span><strong>خدمة أخرى</strong></a>
+          <a id="serviceNext" href="services.html"><span>الخدمة التالية</span><strong>خدمة أخرى</strong></a>
         </div>
+      </div>
+    </section>
+
+    <section class="site-cta">
+      <div class="site-container site-cta-inner">
+        <div><h2 id="sd-cta-title">جاهز تبدأ؟</h2><p id="sd-cta-desc">شاركنا احتياجك ونرتب معك الخطوة التالية.</p></div>
+        <div class="site-cta-actions"><a id="sd-cta-btn" class="site-btn site-btn--light" href="contact.html">ابدأ الآن</a><a class="site-btn site-btn--outline-light" href="services.html">الخدمات</a></div>
       </div>
     </section>
   </main>
