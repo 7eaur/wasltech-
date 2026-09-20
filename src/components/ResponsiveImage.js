@@ -1,4 +1,4 @@
-import { attributes, escapeHtml } from "../lib/html.js";
+import { attributes } from "../lib/html.js";
 
 export function ResponsiveImage({
   src,
@@ -15,7 +15,7 @@ export function ResponsiveImage({
 
   return `<img ${attributes({
     src,
-    alt: escapeHtml(alt),
+    alt,
     width,
     height,
     loading,
