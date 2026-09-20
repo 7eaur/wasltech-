@@ -26,7 +26,7 @@ class SiteHeader extends HTMLElement {
               </ul>
 
               <div class="nav-actions">
-                <a href="contact.html" class="btn btn-primary nav-btn">ابدأ مشروعك <span aria-hidden="true">←</span></a>
+                <a href="contact.html" class="btn btn-primary nav-btn">ابدأ مشروعك <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 <button class="hamburger" id="hamburger" type="button" aria-label="فتح القائمة" aria-controls="navLinks" aria-expanded="false">
                   <span></span><span></span><span></span>
                 </button>
