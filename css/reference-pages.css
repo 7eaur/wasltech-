@@ -104,7 +104,7 @@ body[data-layout="reference-site"] .floating-widgets{display:none}
   top:18%;
   bottom:18%;
   width:1px;
-  background:linear-gradient(to bottom,transparent,#DDE5EC 20%,#DDE5EC 80%,transparent);
+  background:#E3E8EE;
 }
 .site-hero-copy h1{
   max-width:650px;
