@@ -59,17 +59,20 @@ All 14 projects currently have:
 - three highlights;
 - related service id.
 
-Important fields currently missing across the portfolio:
-- verified project year;
-- public client/project attribution rules;
-- live URL where public;
-- screenshot/gallery assets;
-- verified technologies;
+Project presentation model is intentionally simplified:
+- one primary project image only;
+- no project year;
+- no public/live project URL;
+- no technology stack;
+- no screenshot/gallery collection.
+
+Remaining content work focuses on:
+- public client/project attribution where useful;
 - actual project scope;
 - what Wasl specifically delivered;
 - case-study overview;
-- challenge/context where known;
-- verified delivered outcome;
+- challenge/context where useful;
+- delivered outputs/outcomes;
 - SEO metadata;
 - English copy.
 
@@ -109,14 +112,12 @@ Do not publish filler articles for volume.
 ## User/business inputs — priority
 
 ### Priority A — strongest proof
-For projects, when available:
-- original screenshots/assets;
-- live URL;
-- project year;
-- permission/public client name;
+For projects:
+- permission/public client name where needed;
 - what Wasl built;
-- verified technologies;
-- concrete delivered outcome.
+- concrete delivered output/outcome.
+
+Project media is intentionally limited to the single primary image already assigned to each project.
 
 ### Priority B — service truth
 Confirm only where relevant:
@@ -148,6 +149,6 @@ using verified facts and the Wasl writing standard.
 
 ## Result
 
-Current data is **PARTIAL but structurally sound**.
+Current data is **PARTIAL but structurally sound**, with the simplified one-image project presentation model now locked.
 
 Phase 3 final visual work should not begin until the representative service/project/page content shapes are sufficiently known for realistic design testing.
