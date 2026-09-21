@@ -78,7 +78,7 @@ async function buildPages() {
 
   await writeOutput(
     "404.html",
-    foundationPlaceholder({ title: "الصفحة غير موجودة", routeKey: "home", locale: "ar" })
+    foundationPlaceholder({ title: "الصفحة غير موجودة", routeKey: "home", locale: "ar", seo: false })
   );
   await writeOutput("robots.txt", renderPreviewRobots());
 }
