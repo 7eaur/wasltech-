@@ -216,6 +216,52 @@ The next implementation work is:
 
 The original Wasl Tech identity remains authoritative, and the approved content/data layer must be consumed rather than duplicated in page markup.
 
+## Phase 3 — Design Tokens & Shared Primitives
+**ACTIVE — implementation verified; visual gate still open**
+
+Implemented:
+- expanded canonical token grammar;
+- semantic color roles;
+- bilingual typography hierarchy;
+- responsive container/stack/cluster/grid/split/flow primitives;
+- button variants and sizes;
+- text-link primitive;
+- reusable card/surface system;
+- accessible form-field states;
+- reusable media-frame ratios;
+- focus-visible and reduced-motion baseline;
+- locale-aware design-system showcase in Arabic and English;
+- shared components:
+  - `ActionLink`
+  - `SurfaceCard`
+  - `FormField`
+  - `MediaFrame`
+- `PageHero` and `ContactCTA` now consume shared action behavior;
+- CI guard added for undefined CSS custom properties.
+
+Verified implementation baseline:
+- workflow: `VNext verify`
+- run: `35558474835`
+- SHA: `50c5b3008dbe5160342171c0d9aa0dc269dfbf0a`
+- result: **SUCCESS**
+- Build: PASS
+- Structure: PASS
+- Data: PASS
+- bilingual showcase generation: PASS
+
+Latest design refinement:
+- SHA: `da05b3b2fa00ab576916ad4c5877524206559ac1`
+- manual CSS-token audit: **162 declared / 114 used / 0 missing**
+- GitHub Actions run: `35558780012` — currently queued at the time of this status update.
+
+Visual gate:
+- Vercel preview is currently blocked by Vercel `build-rate-limit`;
+- the GitHub Actions preview artifact was downloaded and inspected structurally;
+- local Chromium fails before rendering because of the container DBus/zygote environment;
+- local WeasyPrint also fails on its CSS Grid renderer before producing a page image.
+
+Therefore Phase 3 is **not** marked complete yet. Do not advance to Phase 4 until an actual desktop/mobile visual review can be performed.
+
 ## Production separation
 
 VNext is **not production**.
