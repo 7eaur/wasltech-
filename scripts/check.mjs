@@ -224,6 +224,31 @@ if (!typographyStyles.includes('html[lang="ar"]') || !typographyStyles.includes(
   fail("src/styles/typography.css", "bilingual typography selectors are required");
 }
 
+const cssSourcesForTokenCheck = await Promise.all(
+  [
+    "src/styles/tokens.css",
+    "src/styles/brand.css",
+    "src/styles/typography.css",
+    "src/styles/base.css",
+    "src/styles/layout.css",
+    "src/styles/components.css",
+    "src/styles/media.css",
+    "src/styles/showcase.css"
+  ].map((file) => readFile(path.join(ROOT, file), "utf8"))
+);
+const cssSourceBundle = cssSourcesForTokenCheck.join("\n");
+const declaredCustomProperties = new Set(
+  [...cssSourceBundle.matchAll(/(--[a-z0-9-]+)\s*:/gi)].map((match) => match[1])
+);
+const usedCustomProperties = new Set(
+  [...cssSourceBundle.matchAll(/var\((--[a-z0-9-]+)/gi)].map((match) => match[1])
+);
+for (const token of usedCustomProperties) {
+  if (!declaredCustomProperties.has(token)) {
+    fail("styles", `undefined custom property used: ${token}`);
+  }
+}
+
 const cssOutput = await readFile(path.join(DIST, "assets/css/site.css"), "utf8");
 for (const contract of [
   "--wt-navy-700:#14305F",
