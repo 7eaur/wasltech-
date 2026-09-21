@@ -1,11 +1,9 @@
 import { brand } from "./brand.js";
+import { defaultLocale, locales } from "./locales.js";
 
 export const site = Object.freeze({
   brand,
-  locale: Object.freeze({
-    lang: "ar",
-    dir: "rtl"
-  }),
+  locale: locales[defaultLocale],
   market: "اليمن + الخليج",
   contact: Object.freeze({
     phoneDisplay: "+967 775 377 979",
