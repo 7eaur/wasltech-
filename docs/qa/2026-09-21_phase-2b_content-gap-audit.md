@@ -59,12 +59,7 @@ All 14 projects currently have:
 - three highlights;
 - related service id.
 
-Project presentation model is intentionally simplified:
-- one primary project image only;
-- no project year;
-- no public/live project URL;
-- no technology stack;
-- no screenshot/gallery collection.
+Project presentation model is intentionally simplified around one primary project image and the project story.
 
 Remaining content work focuses on:
 - public client/project attribution where useful;
