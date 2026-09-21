@@ -8,7 +8,9 @@
   },
   "scripts": {
     "vnext:build": "node scripts/build.mjs",
-    "vnext:check": "node scripts/check.mjs",
+    "vnext:check:structure": "node scripts/check.mjs",
+    "vnext:check:data": "node scripts/check-data.mjs",
+    "vnext:check": "npm run vnext:check:structure && npm run vnext:check:data",
     "vnext:verify": "npm run vnext:build && npm run vnext:check"
   }
 }
