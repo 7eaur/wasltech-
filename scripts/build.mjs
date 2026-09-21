@@ -20,6 +20,7 @@ import { projectPlannerPage } from "../src/pages/project-planner.js";
 import { faqPage } from "../src/pages/faq.js";
 import { insightsPage, careersPage } from "../src/pages/secondary-empty.js";
 import { privacyPage, termsPage } from "../src/pages/legal.js";
+import { notFoundPage } from "../src/pages/not-found.js";
 import { services } from "../src/data/services.js";
 import { projects } from "../src/data/projects.js";
 
@@ -100,10 +101,12 @@ async function buildAssets() {
 async function buildPages() {
   for (const locale of ["ar", "en"]) {
     await writeOutput(outputPath(routes.home(locale)), homePage(locale));
-    await writeOutput(
-      locale === "ar" ? "__showcase/index.html" : "en/__showcase/index.html",
-      designSystemShowcase(locale)
-    );
+    if (!isProductionBuild) {
+      await writeOutput(
+        locale === "ar" ? "__showcase/index.html" : "en/__showcase/index.html",
+        designSystemShowcase(locale)
+      );
+    }
 
     await writeOutput(outputPath(routes.services(locale)), servicesDirectoryPage(locale));
 
@@ -145,10 +148,8 @@ async function buildPages() {
     }
   }
 
-  await writeOutput(
-    "404.html",
-    foundationPlaceholder({ title: "الصفحة غير موجودة", routeKey: "home", locale: "ar", seo: false })
-  );
+  await writeOutput("404.html", notFoundPage("ar"));
+  await writeOutput("en/404.html", notFoundPage("en"));
   await writeOutput("robots.txt", isProductionBuild ? renderProductionRobots() : renderPreviewRobots());
   if (isProductionBuild) {
     await writeOutput("sitemap.xml", renderSitemap(getIndexableEntries()));
