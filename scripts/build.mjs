@@ -26,7 +26,11 @@ const placeholderRoutes = Object.freeze([
   Object.freeze({ key: "portfolio", title: Object.freeze({ ar: "الأعمال", en: "Work" }) }),
   Object.freeze({ key: "process", title: Object.freeze({ ar: "كيف نعمل", en: "Process" }) }),
   Object.freeze({ key: "about", title: Object.freeze({ ar: "من نحن", en: "About" }) }),
-  Object.freeze({ key: "contact", title: Object.freeze({ ar: "تواصل معنا", en: "Contact" }) })
+  Object.freeze({ key: "insights", title: Object.freeze({ ar: "المقالات", en: "Insights" }) }),
+  Object.freeze({ key: "faq", title: Object.freeze({ ar: "الأسئلة الشائعة", en: "FAQ" }) }),
+  Object.freeze({ key: "careers", title: Object.freeze({ ar: "الوظائف", en: "Careers" }) }),
+  Object.freeze({ key: "contact", title: Object.freeze({ ar: "تواصل معنا", en: "Contact" }) }),
+  Object.freeze({ key: "startProject", title: Object.freeze({ ar: "ابدأ مشروعك", en: "Start a Project" }) })
 ]);
 
 async function ensureDirectory(filePath) {
