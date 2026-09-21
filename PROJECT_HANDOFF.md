@@ -227,6 +227,42 @@ Build the shared design grammar before composing final pages:
 
 Do not start Homepage composition before Phase 3 and Phase 4 gates pass.
 
+## 8A. Phase 3 current state
+
+Phase 3 implementation is active.
+
+Completed in code:
+- refined design tokens and semantic roles;
+- bilingual typography;
+- layout primitives;
+- action/button primitives;
+- card/surface primitives;
+- form states;
+- media contracts;
+- accessibility/reduced-motion baseline;
+- Arabic + English internal design-system showcase;
+- shared ActionLink / SurfaceCard / FormField / MediaFrame components;
+- CSS custom-property integrity guard.
+
+Verified run:
+- `35558474835`
+- SHA `50c5b3008dbe5160342171c0d9aa0dc269dfbf0a`
+- SUCCESS.
+
+Latest refinement:
+- `da05b3b2fa00ab576916ad4c5877524206559ac1`
+- manual token audit: no undefined CSS custom properties;
+- workflow run `35558780012` was queued when this handoff was updated.
+
+Do **not** call Phase 3 complete until desktop/mobile screenshots of the showcase are reviewed.
+
+Current visual-review blockers are environmental, not accepted product debt:
+- Vercel branch preview: build-rate-limit;
+- local Chromium: DBus/zygote initialization failure;
+- WeasyPrint: CSS Grid render failure.
+
+Do not begin Phase 4 just to bypass this gate.
+
 ## 9. Non-negotiable rules
 
 - Legacy remains evidence only, not a wording or architecture source.
