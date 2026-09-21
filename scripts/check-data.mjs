@@ -2,8 +2,15 @@ import { stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import {
+  contentStateValues,
+  pageFieldKeys,
+  projectFieldKeys,
+  serviceFieldKeys
+} from "../src/data/content-contracts.js";
 import { serviceGroups, services } from "../src/data/services.js";
 import { projects } from "../src/data/projects.js";
+import { pages } from "../src/data/pages.js";
 import { faqGroups } from "../src/data/faq.js";
 import { articles } from "../src/data/articles.js";
 import { jobs } from "../src/data/jobs.js";
@@ -11,6 +18,7 @@ import { jobs } from "../src/data/jobs.js";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const errors = [];
 const allowedLocaleStates = new Set(["draft", "ready", "content_required"]);
+const allowedContentStates = new Set(contentStateValues);
 
 function fail(scope, message) {
   errors.push(`${scope}: ${message}`);
@@ -41,6 +49,33 @@ function validateLocaleRecord(record, scope) {
   }
 }
 
+function validateContentAudit(record, keys, scope) {
+  if (!allowedContentStates.has(record.contentState)) {
+    fail(scope, `invalid Phase 2B content state: ${record.contentState}`);
+  }
+
+  const fields = record.fieldState;
+  if (!fields || typeof fields !== "object") {
+    fail(scope, "missing Phase 2B fieldState");
+    return;
+  }
+
+  for (const key of keys) {
+    if (!(key in fields)) fail(scope, `missing Phase 2B field state: ${key}`);
+    else if (!allowedContentStates.has(fields[key])) {
+      fail(scope, `invalid Phase 2B field state for ${key}: ${fields[key]}`);
+    }
+  }
+
+  for (const key of Object.keys(fields)) {
+    if (!keys.includes(key)) fail(scope, `unknown Phase 2B field state: ${key}`);
+  }
+
+  if (!Array.isArray(record.evidenceSources) || !record.evidenceSources.length) {
+    fail(scope, "at least one evidence source is required");
+  }
+}
+
 async function validateAsset(assetPath, scope) {
   if (!assetPath?.startsWith("/assets/")) {
     fail(scope, `invalid local asset path: ${assetPath}`);
@@ -67,6 +102,7 @@ for (const service of services) {
   const scope = `service:${service.id}`;
   if (!serviceGroupIds.has(service.group)) fail(scope, `unknown group: ${service.group}`);
   validateLocaleRecord(service, scope);
+  validateContentAudit(service, serviceFieldKeys, scope);
   if (!service.content?.ar?.title) fail(scope, "Arabic title missing");
   if (!service.content?.ar?.description) fail(scope, "Arabic description missing");
   if (!Array.isArray(service.content?.ar?.deliverables) || !service.content.ar.deliverables.length) {
@@ -81,12 +117,76 @@ unique(projects, "slug", "projects");
 for (const project of projects) {
   const scope = `project:${project.id}`;
   validateLocaleRecord(project, scope);
+  validateContentAudit(project, projectFieldKeys, scope);
   if (!project.content?.ar?.title) fail(scope, "Arabic title missing");
   if (!project.content?.ar?.summary) fail(scope, "Arabic summary missing");
+  if (!("year" in project)) fail(scope, "year contract missing");
+  if (!project.client || !("publicName" in project.client) || !("attributionApproved" in project.client)) {
+    fail(scope, "client attribution contract missing");
+  }
+  if (!("projectStatus" in project)) fail(scope, "project status contract missing");
+  if (!("platformType" in project)) fail(scope, "platform type contract missing");
+  if (!Array.isArray(project.technologies)) fail(scope, "technologies contract must be an array");
+  if (!Array.isArray(project.gallery)) fail(scope, "gallery contract must be an array");
+  if (project.year && project.fieldState.year !== "READY") fail(scope, "year value exists but field is not READY");
+  if (project.links?.live && project.fieldState.liveUrl !== "READY") fail(scope, "live URL exists but field is not READY");
+  if (project.technologies.length && project.fieldState.technologies !== "READY") {
+    fail(scope, "technology values exist but field is not READY");
+  }
   for (const serviceId of project.serviceIds ?? []) {
     if (!serviceIds.has(serviceId)) fail(scope, `unknown related service: ${serviceId}`);
   }
   await validateAsset(project.image, scope);
+}
+
+unique(pages, "id", "pages");
+const expectedPageIds = new Set([
+  "home",
+  "about",
+  "services",
+  "portfolio",
+  "process",
+  "contact",
+  "startProject",
+  "faq",
+  "insights",
+  "careers",
+  "privacy",
+  "terms",
+  "notFound"
+]);
+const allowedRouteKeys = new Set([
+  "home",
+  "about",
+  "services",
+  "portfolio",
+  "process",
+  "contact",
+  "startProject",
+  "faq",
+  "insights",
+  "careers",
+  "privacy",
+  "terms"
+]);
+
+if (pages.length !== expectedPageIds.size) {
+  fail("pages", `expected ${expectedPageIds.size} canonical page records, found ${pages.length}`);
+}
+
+for (const record of pages) {
+  const scope = `page:${record.id}`;
+  if (!expectedPageIds.has(record.id)) fail(scope, "unexpected canonical page id");
+  if (record.id === "notFound") {
+    if (record.routeKey !== null) fail(scope, "404 routeKey must stay null");
+  } else if (!allowedRouteKeys.has(record.routeKey)) {
+    fail(scope, `unknown routeKey: ${record.routeKey}`);
+  }
+  validateLocaleRecord(record, scope);
+  validateContentAudit(record, pageFieldKeys, scope);
+  if (record.localeStatus.ar !== "content_required" && !record.content?.ar) {
+    fail(scope, "Arabic page content is expected for non-required state");
+  }
 }
 
 unique(faqGroups, "id", "faqGroups");
@@ -104,12 +204,12 @@ for (const group of faqGroups) {
   }
 }
 
+const projectIds = new Set(projects.map((project) => project.id));
 for (const article of articles) {
   validateLocaleRecord(article, `article:${article.id}`);
   for (const serviceId of article.relatedServiceIds ?? []) {
     if (!serviceIds.has(serviceId)) fail(`article:${article.id}`, `unknown service: ${serviceId}`);
   }
-  const projectIds = new Set(projects.map((project) => project.id));
   for (const projectId of article.relatedProjectIds ?? []) {
     if (!projectIds.has(projectId)) fail(`article:${article.id}`, `unknown project: ${projectId}`);
   }
@@ -126,4 +226,7 @@ if (errors.length) {
 }
 
 console.log("VNEXT DATA CHECK: PASSED");
-console.log(`Services: ${services.length} | Projects: ${projects.length} | FAQ: ${faqItems.length} | Articles: ${articles.length} | Jobs: ${jobs.length}`);
+console.log(
+  `Services: ${services.length} | Projects: ${projects.length} | Pages: ${pages.length} | FAQ: ${faqItems.length} | Articles: ${articles.length} | Jobs: ${jobs.length}`
+);
+console.log("Phase 2B content completeness contracts: PASSED");
