@@ -1,30 +1,57 @@
 import { site } from "../config/site.js";
-import { primaryNavigation } from "../config/navigation.js";
+import { locales } from "../config/locales.js";
+import { routes } from "../config/routes.js";
+import { getPrimaryNavigation } from "../config/navigation.js";
 import { escapeHtml } from "../lib/html.js";
 
-export function Header({ activePath = "/" } = {}) {
-  const links = primaryNavigation.map((item) => {
+const copy = Object.freeze({
+  ar: Object.freeze({
+    homeAria: "الرئيسية",
+    menu: "فتح القائمة",
+    nav: "التنقل الرئيسي",
+    cta: "ابدأ مشروعك",
+    switchLabel: "English"
+  }),
+  en: Object.freeze({
+    homeAria: "Home",
+    menu: "Open menu",
+    nav: "Primary navigation",
+    cta: "Start your project",
+    switchLabel: "العربية"
+  })
+});
+
+export function Header({ activePath = "/", locale = "ar", alternatePath = null } = {}) {
+  const localeConfig = locales[locale];
+  if (!localeConfig) throw new Error(`Unsupported header locale: ${locale}`);
+
+  const labels = copy[locale];
+  const links = getPrimaryNavigation(locale).map((item) => {
     const active = item.href === activePath;
     return `<li><a class="nav-link${active ? " is-active" : ""}" href="${item.href}"${active ? ' aria-current="page"' : ""}>${escapeHtml(item.label)}</a></li>`;
   }).join("");
 
+  const homeHref = routes.home(locale);
+  const switchHref = alternatePath ?? routes.home(locale === "ar" ? "en" : "ar");
+
   return `
     <header class="site-header" data-site-header>
       <div class="container header-shell">
-        <a class="brand-link" href="/" aria-label="${site.brand.name.ar} — الرئيسية">
+        <a class="brand-link" href="${homeHref}" aria-label="${escapeHtml(site.brand.name[locale])} — ${labels.homeAria}">
           <img src="${site.brand.assets.logo}" alt="${site.brand.name.ar} | ${site.brand.name.en}" width="190" height="72">
         </a>
 
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-menu-toggle>
-          <span class="sr-only">فتح القائمة</span>
+          <span class="sr-only">${labels.menu}</span>
           <span aria-hidden="true">☰</span>
         </button>
 
-        <nav class="primary-nav" id="primary-navigation" aria-label="التنقل الرئيسي" data-primary-nav>
+        <nav class="primary-nav" id="primary-navigation" aria-label="${labels.nav}" data-primary-nav>
           <ul>${links}</ul>
         </nav>
 
-        <a class="button button--primary header-cta" href="/contact/">ابدأ مشروعك</a>
+        <a class="language-switch" href="${switchHref}" hreflang="${locale === "ar" ? "en" : "ar"}">${labels.switchLabel}</a>
+        <a class="button button--primary header-cta" href="${routes.startProject(locale)}">${labels.cta}</a>
       </div>
     </header>
   `;
