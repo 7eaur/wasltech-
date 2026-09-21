@@ -108,6 +108,19 @@ for (const service of services) {
   if (!Array.isArray(service.content?.ar?.deliverables) || !service.content.ar.deliverables.length) {
     fail(scope, "Arabic deliverables missing");
   }
+  if (service.fieldState.problemNeed === "READY" && !service.content?.ar?.decision?.problemNeed) {
+    fail(scope, "problemNeed is READY but decision.problemNeed is missing");
+  }
+  if (["PARTIAL", "READY"].includes(service.fieldState.constraintsDependencies)) {
+    if (!Array.isArray(service.content?.ar?.constraints) || !service.content.ar.constraints.length) {
+      fail(scope, "constraintsDependencies has content state but constraints are missing");
+    }
+  }
+  if (["PARTIAL", "READY"].includes(service.fieldState.relatedArticles)) {
+    if (!Array.isArray(service.content?.ar?.relatedArticleTopics) || !service.content.ar.relatedArticleTopics.length) {
+      fail(scope, "relatedArticles has content state but relatedArticleTopics are missing");
+    }
+  }
   if (service.fieldState.seo === "READY") {
     const seo = service.content?.ar?.seo;
     if (!seo?.primaryTopic || !seo?.title || !seo?.description || !seo?.ogTitle || !seo?.ogDescription) {
@@ -139,10 +152,25 @@ for (const project of projects) {
   if (project.technologies.length && project.fieldState.technologies !== "READY") {
     fail(scope, "technology values exist but field is not READY");
   }
+  if (project.fieldState.platformType === "READY" && !project.platformType) {
+    fail(scope, "platformType is READY but value is missing");
+  }
   if (project.fieldState.scope === "READY") {
     const scopeItems = project.content?.ar?.caseStudy?.scope;
     if (!Array.isArray(scopeItems) || !scopeItems.length) {
       fail(scope, "scope is READY but case-study scope is missing");
+    }
+  }
+  if (["PARTIAL", "READY"].includes(project.fieldState.waslContribution) && !project.content?.ar?.caseStudy?.contribution) {
+    fail(scope, "waslContribution has content state but case-study contribution is missing");
+  }
+  if (["PARTIAL", "READY"].includes(project.fieldState.contextChallenge) && !project.content?.ar?.caseStudy?.context) {
+    fail(scope, "contextChallenge has content state but case-study context is missing");
+  }
+  if (["PARTIAL", "READY"].includes(project.fieldState.outcomes)) {
+    const outputs = project.content?.ar?.caseStudy?.deliveredOutputs;
+    if (!Array.isArray(outputs) || !outputs.length) {
+      fail(scope, "outcomes has content state but deliveredOutputs are missing");
     }
   }
   if (project.fieldState.seo === "READY") {
