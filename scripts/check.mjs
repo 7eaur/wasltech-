@@ -130,6 +130,7 @@ const sourceFiles = [
   path.join(ROOT, "scripts/check-project-details.mjs"),
   path.join(ROOT, "scripts/check-about-process.mjs"),
   path.join(ROOT, "scripts/check-contact-planner.mjs"),
+  path.join(ROOT, "scripts/check-secondary-legal.mjs"),
   path.join(ROOT, "scripts/check-data.mjs")
 ];
 
@@ -248,6 +249,7 @@ const cssSourcesForTokenCheck = await Promise.all(
     "src/styles/project-detail.css",
     "src/styles/about-process.css",
     "src/styles/contact-planner.css",
+    "src/styles/secondary.css",
     "src/styles/showcase.css"
   ].map((file) => readFile(path.join(ROOT, file), "utf8"))
 );
