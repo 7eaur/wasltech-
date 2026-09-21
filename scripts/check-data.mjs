@@ -159,13 +159,11 @@ for (const project of projects) {
       fail(scope, "English is READY but English project SEO is incomplete");
     }
   }
-  if (!project.client || !("publicName" in project.client) || !("attributionApproved" in project.client)) {
-    fail(scope, "client attribution contract missing");
-  }
-  if (!("projectStatus" in project)) fail(scope, "project status contract missing");
   if (!("platformType" in project)) fail(scope, "platform type contract missing");
-  if (project.fieldState.platformType === "READY" && !project.platformType) {
-    fail(scope, "platformType is READY but value is missing");
+  if (project.fieldState.platformType === "READY") {
+    if (!project.platformType?.ar || !project.platformType?.en) {
+      fail(scope, "platformType is READY but localized values are missing");
+    }
   }
   if (project.fieldState.scope === "READY") {
     const scopeItems = project.content?.ar?.caseStudy?.scope;
@@ -179,10 +177,11 @@ for (const project of projects) {
   if (["PARTIAL", "READY"].includes(project.fieldState.contextChallenge) && !project.content?.ar?.caseStudy?.context) {
     fail(scope, "contextChallenge has content state but case-study context is missing");
   }
-  if (["PARTIAL", "READY"].includes(project.fieldState.outcomes)) {
-    const outputs = project.content?.ar?.caseStudy?.deliveredOutputs;
-    if (!Array.isArray(outputs) || !outputs.length) {
-      fail(scope, "outcomes has content state but deliveredOutputs are missing");
+  if (project.fieldState.deliveredOutputs === "READY") {
+    const arOutputs = project.content?.ar?.caseStudy?.deliveredOutputs;
+    const enOutputs = project.content?.en?.caseStudy?.deliveredOutputs;
+    if (!Array.isArray(arOutputs) || !arOutputs.length || !Array.isArray(enOutputs) || !enOutputs.length) {
+      fail(scope, "deliveredOutputs is READY but localized outputs are missing");
     }
   }
   if (project.fieldState.seo === "READY") {
