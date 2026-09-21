@@ -1,6 +1,7 @@
 /**
  * Wasl Tech VNext — Canonical general FAQ data.
- * Source: visible FAQ content and matching FAQPage schema in legacy faq.html.
+ * Source facts: visible FAQ content and matching FAQPage schema in legacy faq.html.
+ * Arabic wording is a VNext editorial rewrite and remains draft until final review.
  */
 
 export const faqGroups = Object.freeze([
@@ -8,7 +9,7 @@ export const faqGroups = Object.freeze([
     "id": "start",
     "order": 1,
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -21,13 +22,13 @@ export const faqGroups = Object.freeze([
       {
         "id": "start-1",
         "localeStatus": {
-          "ar": "ready",
+          "ar": "draft",
           "en": "content_required"
         },
         "content": {
           "ar": {
-            "question": "ماذا لو لم أعرف الخدمة المناسبة؟",
-            "answer": "يكفي أن تشرح الهدف أو المشكلة الحالية، ويمكن تحديد المسار الأقرب بعد فهم الاحتياج."
+            "question": "عندي فكرة، لكن ما أعرف أي خدمة أحتاج. من أين أبدأ؟",
+            "answer": "ابدأ بالهدف أو المشكلة التي تريد حلها. نحن نرتب معك الاحتياج أولًا ثم نحدد هل الأنسب موقعًا أو تطبيقًا أو متجرًا أو نظامًا أو خدمة أخرى."
           },
           "en": null
         }
@@ -35,13 +36,13 @@ export const faqGroups = Object.freeze([
       {
         "id": "start-2",
         "localeStatus": {
-          "ar": "ready",
+          "ar": "draft",
           "en": "content_required"
         },
         "content": {
           "ar": {
-            "question": "هل يمكن تطوير مشروع موجود بدل البدء من الصفر؟",
-            "answer": "نعم، يمكن مراجعة الموجود وتحديد ما يستحق الاحتفاظ به وما يحتاج تطويرًا أو إعادة بناء."
+            "question": "هل لازم نبدأ المشروع من الصفر؟",
+            "answer": "لا. إذا كان لديك مشروع قائم نراجع الموجود أولًا، ثم نحدد ما يستحق الاحتفاظ به وما يحتاج تحسينًا أو إعادة بناء."
           },
           "en": null
         }
@@ -49,13 +50,13 @@ export const faqGroups = Object.freeze([
       {
         "id": "start-3",
         "localeStatus": {
-          "ar": "ready",
+          "ar": "draft",
           "en": "content_required"
         },
         "content": {
           "ar": {
-            "question": "هل يمكن تنفيذ المشروع على مراحل؟",
-            "answer": "نعم، إذا كان تقسيم المشروع إلى أولويات ومراحل هو الخيار الأنسب لطبيعته ونطاقه."
+            "question": "هل يمكن تنفيذ المشروع على مراحل بدل تنفيذه كاملًا مرة واحدة؟",
+            "answer": "نعم. يمكن ترتيب المشروع حسب الأولوية والبدء بالجزء الأكثر أهمية، ثم التوسع على مراحل عندما يكون ذلك أنسب للنطاق."
           },
           "en": null
         }
@@ -66,7 +67,7 @@ export const faqGroups = Object.freeze([
     "id": "product",
     "order": 2,
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -79,13 +80,13 @@ export const faqGroups = Object.freeze([
       {
         "id": "product-1",
         "localeStatus": {
-          "ar": "ready",
+          "ar": "draft",
           "en": "content_required"
         },
         "content": {
           "ar": {
-            "question": "هل المواقع تعمل على الجوال والتابلت؟",
-            "answer": "نعم، المواقع تنفذ بتجربة متجاوبة مع الجوال والتابلت والكمبيوتر."
+            "question": "هل الموقع سيعمل بشكل جيد على الجوال؟",
+            "answer": "نعم. نبني الواجهة بصورة متجاوبة من البداية ونراجع التجربة على الجوال والتابلت والكمبيوتر."
           },
           "en": null
         }
@@ -93,13 +94,13 @@ export const faqGroups = Object.freeze([
       {
         "id": "product-2",
         "localeStatus": {
-          "ar": "ready",
+          "ar": "draft",
           "en": "content_required"
         },
         "content": {
           "ar": {
-            "question": "هل يمكن إضافة لوحة تحكم؟",
-            "answer": "نعم، يمكن إضافة لوحة تحكم لإدارة المحتوى أو البيانات حسب طبيعة المشروع."
+            "question": "هل أستطيع إدارة المحتوى أو البيانات بنفسي؟",
+            "answer": "إذا كان المشروع يحتاج تحديثًا مستمرًا يمكن إضافة لوحة تحكم أو نظام إدارة يناسب المحتوى والعمليات المطلوبة."
           },
           "en": null
         }
@@ -107,13 +108,13 @@ export const faqGroups = Object.freeze([
       {
         "id": "product-3",
         "localeStatus": {
-          "ar": "ready",
+          "ar": "draft",
           "en": "content_required"
         },
         "content": {
           "ar": {
-            "question": "هل يمكن ربط موقع أو تطبيق بخدمات أخرى؟",
-            "answer": "يمكن تنفيذ التكامل عبر API أو وسائل الربط المتاحة عندما تسمح بنية الأنظمة بذلك."
+            "question": "هل يمكن ربط الموقع أو التطبيق بنظام موجود عندي؟",
+            "answer": "نعم إذا كانت البنية تسمح بذلك. نراجع النظام الحالي ووسائل الربط المتاحة، ثم نحدد طريقة التكامل المناسبة."
           },
           "en": null
         }
@@ -121,13 +122,13 @@ export const faqGroups = Object.freeze([
       {
         "id": "product-4",
         "localeStatus": {
-          "ar": "ready",
+          "ar": "draft",
           "en": "content_required"
         },
         "content": {
           "ar": {
-            "question": "هل يمكن إضافة الدفع والشحن للمتجر؟",
-            "answer": "يمكن تجهيز وسائل الدفع وخيارات الشحن وفق الخدمات المتاحة وآلية عمل المتجر."
+            "question": "هل المتجر يدعم الدفع والشحن؟",
+            "answer": "يمكن تجهيز خيارات الدفع والشحن أو التوصيل وفق المزوّدات المتاحة وطريقة تشغيل المتجر وسوقه."
           },
           "en": null
         }
@@ -138,7 +139,7 @@ export const faqGroups = Object.freeze([
     "id": "presence",
     "order": 3,
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -151,13 +152,13 @@ export const faqGroups = Object.freeze([
       {
         "id": "presence-1",
         "localeStatus": {
-          "ar": "ready",
+          "ar": "draft",
           "en": "content_required"
         },
         "content": {
           "ar": {
-            "question": "هل يمكن تنفيذ الهوية فقط بدون موقع؟",
-            "answer": "نعم، الهوية البصرية خدمة مستقلة ويمكن تنفيذها دون ربطها بمشروع ويب."
+            "question": "هل أقدر أطلب هوية بصرية فقط بدون موقع أو تطبيق؟",
+            "answer": "نعم. الهوية خدمة مستقلة ويمكن تنفيذها وحدها أو ضمن مشروع أوسع حسب ما يحتاجه نشاطك."
           },
           "en": null
         }
@@ -165,13 +166,13 @@ export const faqGroups = Object.freeze([
       {
         "id": "presence-2",
         "localeStatus": {
-          "ar": "ready",
+          "ar": "draft",
           "en": "content_required"
         },
         "content": {
           "ar": {
-            "question": "هل يمكن تصميم بروفايل من محتوى موجود؟",
-            "answer": "نعم، يمكن إعادة ترتيب المحتوى الموجود وتصميمه ضمن ملف تعريفي أوضح ومتناسق مع الهوية."
+            "question": "عندي محتوى جاهز للشركة، هل يمكن تحويله إلى بروفايل أفضل؟",
+            "answer": "نعم. نراجع المحتوى ونختصر التكرار ونرتبه ثم نبني له إخراجًا بصريًا متناسقًا مع الهوية."
           },
           "en": null
         }
@@ -179,13 +180,13 @@ export const faqGroups = Object.freeze([
       {
         "id": "presence-3",
         "localeStatus": {
-          "ar": "ready",
+          "ar": "draft",
           "en": "content_required"
         },
         "content": {
           "ar": {
-            "question": "هل يمكن تنفيذ خطة محتوى بدون إدارة كاملة؟",
-            "answer": "يمكن أن يكون نطاق العمل خطة محتوى مستقلة إذا كان هذا هو الاحتياج الفعلي للمشروع."
+            "question": "هل يمكن طلب خطة محتوى فقط بدون إدارة الصفحات؟",
+            "answer": "نعم. يمكن أن يكون نطاق العمل خطة ومحاور ورسائل واضحة فقط، أو يمتد إلى الكتابة والتصميم والإدارة حسب احتياج المشروع."
           },
           "en": null
         }
@@ -196,7 +197,7 @@ export const faqGroups = Object.freeze([
     "id": "workflow",
     "order": 4,
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -209,13 +210,13 @@ export const faqGroups = Object.freeze([
       {
         "id": "workflow-1",
         "localeStatus": {
-          "ar": "ready",
+          "ar": "draft",
           "en": "content_required"
         },
         "content": {
           "ar": {
-            "question": "كم يستغرق تنفيذ المشروع؟",
-            "answer": "المدة تختلف حسب نوع المشروع وحجمه ومتطلباته، ويتم تحديدها بعد فهم النطاق المطلوب."
+            "question": "كم يحتاج المشروع من وقت؟",
+            "answer": "يعتمد ذلك على نوع المشروع ونطاقه والوظائف المطلوبة. نحدد المدة بعد فهم المتطلبات وترتيب ما سيدخل في التنفيذ."
           },
           "en": null
         }
@@ -223,13 +224,13 @@ export const faqGroups = Object.freeze([
       {
         "id": "workflow-2",
         "localeStatus": {
-          "ar": "ready",
+          "ar": "draft",
           "en": "content_required"
         },
         "content": {
           "ar": {
-            "question": "ماذا يحدث بعد التواصل؟",
-            "answer": "نبدأ بفهم الهدف والمرحلة الحالية، ثم نحدد الأسئلة التالية والمسار الأنسب قبل التنفيذ."
+            "question": "ماذا يحدث بعد أن أتواصل معكم؟",
+            "answer": "نبدأ بفهم الهدف والوضع الحالي وما تريد الوصول إليه، ثم نرتب النطاق والأسئلة المهمة قبل اقتراح الخطوة التالية."
           },
           "en": null
         }
@@ -237,13 +238,13 @@ export const faqGroups = Object.freeze([
       {
         "id": "workflow-3",
         "localeStatus": {
-          "ar": "ready",
+          "ar": "draft",
           "en": "content_required"
         },
         "content": {
           "ar": {
-            "question": "هل يمكن تعديل المتطلبات أثناء العمل؟",
-            "answer": "يمكن مراجعة التغييرات، لكن أي إضافة توسع النطاق تحتاج فهم أثرها على المشروع أولًا."
+            "question": "ماذا لو ظهرت متطلبات جديدة أثناء التنفيذ؟",
+            "answer": "نراجعها أولًا ونوضح أثرها على النطاق الحالي. إذا كانت إضافة مفيدة نرتبها ضمن المرحلة المناسبة بدل إدخالها عشوائيًا."
           },
           "en": null
         }
