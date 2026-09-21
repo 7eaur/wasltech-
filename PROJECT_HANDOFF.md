@@ -4,7 +4,7 @@ Last updated: 2026-09-21
 Repository: `7eaur/wasltech-`  
 Official/legacy branch: `main`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified implementation HEAD: `eae58343daa539e295ce209b3bb442fc0e14647d`
+Latest verified implementation HEAD: `054113b9bb2e7d3c832129a56a75894cf6102227`
 
 ## 1. Start procedure — mandatory
 
@@ -330,6 +330,34 @@ Performance detail:
 7. review English desktop/mobile;
 8. verify SEO/shell/home contracts remain intact;
 9. document Phase 6 before service detail pages.
+
+## 8F. Phase 6 Services Directory — COMPLETE
+
+Verified:
+- HEAD `054113b9bb2e7d3c832129a56a75894cf6102227`
+- run `35567035544`
+- SUCCESS.
+
+Directory behavior:
+- 3 canonical service families;
+- 8 canonical services;
+- decision-led rows;
+- no duplicated service business content;
+- Arabic + English visual review at 1440 / 390;
+- no horizontal overflow.
+
+## 8G. Exact next work — Phase 7 Service Detail System
+
+1. build one reusable service-detail architecture;
+2. render all 8 services from `src/data/services.js`;
+3. consume title/subtitle/description/decision/audiences/deliverables/process/FAQ/constraints/CTA/SEO;
+4. surface related verified projects only where they exist;
+5. use one template system without flattening distinct service content;
+6. add Service structured data and breadcrumb data;
+7. generate all Arabic + English service detail routes;
+8. verify every detail link resolves;
+9. review representative short/long services on desktop/mobile;
+10. document Phase 7 before Portfolio.
 
 ## 9. Non-negotiable rules
 
