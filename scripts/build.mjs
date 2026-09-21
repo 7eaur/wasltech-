@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 import { routes } from "../src/config/routes.js";
 import { renderPreviewRobots } from "../src/seo/crawl.js";
+import { designSystemShowcase } from "../src/pages/design-system.js";
 import { foundationHome, foundationPlaceholder } from "../src/pages/foundation.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -16,7 +17,8 @@ const cssSources = [
   "src/styles/base.css",
   "src/styles/layout.css",
   "src/styles/components.css",
-  "src/styles/media.css"
+  "src/styles/media.css",
+  "src/styles/showcase.css"
 ];
 
 const placeholderRoutes = Object.freeze([
@@ -63,6 +65,10 @@ async function buildAssets() {
 async function buildPages() {
   for (const locale of ["ar", "en"]) {
     await writeOutput(outputPath(routes.home(locale)), foundationHome(locale));
+    await writeOutput(
+      locale === "ar" ? "__showcase/index.html" : "en/__showcase/index.html",
+      designSystemShowcase(locale)
+    );
 
     for (const record of placeholderRoutes) {
       await writeOutput(
