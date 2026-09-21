@@ -5,7 +5,7 @@ Repository: `7eaur/wasltech-`
 Official/legacy branch: `main`  
 Current live `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified VNext implementation HEAD: `3b899ada38f273ecc9dcdd1c20165663a6f78105`
+Latest verified VNext implementation HEAD: `b25851ff2e26252e3dfe84518037055543e6b224`
 
 ## Current state
 
