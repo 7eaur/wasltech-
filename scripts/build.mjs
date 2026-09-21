@@ -11,6 +11,8 @@ import { servicesDirectoryPage } from "../src/pages/services.js";
 import { serviceDetailPage } from "../src/pages/service-detail.js";
 import { portfolioPage } from "../src/pages/portfolio.js";
 import { projectDetailPage } from "../src/pages/project-detail.js";
+import { aboutPage } from "../src/pages/about.js";
+import { processPage } from "../src/pages/process.js";
 import { services } from "../src/data/services.js";
 import { projects } from "../src/data/projects.js";
 
@@ -30,6 +32,7 @@ const cssSources = [
   "src/styles/service-detail.css",
   "src/styles/portfolio.css",
   "src/styles/project-detail.css",
+  "src/styles/about-process.css",
   "src/styles/showcase.css"
 ];
 
@@ -109,7 +112,10 @@ async function buildPages() {
       );
     }
 
-    for (const record of placeholderRoutes.filter((item) => !["services","portfolio"].includes(item.key))) {
+    await writeOutput(outputPath(routes.about(locale)), aboutPage(locale));
+    await writeOutput(outputPath(routes.process(locale)), processPage(locale));
+
+    for (const record of placeholderRoutes.filter((item) => !["services","portfolio","about","process"].includes(item.key))) {
       await writeOutput(
         outputPath(routes[record.key](locale)),
         foundationPlaceholder({
