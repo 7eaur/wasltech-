@@ -14,6 +14,17 @@ const copy = Object.freeze({
       color: "الألوان الدلالية", type: "التايبوغرافي", actions: "الأزرار والروابط",
       cards: "البطاقات والأسطح", form: "النماذج والحالات", media: "عقود الصور"
     }),
+    helpers: Object.freeze({
+      color: "ألوان الهوية تُستخدم عبر أدوار دلالية، لا بتكرار قيم الألوان داخل المكونات.",
+      type: "العربية والإنجليزية تشتركان في نفس التسلسل البصري مع الحفاظ على خصائص كل خط.",
+      actions: "الإجراء الأساسي واضح دون تحويل كل زر في الصفحة إلى نداء صاخب.",
+      cards: "البطاقة حاوية للمحتوى عند الحاجة، وليست القالب الافتراضي لكل قسم.",
+      form: "الحقول تشمل العناوين، الإرشادات، الإلزام، الأخطاء، التعطيل، وتركيز لوحة المفاتيح.",
+      media: "عقد صورة واحد يخدم أغلفة المشاريع ومواد الهوية والصور التحريرية بدون قاعدة قص مختلفة لكل صفحة."
+    }),
+    swatches: Object.freeze({
+      primary: "اللون الأساسي", accent: "لون الإبراز", canvas: "الخلفية", soft: "سطح هادئ", text: "النص الأساسي", border: "الحدود"
+    }),
     note: "المعيار: لا نضيف عنصرًا بصريًا لأنه جميل فقط؛ كل primitive يجب أن يخدم محتوى حقيقيًا ويعمل بالعربي والإنجليزي وعلى الهاتف."
   }),
   en: Object.freeze({
@@ -23,6 +34,17 @@ const copy = Object.freeze({
     labels: Object.freeze({
       color: "Semantic color", type: "Typography", actions: "Actions & links",
       cards: "Cards & surfaces", form: "Forms & states", media: "Media contracts"
+    }),
+    helpers: Object.freeze({
+      color: "Brand colors are consumed through semantic roles rather than copied hex values.",
+      type: "IBM Plex Sans Arabic and IBM Plex Sans share the same hierarchy without forcing identical letter shapes.",
+      actions: "Primary actions stay obvious without turning every control into a loud CTA.",
+      cards: "Cards are content containers, not a default layout for every section.",
+      form: "Fields include labels, hints, required states, errors, disabled behavior, and visible keyboard focus.",
+      media: "One image contract can support project covers, brand assets, and editorial visuals without inventing a different crop rule per page."
+    }),
+    swatches: Object.freeze({
+      primary: "Brand primary", accent: "Brand accent", canvas: "Canvas", soft: "Soft surface", text: "Primary text", border: "Border"
     }),
     note: "Rule: a primitive is not added because it looks attractive. It must support real content, both locales, and mobile behavior."
   })
@@ -48,21 +70,21 @@ export function designSystemShowcase(locale = "ar") {
 
     <section class="showcase-section">
       <div class="container">
-        <div class="showcase-heading"><h2>${t.labels.color}</h2><p>Brand colors are consumed through semantic roles rather than copied hex values.</p></div>
+        <div class="showcase-heading"><h2>${t.labels.color}</h2><p>${t.helpers.color}</p></div>
         <div class="showcase-swatch-grid">
-          ${swatch("Brand primary","primary")}
-          ${swatch("Brand accent","accent")}
-          ${swatch("Canvas","canvas")}
-          ${swatch("Soft surface","soft")}
-          ${swatch("Primary text","text")}
-          ${swatch("Border","border")}
+          ${swatch(t.swatches.primary,"primary")}
+          ${swatch(t.swatches.accent,"accent")}
+          ${swatch(t.swatches.canvas,"canvas")}
+          ${swatch(t.swatches.soft,"soft")}
+          ${swatch(t.swatches.text,"text")}
+          ${swatch(t.swatches.border,"border")}
         </div>
       </div>
     </section>
 
     <section class="showcase-section">
       <div class="container">
-        <div class="showcase-heading"><h2>${t.labels.type}</h2><p>IBM Plex Sans Arabic and IBM Plex Sans share the same hierarchy without forcing identical letter shapes.</p></div>
+        <div class="showcase-heading"><h2>${t.labels.type}</h2><p>${t.helpers.type}</p></div>
         <div class="showcase-type">
           <div class="showcase-type__row"><span class="showcase-type__label">Hero</span><p class="showcase-display">${locale === "ar" ? "نبني تجربة رقمية أوضح لمشروعك." : "Build a clearer digital experience for your business."}</p></div>
           <div class="showcase-type__row"><span class="showcase-type__label">H2</span><h2>${locale === "ar" ? "عنوان يحمل الفكرة قبل التفاصيل." : "A heading that carries the idea before the details."}</h2></div>
@@ -73,7 +95,7 @@ export function designSystemShowcase(locale = "ar") {
 
     <section class="showcase-section">
       <div class="container">
-        <div class="showcase-heading"><h2>${t.labels.actions}</h2><p>Primary actions stay obvious without turning every control into a loud CTA.</p></div>
+        <div class="showcase-heading"><h2>${t.labels.actions}</h2><p>${t.helpers.actions}</p></div>
         <div class="showcase-controls">
           ${ActionLink({ href:"#showcase-actions", label:locale === "ar" ? "إجراء أساسي" : "Primary action", variant:"primary" })}
           ${ActionLink({ href:"#showcase-actions", label:locale === "ar" ? "إجراء ثانوي" : "Secondary action", variant:"secondary" })}
@@ -85,7 +107,7 @@ export function designSystemShowcase(locale = "ar") {
 
     <section class="showcase-section">
       <div class="container">
-        <div class="showcase-heading"><h2>${t.labels.cards}</h2><p>Cards are content containers, not a default layout for every section.</p></div>
+        <div class="showcase-heading"><h2>${t.labels.cards}</h2><p>${t.helpers.cards}</p></div>
         <div class="grid grid--3">
           ${SurfaceCard({ meta:locale === "ar"?"خدمة":"Service", title:locale === "ar"?"موقع يشرح مشروعك بوضوح":"A website that explains the business clearly", body:locale === "ar"?"عنوان واضح، نص مختصر، ومسار منطقي للخطوة التالية.":"Clear hierarchy, concise copy, and an obvious next step.", action:{href:"#showcase-actions",label:locale === "ar"?"استكشف الخدمة":"Explore service"}, interactive:true })}
           ${SurfaceCard({ meta:locale === "ar"?"مبدأ":"Principle", title:locale === "ar"?"وضوح قبل الزخرفة":"Clarity before decoration", body:locale === "ar"?"المساحة والعنوان والحدود تكفي غالبًا؛ لا نحتاج مؤثرات لكل عنصر.":"Spacing, hierarchy, and borders are often enough; not every element needs an effect.", variant:"soft" })}
@@ -96,7 +118,7 @@ export function designSystemShowcase(locale = "ar") {
 
     <section class="showcase-section">
       <div class="container">
-        <div class="showcase-heading"><h2>${t.labels.form}</h2><p>Fields include labels, hints, required states, errors, disabled behavior, and visible keyboard focus.</p></div>
+        <div class="showcase-heading"><h2>${t.labels.form}</h2><p>${t.helpers.form}</p></div>
         <form class="showcase-form">
           ${FormField({ id:`showcase-name-${locale}`, label:locale === "ar"?"الاسم":"Name", placeholder:locale === "ar"?"مثال: إلياس":"Example: Elias", required:true })}
           ${FormField({ id:`showcase-email-${locale}`, label:locale === "ar"?"البريد":"Email", type:"email", placeholder:"name@example.com", hint:locale === "ar"?"لن نستخدمه إلا للتواصل بخصوص المشروع.":"Used only to contact you about the project." })}
@@ -109,7 +131,7 @@ export function designSystemShowcase(locale = "ar") {
 
     <section class="showcase-section">
       <div class="container">
-        <div class="showcase-heading"><h2>${t.labels.media}</h2><p>One image contract can support project covers, brand assets, and editorial visuals without inventing a different crop rule per page.</p></div>
+        <div class="showcase-heading"><h2>${t.labels.media}</h2><p>${t.helpers.media}</p></div>
         <div class="showcase-media">
           ${MediaFrame({ src:site.brand.assets.logo, alt:"Wasl Tech", ratio:"wide", fit:"contain" })}
           ${MediaFrame({ src:site.brand.assets.favicon, alt:"Wasl Tech favicon", ratio:"square", fit:"contain" })}
