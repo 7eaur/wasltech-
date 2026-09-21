@@ -160,6 +160,11 @@ for (const project of projects) {
     }
   }
   if (!("platformType" in project)) fail(scope, "platform type contract missing");
+  if (!project.imageDimensions || !Number.isInteger(project.imageDimensions.width) || !Number.isInteger(project.imageDimensions.height)) {
+    fail(scope, "intrinsic project image dimensions are required");
+  } else if (project.imageDimensions.width <= 0 || project.imageDimensions.height <= 0) {
+    fail(scope, "project image dimensions must be positive");
+  }
   if (project.fieldState.platformType === "READY") {
     if (!project.platformType?.ar || !project.platformType?.en) {
       fail(scope, "platformType is READY but localized values are missing");
