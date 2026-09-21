@@ -46,6 +46,7 @@
 .service-proof__copy h3{margin-bottom:var(--space-2);font-size:var(--font-size-lg)}
 .service-proof__copy h3 a:hover{color:var(--color-text-accent)}
 .service-proof__copy>p:not(.eyebrow){color:var(--color-text-secondary);font-size:var(--font-size-sm)}
+.service-proof__more{display:flex;justify-content:flex-end;margin-top:var(--space-6)}
 
 .service-process__steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:var(--border-thin) solid var(--color-border-default);border-bottom:var(--border-thin) solid var(--color-border-default)}
 .service-process__step{padding:var(--space-6);border-inline-end:var(--border-thin) solid var(--color-border-default)}
