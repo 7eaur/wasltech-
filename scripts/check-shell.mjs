@@ -66,6 +66,17 @@ for (const contract of [
   }
 }
 
+const footerSource = await readFile(path.join(ROOT, "src/components/Footer.js"), "utf8");
+for (const contract of [
+  '<bdi dir="ltr">${site.contact.phoneDisplay}</bdi>',
+  '<bdi dir="ltr">${site.contact.email}</bdi>',
+  '<bdi dir="ltr">${escapeHtml(site.contact.instagram.handle)}</bdi>'
+]) {
+  if (!footerSource.includes(contract)) {
+    fail("src/components/Footer.js", `missing RTL-safe footer contact contract: ${contract}`);
+  }
+}
+
 const navigationClient = await readFile(path.join(ROOT, "src/client/navigation.js"), "utf8");
 for (const contract of [
   'setAttribute("aria-label"',
