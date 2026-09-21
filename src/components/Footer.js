@@ -11,8 +11,8 @@ export function Footer() {
     <footer class="site-footer">
       <div class="container footer-grid">
         <section class="footer-brand">
-          <img src="${site.brand.logo}" alt="${site.brand.ar} | ${site.brand.en}" width="190" height="72" loading="lazy">
-          <p>${site.brand.slogan}</p>
+          <img src="${site.brand.assets.logoWhite}" alt="${site.brand.name.ar} | ${site.brand.name.en}" width="190" height="72" loading="lazy">
+          <p>${site.brand.slogan.ar}</p>
         </section>
 
         <section>
