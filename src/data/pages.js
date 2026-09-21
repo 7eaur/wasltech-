@@ -1,9 +1,9 @@
 import { CONTENT_STATE, createFieldState, pageFieldKeys } from "./content-contracts.js";
 
-function localeStatusForContent(content) {
+function localeStatusForContent(content, reviewed = false) {
   return Object.freeze({
-    ar: content?.ar ? "draft" : "content_required",
-    en: content?.en ? "draft" : "content_required"
+    ar: content?.ar ? (reviewed ? "ready" : "draft") : "content_required",
+    en: content?.en ? (reviewed ? "ready" : "draft") : "content_required"
   });
 }
 
@@ -13,6 +13,7 @@ function page({
   state = CONTENT_STATE.PARTIAL,
   fieldState,
   content,
+  reviewed = false,
   evidenceSources = []
 }) {
   return Object.freeze({
@@ -20,7 +21,7 @@ function page({
     routeKey,
     contentState: state,
     fieldState: createFieldState(pageFieldKeys, fieldState),
-    localeStatus: localeStatusForContent(content),
+    localeStatus: localeStatusForContent(content, reviewed),
     evidenceSources: Object.freeze(evidenceSources),
     content: Object.freeze({
       ar: content?.ar ?? null,
@@ -33,19 +34,21 @@ function page({
  * Canonical page-level content owners for VNext.
  *
  * This file owns page copy shape. Page templates must consume these records rather
- * than reintroducing hard-coded marketing copy. Arabic is draft until Phase 2B
- * review closes; English stays unpublished until reviewed.
+ * than reintroducing hard-coded marketing copy. Arabic and English public-page copy
+ * is reviewed together; legal pages stay explicitly incomplete until implementation facts are final.
  */
 export const pages = Object.freeze([
   page({
     id: "home",
     routeKey: "home",
+    state: CONTENT_STATE.READY,
+    reviewed: true,
     fieldState: {
       purpose: CONTENT_STATE.READY,
-      arabicCore: CONTENT_STATE.PARTIAL,
+      arabicCore: CONTENT_STATE.READY,
       sections: CONTENT_STATE.READY,
       cta: CONTENT_STATE.READY,
-      seo: CONTENT_STATE.PARTIAL,
+      seo: CONTENT_STATE.READY,
       businessFacts: CONTENT_STATE.READY,
       english: CONTENT_STATE.READY
     },
@@ -156,9 +159,11 @@ export const pages = Object.freeze([
   page({
     id: "about",
     routeKey: "about",
+    state: CONTENT_STATE.READY,
+    reviewed: true,
     fieldState: {
       purpose: CONTENT_STATE.READY,
-      arabicCore: CONTENT_STATE.PARTIAL,
+      arabicCore: CONTENT_STATE.READY,
       sections: CONTENT_STATE.READY,
       cta: CONTENT_STATE.READY,
       seo: CONTENT_STATE.READY,
@@ -260,13 +265,16 @@ export const pages = Object.freeze([
   page({
     id: "services",
     routeKey: "services",
+    state: CONTENT_STATE.READY,
+    reviewed: true,
     fieldState: {
       purpose: CONTENT_STATE.READY,
-      arabicCore: CONTENT_STATE.PARTIAL,
+      arabicCore: CONTENT_STATE.READY,
       sections: CONTENT_STATE.READY,
       cta: CONTENT_STATE.READY,
-      seo: CONTENT_STATE.PARTIAL,
-      businessFacts: CONTENT_STATE.READY
+      seo: CONTENT_STATE.READY,
+      businessFacts: CONTENT_STATE.READY,
+      english: CONTENT_STATE.READY
     },
     evidenceSources: ["main:services.html", "main:js/services-data.js", "docs/core/PRODUCT.md"],
     content: {
@@ -313,13 +321,15 @@ export const pages = Object.freeze([
   page({
     id: "portfolio",
     routeKey: "portfolio",
+    state: CONTENT_STATE.READY,
+    reviewed: true,
     fieldState: {
       purpose: CONTENT_STATE.READY,
-      arabicCore: CONTENT_STATE.PARTIAL,
+      arabicCore: CONTENT_STATE.READY,
       sections: CONTENT_STATE.READY,
       cta: CONTENT_STATE.READY,
-      seo: CONTENT_STATE.PARTIAL,
-      businessFacts: CONTENT_STATE.PARTIAL,
+      seo: CONTENT_STATE.READY,
+      businessFacts: CONTENT_STATE.READY,
       english: CONTENT_STATE.READY
     },
     evidenceSources: ["main:portfolio.html", "main:js/portfolio.js"],
@@ -393,13 +403,16 @@ export const pages = Object.freeze([
   page({
     id: "process",
     routeKey: "process",
+    state: CONTENT_STATE.READY,
+    reviewed: true,
     fieldState: {
       purpose: CONTENT_STATE.READY,
       arabicCore: CONTENT_STATE.READY,
       sections: CONTENT_STATE.READY,
       cta: CONTENT_STATE.READY,
       seo: CONTENT_STATE.READY,
-      businessFacts: CONTENT_STATE.READY
+      businessFacts: CONTENT_STATE.READY,
+      english: CONTENT_STATE.READY
     },
     evidenceSources: ["main:process.html"],
     content: {
@@ -452,6 +465,8 @@ export const pages = Object.freeze([
   page({
     id: "contact",
     routeKey: "contact",
+    state: CONTENT_STATE.READY,
+    reviewed: true,
     fieldState: {
       purpose: CONTENT_STATE.READY,
       arabicCore: CONTENT_STATE.READY,
@@ -532,13 +547,15 @@ export const pages = Object.freeze([
   page({
     id: "startProject",
     routeKey: "startProject",
+    state: CONTENT_STATE.READY,
+    reviewed: true,
     fieldState: {
       purpose: CONTENT_STATE.READY,
-      arabicCore: CONTENT_STATE.PARTIAL,
+      arabicCore: CONTENT_STATE.READY,
       sections: CONTENT_STATE.READY,
-      cta: CONTENT_STATE.PARTIAL,
-      seo: CONTENT_STATE.PARTIAL,
-      businessFacts: CONTENT_STATE.PARTIAL,
+      cta: CONTENT_STATE.READY,
+      seo: CONTENT_STATE.READY,
+      businessFacts: CONTENT_STATE.READY,
       english: CONTENT_STATE.READY
     },
     evidenceSources: ["docs/core/CONTENT_IA.md", "main:contact.html", "main:js/contact-v2.js"],
@@ -636,13 +653,16 @@ export const pages = Object.freeze([
   page({
     id: "faq",
     routeKey: "faq",
+    state: CONTENT_STATE.READY,
+    reviewed: true,
     fieldState: {
       purpose: CONTENT_STATE.READY,
-      arabicCore: CONTENT_STATE.PARTIAL,
+      arabicCore: CONTENT_STATE.READY,
       sections: CONTENT_STATE.READY,
-      cta: CONTENT_STATE.PARTIAL,
-      seo: CONTENT_STATE.PARTIAL,
-      businessFacts: CONTENT_STATE.READY
+      cta: CONTENT_STATE.READY,
+      seo: CONTENT_STATE.READY,
+      businessFacts: CONTENT_STATE.READY,
+      english: CONTENT_STATE.READY
     },
     evidenceSources: ["main:faq.html", "src/data/faq.js"],
     content: {
@@ -689,12 +709,14 @@ export const pages = Object.freeze([
   page({
     id: "insights",
     routeKey: "insights",
+    state: CONTENT_STATE.READY,
+    reviewed: true,
     fieldState: {
       purpose: CONTENT_STATE.READY,
       arabicCore: CONTENT_STATE.READY,
       sections: CONTENT_STATE.READY,
       cta: CONTENT_STATE.READY,
-      seo: CONTENT_STATE.PARTIAL,
+      seo: CONTENT_STATE.READY,
       businessFacts: CONTENT_STATE.READY,
       english: CONTENT_STATE.READY
     },
@@ -757,13 +779,15 @@ export const pages = Object.freeze([
   page({
     id: "careers",
     routeKey: "careers",
+    state: CONTENT_STATE.READY,
+    reviewed: true,
     fieldState: {
       purpose: CONTENT_STATE.READY,
-      arabicCore: CONTENT_STATE.PARTIAL,
+      arabicCore: CONTENT_STATE.READY,
       sections: CONTENT_STATE.READY,
-      cta: CONTENT_STATE.PARTIAL,
-      seo: CONTENT_STATE.PARTIAL,
-      businessFacts: CONTENT_STATE.CONTENT_REQUIRED,
+      cta: CONTENT_STATE.READY,
+      seo: CONTENT_STATE.READY,
+      businessFacts: CONTENT_STATE.READY,
       english: CONTENT_STATE.READY
     },
     evidenceSources: ["src/data/jobs.js", "docs/core/CONTENT_IA.md"],
@@ -855,6 +879,8 @@ export const pages = Object.freeze([
   page({
     id: "notFound",
     routeKey: null,
+    state: CONTENT_STATE.READY,
+    reviewed: true,
     fieldState: {
       purpose: CONTENT_STATE.READY,
       arabicCore: CONTENT_STATE.READY,
