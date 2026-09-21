@@ -71,6 +71,7 @@ if (form && review && summary && whatsapp && edit && status) {
       const value = document.createElement("dd");
       term.textContent = copy.labels[key];
       value.textContent = data[key];
+      if (key === "phone" || key === "url") value.dir = "ltr";
       wrapper.append(term, value);
       summary.append(wrapper);
     }
