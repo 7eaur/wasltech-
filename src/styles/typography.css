@@ -22,6 +22,8 @@ body {
 }
 
 h1,h2,h3,h4,h5,h6 {
+  margin-block:0;
+  color:var(--color-text-brand);
   font-weight:var(--font-weight-bold);
   line-height:var(--line-heading);
   text-wrap:balance;
@@ -29,29 +31,64 @@ h1,h2,h3,h4,h5,h6 {
 
 h1 {
   font-size:var(--font-size-3xl);
-  letter-spacing:-.02em;
+  letter-spacing:var(--tracking-tight);
 }
 
 h2 {
   font-size:var(--font-size-2xl);
-  letter-spacing:-.015em;
+  letter-spacing:var(--tracking-heading);
 }
 
 h3 {
   font-size:var(--font-size-xl);
 }
 
+h4 {
+  font-size:var(--font-size-lg);
+}
+
 p,li {
   text-wrap:pretty;
 }
 
+p {
+  margin-block:0;
+}
+
+.lead {
+  max-width:var(--text-measure-narrow);
+  color:var(--color-text-secondary);
+  font-size:var(--font-size-lg);
+  line-height:1.7;
+}
+
 .eyebrow {
-  font-size:var(--font-size-sm);
+  color:var(--color-text-accent);
+  font-size:var(--font-size-xs);
   font-weight:var(--font-weight-bold);
-  letter-spacing:0;
+  letter-spacing:.02em;
+}
+
+html[lang="en"] .eyebrow {
+  letter-spacing:.08em;
+  text-transform:uppercase;
 }
 
 .meta,
 small {
+  color:var(--color-text-muted);
   font-size:var(--font-size-sm);
+}
+
+.prose {
+  max-width:var(--text-measure);
+}
+
+.prose > * + * {
+  margin-top:var(--space-4);
+}
+
+.prose h2,
+.prose h3 {
+  margin-top:var(--space-8);
 }
