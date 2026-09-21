@@ -51,7 +51,7 @@ for (const locale of ["ar","en"]) {
     }
 
     const related = getProjectsByService(service.id);
-    const hasProof = html.includes('class="service-proof"');
+    const hasProof = /class="[^"]*\bservice-proof\b[^"]*"/.test(html);
     if (Boolean(related.length) !== hasProof) {
       fail(file,`related proof visibility mismatch for service: ${service.id}`);
     }
