@@ -87,10 +87,37 @@ Final Phase 2 evidence:
 QA:
 `docs/qa/2026-09-21_phase-2_data-normalization.md`
 
-## Next phase
+## Active phase
+
+### Phase 2B — Content Architecture & Evidence Completion
+**ACTIVE**
+
+Goal:
+move from normalized legacy data to complete content/evidence contracts before final visual composition.
+
+Current audit:
+- services are structurally strong but still missing final scope/problem/integrations/proof/SEO/English completion;
+- all 14 projects are missing full case-study evidence fields such as year/live URL/gallery/verified stack/scope/outcomes;
+- page-level VNext content still needs canonical owners;
+- Insights currently has 0 articles and must be built around real search intent, not filler.
+
+Evidence:
+`docs/qa/2026-09-21_phase-2b_content-gap-audit.md`
+
+Next actions:
+1. define/extend final service and project field contracts in code;
+2. classify each field as READY/PARTIAL/CONTENT REQUIRED/NOT VERIFIED/NOT APPLICABLE;
+3. create page-level content owners;
+4. build prioritized missing-input list;
+5. request user facts/assets in small batches;
+6. draft final Arabic copy from verified evidence;
+7. prepare English copy after Arabic facts are stable;
+8. add SEO metadata/search-intent fields;
+9. re-run data integrity checks;
+10. close Phase 2B before final component/page composition.
 
 ### Phase 3 — Design Tokens & Shared Primitives
-**NEXT / NOT STARTED**
+**BLOCKED UNTIL PHASE 2B GATE**
 
 Goal:
 turn the frozen Wasl identity/tokens into a complete reusable visual primitive system before real page composition.
@@ -111,7 +138,7 @@ Phase 3 should implement/review:
 - static component showcase/fixture;
 - accessibility and reduced-motion checks.
 
-Do not build the final Homepage before these primitives pass visual review.
+Do not build the final Homepage before Phase 2B content contracts are sufficiently known and the shared primitives pass visual review.
 
 ## Preserved non-negotiables
 
