@@ -51,7 +51,7 @@ try{
 }catch{ fail("assets/js/portfolio-filter.js","generated filter asset missing"); }
 
 const filterSource=await readFile(path.join(ROOT,"src/client/portfolio-filter.js"),"utf8");
-for(const contract of ["aria-pressed","data.category","hidden","data-portfolio-filter"]){
+for(const contract of ["aria-pressed","dataset.category","hidden","data-portfolio-filter"]){
   if(!filterSource.includes(contract)) fail("src/client/portfolio-filter.js",`filter behavior missing: ${contract}`);
 }
 
