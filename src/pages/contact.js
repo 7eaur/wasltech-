@@ -21,7 +21,7 @@ function renderChannel({label,value,href,external=false}){
   return `
     <a class="contact-channel" href="${href}"${external?' target="_blank" rel="noopener"':""}>
       <span>${escapeHtml(label)}</span>
-      <strong>${escapeHtml(value)}</strong>
+      <strong${valueDir ? ` dir="${valueDir}"` : ""}>${escapeHtml(value)}</strong>
     </a>
   `;
 }
@@ -58,9 +58,9 @@ export function contactPage(locale="ar"){
           <p>${escapeHtml(direct.support)}</p>
         </div>
         <div class="contact-channels">
-          ${renderChannel({label:locale==="ar"?"واتساب":"WhatsApp",value:site.contact.phoneDisplay,href:whatsappHref(locale),external:true})}
-          ${renderChannel({label:locale==="ar"?"البريد الإلكتروني":"Email",value:site.contact.email,href:`mailto:${site.contact.email}`})}
-          ${renderChannel({label:locale==="ar"?"إنستغرام":"Instagram",value:site.contact.instagram.handle,href:site.contact.instagram.url,external:true})}
+          ${renderChannel({label:locale==="ar"?"واتساب":"WhatsApp",value:site.contact.phoneDisplay,href:whatsappHref(locale),external:true,valueDir:"ltr"})}
+          ${renderChannel({label:locale==="ar"?"البريد الإلكتروني":"Email",value:site.contact.email,href:`mailto:${site.contact.email}`,valueDir:"ltr"})}
+          ${renderChannel({label:locale==="ar"?"إنستغرام":"Instagram",value:site.contact.instagram.handle,href:site.contact.instagram.url,external:true,valueDir:"ltr"})}
         </div>
       </div>
     </section>
