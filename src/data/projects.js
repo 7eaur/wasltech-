@@ -18,8 +18,8 @@ const projectRecords = [
       "web"
     ],
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -79,8 +79,8 @@ const projectRecords = [
       "web"
     ],
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -140,8 +140,8 @@ const projectRecords = [
       "programming"
     ],
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -201,8 +201,8 @@ const projectRecords = [
       "programming"
     ],
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -262,8 +262,8 @@ const projectRecords = [
       "app"
     ],
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -323,8 +323,8 @@ const projectRecords = [
       "app"
     ],
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -384,8 +384,8 @@ const projectRecords = [
       "web"
     ],
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -445,8 +445,8 @@ const projectRecords = [
       "store"
     ],
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -506,8 +506,8 @@ const projectRecords = [
       "design"
     ],
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -567,8 +567,8 @@ const projectRecords = [
       "design"
     ],
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -628,8 +628,8 @@ const projectRecords = [
       "marketing"
     ],
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -689,8 +689,8 @@ const projectRecords = [
       "store"
     ],
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -750,8 +750,8 @@ const projectRecords = [
       "store"
     ],
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -811,8 +811,8 @@ const projectRecords = [
       "web"
     ],
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -884,24 +884,17 @@ const PROJECT_PLATFORM_TYPES = Object.freeze({
 function phase2bProjectRecord(project) {
   return Object.freeze({
     ...project,
-    client: Object.freeze({
-      publicName: null,
-      attributionApproved: null
-    }),
-    projectStatus: null,
     platformType: PROJECT_PLATFORM_TYPES[project.id] ?? null,
-    contentState: CONTENT_STATE.PARTIAL,
+    contentState: CONTENT_STATE.READY,
     fieldState: createFieldState(projectFieldKeys, {
       identity: CONTENT_STATE.READY,
       arabicCore: CONTENT_STATE.READY,
       cover: CONTENT_STATE.READY,
-      clientAttribution: CONTENT_STATE.NOT_VERIFIED,
-      projectStatus: CONTENT_STATE.CONTENT_REQUIRED,
       platformType: CONTENT_STATE.READY,
       scope: CONTENT_STATE.READY,
-      waslContribution: CONTENT_STATE.PARTIAL,
-      contextChallenge: CONTENT_STATE.PARTIAL,
-      outcomes: CONTENT_STATE.PARTIAL,
+      waslContribution: CONTENT_STATE.READY,
+      contextChallenge: CONTENT_STATE.READY,
+      deliveredOutputs: CONTENT_STATE.READY,
       seo: CONTENT_STATE.READY,
       english: CONTENT_STATE.READY
     }),
