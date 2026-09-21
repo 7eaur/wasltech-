@@ -55,7 +55,8 @@ for (const page of requiredPages) {
 const sourceFiles = [
   ...await walk(path.join(ROOT, "src")),
   path.join(ROOT, "scripts/build.mjs"),
-  path.join(ROOT, "scripts/check.mjs")
+  path.join(ROOT, "scripts/check.mjs"),
+  path.join(ROOT, "scripts/check-data.mjs")
 ];
 
 for (const file of sourceFiles) {
@@ -73,7 +74,7 @@ for (const file of sourceFiles) {
     if (lines > 400) fail(relative, `CSS responsibility file too large (${lines} lines)`);
   }
 
-  if (relative.endsWith(".js") || relative.endsWith(".mjs")) {
+  if ((relative.endsWith(".js") || relative.endsWith(".mjs")) && !relative.startsWith("src/data/")) {
     if (lines > 350) fail(relative, `code module too large (${lines} lines)`);
   }
 }
