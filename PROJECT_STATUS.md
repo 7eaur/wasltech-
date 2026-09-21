@@ -5,7 +5,7 @@ Repository: `7eaur/wasltech-`
 Official/legacy branch: `main`  
 Current live `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified VNext implementation HEAD: `1b3ec7fe20c03ab8f3a00887d7ccea4decd7a8f3`
+Latest verified VNext implementation HEAD: `5b29dba17ca789a31512c3788ee8e388b40d9346`
 
 ## Current state
 
@@ -416,6 +416,64 @@ Verification:
 - no future project-detail links: PASS
 
 ### Next phase — Phase 8: Portfolio & Case-study Foundation
+
+Ready to start.
+
+## Phase 8 — Portfolio & Case-study Foundation
+**COMPLETE**
+
+Implemented:
+- bilingual Portfolio directory;
+- 14 canonical projects;
+- 5 filters derived from real categories only;
+- progressive-enhancement filtering with aria-pressed state;
+- one primary image per project;
+- one reusable case-study architecture;
+- 28 localized project detail routes;
+- project context, contribution, scope and delivered outputs;
+- related services;
+- related projects from real category relationships;
+- CreativeWork + Breadcrumb structured data;
+- canonical SEO and social metadata;
+- dedicated `portfolio.css` and `project-detail.css`;
+- dedicated Portfolio and Project Detail gates.
+
+Project presentation stays intentionally free of:
+- year;
+- live/public project URL;
+- technology stack;
+- gallery/additional project images.
+
+Filter verification in both locales:
+- all: 14;
+- web/systems: 6;
+- apps: 2;
+- e-commerce: 3;
+- brand identity: 2;
+- marketing: 1.
+
+Visual review:
+- Portfolio Arabic/English at 1440 and 390;
+- no horizontal overflow;
+- all 14 projects visible by default;
+- filter interaction reviewed;
+- Arabic Wasl Freelance case study reviewed desktop/mobile;
+- English Al Malaki Brand Identity case study reviewed desktop/mobile;
+- one-image case-study layout preserved;
+- related service/project sections reviewed.
+
+Verification:
+- workflow: `VNext verify`
+- run: `35568080827`
+- SHA: `5b29dba17ca789a31512c3788ee8e388b40d9346`
+- result: **SUCCESS**
+- Portfolio Gate: PASS
+- Project Detail Gate: PASS
+- 28 localized detail routes: PASS
+- structured data: PASS
+- all earlier gates remained green.
+
+### Next phase — Phase 9: About + Process
 
 Ready to start.
 
