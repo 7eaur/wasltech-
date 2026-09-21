@@ -205,12 +205,6 @@ Projects use a simplified presentation model:
 - case-study overview/context/contribution/scope/delivered outputs;
 - SEO draft.
 
-Not part of the VNext project model:
-- project year;
-- public/live project URL;
-- technology stack;
-- screenshot galleries or additional project images.
-
 Remaining project content work:
 - public client attribution only where useful;
 - final Arabic editorial review;
@@ -280,7 +274,7 @@ Editorial rule now enforced:
 - migrated Arabic content remains `draft` until editorial review;
 - ask the user for facts/evidence, not finished marketing copy;
 - the implementation team writes final Arabic/English copy;
-- do not invent project results, technologies, dates, clients, prices, timelines or SLAs;
+- do not invent project results, clients, prices, timelines or SLAs;
 - no generic SEO filler;
 - missing values stay explicit;
 - final design must be tested against realistic content lengths;
