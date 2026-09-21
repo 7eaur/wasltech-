@@ -4,7 +4,9 @@
  * Case-study fields remain null until evidence exists.
  */
 
-export const projects = Object.freeze([
+import { CONTENT_STATE, createFieldState, projectFieldKeys } from "./content-contracts.js";
+
+const projectRecords = Object.freeze([
   {
     "id": "project-01",
     "legacyId": 1,
@@ -467,7 +469,47 @@ export const projects = Object.freeze([
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن برمجة موقع مشابه لمكتب الحباري."
     }
   }
-]);
+];
+
+function phase2bProjectRecord(project) {
+  return Object.freeze({
+    ...project,
+    year: null,
+    client: Object.freeze({
+      publicName: null,
+      attributionApproved: null
+    }),
+    projectStatus: null,
+    platformType: null,
+    technologies: Object.freeze([]),
+    gallery: Object.freeze([]),
+    contentState: CONTENT_STATE.PARTIAL,
+    fieldState: createFieldState(projectFieldKeys, {
+      identity: CONTENT_STATE.READY,
+      arabicCore: CONTENT_STATE.READY,
+      cover: CONTENT_STATE.READY,
+      gallery: CONTENT_STATE.CONTENT_REQUIRED,
+      year: CONTENT_STATE.CONTENT_REQUIRED,
+      clientAttribution: CONTENT_STATE.NOT_VERIFIED,
+      projectStatus: CONTENT_STATE.CONTENT_REQUIRED,
+      liveUrl: CONTENT_STATE.CONTENT_REQUIRED,
+      platformType: CONTENT_STATE.CONTENT_REQUIRED,
+      technologies: CONTENT_STATE.CONTENT_REQUIRED,
+      scope: CONTENT_STATE.PARTIAL,
+      waslContribution: CONTENT_STATE.CONTENT_REQUIRED,
+      contextChallenge: CONTENT_STATE.CONTENT_REQUIRED,
+      outcomes: CONTENT_STATE.CONTENT_REQUIRED,
+      seo: CONTENT_STATE.CONTENT_REQUIRED,
+      english: CONTENT_STATE.CONTENT_REQUIRED
+    }),
+    evidenceSources: Object.freeze([
+      "main:js/portfolio.js",
+      `main:${project.image}`
+    ])
+  });
+}
+
+export const projects = Object.freeze(projectRecords.map(phase2bProjectRecord));
 
 export function getProjectById(id) {
   return projects.find((project) => project.id === id) ?? null;
