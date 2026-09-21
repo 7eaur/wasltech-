@@ -15,6 +15,14 @@ function fail(scope, message) {
   errors.push(`${scope}: ${message}`);
 }
 
+function htmlText(value = "") {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
 function outputPath(route) {
   if (route === "/") return "index.html";
   return path.join(route.replace(/^\//, ""), "index.html");
@@ -35,14 +43,14 @@ for (const locale of ["ar", "en"]) {
     continue;
   }
 
-  if (!html.includes(`<h1>${content.title}</h1>`)) fail(file, "canonical Home H1 missing");
-  if (!html.includes(content.seo.title)) fail(file, "canonical Home SEO title missing");
-  if (!html.includes(content.seo.description)) fail(file, "canonical Home SEO description missing");
+  if (!html.includes(`<h1>${htmlText(content.title)}</h1>`)) fail(file, "canonical Home H1 missing");
+  if (!html.includes(htmlText(content.seo.title))) fail(file, "canonical Home SEO title missing");
+  if (!html.includes(htmlText(content.seo.description))) fail(file, "canonical Home SEO description missing");
   if (html.includes("VNext Foundation")) fail(file, "foundation placeholder copy leaked into Home");
 
   for (const group of serviceGroups) {
     const title = group.content[locale].title;
-    if (!html.includes(title)) fail(file, `service group missing: ${title}`);
+    if (!html.includes(htmlText(title))) fail(file, `service group missing: ${title}`);
   }
 
   for (const projectId of featuredIds) {
@@ -53,7 +61,7 @@ for (const locale of ["ar", "en"]) {
     }
 
     const title = project.content[locale].title;
-    if (!html.includes(title)) fail(file, `featured project missing: ${title}`);
+    if (!html.includes(htmlText(title))) fail(file, `featured project missing: ${title}`);
     if (!html.includes(project.image)) fail(file, `featured project image missing: ${project.image}`);
 
     try {
