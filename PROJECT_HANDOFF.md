@@ -217,12 +217,6 @@ Current projects use this locked model:
 - case-study overview/context/contribution/scope/delivered outputs;
 - SEO draft.
 
-Intentionally excluded from the project model:
-- year;
-- live/public project URL;
-- technology stack;
-- gallery/screenshots/additional project images.
-
 Still needed:
 - public client attribution only where useful;
 - final Arabic editorial review;
@@ -296,7 +290,7 @@ Verified:
 - keep only important verified facts/assets/relationships from Legacy; write VNext marketing and UX copy anew;
 - migrated Arabic service/project copy is `draft` until reviewed;
 - never invent metrics/results/clients/prices/timelines/SLAs;
-- every project has one primary image only; do not reintroduce year, live URL, technology stack, or gallery fields;
+- every project has one primary image only;
 - ask user for facts/evidence, not finished marketing copy;
 - no SEO filler;
 - no copied SATR copy/design;
