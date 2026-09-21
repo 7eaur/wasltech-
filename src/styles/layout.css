@@ -45,7 +45,7 @@
   .primary-nav[data-open]{display:block}
   .primary-nav ul{align-items:stretch;flex-direction:column;gap:0}
   .nav-link{display:flex;min-height:2.75rem;align-items:center;padding:.65rem .75rem;border-radius:var(--radius-sm)}
-  .header-cta{display:none}
+  .header-shell .header-cta{display:none}
   .split{grid-template-columns:1fr}
   .grid--3{grid-template-columns:repeat(2,minmax(0,1fr))}
   .footer-grid{grid-template-columns:1fr 1fr}
