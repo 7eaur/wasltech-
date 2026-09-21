@@ -5,7 +5,7 @@ Repository: `7eaur/wasltech-`
 Official/legacy branch: `main`  
 Current live `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified VNext implementation HEAD: `054113b9bb2e7d3c832129a56a75894cf6102227`
+Latest verified VNext implementation HEAD: `1b3ec7fe20c03ab8f3a00887d7ccea4decd7a8f3`
 
 ## Current state
 
@@ -379,6 +379,43 @@ Verification:
 - Data: PASS
 
 ### Next phase — Phase 7: Service Detail System
+
+Ready to start.
+
+## Phase 7 — Service Detail System
+**COMPLETE**
+
+Implemented:
+- one reusable bilingual service-detail architecture;
+- all 8 services rendered from canonical data;
+- 16 generated detail routes;
+- Breadcrumb → Hero → problem/scope → service signals → audience → deliverables → verified proof → process → FAQ → constraints → CTA;
+- Service, BreadcrumbList and FAQPage structured data;
+- related proof only when verified projects exist;
+- no project-detail links before Phase 8;
+- dedicated `service-detail.css`;
+- dedicated `check-service-details.mjs`.
+
+Representative visual review:
+- Web service: Arabic/English desktop + mobile;
+- Technical Solutions: Arabic/English desktop + mobile;
+- proof-present and proof-absent states reviewed;
+- no horizontal overflow;
+- long content remained structured;
+- RTL/LTR reviewed.
+
+Verification:
+- workflow: `VNext verify`
+- run: `35567508172`
+- SHA: `1b3ec7fe20c03ab8f3a00887d7ccea4decd7a8f3`
+- result: **SUCCESS**
+- 16 detail routes: PASS
+- structured data: PASS
+- distinct service content: PASS
+- related proof visibility: PASS
+- no future project-detail links: PASS
+
+### Next phase — Phase 8: Portfolio & Case-study Foundation
 
 Ready to start.
 
