@@ -6,6 +6,14 @@ export const SEO_INDEX_STATE = Object.freeze({
   NOINDEX: "noindex,follow"
 });
 
+export function isLocaleIndexable(record, locale) {
+  return record?.localeStatus?.[locale] === "ready" && Boolean(record?.content?.[locale]);
+}
+
+export function robotsForLocale(record, locale) {
+  return isLocaleIndexable(record, locale) ? SEO_INDEX_STATE.INDEX : SEO_INDEX_STATE.NOINDEX;
+}
+
 export function absoluteUrl(path = "/") {
   const normalized = path.startsWith("/") ? path : `/${path}`;
   return new URL(normalized, `${site.origin}/`).toString();
