@@ -89,6 +89,60 @@ for (const record of requiredPages) {
   }
 }
 
+const shellRouteKeys = [
+  "home",
+  "services",
+  "portfolio",
+  "process",
+  "about",
+  "insights",
+  "faq",
+  "careers",
+  "contact",
+  "startProject"
+];
+
+for (const locale of ["ar", "en"]) {
+  const alternateLocale = locale === "ar" ? "en" : "ar";
+
+  for (const routeKey of shellRouteKeys) {
+    const route = routes[routeKey](locale);
+    const html = await readFile(path.join(DIST, outputPath(route)), "utf8");
+
+    if (count(html, /<header\b/g) !== 1) fail(outputPath(route), "expected exactly one shared header");
+    if (count(html, /<footer\b/g) !== 1) fail(outputPath(route), "expected exactly one shared footer");
+    if (!html.includes("data-menu-toggle")) fail(outputPath(route), "mobile menu toggle missing");
+    if (!html.includes("data-primary-nav")) fail(outputPath(route), "primary navigation contract missing");
+
+    const alternatePath = routes[routeKey](alternateLocale);
+    if (!html.includes(`href="${alternatePath}" hreflang="${alternateLocale}"`)) {
+      fail(outputPath(route), "language switch does not preserve route identity");
+    }
+  }
+}
+
+const headerSource = await readFile(path.join(ROOT, "src/components/Header.js"), "utf8");
+for (const contract of [
+  "data-open-label",
+  "data-close-label",
+  "menu-icon",
+  "aria-expanded"
+]) {
+  if (!headerSource.includes(contract)) fail("src/components/Header.js", `missing shell header contract: ${contract}`);
+}
+
+const navigationClient = await readFile(path.join(ROOT, "src/client/navigation.js"), "utf8");
+for (const contract of [
+  'setAttribute("aria-label"',
+  'event.key === "Escape"',
+  '"pointerdown"',
+  'matchMedia("(min-width: 53.8125rem)")'
+]) {
+  if (!navigationClient.includes(contract)) {
+    fail("src/client/navigation.js", `missing mobile navigation behavior: ${contract}`);
+  }
+}
+
 const robotsOutput = await readFile(path.join(DIST, "robots.txt"), "utf8");
 if (!robotsOutput.includes("User-agent: *") || !robotsOutput.includes("Disallow: /")) {
   fail("robots.txt", "preview robots policy must block crawling");
