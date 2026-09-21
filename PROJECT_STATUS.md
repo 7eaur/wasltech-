@@ -5,7 +5,7 @@ Repository: `7eaur/wasltech-`
 Official/legacy branch: `main`  
 Current live `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified VNext implementation HEAD: `eae58343daa539e295ce209b3bb442fc0e14647d`
+Latest verified VNext implementation HEAD: `054113b9bb2e7d3c832129a56a75894cf6102227`
 
 ## Current state
 
@@ -339,6 +339,46 @@ Verification:
 - Data: PASS
 
 ### Next phase — Phase 6: Services Directory
+
+Ready to start.
+
+## Phase 6 — Services Directory
+**COMPLETE**
+
+Implemented:
+- canonical bilingual Services Directory;
+- all 8 services grouped into the 3 approved families;
+- decision-led service rows instead of equal generic cards;
+- problem/need and scope summary exposed for comparison;
+- canonical links prepared for service detail routes;
+- dedicated `services.css`;
+- dedicated `check-services.mjs`;
+- Services route removed from the placeholder build.
+
+Visual review:
+- Arabic desktop 1440px;
+- Arabic mobile 390px;
+- English desktop 1440px;
+- English mobile 390px;
+- no horizontal overflow;
+- all 8 services visible in both locales;
+- service-family hierarchy retained on mobile;
+- desktop comparison density reviewed;
+- long English content remained readable without taxonomy loss.
+
+Verification:
+- workflow: `VNext verify`
+- run: `35567035544`
+- SHA: `054113b9bb2e7d3c832129a56a75894cf6102227`
+- result: **SUCCESS**
+- Build: PASS
+- Structure: PASS
+- Shell: PASS
+- Home: PASS
+- Services Directory: PASS
+- Data: PASS
+
+### Next phase — Phase 7: Service Detail System
 
 Ready to start.
 
