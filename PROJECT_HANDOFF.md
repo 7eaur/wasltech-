@@ -4,7 +4,7 @@ Last updated: 2026-09-21
 Repository: `7eaur/wasltech-`  
 Official/legacy branch: `main`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified implementation HEAD: `3942c6da3ad0cc8e435324bbe195909b09972493`
+Latest verified implementation HEAD: `f3a841bb6a1af80fd4b2461dd475d76331d76ae8`
 
 ## 1. Start procedure — mandatory
 
@@ -466,6 +466,43 @@ Visual review passed Arabic/English at desktop/mobile with no overflow.
 8. keep Contact and Planner as different surfaces;
 9. visually review desktop/mobile in both locales;
 10. document Phase 10 before secondary pages/legal.
+
+## 8N. Phase 10 Project Planner + Contact — COMPLETE
+
+Verified:
+- HEAD `f3a841bb6a1af80fd4b2461dd475d76331d76ae8`
+- run `35644999070`
+- SUCCESS.
+
+Contact:
+- WhatsApp;
+- email;
+- Instagram;
+- direct contact stays separate from project intake.
+
+Project Planner:
+- need;
+- project stage;
+- priority;
+- context;
+- review;
+- client-side validation;
+- WhatsApp message preparation only;
+- no backend send/storage;
+- RTL-safe phone/URL review.
+
+## 8O. Exact next work — Phase 11 Secondary Pages + Legal + Localization Completion
+
+1. build FAQ from canonical bilingual FAQ data;
+2. build honest Insights empty state;
+3. build honest Careers empty state;
+4. inspect final VNext runtime behavior before writing Privacy/Terms;
+5. Privacy/Terms must describe only actual forms, client-side behavior, external links, analytics/cookies and third parties that are truly present;
+6. do not invent retention periods, processors, tracking, cookies or legal guarantees;
+7. complete any remaining public bilingual localization gaps;
+8. keep incomplete legal pages noindex until verified;
+9. add dedicated gates;
+10. visually review both locales before release QA.
 
 ## 9. Non-negotiable rules
 
