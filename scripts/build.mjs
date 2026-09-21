@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { routes } from "../src/config/routes.js";
+import { renderPreviewRobots } from "../src/seo/crawl.js";
 import { foundationHome, foundationPlaceholder } from "../src/pages/foundation.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -79,6 +80,7 @@ async function buildPages() {
     "404.html",
     foundationPlaceholder({ title: "الصفحة غير موجودة", routeKey: "home", locale: "ar" })
   );
+  await writeOutput("robots.txt", renderPreviewRobots());
 }
 
 await rm(DIST, { recursive: true, force: true });
