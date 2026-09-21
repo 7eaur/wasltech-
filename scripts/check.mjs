@@ -126,6 +126,8 @@ const sourceFiles = [
   path.join(ROOT, "scripts/check-home.mjs"),
   path.join(ROOT, "scripts/check-services.mjs"),
   path.join(ROOT, "scripts/check-service-details.mjs"),
+  path.join(ROOT, "scripts/check-portfolio.mjs"),
+  path.join(ROOT, "scripts/check-project-details.mjs"),
   path.join(ROOT, "scripts/check-data.mjs")
 ];
 
@@ -240,6 +242,8 @@ const cssSourcesForTokenCheck = await Promise.all(
     "src/styles/home.css",
     "src/styles/services.css",
     "src/styles/service-detail.css",
+    "src/styles/portfolio.css",
+    "src/styles/project-detail.css",
     "src/styles/showcase.css"
   ].map((file) => readFile(path.join(ROOT, file), "utf8"))
 );
@@ -291,7 +295,8 @@ for (const asset of [
   "assets/brand/wasl-tech-horizontal.svg",
   "assets/brand/wasl-tech-horizontal-white.svg",
   "assets/brand/favicon.svg",
-  "assets/js/navigation.js"
+  "assets/js/navigation.js",
+  "assets/js/portfolio-filter.js"
 ]) {
   try {
     const info = await stat(path.join(DIST, asset));
