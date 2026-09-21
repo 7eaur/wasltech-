@@ -4,7 +4,7 @@ Last updated: 2026-09-21
 Repository: `7eaur/wasltech-`  
 Official/legacy branch: `main`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified implementation HEAD: `3b899ada38f273ecc9dcdd1c20165663a6f78105`
+Latest verified implementation HEAD: `b25851ff2e26252e3dfe84518037055543e6b224`
 
 ## 1. Start procedure — mandatory
 
