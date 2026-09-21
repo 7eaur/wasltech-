@@ -46,7 +46,7 @@ const serviceRecords = [
     "group": "digital-products",
     "image": "/assets/works/project_1.jpg",
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -158,7 +158,7 @@ const serviceRecords = [
     "group": "digital-products",
     "image": "/assets/works/project_5.jpg",
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -270,7 +270,7 @@ const serviceRecords = [
     "group": "digital-products",
     "image": "/assets/works/project_10.jpg",
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -382,7 +382,7 @@ const serviceRecords = [
     "group": "systems-engineering",
     "image": "/assets/works/project_4.jpg",
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -494,7 +494,7 @@ const serviceRecords = [
     "group": "systems-engineering",
     "image": "/assets/works/project_3.jpg",
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -606,7 +606,7 @@ const serviceRecords = [
     "group": "brand-presence",
     "image": "/assets/works/project_9.jpg",
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -718,7 +718,7 @@ const serviceRecords = [
     "group": "brand-presence",
     "image": "/assets/works/project_7.jpg",
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -830,7 +830,7 @@ const serviceRecords = [
     "group": "brand-presence",
     "image": "/assets/works/project_12.jpg",
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
