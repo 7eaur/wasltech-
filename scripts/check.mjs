@@ -83,9 +83,81 @@ if (packageJson.dependencies && Object.keys(packageJson.dependencies).length) {
   fail("package.json", "Phase 1 must not introduce runtime dependencies");
 }
 
+const brandConfig = await readFile(path.join(ROOT, "src/config/brand.js"), "utf8");
+for (const contract of [
+  'ar: "وصل تك"',
+  'en: "Wasl Tech"',
+  'ar: "IBM Plex Sans Arabic"',
+  'en: "IBM Plex Sans"',
+  'logo: "/assets/brand/wasl-tech-horizontal.svg"',
+  'logoWhite: "/assets/brand/wasl-tech-horizontal-white.svg"',
+  'favicon: "/assets/brand/favicon.svg"'
+]) {
+  if (!brandConfig.includes(contract)) {
+    fail("src/config/brand.js", `missing canonical brand contract: ${contract}`);
+  }
+}
+
+const tokensSource = await readFile(path.join(ROOT, "src/styles/tokens.css"), "utf8");
+for (const contract of [
+  "--wt-navy-700:#14305F",
+  "--wt-teal-500:#0E8889",
+  "--wt-teal-700:#096B70",
+  '--font-ar:"IBM Plex Sans Arabic"',
+  '--font-en:"IBM Plex Sans"'
+]) {
+  if (!tokensSource.includes(contract)) {
+    fail("src/styles/tokens.css", `missing canonical identity token: ${contract}`);
+  }
+}
+
+const brandStyles = await readFile(path.join(ROOT, "src/styles/brand.css"), "utf8");
+for (const token of [
+  "--color-brand-primary:",
+  "--color-brand-accent:",
+  "--color-bg-canvas:",
+  "--color-text-primary:",
+  "--color-border-default:"
+]) {
+  if (!brandStyles.includes(token)) {
+    fail("src/styles/brand.css", `missing semantic brand role: ${token}`);
+  }
+}
+
+const typographyStyles = await readFile(path.join(ROOT, "src/styles/typography.css"), "utf8");
+if (!typographyStyles.includes('html[lang="ar"]') || !typographyStyles.includes('html[lang="en"]')) {
+  fail("src/styles/typography.css", "bilingual typography selectors are required");
+}
+
 const cssOutput = await readFile(path.join(DIST, "assets/css/site.css"), "utf8");
-if (!cssOutput.includes("--font-ar") || !cssOutput.includes("#14305F")) {
-  fail("site.css", "Wasl typography/brand tokens missing from output");
+for (const contract of [
+  "--wt-navy-700:#14305F",
+  "--wt-teal-500:#0E8889",
+  "--wt-teal-700:#096B70",
+  "IBM Plex Sans Arabic",
+  "IBM Plex Sans"
+]) {
+  if (!cssOutput.includes(contract)) {
+    fail("site.css", `generated identity output missing: ${contract}`);
+  }
+}
+
+const primaryLogo = await readFile(path.join(ROOT, "assets/brand/wasl-tech-horizontal.svg"), "utf8");
+if (!primaryLogo.includes('viewBox="0.00 0.00 1130.00 360.00"')) {
+  fail("assets/brand/wasl-tech-horizontal.svg", "unexpected primary logo geometry");
+}
+if (!primaryLogo.includes("#14305F") || !primaryLogo.includes("#0E8889")) {
+  fail("assets/brand/wasl-tech-horizontal.svg", "official Navy/Teal logo colors missing");
+}
+
+const whiteLogo = await readFile(path.join(ROOT, "assets/brand/wasl-tech-horizontal-white.svg"), "utf8");
+if (!whiteLogo.includes("#FFFFFF")) {
+  fail("assets/brand/wasl-tech-horizontal-white.svg", "white logo variant is not the approved source");
+}
+
+const favicon = await readFile(path.join(ROOT, "assets/brand/favicon.svg"), "utf8");
+if (!favicon.includes('viewBox="0.00 0.00 1024.00 1024.00"') || !favicon.includes("#14305F")) {
+  fail("assets/brand/favicon.svg", "favicon identity contract changed");
 }
 
 for (const asset of [
@@ -110,3 +182,4 @@ if (errors.length) {
 
 console.log("VNEXT CHECK: PASSED");
 console.log(`Checked ${requiredPages.length} generated routes and ${sourceFiles.length} source files.`);
+console.log("Brand guard: PASSED");
