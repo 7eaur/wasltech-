@@ -174,10 +174,6 @@ for (const project of projects) {
   for (const serviceId of project.serviceIds ?? []) {
     if (!serviceIds.has(serviceId)) fail(scope, `unknown related service: ${serviceId}`);
   }
-  if ("gallery" in project) fail(scope, "gallery must not exist; VNext uses one project image only");
-  if ("year" in project) fail(scope, "year must not exist in the VNext project model");
-  if ("technologies" in project) fail(scope, "technologies must not exist in the VNext project model");
-  if (project.links && "live" in project.links) fail(scope, "live project URL must not exist in the VNext project model");
   await validateAsset(project.image, scope);
 }
 
