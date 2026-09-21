@@ -315,6 +315,44 @@ export const pages = Object.freeze([
           title: "خدمات وصل تك | مواقع وتطبيقات ومتاجر وأنظمة وهوية وتسويق",
           description: "استكشف خدمات وصل تك في تطوير المواقع والتطبيقات والمتاجر والبرمجة والحلول التقنية والبروفايلات والهوية والتسويق الرقمي."
         })
+      }),
+      en: Object.freeze({
+        purpose: "Help visitors find the service or direction closest to their real need without overwhelming them with a long list of labels and details.",
+        kicker: "Services",
+        title: "Start with what your project needs, not with the service name.",
+        support: "We build digital products, systems, and technical solutions, and develop brand presence through eight services that can work independently or as one connected project.",
+        primaryCta: "Explore the services",
+        secondaryCta: "Plan your project",
+        sections: Object.freeze([
+          Object.freeze({
+            id: "digital-products",
+            kicker: "Digital products",
+            title: "Experiences your customers use every day.",
+            support: "Websites, apps, and e-commerce built around user journeys and business goals—not just page or screen counts."
+          }),
+          Object.freeze({
+            id: "systems",
+            kicker: "Systems & engineering",
+            title: "When the way the business works needs to become clearer.",
+            support: "Custom software, integrations, automation, and data organization when an off-the-shelf solution is not enough."
+          }),
+          Object.freeze({
+            id: "brand-presence",
+            kicker: "Brand & presence",
+            title: "What customers see should tell one consistent story.",
+            support: "Identity, company profiles, content, and marketing work together so the project looks coherent and is easier to understand."
+          }),
+          Object.freeze({
+            id: "unsure",
+            kicker: "Not sure which service fits?",
+            title: "Start with the problem. We will get to the service after that.",
+            support: "Describe what you want to build or improve instead of trying to choose a technical label first."
+          })
+        ]),
+        seo: Object.freeze({
+          title: "Wasl Tech Services | Web, Apps, E-commerce, Systems, Branding & Marketing",
+          description: "Explore Wasl Tech services across websites, mobile apps, e-commerce, custom software, technical solutions, company profiles, brand identity, and digital marketing."
+        })
       })
     }
   }),
@@ -458,6 +496,50 @@ export const pages = Object.freeze([
         seo: Object.freeze({
           title: "كيف نعمل | وصل تك — Wasl Tech",
           description: "تعرف على طريقة عمل وصل تك من فهم المشروع والتخطيط إلى التصميم والتطوير والمراجعة والإطلاق."
+        })
+      }),
+      en: Object.freeze({
+        purpose: "Explain the working process simply, from the first conversation through planning, design, development, review, and launch.",
+        kicker: "How we work",
+        title: "We start by understanding, then build from a clear decision.",
+        support: "We understand the goal and need first, organize the scope and experience, then design, build, review, and prepare for launch.",
+        primaryCta: "Start your project",
+        secondaryCta: "View our work",
+        sections: Object.freeze([
+          Object.freeze({
+            id: "understand",
+            kicker: "01 — Understand",
+            title: "We start with the goal, problem, and context.",
+            support: "Who will use the project? What do they need to achieve? What already exists? These answers keep us from solving the wrong problem."
+          }),
+          Object.freeze({
+            id: "plan",
+            kicker: "02 — Plan",
+            title: "We turn the idea into a scope that can be decided on.",
+            support: "We organize priorities, content, features, and flow before details become expensive or tangled."
+          }),
+          Object.freeze({
+            id: "build",
+            kicker: "03 — Design & build",
+            title: "We build on decisions we understand and agree on.",
+            support: "Design and development move within a clear scope and review cycle instead of waiting for one surprising final version."
+          }),
+          Object.freeze({
+            id: "review-launch",
+            kicker: "04 — Review & launch",
+            title: "We review the experience before calling it finished.",
+            support: "We check the core scenarios, content, responsiveness, and details, then prepare the approved version for launch or handoff."
+          }),
+          Object.freeze({
+            id: "final-cta",
+            kicker: "Ready to begin",
+            title: "The first step is not a contract. It is understanding the project.",
+            support: "Share the idea and the current stage, and we will organize what should happen next."
+          })
+        ]),
+        seo: Object.freeze({
+          title: "How We Work | Wasl Tech",
+          description: "See how Wasl Tech moves from project understanding and planning to design, development, review, and launch."
         })
       })
     }
@@ -702,6 +784,44 @@ export const pages = Object.freeze([
         seo: Object.freeze({
           title: "الأسئلة الشائعة | وصل تك — Wasl Tech",
           description: "إجابات على الأسئلة الشائعة حول خدمات وصل تك وبداية المشروع وطريقة التنفيذ."
+        })
+      }),
+      en: Object.freeze({
+        purpose: "Answer the questions that most often affect a project decision before the first conversation.",
+        kicker: "Frequently asked questions",
+        title: "Before you start, these are the questions that matter most.",
+        support: "Clear answers about services, how delivery works, and what you need before starting a project.",
+        primaryCta: "Start your project",
+        secondaryCta: "Contact us",
+        sections: Object.freeze([
+          Object.freeze({
+            id: "start",
+            kicker: "Getting started",
+            title: "You do not need to know everything before you contact us.",
+            support: "You only need enough clarity to take the next step—not to become the technical expert yourself."
+          }),
+          Object.freeze({
+            id: "products",
+            kicker: "Digital products",
+            title: "Questions about websites, apps, and e-commerce.",
+            support: "Responsiveness, management, integrations, payments, and delivery are among the most common topics before development starts."
+          }),
+          Object.freeze({
+            id: "presence",
+            kicker: "Brand & presence",
+            title: "Which services can stand on their own?",
+            support: "Brand identity, company profiles, and content planning can be independent projects or part of a wider engagement."
+          }),
+          Object.freeze({
+            id: "workflow",
+            kicker: "Working process",
+            title: "What happens after we start?",
+            support: "Timeline, phases, and changes depend on the actual scope—not on one answer that fits every project."
+          })
+        ]),
+        seo: Object.freeze({
+          title: "Frequently Asked Questions | Wasl Tech",
+          description: "Answers to common questions about Wasl Tech services, project stages, websites, apps, e-commerce, branding, integrations, and how projects are delivered."
         })
       })
     }
