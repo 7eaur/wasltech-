@@ -8,6 +8,8 @@ import { designSystemShowcase } from "../src/pages/design-system.js";
 import { foundationPlaceholder } from "../src/pages/foundation.js";
 import { homePage } from "../src/pages/home.js";
 import { servicesDirectoryPage } from "../src/pages/services.js";
+import { serviceDetailPage } from "../src/pages/service-detail.js";
+import { services } from "../src/data/services.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist");
@@ -22,6 +24,7 @@ const cssSources = [
   "src/styles/media.css",
   "src/styles/home.css",
   "src/styles/services.css",
+  "src/styles/service-detail.css",
   "src/styles/showcase.css"
 ];
 
@@ -82,6 +85,13 @@ async function buildPages() {
     );
 
     await writeOutput(outputPath(routes.services(locale)), servicesDirectoryPage(locale));
+
+    for (const service of services) {
+      await writeOutput(
+        outputPath(routes.service(service.slug, locale)),
+        serviceDetailPage(service, locale)
+      );
+    }
 
     for (const record of placeholderRoutes.filter((item) => item.key !== "services")) {
       await writeOutput(
