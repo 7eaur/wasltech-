@@ -43,22 +43,51 @@ Outputs:
 Gate:
 minimal generated page builds deterministically and checks pass.
 
+### Pre-Phase-2 architecture freeze
+
+Before Phase 2, the following product decisions are locked:
+- original Wasl identity assets;
+- IBM Plex Sans Arabic / IBM Plex Sans;
+- official Navy/Teal palette with semantic token layer;
+- Arabic default + English under `/en/`;
+- stable shared slugs across locales;
+- generated service/project/article/job detail routes;
+- insights, careers, privacy and terms are part of the planned architecture;
+- SEO is generated/validated at build time.
+
+These decisions must not be re-opened casually during data normalization.
+
 ## Phase 2 — Data & Content Normalization
 
 Goal:
-move repeated business content into canonical data.
+build the bilingual, extensible content/data layer before real page design.
+
+Inputs:
+- verified legacy service data;
+- verified portfolio data;
+- current FAQ data;
+- approved product/service taxonomy;
+- approved bilingual route/locale contracts.
 
 Outputs:
-- site config;
-- navigation config;
-- 8 services model;
-- portfolio model;
-- FAQ model;
+- `src/config/locales.js`;
+- `src/config/routes.js`;
+- localized navigation model;
+- 8-service canonical model with stable ids/slugs and `ar/en` fields;
+- portfolio canonical model with stable ids/slugs and localized fields;
+- FAQ canonical model;
+- jobs model contract;
+- article/content metadata contract;
 - verified asset mapping;
-- missing fields explicitly marked.
+- relation fields between services/projects/articles;
+- explicit `null`, `NOT VERIFIED`, or omitted fields when evidence is missing;
+- data-integrity checks for duplicate ids/slugs, locale completeness and broken relations.
 
 Gate:
-no service/project business content duplicated across page modules.
+- no service/project business content duplicated across page modules;
+- every entity has one stable identity across locales;
+- no incomplete English content is silently treated as publishable;
+- adding a future service/project record does not require a copied page implementation.
 
 ## Phase 3 — Design Tokens & Shared Primitives
 
@@ -140,13 +169,28 @@ replace flat contact experience with a clearer project-intake journey while pres
 Gate:
 validation is truthful; no fake send/success; keyboard/mobile tested.
 
-## Phase 11 — FAQ + Utility + Localization Readiness
+## Phase 11 — FAQ + Insights + Careers + Legal + Localization Completion
 
 Goal:
-support decision-making and future bilingual growth without publishing incomplete English pages.
+complete decision-support and secondary public surfaces without weakening content quality.
+
+Outputs:
+- FAQ;
+- insights listing/article template;
+- careers listing/job template and honest empty state;
+- privacy;
+- terms;
+- 404;
+- complete Arabic/English locale behavior;
+- language switcher/hreflang relationships.
 
 Gate:
-FAQ data/schema sync; 404 works; unfinished content is noindex.
+- FAQ data/schema sync;
+- article/job publication states work;
+- privacy/terms reflect real behavior;
+- unfinished translations remain noindex/unpublished;
+- no mixed-language taxonomy leaks;
+- all generated localized routes resolve correctly.
 
 ## Phase 12 — SEO + Performance + Accessibility
 
