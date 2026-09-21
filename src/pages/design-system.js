@@ -25,6 +25,7 @@ const copy = Object.freeze({
     swatches: Object.freeze({
       primary: "اللون الأساسي", accent: "لون الإبراز", canvas: "الخلفية", soft: "سطح هادئ", text: "النص الأساسي", border: "الحدود"
     }),
+    typeLabels: Object.freeze({ hero: "عرض رئيسي", h2: "عنوان ثانوي", body: "نص مساعد" }),
     note: "المعيار: لا نضيف عنصرًا بصريًا لأنه جميل فقط؛ كل primitive يجب أن يخدم محتوى حقيقيًا ويعمل بالعربي والإنجليزي وعلى الهاتف."
   }),
   en: Object.freeze({
@@ -45,14 +46,6 @@ const copy = Object.freeze({
     }),
     swatches: Object.freeze({
       primary: "Brand primary", accent: "Brand accent", canvas: "Canvas", soft: "Soft surface", text: "Primary text", border: "Border"
-    }),
-    descriptions: Object.freeze({
-      color: "Brand colors are consumed through stable semantic roles rather than copied hex values.",
-      type: "IBM Plex Sans Arabic and IBM Plex Sans share the same hierarchy while respecting each writing system.",
-      actions: "Primary actions stay obvious without turning every control into a loud CTA.",
-      cards: "Cards are content containers when needed, not the default layout for every section.",
-      form: "Fields include labels, hints, required states, errors, disabled behavior, and visible keyboard focus.",
-      media: "One media contract supports project covers, brand assets, and editorial visuals without inventing a different crop rule per page."
     }),
     typeLabels: Object.freeze({ hero: "Hero", h2: "H2", body: "Body" }),
     note: "Rule: a primitive is not added because it looks attractive. It must support real content, both locales, and mobile behavior."
