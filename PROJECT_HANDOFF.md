@@ -4,7 +4,7 @@ Last updated: 2026-09-21
 Repository: `7eaur/wasltech-`  
 Official/legacy branch: `main`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified implementation HEAD: `b25851ff2e26252e3dfe84518037055543e6b224`
+Latest verified implementation HEAD: `6f0863a1b4a8490522c6df41e9b3be896432dcc0`
 
 ## 1. Start procedure — mandatory
 
@@ -18,7 +18,7 @@ A new conversation must:
 6. read `docs/README.md`;
 7. read relevant canonical core docs only;
 8. read the SATR audit only when structural/writing reference is needed;
-9. continue from Phase 2B without repeating completed phases.
+9. begin Phase 3 from the verified Phase 2B baseline without repeating completed content work.
 
 Live repository/code/tests override stale text or chat memory.
 
@@ -186,115 +186,56 @@ Verified:
 - SUCCESS
 - `Services: 8 | Projects: 14 | FAQ: 13 | Articles: 0 | Jobs: 0`
 
-## 7. Active phase — Phase 2B
+## 7. Phase 2B — COMPLETE
 
-Do not build final pages yet.
+The bilingual content and SEO foundation is verified.
 
-Current services have:
-- identity/slug/group/image;
-- Arabic title/subtitle/description;
-- audiences;
-- deliverables/features;
-- process;
-- FAQ;
-- CTA.
+Ready:
+- public page copy in Arabic and English;
+- all 8 service records in Arabic and English;
+- all 14 project records in Arabic and English;
+- general FAQ in Arabic and English;
+- project stories use one primary image only;
+- Arabic/English SEO metadata;
+- locale-aware route/navigation/document foundations;
+- canonical/hreflang/x-default support;
+- Open Graph/Twitter support;
+- structured-data builders;
+- safe preview robots behavior and sitemap/production robots renderers;
+- content/SEO integrity guards.
 
-Still needed where relevant:
-- explicit customer problem/need;
-- scope;
-- capabilities/integrations;
-- proof/evidence;
-- SEO/search intent;
-- related article topics;
-- reviewed English.
-
-Current projects use this locked model:
-- identity/slug/category;
-- exactly one primary image;
-- Arabic title/summary/highlights;
-- related service;
-- platform/type;
-- case-study overview/context/contribution/scope/delivered outputs;
-- SEO draft.
-
-Still needed:
-- public client attribution only where useful;
-- final Arabic editorial review;
-- reviewed English copy.
-
-Gap audit:
-`docs/qa/2026-09-21_phase-2b_content-gap-audit.md`
-
-### Verified editorial rewrite batch
-
-Arabic editorial work has started and is committed:
-- core page messaging rewritten for the major public surfaces;
-- core value proposition + CTA layer rewritten for all 8 services;
-- Legacy wording is no longer treated as publishable copy;
-- SATR is used only to learn content hierarchy, intent and flow, never to copy wording.
-
-Writing standard now in active use:
-**Clear idea → customer relevance → concrete value → next action.**
+Privacy and Terms intentionally remain `CONTENT REQUIRED` until final implementation behavior is known. They are not to be filled with generic legal text.
 
 Verified:
-- page copy commit `f25f7dd3bf615c3ecb80800f8f3bda94e45d8e5e`
-- service copy commit `3b899ada38f273ecc9dcdd1c20165663a6f78105`
-- run `35554359258`
+- run `35557088166`
+- SHA `6f0863a1b4a8490522c6df41e9b3be896432dcc0`
 - result **SUCCESS**
 
-Remaining editorial work:
-- deeper service-detail sections (hero cards, deliverables wording, process, FAQ);
-- project/case-study storytelling;
-- final SEO copy;
-- English after Arabic stabilizes.
+## 8. Exact next work — Phase 3
 
-### Verified Phase 2B batch now in code
+Build the shared design grammar before composing final pages:
+1. audit/refine semantic tokens against the approved Wasl identity;
+2. spacing, container and layout primitives;
+3. Arabic/LTR typography scale and reading behavior;
+4. buttons, links, focus states and form primitives;
+5. cards/media/image contracts;
+6. reusable surfaces and section primitives;
+7. reduced-motion/accessibility baseline;
+8. static component showcase;
+9. review at mobile and desktop breakpoints;
+10. verify and document Phase 3 before Shared Shell.
 
-- `src/data/content-contracts.js`: completeness model + authoring policy.
-- `src/data/pages.js`: canonical page content owners.
-- `src/data/services.js`: evidence/completeness metadata; migrated Arabic copy marked `draft`.
-- `src/data/projects.js`: evidence/completeness metadata and explicit missing project fields; migrated Arabic copy marked `draft`.
-- `src/config/site.js`: verified Instagram contact preserved.
-- `scripts/check-data.mjs`: Phase 2B contract validation.
-
-Authoring policy:
-**Legacy = evidence only. VNext public copy = newly authored from verified facts and user intent.**
-
-Verified:
-- run `35553980138`
-- SHA `4c1c3ba07924d5a99ce827eae060a7923663da1d`
-- result **SUCCESS**
-
-
-## 8. Exact next work
-
-1. Extend final service/project schemas in code.
-2. Add field-state model:
-   `READY / PARTIAL / CONTENT REQUIRED / NOT VERIFIED / NOT APPLICABLE`.
-3. Create page-level content owners for:
-   Home, About, Services, Portfolio, Process, Contact, Start Project, FAQ, Insights, Careers, Privacy, Terms, 404.
-4. Search repository evidence before asking the user.
-5. Produce a prioritized list of missing facts/assets.
-6. Ask the user in small batches only for facts/assets that cannot be recovered.
-7. Write final Arabic copy from verified facts.
-8. Write English after Arabic facts stabilize.
-9. Add entity/page SEO metadata and search-intent/internal-link fields.
-10. Extend data integrity checks.
-11. Run `npm run vnext:verify`.
-12. Document and close Phase 2B.
-13. Then begin Phase 3 shared primitives.
+Do not start Homepage composition before Phase 3 and Phase 4 gates pass.
 
 ## 9. Non-negotiable rules
 
-- legacy content is evidence/baseline, not canonical wording or final completion;
-- keep only important verified facts/assets/relationships from Legacy; write VNext marketing and UX copy anew;
-- migrated Arabic service/project copy is `draft` until reviewed;
-- never invent metrics/results/clients/prices/timelines/SLAs;
-- every project has one primary image only;
-- ask user for facts/evidence, not finished marketing copy;
-- no SEO filler;
-- no copied SATR copy/design;
-- no copied UPDATE CARD identity/layout;
-- no final Homepage design before Phase 2B closes;
-- no merge/cutover to production before the final release phase;
-- root-cause fixes only; no patch pile.
+- Legacy remains evidence only, not a wording or architecture source.
+- Arabic and English share one entity identity and stable slug.
+- Do not duplicate localized content inside templates.
+- Every project uses exactly one primary image.
+- Do not invent metrics, results, clients, prices, timelines, SLAs or legal claims.
+- Incomplete locales/legal pages must remain non-indexable/unpublished.
+- Search metadata must stay tied to canonical content and route identities.
+- No copied SATR wording/design and no copied UPDATE CARD branding/layout.
+- No production cutover before the final release phase.
+- Fix root causes; do not build a patch pile.
