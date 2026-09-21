@@ -5,7 +5,7 @@ Repository: `7eaur/wasltech-`
 Official/legacy branch: `main`  
 Current live `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified VNext implementation HEAD: `6f0863a1b4a8490522c6df41e9b3be896432dcc0`
+Latest verified VNext implementation HEAD: `b1b2e14968dd5e9fc2f33405e5f106b547ac24c4`
 
 ## Current state
 
@@ -217,57 +217,46 @@ The next implementation work is:
 The original Wasl Tech identity remains authoritative, and the approved content/data layer must be consumed rather than duplicated in page markup.
 
 ## Phase 3 — Design Tokens & Shared Primitives
-**ACTIVE — visual gate passed; final HEAD CI run queued**
+**COMPLETE**
 
-Implemented:
-- canonical token grammar and semantic color roles;
+Completed:
+- canonical design token grammar and semantic color roles;
 - bilingual typography hierarchy;
-- responsive container/stack/cluster/grid/split/flow primitives;
-- button/link primitives;
-- reusable card/surface system;
-- accessible form controls and states;
-- reusable media-frame contracts;
-- focus-visible and reduced-motion baseline;
+- responsive layout primitives;
+- buttons/links/cards/forms/media primitives;
+- focus-visible + reduced-motion baseline;
 - bilingual internal component showcase;
-- shared `ActionLink`, `SurfaceCard`, `FormField`, `MediaFrame`;
-- PageHero/ContactCTA reuse shared actions;
+- shared ActionLink / SurfaceCard / FormField / MediaFrame components;
 - CSS custom-property integrity guard;
-- CI concurrency rule to keep future verification focused on the latest branch head.
+- real Chromium review at 1440 and 390 for Arabic and English;
+- no horizontal overflow;
+- RTL/LTR correct;
+- mobile touch/control targets normalized to 46px;
+- mobile header CTA conflict discovered visually and fixed.
 
-Visual review performed in Chromium using the exact generated preview artifact with assets/CSS injected in-memory because Vercel preview was blocked by build-rate-limit:
-- Arabic desktop: 1440px;
-- Arabic mobile: 390px;
-- English desktop: 1440px;
-- English mobile: 390px.
+Verification:
+- final branch HEAD: `b1b2e14968dd5e9fc2f33405e5f106b547ac24c4`
+- workflow run: `35559468184`
+- result: **SUCCESS**
+- final input-height design SHA `0d97f4930059052d695706d0998fdb9658e76765`
+- run `35559252091`: **SUCCESS**
 
-Visual/DOM results:
-- no horizontal overflow at 1440 or 390;
-- RTL/LTR direction correct;
-- mobile header CTA conflict discovered and fixed;
-- menu touch target: 46px;
-- mobile language switch touch target: 46px;
-- visible buttons: 46px;
-- input/select controls: 46px across Arabic/English after normalization;
-- responsive grids/cards/forms/media collapse correctly on mobile;
-- Arabic showcase helper copy localized to test realistic RTL content.
+Exact IBM Plex glyph rendering remains a later live-preview confirmation item because local environment could not load the binary font files, but the canonical font contract is unchanged.
 
-Typography caveat:
-- the local renderer could not load IBM Plex binary font files because of environment network/binary restrictions;
-- hierarchy/layout were reviewed using fallback metrics;
-- exact IBM Plex glyph rendering must be re-confirmed later on a real web preview, but the CSS font contract remains IBM Plex Sans Arabic / IBM Plex Sans.
+## Phase 4 — Shared Shell
+**ACTIVE**
 
-Verification evidence already green:
-- `da05b3b2fa00ab576916ad4c5877524206559ac1` — SUCCESS;
-- `84b3f36afd9db1d01da75c513f78bfe7b0ab6d52` — SUCCESS;
-- `d13d86b4282a22e95fbc83c2a126637216a53491` — SUCCESS;
-- `4b529b2b85c6ec4d6305c427be7ecf5ecb010a2c` — SUCCESS;
-- `778797169f517eaaa67fd1fef72888468b65e3be` — SUCCESS.
+Scope:
+- Header;
+- primary navigation;
+- mobile drawer behavior;
+- locale switch;
+- Footer;
+- route-family active state;
+- keyboard/focus behavior;
+- responsive shell verification.
 
-Latest design refinement:
-- `0d97f4930059052d695706d0998fdb9658e76765` — direct Chromium/computed-style verification passed; GitHub run `35559252091` is queued, not failed.
-- branch HEAD after CI queue improvement: `75d7355e04476ac8e750a09353877554a7b83d60`.
-
-Phase 4 must not be marked active until the queued final verification clears or a new equivalent verification succeeds.
+Do not begin Homepage composition until this phase passes its gate.
 
 ## Production separation
 
