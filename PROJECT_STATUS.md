@@ -5,7 +5,7 @@ Repository: `7eaur/wasltech-`
 Official/legacy branch: `main`  
 Current live `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified VNext implementation HEAD: `b25851ff2e26252e3dfe84518037055543e6b224`
+Latest verified VNext implementation HEAD: `6f0863a1b4a8490522c6df41e9b3be896432dcc0`
 
 ## Current state
 
@@ -164,121 +164,57 @@ Final Phase 2 evidence:
 QA:
 `docs/qa/2026-09-21_phase-2_data-normalization.md`
 
-## Active phase
+## Phase 2B — Content Architecture & Evidence Completion
+**COMPLETE**
 
-### Phase 2B — Content Architecture & Evidence Completion
-**ACTIVE**
+The content baseline is now ready for design work.
 
-Why this phase was added:
-after Phase 2, the user explicitly clarified that legacy content must **not** be treated as sufficient just because it exists. The site should use the complete information a strong service/portfolio/SEO experience actually needs, and the user will provide missing real facts/assets when necessary.
+Completed:
+- original Arabic VNext copy for public pages, all 8 services, all 14 projects and general FAQ;
+- reviewed English copy for the same public content;
+- 14-project model locked to one primary image + project story;
+- service decision copy, deliverables, process, FAQ, constraints and topic planning;
+- project context, contribution, scope and delivered outputs;
+- Arabic + English SEO titles/descriptions;
+- service Open Graph copy;
+- Arabic `/` + English `/en/` route architecture;
+- locale-aware Header/Footer/navigation foundation;
+- canonical, hreflang and x-default helpers;
+- Open Graph + Twitter metadata support;
+- Organization/WebSite and reusable Service/FAQ/Breadcrumb/CreativeWork structured-data builders;
+- preview robots protection;
+- sitemap/production robots renderers;
+- CI guards for bilingual content and SEO output.
 
-Gap audit found:
-
-Services currently have:
-- title;
-- subtitle;
-- description;
-- audiences;
-- deliverables/features;
-- service process;
-- FAQ;
-- CTA;
-- primary image.
-
-Still incomplete as final VNext content:
-- explicit customer problem/need;
-- clear scope boundaries;
-- integrations/capabilities;
-- proof/evidence model;
-- entity-specific SEO/search intent;
-- related article topics;
-- reviewed English copy.
-
-Projects use a simplified presentation model:
-- title;
-- category;
-- exactly one primary image;
-- summary;
-- highlights;
-- related service;
-- platform/type;
-- case-study overview/context/contribution/scope/delivered outputs;
-- SEO draft.
-
-Remaining project content work:
-- public client attribution only where useful;
-- final Arabic editorial review;
-- reviewed English copy.
-
-Evidence:
-`docs/qa/2026-09-21_phase-2b_content-gap-audit.md`
-
-### Phase 2B editorial rewrite batch — verified
-
-Completed in this batch:
-- rewrote the Arabic core messaging for Home, About, Services, Portfolio, Process, Contact, Start Project, FAQ, Insights, Careers and 404;
-- rewrote the core value proposition + CTA layer for all 8 services;
-- retained service/project facts while replacing generic Legacy-style marketing phrasing;
-- applied the editorial pattern: page/service job → customer need → value message → next action;
-- used the SATR audit only as a structural/writing benchmark, with original Wasl Tech wording.
-
-Verification:
-- page-copy safety/fix commit: `f25f7dd3bf615c3ecb80800f8f3bda94e45d8e5e` — SUCCESS;
-- service-copy commit: `3b899ada38f273ecc9dcdd1c20165663a6f78105`;
-- workflow: `VNext verify`;
-- run: `35554359258`;
-- result: **SUCCESS**.
-
-The copy remains `draft` until the deeper service-detail/project-detail editorial pass is completed.
-
-### Phase 2B implementation batch — verified
-
-Implemented:
-- `src/data/content-contracts.js` with completeness states and explicit authoring policy;
-- `src/data/pages.js` as canonical page-level content owner;
-- service and project field-state/evidence metadata;
-- verified Instagram contact in site config;
-- extended data integrity checks for Phase 2B contracts;
-- Legacy/VNext authoring separation: **Legacy = evidence only; VNext copy = newly authored**;
-- migrated Arabic service/project copy reclassified as `draft`, not final/ready.
+Intentional deferrals:
+- Privacy and Terms remain `CONTENT REQUIRED` until form, analytics/cookie and third-party behavior is final;
+- Insights has an honest empty state until real articles are authored;
+- Careers has an honest empty state until a real role exists.
 
 Verification:
 - workflow: `VNext verify`
-- run: `35553980138`
-- SHA: `4c1c3ba07924d5a99ce827eae060a7923663da1d`
+- run: `35557088166`
+- SHA: `6f0863a1b4a8490522c6df41e9b3be896432dcc0`
 - result: **SUCCESS**
+- Build: **PASS**
+- Structure: **PASS**
+- Data: **PASS**
 
-Editorial rule now enforced:
-**Evidence → User need → Message hierarchy → New copy → Fact check → UX review**
+### Next phase — Phase 3: Design Tokens & Shared Primitives
 
+Phase 3 is ready to start, but final page composition has not started yet.
 
-## Exact next actions
+The next implementation work is:
+- refine semantic design tokens;
+- spacing and layout primitives;
+- bilingual typography behavior;
+- buttons, links and form primitives;
+- card/media contracts;
+- focus/accessibility states;
+- responsive primitives;
+- component showcase review on desktop + mobile.
 
-1. Extend the final service/project schemas in code.
-2. Classify fields as `READY / PARTIAL / CONTENT REQUIRED / NOT VERIFIED / NOT APPLICABLE`.
-3. Create canonical page-level content owners for Home/About/Services/Portfolio/Process/Contact/Start Project/FAQ/Insights/Careers/Privacy/Terms/404.
-4. Recover any missing facts/assets that can be proven from the repository.
-5. Build a prioritized missing-input list.
-6. Ask the user only for meaningful facts/assets that cannot be recovered.
-7. Draft the final Arabic content professionally from verified facts.
-8. Prepare English copy only after facts are stable.
-9. Add SEO title/meta/search-intent/internal-link fields.
-10. Extend integrity checks and verify.
-11. Close Phase 2B.
-12. Then continue to Phase 3 — Design Tokens & Shared Primitives.
-
-## Phase 2B rules
-
-- legacy content = evidence/baseline only, never the default wording source;
-- preserve verified facts, identities, scope evidence and assets; rewrite presentation copy from scratch for VNext;
-- migrated Arabic content remains `draft` until editorial review;
-- ask the user for facts/evidence, not finished marketing copy;
-- the implementation team writes final Arabic/English copy;
-- do not invent project results, clients, prices, timelines or SLAs;
-- no generic SEO filler;
-- missing values stay explicit;
-- final design must be tested against realistic content lengths;
-- do not start final Homepage composition before Phase 2B closes.
+The original Wasl Tech identity remains authoritative, and the approved content/data layer must be consumed rather than duplicated in page markup.
 
 ## Production separation
 
