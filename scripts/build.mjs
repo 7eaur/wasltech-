@@ -5,7 +5,8 @@ import { fileURLToPath } from "node:url";
 import { routes } from "../src/config/routes.js";
 import { renderPreviewRobots } from "../src/seo/crawl.js";
 import { designSystemShowcase } from "../src/pages/design-system.js";
-import { foundationHome, foundationPlaceholder } from "../src/pages/foundation.js";
+import { foundationPlaceholder } from "../src/pages/foundation.js";
+import { homePage } from "../src/pages/home.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist");
@@ -18,6 +19,7 @@ const cssSources = [
   "src/styles/layout.css",
   "src/styles/components.css",
   "src/styles/media.css",
+  "src/styles/home.css",
   "src/styles/showcase.css"
 ];
 
@@ -61,6 +63,9 @@ async function buildAssets() {
   await cp(path.join(ROOT, "assets/brand"), path.join(DIST, "assets/brand"), {
     recursive: true
   });
+  await cp(path.join(ROOT, "assets/works"), path.join(DIST, "assets/works"), {
+    recursive: true
+  });
 
   const navigation = await readFile(path.join(ROOT, "src/client/navigation.js"), "utf8");
   await writeOutput("assets/js/navigation.js", navigation);
@@ -68,7 +73,7 @@ async function buildAssets() {
 
 async function buildPages() {
   for (const locale of ["ar", "en"]) {
-    await writeOutput(outputPath(routes.home(locale)), foundationHome(locale));
+    await writeOutput(outputPath(routes.home(locale)), homePage(locale));
     await writeOutput(
       locale === "ar" ? "__showcase/index.html" : "en/__showcase/index.html",
       designSystemShowcase(locale)
