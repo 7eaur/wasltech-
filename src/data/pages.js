@@ -1,9 +1,9 @@
 import { CONTENT_STATE, createFieldState, pageFieldKeys } from "./content-contracts.js";
 
-function localeStatusForContent(content = {}) {
+function localeStatusForContent(content) {
   return Object.freeze({
-    ar: content.ar ? "draft" : "content_required",
-    en: content.en ? "draft" : "content_required"
+    ar: content?.ar ? "draft" : "content_required",
+    en: content?.en ? "draft" : "content_required"
   });
 }
 
