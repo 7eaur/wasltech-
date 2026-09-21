@@ -566,12 +566,6 @@ Every project record should support as much of the following as evidence allows:
 - project status;
 - platform/type.
 
-VNext intentionally does **not** use:
-- project year;
-- public/live project URL;
-- technology stack;
-- screenshot galleries or additional project images.
-
 ### Story
 - one-sentence definition;
 - overview;
