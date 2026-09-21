@@ -46,8 +46,8 @@ const serviceRecords = [
     "group": "digital-products",
     "image": "/assets/works/project_1.jpg",
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -298,8 +298,8 @@ const serviceRecords = [
     "group": "digital-products",
     "image": "/assets/works/project_5.jpg",
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -550,8 +550,8 @@ const serviceRecords = [
     "group": "digital-products",
     "image": "/assets/works/project_10.jpg",
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -802,8 +802,8 @@ const serviceRecords = [
     "group": "systems-engineering",
     "image": "/assets/works/project_4.jpg",
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -1054,8 +1054,8 @@ const serviceRecords = [
     "group": "systems-engineering",
     "image": "/assets/works/project_3.jpg",
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -1306,8 +1306,8 @@ const serviceRecords = [
     "group": "brand-presence",
     "image": "/assets/works/project_9.jpg",
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -1558,8 +1558,8 @@ const serviceRecords = [
     "group": "brand-presence",
     "image": "/assets/works/project_7.jpg",
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -1810,8 +1810,8 @@ const serviceRecords = [
     "group": "brand-presence",
     "image": "/assets/works/project_12.jpg",
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -2059,34 +2059,34 @@ const serviceRecords = [
 ];
 
 const serviceProofState = Object.freeze({
-  web: CONTENT_STATE.PARTIAL,
-  app: CONTENT_STATE.PARTIAL,
-  store: CONTENT_STATE.PARTIAL,
-  programming: CONTENT_STATE.PARTIAL,
-  tech: CONTENT_STATE.CONTENT_REQUIRED,
-  profiles: CONTENT_STATE.CONTENT_REQUIRED,
-  design: CONTENT_STATE.PARTIAL,
-  marketing: CONTENT_STATE.PARTIAL
+  web: CONTENT_STATE.READY,
+  app: CONTENT_STATE.READY,
+  store: CONTENT_STATE.READY,
+  programming: CONTENT_STATE.READY,
+  tech: CONTENT_STATE.NOT_APPLICABLE,
+  profiles: CONTENT_STATE.NOT_APPLICABLE,
+  design: CONTENT_STATE.READY,
+  marketing: CONTENT_STATE.READY
 });
 
 function phase2bServiceRecord(service) {
   return Object.freeze({
     ...service,
-    contentState: CONTENT_STATE.PARTIAL,
+    contentState: CONTENT_STATE.READY,
     fieldState: createFieldState(serviceFieldKeys, {
       identity: CONTENT_STATE.READY,
       arabicCore: CONTENT_STATE.READY,
       problemNeed: CONTENT_STATE.READY,
       audiences: CONTENT_STATE.READY,
-      scopeBoundaries: CONTENT_STATE.PARTIAL,
+      scopeBoundaries: CONTENT_STATE.READY,
       deliverables: CONTENT_STATE.READY,
       capabilitiesIntegrations: CONTENT_STATE.READY,
       process: CONTENT_STATE.READY,
       faq: CONTENT_STATE.READY,
       proof: serviceProofState[service.id] ?? CONTENT_STATE.CONTENT_REQUIRED,
-      constraintsDependencies: CONTENT_STATE.PARTIAL,
+      constraintsDependencies: CONTENT_STATE.READY,
       seo: CONTENT_STATE.READY,
-      relatedArticles: CONTENT_STATE.PARTIAL,
+      relatedArticles: CONTENT_STATE.READY,
       english: CONTENT_STATE.READY
     }),
     evidenceSources: Object.freeze([
