@@ -5,7 +5,7 @@ Repository: `7eaur/wasltech-`
 Official/legacy branch: `main`  
 Current live `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified VNext implementation HEAD: `5b29dba17ca789a31512c3788ee8e388b40d9346`
+Latest verified VNext implementation HEAD: `3942c6da3ad0cc8e435324bbe195909b09972493`
 
 ## Current state
 
@@ -474,6 +474,39 @@ Verification:
 - all earlier gates remained green.
 
 ### Next phase — Phase 9: About + Process
+
+Ready to start.
+
+## Phase 9 — About + Process
+**COMPLETE**
+
+Implemented:
+- canonical bilingual About page;
+- canonical bilingual Process page;
+- About focused on operating philosophy, what Wasl combines, decision principles and Yemen + Gulf market;
+- Process focused on four execution phases and what becomes clearer after each phase;
+- no duplicated filler between the two pages;
+- no invented timeline promises;
+- dedicated shared `about-process.css`;
+- dedicated `check-about-process.mjs`.
+
+Visual review:
+- About Arabic/English desktop + mobile;
+- Process Arabic/English desktop + mobile;
+- no horizontal overflow;
+- About retained editorial/positioning character;
+- Process retained sequential execution character;
+- RTL/LTR hierarchy reviewed.
+
+Verification:
+- workflow: `VNext verify`
+- run: `35568496733`
+- SHA: `3942c6da3ad0cc8e435324bbe195909b09972493`
+- result: **SUCCESS**
+- About/Process Gate: PASS
+- all previous gates remained green.
+
+### Next phase — Phase 10: Project Planner + Contact
 
 Ready to start.
 
