@@ -45,7 +45,7 @@ function renderPrimaryMedia(project,locale) {
     <section class="project-primary-media">
       <div class="container">
         <figure>
-          <img src="${project.image}" alt="${escapeHtml(title)}" loading="eager">
+          <img src="${project.image}" alt="${escapeHtml(title)}" loading="eager" fetchpriority="high" width="${project.imageDimensions.width}" height="${project.imageDimensions.height}">
         </figure>
       </div>
     </section>
@@ -145,7 +145,7 @@ function renderRelated(project,locale) {
           ${related.map((item)=>`
             <article>
               <a class="project-related__media" href="${routes.project(item.slug,locale)}" aria-label="${escapeHtml(item.content[locale].title)}">
-                <img src="${item.image}" alt="" loading="lazy">
+                <img src="${item.image}" alt="" loading="lazy" width="${item.imageDimensions.width}" height="${item.imageDimensions.height}" decoding="async">
               </a>
               <div class="project-related__copy">
                 <p class="eyebrow">${escapeHtml(item.platformType[locale])}</p>
