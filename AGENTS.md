@@ -74,6 +74,25 @@ Core constraints:
 
 Do not over-abstract.
 
+## 5A. Bilingual / SEO architecture
+
+VNext is bilingual by design, not by later duplication.
+
+Mandatory:
+- Arabic default locale at `/`;
+- English under `/en/`;
+- one stable entity id/slug across locales;
+- Arabic RTL / English LTR;
+- services/projects/jobs use shared records with localized fields;
+- articles keep stable translation identity;
+- no page-copy duplication to create locale variants;
+- indexable content is build-time HTML;
+- canonical/hreflang/sitemap/robots are generated and verified;
+- unfinished translations are not silently published/indexed;
+- adding a service/project/article/job must not require copying a page implementation.
+
+SEO is a first-class product requirement, but do not create thin keyword pages or fabricate content to chase rankings.
+
 ## 6. Brand / design rules
 
 Authority:
