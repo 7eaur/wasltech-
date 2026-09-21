@@ -3,7 +3,6 @@
  * Source: verified legacy portfolio records normalized on 2026-09-21.
  * Arabic portfolio summaries, case-study overviews/scopes and SEO are VNext editorial drafts.
  * Each project intentionally uses one primary image only.
- * Year, live URL, technology stack and additional galleries are not part of the VNext project model.
  */
 
 import { CONTENT_STATE, createFieldState, projectFieldKeys } from "./content-contracts.js";
