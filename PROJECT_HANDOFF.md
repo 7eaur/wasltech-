@@ -4,7 +4,7 @@ Last updated: 2026-09-21
 Repository: `7eaur/wasltech-`  
 Official/legacy branch: `main`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified implementation HEAD: `b99372dd54ae21bce2aa6fc48da383b6eb954d6e`
+Latest verified implementation HEAD: `0831418f497b860cb0650c51b7b5f1665fb85147`
 
 ## 1. Start procedure — mandatory
 
@@ -521,6 +521,46 @@ Completed:
 - no invented analytics/cookies/retention/legal claims.
 
 Visual review passed on desktop/mobile with no overflow.
+
+## 8Q. Phase 12 SEO + Performance + Accessibility — COMPLETE
+
+Verified:
+- HEAD `0831418f497b860cb0650c51b7b5f1665fb85147`
+- run `35647059021`
+- SUCCESS.
+
+Technical release foundation:
+- Preview and Production builds are isolated;
+- Production sitemap/robots validated;
+- 68 indexable localized routes;
+- internal showcase excluded from release;
+- bilingual noindex 404;
+- CSS gzip 11,119 bytes;
+- JS gzip 2,678 bytes;
+- project image total 1,026,583 bytes;
+- only 14 referenced project images ship;
+- intrinsic project media dimensions;
+- accessible action/focus contrast;
+- Light/Dark contrast gates;
+- reduced-motion and structural a11y guards;
+- runtime Chromium smoke with zero page/console errors.
+
+Important:
+- Google Fonts remains an external technical dependency and is disclosed in Privacy.
+- Real CWV field/runtime values must still be measured on the exact production SHA in Phase 14.
+
+## 8R. Exact next work — Phase 13 Cross-page Visual Normalization
+
+1. review the whole site as one visual product, not isolated pages;
+2. build a screenshot/measurement matrix across 360, 390, 768, 1024, 1366 and 1440;
+3. compare Arabic and English rhythm;
+4. inspect hero scale, section spacing, button hierarchy, card/surface consistency and image crops;
+5. inspect Header/Footer density across route families;
+6. inspect long-content pages versus short empty-state/legal pages;
+7. inspect representative service/project details;
+8. fix root causes only in shared primitives or responsible page styles;
+9. rerun all quality/release gates;
+10. document Phase 13 before cutover.
 
 ## 9. Non-negotiable rules
 
