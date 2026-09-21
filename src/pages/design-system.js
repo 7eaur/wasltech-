@@ -28,8 +28,8 @@ const copy = Object.freeze({
   })
 });
 
-function swatch(label, color) {
-  return `<div class="showcase-swatch"><div class="showcase-swatch__color" style="--swatch:${color}"></div><div class="showcase-swatch__meta">${label}</div></div>`;
+function swatch(label, role) {
+  return `<div class="showcase-swatch"><div class="showcase-swatch__color showcase-swatch__color--${role}"></div><div class="showcase-swatch__meta">${label}</div></div>`;
 }
 
 export function designSystemShowcase(locale = "ar") {
@@ -50,12 +50,12 @@ export function designSystemShowcase(locale = "ar") {
       <div class="container">
         <div class="showcase-heading"><h2>${t.labels.color}</h2><p>Brand colors are consumed through semantic roles rather than copied hex values.</p></div>
         <div class="showcase-swatch-grid">
-          ${swatch("Brand primary","var(--color-brand-primary)")}
-          ${swatch("Brand accent","var(--color-brand-accent)")}
-          ${swatch("Canvas","var(--color-bg-canvas)")}
-          ${swatch("Soft surface","var(--color-bg-soft)")}
-          ${swatch("Primary text","var(--color-text-primary)")}
-          ${swatch("Border","var(--color-border-default)")}
+          ${swatch("Brand primary","primary")}
+          ${swatch("Brand accent","accent")}
+          ${swatch("Canvas","canvas")}
+          ${swatch("Soft surface","soft")}
+          ${swatch("Primary text","text")}
+          ${swatch("Border","border")}
         </div>
       </div>
     </section>
@@ -75,10 +75,10 @@ export function designSystemShowcase(locale = "ar") {
       <div class="container">
         <div class="showcase-heading"><h2>${t.labels.actions}</h2><p>Primary actions stay obvious without turning every control into a loud CTA.</p></div>
         <div class="showcase-controls">
-          ${ActionLink({ href:"#", label:locale === "ar" ? "إجراء أساسي" : "Primary action", variant:"primary" })}
-          ${ActionLink({ href:"#", label:locale === "ar" ? "إجراء ثانوي" : "Secondary action", variant:"secondary" })}
-          ${ActionLink({ href:"#", label:locale === "ar" ? "إجراء هادئ" : "Quiet action", variant:"ghost" })}
-          <a class="text-link" href="#">${locale === "ar" ? "رابط نصي واضح" : "Clear text link"}</a>
+          ${ActionLink({ href:"#showcase-actions", label:locale === "ar" ? "إجراء أساسي" : "Primary action", variant:"primary" })}
+          ${ActionLink({ href:"#showcase-actions", label:locale === "ar" ? "إجراء ثانوي" : "Secondary action", variant:"secondary" })}
+          ${ActionLink({ href:"#showcase-actions", label:locale === "ar" ? "إجراء هادئ" : "Quiet action", variant:"ghost" })}
+          <a class="text-link" href="#showcase-actions">${locale === "ar" ? "رابط نصي واضح" : "Clear text link"}</a>
         </div>
       </div>
     </section>
@@ -87,7 +87,7 @@ export function designSystemShowcase(locale = "ar") {
       <div class="container">
         <div class="showcase-heading"><h2>${t.labels.cards}</h2><p>Cards are content containers, not a default layout for every section.</p></div>
         <div class="grid grid--3">
-          ${SurfaceCard({ meta:locale === "ar"?"خدمة":"Service", title:locale === "ar"?"موقع يشرح مشروعك بوضوح":"A website that explains the business clearly", body:locale === "ar"?"عنوان واضح، نص مختصر، ومسار منطقي للخطوة التالية.":"Clear hierarchy, concise copy, and an obvious next step.", action:{href:"#",label:locale === "ar"?"استكشف الخدمة":"Explore service"}, interactive:true })}
+          ${SurfaceCard({ meta:locale === "ar"?"خدمة":"Service", title:locale === "ar"?"موقع يشرح مشروعك بوضوح":"A website that explains the business clearly", body:locale === "ar"?"عنوان واضح، نص مختصر، ومسار منطقي للخطوة التالية.":"Clear hierarchy, concise copy, and an obvious next step.", action:{href:"#showcase-actions",label:locale === "ar"?"استكشف الخدمة":"Explore service"}, interactive:true })}
           ${SurfaceCard({ meta:locale === "ar"?"مبدأ":"Principle", title:locale === "ar"?"وضوح قبل الزخرفة":"Clarity before decoration", body:locale === "ar"?"المساحة والعنوان والحدود تكفي غالبًا؛ لا نحتاج مؤثرات لكل عنصر.":"Spacing, hierarchy, and borders are often enough; not every element needs an effect.", variant:"soft" })}
           ${SurfaceCard({ meta:locale === "ar"?"قرار":"Decision", title:locale === "ar"?"ابدأ من الحاجة":"Start with the need", body:locale === "ar"?"التصميم يوضح القرار بدل أن يضيف ضوضاء حوله.":"Design should clarify the decision rather than add noise around it.", variant:"accent" })}
         </div>
@@ -97,7 +97,7 @@ export function designSystemShowcase(locale = "ar") {
     <section class="showcase-section">
       <div class="container">
         <div class="showcase-heading"><h2>${t.labels.form}</h2><p>Fields include labels, hints, required states, errors, disabled behavior, and visible keyboard focus.</p></div>
-        <form class="showcase-form" action="#" onsubmit="return false">
+        <form class="showcase-form">
           ${FormField({ id:`showcase-name-${locale}`, label:locale === "ar"?"الاسم":"Name", placeholder:locale === "ar"?"مثال: إلياس":"Example: Elias", required:true })}
           ${FormField({ id:`showcase-email-${locale}`, label:locale === "ar"?"البريد":"Email", type:"email", placeholder:"name@example.com", hint:locale === "ar"?"لن نستخدمه إلا للتواصل بخصوص المشروع.":"Used only to contact you about the project." })}
           ${FormField({ id:`showcase-error-${locale}`, label:locale === "ar"?"رابط المشروع":"Project URL", type:"url", placeholder:"https://", error:locale === "ar"?"أدخل رابطًا صحيحًا أو اترك الحقل فارغًا.":"Enter a valid URL or leave the field empty." })}
