@@ -5,7 +5,7 @@ Repository: `7eaur/wasltech-`
 Official/legacy branch: `main`  
 Current live `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified VNext implementation HEAD: `c2640be27fb76dca4232c134df86ff1d0269d496`
+Latest verified VNext implementation HEAD: `eae58343daa539e295ce209b3bb442fc0e14647d`
 
 ## Current state
 
@@ -297,6 +297,50 @@ Verification:
 Phase 5 is ready but **not started**.
 
 Do not compose the Homepage until the next explicit continuation point.
+
+## Phase 5 — Homepage
+**COMPLETE**
+
+Implemented:
+- canonical bilingual Homepage at `/` and `/en/`;
+- editorial Hero with one clear promise and two actions;
+- three service-decision paths instead of an eight-card wall;
+- selected real work using canonical project records and project images;
+- approach section built as editorial principles, not icon cards;
+- four-step process summary;
+- three decision-support FAQ items;
+- final project CTA;
+- dedicated `home.css`;
+- dedicated `check-home.mjs`;
+- portfolio assets copied into the build;
+- intrinsic dimensions for featured project images to reduce CLS;
+- project images lazy-loaded because Home LCP is text-led.
+
+Visual review completed:
+- Arabic desktop 1440px;
+- Arabic mobile 390px;
+- English desktop 1440px;
+- English mobile 390px;
+- no horizontal overflow;
+- RTL/LTR hierarchy reviewed;
+- featured work image crops reviewed;
+- mobile section stacking reviewed;
+- Hero density reviewed in both locales.
+
+Verification:
+- workflow: `VNext verify`
+- run: `35562768516`
+- SHA: `eae58343daa539e295ce209b3bb442fc0e14647d`
+- result: **SUCCESS**
+- Build: PASS
+- Structure: PASS
+- Shared Shell Gate: PASS
+- Homepage Gate: PASS
+- Data: PASS
+
+### Next phase — Phase 6: Services Directory
+
+Ready to start.
 
 ## Production separation
 
