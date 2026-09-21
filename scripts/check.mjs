@@ -100,6 +100,24 @@ try {
   // Expected until release/index mode is enabled.
 }
 
+for (const record of [
+  { file: "__showcase/index.html", locale: "ar", dir: "rtl" },
+  { file: "en/__showcase/index.html", locale: "en", dir: "ltr" }
+]) {
+  const html = await readFile(path.join(DIST, record.file), "utf8");
+  if (!html.includes(`<html lang="${record.locale}" dir="${record.dir}">`)) {
+    fail(record.file, "showcase locale/direction contract failed");
+  }
+  if (!html.includes('name="robots" content="noindex,nofollow"')) {
+    fail(record.file, "showcase must stay noindex,nofollow");
+  }
+  if (html.includes('rel="canonical"')) fail(record.file, "showcase must not emit canonical");
+  if (html.includes('<link rel="alternate" hreflang=')) fail(record.file, "showcase must not emit SEO hreflang links");
+  if (html.includes('href="#"')) fail(record.file, 'showcase dead href="#" is forbidden');
+  if (html.includes('style="')) fail(record.file, "showcase inline style attributes are forbidden");
+  if (count(html, /<h1\b/g) !== 1) fail(record.file, "showcase must have exactly one h1");
+}
+
 const sourceFiles = [
   ...await walk(path.join(ROOT, "src")),
   path.join(ROOT, "scripts/build.mjs"),
