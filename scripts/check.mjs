@@ -98,6 +98,34 @@ for (const contract of [
   }
 }
 
+const localesSource = await readFile(path.join(ROOT, "src/config/locales.js"), "utf8");
+for (const contract of [
+  'export const defaultLocale = "ar"',
+  'prefix: ""',
+  'prefix: "/en"',
+  'dir: "rtl"',
+  'dir: "ltr"'
+]) {
+  if (!localesSource.includes(contract)) {
+    fail("src/config/locales.js", `missing bilingual locale contract: ${contract}`);
+  }
+}
+
+const routesSource = await readFile(path.join(ROOT, "src/config/routes.js"), "utf8");
+for (const route of [
+  "services",
+  "portfolio",
+  "start-project",
+  "insights",
+  "careers",
+  "privacy",
+  "terms"
+]) {
+  if (!routesSource.includes(route)) {
+    fail("src/config/routes.js", `missing canonical route family: ${route}`);
+  }
+}
+
 const tokensSource = await readFile(path.join(ROOT, "src/styles/tokens.css"), "utf8");
 for (const contract of [
   "--wt-navy-700:#14305F",
