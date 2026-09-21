@@ -1,6 +1,7 @@
 import { site } from "../config/site.js";
 import { locales } from "../config/locales.js";
 import { buildOpenGraph, buildSeoLinks } from "../config/seo.js";
+import { serializeStructuredData } from "../seo/structured-data.js";
 import { Header } from "../components/Header.js";
 import { Footer } from "../components/Footer.js";
 import { escapeHtml } from "../lib/html.js";
@@ -12,6 +13,10 @@ const copy = Object.freeze({
 
 function metaTag(property, content) {
   return content ? `  <meta property="${property}" content="${escapeHtml(content)}">` : "";
+}
+
+function nameMetaTag(name, content) {
+  return content ? `  <meta name="${name}" content="${escapeHtml(content)}">` : "";
 }
 
 export function documentTemplate({
@@ -27,7 +32,8 @@ export function documentTemplate({
   ogTitle = title,
   ogDescription = description,
   ogImage = null,
-  ogType = "website"
+  ogType = "website",
+  structuredData = []
 }) {
   if (!title || !description || !body) {
     throw new Error("documentTemplate requires title, description and body.");
@@ -50,6 +56,11 @@ export function documentTemplate({
     .map((item) => `  <link rel="alternate" hreflang="${item.hreflang}" href="${item.href}">`)
     .join("\n");
 
+  const structuredDataTags = structuredData
+    .filter(Boolean)
+    .map((item) => `  <script type="application/ld+json">${serializeStructuredData(item)}</script>`)
+    .join("\n");
+
   return `<!doctype html>
 <html lang="${localeConfig.lang}" dir="${localeConfig.dir}">
 <head>
@@ -69,6 +80,11 @@ ${metaTag("og:title", openGraph.title)}
 ${metaTag("og:description", openGraph.description)}
 ${metaTag("og:url", openGraph.url)}
 ${metaTag("og:image", openGraph.image)}
+${nameMetaTag("twitter:card", openGraph.image ? "summary_large_image" : "summary")}
+${nameMetaTag("twitter:title", openGraph.title)}
+${nameMetaTag("twitter:description", openGraph.description)}
+${nameMetaTag("twitter:image", openGraph.image)}
+${structuredDataTags}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
