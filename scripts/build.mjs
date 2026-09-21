@@ -9,7 +9,10 @@ import { foundationPlaceholder } from "../src/pages/foundation.js";
 import { homePage } from "../src/pages/home.js";
 import { servicesDirectoryPage } from "../src/pages/services.js";
 import { serviceDetailPage } from "../src/pages/service-detail.js";
+import { portfolioPage } from "../src/pages/portfolio.js";
+import { projectDetailPage } from "../src/pages/project-detail.js";
 import { services } from "../src/data/services.js";
+import { projects } from "../src/data/projects.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist");
@@ -25,6 +28,8 @@ const cssSources = [
   "src/styles/home.css",
   "src/styles/services.css",
   "src/styles/service-detail.css",
+  "src/styles/portfolio.css",
+  "src/styles/project-detail.css",
   "src/styles/showcase.css"
 ];
 
@@ -74,6 +79,8 @@ async function buildAssets() {
 
   const navigation = await readFile(path.join(ROOT, "src/client/navigation.js"), "utf8");
   await writeOutput("assets/js/navigation.js", navigation);
+  const portfolioFilter = await readFile(path.join(ROOT, "src/client/portfolio-filter.js"), "utf8");
+  await writeOutput("assets/js/portfolio-filter.js", portfolioFilter);
 }
 
 async function buildPages() {
@@ -93,7 +100,16 @@ async function buildPages() {
       );
     }
 
-    for (const record of placeholderRoutes.filter((item) => item.key !== "services")) {
+    await writeOutput(outputPath(routes.portfolio(locale)), portfolioPage(locale));
+
+    for (const project of projects) {
+      await writeOutput(
+        outputPath(routes.project(project.slug, locale)),
+        projectDetailPage(project, locale)
+      );
+    }
+
+    for (const record of placeholderRoutes.filter((item) => !["services","portfolio"].includes(item.key))) {
       await writeOutput(
         outputPath(routes[record.key](locale)),
         foundationPlaceholder({
