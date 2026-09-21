@@ -17,6 +17,25 @@ Writing style:
 - business-aware;
 - evidence-safe.
 
+### Legacy evidence vs. VNext copy
+
+Legacy pages and data are **evidence sources, not copy sources**.
+
+Preserve from Legacy only what is useful and verifiable, such as:
+- service/project identity and relationships;
+- real capabilities, scope, channels and behavior;
+- approved assets and factual metadata;
+- constraints or operating facts that affect the user's decision.
+
+Do **not** mechanically migrate old headings, descriptions, CTAs, FAQ wording, section order, or marketing phrasing.
+
+VNext public copy must be newly authored for the page's job and user intent. It may simplify, restructure, combine or replace legacy wording, while keeping every factual claim evidence-safe.
+
+Editorial workflow:
+**Evidence → User need → Message hierarchy → New copy → Fact check → UX review**
+
+Transferred Arabic copy remains a working draft until it passes this workflow. A complete Legacy paragraph is not automatically `READY`.
+
 ## 2. Primary information architecture
 
 ### Main navigation
