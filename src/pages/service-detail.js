@@ -136,7 +136,7 @@ function renderProof(service, locale) {
           ${projects.map((project)=>`
             <article class="service-proof__card">
               <div class="service-proof__media">
-                <img src="${project.image}" alt="" loading="lazy">
+                <img src="${project.image}" alt="" loading="lazy" width="${project.imageDimensions.width}" height="${project.imageDimensions.height}" decoding="async">
               </div>
               <div class="service-proof__copy">
                 <p class="eyebrow">${escapeHtml(project.platformType[locale])}</p>
