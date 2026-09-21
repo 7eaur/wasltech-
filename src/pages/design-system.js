@@ -46,6 +46,15 @@ const copy = Object.freeze({
     swatches: Object.freeze({
       primary: "Brand primary", accent: "Brand accent", canvas: "Canvas", soft: "Soft surface", text: "Primary text", border: "Border"
     }),
+    descriptions: Object.freeze({
+      color: "Brand colors are consumed through stable semantic roles rather than copied hex values.",
+      type: "IBM Plex Sans Arabic and IBM Plex Sans share the same hierarchy while respecting each writing system.",
+      actions: "Primary actions stay obvious without turning every control into a loud CTA.",
+      cards: "Cards are content containers when needed, not the default layout for every section.",
+      form: "Fields include labels, hints, required states, errors, disabled behavior, and visible keyboard focus.",
+      media: "One media contract supports project covers, brand assets, and editorial visuals without inventing a different crop rule per page."
+    }),
+    typeLabels: Object.freeze({ hero: "Hero", h2: "H2", body: "Body" }),
     note: "Rule: a primitive is not added because it looks attractive. It must support real content, both locales, and mobile behavior."
   })
 });
@@ -86,9 +95,9 @@ export function designSystemShowcase(locale = "ar") {
       <div class="container">
         <div class="showcase-heading"><h2>${t.labels.type}</h2><p>${t.helpers.type}</p></div>
         <div class="showcase-type">
-          <div class="showcase-type__row"><span class="showcase-type__label">Hero</span><p class="showcase-display">${locale === "ar" ? "نبني تجربة رقمية أوضح لمشروعك." : "Build a clearer digital experience for your business."}</p></div>
-          <div class="showcase-type__row"><span class="showcase-type__label">H2</span><h2>${locale === "ar" ? "عنوان يحمل الفكرة قبل التفاصيل." : "A heading that carries the idea before the details."}</h2></div>
-          <div class="showcase-type__row"><span class="showcase-type__label">Body</span><p class="lead">${locale === "ar" ? "النص المساعد يضيف السياق ولا يكرر العنوان، ويبقى مقروءًا على الهاتف والشاشات الكبيرة." : "Supporting copy adds context instead of repeating the heading and remains readable across mobile and large screens."}</p></div>
+          <div class="showcase-type__row"><span class="showcase-type__label">${t.typeLabels.hero}</span><p class="showcase-display">${locale === "ar" ? "نبني تجربة رقمية أوضح لمشروعك." : "Build a clearer digital experience for your business."}</p></div>
+          <div class="showcase-type__row"><span class="showcase-type__label">${t.typeLabels.h2}</span><h2>${locale === "ar" ? "عنوان يحمل الفكرة قبل التفاصيل." : "A heading that carries the idea before the details."}</h2></div>
+          <div class="showcase-type__row"><span class="showcase-type__label">${t.typeLabels.body}</span><p class="lead">${locale === "ar" ? "النص المساعد يضيف السياق ولا يكرر العنوان، ويبقى مقروءًا على الهاتف والشاشات الكبيرة." : "Supporting copy adds context instead of repeating the heading and remains readable across mobile and large screens."}</p></div>
         </div>
       </div>
     </section>
