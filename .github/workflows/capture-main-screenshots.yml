@@ -1,0 +1,97 @@
+name: Capture main production screenshots
+
+on:
+  push:
+    branches:
+      - rebuild/vnext-foundation-20260921
+    paths:
+      - ".github/workflows/capture-main-screenshots.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout production main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Start production snapshot locally
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/wasltech-main.log 2>&1 &
+          echo $! > /tmp/wasltech-main.pid
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/wasltech-main.log
+          exit 1
+
+      - name: Install capture browser
+        working-directory: /tmp
+        run: |
+          mkdir -p wasltech-capture
+          cd wasltech-capture
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.55.0 >/dev/null
+          npx playwright install --with-deps chromium
+
+      - name: Capture desktop and mobile
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/screenshots"
+          cat > /tmp/wasltech-capture/capture.mjs <<'EOF'
+          import { chromium } from "playwright";
+
+          const browser = await chromium.launch({ headless: true });
+
+          async function capture(name, width, height, isMobile = false) {
+            const context = await browser.newContext({
+              viewport: { width, height },
+              deviceScaleFactor: 1,
+              isMobile,
+              hasTouch: isMobile,
+              locale: "ar-YE"
+            });
+            const page = await context.newPage();
+            const errors = [];
+            page.on("pageerror", (error) => errors.push(String(error)));
+            await page.goto("http://127.0.0.1:4173/", { waitUntil: "networkidle" });
+            await page.evaluate(async () => {
+              if (document.fonts?.ready) await document.fonts.ready;
+              window.scrollTo(0, 0);
+            });
+            await page.screenshot({
+              path: `/home/runner/work/wasltech-/wasltech-/screenshots/${name}.png`,
+              fullPage: true,
+              animations: "disabled"
+            });
+            const metrics = await page.evaluate(() => ({
+              width: window.innerWidth,
+              scrollWidth: document.documentElement.scrollWidth,
+              height: document.documentElement.scrollHeight,
+              title: document.title,
+              h1: document.querySelector("h1")?.textContent?.trim() || ""
+            }));
+            console.log(name, metrics, { pageErrors: errors });
+            await context.close();
+          }
+
+          await capture("main-production-desktop-1440", 1440, 1000, false);
+          await capture("main-production-mobile-390", 390, 844, true);
+          await browser.close();
+          EOF
+          node /tmp/wasltech-capture/capture.mjs
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: wasltech-main-production-screenshots
+          path: screenshots/
+          if-no-files-found: error
+          retention-days: 3
