@@ -50,13 +50,11 @@ export const projectFieldKeys = Object.freeze([
   "identity",
   "arabicCore",
   "cover",
-  "clientAttribution",
-  "projectStatus",
   "platformType",
   "scope",
   "waslContribution",
   "contextChallenge",
-  "outcomes",
+  "deliveredOutputs",
   "seo",
   "english"
 ]);
