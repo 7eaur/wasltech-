@@ -194,25 +194,26 @@ Still incomplete as final VNext content:
 - related article topics;
 - reviewed English copy.
 
-Projects currently have:
+Projects use a simplified presentation model:
 - title;
 - category;
-- primary image;
+- exactly one primary image;
 - summary;
-- 3 highlights;
-- related service id.
+- highlights;
+- related service;
+- platform/type;
+- case-study overview/context/contribution/scope/delivered outputs;
+- SEO draft.
 
-Still incomplete across the portfolio:
+Not part of the VNext project model:
 - project year;
-- public client attribution rules;
-- live URL where applicable;
-- gallery/screenshots;
-- verified technologies;
-- actual scope;
-- what Wasl specifically delivered;
-- case-study overview/context/challenge where known;
-- verified factual outcomes;
-- SEO metadata;
+- public/live project URL;
+- technology stack;
+- screenshot galleries or additional project images.
+
+Remaining project content work:
+- public client attribution only where useful;
+- final Arabic editorial review;
 - reviewed English copy.
 
 Evidence:
