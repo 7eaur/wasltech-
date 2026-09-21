@@ -76,9 +76,9 @@ export function Footer({ locale = "ar" } = {}) {
           <h2>${labels.contact}</h2>
           <address>
             <ul class="footer-links">
-              <li><a href="${site.contact.whatsapp}">${labels.whatsapp}: ${site.contact.phoneDisplay}</a></li>
-              <li><a href="mailto:${site.contact.email}">${site.contact.email}</a></li>
-              <li><a href="${site.contact.instagram.url}">${escapeHtml(site.contact.instagram.handle)}</a></li>
+              <li><a href="${site.contact.whatsapp}">${labels.whatsapp}: <bdi dir="ltr">${site.contact.phoneDisplay}</bdi></a></li>
+              <li><a href="mailto:${site.contact.email}"><bdi dir="ltr">${site.contact.email}</bdi></a></li>
+              <li><a href="${site.contact.instagram.url}"><bdi dir="ltr">${escapeHtml(site.contact.instagram.handle)}</bdi></a></li>
             </ul>
           </address>
         </section>
