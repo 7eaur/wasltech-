@@ -139,19 +139,11 @@ for (const project of projects) {
   validateContentAudit(project, projectFieldKeys, scope);
   if (!project.content?.ar?.title) fail(scope, "Arabic title missing");
   if (!project.content?.ar?.summary) fail(scope, "Arabic summary missing");
-  if (!("year" in project)) fail(scope, "year contract missing");
   if (!project.client || !("publicName" in project.client) || !("attributionApproved" in project.client)) {
     fail(scope, "client attribution contract missing");
   }
   if (!("projectStatus" in project)) fail(scope, "project status contract missing");
   if (!("platformType" in project)) fail(scope, "platform type contract missing");
-  if (!Array.isArray(project.technologies)) fail(scope, "technologies contract must be an array");
-  if (!Array.isArray(project.gallery)) fail(scope, "gallery contract must be an array");
-  if (project.year && project.fieldState.year !== "READY") fail(scope, "year value exists but field is not READY");
-  if (project.links?.live && project.fieldState.liveUrl !== "READY") fail(scope, "live URL exists but field is not READY");
-  if (project.technologies.length && project.fieldState.technologies !== "READY") {
-    fail(scope, "technology values exist but field is not READY");
-  }
   if (project.fieldState.platformType === "READY" && !project.platformType) {
     fail(scope, "platformType is READY but value is missing");
   }
@@ -182,6 +174,10 @@ for (const project of projects) {
   for (const serviceId of project.serviceIds ?? []) {
     if (!serviceIds.has(serviceId)) fail(scope, `unknown related service: ${serviceId}`);
   }
+  if ("gallery" in project) fail(scope, "gallery must not exist; VNext uses one project image only");
+  if ("year" in project) fail(scope, "year must not exist in the VNext project model");
+  if ("technologies" in project) fail(scope, "technologies must not exist in the VNext project model");
+  if (project.links && "live" in project.links) fail(scope, "live project URL must not exist in the VNext project model");
   await validateAsset(project.image, scope);
 }
 
