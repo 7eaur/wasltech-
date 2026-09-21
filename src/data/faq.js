@@ -1,7 +1,7 @@
 /**
  * Wasl Tech VNext — Canonical general FAQ data.
  * Source facts: visible FAQ content and matching FAQPage schema in legacy faq.html.
- * Arabic and English wording are VNext editorial rewrites and remain draft until final review.
+ * Arabic and English wording are VNext editorial rewrites reviewed for the Phase 2B content baseline.
  */
 
 export const faqGroups = Object.freeze([
@@ -9,8 +9,8 @@ export const faqGroups = Object.freeze([
     "id": "start",
     "order": 1,
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -22,8 +22,8 @@ export const faqGroups = Object.freeze([
       {
         "id": "start-1",
         "localeStatus": {
-          "ar": "draft",
-          "en": "draft"
+          "ar": "ready",
+          "en": "ready"
         },
         "content": {
           "ar": {
@@ -39,8 +39,8 @@ export const faqGroups = Object.freeze([
       {
         "id": "start-2",
         "localeStatus": {
-          "ar": "draft",
-          "en": "draft"
+          "ar": "ready",
+          "en": "ready"
         },
         "content": {
           "ar": {
@@ -56,8 +56,8 @@ export const faqGroups = Object.freeze([
       {
         "id": "start-3",
         "localeStatus": {
-          "ar": "draft",
-          "en": "draft"
+          "ar": "ready",
+          "en": "ready"
         },
         "content": {
           "ar": {
@@ -76,8 +76,8 @@ export const faqGroups = Object.freeze([
     "id": "product",
     "order": 2,
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -89,8 +89,8 @@ export const faqGroups = Object.freeze([
       {
         "id": "product-1",
         "localeStatus": {
-          "ar": "draft",
-          "en": "draft"
+          "ar": "ready",
+          "en": "ready"
         },
         "content": {
           "ar": {
@@ -106,8 +106,8 @@ export const faqGroups = Object.freeze([
       {
         "id": "product-2",
         "localeStatus": {
-          "ar": "draft",
-          "en": "draft"
+          "ar": "ready",
+          "en": "ready"
         },
         "content": {
           "ar": {
@@ -123,8 +123,8 @@ export const faqGroups = Object.freeze([
       {
         "id": "product-3",
         "localeStatus": {
-          "ar": "draft",
-          "en": "draft"
+          "ar": "ready",
+          "en": "ready"
         },
         "content": {
           "ar": {
@@ -140,8 +140,8 @@ export const faqGroups = Object.freeze([
       {
         "id": "product-4",
         "localeStatus": {
-          "ar": "draft",
-          "en": "draft"
+          "ar": "ready",
+          "en": "ready"
         },
         "content": {
           "ar": {
@@ -160,8 +160,8 @@ export const faqGroups = Object.freeze([
     "id": "presence",
     "order": 3,
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -173,8 +173,8 @@ export const faqGroups = Object.freeze([
       {
         "id": "presence-1",
         "localeStatus": {
-          "ar": "draft",
-          "en": "draft"
+          "ar": "ready",
+          "en": "ready"
         },
         "content": {
           "ar": {
@@ -190,8 +190,8 @@ export const faqGroups = Object.freeze([
       {
         "id": "presence-2",
         "localeStatus": {
-          "ar": "draft",
-          "en": "draft"
+          "ar": "ready",
+          "en": "ready"
         },
         "content": {
           "ar": {
@@ -207,8 +207,8 @@ export const faqGroups = Object.freeze([
       {
         "id": "presence-3",
         "localeStatus": {
-          "ar": "draft",
-          "en": "draft"
+          "ar": "ready",
+          "en": "ready"
         },
         "content": {
           "ar": {
@@ -227,8 +227,8 @@ export const faqGroups = Object.freeze([
     "id": "workflow",
     "order": 4,
     "localeStatus": {
-      "ar": "draft",
-      "en": "draft"
+      "ar": "ready",
+      "en": "ready"
     },
     "content": {
       "ar": {
@@ -240,8 +240,8 @@ export const faqGroups = Object.freeze([
       {
         "id": "workflow-1",
         "localeStatus": {
-          "ar": "draft",
-          "en": "draft"
+          "ar": "ready",
+          "en": "ready"
         },
         "content": {
           "ar": {
@@ -257,8 +257,8 @@ export const faqGroups = Object.freeze([
       {
         "id": "workflow-2",
         "localeStatus": {
-          "ar": "draft",
-          "en": "draft"
+          "ar": "ready",
+          "en": "ready"
         },
         "content": {
           "ar": {
@@ -274,8 +274,8 @@ export const faqGroups = Object.freeze([
       {
         "id": "workflow-3",
         "localeStatus": {
-          "ar": "draft",
-          "en": "draft"
+          "ar": "ready",
+          "en": "ready"
         },
         "content": {
           "ar": {
