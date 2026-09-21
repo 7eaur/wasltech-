@@ -3,7 +3,7 @@
 .project-breadcrumb li+li::before{content:"/";margin-inline-end:var(--space-2);color:var(--color-border-strong)}
 .project-breadcrumb a:hover{color:var(--color-text-accent)}
 
-.project-detail-hero{padding-block:clamp(var(--space-10),6vw,var(--space-18,4.5rem))}
+.project-detail-hero{padding-block:clamp(var(--space-10),6vw,var(--space-20))}
 .project-detail-hero__grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(18rem,.9fr);gap:clamp(var(--space-8),7vw,var(--space-20));align-items:end}
 .project-detail-hero h1{max-width:15ch;margin:0;font-size:clamp(2.7rem,2rem + 3.7vw,5.25rem);line-height:1.08;letter-spacing:var(--tracking-tight)}
 .project-detail-hero__summary{max-width:38rem;padding-top:var(--space-4);border-top:2px solid var(--color-brand-accent)}
