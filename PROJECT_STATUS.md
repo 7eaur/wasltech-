@@ -5,7 +5,7 @@ Repository: `7eaur/wasltech-`
 Official/legacy branch: `main`  
 Current live `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified VNext implementation HEAD: `b99372dd54ae21bce2aa6fc48da383b6eb954d6e`
+Latest verified VNext implementation HEAD: `0831418f497b860cb0650c51b7b5f1665fb85147`
 
 ## Current state
 
@@ -593,6 +593,76 @@ Verification:
 - result: **SUCCESS**
 - Secondary/Legal Gate: PASS
 - all previous gates remained green.
+
+## Phase 12 — SEO + Performance + Accessibility
+**COMPLETE**
+
+Implemented:
+- explicit Preview vs Production build modes;
+- Preview stays `noindex,follow` + `Disallow: /`;
+- isolated Production build in `dist-release/`;
+- Production outputs `index,follow`, crawlable `robots.txt`, and `sitemap.xml`;
+- sitemap/hreflang/x-default derived from publishable canonical data;
+- 68 indexable localized release routes;
+- localized Arabic + English 404 pages, both permanently noindex;
+- internal design-system showcase omitted from Production;
+- dedicated release crawl gate;
+- performance/accessibility quality gate;
+- intrinsic width/height for canonical project images;
+- only referenced project images copied into builds;
+- accessible primary-action and focus colors separated from decorative brand accent;
+- Light and Dark contrast checks;
+- reduced-motion guard;
+- font preconnect + display=swap guard;
+- buttons/links/image structural accessibility checks;
+- gzip transfer budgets for CSS/JS/HTML;
+- image size/asset-count budgets;
+- no positive tabindex;
+- target=_blank noopener checks;
+- dependency audit remains zero runtime dependencies.
+
+Measured CI budgets:
+- CSS: **11,119 bytes gzip**;
+- combined client JS: **2,678 bytes gzip**;
+- referenced project images: **1,026,583 bytes total**;
+- project-image build set: exactly **14 referenced images**;
+- Release indexable routes: **68**.
+
+Runtime Chromium smoke:
+- Home mobile menu: PASS;
+- localized open/close aria labels: PASS;
+- Escape + focus return: PASS;
+- Portfolio filter: PASS;
+- Planner validation/review/WhatsApp/Edit: PASS;
+- FAQ disclosure interaction: PASS;
+- representative service/project/legal pages: PASS;
+- console errors: **0**;
+- page errors: **0**;
+- representative horizontal overflow: **0**;
+- form controls without labels: **0**.
+
+Privacy correction discovered during Phase 12:
+- Google Fonts is an external request and is now explicitly disclosed in Privacy;
+- Privacy/legal gate synchronizes that disclosure with the current runtime.
+
+Verification:
+- workflow: `VNext verify`
+- run: `35647059021`
+- SHA: `0831418f497b860cb0650c51b7b5f1665fb85147`
+- result: **SUCCESS**
+- Preview build/check: PASS
+- Quality/A11y gate: PASS
+- Production release build/check: PASS
+- Release artifact: PASS.
+
+CWV policy:
+- project targets remain LCP ≤2.5s, INP <200ms, CLS <0.1;
+- deterministic transfer/layout budgets are enforced in CI;
+- final field/runtime CWV measurement is still required on the exact production deployment in Phase 14, because a deployment URL was not reliably retrievable from the connector during this phase.
+
+### Next phase — Phase 13: Cross-page Visual Normalization
+
+Ready to start.
 
 ## Production separation
 
