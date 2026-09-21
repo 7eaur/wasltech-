@@ -1,0 +1,57 @@
+html[lang="ar"] body,
+html[lang="ar"] button,
+html[lang="ar"] input,
+html[lang="ar"] textarea,
+html[lang="ar"] select {
+  font-family:var(--font-ar);
+}
+
+html[lang="en"] body,
+html[lang="en"] button,
+html[lang="en"] input,
+html[lang="en"] textarea,
+html[lang="en"] select {
+  font-family:var(--font-en);
+}
+
+body {
+  font-size:var(--font-size-base);
+  line-height:var(--line-body);
+  font-weight:var(--font-weight-regular);
+  text-rendering:optimizeLegibility;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight:var(--font-weight-bold);
+  line-height:var(--line-heading);
+  text-wrap:balance;
+}
+
+h1 {
+  font-size:var(--font-size-3xl);
+  letter-spacing:-.02em;
+}
+
+h2 {
+  font-size:var(--font-size-2xl);
+  letter-spacing:-.015em;
+}
+
+h3 {
+  font-size:var(--font-size-xl);
+}
+
+p,li {
+  text-wrap:pretty;
+}
+
+.eyebrow {
+  font-size:var(--font-size-sm);
+  font-weight:var(--font-weight-bold);
+  letter-spacing:0;
+}
+
+.meta,
+small {
+  font-size:var(--font-size-sm);
+}
