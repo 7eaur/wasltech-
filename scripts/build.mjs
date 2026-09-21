@@ -86,9 +86,14 @@ async function buildAssets() {
   await cp(path.join(ROOT, "assets/brand"), path.join(DIST, "assets/brand"), {
     recursive: true
   });
-  await cp(path.join(ROOT, "assets/works"), path.join(DIST, "assets/works"), {
-    recursive: true
-  });
+  const projectImages = [...new Set(projects.map((project) => project.image))];
+  for (const image of projectImages) {
+    const relative = image.replace(/^\/+/, "");
+    const source = path.join(ROOT, relative);
+    const destination = path.join(DIST, relative);
+    await ensureDirectory(destination);
+    await cp(source, destination);
+  }
 
   const navigation = await readFile(path.join(ROOT, "src/client/navigation.js"), "utf8");
   await writeOutput("assets/js/navigation.js", navigation);
