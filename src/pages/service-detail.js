@@ -135,16 +135,19 @@ function renderProof(service, locale) {
         <div class="service-proof__grid">
           ${projects.map((project)=>`
             <article class="service-proof__card">
-              <a class="service-proof__media" href="${routes.project(project.slug,locale)}" aria-label="${escapeHtml(project.content[locale].title)}">
+              <div class="service-proof__media">
                 <img src="${project.image}" alt="" loading="lazy">
-              </a>
+              </div>
               <div class="service-proof__copy">
                 <p class="eyebrow">${escapeHtml(project.platformType[locale])}</p>
-                <h3><a href="${routes.project(project.slug,locale)}">${escapeHtml(project.content[locale].title)}</a></h3>
+                <h3>${escapeHtml(project.content[locale].title)}</h3>
                 <p>${escapeHtml(project.content[locale].summary)}</p>
               </div>
             </article>
           `).join("")}
+        </div>
+        <div class="service-proof__more">
+          <a class="text-link" href="${routes.portfolio(locale)}">${locale === "ar" ? "شاهد جميع الأعمال" : "View all work"}</a>
         </div>
       </div>
     </section>
