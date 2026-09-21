@@ -5,7 +5,7 @@ Repository: `7eaur/wasltech-`
 Official/legacy branch: `main`  
 Current live `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified VNext implementation HEAD: `4c1c3ba07924d5a99ce827eae060a7923663da1d`
+Latest verified VNext implementation HEAD: `3b899ada38f273ecc9dcdd1c20165663a6f78105`
 
 ## Current state
 
@@ -217,6 +217,24 @@ Still incomplete across the portfolio:
 
 Evidence:
 `docs/qa/2026-09-21_phase-2b_content-gap-audit.md`
+
+### Phase 2B editorial rewrite batch — verified
+
+Completed in this batch:
+- rewrote the Arabic core messaging for Home, About, Services, Portfolio, Process, Contact, Start Project, FAQ, Insights, Careers and 404;
+- rewrote the core value proposition + CTA layer for all 8 services;
+- retained service/project facts while replacing generic Legacy-style marketing phrasing;
+- applied the editorial pattern: page/service job → customer need → value message → next action;
+- used the SATR audit only as a structural/writing benchmark, with original Wasl Tech wording.
+
+Verification:
+- page-copy safety/fix commit: `f25f7dd3bf615c3ecb80800f8f3bda94e45d8e5e` — SUCCESS;
+- service-copy commit: `3b899ada38f273ecc9dcdd1c20165663a6f78105`;
+- workflow: `VNext verify`;
+- run: `35554359258`;
+- result: **SUCCESS**.
+
+The copy remains `draft` until the deeper service-detail/project-detail editorial pass is completed.
 
 ### Phase 2B implementation batch — verified
 
