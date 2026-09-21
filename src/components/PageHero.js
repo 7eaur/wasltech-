@@ -1,4 +1,5 @@
 import { escapeHtml } from "../lib/html.js";
+import { ActionLink } from "./ActionLink.js";
 
 const VALID_VARIANTS = new Set(["brand", "directory", "detail", "evidence", "action"]);
 
@@ -16,7 +17,12 @@ export function PageHero({
 
   const actions = [primaryAction, secondaryAction]
     .filter(Boolean)
-    .map((action, index) => `<a class="button ${index === 0 ? "button--primary" : "button--ghost"}" href="${action.href}">${escapeHtml(action.label)}</a>`)
+    .map((action, index) => ActionLink({
+      href: action.href,
+      label: action.label,
+      variant: index === 0 ? "primary" : "ghost",
+      size: "lg"
+    }))
     .join("");
 
   return `
