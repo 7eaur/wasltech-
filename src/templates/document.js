@@ -3,6 +3,7 @@ import { locales } from "../config/locales.js";
 import { buildOpenGraph, buildSeoLinks } from "../config/seo.js";
 import { serializeStructuredData } from "../seo/structured-data.js";
 import { Header } from "../components/Header.js";
+import { publicRobots } from "../config/release.js";
 import { Footer } from "../components/Footer.js";
 import { escapeHtml } from "../lib/html.js";
 
@@ -28,7 +29,7 @@ export function documentTemplate({
   alternatePath = null,
   canonicalPath = null,
   alternatePaths = {},
-  robots = "noindex,follow",
+  robots = publicRobots,
   ogTitle = title,
   ogDescription = description,
   ogImage = null,
