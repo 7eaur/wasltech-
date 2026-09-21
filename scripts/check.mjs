@@ -33,7 +33,7 @@ const routeKeys = ["home", "services", "portfolio", "process", "about", "contact
 
 function outputPath(route) {
   if (route === "/") return "index.html";
-  return path.join(route.replace(/^\\//, ""), "index.html");
+  return path.join(route.replace(/^\//, ""), "index.html");
 }
 
 const requiredPages = [
