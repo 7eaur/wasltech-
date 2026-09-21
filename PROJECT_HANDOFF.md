@@ -4,8 +4,7 @@ Last updated: 2026-09-21
 Repository: `7eaur/wasltech-`  
 Official/legacy branch: `main`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-VNext branch HEAD at handoff start: `8dd92db153deea8b42febcaf0f9be6660aabbe79`  
-Latest verified implementation HEAD: `b7412a4a5143404a9169857b4ef844a7765cfa83`
+Latest verified implementation HEAD: `4c1c3ba07924d5a99ce827eae060a7923663da1d`
 
 ## 1. Start procedure — mandatory
 
@@ -40,7 +39,9 @@ Verified Vercel production:
 
 That commit added VNext documentation only; the public runtime remains the existing legacy site.
 
-Use the published/legacy implementation as evidence for verified copy, assets, images, services, projects and behavior.
+Use the published/legacy implementation as evidence for verified **facts**, assets, images, service/project identity, scope clues and behavior.
+
+Do **not** use Legacy wording as the default copy source. Headings, descriptions, CTAs, FAQ wording and section order must be rewritten for VNext unless there is a deliberate reason to preserve a specific phrase.
 
 Do **not** continue VNext by patching its legacy CSS/JS.
 
@@ -73,8 +74,10 @@ The direction became:
 - no invented claims;
 - future services/projects can be added as records instead of copied pages.
 
-Later, after Phase 2 normalized the old data, the user clarified:
-**do not stop at the data that already exists; define what a strong site actually needs and ask for missing real facts/assets when important.**
+Later, after Phase 2 normalized the old data, the user clarified two things:
+
+1. **do not stop at the data that already exists; define what a strong site actually needs and ask for missing real facts/assets when important.**
+2. **do not migrate all Legacy text as-is; preserve the important verified facts, then write improved, original, marketing-aware and easy-to-use VNext copy.**
 
 That decision created **Phase 2B — Content Architecture & Evidence Completion** before final visual composition.
 
@@ -227,6 +230,24 @@ Still needed where evidence exists:
 Gap audit:
 `docs/qa/2026-09-21_phase-2b_content-gap-audit.md`
 
+### Verified Phase 2B batch now in code
+
+- `src/data/content-contracts.js`: completeness model + authoring policy.
+- `src/data/pages.js`: canonical page content owners.
+- `src/data/services.js`: evidence/completeness metadata; migrated Arabic copy marked `draft`.
+- `src/data/projects.js`: evidence/completeness metadata and explicit missing project fields; migrated Arabic copy marked `draft`.
+- `src/config/site.js`: verified Instagram contact preserved.
+- `scripts/check-data.mjs`: Phase 2B contract validation.
+
+Authoring policy:
+**Legacy = evidence only. VNext public copy = newly authored from verified facts and user intent.**
+
+Verified:
+- run `35553980138`
+- SHA `4c1c3ba07924d5a99ce827eae060a7923663da1d`
+- result **SUCCESS**
+
+
 ## 8. Exact next work
 
 1. Extend final service/project schemas in code.
@@ -247,7 +268,9 @@ Gap audit:
 
 ## 9. Non-negotiable rules
 
-- legacy content is baseline, not final completion;
+- legacy content is evidence/baseline, not canonical wording or final completion;
+- keep only important verified facts/assets/relationships from Legacy; write VNext marketing and UX copy anew;
+- migrated Arabic service/project copy is `draft` until reviewed;
 - never invent metrics/results/clients/stacks/prices/timelines/SLAs;
 - ask user for facts/evidence, not finished marketing copy;
 - no SEO filler;
