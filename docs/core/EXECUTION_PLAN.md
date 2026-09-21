@@ -89,6 +89,32 @@ Gate:
 - no incomplete English content is silently treated as publishable;
 - adding a future service/project record does not require a copied page implementation.
 
+## Phase 2B — Content Architecture & Evidence Completion
+
+Goal:
+move from normalized legacy data to a complete content model suitable for final pages, SEO and future expansion.
+
+This phase does not invent business facts. It identifies what a strong public site needs, reuses verified repository evidence, and requests user/business input only for meaningful gaps.
+
+Outputs:
+- complete service content contract;
+- complete project/case-study contract;
+- page-level localized content contract;
+- article/content planning contract;
+- field-level gap audit;
+- explicit `READY / PARTIAL / CONTENT REQUIRED / NOT VERIFIED / NOT APPLICABLE` states;
+- SEO content requirements per entity/page;
+- prioritized list of business inputs needed from the user;
+- representative real-content fixtures for later design review.
+
+Gate:
+- no important page is being designed against unknown content structure;
+- service detail fields are defined before Service Detail UI work;
+- case-study capability is defined before project detail UI work;
+- missing factual claims are explicitly requested rather than invented;
+- English content requirements are known before localization completion;
+- design can proceed using realistic content lengths and known evidence constraints.
+
 ## Phase 3 — Design Tokens & Shared Primitives
 
 Goal:
