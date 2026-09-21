@@ -865,20 +865,20 @@ const projectRecords = [
 ];
 
 const PROJECT_PLATFORM_TYPES = Object.freeze({
-  "project-01": "منصة ويب",
-  "project-02": "منصة ويب",
-  "project-03": "نظام إدارة ويب",
-  "project-04": "لوحة إدارة محتوى",
-  "project-05": "تطبيق متجر إلكتروني",
-  "project-06": "تطبيق جوال",
-  "project-07": "موقع شركة",
-  "project-08": "متجر إلكتروني",
-  "project-09": "هوية بصرية",
-  "project-10": "هوية بصرية",
-  "project-11": "حملة تسويق رقمي",
-  "project-12": "متجر إلكتروني",
-  "project-13": "متجر إلكتروني",
-  "project-14": "موقع شركة"
+  "project-01": Object.freeze({ ar: "منصة ويب", en: "Web platform" }),
+  "project-02": Object.freeze({ ar: "منصة ويب", en: "Web platform" }),
+  "project-03": Object.freeze({ ar: "نظام إدارة ويب", en: "Web management system" }),
+  "project-04": Object.freeze({ ar: "لوحة إدارة محتوى", en: "Content management dashboard" }),
+  "project-05": Object.freeze({ ar: "تطبيق متجر إلكتروني", en: "E-commerce app" }),
+  "project-06": Object.freeze({ ar: "تطبيق جوال", en: "Mobile app" }),
+  "project-07": Object.freeze({ ar: "موقع شركة", en: "Company website" }),
+  "project-08": Object.freeze({ ar: "متجر إلكتروني", en: "E-commerce store" }),
+  "project-09": Object.freeze({ ar: "هوية بصرية", en: "Brand identity" }),
+  "project-10": Object.freeze({ ar: "هوية بصرية", en: "Brand identity" }),
+  "project-11": Object.freeze({ ar: "حملة تسويق رقمي", en: "Digital marketing campaign" }),
+  "project-12": Object.freeze({ ar: "متجر إلكتروني", en: "E-commerce store" }),
+  "project-13": Object.freeze({ ar: "متجر إلكتروني", en: "E-commerce store" }),
+  "project-14": Object.freeze({ ar: "موقع شركة", en: "Company website" })
 });
 
 function phase2bProjectRecord(project) {
