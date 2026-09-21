@@ -170,30 +170,45 @@ if (!baseCss.includes("@media(prefers-reduced-motion:reduce)")) {
 
 const tokens = await readFile(path.join(ROOT, "src/styles/tokens.css"), "utf8");
 const brand = await readFile(path.join(ROOT, "src/styles/brand.css"), "utf8");
-const variables = { ...cssVariables(tokens), ...cssVariables(brand) };
+const tokenVariables = cssVariables(tokens);
+const lightBrandBlock = brand.match(/:root\s*\{([\s\S]*?)\}/)?.[1] ?? "";
+const darkBrandBlock = brand.match(/html\[data-theme="dark"\]\s*\{([\s\S]*?)\}/)?.[1] ?? "";
+const lightVariables = { ...tokenVariables, ...cssVariables(lightBrandBlock) };
+const darkVariables = { ...lightVariables, ...cssVariables(darkBrandBlock) };
 
-const contrastChecks = [
-  ["--color-text-primary", "--wt-neutral-0", 4.5],
-  ["--color-text-secondary", "--wt-neutral-0", 4.5],
-  ["--color-text-muted", "--wt-neutral-0", 4.5],
-  ["--color-text-accent", "--wt-neutral-0", 4.5],
-  ["--color-action-primary", "--wt-neutral-0", 4.5],
-  ["--color-focus", "--wt-neutral-0", 3],
-  ["--color-text-inverse", "--wt-navy-950", 4.5]
-];
-
-for (const [foregroundToken, backgroundToken, minimum] of contrastChecks) {
-  const foreground = resolveColor(foregroundToken, variables);
-  const background = resolveColor(backgroundToken, variables);
-  if (!foreground || !background) {
-    fail("contrast", `unable to resolve ${foregroundToken} / ${backgroundToken}`);
-    continue;
-  }
-  const value = contrast(foreground, background);
-  if (value < minimum) {
-    fail("contrast", `${foregroundToken} on ${backgroundToken} = ${value.toFixed(2)} < ${minimum}`);
+function checkContrastSet(label, variables, checks) {
+  for (const [foregroundToken, backgroundToken, minimum] of checks) {
+    const foreground = resolveColor(foregroundToken, variables);
+    const background = resolveColor(backgroundToken, variables);
+    if (!foreground || !background) {
+      fail(`contrast:${label}`, `unable to resolve ${foregroundToken} / ${backgroundToken}`);
+      continue;
+    }
+    const value = contrast(foreground, background);
+    if (value < minimum) {
+      fail(`contrast:${label}`, `${foregroundToken} on ${backgroundToken} = ${value.toFixed(2)} < ${minimum}`);
+    }
   }
 }
+
+checkContrastSet("light", lightVariables, [
+  ["--color-text-primary", "--color-bg-canvas", 4.5],
+  ["--color-text-secondary", "--color-bg-canvas", 4.5],
+  ["--color-text-muted", "--color-bg-canvas", 4.5],
+  ["--color-text-accent", "--color-bg-canvas", 4.5],
+  ["--color-action-primary", "--wt-neutral-0", 4.5],
+  ["--color-focus", "--color-bg-canvas", 3],
+  ["--color-text-inverse", "--color-bg-emphasis", 4.5]
+]);
+
+checkContrastSet("dark", darkVariables, [
+  ["--color-text-primary", "--color-bg-canvas", 4.5],
+  ["--color-text-secondary", "--color-bg-canvas", 4.5],
+  ["--color-text-muted", "--color-bg-canvas", 4.5],
+  ["--color-text-accent", "--color-bg-canvas", 4.5],
+  ["--color-focus", "--color-bg-canvas", 3],
+  ["--color-text-inverse", "--color-bg-emphasis", 4.5]
+]);
 
 if (errors.length) {
   console.error("VNEXT QUALITY CHECK: FAILED");
