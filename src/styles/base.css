@@ -1,17 +1,22 @@
 *,*::before,*::after{box-sizing:border-box}
-html{}
-body{margin:0;background:var(--color-bg-canvas);color:var(--color-text-primary);font-family:var(--font-ar);line-height:var(--line-body);-webkit-font-smoothing:antialiased}
-body,button,input,textarea,select{font-family:var(--font-ar)}
-img{display:block;max-width:100%}
+html{min-width:20rem;background:var(--color-bg-canvas)}
+body{min-width:20rem;margin:0;background:var(--color-bg-canvas);color:var(--color-text-primary);font-family:var(--font-ar);line-height:var(--line-body);-webkit-font-smoothing:antialiased}
+body,button,input,textarea,select{font:inherit}
+img,svg,video{display:block;max-width:100%}
+img{height:auto}
 a{color:inherit;text-decoration:none}
-button,input,textarea,select{font:inherit}
+button,input,textarea,select{color:inherit}
 button{cursor:pointer}
+button:disabled,input:disabled,textarea:disabled,select:disabled{cursor:not-allowed;opacity:.6}
 ul,ol{margin:0;padding:0;list-style:none}
-h1,h2,h3,p{margin-top:0}
-h1,h2,h3{color:var(--color-brand-primary);line-height:var(--line-heading)}
-p{max-width:var(--text-measure)}
+address{font-style:normal}
+hr{border:0;border-top:var(--border-thin) solid var(--color-border-default)}
+::placeholder{color:var(--color-control-placeholder);opacity:1}
 :focus-visible{outline:3px solid var(--color-focus);outline-offset:3px}
-.skip-link{position:absolute;inset-inline-start:1rem;top:-5rem;z-index:100;padding:.65rem .9rem;background:var(--color-brand-primary);color:var(--color-text-inverse);border-radius:var(--radius-control)}
-.skip-link:focus{top:1rem}
+:target{scroll-margin-top:6rem}
+.skip-link{position:absolute;inset-inline-start:var(--space-4);top:-6rem;z-index:var(--z-toast);padding:.7rem 1rem;background:var(--color-brand-primary);color:var(--color-text-inverse);border-radius:var(--radius-control);box-shadow:var(--shadow-sm)}
+.skip-link:focus{top:var(--space-4)}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+[hidden]{display:none}
 @media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
