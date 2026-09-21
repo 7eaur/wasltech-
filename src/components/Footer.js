@@ -1,38 +1,86 @@
 import { site } from "../config/site.js";
-import { getPrimaryNavigation } from "../config/navigation.js";
+import { routes } from "../config/routes.js";
+import { escapeHtml } from "../lib/html.js";
 
 const copy = Object.freeze({
-  ar: Object.freeze({ explore: "استكشف", contact: "تواصل", whatsapp: "واتساب" }),
-  en: Object.freeze({ explore: "Explore", contact: "Contact", whatsapp: "WhatsApp" })
+  ar: Object.freeze({
+    explore: "استكشف",
+    start: "ابدأ",
+    contact: "تواصل",
+    whatsapp: "واتساب",
+    exploreLinks: Object.freeze([
+      Object.freeze({ label: "الخدمات", route: "services" }),
+      Object.freeze({ label: "الأعمال", route: "portfolio" }),
+      Object.freeze({ label: "كيف نعمل", route: "process" }),
+      Object.freeze({ label: "من نحن", route: "about" }),
+      Object.freeze({ label: "المقالات", route: "insights" })
+    ]),
+    startLinks: Object.freeze([
+      Object.freeze({ label: "ابدأ مشروعك", route: "startProject" }),
+      Object.freeze({ label: "تواصل معنا", route: "contact" }),
+      Object.freeze({ label: "الأسئلة الشائعة", route: "faq" }),
+      Object.freeze({ label: "الوظائف", route: "careers" })
+    ])
+  }),
+  en: Object.freeze({
+    explore: "Explore",
+    start: "Start",
+    contact: "Contact",
+    whatsapp: "WhatsApp",
+    exploreLinks: Object.freeze([
+      Object.freeze({ label: "Services", route: "services" }),
+      Object.freeze({ label: "Work", route: "portfolio" }),
+      Object.freeze({ label: "Process", route: "process" }),
+      Object.freeze({ label: "About", route: "about" }),
+      Object.freeze({ label: "Insights", route: "insights" })
+    ]),
+    startLinks: Object.freeze([
+      Object.freeze({ label: "Start a Project", route: "startProject" }),
+      Object.freeze({ label: "Contact", route: "contact" }),
+      Object.freeze({ label: "FAQ", route: "faq" }),
+      Object.freeze({ label: "Careers", route: "careers" })
+    ])
+  })
 });
+
+function renderLinks(items, locale) {
+  return items
+    .map((item) => `<li><a href="${routes[item.route](locale)}">${escapeHtml(item.label)}</a></li>`)
+    .join("");
+}
 
 export function Footer({ locale = "ar" } = {}) {
   const labels = copy[locale] ?? copy.ar;
-  const links = getPrimaryNavigation(locale)
-    .filter((item) => item.id !== "home")
-    .map((item) => `<li><a href="${item.href}">${item.label}</a></li>`)
-    .join("");
 
   return `
     <footer class="site-footer">
       <div class="container footer-grid">
         <section class="footer-brand">
-          <img src="${site.brand.assets.logoWhite}" alt="${site.brand.name.ar} | ${site.brand.name.en}" width="190" height="72" loading="lazy">
-          <p>${site.brand.slogan[locale]}</p>
+          <a class="footer-brand__link" href="${routes.home(locale)}" aria-label="${escapeHtml(site.brand.name[locale])}">
+            <img src="${site.brand.assets.logoWhite}" alt="${site.brand.name.ar} | ${site.brand.name.en}" width="190" height="72" loading="lazy">
+          </a>
+          <p>${escapeHtml(site.brand.slogan[locale])}</p>
         </section>
 
-        <section>
+        <nav aria-label="${labels.explore}">
           <h2>${labels.explore}</h2>
-          <ul class="footer-links">${links}</ul>
-        </section>
+          <ul class="footer-links">${renderLinks(labels.exploreLinks, locale)}</ul>
+        </nav>
+
+        <nav aria-label="${labels.start}">
+          <h2>${labels.start}</h2>
+          <ul class="footer-links">${renderLinks(labels.startLinks, locale)}</ul>
+        </nav>
 
         <section>
           <h2>${labels.contact}</h2>
-          <ul class="footer-links">
-            <li><a href="${site.contact.whatsapp}">${labels.whatsapp}: ${site.contact.phoneDisplay}</a></li>
-            <li><a href="mailto:${site.contact.email}">${site.contact.email}</a></li>
-            <li><span>${site.contact.domain}</span></li>
-          </ul>
+          <address>
+            <ul class="footer-links">
+              <li><a href="${site.contact.whatsapp}">${labels.whatsapp}: ${site.contact.phoneDisplay}</a></li>
+              <li><a href="mailto:${site.contact.email}">${site.contact.email}</a></li>
+              <li><a href="${site.contact.instagram.url}">${escapeHtml(site.contact.instagram.handle)}</a></li>
+            </ul>
+          </address>
         </section>
       </div>
     </footer>
