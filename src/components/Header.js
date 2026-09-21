@@ -11,8 +11,8 @@ export function Header({ activePath = "/" } = {}) {
   return `
     <header class="site-header" data-site-header>
       <div class="container header-shell">
-        <a class="brand-link" href="/" aria-label="${site.brand.ar} — الرئيسية">
-          <img src="${site.brand.logo}" alt="${site.brand.ar} | ${site.brand.en}" width="190" height="72">
+        <a class="brand-link" href="/" aria-label="${site.brand.name.ar} — الرئيسية">
+          <img src="${site.brand.assets.logo}" alt="${site.brand.name.ar} | ${site.brand.name.en}" width="190" height="72">
         </a>
 
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-menu-toggle>
