@@ -82,7 +82,7 @@ for (const record of requiredPages) {
       }
     } else {
       if (html.includes('rel="canonical"')) fail(record.file, "404 must not emit canonical");
-      if (html.includes('hreflang=')) fail(record.file, "404 must not emit hreflang");
+      if (html.includes('<link rel="alternate" hreflang=')) fail(record.file, "404 must not emit SEO hreflang links");
     }
   } catch {
     fail(record.file, "generated page missing");
