@@ -864,6 +864,23 @@ const projectRecords = [
   }
 ];
 
+const PROJECT_IMAGE_DIMENSIONS = Object.freeze({
+  "project-01": Object.freeze({ width: 800, height: 510 }),
+  "project-02": Object.freeze({ width: 800, height: 541 }),
+  "project-03": Object.freeze({ width: 800, height: 521 }),
+  "project-04": Object.freeze({ width: 800, height: 520 }),
+  "project-05": Object.freeze({ width: 800, height: 533 }),
+  "project-06": Object.freeze({ width: 800, height: 608 }),
+  "project-07": Object.freeze({ width: 800, height: 800 }),
+  "project-08": Object.freeze({ width: 800, height: 533 }),
+  "project-09": Object.freeze({ width: 800, height: 800 }),
+  "project-10": Object.freeze({ width: 800, height: 640 }),
+  "project-11": Object.freeze({ width: 800, height: 533 }),
+  "project-12": Object.freeze({ width: 800, height: 533 }),
+  "project-13": Object.freeze({ width: 800, height: 640 }),
+  "project-14": Object.freeze({ width: 800, height: 533 })
+});
+
 const PROJECT_PLATFORM_TYPES = Object.freeze({
   "project-01": Object.freeze({ ar: "منصة ويب", en: "Web platform" }),
   "project-02": Object.freeze({ ar: "منصة ويب", en: "Web platform" }),
@@ -885,6 +902,7 @@ function phase2bProjectRecord(project) {
   return Object.freeze({
     ...project,
     platformType: PROJECT_PLATFORM_TYPES[project.id] ?? null,
+    imageDimensions: PROJECT_IMAGE_DIMENSIONS[project.id] ?? null,
     contentState: CONTENT_STATE.READY,
     fieldState: createFieldState(projectFieldKeys, {
       identity: CONTENT_STATE.READY,
