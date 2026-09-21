@@ -15,6 +15,9 @@ import { aboutPage } from "../src/pages/about.js";
 import { processPage } from "../src/pages/process.js";
 import { contactPage } from "../src/pages/contact.js";
 import { projectPlannerPage } from "../src/pages/project-planner.js";
+import { faqPage } from "../src/pages/faq.js";
+import { insightsPage, careersPage } from "../src/pages/secondary-empty.js";
+import { privacyPage, termsPage } from "../src/pages/legal.js";
 import { services } from "../src/data/services.js";
 import { projects } from "../src/data/projects.js";
 
@@ -36,6 +39,7 @@ const cssSources = [
   "src/styles/project-detail.css",
   "src/styles/about-process.css",
   "src/styles/contact-planner.css",
+  "src/styles/secondary.css",
   "src/styles/showcase.css"
 ];
 
@@ -121,8 +125,13 @@ async function buildPages() {
     await writeOutput(outputPath(routes.process(locale)), processPage(locale));
     await writeOutput(outputPath(routes.contact(locale)), contactPage(locale));
     await writeOutput(outputPath(routes.startProject(locale)), projectPlannerPage(locale));
+    await writeOutput(outputPath(routes.faq(locale)), faqPage(locale));
+    await writeOutput(outputPath(routes.insights(locale)), insightsPage(locale));
+    await writeOutput(outputPath(routes.careers(locale)), careersPage(locale));
+    await writeOutput(outputPath(routes.privacy(locale)), privacyPage(locale));
+    await writeOutput(outputPath(routes.terms(locale)), termsPage(locale));
 
-    for (const record of placeholderRoutes.filter((item) => !["services","portfolio","about","process","contact","startProject"].includes(item.key))) {
+    for (const record of placeholderRoutes.filter((item) => !["services","portfolio","about","process","contact","startProject","faq","insights","careers"].includes(item.key))) {
       await writeOutput(
         outputPath(routes[record.key](locale)),
         foundationPlaceholder({
