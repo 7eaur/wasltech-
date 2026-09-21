@@ -4,7 +4,7 @@ Last updated: 2026-09-21
 Repository: `7eaur/wasltech-`  
 Official/legacy branch: `main`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified implementation HEAD: `b1b2e14968dd5e9fc2f33405e5f106b547ac24c4`
+Latest verified implementation HEAD: `c2640be27fb76dca4232c134df86ff1d0269d496`
 
 ## 1. Start procedure — mandatory
 
@@ -246,19 +246,47 @@ Visual review:
 
 IBM Plex exact glyph rendering should be re-confirmed on a real networked preview later; it does not reopen the primitive/layout gate.
 
-## 8B. Active work — Phase 4 Shared Shell
+## 8B. Phase 4 Shared Shell — COMPLETE
 
-Implement and verify only the shared site shell:
-- family-aware active navigation;
-- accessible mobile menu open/close labeling;
-- Escape/outside-click/resize behavior;
-- focus handling;
-- language switch;
-- reusable header CTA;
-- Footer information architecture using ready routes only;
-- mobile/desktop + RTL/LTR shell review.
+Verified implementation:
+- HEAD `c2640be27fb76dca4232c134df86ff1d0269d496`
+- run `35562217299`
+- SUCCESS.
 
-Do not start Homepage composition until Phase 4 is closed.
+Completed:
+- route-family active navigation;
+- localized menu open/close labeling;
+- Escape / outside-click / resize handling;
+- focus return to menu toggle;
+- bilingual route-preserving language switch;
+- mobile menu icon and full-width drawer;
+- reusable Header CTA;
+- bilingual Footer IA;
+- dedicated shared-shell CI gate.
+
+Visual review:
+- Arabic + English;
+- 1440 desktop / 390 mobile;
+- mobile drawer open in both locales;
+- no overflow;
+- mobile CTA hidden;
+- active state correct;
+- Footer responsive collapse correct.
+
+## 8C. Exact next work — Phase 5 Homepage
+
+Do not start until the next explicit continuation point.
+
+When started:
+1. consume canonical Home content from `src/data/pages.js`;
+2. define one strong homepage narrative, not a card wall;
+3. compose Hero → service discovery → proof/work → approach → process → FAQ support → final CTA;
+4. use real project/service data rather than duplicated page copy;
+5. review Arabic desktop/mobile first;
+6. review English desktop/mobile;
+7. fix hierarchy/cropping/density from root cause;
+8. verify SEO and shell contracts remain intact;
+9. document Phase 5 before Services Directory.
 
 ## 9. Non-negotiable rules
 
