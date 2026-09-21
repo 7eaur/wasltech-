@@ -4,6 +4,8 @@
  * One entity identity, localized content. English remains unpublished until reviewed.
  */
 
+import { CONTENT_STATE, createFieldState, serviceFieldKeys } from "./content-contracts.js";
+
 export const serviceGroups = Object.freeze([
   {
     "id": "digital-products",
@@ -37,7 +39,7 @@ export const serviceGroups = Object.freeze([
   }
 ]);
 
-export const services = Object.freeze([
+const serviceRecords = [
   {
     "id": "web",
     "slug": "web-development",
@@ -934,7 +936,47 @@ export const services = Object.freeze([
       "en": null
     }
   }
-]);
+];
+
+const serviceProofState = Object.freeze({
+  web: CONTENT_STATE.PARTIAL,
+  app: CONTENT_STATE.PARTIAL,
+  store: CONTENT_STATE.PARTIAL,
+  programming: CONTENT_STATE.PARTIAL,
+  tech: CONTENT_STATE.CONTENT_REQUIRED,
+  profiles: CONTENT_STATE.CONTENT_REQUIRED,
+  design: CONTENT_STATE.PARTIAL,
+  marketing: CONTENT_STATE.PARTIAL
+});
+
+function phase2bServiceRecord(service) {
+  return Object.freeze({
+    ...service,
+    contentState: CONTENT_STATE.PARTIAL,
+    fieldState: createFieldState(serviceFieldKeys, {
+      identity: CONTENT_STATE.READY,
+      arabicCore: CONTENT_STATE.READY,
+      problemNeed: CONTENT_STATE.PARTIAL,
+      audiences: CONTENT_STATE.READY,
+      scopeBoundaries: CONTENT_STATE.PARTIAL,
+      deliverables: CONTENT_STATE.READY,
+      capabilitiesIntegrations: CONTENT_STATE.READY,
+      process: CONTENT_STATE.READY,
+      faq: CONTENT_STATE.READY,
+      proof: serviceProofState[service.id] ?? CONTENT_STATE.CONTENT_REQUIRED,
+      constraintsDependencies: CONTENT_STATE.CONTENT_REQUIRED,
+      seo: CONTENT_STATE.CONTENT_REQUIRED,
+      relatedArticles: CONTENT_STATE.CONTENT_REQUIRED,
+      english: CONTENT_STATE.CONTENT_REQUIRED
+    }),
+    evidenceSources: Object.freeze([
+      "main:js/services-data.js",
+      `main:${service.image}`
+    ])
+  });
+}
+
+export const services = Object.freeze(serviceRecords.map(phase2bServiceRecord));
 
 export function getServiceById(id) {
   return services.find((service) => service.id === id) ?? null;
