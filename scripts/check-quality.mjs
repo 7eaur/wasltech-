@@ -163,6 +163,11 @@ if (projectImageBytes > budgets.projectImagesTotal) {
   fail("assets/works", `total project-image budget exceeded: ${projectImageBytes} > ${budgets.projectImagesTotal}`);
 }
 
+const portfolioCss = await readFile(path.join(ROOT, "src/styles/portfolio.css"), "utf8");
+if (!/\.portfolio-filters button\{[^}]*min-height:var\(--control-height\)/.test(portfolioCss)) {
+  fail("src/styles/portfolio.css", "portfolio filter buttons must use the shared control-height touch target");
+}
+
 const baseCss = await readFile(path.join(ROOT, "src/styles/base.css"), "utf8");
 if (!baseCss.includes("@media(prefers-reduced-motion:reduce)")) {
   fail("src/styles/base.css", "prefers-reduced-motion baseline missing");
