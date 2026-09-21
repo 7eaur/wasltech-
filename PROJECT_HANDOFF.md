@@ -4,7 +4,7 @@ Last updated: 2026-09-21
 Repository: `7eaur/wasltech-`  
 Official/legacy branch: `main`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified implementation HEAD: `1b3ec7fe20c03ab8f3a00887d7ccea4decd7a8f3`
+Latest verified implementation HEAD: `5b29dba17ca789a31512c3788ee8e388b40d9346`
 
 ## 1. Start procedure — mandatory
 
@@ -389,6 +389,46 @@ Visual review covered proof/no-proof and Arabic/English desktop/mobile.
 8. add CreativeWork + Breadcrumb structured data;
 9. generate all 28 localized project detail routes;
 10. visually review listing and representative case studies before About/Process.
+
+## 8J. Phase 8 Portfolio & Case-study Foundation — COMPLETE
+
+Verified:
+- HEAD `5b29dba17ca789a31512c3788ee8e388b40d9346`
+- run `35568080827`
+- SUCCESS.
+
+Completed:
+- bilingual Portfolio evidence browser;
+- 14 projects;
+- 5 real category filters;
+- filter counts verified in both locales;
+- one reusable case-study system;
+- 28 project routes;
+- one primary image per project;
+- project story/scope/outputs from canonical data;
+- related services/projects;
+- CreativeWork/Breadcrumb structured data;
+- no year/live URL/stack/gallery reintroduced.
+
+Visual review covered:
+- Portfolio Arabic/English desktop/mobile;
+- active filters;
+- Arabic platform case study;
+- English brand identity case study;
+- no horizontal overflow.
+
+## 8K. Exact next work — Phase 9 About + Process
+
+1. build About from canonical About content;
+2. keep About focused on how Wasl Tech thinks and combines content/design/development;
+3. build Process from canonical Process content;
+4. make Process explain phase name + what happens + what comes out of it;
+5. avoid duplicated filler between About and Process;
+6. keep Yemen + Gulf positioning factual;
+7. generate both locales;
+8. add dedicated gates;
+9. review desktop/mobile in both locales;
+10. document Phase 9 before Project Planner + Contact.
 
 ## 9. Non-negotiable rules
 
