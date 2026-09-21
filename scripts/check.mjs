@@ -46,7 +46,8 @@ const requiredPages = [
       alternate: routes[routeKey](locale === "ar" ? "en" : "ar")
     }))
   ),
-  { file: "404.html", route: null, locale: "ar", dir: "rtl", alternate: null }
+  { file: "404.html", route: null, locale: "ar", dir: "rtl", alternate: null },
+  { file: "en/404.html", route: null, locale: "en", dir: "ltr", alternate: null }
 ];
 
 for (const record of requiredPages) {
@@ -121,7 +122,9 @@ for (const record of [
 const sourceFiles = [
   ...await walk(path.join(ROOT, "src")),
   path.join(ROOT, "scripts/build.mjs"),
+  path.join(ROOT, "scripts/build-release.mjs"),
   path.join(ROOT, "scripts/check.mjs"),
+  path.join(ROOT, "scripts/check-release.mjs"),
   path.join(ROOT, "scripts/check-shell.mjs"),
   path.join(ROOT, "scripts/check-home.mjs"),
   path.join(ROOT, "scripts/check-services.mjs"),
