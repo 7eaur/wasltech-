@@ -111,7 +111,6 @@ Rules:
 - each project uses exactly one primary image;
 - do not invent conversion/revenue/performance outcomes;
 - do not invent client problems, testimonials, duration, or metrics;
-- project year, live/public URL, technology stack, and gallery/additional screenshots are intentionally excluded from VNext;
 - case studies focus on the project summary, context, Wasl contribution, scope and delivered outputs.
 
 Missing fields use `CONTENT REQUIRED` or `NOT VERIFIED`.
