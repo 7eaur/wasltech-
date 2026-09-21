@@ -108,6 +108,12 @@ for (const service of services) {
   if (!Array.isArray(service.content?.ar?.deliverables) || !service.content.ar.deliverables.length) {
     fail(scope, "Arabic deliverables missing");
   }
+  if (service.fieldState.seo === "READY") {
+    const seo = service.content?.ar?.seo;
+    if (!seo?.primaryTopic || !seo?.title || !seo?.description || !seo?.ogTitle || !seo?.ogDescription) {
+      fail(scope, "SEO is READY but required Arabic SEO fields are missing");
+    }
+  }
   await validateAsset(service.image, scope);
 }
 
@@ -132,6 +138,18 @@ for (const project of projects) {
   if (project.links?.live && project.fieldState.liveUrl !== "READY") fail(scope, "live URL exists but field is not READY");
   if (project.technologies.length && project.fieldState.technologies !== "READY") {
     fail(scope, "technology values exist but field is not READY");
+  }
+  if (project.fieldState.scope === "READY") {
+    const scopeItems = project.content?.ar?.caseStudy?.scope;
+    if (!Array.isArray(scopeItems) || !scopeItems.length) {
+      fail(scope, "scope is READY but case-study scope is missing");
+    }
+  }
+  if (project.fieldState.seo === "READY") {
+    const seo = project.content?.ar?.seo;
+    if (!seo?.title || !seo?.description) {
+      fail(scope, "SEO is READY but Arabic SEO title/description are missing");
+    }
   }
   for (const serviceId of project.serviceIds ?? []) {
     if (!serviceIds.has(serviceId)) fail(scope, `unknown related service: ${serviceId}`);
