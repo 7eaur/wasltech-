@@ -17,7 +17,7 @@ const projectRecords = [
       "web"
     ],
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -50,7 +50,7 @@ const projectRecords = [
       "web"
     ],
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -83,7 +83,7 @@ const projectRecords = [
       "programming"
     ],
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -116,7 +116,7 @@ const projectRecords = [
       "programming"
     ],
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -149,7 +149,7 @@ const projectRecords = [
       "app"
     ],
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -182,7 +182,7 @@ const projectRecords = [
       "app"
     ],
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -215,7 +215,7 @@ const projectRecords = [
       "web"
     ],
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -248,7 +248,7 @@ const projectRecords = [
       "store"
     ],
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -281,7 +281,7 @@ const projectRecords = [
       "design"
     ],
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -314,7 +314,7 @@ const projectRecords = [
       "design"
     ],
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -347,7 +347,7 @@ const projectRecords = [
       "marketing"
     ],
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -380,7 +380,7 @@ const projectRecords = [
       "store"
     ],
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -413,7 +413,7 @@ const projectRecords = [
       "store"
     ],
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
@@ -446,7 +446,7 @@ const projectRecords = [
       "web"
     ],
     "localeStatus": {
-      "ar": "ready",
+      "ar": "draft",
       "en": "content_required"
     },
     "content": {
