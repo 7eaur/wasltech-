@@ -11,6 +11,9 @@
     "vnext:check:structure": "node scripts/check.mjs && node scripts/check-shell.mjs && node scripts/check-home.mjs && node scripts/check-services.mjs && node scripts/check-service-details.mjs && node scripts/check-portfolio.mjs && node scripts/check-project-details.mjs && node scripts/check-about-process.mjs && node scripts/check-contact-planner.mjs && node scripts/check-secondary-legal.mjs",
     "vnext:check:data": "node scripts/check-data.mjs",
     "vnext:check": "npm run vnext:check:structure && npm run vnext:check:data",
-    "vnext:verify": "npm run vnext:build && npm run vnext:check"
+    "vnext:verify": "npm run vnext:build && npm run vnext:check",
+    "vnext:build:release": "node scripts/build-release.mjs",
+    "vnext:check:release": "node scripts/check-release.mjs",
+    "vnext:verify:release": "npm run vnext:build:release && npm run vnext:check:release"
   }
 }
