@@ -19,19 +19,80 @@ Writing style:
 
 ## 2. Primary information architecture
 
-Primary navigation:
+### Main navigation
+Arabic:
 - الرئيسية
 - الخدمات
 - الأعمال
-- كيف نعمل
 - من نحن
-- ابدأ مشروعك / تواصل
+- كيف نعمل
+- المقالات
+- تواصل
 
-Supporting:
+Primary CTA:
+- ابدأ مشروعك
+
+English:
+- Home
+- Services
+- Work
+- About
+- Process
+- Insights
+- Contact
+
+Primary CTA:
+- Start a Project
+
+### Supporting surfaces
 - FAQ
+- Careers
+- Privacy
+- Terms
 - 404
-- privacy/terms only when real policy is approved
-- knowledge/blog only when maintained
+
+Careers stays out of primary navigation unless there is a real hiring reason to promote it.
+
+### Canonical route families
+
+Arabic:
+- `/`
+- `/about/`
+- `/services/`
+- `/services/<slug>/`
+- `/portfolio/`
+- `/portfolio/<slug>/`
+- `/process/`
+- `/contact/`
+- `/start-project/`
+- `/faq/`
+- `/insights/`
+- `/insights/<slug>/`
+- `/careers/`
+- `/careers/<slug>/`
+- `/privacy/`
+- `/terms/`
+
+English mirrors the same identities under `/en/`.
+
+A service/project/job keeps one stable slug across locales. Articles keep stable translation identity even when localized source files are separate.
+
+### Page jobs
+
+- Home = positioning + discovery + proof + action.
+- About = how Wasl thinks.
+- Services = solution directory.
+- Service detail = scope + confidence + proof.
+- Portfolio = evidence browser.
+- Project detail = case-study evidence.
+- Process = how work progresses.
+- Contact = direct/general communication.
+- Start Project = structured qualification/planning.
+- FAQ = objection handling.
+- Insights = useful educational/search content.
+- Article = answer one real search/decision need.
+- Careers = employer/hiring surface.
+- Privacy/Terms = truthful legal/information surfaces.
 
 ## 3. Homepage narrative
 
@@ -149,14 +210,30 @@ Each phase copy:
 
 Do not invent timelines.
 
-## 10. Contact / Project Planner
+## 10. Contact and Project Planner
 
-Primary model:
-structured planning conversation.
+These are separate surfaces.
+
+### Contact
+
+Purpose:
+low-friction direct communication.
+
+Content:
+- WhatsApp;
+- email;
+- verified social channels;
+- concise general inquiry path;
+- location/market information only when useful and verified.
+
+### Project Planner
+
+Purpose:
+collect enough structured context to begin a serious project conversation.
 
 Planner stages:
 
-### Step 1 — Need
+#### Step 1 — Need
 - website
 - application
 - store
@@ -167,28 +244,86 @@ Planner stages:
 - marketing
 - unsure
 
-### Step 2 — Project stage
+#### Step 2 — Project stage
 - new idea
 - existing / improve
 - redesign
 - add functionality
 - unsure
 
-### Step 3 — Priority
-- MVP/first usable version
+#### Step 3 — Priority
+- MVP / first usable version
 - full scoped version
 - phased improvement
 - consultation first
 
-### Step 4 — Context
+#### Step 4 — Context
 - name
 - WhatsApp
 - company/project
 - current URL optional
 - concise brief
 
+Budget is optional until Wasl approves real commercial ranges.
+
 Final behavior:
-prepare/send a truthful structured lead through approved channel. No fake success state.
+prepare/send a truthful structured lead through an approved channel. No fake success state.
+
+## 10A. Insights / Articles
+
+The content system exists to answer real user/search intent and strengthen topic authority.
+
+Good article types:
+- planning guides;
+- comparisons;
+- checklists;
+- buying/decision guidance;
+- explanations of web/app/store/system choices;
+- UX/content/performance/SEO education relevant to Wasl services.
+
+Do not publish SEO filler.
+
+Each article should have:
+- stable id/translation relation;
+- slug;
+- locale;
+- title;
+- summary;
+- category/topic;
+- author identity;
+- publish/update dates;
+- reading time if computed consistently;
+- cover asset;
+- body;
+- related service/project ids;
+- publication state;
+- SEO metadata.
+
+## 10B. Careers
+
+Careers is a real route even when there are no openings.
+
+If there are no jobs:
+- explain Wasl's working/culture context briefly;
+- show an honest empty state;
+- do not invent roles.
+
+Real job records may generate `/careers/<slug>/` and English equivalents.
+
+## 10C. Privacy and Terms
+
+Privacy and Terms are bilingual first-class pages.
+
+They must describe Wasl's actual:
+- form/planner data handling;
+- analytics/cookies if used;
+- third-party services;
+- contact mechanism;
+- website usage terms.
+
+They are never copied from competitor legal text.
+
+Project prices, timelines, deliverables and contractual obligations remain governed by separate project agreements, not generic website copy.
 
 ## 11. Writing hierarchy
 
