@@ -2,6 +2,7 @@ import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { routes } from "../src/config/routes.js";
 import { foundationHome, foundationPlaceholder } from "../src/pages/foundation.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -17,12 +18,12 @@ const cssSources = [
   "src/styles/media.css"
 ];
 
-const placeholderRoutes = new Map([
-  ["/services/", "الخدمات"],
-  ["/portfolio/", "الأعمال"],
-  ["/process/", "كيف نعمل"],
-  ["/about/", "من نحن"],
-  ["/contact/", "ابدأ مشروعك"]
+const placeholderRoutes = Object.freeze([
+  Object.freeze({ key: "services", title: Object.freeze({ ar: "الخدمات", en: "Services" }) }),
+  Object.freeze({ key: "portfolio", title: Object.freeze({ ar: "الأعمال", en: "Work" }) }),
+  Object.freeze({ key: "process", title: Object.freeze({ ar: "كيف نعمل", en: "Process" }) }),
+  Object.freeze({ key: "about", title: Object.freeze({ ar: "من نحن", en: "About" }) }),
+  Object.freeze({ key: "contact", title: Object.freeze({ ar: "تواصل معنا", en: "Contact" }) })
 ]);
 
 async function ensureDirectory(filePath) {
@@ -33,6 +34,11 @@ async function writeOutput(relativePath, content) {
   const destination = path.join(DIST, relativePath);
   await ensureDirectory(destination);
   await writeFile(destination, content, "utf8");
+}
+
+function outputPath(route) {
+  if (route === "/") return "index.html";
+  return path.join(route.replace(/^\//, ""), "index.html");
 }
 
 async function buildStyles() {
@@ -54,16 +60,24 @@ async function buildAssets() {
 }
 
 async function buildPages() {
-  await writeOutput("index.html", foundationHome());
+  for (const locale of ["ar", "en"]) {
+    await writeOutput(outputPath(routes.home(locale)), foundationHome(locale));
 
-  for (const [route, title] of placeholderRoutes) {
-    const relativePath = path.join(route.replace(/^\//, ""), "index.html");
-    await writeOutput(relativePath, foundationPlaceholder({ title, path: route }));
+    for (const record of placeholderRoutes) {
+      await writeOutput(
+        outputPath(routes[record.key](locale)),
+        foundationPlaceholder({
+          title: record.title[locale],
+          routeKey: record.key,
+          locale
+        })
+      );
+    }
   }
 
   await writeOutput(
     "404.html",
-    foundationPlaceholder({ title: "الصفحة غير موجودة", path: "/" })
+    foundationPlaceholder({ title: "الصفحة غير موجودة", routeKey: "home", locale: "ar" })
   );
 }
 
