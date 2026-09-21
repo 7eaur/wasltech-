@@ -18,22 +18,121 @@ Wasl Tech must feel:
 
 It must not look AI-generated, template-driven, or over-decorated.
 
-## 2. Identity — never replace
+## 2. Identity — locked foundation
 
-Typography:
-- IBM Plex Sans Arabic
-- IBM Plex Sans
+The original Wasl Tech identity is the source of truth. VNext does not redesign the logo or substitute a new visual identity.
 
-Colors:
-- Navy `#14305F`
-- Teal `#0E8889`
-- Teal Dark `#096B70`
+### Official assets
+
+Canonical assets:
+- `assets/brand/wasl-tech-horizontal.svg`
+- `assets/brand/wasl-tech-horizontal-white.svg`
+- `assets/brand/favicon.svg`
+
+Rules:
+- never redraw;
+- never stretch;
+- never retype the wordmark;
+- never recolor the approved artwork;
+- never crop away meaningful logo geometry;
+- use the white variant on approved dark surfaces rather than CSS-filtering the primary logo.
+
+### Typography
+
+Arabic:
+**IBM Plex Sans Arabic**
+
+English:
+**IBM Plex Sans**
+
+Weights currently supported:
+400 / 500 / 600 / 700.
+
+Typography is language-aware:
+- Arabic documents use IBM Plex Sans Arabic;
+- English documents use IBM Plex Sans;
+- fallback fonts are system-only fallbacks, not alternative brand choices.
+
+No replacement font is allowed without explicit approval.
+
+### Core brand colors
+
+Primary Navy:
+`#14305F`
+
+Primary Teal:
+`#0E8889`
+
+Accessible Teal Dark:
+`#096B70`
 
 Navy leads. Teal is a controlled accent.
 
-Base Teal is not for small normal text on white; use Teal Dark where accessible contrast is required.
+Base Teal is not used for small normal text on white because the darker Teal role provides stronger contrast.
 
-No replacement font is allowed without explicit approval.
+### Canonical palette
+
+The VNext token system preserves the existing published identity scales:
+
+Navy:
+- 50 `#EAF0F7`
+- 100 `#D6E1EF`
+- 200 `#AEC3DE`
+- 300 `#819FC7`
+- 400 `#5579AC`
+- 500 `#315A91`
+- 600 `#234678`
+- 700 `#14305F`
+- 800 `#10264B`
+- 900 `#0B1B38`
+- 950 `#071127`
+
+Teal:
+- 50 `#E9F8F7`
+- 100 `#CFF0ED`
+- 200 `#9DDED8`
+- 300 `#66C9C0`
+- 400 `#37B2AA`
+- 500 `#0E8889`
+- 600 `#0B7678`
+- 700 `#096B70`
+- 800 `#07565B`
+- 900 `#064448`
+
+Supporting neutrals are cool/slate-based so they visually belong with Navy/Teal:
+- canvas `#FFFFFF`
+- subtle `#F5F8FA`
+- border `#D8E1EA`
+- muted `#657386`
+- secondary text `#46566F`
+- primary text `#0B1730`
+
+Functional success/warning/danger colors exist for interface feedback only and must not become decorative brand colors.
+
+### Token ownership
+
+Raw palette:
+`src/styles/tokens.css`
+
+Semantic roles:
+`src/styles/brand.css`
+
+Typography contracts:
+`src/styles/typography.css`
+
+Brand metadata/assets:
+`src/config/brand.js`
+
+Components consume semantic roles such as:
+- `--color-brand-primary`
+- `--color-brand-accent`
+- `--color-bg-canvas`
+- `--color-text-primary`
+- `--color-border-default`
+
+Do not scatter raw hex values through page/component CSS when a semantic role exists.
+
+CI must fail if the canonical primary colors, IBM Plex contracts, or official asset paths disappear.
 
 ## 3. Rules retained from UPDATE CARD
 
