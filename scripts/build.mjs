@@ -7,6 +7,7 @@ import { renderPreviewRobots } from "../src/seo/crawl.js";
 import { designSystemShowcase } from "../src/pages/design-system.js";
 import { foundationPlaceholder } from "../src/pages/foundation.js";
 import { homePage } from "../src/pages/home.js";
+import { servicesDirectoryPage } from "../src/pages/services.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist");
@@ -20,6 +21,7 @@ const cssSources = [
   "src/styles/components.css",
   "src/styles/media.css",
   "src/styles/home.css",
+  "src/styles/services.css",
   "src/styles/showcase.css"
 ];
 
@@ -79,7 +81,9 @@ async function buildPages() {
       designSystemShowcase(locale)
     );
 
-    for (const record of placeholderRoutes) {
+    await writeOutput(outputPath(routes.services(locale)), servicesDirectoryPage(locale));
+
+    for (const record of placeholderRoutes.filter((item) => item.key !== "services")) {
       await writeOutput(
         outputPath(routes[record.key](locale)),
         foundationPlaceholder({
