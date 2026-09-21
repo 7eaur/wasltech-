@@ -1,7 +1,8 @@
 /**
  * Wasl Tech VNext — Canonical project data.
  * Source: verified legacy portfolio records normalized on 2026-09-21.
- * Case-study fields remain null until evidence exists.
+ * Arabic portfolio summaries, case-study overviews/scopes and SEO are VNext editorial drafts.
+ * Evidence-sensitive metadata (client/year/live URL/stack/outcomes) remains explicit until verified.
  */
 
 import { CONTENT_STATE, createFieldState, projectFieldKeys } from "./content-contracts.js";
@@ -579,11 +580,11 @@ function phase2bProjectRecord(project) {
       liveUrl: CONTENT_STATE.CONTENT_REQUIRED,
       platformType: CONTENT_STATE.CONTENT_REQUIRED,
       technologies: CONTENT_STATE.CONTENT_REQUIRED,
-      scope: CONTENT_STATE.PARTIAL,
+      scope: CONTENT_STATE.READY,
       waslContribution: CONTENT_STATE.CONTENT_REQUIRED,
       contextChallenge: CONTENT_STATE.CONTENT_REQUIRED,
       outcomes: CONTENT_STATE.CONTENT_REQUIRED,
-      seo: CONTENT_STATE.CONTENT_REQUIRED,
+      seo: CONTENT_STATE.READY,
       english: CONTENT_STATE.CONTENT_REQUIRED
     }),
     evidenceSources: Object.freeze([
