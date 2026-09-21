@@ -58,7 +58,7 @@ for(const locale of ["ar","en"]){
     const file=outputPath(routes[id](locale));
     const html=await readFile(path.join(DIST,file),"utf8");
 
-    if(record?.state!=="READY") fail(file,`${id} must be READY after verified runtime review`);
+    if(record?.contentState!=="READY") fail(file,`${id} must be READY after verified runtime review`);
     if(!copy) fail(file,`localized ${id} content missing`);
     else {
       if(!html.includes(`<h1>${htmlText(copy.title)}</h1>`)) fail(file,`${id} H1 missing`);
