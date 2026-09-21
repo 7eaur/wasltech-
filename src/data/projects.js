@@ -6,7 +6,7 @@
 
 import { CONTENT_STATE, createFieldState, projectFieldKeys } from "./content-contracts.js";
 
-const projectRecords = Object.freeze([
+const projectRecords = [
   {
     "id": "project-01",
     "legacyId": 1,
