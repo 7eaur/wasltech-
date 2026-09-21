@@ -15,6 +15,20 @@ export const CONTENT_STATE = Object.freeze({
 
 export const contentStateValues = Object.freeze(Object.values(CONTENT_STATE));
 
+/**
+ * Editorial source policy:
+ * - Legacy material is evidence, not canonical marketing copy.
+ * - Preserve only verified facts, identities, relationships and useful scope evidence.
+ * - Public-facing Arabic/English copy is authored for VNext and may restructure,
+ *   simplify or replace legacy wording as long as factual meaning stays evidence-safe.
+ */
+export const CONTENT_AUTHORING_POLICY = Object.freeze({
+  legacyRole: "evidence_only",
+  publicCopyRole: "vnext_original",
+  preserveVerifiedFacts: true,
+  allowLegacyCopyThrough: false
+});
+
 export const serviceFieldKeys = Object.freeze([
   "identity",
   "arabicCore",
