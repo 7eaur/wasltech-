@@ -34,7 +34,7 @@ VNext public copy must be newly authored for the page's job and user intent. It 
 Editorial workflow:
 **Evidence → User need → Message hierarchy → New copy → Fact check → UX review**
 
-Transferred Arabic copy remains a working draft until it passes this workflow. A complete Legacy paragraph is not automatically `READY`.
+Arabic and English VNext public copy now follows this workflow. A Legacy paragraph is never automatically `READY`; reviewed VNext records own the publishable wording.
 
 ## 2. Primary information architecture
 
@@ -437,12 +437,11 @@ unless context makes the destination unambiguous.
 
 Do not create a technology-logo wall as a substitute for value.
 
-Technology appears:
-- in a service when it changes platform/capability decisions;
-- in a case study when verified;
-- in engineering/process content when relevant.
+Technology appears only when it helps explain a service capability or an engineering/process decision.
 
-Never claim a stack from inference.
+Project/case-study presentation does not use a technology-stack field.
+
+Never claim implementation technology from inference.
 
 ## 16. Content density
 
@@ -547,7 +546,7 @@ Every service record should be able to support, when relevant and verified:
 - schema inputs where appropriate;
 - related article topics/internal-link targets.
 
-Current Phase 2 service data is a baseline and may remain `PARTIAL` until this contract is reviewed.
+The Phase 2B service baseline has been reviewed in Arabic and English. Future edits must preserve the same content contract and evidence rules.
 
 ## 21. Project / case-study content contract
 
@@ -561,10 +560,8 @@ Every project record should support as much of the following as evidence allows:
 - related service ids;
 - one primary project image only.
 
-### Verified metadata
-- client/public project name when allowed;
-- project status;
-- platform/type.
+### Display metadata
+- localized platform/type when useful.
 
 ### Story
 - one-sentence definition;
@@ -574,7 +571,7 @@ Every project record should support as much of the following as evidence allows:
 - key functionality / scope;
 - execution notes when useful;
 - verified delivered outcomes;
-- limitations / missing evidence.
+- limitations / missing evidence when they materially affect interpretation.
 
 ### SEO
 - SEO title;
@@ -584,7 +581,7 @@ Every project record should support as much of the following as evidence allows:
 - related articles;
 - related projects.
 
-A project must not become a full case study unless enough evidence exists. Missing challenge/result/stack fields remain null or `CONTENT REQUIRED`.
+A project must not become a fuller case study unless enough evidence exists. Missing challenge or result claims remain omitted or explicitly incomplete; the project model does not use a stack field.
 
 ## 22. Page-level content contract
 
