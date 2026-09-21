@@ -229,39 +229,41 @@ Do not start Homepage composition before Phase 3 and Phase 4 gates pass.
 
 ## 8A. Phase 3 current state
 
-Phase 3 implementation is active.
+Phase 3 design-system implementation is complete in code and has passed real Chromium layout review; only the final GitHub Actions head run is still queued.
 
-Completed in code:
-- refined design tokens and semantic roles;
-- bilingual typography;
-- layout primitives;
-- action/button primitives;
-- card/surface primitives;
-- form states;
-- media contracts;
-- accessibility/reduced-motion baseline;
-- Arabic + English internal design-system showcase;
-- shared ActionLink / SurfaceCard / FormField / MediaFrame components;
-- CSS custom-property integrity guard.
+Visual review evidence:
+- Arabic + English;
+- 1440 desktop + 390 mobile;
+- no horizontal overflow;
+- RTL/LTR correct;
+- mobile header CTA bug found and fixed;
+- mobile menu/language targets normalized to 46px;
+- button/input/select controls normalized to 46px;
+- cards/forms/media and grids collapse correctly on mobile.
 
-Verified run:
-- `35558474835`
-- SHA `50c5b3008dbe5160342171c0d9aa0dc269dfbf0a`
-- SUCCESS.
+The review used the exact GitHub Actions preview artifact injected into Chromium in-memory because:
+- Vercel branch preview is blocked by build-rate-limit;
+- direct localhost/file navigation is restricted by the browser policy in this environment.
 
-Latest refinement:
+IBM Plex binary font files could not be loaded locally, so exact glyph rendering remains a later web-preview confirmation item. The project font contract itself remains unchanged.
+
+Green verification leading into the last refinement:
 - `da05b3b2fa00ab576916ad4c5877524206559ac1`
-- manual token audit: no undefined CSS custom properties;
-- workflow run `35558780012` was queued when this handoff was updated.
+- `84b3f36afd9db1d01da75c513f78bfe7b0ab6d52`
+- `d13d86b4282a22e95fbc83c2a126637216a53491`
+- `4b529b2b85c6ec4d6305c427be7ecf5ecb010a2c`
+- `778797169f517eaaa67fd1fef72888468b65e3be`
 
-Do **not** call Phase 3 complete until desktop/mobile screenshots of the showcase are reviewed.
+Latest design SHA:
+- `0d97f4930059052d695706d0998fdb9658e76765`
+- direct visual/computed verification passed;
+- Actions run `35559252091` remains queued, not failed.
 
-Current visual-review blockers are environmental, not accepted product debt:
-- Vercel branch preview: build-rate-limit;
-- local Chromium: DBus/zygote initialization failure;
-- WeasyPrint: CSS Grid render failure.
+Workflow queue improvement:
+- `75d7355e04476ac8e750a09353877554a7b83d60`
+- adds concurrency/cancel-in-progress for future latest-head verification.
 
-Do not begin Phase 4 just to bypass this gate.
+Do not start Phase 4 until the final queued verification clears, unless an equivalent latest-head verification is explicitly documented.
 
 ## 9. Non-negotiable rules
 
