@@ -3,7 +3,7 @@
 Last updated: 2026-09-21  
 Repository: `7eaur/wasltech-`  
 Active branch: `rebuild/vnext-foundation-20260921`  
-Latest verified implementation HEAD: `9d9ad83677f8ed8040c14bc220d444848e001568`
+Latest verified implementation HEAD: `b7412a4a5143404a9169857b4ef844a7765cfa83`
 
 ## 1. Start procedure
 
@@ -42,8 +42,7 @@ Identity:
 - Navy `#14305F`;
 - Teal `#0E8889`;
 - Teal Dark `#096B70`;
-- approved Navy/Teal scales + supporting neutrals;
-- no arbitrary rebranding.
+- approved Navy/Teal scales + supporting neutrals.
 
 ## 3. Completed work
 
@@ -53,68 +52,81 @@ Canonical documentation system complete.
 ### Phase 1
 Build/repository foundation complete.
 
-### Pre-Phase-2 architecture freeze
-Complete:
-- canonical brand config;
-- semantic color/token architecture;
-- bilingual typography contract;
-- locale config;
-- route builders;
-- bilingual/full-site/SEO architecture documented;
-- automated identity + locale/route guards.
+### Brand/Bilingual/SEO freeze
+Complete and guarded by CI.
 
-Latest green implementation evidence:
+### Phase 2
+Complete:
+- `src/data/services.js` — 8 services;
+- `src/data/projects.js` — 14 projects;
+- `src/data/faq.js` — 13 FAQ items / 4 groups;
+- `src/data/articles.js` — future article contract, currently empty;
+- `src/data/jobs.js` — future careers contract, currently empty;
+- `scripts/check-data.mjs` — data integrity guard.
+
+Important decisions:
+- one entity identity;
+- localized content inside each record;
+- no duplicated Arabic/English databases;
+- Arabic is source-ready;
+- English is `content_required` until reviewed;
+- no invented case-study, article or job content;
+- relations use stable ids;
+- data files are validated by integrity checks rather than arbitrary code-size limits.
+
+Final green Phase 2 evidence:
 - workflow: `VNext verify`
-- run: `35550116171`
-- SHA: `9d9ad83677f8ed8040c14bc220d444848e001568`
+- run: `35552059884`
+- SHA: `b7412a4a5143404a9169857b4ef844a7765cfa83`
 - result: **SUCCESS**
 
 QA:
-`docs/qa/2026-09-21_brand-bilingual-architecture-foundation.md`
+`docs/qa/2026-09-21_phase-2_data-normalization.md`
 
 ## 4. Exact next phase
 
-**Phase 2 — Bilingual Data & Content Normalization**
+**Phase 3 — Design Tokens & Shared Primitives**
 
-Do not redesign pages yet.
+Do not build final pages yet.
 
 Start with:
-1. legacy `js/services-data.js`;
-2. legacy `js/portfolio.js`;
-3. current FAQ source(s);
-4. verify fields and assets;
-5. design one bilingual entity schema;
-6. create `src/data/services.js`;
-7. create `src/data/projects.js`;
-8. create `src/data/faq.js`;
-9. define article/job metadata contracts;
-10. define relations;
-11. add integrity checks;
-12. run `npm run vnext:verify`;
-13. document evidence.
+1. inspect existing VNext `tokens.css`, `brand.css`, `typography.css`, `layout.css`, `components.css`, `media.css`;
+2. define shared container/grid/section contracts;
+3. refine bilingual typography hierarchy;
+4. implement Button/TextLink contracts;
+5. refine PageHero variants;
+6. implement reusable card primitives with specific Service/Project/Article components;
+7. implement form field states;
+8. implement FAQ/accordion presentation contract;
+9. refine ResponsiveImage/media contracts;
+10. build a static component showcase fixture;
+11. review desktop + 390 + 360 visually;
+12. fix root causes;
+13. run `npm run vnext:verify`;
+14. document Phase 3 evidence.
 
-## 5. Phase 2 rules
+## 5. Phase 3 rules
 
-- one entity identity, localized fields;
-- no separate duplicated Arabic/English service databases;
-- stable shared slug across locales;
-- no invented content;
-- missing evidence stays null / `NOT VERIFIED` / `CONTENT REQUIRED`;
-- do not copy SATR text;
-- do not publish incomplete English;
-- keep legacy production code untouched;
-- do not publish VNext;
-- do not design Home before normalization is complete.
+- do not invent a second palette;
+- no arbitrary colors outside tokens;
+- no generic card-wall system;
+- shared card foundation may exist, but content components remain semantically distinct;
+- no gradients/glows/blobs/AI-tech decoration;
+- no page-specific patches in global primitive files;
+- RTL/LTR must be first-class;
+- mobile is edited, not desktop stacked;
+- use semantic tokens, not raw repeated hex values;
+- keep controls accessible and keyboard-visible;
+- do not design final Home before primitive review passes.
 
 ## 6. Do not repeat
 
 Do not:
-- recreate Phase 0 docs;
-- reopen the approved font/logo/colors casually;
-- revert to Arabic-only architecture;
-- create a second route system;
-- create copied pages per service/project/language;
+- recreate Phase 0/1/2;
+- re-audit legacy service/project data unless evidence changes;
+- reopen approved font/logo/colors casually;
+- translate English by copying or inventing unsupported claims;
+- create copied pages per locale/entity;
 - introduce a frontend framework without proven need;
-- copy legacy CSS into VNext;
-- weaken CI guards;
+- weaken CI/data guards;
 - merge VNext to production early.
