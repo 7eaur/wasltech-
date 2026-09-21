@@ -10,6 +10,10 @@ export const site = Object.freeze({
     phoneUri: "+967775377979",
     whatsapp: "https://wa.me/967775377979",
     email: "wasltechp@gmail.com",
+    instagram: Object.freeze({
+      handle: "@wasltech.yem",
+      url: "https://www.instagram.com/wasltech.yem"
+    }),
     domain: "www.wasl-tech.com"
   })
 });
