@@ -4,7 +4,7 @@ Last updated: 2026-09-21
 Repository: `7eaur/wasltech-`  
 Official/legacy branch: `main`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified implementation HEAD: `4c1c3ba07924d5a99ce827eae060a7923663da1d`
+Latest verified implementation HEAD: `3b899ada38f273ecc9dcdd1c20165663a6f78105`
 
 ## 1. Start procedure — mandatory
 
@@ -229,6 +229,29 @@ Still needed where evidence exists:
 
 Gap audit:
 `docs/qa/2026-09-21_phase-2b_content-gap-audit.md`
+
+### Verified editorial rewrite batch
+
+Arabic editorial work has started and is committed:
+- core page messaging rewritten for the major public surfaces;
+- core value proposition + CTA layer rewritten for all 8 services;
+- Legacy wording is no longer treated as publishable copy;
+- SATR is used only to learn content hierarchy, intent and flow, never to copy wording.
+
+Writing standard now in active use:
+**Clear idea → customer relevance → concrete value → next action.**
+
+Verified:
+- page copy commit `f25f7dd3bf615c3ecb80800f8f3bda94e45d8e5e`
+- service copy commit `3b899ada38f273ecc9dcdd1c20165663a6f78105`
+- run `35554359258`
+- result **SUCCESS**
+
+Remaining editorial work:
+- deeper service-detail sections (hero cards, deliverables wording, process, FAQ);
+- project/case-study storytelling;
+- final SEO copy;
+- English after Arabic stabilizes.
 
 ### Verified Phase 2B batch now in code
 
