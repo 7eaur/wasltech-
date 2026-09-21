@@ -475,3 +475,182 @@ Use:
 - `CONTENT REQUIRED`
 
 during implementation rather than filling gaps.
+
+
+## 19. Content completeness model
+
+Legacy content is a baseline, not the completeness target.
+
+Before final page composition, every public entity/page must be classified as:
+
+- `READY` — enough verified content exists for intended use;
+- `PARTIAL` — usable baseline exists but important fields are missing;
+- `CONTENT REQUIRED` — user/business input is needed;
+- `NOT VERIFIED` — a claim/value exists somewhere but lacks sufficient evidence;
+- `NOT APPLICABLE` — field is intentionally not relevant.
+
+Do not fill missing fields with generic copy merely to complete a layout.
+
+## 20. Service content contract
+
+Every service record should be able to support, when relevant and verified:
+
+### Identity
+- stable id;
+- stable slug;
+- service family;
+- primary image/visual;
+- localized title;
+- localized short description.
+
+### Decision content
+- value proposition;
+- problem / need it addresses;
+- who it fits;
+- scope — what is included conceptually;
+- deliverables — concrete outputs;
+- integrations / capabilities where relevant;
+- process specific to the service;
+- service-specific FAQ;
+- related verified projects;
+- CTA.
+
+### Trust / evidence
+- proof surfaces;
+- verified technologies only when useful;
+- constraints / dependencies when important;
+- support/maintenance only if actually offered;
+- price/duration only when approved as real commercial rules.
+
+### SEO
+- search intent / primary topic;
+- SEO title;
+- meta description;
+- Open Graph title/description;
+- schema inputs where appropriate;
+- related article topics/internal-link targets.
+
+Current Phase 2 service data is a baseline and may remain `PARTIAL` until this contract is reviewed.
+
+## 21. Project / case-study content contract
+
+Every project record should support as much of the following as evidence allows:
+
+### Identity
+- stable id;
+- slug;
+- localized title;
+- category;
+- related service ids;
+- primary cover;
+- gallery/screenshots.
+
+### Verified metadata
+- client/public project name when allowed;
+- year;
+- project status;
+- live URL if public;
+- platform/type;
+- verified technologies when relevant.
+
+### Story
+- one-sentence definition;
+- overview;
+- context / challenge;
+- what Wasl built;
+- key functionality / scope;
+- execution notes when useful;
+- verified delivered outcomes;
+- limitations / missing evidence.
+
+### SEO
+- SEO title;
+- meta description;
+- Open Graph data;
+- related services;
+- related articles;
+- related projects.
+
+A project must not become a full case study unless enough evidence exists. Missing challenge/result/stack fields remain null or `CONTENT REQUIRED`.
+
+## 22. Page-level content contract
+
+The following pages require their own canonical localized content instead of hardcoded page copy:
+
+- Home;
+- About;
+- Services directory;
+- Portfolio directory;
+- Process;
+- Contact;
+- Start Project;
+- FAQ introduction;
+- Insights listing;
+- Careers;
+- Privacy;
+- Terms;
+- 404.
+
+Each page record should define:
+- purpose;
+- kicker/eyebrow where used;
+- H1;
+- support copy;
+- section copy;
+- CTA labels;
+- SEO metadata;
+- locale publication state.
+
+## 23. Article contract
+
+Articles are not created to fill the blog.
+
+Every article should have:
+- real search/decision intent;
+- one focused topic;
+- title;
+- summary;
+- body;
+- category/topic;
+- cover;
+- author identity;
+- publish/update date;
+- related service/project ids;
+- SEO metadata;
+- localized publication state.
+
+Priority article planning should come from real service/search needs, not arbitrary volume.
+
+## 24. Business input policy
+
+When the repository cannot establish a business fact, ask the user for it.
+
+Typical user-supplied inputs may include:
+- approved project/client names;
+- public live URLs;
+- year/date;
+- actual project scope;
+- technologies used;
+- screenshots/source assets;
+- what Wasl specifically delivered;
+- measurable or factual outcomes;
+- support/maintenance policy;
+- approved price/duration rules;
+- approved service integrations/capabilities;
+- legal/privacy facts;
+- social/contact channels;
+- article priorities or target questions.
+
+Do not ask the user to rewrite content that can be professionally drafted from verified facts. Ask for facts/evidence; then write the final Arabic/English copy.
+
+## 25. Content-first design rule
+
+Final component/page design must be tested against representative real content lengths.
+
+Do not approve:
+- a Hero designed around placeholder text;
+- cards that only work with one-line titles;
+- a Case Study layout before the evidence model is understood;
+- English layouts before LTR content behavior is tested.
+
+Content architecture and visual architecture are separate responsibilities but must validate each other before page completion.
