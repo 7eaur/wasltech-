@@ -1,26 +1,35 @@
 :root {
   color-scheme:light;
 
-  /* Semantic brand roles. Components consume these, not raw hex values. */
   --color-brand-primary:var(--wt-navy-700);
   --color-brand-primary-hover:var(--wt-navy-800);
   --color-brand-primary-soft:var(--wt-navy-50);
   --color-brand-accent:var(--wt-teal-500);
-  --color-brand-accent-strong:var(--wt-teal-700);
+  --color-brand-accent-hover:var(--wt-teal-700);
   --color-brand-accent-soft:var(--wt-teal-50);
 
   --color-bg-canvas:var(--wt-neutral-0);
-  --color-bg-subtle:var(--wt-neutral-50);
-  --color-bg-soft:var(--wt-neutral-100);
+  --color-bg-subtle:var(--wt-neutral-25);
+  --color-bg-soft:var(--wt-neutral-50);
+  --color-bg-raised:var(--wt-neutral-0);
   --color-bg-emphasis:var(--wt-navy-950);
 
   --color-text-primary:var(--wt-neutral-900);
   --color-text-secondary:var(--wt-neutral-600);
   --color-text-muted:var(--wt-neutral-500);
+  --color-text-brand:var(--wt-navy-700);
+  --color-text-accent:var(--wt-teal-700);
   --color-text-inverse:var(--wt-neutral-0);
 
   --color-border-default:var(--wt-neutral-200);
+  --color-border-subtle:var(--wt-neutral-100);
   --color-border-strong:var(--wt-navy-200);
+  --color-border-accent:var(--wt-teal-200);
+
+  --color-control-bg:var(--wt-neutral-0);
+  --color-control-bg-hover:var(--wt-neutral-25);
+  --color-control-border:var(--wt-neutral-300);
+  --color-control-placeholder:var(--wt-neutral-400);
 
   --color-focus:var(--wt-teal-300);
   --color-selection-bg:var(--wt-teal-100);
@@ -39,21 +48,24 @@
   color:var(--color-selection-text);
 }
 
-/*
-  Dark tokens are defined as capability only.
-  VNext must not expose a theme toggle until product review explicitly approves it.
-*/
+/* Capability only. No public theme toggle is exposed in Phase 3. */
 html[data-theme="dark"] {
   color-scheme:dark;
   --color-bg-canvas:var(--wt-navy-950);
   --color-bg-subtle:var(--wt-navy-900);
-  --color-bg-soft:var(--wt-navy-800);
+  --color-bg-soft:var(--wt-navy-900);
+  --color-bg-raised:var(--wt-navy-900);
   --color-bg-emphasis:#050C1B;
-
   --color-text-primary:var(--wt-neutral-50);
   --color-text-secondary:#B7C4D3;
   --color-text-muted:var(--wt-neutral-400);
-
+  --color-text-brand:var(--wt-neutral-0);
+  --color-text-accent:var(--wt-teal-300);
   --color-border-default:rgb(255 255 255 / 16%);
+  --color-border-subtle:rgb(255 255 255 / 10%);
   --color-border-strong:rgb(255 255 255 / 25%);
+  --color-control-bg:var(--wt-navy-900);
+  --color-control-bg-hover:var(--wt-navy-800);
+  --color-control-border:rgb(255 255 255 / 22%);
+  --color-control-placeholder:var(--wt-neutral-400);
 }
