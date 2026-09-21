@@ -969,32 +969,201 @@ export const pages = Object.freeze([
   page({
     id: "privacy",
     routeKey: "privacy",
-    state: CONTENT_STATE.CONTENT_REQUIRED,
+    state: CONTENT_STATE.READY,
+    reviewed: true,
     fieldState: {
       purpose: CONTENT_STATE.READY,
-      arabicCore: CONTENT_STATE.CONTENT_REQUIRED,
-      sections: CONTENT_STATE.CONTENT_REQUIRED,
+      arabicCore: CONTENT_STATE.READY,
+      sections: CONTENT_STATE.READY,
       cta: CONTENT_STATE.NOT_APPLICABLE,
-      seo: CONTENT_STATE.CONTENT_REQUIRED,
-      businessFacts: CONTENT_STATE.CONTENT_REQUIRED
+      seo: CONTENT_STATE.READY,
+      businessFacts: CONTENT_STATE.READY,
+      english: CONTENT_STATE.READY
     },
-    evidenceSources: ["docs/core/CONTENT_IA.md"],
-    content: null
+    evidenceSources: [
+      "src/pages/contact.js",
+      "src/pages/project-planner.js",
+      "src/client/project-planner.js",
+      "src/templates/document.js",
+      "src/config/site.js"
+    ],
+    content: {
+      ar: Object.freeze({
+        purpose: "شرح ما يفعله الموقع الحالي ببيانات الزائر بصورة واضحة ومحددة.",
+        kicker: "الخصوصية",
+        title: "نوضح ما يحدث لبياناتك قبل أن تشاركها.",
+        support: "في النسخة الحالية من الموقع، لا يرسل مخطط المشروع بياناتك إلى خادم وصل تك ولا يخزنها في المتصفح؛ يجهزها محليًا للمراجعة ثم يفتح واتساب فقط إذا اخترت ذلك.",
+        primaryCta: null,
+        secondaryCta: null,
+        sections: Object.freeze([
+          Object.freeze({
+            id: "planner",
+            kicker: "مخطط المشروع",
+            title: "التفاصيل تبقى في المتصفح حتى تختار أنت فتح واتساب.",
+            support: "الاسم ورقم التواصل واحتياج المشروع والتفاصيل التي تكتبها تُستخدم داخل الصفحة لتكوين ملخص ورسالة. لا يقوم الموقع بإرسالها تلقائيًا أو تخزينها في localStorage أو sessionStorage."
+          }),
+          Object.freeze({
+            id: "external",
+            kicker: "القنوات الخارجية",
+            title: "واتساب والبريد وإنستغرام خدمات خارجية عن الموقع.",
+            support: "عندما تختار فتح واتساب أو البريد أو إنستغرام تنتقل إلى خدمة خارجية، وقد تعالج تلك الخدمة البيانات وفق إعداداتها وسياساتها الخاصة."
+          }),
+          Object.freeze({
+            id: "tracking",
+            kicker: "التحليلات والكوكيز",
+            title: "لا نضيف حاليًا أدوات تحليلات أو ملفات تعريف ارتباط للتتبع داخل VNext.",
+            support: "إذا تغير ذلك مستقبلًا، يجب تحديث هذه الصفحة قبل الاعتماد على السلوك الجديد. قد تعالج البنية المستضيفة أو الخدمات الخارجية بيانات تقنية لازمة لتشغيل خدماتها وفق سياساتها."
+          }),
+          Object.freeze({
+            id: "contact",
+            kicker: "عند التواصل",
+            title: "ما ترسله عبر قناة خارجية يخضع لتلك القناة والمحادثة التي تبدأها أنت.",
+            support: "لا يحدد هذا الموقع مدة احتفاظ أو معالجة لرسائل واتساب أو البريد لأنه لا يستقبلها داخل نموذج أو قاعدة بيانات تابعة للموقع."
+          })
+        ]),
+        seo: Object.freeze({
+          title: "سياسة الخصوصية | وصل تك — Wasl Tech",
+          description: "كيف تتعامل نسخة موقع وصل تك الحالية مع مخطط المشروع، القنوات الخارجية، التحليلات وملفات تعريف الارتباط."
+        })
+      }),
+      en: Object.freeze({
+        purpose: "Explain what the current website actually does with visitor information in a clear and limited way.",
+        kicker: "Privacy",
+        title: "We explain what happens to your information before you share it.",
+        support: "In the current site, the project planner does not send your details to a Wasl Tech server or store them in the browser. It prepares them locally for review, then opens WhatsApp only if you choose to continue.",
+        primaryCta: null,
+        secondaryCta: null,
+        sections: Object.freeze([
+          Object.freeze({
+            id: "planner",
+            kicker: "Project planner",
+            title: "Your details stay in the browser until you choose to open WhatsApp.",
+            support: "The name, contact number, project need, and details you enter are used on the page to prepare a summary and message. The site does not automatically send them or store them in localStorage or sessionStorage."
+          }),
+          Object.freeze({
+            id: "external",
+            kicker: "External channels",
+            title: "WhatsApp, email, and Instagram operate outside this website.",
+            support: "When you choose one of these channels, you move to an external service that may process information according to its own settings and policies."
+          }),
+          Object.freeze({
+            id: "tracking",
+            kicker: "Analytics and cookies",
+            title: "VNext currently adds no analytics tools or tracking cookies.",
+            support: "If that changes in the future, this page should be updated before the new behavior is relied on. Hosting infrastructure or external services may process technical data required to operate their services under their own policies."
+          }),
+          Object.freeze({
+            id: "contact",
+            kicker: "When you contact us",
+            title: "Information you send through an external channel follows that channel and the conversation you choose to start.",
+            support: "This website does not state a retention period for WhatsApp or email messages because it does not receive those messages through its own form or database."
+          })
+        ]),
+        seo: Object.freeze({
+          title: "Privacy Policy | Wasl Tech",
+          description: "How the current Wasl Tech site handles the project planner, external contact channels, analytics, and cookies."
+        })
+      })
+    }
   }),
   page({
     id: "terms",
     routeKey: "terms",
-    state: CONTENT_STATE.CONTENT_REQUIRED,
+    state: CONTENT_STATE.READY,
+    reviewed: true,
     fieldState: {
       purpose: CONTENT_STATE.READY,
-      arabicCore: CONTENT_STATE.CONTENT_REQUIRED,
-      sections: CONTENT_STATE.CONTENT_REQUIRED,
+      arabicCore: CONTENT_STATE.READY,
+      sections: CONTENT_STATE.READY,
       cta: CONTENT_STATE.NOT_APPLICABLE,
-      seo: CONTENT_STATE.CONTENT_REQUIRED,
-      businessFacts: CONTENT_STATE.CONTENT_REQUIRED
+      seo: CONTENT_STATE.READY,
+      businessFacts: CONTENT_STATE.READY,
+      english: CONTENT_STATE.READY
     },
-    evidenceSources: ["docs/core/CONTENT_IA.md"],
-    content: null
+    evidenceSources: [
+      "src/pages/project-planner.js",
+      "src/client/project-planner.js",
+      "src/data/services.js",
+      "src/data/projects.js"
+    ],
+    content: {
+      ar: Object.freeze({
+        purpose: "توضيح حدود استخدام الموقع وما الذي لا يشكل اتفاقًا أو وعدًا تعاقديًا.",
+        kicker: "الشروط",
+        title: "الموقع يشرح خدماتنا ويساعدك على بدء المحادثة؛ الاتفاق يبدأ بشكل منفصل.",
+        support: "تصفح الخدمات أو الأعمال أو تجهيز رسالة من مخطط المشروع لا ينشئ طلبًا ملزمًا أو سعرًا أو مدة أو نطاقًا نهائيًا.",
+        primaryCta: null,
+        secondaryCta: null,
+        sections: Object.freeze([
+          Object.freeze({
+            id: "information",
+            kicker: "محتوى الموقع",
+            title: "المعلومات هنا للتعريف بالخدمات وطريقة العمل وبدء النقاش.",
+            support: "تفاصيل كل مشروع الفعلية — بما فيها النطاق والمخرجات والسعر والمدة — تُحدد حسب متطلباته والاتفاق الذي يتم عليه خارج هذه الصفحة."
+          }),
+          Object.freeze({
+            id: "planner",
+            kicker: "مخطط المشروع",
+            title: "تجهيز الرسالة لا يعني إرسال طلب أو قبول مشروع.",
+            support: "المخطط يساعدك على ترتيب المعلومات ثم يفتح واتساب إذا اخترت ذلك. لا توجد موافقة أو حجز أو تعاقد تلقائي بمجرد استخدامه."
+          }),
+          Object.freeze({
+            id: "examples",
+            kicker: "الخدمات والأعمال",
+            title: "الأمثلة السابقة تشرح نوع العمل ولا تضمن نتيجة مطابقة لمشروع جديد.",
+            support: "كل مشروع له سياقه ونطاقه وقراراته، لذلك لا نستخدم مشروعًا سابقًا كتعهد بنتيجة أو وظيفة أو مخرج لمشروع مختلف."
+          }),
+          Object.freeze({
+            id: "external",
+            kicker: "الروابط الخارجية",
+            title: "بعض الإجراءات تنقلك إلى خدمات خارجية.",
+            support: "واتساب والبريد وإنستغرام وخدمات الطرف الثالث تعمل وفق شروطها وسياساتها، ولا تتحول إلى جزء من اتفاق خدمة مع وصل تك بمجرد فتح الرابط."
+          })
+        ]),
+        seo: Object.freeze({
+          title: "شروط استخدام الموقع | وصل تك — Wasl Tech",
+          description: "حدود استخدام موقع وصل تك، مخطط المشروع، محتوى الخدمات والأعمال، والروابط الخارجية."
+        })
+      }),
+      en: Object.freeze({
+        purpose: "Clarify the limits of website use and what does not create a contractual commitment.",
+        kicker: "Terms",
+        title: "The site explains our services and helps start a conversation; any agreement is made separately.",
+        support: "Browsing services or work, or preparing a planner message, does not create a binding order, price, timeline, or final scope.",
+        primaryCta: null,
+        secondaryCta: null,
+        sections: Object.freeze([
+          Object.freeze({
+            id: "information",
+            kicker: "Website information",
+            title: "The site introduces services, working approach, and ways to start a discussion.",
+            support: "Actual project details—including scope, deliverables, price, and timeline—depend on the project requirements and the separate agreement made for that work."
+          }),
+          Object.freeze({
+            id: "planner",
+            kicker: "Project planner",
+            title: "Preparing a message does not submit or accept a project.",
+            support: "The planner helps organize information and opens WhatsApp if you choose to continue. Using it alone does not create approval, reservation, or a contract."
+          }),
+          Object.freeze({
+            id: "examples",
+            kicker: "Services and work",
+            title: "Previous examples show the kind of work we have done; they do not guarantee an identical result for a new project.",
+            support: "Every project has its own context, scope, and decisions, so an earlier project is not a promise of a specific result, feature, or deliverable for a different project."
+          }),
+          Object.freeze({
+            id: "external",
+            kicker: "External links",
+            title: "Some actions take you to services outside this website.",
+            support: "WhatsApp, email, Instagram, and other third-party services operate under their own terms and policies. Opening those links does not by itself make them part of a Wasl Tech service agreement."
+          })
+        ]),
+        seo: Object.freeze({
+          title: "Website Terms | Wasl Tech",
+          description: "Terms for using the Wasl Tech website, project planner, service and project content, and external links."
+        })
+      })
+    }
   }),
   page({
     id: "notFound",
