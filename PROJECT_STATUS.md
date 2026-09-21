@@ -217,50 +217,57 @@ The next implementation work is:
 The original Wasl Tech identity remains authoritative, and the approved content/data layer must be consumed rather than duplicated in page markup.
 
 ## Phase 3 — Design Tokens & Shared Primitives
-**ACTIVE — implementation verified; visual gate still open**
+**ACTIVE — visual gate passed; final HEAD CI run queued**
 
 Implemented:
-- expanded canonical token grammar;
-- semantic color roles;
+- canonical token grammar and semantic color roles;
 - bilingual typography hierarchy;
 - responsive container/stack/cluster/grid/split/flow primitives;
-- button variants and sizes;
-- text-link primitive;
+- button/link primitives;
 - reusable card/surface system;
-- accessible form-field states;
-- reusable media-frame ratios;
+- accessible form controls and states;
+- reusable media-frame contracts;
 - focus-visible and reduced-motion baseline;
-- locale-aware design-system showcase in Arabic and English;
-- shared components:
-  - `ActionLink`
-  - `SurfaceCard`
-  - `FormField`
-  - `MediaFrame`
-- `PageHero` and `ContactCTA` now consume shared action behavior;
-- CI guard added for undefined CSS custom properties.
+- bilingual internal component showcase;
+- shared `ActionLink`, `SurfaceCard`, `FormField`, `MediaFrame`;
+- PageHero/ContactCTA reuse shared actions;
+- CSS custom-property integrity guard;
+- CI concurrency rule to keep future verification focused on the latest branch head.
 
-Verified implementation baseline:
-- workflow: `VNext verify`
-- run: `35558474835`
-- SHA: `50c5b3008dbe5160342171c0d9aa0dc269dfbf0a`
-- result: **SUCCESS**
-- Build: PASS
-- Structure: PASS
-- Data: PASS
-- bilingual showcase generation: PASS
+Visual review performed in Chromium using the exact generated preview artifact with assets/CSS injected in-memory because Vercel preview was blocked by build-rate-limit:
+- Arabic desktop: 1440px;
+- Arabic mobile: 390px;
+- English desktop: 1440px;
+- English mobile: 390px.
+
+Visual/DOM results:
+- no horizontal overflow at 1440 or 390;
+- RTL/LTR direction correct;
+- mobile header CTA conflict discovered and fixed;
+- menu touch target: 46px;
+- mobile language switch touch target: 46px;
+- visible buttons: 46px;
+- input/select controls: 46px across Arabic/English after normalization;
+- responsive grids/cards/forms/media collapse correctly on mobile;
+- Arabic showcase helper copy localized to test realistic RTL content.
+
+Typography caveat:
+- the local renderer could not load IBM Plex binary font files because of environment network/binary restrictions;
+- hierarchy/layout were reviewed using fallback metrics;
+- exact IBM Plex glyph rendering must be re-confirmed later on a real web preview, but the CSS font contract remains IBM Plex Sans Arabic / IBM Plex Sans.
+
+Verification evidence already green:
+- `da05b3b2fa00ab576916ad4c5877524206559ac1` — SUCCESS;
+- `84b3f36afd9db1d01da75c513f78bfe7b0ab6d52` — SUCCESS;
+- `d13d86b4282a22e95fbc83c2a126637216a53491` — SUCCESS;
+- `4b529b2b85c6ec4d6305c427be7ecf5ecb010a2c` — SUCCESS;
+- `778797169f517eaaa67fd1fef72888468b65e3be` — SUCCESS.
 
 Latest design refinement:
-- SHA: `da05b3b2fa00ab576916ad4c5877524206559ac1`
-- manual CSS-token audit: **162 declared / 114 used / 0 missing**
-- GitHub Actions run: `35558780012` — currently queued at the time of this status update.
+- `0d97f4930059052d695706d0998fdb9658e76765` — direct Chromium/computed-style verification passed; GitHub run `35559252091` is queued, not failed.
+- branch HEAD after CI queue improvement: `75d7355e04476ac8e750a09353877554a7b83d60`.
 
-Visual gate:
-- Vercel preview is currently blocked by Vercel `build-rate-limit`;
-- the GitHub Actions preview artifact was downloaded and inspected structurally;
-- local Chromium fails before rendering because of the container DBus/zygote environment;
-- local WeasyPrint also fails on its CSS Grid renderer before producing a page image.
-
-Therefore Phase 3 is **not** marked complete yet. Do not advance to Phase 4 until an actual desktop/mobile visual review can be performed.
+Phase 4 must not be marked active until the queued final verification clears or a new equivalent verification succeeds.
 
 ## Production separation
 
