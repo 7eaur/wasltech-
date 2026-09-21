@@ -3,10 +3,9 @@
 Last updated: 2026-09-21  
 Repository: `7eaur/wasltech-`  
 Official/legacy branch: `main`  
-Current live `main` at handoff: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
+Current live `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Current VNext branch HEAD at handoff: `8dd92db153deea8b42febcaf0f9be6660aabbe79`  
-Latest verified VNext implementation HEAD: `b7412a4a5143404a9169857b4ef844a7765cfa83`
+Latest verified VNext implementation HEAD: `4c1c3ba07924d5a99ce827eae060a7923663da1d`
 
 ## Current state
 
@@ -62,11 +61,13 @@ Locked:
 
 ### 2. Current published Wasl site — evidence/reference
 Use it to recover:
-- verified business copy;
-- current service/project facts;
+- verified business facts and operating behavior;
+- current service/project identities and factual scope evidence;
 - real images/assets;
 - current contact behavior;
 - existing public expectations.
+
+**Do not treat Legacy wording as canonical VNext copy.** Old headings, descriptions, CTAs, FAQ wording and section order are evidence/context only unless deliberately rewritten and approved.
 
 Do not copy its legacy CSS/JS architecture into VNext.
 
@@ -217,6 +218,27 @@ Still incomplete across the portfolio:
 Evidence:
 `docs/qa/2026-09-21_phase-2b_content-gap-audit.md`
 
+### Phase 2B implementation batch — verified
+
+Implemented:
+- `src/data/content-contracts.js` with completeness states and explicit authoring policy;
+- `src/data/pages.js` as canonical page-level content owner;
+- service and project field-state/evidence metadata;
+- verified Instagram contact in site config;
+- extended data integrity checks for Phase 2B contracts;
+- Legacy/VNext authoring separation: **Legacy = evidence only; VNext copy = newly authored**;
+- migrated Arabic service/project copy reclassified as `draft`, not final/ready.
+
+Verification:
+- workflow: `VNext verify`
+- run: `35553980138`
+- SHA: `4c1c3ba07924d5a99ce827eae060a7923663da1d`
+- result: **SUCCESS**
+
+Editorial rule now enforced:
+**Evidence → User need → Message hierarchy → New copy → Fact check → UX review**
+
+
 ## Exact next actions
 
 1. Extend the final service/project schemas in code.
@@ -234,7 +256,9 @@ Evidence:
 
 ## Phase 2B rules
 
-- legacy content = baseline, not completion;
+- legacy content = evidence/baseline only, never the default wording source;
+- preserve verified facts, identities, scope evidence and assets; rewrite presentation copy from scratch for VNext;
+- migrated Arabic content remains `draft` until editorial review;
 - ask the user for facts/evidence, not finished marketing copy;
 - the implementation team writes final Arabic/English copy;
 - do not invent project results, technologies, dates, clients, prices, timelines or SLAs;
