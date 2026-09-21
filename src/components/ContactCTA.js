@@ -1,3 +1,6 @@
+import { escapeHtml } from "../lib/html.js";
+import { ActionLink } from "./ActionLink.js";
+
 export function ContactCTA({
   title = "جاهز تبدأ من نقطة واضحة؟",
   supporting = "شاركنا احتياجك، ونرتب معك الخطوة التالية.",
@@ -8,10 +11,10 @@ export function ContactCTA({
     <section class="contact-cta">
       <div class="container contact-cta__inner">
         <div>
-          <h2>${title}</h2>
-          <p>${supporting}</p>
+          <h2>${escapeHtml(title)}</h2>
+          <p>${escapeHtml(supporting)}</p>
         </div>
-        <a class="button button--light" href="${href}">${label}</a>
+        ${ActionLink({ href, label, variant: "light", size: "lg" })}
       </div>
     </section>
   `;
