@@ -5,7 +5,7 @@ Repository: `7eaur/wasltech-`
 Official/legacy branch: `main`  
 Current live `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified VNext implementation HEAD: `b1b2e14968dd5e9fc2f33405e5f106b547ac24c4`
+Latest verified VNext implementation HEAD: `c2640be27fb76dca4232c134df86ff1d0269d496`
 
 ## Current state
 
@@ -244,19 +244,59 @@ Verification:
 Exact IBM Plex glyph rendering remains a later live-preview confirmation item because local environment could not load the binary font files, but the canonical font contract is unchanged.
 
 ## Phase 4 — Shared Shell
-**ACTIVE**
+**COMPLETE**
 
-Scope:
-- Header;
-- primary navigation;
-- mobile drawer behavior;
-- locale switch;
-- Footer;
-- route-family active state;
-- keyboard/focus behavior;
-- responsive shell verification.
+Completed:
+- route-family-aware primary navigation;
+- bilingual Header and Footer;
+- language switch preserving route identity;
+- reusable header project CTA;
+- responsive mobile navigation drawer;
+- accessible open/close labels;
+- animated menu icon without decorative excess;
+- Escape handling with focus return;
+- outside-click close behavior;
+- desktop-resize close behavior;
+- mobile active-state treatment;
+- four-column desktop Footer with responsive collapse;
+- dedicated `check-shell.mjs` gate;
+- ready public shell routes generated for Arabic and English.
 
-Do not begin Homepage composition until this phase passes its gate.
+Visual verification:
+- Arabic desktop: 1440px;
+- Arabic mobile: 390px;
+- English desktop: 1440px;
+- English mobile: 390px;
+- open mobile navigation reviewed in both locales;
+- no horizontal overflow;
+- mobile navigation width: 366px at 390px viewport;
+- mobile header CTA hidden correctly;
+- active navigation verified for Services in Arabic and English;
+- Footer responsive behavior verified.
+
+Interaction verification:
+- menu open/close state: PASS;
+- `aria-expanded`: PASS;
+- localized `aria-label` open/close: PASS;
+- Escape closes + restores focus: PASS;
+- outside pointer closes: PASS;
+- resize to desktop closes: PASS.
+
+Verification:
+- workflow: `VNext verify`
+- run: `35562217299`
+- SHA: `c2640be27fb76dca4232c134df86ff1d0269d496`
+- result: **SUCCESS**
+- Build: PASS
+- Structure: PASS
+- Shared Shell Gate: PASS
+- Data: PASS
+
+### Next phase — Phase 5: Homepage
+
+Phase 5 is ready but **not started**.
+
+Do not compose the Homepage until the next explicit continuation point.
 
 ## Production separation
 
