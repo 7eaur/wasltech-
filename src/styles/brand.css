@@ -7,6 +7,8 @@
   --color-brand-accent:var(--wt-teal-500);
   --color-brand-accent-hover:var(--wt-teal-700);
   --color-brand-accent-soft:var(--wt-teal-50);
+  --color-action-primary:var(--wt-teal-600);
+  --color-action-primary-hover:var(--wt-teal-700);
 
   --color-bg-canvas:var(--wt-neutral-0);
   --color-bg-subtle:var(--wt-neutral-25);
@@ -31,7 +33,7 @@
   --color-control-border:var(--wt-neutral-300);
   --color-control-placeholder:var(--wt-neutral-400);
 
-  --color-focus:var(--wt-teal-300);
+  --color-focus:var(--wt-teal-600);
   --color-selection-bg:var(--wt-teal-100);
   --color-selection-text:var(--wt-navy-950);
 
