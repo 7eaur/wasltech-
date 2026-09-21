@@ -2,6 +2,9 @@ import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { routes } from "../src/config/routes.js";
+import { absoluteUrl } from "../src/config/seo.js";
+
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist");
 
@@ -26,29 +29,54 @@ function count(source, pattern) {
   return [...source.matchAll(pattern)].length;
 }
 
+const routeKeys = ["home", "services", "portfolio", "process", "about", "contact"];
+
+function outputPath(route) {
+  if (route === "/") return "index.html";
+  return path.join(route.replace(/^\\//, ""), "index.html");
+}
+
 const requiredPages = [
-  "index.html",
-  "services/index.html",
-  "portfolio/index.html",
-  "process/index.html",
-  "about/index.html",
-  "contact/index.html",
-  "404.html"
+  ...["ar", "en"].flatMap((locale) =>
+    routeKeys.map((routeKey) => ({
+      file: outputPath(routes[routeKey](locale)),
+      route: routes[routeKey](locale),
+      locale,
+      dir: locale === "ar" ? "rtl" : "ltr",
+      alternate: routes[routeKey](locale === "ar" ? "en" : "ar")
+    }))
+  ),
+  { file: "404.html", route: null, locale: "ar", dir: "rtl", alternate: null }
 ];
 
-for (const page of requiredPages) {
-  const file = path.join(DIST, page);
+for (const record of requiredPages) {
+  const file = path.join(DIST, record.file);
   try {
     const html = await readFile(file, "utf8");
 
-    if (!html.includes('<html lang="ar" dir="rtl">')) fail(page, "missing Arabic RTL document contract");
-    if (count(html, /<h1\b/g) !== 1) fail(page, "expected exactly one h1");
-    if (count(html, /<main\b/g) !== 1) fail(page, "expected exactly one main");
-    if (!html.includes('name="robots" content="noindex,follow"')) fail(page, "foundation preview must remain noindex");
-    if (html.includes('href="#"')) fail(page, 'dead href="#" is forbidden');
-    if (html.includes('style="')) fail(page, "inline style attributes are forbidden in VNext generated markup");
+    if (!html.includes(`<html lang="${record.locale}" dir="${record.dir}">`)) {
+      fail(record.file, `missing ${record.locale}/${record.dir} document contract`);
+    }
+    if (count(html, /<h1\b/g) !== 1) fail(record.file, "expected exactly one h1");
+    if (count(html, /<main\b/g) !== 1) fail(record.file, "expected exactly one main");
+    if (!html.includes('name="robots" content="noindex,follow"')) fail(record.file, "foundation preview must remain noindex");
+    if (html.includes('href="#"')) fail(record.file, 'dead href="#" is forbidden');
+    if (html.includes('style="')) fail(record.file, "inline style attributes are forbidden in VNext generated markup");
+
+    if (record.route) {
+      const canonical = absoluteUrl(record.route);
+      const alternate = absoluteUrl(record.alternate);
+      if (!html.includes(`rel="canonical" href="${canonical}"`)) fail(record.file, "canonical URL missing or incorrect");
+      if (!html.includes(`hreflang="${record.locale}" href="${canonical}"`)) fail(record.file, "self hreflang missing");
+      const alternateLocale = record.locale === "ar" ? "en" : "ar";
+      if (!html.includes(`hreflang="${alternateLocale}" href="${alternate}"`)) fail(record.file, "alternate hreflang missing");
+      if (!html.includes('hreflang="x-default"')) fail(record.file, "x-default hreflang missing");
+      for (const property of ["og:type", "og:locale", "og:site_name", "og:title", "og:description", "og:url"]) {
+        if (!html.includes(`property="${property}"`)) fail(record.file, `missing ${property}`);
+      }
+    }
   } catch {
-    fail(page, "generated page missing");
+    fail(record.file, "generated page missing");
   }
 }
 
@@ -210,5 +238,5 @@ if (errors.length) {
 }
 
 console.log("VNEXT CHECK: PASSED");
-console.log(`Checked ${requiredPages.length} generated routes and ${sourceFiles.length} source files.`);
+console.log(`Checked ${requiredPages.length} generated bilingual routes and ${sourceFiles.length} source files.`);
 console.log("Brand guard: PASSED");
