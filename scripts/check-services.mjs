@@ -33,8 +33,9 @@ for (const locale of ["ar","en"]) {
   if (html.includes("VNext Foundation")) fail(file,"foundation placeholder leaked into Services");
 
   for (const group of serviceGroups) {
-    const title = group.content[locale].title;
-    if (!html.includes(htmlText(title))) fail(file,`service family missing: ${title}`);
+    if (!html.includes(`id="${group.id}"`)) {
+      fail(file,`service family section missing: ${group.id}`);
+    }
   }
 
   for (const service of services) {
