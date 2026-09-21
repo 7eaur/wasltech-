@@ -1005,8 +1005,8 @@ export const pages = Object.freeze([
           Object.freeze({
             id: "external",
             kicker: "القنوات الخارجية",
-            title: "واتساب والبريد وإنستغرام خدمات خارجية عن الموقع.",
-            support: "عندما تختار فتح واتساب أو البريد أو إنستغرام تنتقل إلى خدمة خارجية، وقد تعالج تلك الخدمة البيانات وفق إعداداتها وسياساتها الخاصة."
+            title: "واتساب والبريد وإنستغرام وGoogle Fonts خدمات خارجية عن الموقع.",
+            support: "عند تحميل الصفحة يطلب المتصفح ملفات الخط من Google Fonts. وعندما تختار فتح واتساب أو البريد أو إنستغرام تنتقل إلى خدمة خارجية. قد تعالج هذه الخدمات بيانات تقنية أو معلومات تشاركها معها وفق إعداداتها وسياساتها الخاصة."
           }),
           Object.freeze({
             id: "tracking",
@@ -1043,8 +1043,8 @@ export const pages = Object.freeze([
           Object.freeze({
             id: "external",
             kicker: "External channels",
-            title: "WhatsApp, email, and Instagram operate outside this website.",
-            support: "When you choose one of these channels, you move to an external service that may process information according to its own settings and policies."
+            title: "WhatsApp, email, Instagram, and Google Fonts operate outside this website.",
+            support: "When the page loads, the browser requests font resources from Google Fonts. When you choose WhatsApp, email, or Instagram, you move to an external service. These services may process technical data or information you share with them under their own settings and policies."
           }),
           Object.freeze({
             id: "tracking",
