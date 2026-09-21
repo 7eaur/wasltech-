@@ -593,7 +593,7 @@ export const pages = Object.freeze([
     fieldState: {
       purpose: CONTENT_STATE.READY,
       arabicCore: CONTENT_STATE.READY,
-      sections: CONTENT_STATE.READY,
+      sections: CONTENT_STATE.NOT_APPLICABLE,
       cta: CONTENT_STATE.READY,
       seo: CONTENT_STATE.READY,
       businessFacts: CONTENT_STATE.NOT_APPLICABLE
