@@ -74,10 +74,30 @@ for (const record of requiredPages) {
       for (const property of ["og:type", "og:locale", "og:site_name", "og:title", "og:description", "og:url"]) {
         if (!html.includes(`property="${property}"`)) fail(record.file, `missing ${property}`);
       }
+      for (const name of ["twitter:card", "twitter:title", "twitter:description"]) {
+        if (!html.includes(`name="${name}"`)) fail(record.file, `missing ${name}`);
+      }
+      if (record.route === routes.home(record.locale) && !html.includes('type="application/ld+json"')) {
+        fail(record.file, "homepage structured data missing");
+      }
+    } else {
+      if (html.includes('rel="canonical"')) fail(record.file, "404 must not emit canonical");
+      if (html.includes('hreflang=')) fail(record.file, "404 must not emit hreflang");
     }
   } catch {
     fail(record.file, "generated page missing");
   }
+}
+
+const robotsOutput = await readFile(path.join(DIST, "robots.txt"), "utf8");
+if (!robotsOutput.includes("User-agent: *") || !robotsOutput.includes("Disallow: /")) {
+  fail("robots.txt", "preview robots policy must block crawling");
+}
+try {
+  await stat(path.join(DIST, "sitemap.xml"));
+  fail("sitemap.xml", "preview build must not emit an indexable sitemap");
+} catch {
+  // Expected until release/index mode is enabled.
 }
 
 const sourceFiles = [
