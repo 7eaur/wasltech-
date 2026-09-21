@@ -19,4 +19,4 @@ hr{border:0;border-top:var(--border-thin) solid var(--color-border-default)}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 [hidden]{display:none}
 @media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms;animation-iteration-count:1;transition-duration:.01ms}}
