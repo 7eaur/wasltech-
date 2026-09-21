@@ -2,24 +2,115 @@
 
 Last updated: 2026-09-21  
 Repository: `7eaur/wasltech-`  
-Official branch: `main`  
+Official/legacy branch: `main`  
+Current live `main` at handoff: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified implementation HEAD: `b7412a4a5143404a9169857b4ef844a7765cfa83`
+Current VNext branch HEAD at handoff: `8dd92db153deea8b42febcaf0f9be6660aabbe79`  
+Latest verified VNext implementation HEAD: `b7412a4a5143404a9169857b4ef844a7765cfa83`
 
 ## Current state
 
 **VNext clean rebuild is ACTIVE.**
 
-The existing public implementation remains separate while VNext is built and verified.
+The published website remains the legacy/current implementation from `main`. VNext is developed separately and must not replace production until the final cutover gates pass.
 
-VNext does not patch the legacy HTML/CSS/JS architecture and must not replace production before the cutover phase.
+Current verified Vercel production:
+- project: `wasltech`
+- deployment: `dpl_8SBJ3gBagT7V9jgeHuKqjDbskaT9`
+- state: **READY**
+- target: **production**
+- Git branch: `main`
+- Git SHA: `a4ed507defe5e7831f3459e12752a89fe0d225fc`
+- alias: `wasltech.vercel.app`
+
+That `main` commit added VNext documentation only and did **not** replace the legacy runtime implementation.
+
+VNext branch deployments/previews must never be confused with production.
+
+## Why VNext exists
+
+The project deliberately moved away from repeatedly patching the existing site.
+
+VNext is a clean architecture rebuild with:
+- build-time static multipage output;
+- Node 24;
+- minimal runtime JavaScript;
+- centralized config/data;
+- reusable components/templates;
+- Arabic default at `/`;
+- English under `/en/`;
+- generated service/project/article/job routes;
+- SEO as a build-time concern;
+- strict content integrity and no invented claims.
+
+The legacy published site remains useful as evidence for verified content/assets/behavior, but it is **not** the architecture to continue patching.
+
+## Reference hierarchy
+
+### 1. Wasl Tech identity — authoritative
+Use only the original identity/assets in this repository:
+- `assets/brand/wasl-tech-horizontal.svg`
+- `assets/brand/wasl-tech-horizontal-white.svg`
+- `assets/brand/favicon.svg`
+
+Locked:
+- IBM Plex Sans Arabic / IBM Plex Sans;
+- Navy `#14305F`;
+- Teal `#0E8889`;
+- Teal Dark `#096B70`;
+- approved Navy/Teal scales + supporting neutral palette.
+
+### 2. Current published Wasl site — evidence/reference
+Use it to recover:
+- verified business copy;
+- current service/project facts;
+- real images/assets;
+- current contact behavior;
+- existing public expectations.
+
+Do not copy its legacy CSS/JS architecture into VNext.
+
+### 3. UPDATE CARD — craft reference only
+Repository:
+`7eaur/update_card`
+
+Use it for:
+- design discipline;
+- compact density;
+- spacing;
+- controlled surfaces;
+- restrained shadows/radii;
+- image-led storytelling;
+- intentional mobile composition;
+- shared component contracts.
+
+Do **not** copy its branding, colors, content or literal layout.
+
+### 4. SATR Technology — structural/writing benchmark only
+Public reference:
+`https://satr-tec.com/`
+
+Canonical audit:
+`docs/research/SATR_TEC_COMPETITOR_AUDIT_2026-09-21.md`
+
+Use it for:
+- page purpose;
+- hero/page sequencing;
+- service-detail depth;
+- case-study storytelling;
+- project-planner structure;
+- content hierarchy;
+- writing/microcopy lessons;
+- SEO/content architecture ideas.
+
+Do **not** copy its text, brand, images, code or literal visual design.
 
 ## Completed
 
 ### Phase 0 — Canonical Foundation
 **COMPLETE**
 
-Canonical documentation and handoff system are established.
+Canonical docs, status/handoff protocol and operating rules established.
 
 ### Phase 1 — Build System & Repository Skeleton
 **COMPLETE**
@@ -27,32 +118,29 @@ Canonical documentation and handoff system are established.
 Implemented:
 - Node 24 ESM build-time static pipeline;
 - centralized config/component/template foundation;
-- separated CSS responsibility layers;
-- minimal runtime navigation behavior;
-- noindex foundation preview routes;
+- separated VNext CSS layers;
+- minimal navigation runtime;
+- generated noindex preview routes;
 - VNext CI workflow.
 
 Original Phase 1 evidence:
-- Run: `35543509588`
+- run: `35543509588`
 - SHA: `e18e906817b1550a4ccaa56e438e0187340b6524`
-- Result: **SUCCESS**
+- result: **SUCCESS**
 
-### Pre-Phase-2 — Brand + Bilingual + SEO Architecture Freeze
+### Brand + Bilingual + SEO Architecture Freeze
 **COMPLETE**
 
 Locked:
 - original Wasl brand assets;
-- IBM Plex Sans Arabic / IBM Plex Sans;
-- official Navy/Teal palette and semantic tokens;
-- Arabic default at `/`;
-- English under `/en/`;
-- shared stable entity slugs across locales;
-- scalable service/project/article/job route architecture;
+- bilingual IBM Plex typography;
+- official palette + semantic tokens;
+- Arabic `/`, English `/en/`;
+- stable shared entity slugs;
+- service/project/article/job route builders;
+- Insights, Careers, Privacy, Terms, FAQ and Start Project surfaces;
 - SEO-first canonical/hreflang/sitemap/robots/structured-data direction;
 - automated brand/locale/route guards.
-
-Evidence:
-`docs/qa/2026-09-21_brand-bilingual-architecture-foundation.md`
 
 ### Phase 2 — Bilingual Data & Content Normalization
 **COMPLETE**
@@ -60,29 +148,17 @@ Evidence:
 Normalized:
 - 8 official services → `src/data/services.js`;
 - 14 verified projects → `src/data/projects.js`;
-- 13 general FAQ items in 4 groups → `src/data/faq.js`;
+- 13 general FAQ items / 4 groups → `src/data/faq.js`;
 - article contract → `src/data/articles.js`;
-- careers contract → `src/data/jobs.js`.
-
-Architecture:
-- one entity identity, localized `content.ar` / `content.en`;
-- Arabic source content preserved;
-- English remains `content_required` until reviewed;
-- stable slugs and service families;
-- project→service relations use ids;
-- no fake case-study fields;
-- no fake articles/jobs.
-
-Integrity:
-- `scripts/check-data.mjs` validates ids, slugs, locale states, relations and image assets.
-- `npm run vnext:verify` now runs structural + data checks.
+- careers contract → `src/data/jobs.js`;
+- data integrity checks → `scripts/check-data.mjs`.
 
 Final Phase 2 evidence:
-- Workflow: `VNext verify`
-- Run: `35552059884`
-- HEAD: `b7412a4a5143404a9169857b4ef844a7765cfa83`
-- Conclusion: **SUCCESS**
-- Data result: `Services: 8 | Projects: 14 | FAQ: 13 | Articles: 0 | Jobs: 0`
+- workflow: `VNext verify`
+- run: `35552059884`
+- SHA: `b7412a4a5143404a9169857b4ef844a7765cfa83`
+- result: **SUCCESS**
+- `Services: 8 | Projects: 14 | FAQ: 13 | Articles: 0 | Jobs: 0`
 
 QA:
 `docs/qa/2026-09-21_phase-2_data-normalization.md`
@@ -92,78 +168,83 @@ QA:
 ### Phase 2B — Content Architecture & Evidence Completion
 **ACTIVE**
 
-Goal:
-move from normalized legacy data to complete content/evidence contracts before final visual composition.
+Why this phase was added:
+after Phase 2, the user explicitly clarified that legacy content must **not** be treated as sufficient just because it exists. The site should use the complete information a strong service/portfolio/SEO experience actually needs, and the user will provide missing real facts/assets when necessary.
 
-Current audit:
-- services are structurally strong but still missing final scope/problem/integrations/proof/SEO/English completion;
-- all 14 projects are missing full case-study evidence fields such as year/live URL/gallery/verified stack/scope/outcomes;
-- page-level VNext content still needs canonical owners;
-- Insights currently has 0 articles and must be built around real search intent, not filler.
+Gap audit found:
+
+Services currently have:
+- title;
+- subtitle;
+- description;
+- audiences;
+- deliverables/features;
+- service process;
+- FAQ;
+- CTA;
+- primary image.
+
+Still incomplete as final VNext content:
+- explicit customer problem/need;
+- clear scope boundaries;
+- integrations/capabilities;
+- proof/evidence model;
+- entity-specific SEO/search intent;
+- related article topics;
+- reviewed English copy.
+
+Projects currently have:
+- title;
+- category;
+- primary image;
+- summary;
+- 3 highlights;
+- related service id.
+
+Still incomplete across the portfolio:
+- project year;
+- public client attribution rules;
+- live URL where applicable;
+- gallery/screenshots;
+- verified technologies;
+- actual scope;
+- what Wasl specifically delivered;
+- case-study overview/context/challenge where known;
+- verified factual outcomes;
+- SEO metadata;
+- reviewed English copy.
 
 Evidence:
 `docs/qa/2026-09-21_phase-2b_content-gap-audit.md`
 
-Next actions:
-1. define/extend final service and project field contracts in code;
-2. classify each field as READY/PARTIAL/CONTENT REQUIRED/NOT VERIFIED/NOT APPLICABLE;
-3. create page-level content owners;
-4. build prioritized missing-input list;
-5. request user facts/assets in small batches;
-6. draft final Arabic copy from verified evidence;
-7. prepare English copy after Arabic facts are stable;
-8. add SEO metadata/search-intent fields;
-9. re-run data integrity checks;
-10. close Phase 2B before final component/page composition.
+## Exact next actions
 
-### Phase 3 — Design Tokens & Shared Primitives
-**BLOCKED UNTIL PHASE 2B GATE**
+1. Extend the final service/project schemas in code.
+2. Classify fields as `READY / PARTIAL / CONTENT REQUIRED / NOT VERIFIED / NOT APPLICABLE`.
+3. Create canonical page-level content owners for Home/About/Services/Portfolio/Process/Contact/Start Project/FAQ/Insights/Careers/Privacy/Terms/404.
+4. Recover any missing facts/assets that can be proven from the repository.
+5. Build a prioritized missing-input list.
+6. Ask the user only for meaningful facts/assets that cannot be recovered.
+7. Draft the final Arabic content professionally from verified facts.
+8. Prepare English copy only after facts are stable.
+9. Add SEO title/meta/search-intent/internal-link fields.
+10. Extend integrity checks and verify.
+11. Close Phase 2B.
+12. Then continue to Phase 3 — Design Tokens & Shared Primitives.
 
-Goal:
-turn the frozen Wasl identity/tokens into a complete reusable visual primitive system before real page composition.
+## Phase 2B rules
 
-Phase 3 should implement/review:
-- typography scale and bilingual RTL/LTR behavior;
-- spacing/container/grid primitives;
-- Button/TextLink contracts;
-- SectionHeader;
-- PageHero variants;
-- ServiceCard / ProjectCard / ArticleCard baseline;
-- form controls;
-- FAQ/accordion primitive;
-- ResponsiveImage/media contracts;
-- surface/border/shadow/radius usage;
-- focus/hover/disabled/error states;
-- 360/390/mobile density;
-- static component showcase/fixture;
-- accessibility and reduced-motion checks.
-
-Do not build the final Homepage before Phase 2B content contracts are sufficiently known and the shared primitives pass visual review.
-
-## Preserved non-negotiables
-
-- original Wasl identity;
-- IBM Plex Sans Arabic / IBM Plex Sans;
-- Navy `#14305F`;
-- Teal `#0E8889`;
-- Teal Dark `#096B70`;
-- 8 official services;
-- Yemen + Gulf positioning;
-- Arabic + English architecture;
-- crawlable build-time HTML;
-- strong SEO architecture;
-- verified portfolio only;
-- responsive RTL/LTR;
-- compact mobile design;
-- WCAG/reduced motion;
-- truthful contact/WhatsApp behavior;
-- no invented metrics/prices/timelines/stacks;
-- reusable components and centralized data;
-- no legacy patching;
-- SATR lessons used structurally, never copied.
+- legacy content = baseline, not completion;
+- ask the user for facts/evidence, not finished marketing copy;
+- the implementation team writes final Arabic/English copy;
+- do not invent project results, technologies, dates, clients, prices, timelines or SLAs;
+- no generic SEO filler;
+- missing values stay explicit;
+- final design must be tested against realistic content lengths;
+- do not start final Homepage composition before Phase 2B closes.
 
 ## Production separation
 
 VNext is **not production**.
 
-Do not change Vercel production/output configuration until the final cutover gate.
+Do not merge/cut over or alter production routing until the final release phase.
