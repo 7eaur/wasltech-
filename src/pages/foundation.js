@@ -3,6 +3,7 @@ import { SectionHeader } from "../components/SectionHeader.js";
 import { ContactCTA } from "../components/ContactCTA.js";
 import { routes } from "../config/routes.js";
 import { documentTemplate } from "../templates/document.js";
+import { organizationSchema, websiteSchema } from "../seo/structured-data.js";
 
 const copy = Object.freeze({
   ar: Object.freeze({
@@ -96,7 +97,8 @@ export function foundationHome(locale = "ar") {
     activePath: routes.home(locale),
     alternatePath: routes.home(locale === "ar" ? "en" : "ar"),
     canonicalPath: routes.home(locale),
-    alternatePaths: alternatesFor("home")
+    alternatePaths: alternatesFor("home"),
+    structuredData: [organizationSchema(), websiteSchema(locale)]
   });
 }
 
