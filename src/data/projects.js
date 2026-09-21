@@ -19,7 +19,7 @@ const projectRecords = [
     ],
     "localeStatus": {
       "ar": "draft",
-      "en": "content_required"
+      "en": "draft"
     },
     "content": {
       "ar": {
@@ -43,7 +43,27 @@ const projectRecords = [
           "description": "منصة رقمية لإدارة وتسليم ومشاركة الصور بين المصورين والعملاء ضمن تجربة وصول منظمة."
         }
       },
-      "en": null
+      "en": {
+        "title": "Suwarikum Digital Platform",
+        "categoryLabel": "Web",
+        "summary": "A digital platform that organizes photo delivery and sharing between photographers and clients through dedicated access for each user.",
+        "highlights": [
+                  "Photo management and delivery",
+                  "Private client access",
+                  "A dedicated photographer-client experience"
+        ],
+        "caseStudy": {
+          "overview": "A project focused on turning scattered photo sharing into an organized digital experience that brings presentation, access, and delivery into one place.",
+          "context": "The platform addresses the photographer's need to deliver images to clients in a private, structured space instead of relying on fragmented file sharing.",
+          "contribution": "Designed and built a platform experience that connects photo management with private client access in one flow.",
+          "scope": ["Manage photo collections","Share content with clients","Organize access per user"],
+          "deliveredOutputs": ["Photo collection management","Dedicated client access","In-platform sharing and delivery experience"]
+        },
+        "seo": {
+          "title": "Suwarikum Digital Platform | Wasl Tech Work",
+          "description": "A digital platform for managing, delivering, and sharing photos between photographers and clients through organized private access."
+        }
+      }
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن مشروع منصة مشابهة لصوركم الرقمية."
@@ -60,7 +80,7 @@ const projectRecords = [
     ],
     "localeStatus": {
       "ar": "draft",
-      "en": "content_required"
+      "en": "draft"
     },
     "content": {
       "ar": {
@@ -84,7 +104,27 @@ const projectRecords = [
           "description": "منصة عربية للعمل الحر تربط العملاء بمقدمي الخدمات وتجمع التواصل والمدفوعات داخل تجربة رقمية واحدة."
         }
       },
-      "en": null
+      "en": {
+        "title": "Wasl Freelance Platform",
+        "categoryLabel": "Web",
+        "summary": "A freelance platform that brings service providers and clients into one experience covering discovery, communication, and in-platform payments.",
+        "highlights": [
+                  "Connect clients with service providers",
+                  "In-platform messaging",
+                  "Payments tied to transactions"
+        ],
+        "caseStudy": {
+          "overview": "An Arabic freelance platform designed to organize the journey between the client and service provider from service discovery and communication through ongoing transactions inside one system.",
+          "context": "The project brings both sides of freelance work into one system that needs to organize accounts, communication, and transactions between clients and service providers.",
+          "contribution": "Designed and built a platform experience that connects service discovery, communication, follow-up, and payment within one flow.",
+          "scope": ["Accounts for clients and service providers","Communication and messaging","In-platform payment flow"],
+          "deliveredOutputs": ["Client and provider accounts","Messaging system","Transaction payment flow"]
+        },
+        "seo": {
+          "title": "Wasl Freelance Platform | Wasl Tech Work",
+          "description": "An Arabic freelance platform connecting clients with service providers while bringing communication and payments into one digital experience."
+        }
+      }
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن مشروع منصة مشابهة لوصّل."
@@ -101,7 +141,7 @@ const projectRecords = [
     ],
     "localeStatus": {
       "ar": "draft",
-      "en": "content_required"
+      "en": "draft"
     },
     "content": {
       "ar": {
@@ -125,7 +165,27 @@ const projectRecords = [
           "description": "نظام لإدارة مستخدمي شبكات الواي فاي وتوليد الكروت ومتابعة الجلسات من لوحة تحكم واحدة."
         }
       },
-      "en": null
+      "en": {
+        "title": "MikroTik Control Dashboard",
+        "categoryLabel": "Web Systems",
+        "summary": "A control dashboard for managing Wi-Fi network users, cards, and sessions through one interface for day-to-day operations.",
+        "highlights": [
+                  "Network user management",
+                  "Card generation and management",
+                  "Session monitoring"
+        ],
+        "caseStudy": {
+          "overview": "An administrative system built to simplify recurring MikroTik operations and give administrators a clearer interface for managing users, cards, and sessions.",
+          "context": "The project focuses on simplifying daily MikroTik management instead of handling the same operational tasks across multiple disconnected steps.",
+          "contribution": "Built a dashboard that brings users, cards, and sessions into one administrative interface.",
+          "scope": ["User management","Card generation","Session and operation monitoring"],
+          "deliveredOutputs": ["User management","Card generation and management","Session monitoring"]
+        },
+        "seo": {
+          "title": "MikroTik Control Dashboard | Wasl Tech Work",
+          "description": "A system for managing Wi-Fi network users, generating cards, and monitoring sessions from one control dashboard."
+        }
+      }
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن مشروع نظام مشابه للوحة الميكروتيك."
@@ -142,7 +202,7 @@ const projectRecords = [
     ],
     "localeStatus": {
       "ar": "draft",
-      "en": "content_required"
+      "en": "draft"
     },
     "content": {
       "ar": {
@@ -166,7 +226,27 @@ const projectRecords = [
           "description": "لوحة CMS مركزية لإدارة وتحديث محتوى المواقع ديناميكيًا من واجهة تحكم واحدة."
         }
       },
-      "en": null
+      "en": {
+        "title": "Content Management Dashboard (CMS)",
+        "categoryLabel": "Web Systems",
+        "summary": "A centralized content management dashboard that lets teams update website pages and content from one place instead of editing each part manually.",
+        "highlights": [
+                  "Centralized content management",
+                  "Dynamic page updates",
+                  "Administration dashboard"
+        ],
+        "caseStudy": {
+          "overview": "A CMS dashboard built to bring website content management into one workspace so teams can update text, sections, and information without working directly in the code.",
+          "context": "The project makes it easier for the team to update website content without returning to code for every change.",
+          "contribution": "Built a centralized CMS dashboard that connects page content with a dedicated administration interface.",
+          "scope": ["Page content management","Dynamic data updates","Administration dashboard"],
+          "deliveredOutputs": ["Page content management","Dynamic updates","Centralized administration"]
+        },
+        "seo": {
+          "title": "CMS Content Management Dashboard | Wasl Tech Work",
+          "description": "A centralized CMS dashboard for managing and updating website content dynamically from one administration interface."
+        }
+      }
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن نظام لوحة تحكم CMS مشابهة."
@@ -183,7 +263,7 @@ const projectRecords = [
     ],
     "localeStatus": {
       "ar": "draft",
-      "en": "content_required"
+      "en": "draft"
     },
     "content": {
       "ar": {
@@ -207,7 +287,27 @@ const projectRecords = [
           "description": "تجربة متجر إلكتروني عبر الجوال تشمل تصفح المنتجات والسلة ومتابعة الطلبات."
         }
       },
-      "en": null
+      "en": {
+        "title": "Tech Zone E-commerce App",
+        "categoryLabel": "Apps",
+        "summary": "A mobile e-commerce experience that combines product browsing, cart, and order tracking in one clear shopping flow.",
+        "highlights": [
+                  "Product browsing in the app",
+                  "Shopping cart",
+                  "Order status tracking"
+        ],
+        "caseStudy": {
+          "overview": "A store app focused on making the mobile shopping journey direct from product discovery through cart and order tracking.",
+          "context": "The project brings shopping to mobile and connects product discovery, cart, and order tracking in one journey.",
+          "contribution": "Designed and developed a mobile store experience focused on browsing, purchasing, and tracking orders.",
+          "scope": ["Product browsing","Cart management","Order tracking"],
+          "deliveredOutputs": ["Product catalog","Shopping cart","Order status tracking"]
+        },
+        "seo": {
+          "title": "Tech Zone E-commerce App | Wasl Tech Work",
+          "description": "A mobile e-commerce experience covering product browsing, cart, and order tracking in one clear journey."
+        }
+      }
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن تصميم متجر إلكتروني مشابه لتيك زون."
@@ -224,7 +324,7 @@ const projectRecords = [
     ],
     "localeStatus": {
       "ar": "draft",
-      "en": "content_required"
+      "en": "draft"
     },
     "content": {
       "ar": {
@@ -248,7 +348,27 @@ const projectRecords = [
           "description": "تطبيق جوال لطلب القهوة مع برنامج ولاء وخرائط للفروع ضمن تجربة واحدة."
         }
       },
-      "en": null
+      "en": {
+        "title": "Aroma Cafe App",
+        "categoryLabel": "Apps",
+        "summary": "A coffee ordering app that combines ordering, a loyalty program, and branch information in one customer experience.",
+        "highlights": [
+                  "Coffee ordering in the app",
+                  "Loyalty program",
+                  "Branch maps and information"
+        ],
+        "caseStudy": {
+          "overview": "A mobile cafe experience that brings ordering, loyalty, and branch access into one journey before and during purchase.",
+          "context": "The project combines key customer needs in one app: ordering, loyalty, and reaching the right branch.",
+          "contribution": "Designed and developed a mobile ordering experience connected to a loyalty program and branch information.",
+          "scope": ["Product ordering","Loyalty program","Branch map display"],
+          "deliveredOutputs": ["In-app coffee ordering","Loyalty program","Branch maps"]
+        },
+        "seo": {
+          "title": "Aroma Cafe App | Wasl Tech Work",
+          "description": "A mobile coffee ordering app with a loyalty program and branch maps in one customer experience."
+        }
+      }
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن برمجة تطبيق مشابه لأروما كافيه."
@@ -265,7 +385,7 @@ const projectRecords = [
     ],
     "localeStatus": {
       "ar": "draft",
-      "en": "content_required"
+      "en": "draft"
     },
     "content": {
       "ar": {
@@ -289,7 +409,27 @@ const projectRecords = [
           "description": "موقع تعريفي لشركة مقاولات وهندسة يعرض الخدمات والمشاريع ويسهّل طلب عروض الأسعار."
         }
       },
-      "en": null
+      "en": {
+        "title": "Al Benaa Al Motqin Website",
+        "categoryLabel": "Web",
+        "summary": "A company website for a construction and engineering business that presents services and projects and creates a clear path to requesting a quotation.",
+        "highlights": [
+                  "Services and project showcase",
+                  "Responsive experience",
+                  "Quotation request path"
+        ],
+        "caseStudy": {
+          "overview": "A company website that organizes construction and engineering services and projects so visitors can understand the business and move from exploration to contact.",
+          "context": "The project presents the construction company, its services, and its work in an experience that helps visitors understand the business and request a quotation.",
+          "contribution": "Designed and developed a company website that connects services and projects to a clear contact path.",
+          "scope": ["Service presentation","Project showcase","Quotation requests"],
+          "deliveredOutputs": ["Service pages","Project showcase","Quotation request flow"]
+        },
+        "seo": {
+          "title": "Al Benaa Al Motqin Website | Wasl Tech Work",
+          "description": "A construction and engineering company website that presents services and projects and makes quotation requests easier."
+        }
+      }
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن مشروع موقع مشابه للبناء المتقن."
@@ -306,7 +446,7 @@ const projectRecords = [
     ],
     "localeStatus": {
       "ar": "draft",
-      "en": "content_required"
+      "en": "draft"
     },
     "content": {
       "ar": {
@@ -330,7 +470,27 @@ const projectRecords = [
           "description": "متجر إلكتروني للأجهزة والإلكترونيات بتصنيفات منظمة وتجربة واضحة من التصفح إلى الطلب."
         }
       },
-      "en": null
+      "en": {
+        "title": "Elite Electronics Store",
+        "categoryLabel": "E-commerce",
+        "summary": "An electronics e-commerce store that organizes products into clear categories and guides customers from browsing to placing an order.",
+        "highlights": [
+                  "Electronics catalog",
+                  "Organized categories",
+                  "Order completion flow"
+        ],
+        "caseStudy": {
+          "overview": "A specialized electronics store focused on organizing the catalog and making it easier to move between categories and products through to ordering.",
+          "context": "The project organizes an electronics catalog and makes finding products and placing orders more direct.",
+          "contribution": "Designed and built a store that organizes products into categories and guides customers from browsing to ordering.",
+          "scope": ["Product display","Categories","Ordering experience"],
+          "deliveredOutputs": ["Electronics catalog","Product categories","Order completion experience"]
+        },
+        "seo": {
+          "title": "Elite Electronics Store | Wasl Tech Work",
+          "description": "An electronics e-commerce store with organized categories and a clear experience from browsing to ordering."
+        }
+      }
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن مشروع متجر إلكتروني مشابه."
@@ -347,7 +507,7 @@ const projectRecords = [
     ],
     "localeStatus": {
       "ar": "draft",
-      "en": "content_required"
+      "en": "draft"
     },
     "content": {
       "ar": {
@@ -371,7 +531,27 @@ const projectRecords = [
           "description": "هوية بصرية لمطعم الملكي تشمل الشعار والألوان والمطبوعات والتغليف."
         }
       },
-      "en": null
+      "en": {
+        "title": "Al Malaki Restaurant Brand Identity",
+        "categoryLabel": "Brand Identity",
+        "summary": "A visual identity for Al Malaki Restaurant covering the logo, color system, printed applications, and packaging within one visual direction.",
+        "highlights": [
+                  "Logo and visual identity",
+                  "Color system",
+                  "Print and packaging"
+        ],
+        "caseStudy": {
+          "overview": "A brand identity project created to unify how the restaurant appears through the logo, colors, and customer-facing applications inside and outside the venue.",
+          "context": "The project needed one visual system connecting the logo, colors, print materials, and packaging instead of each item appearing in a separate style.",
+          "contribution": "Built a visual identity for Al Malaki Restaurant including the logo, color system, and key applications.",
+          "scope": ["Logo design","Color system","Print and packaging applications"],
+          "deliveredOutputs": ["Logo design","Color system","Print and packaging"]
+        },
+        "seo": {
+          "title": "Al Malaki Restaurant Brand Identity | Wasl Tech Work",
+          "description": "A visual identity for Al Malaki Restaurant covering logo, colors, printed materials, and packaging."
+        }
+      }
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن تصميم هوية بصرية."
@@ -388,7 +568,7 @@ const projectRecords = [
     ],
     "localeStatus": {
       "ar": "draft",
-      "en": "content_required"
+      "en": "draft"
     },
     "content": {
       "ar": {
@@ -412,7 +592,27 @@ const projectRecords = [
           "description": "هوية بصرية لشركة ميلانو تشمل الشعار ونظامًا بصريًا بطابع تقني حديث."
         }
       },
-      "en": null
+      "en": {
+        "title": "Milano Company Brand Identity",
+        "categoryLabel": "Brand Identity",
+        "summary": "A visual identity for Milano built around a modern technical direction with a logo and consistent visual system for different brand applications.",
+        "highlights": [
+                  "Logo design",
+                  "Integrated visual system",
+                  "Modern technical character"
+        ],
+        "caseStudy": {
+          "overview": "A visual identity built around a clear technical character, giving the company a consistent system for use across different materials.",
+          "context": "The project needed a clear technical visual language that could be applied consistently across the company's materials.",
+          "contribution": "Built the logo and visual system for Milano around a modern technical direction.",
+          "scope": ["Logo design","Visual system","Brand applications"],
+          "deliveredOutputs": ["Logo design","Visual system","Brand applications"]
+        },
+        "seo": {
+          "title": "Milano Company Brand Identity | Wasl Tech Work",
+          "description": "A visual identity for Milano including a logo and modern technical visual system."
+        }
+      }
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن تصميم هوية بصرية."
@@ -429,7 +629,7 @@ const projectRecords = [
     ],
     "localeStatus": {
       "ar": "draft",
-      "en": "content_required"
+      "en": "draft"
     },
     "content": {
       "ar": {
@@ -453,7 +653,27 @@ const projectRecords = [
           "description": "حملة رقمية لمتجر فخري للعطور تشمل استراتيجية المحتوى والتصميم الإعلاني وحضور شبكات التواصل."
         }
       },
-      "en": null
+      "en": {
+        "title": "Fakhri Perfumes Digital Campaign",
+        "categoryLabel": "Marketing",
+        "summary": "A digital campaign for Fakhri Perfumes combining content strategy, campaign design, and social media presence within one direction.",
+        "highlights": [
+                  "Content strategy",
+                  "Campaign creatives",
+                  "Social media content"
+        ],
+        "caseStudy": {
+          "overview": "A marketing project focused on bringing messaging, design, and campaigns around perfume products into one direction instead of treating every post or ad as a separate piece.",
+          "context": "The project needed messaging, design, and social campaigns to work together rather than appear as disconnected content.",
+          "contribution": "Built the campaign direction across content strategy, advertising design, and social media content.",
+          "scope": ["Content planning","Advertising design","Social content and campaigns"],
+          "deliveredOutputs": ["Content strategy","Advertising creatives","Social content and campaigns"]
+        },
+        "seo": {
+          "title": "Fakhri Perfumes Digital Campaign | Wasl Tech Work",
+          "description": "A digital campaign for Fakhri Perfumes covering content strategy, advertising design, and social media presence."
+        }
+      }
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن حملة تسويقية."
@@ -470,7 +690,7 @@ const projectRecords = [
     ],
     "localeStatus": {
       "ar": "draft",
-      "en": "content_required"
+      "en": "draft"
     },
     "content": {
       "ar": {
@@ -494,7 +714,27 @@ const projectRecords = [
           "description": "متجر إلكتروني للعطور بتجربة تركز على عرض المنتجات والتصفح والشراء بوضوح."
         }
       },
-      "en": null
+      "en": {
+        "title": "Fakhri Perfumes Store",
+        "categoryLabel": "E-commerce",
+        "summary": "An online perfume store that puts products at the center of a clear browsing and buying experience.",
+        "highlights": [
+                  "Perfume product presentation",
+                  "Browsing and buying experience",
+                  "Product-focused interface"
+        ],
+        "caseStudy": {
+          "overview": "A perfume-focused e-commerce experience designed around the product itself, from presentation and browsing through the path to purchase.",
+          "context": "The project focuses on presenting perfume products in a shopping experience where the product remains central to browsing and purchase decisions.",
+          "contribution": "Designed and built an online store focused on perfume presentation, organized browsing, and the buying journey.",
+          "scope": ["Product presentation","Browsing organization","Buying journey"],
+          "deliveredOutputs": ["Perfume product presentation","Organized browsing","Purchase flow"]
+        },
+        "seo": {
+          "title": "Fakhri Perfumes Store | Wasl Tech Work",
+          "description": "An online perfume store with a product-focused experience for clear browsing and purchasing."
+        }
+      }
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن متجر إلكتروني."
@@ -511,7 +751,7 @@ const projectRecords = [
     ],
     "localeStatus": {
       "ar": "draft",
-      "en": "content_required"
+      "en": "draft"
     },
     "content": {
       "ar": {
@@ -535,7 +775,27 @@ const projectRecords = [
           "description": "متجر إلكتروني لملابس الأطفال بتصنيفات واضحة وتجربة منظمة لتصفح المنتجات والطلب."
         }
       },
-      "en": null
+      "en": {
+        "title": "Kiddy Clothing Store",
+        "categoryLabel": "E-commerce",
+        "summary": "An online children's clothing store that organizes products into clear categories and makes the journey from browsing to selection and ordering easier.",
+        "highlights": [
+                  "Children's clothing categories",
+                  "Clear product presentation",
+                  "Browsing and ordering experience"
+        ],
+        "caseStudy": {
+          "overview": "A children's clothing store focused on simplifying product discovery and movement between categories through to product selection and ordering.",
+          "context": "The project organizes children's clothing into clear categories and simplifies product discovery and ordering.",
+          "contribution": "Designed and built a specialized store connecting product categories, presentation, and ordering.",
+          "scope": ["Product categories","Catalog display","Ordering experience"],
+          "deliveredOutputs": ["Product categories","Catalog display","Ordering flow"]
+        },
+        "seo": {
+          "title": "Kiddy Clothing Store | Wasl Tech Work",
+          "description": "An online children's clothing store with clear categories and an organized product browsing and ordering experience."
+        }
+      }
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن متجر إلكتروني مشابه لكيدي."
@@ -552,7 +812,7 @@ const projectRecords = [
     ],
     "localeStatus": {
       "ar": "draft",
-      "en": "content_required"
+      "en": "draft"
     },
     "content": {
       "ar": {
@@ -576,7 +836,27 @@ const projectRecords = [
           "description": "موقع تعريفي لمكتب محاماة واستشارات قانونية يعرض الخدمات والمعلومات ضمن تجربة واضحة ومنظمة."
         }
       },
-      "en": null
+      "en": {
+        "title": "Al Hobari Law Office Website",
+        "categoryLabel": "Web",
+        "summary": "A website for a law and legal consulting office that organizes services and information in a calm, professional interface focused on clarity and trust.",
+        "highlights": [
+                  "Legal service presentation",
+                  "Professional visual direction",
+                  "Clear browsing and contact experience"
+        ],
+        "caseStudy": {
+          "overview": "A company website for a legal office focused on presenting services and information directly and helping visitors understand the office and reach the right contact path.",
+          "context": "The project presents the office's legal services through a professional and direct interface that helps visitors understand the offering and move toward contact.",
+          "contribution": "Designed and developed a company website that organizes legal services, information, and the office's contact path.",
+          "scope": ["Legal service presentation","Information organization","Clear contact path"],
+          "deliveredOutputs": ["Legal service presentation","Information organization","Clear contact path"]
+        },
+        "seo": {
+          "title": "Al Hobari Law Office Website | Wasl Tech Work",
+          "description": "A website for a law and legal consulting office that presents services and information in a clear, organized experience."
+        }
+      }
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن برمجة موقع مشابه لمكتب الحباري."
@@ -623,7 +903,7 @@ function phase2bProjectRecord(project) {
       contextChallenge: CONTENT_STATE.PARTIAL,
       outcomes: CONTENT_STATE.PARTIAL,
       seo: CONTENT_STATE.READY,
-      english: CONTENT_STATE.CONTENT_REQUIRED
+      english: CONTENT_STATE.READY
     }),
     evidenceSources: Object.freeze([
       "main:js/portfolio.js",
