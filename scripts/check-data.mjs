@@ -42,7 +42,7 @@ function validateLocaleRecord(record, scope) {
       continue;
     }
     const content = record.content?.[locale] ?? null;
-    if (state === "ready" && !content) fail(scope, `${locale} is ready but content is missing`);
+    if (state !== "content_required" && !content) fail(scope, `${locale} content is expected for state: ${state}`);
     if (state === "content_required" && content) {
       fail(scope, `${locale} has content but is still marked content_required`);
     }
@@ -105,6 +105,15 @@ for (const service of services) {
   validateContentAudit(service, serviceFieldKeys, scope);
   if (!service.content?.ar?.title) fail(scope, "Arabic title missing");
   if (!service.content?.ar?.description) fail(scope, "Arabic description missing");
+  if (service.fieldState.english === "READY") {
+    if (!service.content?.en?.title || !service.content?.en?.description) {
+      fail(scope, "English is READY but core English service copy is missing");
+    }
+    const englishSeo = service.content?.en?.seo;
+    if (!englishSeo?.title || !englishSeo?.description || !englishSeo?.ogTitle || !englishSeo?.ogDescription) {
+      fail(scope, "English is READY but English service SEO is incomplete");
+    }
+  }
   if (!Array.isArray(service.content?.ar?.deliverables) || !service.content.ar.deliverables.length) {
     fail(scope, "Arabic deliverables missing");
   }
@@ -139,6 +148,17 @@ for (const project of projects) {
   validateContentAudit(project, projectFieldKeys, scope);
   if (!project.content?.ar?.title) fail(scope, "Arabic title missing");
   if (!project.content?.ar?.summary) fail(scope, "Arabic summary missing");
+  if (project.fieldState.english === "READY") {
+    if (!project.content?.en?.title || !project.content?.en?.summary) {
+      fail(scope, "English is READY but core English project copy is missing");
+    }
+    if (!project.content?.en?.caseStudy?.overview || !project.content?.en?.caseStudy?.scope?.length) {
+      fail(scope, "English is READY but English project case-study content is incomplete");
+    }
+    if (!project.content?.en?.seo?.title || !project.content?.en?.seo?.description) {
+      fail(scope, "English is READY but English project SEO is incomplete");
+    }
+  }
   if (!project.client || !("publicName" in project.client) || !("attributionApproved" in project.client)) {
     fail(scope, "client attribution contract missing");
   }
@@ -225,6 +245,14 @@ for (const record of pages) {
   if (record.localeStatus.ar !== "content_required" && !record.content?.ar) {
     fail(scope, "Arabic page content is expected for non-required state");
   }
+  if (record.fieldState.english === "READY") {
+    if (!record.content?.en?.title || !record.content?.en?.support) {
+      fail(scope, "English is READY but core English page copy is missing");
+    }
+    if (!record.content?.en?.seo?.title || !record.content?.en?.seo?.description) {
+      fail(scope, "English is READY but English page SEO is incomplete");
+    }
+  }
   if (record.fieldState.sections === "READY") {
     const sections = record.content?.ar?.sections;
     if (!Array.isArray(sections) || !sections.length) {
@@ -244,6 +272,11 @@ for (const group of faqGroups) {
     validateLocaleRecord(item, scope);
     if (!item.content?.ar?.question || !item.content?.ar?.answer) {
       fail(scope, "Arabic question/answer missing");
+    }
+    if (item.localeStatus.en !== "content_required") {
+      if (!item.content?.en?.question || !item.content?.en?.answer) {
+        fail(scope, "English FAQ question/answer missing");
+      }
     }
   }
 }
