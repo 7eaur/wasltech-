@@ -1,7 +1,11 @@
 import { CONTENT_STATE, createFieldState, pageFieldKeys } from "./content-contracts.js";
 
-const draftLocale = Object.freeze({ ar: "draft", en: "content_required" });
-const requiredLocale = Object.freeze({ ar: "content_required", en: "content_required" });
+function localeStatusForContent(content = {}) {
+  return Object.freeze({
+    ar: content.ar ? "draft" : "content_required",
+    en: content.en ? "draft" : "content_required"
+  });
+}
 
 function page({
   id,
@@ -16,11 +20,11 @@ function page({
     routeKey,
     contentState: state,
     fieldState: createFieldState(pageFieldKeys, fieldState),
-    localeStatus: content?.ar ? draftLocale : requiredLocale,
+    localeStatus: localeStatusForContent(content),
     evidenceSources: Object.freeze(evidenceSources),
     content: Object.freeze({
       ar: content?.ar ?? null,
-      en: null
+      en: content?.en ?? null
     })
   });
 }
@@ -42,7 +46,8 @@ export const pages = Object.freeze([
       sections: CONTENT_STATE.READY,
       cta: CONTENT_STATE.READY,
       seo: CONTENT_STATE.PARTIAL,
-      businessFacts: CONTENT_STATE.READY
+      businessFacts: CONTENT_STATE.READY,
+      english: CONTENT_STATE.READY
     },
     evidenceSources: ["main:index.html", "docs/core/PRODUCT.md", "docs/core/CONTENT_IA.md"],
     content: {
@@ -95,6 +100,56 @@ export const pages = Object.freeze([
           title: "وصل تك | Wasl Tech — نبني حضورك الرقمي باحتراف",
           description: "وصل تك تقدم تطوير المواقع والتطبيقات والمتاجر والبرمجة والحلول التقنية والهوية والبروفايلات والتسويق الرقمي للمشاريع في اليمن والخليج."
         })
+      }),
+      en: Object.freeze({
+        purpose: "Introduce Wasl Tech quickly and clearly, help visitors understand what can be built or improved, then move them from exploration to a real project conversation.",
+        kicker: "We build your digital presence professionally",
+        title: "We turn your idea into a clear digital experience that serves your business.",
+        support: "From websites and apps to e-commerce, custom systems, brand identity, and content, we organize what your project needs around a clear goal and turn it into an experience that is easier to understand and use.",
+        primaryCta: "Start your project",
+        secondaryCta: "View our work",
+        sections: Object.freeze([
+          Object.freeze({
+            id: "services",
+            kicker: "What we build",
+            title: "Choose the solution from your need, not from a service list.",
+            support: "Websites, apps, e-commerce, systems, identity, and content—organized around what your project needs now and how it may grow later."
+          }),
+          Object.freeze({
+            id: "work",
+            kicker: "Selected work",
+            title: "The clearest proof of how we work is what we have built.",
+            support: "Explore projects with different goals and scopes, and see how the solution changes when the project need changes."
+          }),
+          Object.freeze({
+            id: "approach",
+            kicker: "Why Wasl Tech",
+            title: "We connect the idea, content, design, and technology.",
+            support: "So the result does not only look good—it communicates clearly, works as a coherent experience, and can be built and improved with purpose."
+          }),
+          Object.freeze({
+            id: "process",
+            kicker: "How we work",
+            title: "Clearer decisions before more details.",
+            support: "We understand the goal, define the scope, design and build, then review before launch instead of jumping straight into visuals."
+          }),
+          Object.freeze({
+            id: "faq",
+            kicker: "Before you start",
+            title: "Important questions deserve direct answers.",
+            support: "From choosing a service to timelines, changes, and integrations, we cover what helps you build a clearer picture before you contact us."
+          }),
+          Object.freeze({
+            id: "final-cta",
+            kicker: "Start with the idea",
+            title: "Have a project? Tell us what you want to achieve.",
+            support: "You do not need a long brief. Share the idea, the current situation, and the priority, and we will help organize the right starting point."
+          })
+        ]),
+        seo: Object.freeze({
+          title: "Wasl Tech | Websites, Apps, Systems, Branding & Digital Growth",
+          description: "Wasl Tech builds websites, mobile apps, e-commerce experiences, custom systems, technical solutions, company profiles, brand identities, and digital content for businesses in Yemen and the Gulf."
+        })
       })
     }
   }),
@@ -107,7 +162,8 @@ export const pages = Object.freeze([
       sections: CONTENT_STATE.READY,
       cta: CONTENT_STATE.READY,
       seo: CONTENT_STATE.READY,
-      businessFacts: CONTENT_STATE.READY
+      businessFacts: CONTENT_STATE.READY,
+      english: CONTENT_STATE.READY
     },
     evidenceSources: ["main:about.html", "docs/core/PRODUCT.md"],
     content: {
@@ -153,6 +209,50 @@ export const pages = Object.freeze([
         seo: Object.freeze({
           title: "من نحن | وصل تك — Wasl Tech",
           description: "تعرف على وصل تك وطريقة عملها في بناء المواقع والتطبيقات والمتاجر والأنظمة والهوية والحضور الرقمي للمشاريع في اليمن والخليج."
+        })
+      }),
+      en: Object.freeze({
+        purpose: "Explain how Wasl Tech approaches a project as one connected system of idea, content, experience, and technology rather than treating each part in isolation.",
+        kicker: "About Wasl Tech",
+        title: "We do not just build an interface; we build how your project looks and works.",
+        support: "We bring design, development, and content together to turn an idea into a clear, organized digital presence that fits the project and its needs across Yemen and the Gulf.",
+        primaryCta: "Start your project",
+        secondaryCta: "View our work",
+        sections: Object.freeze([
+          Object.freeze({
+            id: "positioning",
+            kicker: "Our approach",
+            title: "We see the project as one connected system.",
+            support: "Content, design, and development are not isolated stages. Each decision shapes the experience your customer sees and uses."
+          }),
+          Object.freeze({
+            id: "build",
+            kicker: "What we build",
+            title: "From digital presence to products customers actually use.",
+            support: "We build websites, apps, stores, and systems, and create the identity, profiles, and content that explain the project and complete the experience."
+          }),
+          Object.freeze({
+            id: "principles",
+            kicker: "How we decide",
+            title: "Clarity before decoration. Scope before extra features.",
+            support: "We prefer every decision to have a reason, every element to have a role, and every stage to produce something that can be reviewed."
+          }),
+          Object.freeze({
+            id: "market",
+            kicker: "Our market",
+            title: "We understand projects in Yemen and the Gulf.",
+            support: "We write, design, and build with a clear Arabic-first experience, with bilingual foundations when the project needs to reach a wider audience."
+          }),
+          Object.freeze({
+            id: "final-cta",
+            kicker: "Your next project",
+            title: "Whether the idea is clear or still taking shape, we start in the same place: understanding.",
+            support: "Share what you have today and what you want to change, and we will organize the path from there."
+          })
+        ]),
+        seo: Object.freeze({
+          title: "About Wasl Tech | Digital Products, Systems & Brand Experiences",
+          description: "Learn how Wasl Tech combines design, development, and content to build websites, apps, e-commerce, systems, and digital brand experiences for businesses in Yemen and the Gulf."
         })
       })
     }
@@ -219,7 +319,8 @@ export const pages = Object.freeze([
       sections: CONTENT_STATE.READY,
       cta: CONTENT_STATE.READY,
       seo: CONTENT_STATE.PARTIAL,
-      businessFacts: CONTENT_STATE.PARTIAL
+      businessFacts: CONTENT_STATE.PARTIAL,
+      english: CONTENT_STATE.READY
     },
     evidenceSources: ["main:portfolio.html", "main:js/portfolio.js"],
     content: {
@@ -253,6 +354,38 @@ export const pages = Object.freeze([
         seo: Object.freeze({
           title: "أعمال وصل تك | مشاريع مواقع وتطبيقات ومتاجر وهوية وتسويق",
           description: "نماذج من أعمال وصل تك في المواقع والتطبيقات والمتاجر والأنظمة والهوية والتسويق، مع عرض المعلومات الموثقة لكل مشروع."
+        })
+      }),
+      en: Object.freeze({
+        purpose: "Present Wasl Tech work as evidence of the kinds of projects we build, using only the real information available for each project.",
+        kicker: "Our work",
+        title: "Real projects, each built around a different goal.",
+        support: "Explore examples across websites, apps, stores, systems, identity, and marketing, and see how the solution changes with the nature of the project.",
+        primaryCta: "Explore the work",
+        secondaryCta: "I have a similar project",
+        sections: Object.freeze([
+          Object.freeze({
+            id: "evidence",
+            kicker: "Projects",
+            title: "Each project here represents a different kind of solution.",
+            support: "From platforms and internal systems to stores and identity work, we present each project through its actual scope—not just a cover image."
+          }),
+          Object.freeze({
+            id: "case-studies",
+            kicker: "Inside the project",
+            title: "We explain what was built and why that scope made sense.",
+            support: "Where details are available, we show the context, components, and delivered outputs so the project is useful to someone considering something similar."
+          }),
+          Object.freeze({
+            id: "final-cta",
+            kicker: "Have something similar in mind?",
+            title: "Your project does not need to be a copy of any project here.",
+            support: "Tell us what you liked and what is different about your need, and we will shape the conversation around your project."
+          })
+        ]),
+        seo: Object.freeze({
+          title: "Wasl Tech Portfolio | Websites, Apps, E-commerce, Systems & Branding",
+          description: "Explore selected Wasl Tech projects across websites, mobile apps, e-commerce, systems, brand identity, and marketing with clear project context and scope."
         })
       })
     }
@@ -325,7 +458,8 @@ export const pages = Object.freeze([
       sections: CONTENT_STATE.READY,
       cta: CONTENT_STATE.READY,
       seo: CONTENT_STATE.READY,
-      businessFacts: CONTENT_STATE.READY
+      businessFacts: CONTENT_STATE.READY,
+      english: CONTENT_STATE.READY
     },
     evidenceSources: ["main:contact.html", "main:js/contact-v2.js", "src/config/site.js"],
     content: {
@@ -360,6 +494,38 @@ export const pages = Object.freeze([
           title: "تواصل معنا | وصل تك — Wasl Tech",
           description: "تواصل مع وصل تك عبر واتساب أو البريد، أو ابدأ بتجهيز معلومات مشروعك قبل النقاش."
         })
+      }),
+      en: Object.freeze({
+        purpose: "Make it easy to contact Wasl Tech, whether the visitor has a quick question or a project that needs a more structured discussion.",
+        kicker: "Contact us",
+        title: "Tell us about your project as it is.",
+        support: "A new idea, an existing project, or something that needs improvement—tell us what you have today and where you want to go, and we will start from there.",
+        primaryCta: "Chat on WhatsApp",
+        secondaryCta: "Prepare project details",
+        sections: Object.freeze([
+          Object.freeze({
+            id: "direct",
+            kicker: "Direct contact",
+            title: "For a quick question, WhatsApp or email is enough.",
+            support: "If your question is specific or you only need the next step, use the channel that works best for you."
+          }),
+          Object.freeze({
+            id: "project",
+            kicker: "New or existing project",
+            title: "If there is more to explain, start with the project planner.",
+            support: "We only ask for the information that helps us understand the need instead of stretching the first conversation into a long message chain."
+          }),
+          Object.freeze({
+            id: "context",
+            kicker: "What should you send?",
+            title: "The goal matters more than the technical terminology.",
+            support: "Tell us what you want to build or improve, what exists today, and who will use it. We will organize the rest with you."
+          })
+        ]),
+        seo: Object.freeze({
+          title: "Contact Wasl Tech | Start a Project or Ask a Question",
+          description: "Contact Wasl Tech through WhatsApp or email, or prepare your project details before starting a structured discussion."
+        })
       })
     }
   }),
@@ -372,7 +538,8 @@ export const pages = Object.freeze([
       sections: CONTENT_STATE.READY,
       cta: CONTENT_STATE.PARTIAL,
       seo: CONTENT_STATE.PARTIAL,
-      businessFacts: CONTENT_STATE.PARTIAL
+      businessFacts: CONTENT_STATE.PARTIAL,
+      english: CONTENT_STATE.READY
     },
     evidenceSources: ["docs/core/CONTENT_IA.md", "main:contact.html", "main:js/contact-v2.js"],
     content: {
@@ -418,6 +585,50 @@ export const pages = Object.freeze([
         seo: Object.freeze({
           title: "ابدأ مشروعك | وصل تك — Wasl Tech",
           description: "جهز معلومات مشروعك وخدمته ومرحلته وأولوياته لبدء نقاش منظم مع وصل تك."
+        })
+      }),
+      en: Object.freeze({
+        purpose: "Collect the information needed to understand a project before suggesting a solution or defining the next steps.",
+        kicker: "Start your project",
+        title: "Let us understand the project before deciding the solution.",
+        support: "Tell us what you want to build or improve, where the project is today, and what matters most right now. A few clear details help us start from the right place.",
+        primaryCta: "Review the details",
+        secondaryCta: "Contact us directly",
+        sections: Object.freeze([
+          Object.freeze({
+            id: "need",
+            kicker: "01 — Need",
+            title: "What do you want to build or improve?",
+            support: "Choose the closest area, or leave it open if the project is still only a general idea."
+          }),
+          Object.freeze({
+            id: "stage",
+            kicker: "02 — Stage",
+            title: "Where is the project today?",
+            support: "A new idea, an existing product, a redesign, or new functionality—the stage changes the questions and decisions that come next."
+          }),
+          Object.freeze({
+            id: "priority",
+            kicker: "03 — Priority",
+            title: "What do you want to achieve first?",
+            support: "A usable first version, a complete scope, phased development, or a consultation before making a decision."
+          }),
+          Object.freeze({
+            id: "context",
+            kicker: "04 — Context",
+            title: "Give us enough to understand the picture.",
+            support: "Your name, contact method, existing project if there is one, and a short description of where you want to get."
+          }),
+          Object.freeze({
+            id: "review",
+            kicker: "Before sending",
+            title: "Review the details before starting the conversation.",
+            support: "The goal is to make the first message clear enough that we can begin with the right questions."
+          })
+        ]),
+        seo: Object.freeze({
+          title: "Start a Project | Wasl Tech",
+          description: "Prepare your project details, current stage, and priorities to start a clear and structured project conversation with Wasl Tech."
         })
       })
     }
@@ -484,7 +695,8 @@ export const pages = Object.freeze([
       sections: CONTENT_STATE.READY,
       cta: CONTENT_STATE.READY,
       seo: CONTENT_STATE.PARTIAL,
-      businessFacts: CONTENT_STATE.READY
+      businessFacts: CONTENT_STATE.READY,
+      english: CONTENT_STATE.READY
     },
     evidenceSources: ["main:blog.html", "src/data/articles.js", "docs/core/CONTENT_IA.md"],
     content: {
@@ -513,6 +725,32 @@ export const pages = Object.freeze([
           title: "المحتوى المعرفي | وصل تك — Wasl Tech",
           description: "محتوى عملي من وصل تك حول تخطيط المواقع والتطبيقات والمتاجر والأنظمة والهوية والحضور الرقمي عند توفر مواد مكتملة."
         })
+      }),
+      en: Object.freeze({
+        purpose: "Publish practical content that helps business owners understand options and make better decisions before and during a digital project.",
+        kicker: "Insights",
+        title: "Content that helps you make a better decision before you build.",
+        support: "No articles are published yet. When we publish, the content will be practical, direct, and tied to real questions business owners face.",
+        primaryCta: "Explore services",
+        secondaryCta: "View our work",
+        sections: Object.freeze([
+          Object.freeze({
+            id: "purpose",
+            kicker: "Why we write",
+            title: "We explain the decisions business owners face before implementation.",
+            support: "The content will include practical guides, comparisons, and checklists around websites, apps, e-commerce, systems, brand identity, and digital growth."
+          }),
+          Object.freeze({
+            id: "empty",
+            kicker: "Right now",
+            title: "No articles are published yet.",
+            support: "We will not fill the section just to have a blog. The first article should be genuinely useful and worth returning to."
+          })
+        ]),
+        seo: Object.freeze({
+          title: "Insights | Wasl Tech",
+          description: "Practical Wasl Tech content on planning websites, apps, e-commerce, systems, brand identity, and digital presence as complete resources become available."
+        })
       })
     }
   }),
@@ -525,7 +763,8 @@ export const pages = Object.freeze([
       sections: CONTENT_STATE.READY,
       cta: CONTENT_STATE.PARTIAL,
       seo: CONTENT_STATE.PARTIAL,
-      businessFacts: CONTENT_STATE.CONTENT_REQUIRED
+      businessFacts: CONTENT_STATE.CONTENT_REQUIRED,
+      english: CONTENT_STATE.READY
     },
     evidenceSources: ["src/data/jobs.js", "docs/core/CONTENT_IA.md"],
     content: {
@@ -553,6 +792,32 @@ export const pages = Object.freeze([
         seo: Object.freeze({
           title: "الوظائف | وصل تك — Wasl Tech",
           description: "فرص العمل المنشورة لدى وصل تك عند توفر وظائف حقيقية ومعلنة."
+        })
+      }),
+      en: Object.freeze({
+        purpose: "Show real job opportunities when they exist and keep the page clear and honest when no role is open.",
+        kicker: "Careers",
+        title: "There are no published openings right now.",
+        support: "When a role becomes available, we will publish its responsibilities, requirements, and application process here.",
+        primaryCta: "Explore Wasl Tech",
+        secondaryCta: "Contact us",
+        sections: Object.freeze([
+          Object.freeze({
+            id: "empty",
+            kicker: "Current openings",
+            title: "There are no open roles published right now.",
+            support: "When we open a role, we will publish the position, requirements, and application method here instead of collecting applications for unannounced jobs."
+          }),
+          Object.freeze({
+            id: "about-work",
+            kicker: "Working with us",
+            title: "We value clarity, ownership, and quality of execution.",
+            support: "The details of each role, working model, and requirements will be published with the opportunity itself."
+          })
+        ]),
+        seo: Object.freeze({
+          title: "Careers | Wasl Tech",
+          description: "View published career opportunities at Wasl Tech when real, open positions are available."
         })
       })
     }
@@ -596,7 +861,8 @@ export const pages = Object.freeze([
       sections: CONTENT_STATE.NOT_APPLICABLE,
       cta: CONTENT_STATE.READY,
       seo: CONTENT_STATE.READY,
-      businessFacts: CONTENT_STATE.NOT_APPLICABLE
+      businessFacts: CONTENT_STATE.NOT_APPLICABLE,
+      english: CONTENT_STATE.READY
     },
     evidenceSources: ["main:404.html"],
     content: {
@@ -610,6 +876,20 @@ export const pages = Object.freeze([
         seo: Object.freeze({
           title: "الصفحة غير موجودة | وصل تك — Wasl Tech",
           description: "الصفحة التي تبحث عنها غير موجودة. يمكنك العودة للرئيسية أو استكشاف خدمات وأعمال وصل تك."
+        })
+      }),
+      en: Object.freeze({
+        purpose: "Help users quickly return to useful content when they reach a route that is no longer available.",
+        kicker: "Page not found",
+        title: "It looks like this page is no longer here.",
+        support: "Return to the homepage, explore our services, or view our work to find what you are looking for.",
+        primaryCta: "Back to home",
+        secondaryCta: "Explore services",
+        sections: Object.freeze([
+        ]),
+        seo: Object.freeze({
+          title: "Page Not Found | Wasl Tech",
+          description: "The page you are looking for is not available. Return to the homepage or explore Wasl Tech services and work."
         })
       })
     }
