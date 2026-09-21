@@ -175,7 +175,7 @@ Purpose:
 evidence browser.
 
 Listing card:
-- category/year if verified;
+- category;
 - project title;
 - one-sentence definition;
 - action.
@@ -193,12 +193,10 @@ When enough verified information exists:
 3. Overview.
 4. Context/challenge — only if verified.
 5. What Wasl built.
-6. Key screens/media.
-7. Verified technologies if relevant.
-8. Verified delivered outcomes.
-9. Live link when public.
-10. Related work.
-11. Similar-project CTA.
+6. Primary project image.
+7. Verified delivered outcomes.
+8. Related work.
+9. Similar-project CTA.
 
 Writing logic:
 **Context → Problem → Work → Evidence → Next action**
@@ -561,16 +559,18 @@ Every project record should support as much of the following as evidence allows:
 - localized title;
 - category;
 - related service ids;
-- primary cover;
-- gallery/screenshots.
+- one primary project image only.
 
 ### Verified metadata
 - client/public project name when allowed;
-- year;
 - project status;
-- live URL if public;
-- platform/type;
-- verified technologies when relevant.
+- platform/type.
+
+VNext intentionally does **not** use:
+- project year;
+- public/live project URL;
+- technology stack;
+- screenshot galleries or additional project images.
 
 ### Story
 - one-sentence definition;
@@ -646,11 +646,7 @@ When the repository cannot establish a business fact, ask the user for it.
 
 Typical user-supplied inputs may include:
 - approved project/client names;
-- public live URLs;
-- year/date;
 - actual project scope;
-- technologies used;
-- screenshots/source assets;
 - what Wasl specifically delivered;
 - measurable or factual outcomes;
 - support/maintenance policy;
