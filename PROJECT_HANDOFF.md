@@ -4,7 +4,7 @@ Last updated: 2026-09-21
 Repository: `7eaur/wasltech-`  
 Official/legacy branch: `main`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified implementation HEAD: `c2640be27fb76dca4232c134df86ff1d0269d496`
+Latest verified implementation HEAD: `eae58343daa539e295ce209b3bb442fc0e14647d`
 
 ## 1. Start procedure — mandatory
 
@@ -287,6 +287,49 @@ When started:
 7. fix hierarchy/cropping/density from root cause;
 8. verify SEO and shell contracts remain intact;
 9. document Phase 5 before Services Directory.
+
+## 8D. Phase 5 Homepage — COMPLETE
+
+Verified:
+- HEAD `eae58343daa539e295ce209b3bb442fc0e14647d`
+- run `35562768516`
+- SUCCESS.
+
+Home now consumes canonical page/service/project/FAQ data and contains no duplicated marketing data in the build layer.
+
+Composition:
+- text-led Hero;
+- three service-decision paths;
+- selected real work;
+- approach principles;
+- four-step process;
+- focused FAQ;
+- final CTA.
+
+Visual review:
+- Arabic + English;
+- 1440 desktop / 390 mobile;
+- no horizontal overflow;
+- RTL/LTR reviewed;
+- image crops reviewed;
+- mobile stacking reviewed.
+
+Performance detail:
+- featured project images use their intrinsic dimensions;
+- project images are lazy-loaded;
+- Hero remains text-led, avoiding an unnecessary LCP image.
+
+## 8E. Exact next work — Phase 6 Services Directory
+
+1. consume canonical Services page content and 8 canonical service records;
+2. keep the three service groups as the information architecture;
+3. avoid eight equal generic cards;
+4. make each service easy to compare by need, value and next action;
+5. use service imagery only when it adds clarity;
+6. review Arabic desktop/mobile first;
+7. review English desktop/mobile;
+8. verify SEO/shell/home contracts remain intact;
+9. document Phase 6 before service detail pages.
 
 ## 9. Non-negotiable rules
 
