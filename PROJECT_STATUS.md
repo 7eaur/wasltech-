@@ -5,7 +5,7 @@ Repository: `7eaur/wasltech-`
 Official/legacy branch: `main`  
 Current live `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified VNext implementation HEAD: `f3a841bb6a1af80fd4b2461dd475d76331d76ae8`
+Latest verified VNext implementation HEAD: `b99372dd54ae21bce2aa6fc48da383b6eb954d6e`
 
 ## Current state
 
@@ -551,6 +551,48 @@ Verification:
 ### Next phase — Phase 11: FAQ + Insights + Careers + Legal + Localization Completion
 
 Ready to start.
+
+## Phase 11 — FAQ + Insights + Careers + Legal + Localization Completion
+**COMPLETE**
+
+Implemented:
+- bilingual FAQ page with all 13 canonical questions across 4 groups;
+- FAQPage structured data;
+- honest bilingual Insights empty state with 0 published articles;
+- honest bilingual Careers empty state with 0 published jobs;
+- bilingual Privacy page based on verified runtime behavior;
+- bilingual Terms page based on verified website/service behavior;
+- no invented retention period;
+- no invented processors;
+- no invented analytics, tracking, cookies or legal guarantees;
+- runtime privacy behavior checked against actual VNext clients;
+- dedicated `secondary.css`;
+- dedicated `check-secondary-legal.mjs`.
+
+Verified privacy/runtime facts:
+- Project Planner prepares data locally in the browser;
+- Planner does not POST/fetch to a Wasl Tech backend;
+- Planner does not use localStorage or sessionStorage;
+- WhatsApp opens only after user review/action;
+- Contact uses verified WhatsApp, email and Instagram channels;
+- VNext currently includes no Google Analytics, GTM, Meta Pixel or tracking-cookie logic.
+
+Visual review:
+- FAQ Arabic/English desktop + mobile;
+- Privacy Arabic/English desktop + mobile;
+- Terms mobile reviewed;
+- Insights/Careers empty states reviewed;
+- no horizontal overflow;
+- long legal copy remained readable on mobile;
+- RTL/LTR hierarchy reviewed.
+
+Verification:
+- workflow: `VNext verify`
+- run: `35645517860`
+- SHA: `b99372dd54ae21bce2aa6fc48da383b6eb954d6e`
+- result: **SUCCESS**
+- Secondary/Legal Gate: PASS
+- all previous gates remained green.
 
 ## Production separation
 
