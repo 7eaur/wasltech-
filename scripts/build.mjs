@@ -3,7 +3,9 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { routes } from "../src/config/routes.js";
-import { renderPreviewRobots } from "../src/seo/crawl.js";
+import { renderPreviewRobots, renderProductionRobots, renderSitemap } from "../src/seo/crawl.js";
+import { isProductionBuild, outputDirectoryName } from "../src/config/release.js";
+import { getIndexableEntries } from "../src/seo/indexable-routes.js";
 import { designSystemShowcase } from "../src/pages/design-system.js";
 import { foundationPlaceholder } from "../src/pages/foundation.js";
 import { homePage } from "../src/pages/home.js";
@@ -22,7 +24,7 @@ import { services } from "../src/data/services.js";
 import { projects } from "../src/data/projects.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const DIST = path.join(ROOT, "dist");
+const DIST = path.join(ROOT, outputDirectoryName);
 
 const cssSources = [
   "src/styles/tokens.css",
@@ -147,7 +149,10 @@ async function buildPages() {
     "404.html",
     foundationPlaceholder({ title: "الصفحة غير موجودة", routeKey: "home", locale: "ar", seo: false })
   );
-  await writeOutput("robots.txt", renderPreviewRobots());
+  await writeOutput("robots.txt", isProductionBuild ? renderProductionRobots() : renderPreviewRobots());
+  if (isProductionBuild) {
+    await writeOutput("sitemap.xml", renderSitemap(getIndexableEntries()));
+  }
 }
 
 await rm(DIST, { recursive: true, force: true });
@@ -157,5 +162,5 @@ await buildStyles();
 await buildAssets();
 await buildPages();
 
-console.log("VNEXT BUILD: PASSED");
+console.log(`VNEXT BUILD: PASSED [${isProductionBuild ? "production" : "preview"}]`);
 console.log(`Output: ${path.relative(ROOT, DIST)}`);
