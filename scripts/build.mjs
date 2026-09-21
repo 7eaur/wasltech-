@@ -9,6 +9,8 @@ const DIST = path.join(ROOT, "dist");
 
 const cssSources = [
   "src/styles/tokens.css",
+  "src/styles/brand.css",
+  "src/styles/typography.css",
   "src/styles/base.css",
   "src/styles/layout.css",
   "src/styles/components.css",
