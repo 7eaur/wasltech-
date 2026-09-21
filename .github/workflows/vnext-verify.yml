@@ -7,8 +7,7 @@ on:
   pull_request:
     paths:
       - "src/**"
-      - "scripts/build.mjs"
-      - "scripts/check.mjs"
+      - "scripts/**"
       - "package.json"
       - "docs/core/**"
       - "PROJECT_STATUS.md"
@@ -33,12 +32,22 @@ jobs:
         with:
           node-version: 24
 
-      - name: Build and check VNext
+      - name: Build and check VNext preview
         run: npm run vnext:verify
+
+      - name: Build and check VNext release
+        run: npm run vnext:verify:release
 
       - name: Upload foundation preview
         uses: actions/upload-artifact@v4
         with:
           name: wasltech-vnext-foundation
           path: dist/
+          retention-days: 7
+
+      - name: Upload release candidate
+        uses: actions/upload-artifact@v4
+        with:
+          name: wasltech-vnext-release-candidate
+          path: dist-release/
           retention-days: 7
