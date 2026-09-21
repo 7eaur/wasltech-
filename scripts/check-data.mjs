@@ -233,6 +233,12 @@ for (const record of pages) {
   if (record.localeStatus.ar !== "content_required" && !record.content?.ar) {
     fail(scope, "Arabic page content is expected for non-required state");
   }
+  if (record.fieldState.sections === "READY") {
+    const sections = record.content?.ar?.sections;
+    if (!Array.isArray(sections) || !sections.length) {
+      fail(scope, "sections are READY but canonical Arabic sections are missing");
+    }
+  }
 }
 
 unique(faqGroups, "id", "faqGroups");
