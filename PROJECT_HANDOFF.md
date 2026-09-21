@@ -4,7 +4,7 @@ Last updated: 2026-09-21
 Repository: `7eaur/wasltech-`  
 Official/legacy branch: `main`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified implementation HEAD: `f3a841bb6a1af80fd4b2461dd475d76331d76ae8`
+Latest verified implementation HEAD: `b99372dd54ae21bce2aa6fc48da383b6eb954d6e`
 
 ## 1. Start procedure — mandatory
 
@@ -503,6 +503,24 @@ Project Planner:
 8. keep incomplete legal pages noindex until verified;
 9. add dedicated gates;
 10. visually review both locales before release QA.
+
+## 8P. Phase 11 Secondary Pages + Legal + Localization — COMPLETE
+
+Verified:
+- HEAD `b99372dd54ae21bce2aa6fc48da383b6eb954d6e`
+- run `35645517860`
+- SUCCESS.
+
+Completed:
+- FAQ: 13 items / 4 groups / both locales;
+- Insights: honest zero-article state;
+- Careers: honest zero-job state;
+- Privacy: verified current-runtime behavior only;
+- Terms: website/service boundary only;
+- Arabic/English localization complete for all current public static surfaces;
+- no invented analytics/cookies/retention/legal claims.
+
+Visual review passed on desktop/mobile with no overflow.
 
 ## 9. Non-negotiable rules
 
