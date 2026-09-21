@@ -2,7 +2,8 @@
  * Wasl Tech VNext — Canonical project data.
  * Source: verified legacy portfolio records normalized on 2026-09-21.
  * Arabic portfolio summaries, case-study overviews/scopes and SEO are VNext editorial drafts.
- * Evidence-sensitive metadata (client/year/live URL/stack/outcomes) remains explicit until verified.
+ * Each project intentionally uses one primary image only.
+ * Year, live URL, technology stack and additional galleries are not part of the VNext project model.
  */
 
 import { CONTENT_STATE, createFieldState, projectFieldKeys } from "./content-contracts.js";
@@ -46,7 +47,6 @@ const projectRecords = [
       "en": null
     },
     "links": {
-      "live": null,
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن مشروع منصة مشابهة لصوركم الرقمية."
     }
   },
@@ -88,7 +88,6 @@ const projectRecords = [
       "en": null
     },
     "links": {
-      "live": null,
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن مشروع منصة مشابهة لوصّل."
     }
   },
@@ -130,7 +129,6 @@ const projectRecords = [
       "en": null
     },
     "links": {
-      "live": null,
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن مشروع نظام مشابه للوحة الميكروتيك."
     }
   },
@@ -172,7 +170,6 @@ const projectRecords = [
       "en": null
     },
     "links": {
-      "live": null,
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن نظام لوحة تحكم CMS مشابهة."
     }
   },
@@ -214,7 +211,6 @@ const projectRecords = [
       "en": null
     },
     "links": {
-      "live": null,
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن تصميم متجر إلكتروني مشابه لتيك زون."
     }
   },
@@ -256,7 +252,6 @@ const projectRecords = [
       "en": null
     },
     "links": {
-      "live": null,
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن برمجة تطبيق مشابه لأروما كافيه."
     }
   },
@@ -298,7 +293,6 @@ const projectRecords = [
       "en": null
     },
     "links": {
-      "live": null,
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن مشروع موقع مشابه للبناء المتقن."
     }
   },
@@ -340,7 +334,6 @@ const projectRecords = [
       "en": null
     },
     "links": {
-      "live": null,
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن مشروع متجر إلكتروني مشابه."
     }
   },
@@ -382,7 +375,6 @@ const projectRecords = [
       "en": null
     },
     "links": {
-      "live": null,
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن تصميم هوية بصرية."
     }
   },
@@ -424,7 +416,6 @@ const projectRecords = [
       "en": null
     },
     "links": {
-      "live": null,
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن تصميم هوية بصرية."
     }
   },
@@ -466,7 +457,6 @@ const projectRecords = [
       "en": null
     },
     "links": {
-      "live": null,
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن حملة تسويقية."
     }
   },
@@ -508,7 +498,6 @@ const projectRecords = [
       "en": null
     },
     "links": {
-      "live": null,
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن متجر إلكتروني."
     }
   },
@@ -550,7 +539,6 @@ const projectRecords = [
       "en": null
     },
     "links": {
-      "live": null,
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن متجر إلكتروني مشابه لكيدي."
     }
   },
@@ -592,7 +580,6 @@ const projectRecords = [
       "en": null
     },
     "links": {
-      "live": null,
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن برمجة موقع مشابه لمكتب الحباري."
     }
   }
@@ -618,27 +605,20 @@ const PROJECT_PLATFORM_TYPES = Object.freeze({
 function phase2bProjectRecord(project) {
   return Object.freeze({
     ...project,
-    year: null,
     client: Object.freeze({
       publicName: null,
       attributionApproved: null
     }),
     projectStatus: null,
     platformType: PROJECT_PLATFORM_TYPES[project.id] ?? null,
-    technologies: Object.freeze([]),
-    gallery: Object.freeze([]),
     contentState: CONTENT_STATE.PARTIAL,
     fieldState: createFieldState(projectFieldKeys, {
       identity: CONTENT_STATE.READY,
       arabicCore: CONTENT_STATE.READY,
       cover: CONTENT_STATE.READY,
-      gallery: CONTENT_STATE.CONTENT_REQUIRED,
-      year: CONTENT_STATE.CONTENT_REQUIRED,
       clientAttribution: CONTENT_STATE.NOT_VERIFIED,
       projectStatus: CONTENT_STATE.CONTENT_REQUIRED,
-      liveUrl: CONTENT_STATE.CONTENT_REQUIRED,
       platformType: CONTENT_STATE.READY,
-      technologies: CONTENT_STATE.CONTENT_REQUIRED,
       scope: CONTENT_STATE.READY,
       waslContribution: CONTENT_STATE.PARTIAL,
       contextChallenge: CONTENT_STATE.PARTIAL,
