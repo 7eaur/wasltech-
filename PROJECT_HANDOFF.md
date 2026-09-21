@@ -4,7 +4,7 @@ Last updated: 2026-09-21
 Repository: `7eaur/wasltech-`  
 Official/legacy branch: `main`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified implementation HEAD: `5b29dba17ca789a31512c3788ee8e388b40d9346`
+Latest verified implementation HEAD: `3942c6da3ad0cc8e435324bbe195909b09972493`
 
 ## 1. Start procedure — mandatory
 
@@ -429,6 +429,43 @@ Visual review covered:
 8. add dedicated gates;
 9. review desktop/mobile in both locales;
 10. document Phase 9 before Project Planner + Contact.
+
+## 8L. Phase 9 About + Process — COMPLETE
+
+Verified:
+- HEAD `3942c6da3ad0cc8e435324bbe195909b09972493`
+- run `35568496733`
+- SUCCESS.
+
+About:
+- how Wasl Tech thinks;
+- one-system approach;
+- what it builds;
+- decision principles;
+- Yemen + Gulf market.
+
+Process:
+- Understand;
+- Plan;
+- Design & build;
+- Review & launch;
+- explicit outcome/clarity after each stage;
+- no invented duration.
+
+Visual review passed Arabic/English at desktop/mobile with no overflow.
+
+## 8M. Exact next work — Phase 10 Project Planner + Contact
+
+1. build Contact as low-friction direct communication;
+2. preserve verified WhatsApp/email/Instagram only;
+3. build Project Planner as structured intake;
+4. use actual planner stages from canonical IA;
+5. no fake backend send/success state;
+6. planner may prepare a WhatsApp message client-side;
+7. validation must be truthful and accessible;
+8. keep Contact and Planner as different surfaces;
+9. visually review desktop/mobile in both locales;
+10. document Phase 10 before secondary pages/legal.
 
 ## 9. Non-negotiable rules
 
