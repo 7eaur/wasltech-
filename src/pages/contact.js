@@ -17,7 +17,7 @@ function whatsappHref(locale){
   return `${site.contact.whatsapp}?text=${encodeURIComponent(text)}`;
 }
 
-function renderChannel({label,value,href,external=false}){
+function renderChannel({label,value,href,external=false,valueDir=""}){
   return `
     <a class="contact-channel" href="${href}"${external?' target="_blank" rel="noopener"':""}>
       <span>${escapeHtml(label)}</span>
