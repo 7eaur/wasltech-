@@ -10,9 +10,11 @@ export function renderProductionRobots() {
 
 export function renderSitemap(entries = []) {
   const urls = entries.map((entry) => {
-    const alternates = Object.entries(entry.alternates ?? {})
-      .map(([locale, path]) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${absoluteUrl(path)}"/>`)
-      .join("\n");
+    const alternateEntries = Object.entries(entry.alternates ?? {});
+    const alternates = [
+      ...alternateEntries.map(([locale, path]) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${absoluteUrl(path)}"/>`),
+      ...(entry.alternates?.ar ? [`    <xhtml:link rel="alternate" hreflang="x-default" href="${absoluteUrl(entry.alternates.ar)}"/>`] : [])
+    ].join("\n");
     return `  <url>\n    <loc>${absoluteUrl(entry.path)}</loc>\n${alternates}\n  </url>`;
   }).join("\n");
 
