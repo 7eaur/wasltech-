@@ -4,7 +4,7 @@ Last updated: 2026-09-21
 Repository: `7eaur/wasltech-`  
 Official/legacy branch: `main`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified implementation HEAD: `6f0863a1b4a8490522c6df41e9b3be896432dcc0`
+Latest verified implementation HEAD: `b1b2e14968dd5e9fc2f33405e5f106b547ac24c4`
 
 ## 1. Start procedure — mandatory
 
@@ -227,43 +227,38 @@ Build the shared design grammar before composing final pages:
 
 Do not start Homepage composition before Phase 3 and Phase 4 gates pass.
 
-## 8A. Phase 3 current state
+## 8A. Phase 3 — COMPLETE
 
-Phase 3 design-system implementation is complete in code and has passed real Chromium layout review; only the final GitHub Actions head run is still queued.
+Design primitives and visual review are complete.
 
-Visual review evidence:
-- Arabic + English;
-- 1440 desktop + 390 mobile;
-- no horizontal overflow;
+Final verification:
+- HEAD `b1b2e14968dd5e9fc2f33405e5f106b547ac24c4`
+- run `35559468184`
+- SUCCESS.
+
+Visual review:
+- Arabic/English;
+- 1440 desktop / 390 mobile;
+- no overflow;
 - RTL/LTR correct;
-- mobile header CTA bug found and fixed;
-- mobile menu/language targets normalized to 46px;
-- button/input/select controls normalized to 46px;
-- cards/forms/media and grids collapse correctly on mobile.
+- mobile control targets normalized;
+- actual visual defect in header CTA behavior found and fixed.
 
-The review used the exact GitHub Actions preview artifact injected into Chromium in-memory because:
-- Vercel branch preview is blocked by build-rate-limit;
-- direct localhost/file navigation is restricted by the browser policy in this environment.
+IBM Plex exact glyph rendering should be re-confirmed on a real networked preview later; it does not reopen the primitive/layout gate.
 
-IBM Plex binary font files could not be loaded locally, so exact glyph rendering remains a later web-preview confirmation item. The project font contract itself remains unchanged.
+## 8B. Active work — Phase 4 Shared Shell
 
-Green verification leading into the last refinement:
-- `da05b3b2fa00ab576916ad4c5877524206559ac1`
-- `84b3f36afd9db1d01da75c513f78bfe7b0ab6d52`
-- `d13d86b4282a22e95fbc83c2a126637216a53491`
-- `4b529b2b85c6ec4d6305c427be7ecf5ecb010a2c`
-- `778797169f517eaaa67fd1fef72888468b65e3be`
+Implement and verify only the shared site shell:
+- family-aware active navigation;
+- accessible mobile menu open/close labeling;
+- Escape/outside-click/resize behavior;
+- focus handling;
+- language switch;
+- reusable header CTA;
+- Footer information architecture using ready routes only;
+- mobile/desktop + RTL/LTR shell review.
 
-Latest design SHA:
-- `0d97f4930059052d695706d0998fdb9658e76765`
-- direct visual/computed verification passed;
-- Actions run `35559252091` remains queued, not failed.
-
-Workflow queue improvement:
-- `75d7355e04476ac8e750a09353877554a7b83d60`
-- adds concurrency/cancel-in-progress for future latest-head verification.
-
-Do not start Phase 4 until the final queued verification clears, unless an equivalent latest-head verification is explicitly documented.
+Do not start Homepage composition until Phase 4 is closed.
 
 ## 9. Non-negotiable rules
 
