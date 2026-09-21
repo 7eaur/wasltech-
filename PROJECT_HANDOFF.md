@@ -208,24 +208,25 @@ Still needed where relevant:
 - related article topics;
 - reviewed English.
 
-Current projects have:
-- identity/slug/category/image;
-- Arabic title/summary;
-- 3 highlights;
-- related service.
+Current projects use this locked model:
+- identity/slug/category;
+- exactly one primary image;
+- Arabic title/summary/highlights;
+- related service;
+- platform/type;
+- case-study overview/context/contribution/scope/delivered outputs;
+- SEO draft.
 
-Still needed where evidence exists:
+Intentionally excluded from the project model:
 - year;
-- public client attribution;
-- live URL;
-- gallery/screenshots;
-- verified stack;
-- actual scope;
-- what Wasl delivered;
-- overview/context/challenge;
-- factual outcomes;
-- SEO;
-- English.
+- live/public project URL;
+- technology stack;
+- gallery/screenshots/additional project images.
+
+Still needed:
+- public client attribution only where useful;
+- final Arabic editorial review;
+- reviewed English copy.
 
 Gap audit:
 `docs/qa/2026-09-21_phase-2b_content-gap-audit.md`
@@ -294,7 +295,8 @@ Verified:
 - legacy content is evidence/baseline, not canonical wording or final completion;
 - keep only important verified facts/assets/relationships from Legacy; write VNext marketing and UX copy anew;
 - migrated Arabic service/project copy is `draft` until reviewed;
-- never invent metrics/results/clients/stacks/prices/timelines/SLAs;
+- never invent metrics/results/clients/prices/timelines/SLAs;
+- every project has one primary image only; do not reintroduce year, live URL, technology stack, or gallery fields;
 - ask user for facts/evidence, not finished marketing copy;
 - no SEO filler;
 - no copied SATR copy/design;
