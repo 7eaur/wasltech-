@@ -85,9 +85,45 @@ QA:
 
 ## 4. Exact next phase
 
-**Phase 3 — Design Tokens & Shared Primitives**
+**Phase 2B — Content Architecture & Evidence Completion**
 
 Do not build final pages yet.
+
+Current content is normalized but not considered complete merely because it exists.
+
+Start with:
+1. extend final service/project content contracts;
+2. classify missing fields;
+3. create canonical page-level content owners;
+4. identify which missing facts can be recovered from repository evidence;
+5. request only meaningful missing business facts/assets from the user;
+6. draft final Arabic content;
+7. prepare reviewed English content after facts stabilize;
+8. add SEO/search-intent metadata;
+9. validate realistic content lengths before Phase 3 visual approval.
+
+After Phase 2B closes, continue with Phase 3 shared primitives.
+
+## 5. Phase 2B rules
+
+- legacy content is baseline, not completion;
+- ask the user for facts/evidence, not finished copy;
+- do not fabricate project case studies, outcomes, technologies, dates or clients;
+- do not publish generic SEO filler;
+- missing fields remain explicit;
+- final visual components must be tested against realistic content lengths;
+- English is written from approved facts, not as an independent drifting content database.
+
+## 6. Do not repeat
+
+Do not:
+- recreate Phase 0/1/2;
+- treat all current legacy descriptions as final VNext editorial copy;
+- jump to final Home design before the content model is known;
+- reopen approved font/logo/colors casually;
+- create copied pages per locale/entity;
+- weaken CI/data guards;
+- merge VNext to production early.
 
 Start with:
 1. inspect existing VNext `tokens.css`, `brand.css`, `typography.css`, `layout.css`, `components.css`, `media.css`;
