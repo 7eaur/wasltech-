@@ -47,7 +47,7 @@
   [data-menu-toggle][aria-expanded="true"] .menu-icon span:nth-child(1){transform:translateY(.28rem) rotate(45deg)}
   [data-menu-toggle][aria-expanded="true"] .menu-icon span:nth-child(2){opacity:0}
   [data-menu-toggle][aria-expanded="true"] .menu-icon span:nth-child(3){transform:translateY(-.28rem) rotate(-45deg)}
-  .primary-nav{display:none;position:absolute;top:4.5rem;inset-inline:var(--page-gutter);padding:var(--space-2);background:var(--color-bg-raised);border:var(--border-thin) solid var(--color-border-default);border-radius:var(--radius-card);box-shadow:var(--shadow-md)}
+  .primary-nav{display:none;position:absolute;z-index:1;top:4.5rem;inset-inline:var(--page-gutter);justify-self:stretch;width:auto;max-height:calc(100dvh - 5.5rem);overflow:auto;padding:var(--space-2);background:var(--color-bg-raised);border:var(--border-thin) solid var(--color-border-default);border-radius:var(--radius-card);box-shadow:var(--shadow-md)}
   .primary-nav[data-open]{display:block}
   .primary-nav ul{align-items:stretch;flex-direction:column;gap:0}
   .nav-link{display:flex;min-height:2.875rem;align-items:center;padding:.65rem .75rem;border-radius:var(--radius-sm)}
