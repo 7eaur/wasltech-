@@ -102,7 +102,7 @@ export function foundationHome(locale = "ar") {
   });
 }
 
-export function foundationPlaceholder({ title, routeKey, locale = "ar" }) {
+export function foundationPlaceholder({ title, routeKey, locale = "ar", seo = true }) {
   const t = copy[locale];
   const path = routes[routeKey](locale);
   const alternateLocale = locale === "ar" ? "en" : "ar";
@@ -120,7 +120,7 @@ export function foundationPlaceholder({ title, routeKey, locale = "ar" }) {
     locale,
     activePath: path,
     alternatePath: routes[routeKey](alternateLocale),
-    canonicalPath: path,
-    alternatePaths: alternatesFor(routeKey)
+    canonicalPath: seo ? path : null,
+    alternatePaths: seo ? alternatesFor(routeKey) : {}
   });
 }
