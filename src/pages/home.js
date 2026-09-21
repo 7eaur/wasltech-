@@ -12,6 +12,11 @@ import { escapeHtml } from "../lib/html.js";
 const homeRecord = pages.find((page) => page.id === "home");
 
 const featuredProjectIds = Object.freeze(["project-02", "project-06", "project-09"]);
+const featuredMediaDimensions = Object.freeze({
+  "project-02": Object.freeze({ width: 800, height: 541 }),
+  "project-06": Object.freeze({ width: 800, height: 608 }),
+  "project-09": Object.freeze({ width: 800, height: 800 })
+});
 const featuredFaqIds = Object.freeze(["start-1", "workflow-1", "workflow-2"]);
 
 const groupSupport = Object.freeze({
@@ -132,10 +137,13 @@ function renderProjects(content, locale) {
 
   const cards = projects.map((project, index) => {
     const p = project.content[locale];
+    const dimensions = featuredMediaDimensions[project.id];
+    if (!dimensions) throw new Error(`Featured media dimensions missing: ${project.id}`);
+
     return `
       <article class="home-project home-project--${index === 0 ? "featured" : "standard"}">
         <a class="home-project__media" href="${routes.project(project.slug, locale)}" aria-label="${escapeHtml(p.title)}">
-          <img src="${project.image}" alt="" loading="${index === 0 ? "eager" : "lazy"}" width="960" height="640">
+          <img src="${project.image}" alt="" loading="lazy" width="${dimensions.width}" height="${dimensions.height}">
         </a>
         <div class="home-project__copy">
           <p class="eyebrow">${escapeHtml(project.platformType[locale])}</p>
