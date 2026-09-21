@@ -4,7 +4,7 @@ Last updated: 2026-09-21
 Repository: `7eaur/wasltech-`  
 Official/legacy branch: `main`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified implementation HEAD: `054113b9bb2e7d3c832129a56a75894cf6102227`
+Latest verified implementation HEAD: `1b3ec7fe20c03ab8f3a00887d7ccea4decd7a8f3`
 
 ## 1. Start procedure — mandatory
 
@@ -358,6 +358,37 @@ Directory behavior:
 8. verify every detail link resolves;
 9. review representative short/long services on desktop/mobile;
 10. document Phase 7 before Portfolio.
+
+## 8H. Phase 7 Service Detail System — COMPLETE
+
+Verified:
+- HEAD `1b3ec7fe20c03ab8f3a00887d7ccea4decd7a8f3`
+- run `35567508172`
+- SUCCESS.
+
+Completed:
+- one reusable service-detail page system;
+- 8 services × 2 locales;
+- canonical SEO and social copy;
+- Service / Breadcrumb / FAQ structured data;
+- verified related project proof only;
+- constraints and process content preserved;
+- no invented price, duration, stack or support promises.
+
+Visual review covered proof/no-proof and Arabic/English desktop/mobile.
+
+## 8I. Exact next work — Phase 8 Portfolio & Case-study Foundation
+
+1. build bilingual Portfolio directory from the 14 canonical projects;
+2. expose only real category filters;
+3. keep one primary image per project;
+4. build one reusable project detail/case-study template;
+5. consume context, contribution, scope, delivered outputs and SEO from canonical records;
+6. do not invent year, live URL, stack, gallery or metrics;
+7. connect project detail to related services;
+8. add CreativeWork + Breadcrumb structured data;
+9. generate all 28 localized project detail routes;
+10. visually review listing and representative case studies before About/Process.
 
 ## 9. Non-negotiable rules
 
