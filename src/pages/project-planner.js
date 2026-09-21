@@ -158,13 +158,13 @@ export function projectPlannerPage(locale="ar"){
           </section>
         </form>
 
-        <aside class="planner-review" data-planner-review hidden>
+        <aside class="planner-review" data-planner-review hidden tabindex="-1">
           <p class="eyebrow">${locale==="ar"?"مراجعة":"Review"}</p>
           <h2>${escapeHtml(labels.reviewTitle)}</h2>
           <p class="planner-review__note">${escapeHtml(labels.reviewNote)}</p>
           <dl data-planner-summary></dl>
           <div class="planner-review__actions">
-            <a class="button button--primary button--lg" data-planner-whatsapp href="#" target="_blank" rel="noopener">${escapeHtml(labels.open)}</a>
+            <a class="button button--primary button--lg" data-planner-whatsapp href="${site.contact.whatsapp}" target="_blank" rel="noopener">${escapeHtml(labels.open)}</a>
             <button class="button button--ghost" data-planner-edit type="button">${escapeHtml(labels.edit)}</button>
           </div>
         </aside>
