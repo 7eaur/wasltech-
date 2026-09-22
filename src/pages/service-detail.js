@@ -129,8 +129,8 @@ function renderProof(service, locale) {
       <div class="container">
         ${SectionHeader({
           kicker:locale === "ar" ? "أعمال مرتبطة" : "Related work",
-          title:locale === "ar" ? "شاهد كيف ظهر هذا النوع من العمل في مشاريع حقيقية." : "See how this kind of work appears in real projects.",
-          supporting:locale === "ar" ? "نعرض هنا فقط المشاريع المرتبطة بهذه الخدمة فعليًا." : "Only projects actually related to this service are shown here."
+          title:locale === "ar" ? "نماذج من مشاريع مرتبطة بهذه الخدمة." : "Examples of projects connected to this service.",
+          supporting:locale === "ar" ? "استكشف كيف تُترجم هذه الخدمة داخل مشاريع ومتطلبات مختلفة." : "See how this service takes shape across different projects and needs."
         })}
         <div class="service-proof__grid">
           ${projects.map((project)=>`
