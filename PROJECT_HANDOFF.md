@@ -41,12 +41,15 @@ Active branch:
 `rebuild/vnext-foundation-20260921`
 
 Latest verified **runtime/design checkpoint**:
-`ec5b788d393b245e25bf08dc70ad29b7c9715074`
+`c2687ce94f7fa52ecf502c585a336fb0f16b4bcc`
 
 Latest visual refinement evidence:
-- VNext verify: `35679244075` — **SUCCESS**
-- capture: `35679244011` — **SUCCESS**
-- screenshot artifact: `10673974756`
+- VNext verify: `35679856561` — **SUCCESS**
+- capture: `35679856535` — **SUCCESS**
+- screenshot artifact: `10674775774`
+- CTA is visually separated from Footer using a distinct Teal card treatment.
+- Mobile Footer is compressed into two navigation columns plus icon-based verified contact/social links.
+- Selected Work uses neutral copy and each featured project card includes a concise canonical summary.
 - Mobile 390 now keeps key card groups compact/horizontal instead of collapsing every group to one long column.
 - Homepage uses restrained inline SVG cues in Hero/Process, tighter typography, corrected image crops, and normalized section rhythm.
 
