@@ -144,10 +144,20 @@ keyboard, RTL, mobile drawer, 360/390/768/1024/1366/1440, no overflow.
 ## Phase 5 — Homepage
 
 Goal:
-strong positioning → service discovery → proof → process → project planner.
+clear positioning → all 8 services → selected proof/work → About Team → Why Wasl Tech → process → short FAQ → compact project CTA.
+
+Approved Phase-13 refinement:
+- calm, elegant, profile-inspired composition;
+- one supporting Hero visual;
+- services remain visible as 8 concise comparable cards;
+- About and Why stay separate;
+- qualitative trust language replaces unsupported numeric counters;
+- selected work stays restrained;
+- Home FAQ stays at 3 questions;
+- final CTA is smaller than the Hero.
 
 Gate:
-no generic card-wall layout; real hierarchy; approved mobile/desktop screenshots.
+real hierarchy, no oversized showcase/cinematic treatment, approved mobile/desktop screenshots, and all homepage structural guards green.
 
 ## Phase 6 — Services Directory
 
