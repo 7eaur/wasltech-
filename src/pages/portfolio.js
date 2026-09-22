@@ -62,7 +62,7 @@ export function portfolioPage(locale="ar") {
           <h1>${escapeHtml(content.title)}</h1>
           <p>${escapeHtml(content.support)}</p>
         </div>
-        <div class="portfolio-hero__count"><strong>${projects.length}</strong><span>${locale === "ar" ? "مشروعًا موثقًا" : "verified projects"}</span></div>
+        <div class="portfolio-hero__count"><strong>${projects.length}</strong><span>${locale === "ar" ? "مشروعًا في معرض الأعمال" : "projects in our portfolio"}</span></div>
       </div>
     </section>
 
