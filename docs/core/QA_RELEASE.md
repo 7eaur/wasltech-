@@ -199,6 +199,20 @@ Production is updated only when:
 - visual smoke check passes on real production;
 - redirects are verified after routing changes.
 
+## 11B. Final editorial media gate
+
+Before production cutover:
+- every public route family must retain its Hero media surface;
+- temporary editorial images must be replaced with approved final imagery where requested;
+- final Hero/article images must be optimized for web delivery;
+- LCP Hero image must remain the only eager content image on the page unless a documented exception exists;
+- intrinsic dimensions must remain present;
+- crop/focal point must be reviewed at 390 and 1440;
+- social preview images must resolve;
+- public UI must not expose service-count or project-count counters.
+
+The current temporary editorial assets are valid only for architecture/layout verification and do not satisfy the final media-performance gate.
+
 ## 12. Documentation closeout
 
 After a verified batch:
