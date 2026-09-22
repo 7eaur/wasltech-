@@ -39,7 +39,7 @@ function renderProject(project,locale,index) {
   return `
     <article class="portfolio-card${index===0 ? " portfolio-card--lead" : ""}" data-project-card data-category="${project.category}">
       <a class="portfolio-card__media" href="${routes.project(project.slug,locale)}" aria-label="${escapeHtml(copy.title)}">
-        <img src="${project.image}" alt="" loading="${index===0 ? "eager" : "lazy"}"${index===0 ? ' fetchpriority="high"' : ""} width="${project.imageDimensions.width}" height="${project.imageDimensions.height}" decoding="async">
+        <img src="${project.image}" alt="" loading="lazy" width="${project.imageDimensions.width}" height="${project.imageDimensions.height}" decoding="async">
       </a>
       <div class="portfolio-card__copy">
         <p class="eyebrow">${escapeHtml(project.platformType[locale])}</p>
