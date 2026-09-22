@@ -1,10 +1,7 @@
 .portfolio-hero{padding-block:clamp(var(--space-8),4.5vw,var(--space-14))}
-.portfolio-hero__grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(12rem,.85fr);gap:clamp(var(--space-8),7vw,var(--space-20));align-items:end}
+.portfolio-hero__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(20rem,.95fr);gap:clamp(var(--space-8),5vw,var(--space-16));align-items:center}
 .portfolio-hero h1{max-width:15ch;margin:0;font-size:clamp(2.5rem,1.9rem + 3vw,4.5rem);line-height:1.08;letter-spacing:var(--tracking-tight)}
 .portfolio-hero__grid>div:first-child>p:not(.eyebrow){max-width:43rem;margin-top:var(--space-5);color:var(--color-text-secondary);font-size:var(--font-size-md)}
-.portfolio-hero__count{justify-self:end;min-width:12rem;padding:var(--space-5);border-top:2px solid var(--color-brand-accent);border-bottom:var(--border-thin) solid var(--color-border-default)}
-.portfolio-hero__count strong{display:block;color:var(--color-text-brand);font-size:clamp(3rem,6vw,5rem);line-height:1}
-.portfolio-hero__count span{display:block;margin-top:var(--space-2);color:var(--color-text-muted);font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold)}
 
 .portfolio-filters{display:flex;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-8)}
 .portfolio-filters button{min-height:var(--control-height);padding:.45rem .8rem;background:var(--color-bg-canvas);border:var(--border-thin) solid var(--color-border-default);border-radius:var(--radius-full);color:var(--color-text-secondary);font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold)}
@@ -33,14 +30,11 @@
 }
 @media(max-width:53.75rem){
   .portfolio-hero__grid{grid-template-columns:1fr}
-  .portfolio-hero__count{justify-self:start}
   .portfolio-cta__inner{grid-template-columns:1fr}
   .portfolio-cta__inner .button{justify-self:start}
 }
 @media(max-width:43.75rem){
   .portfolio-hero h1{font-size:clamp(2.25rem,10vw,3.25rem)}
-  .portfolio-hero__count{min-width:0;padding:var(--space-4)}
-  .portfolio-hero__count strong{font-size:2rem}
   .portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3)}
   .portfolio-card__media{aspect-ratio:16/10}
   .portfolio-card__copy{padding:.7rem}
