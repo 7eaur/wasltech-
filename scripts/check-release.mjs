@@ -66,11 +66,30 @@ for (const entry of entries) {
 
   for (const [locale, alternatePath] of Object.entries(entry.alternates ?? {})) {
     const alternate = absoluteUrl(alternatePath);
+    if (!paths.has(alternatePath)) {
+      fail(file, `hreflang points to a non-indexable route: ${locale} => ${alternatePath}`);
+    }
     if (!html.includes(`hreflang="${locale}" href="${alternate}"`)) {
       fail(file, `HTML hreflang missing: ${locale}`);
     }
     if (!sitemap.includes(`hreflang="${locale}" href="${alternate}"`)) {
       fail(file, `sitemap hreflang missing: ${locale}`);
+    }
+  }
+
+  const ogImageMatch = html.match(/property="og:image" content="([^"]+)"/);
+  const twitterImageMatch = html.match(/name="twitter:image" content="([^"]+)"/);
+  if (!ogImageMatch || !twitterImageMatch) {
+    fail(file, "indexable route must expose Open Graph and Twitter images");
+  } else if (ogImageMatch[1] !== twitterImageMatch[1]) {
+    fail(file, "Open Graph and Twitter images must resolve to the same asset");
+  } else {
+    const imagePath = new URL(ogImageMatch[1]).pathname.replace(/^\/+/, "");
+    try {
+      const imageInfo = await stat(path.join(DIST, imagePath));
+      if (!imageInfo.isFile()) fail(file, `social image is not a file: ${imagePath}`);
+    } catch {
+      fail(file, `social image missing from release output: ${imagePath}`);
     }
   }
 
