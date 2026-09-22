@@ -4,6 +4,8 @@ import { pages } from "../data/pages.js";
 import { services } from "../data/services.js";
 import { documentTemplate } from "../templates/document.js";
 import { escapeHtml } from "../lib/html.js";
+import { HeroMedia } from "../components/HeroMedia.js";
+import { getPageHeroMedia } from "../config/hero-media.js";
 
 const record=pages.find((page)=>page.id==="startProject");
 
@@ -97,14 +99,13 @@ export function projectPlannerPage(locale="ar"){
   const body=`
     <section class="planner-hero">
       <div class="container planner-hero__grid">
-        <div>
+        <div class="planner-hero__copy">
           <p class="eyebrow">${escapeHtml(content.kicker)}</p>
           <h1>${escapeHtml(content.title)}</h1>
-        </div>
-        <div>
           <p>${escapeHtml(content.support)}</p>
           <a class="text-link" href="${routes.contact(locale)}">${escapeHtml(content.secondaryCta)}</a>
         </div>
+        ${HeroMedia({...getPageHeroMedia("startProject", locale), className:"planner-hero__media"})}
       </div>
     </section>
 
