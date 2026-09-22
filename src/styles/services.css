@@ -56,10 +56,10 @@
   .service-directory-row__main h3{font-size:.84rem;line-height:1.3}
   .service-directory-row__decision{padding-top:.55rem}
   .service-directory-row__decision span{display:none}
-  .service-directory-row__decision p{display:-webkit-box;font-size:.7rem;line-height:1.5;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+  .service-directory-row__decision p{display:-webkit-box;font-size:.74rem;line-height:1.55;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
   .service-directory-row__scope{display:none}
   .service-directory-row__action{margin-top:auto;padding-top:.65rem}
-  .service-directory-row__action .text-link{font-size:.7rem}
+  .service-directory-row__action .text-link{font-size:.72rem}
   .service-directory-row:last-child:nth-child(odd){grid-column:1/-1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);align-items:center;column-gap:var(--space-4)}
   .service-directory-row:last-child:nth-child(odd) .service-directory-row__index{grid-column:1;grid-row:1}
   .service-directory-row:last-child:nth-child(odd) .service-directory-row__main{grid-column:1;grid-row:2/5}
