@@ -40,11 +40,10 @@ function renderHero(content, locale) {
   `;
 }
 
-function renderServiceRow(service, locale, index) {
+function renderServiceRow(service, locale) {
   const copy = service.content[locale];
   return `
     <article class="service-directory-row">
-      <div class="service-directory-row__index">${String(index + 1).padStart(2,"0")}</div>
       <div class="service-directory-row__main">
         <p class="service-directory-row__subtitle">${escapeHtml(copy.subtitle)}</p>
         <h3><a href="${routes.service(service.slug,locale)}">${escapeHtml(copy.title)}</a></h3>
@@ -64,7 +63,7 @@ function renderServiceRow(service, locale, index) {
   `;
 }
 
-function renderFamily(group, content, locale, familyIndex) {
+function renderFamily(group, content, locale) {
   const section = pageSection(content, sectionIdByGroup[group.id]);
   const services = getServicesByGroup(group.id);
 
@@ -72,7 +71,6 @@ function renderFamily(group, content, locale, familyIndex) {
     <section class="service-family" id="${group.id}">
       <div class="container">
         <div class="service-family__header">
-          <span class="service-family__number">0${familyIndex + 1}</span>
           <div>
             ${SectionHeader({
               kicker:section.kicker,
@@ -82,7 +80,7 @@ function renderFamily(group, content, locale, familyIndex) {
           </div>
         </div>
         <div class="service-directory-list">
-          ${services.map((service,index)=>renderServiceRow(service,locale,index)).join("")}
+          ${services.map((service)=>renderServiceRow(service,locale)).join("")}
         </div>
       </div>
     </section>
@@ -116,7 +114,7 @@ export function servicesDirectoryPage(locale="ar") {
 
   const body = [
     renderHero(content,locale),
-    `<div id="service-families">${serviceGroups.map((group,index)=>renderFamily(group,content,locale,index)).join("")}</div>`,
+    `<div id="service-families">${serviceGroups.map((group)=>renderFamily(group,content,locale)).join("")}</div>`,
     renderUnsure(content,locale)
   ].join("");
 
