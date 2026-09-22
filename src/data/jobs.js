@@ -1,7 +1,7 @@
 /**
  * Wasl Tech VNext — Job content contract.
  *
- * Jobs are intentionally empty in Phase 2. An empty careers surface is valid.
+ * Jobs are intentionally empty in the current release. An empty careers surface is valid.
  * A future record must follow this shape:
  *
  * {
