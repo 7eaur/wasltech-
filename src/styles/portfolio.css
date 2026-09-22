@@ -37,18 +37,18 @@
   .portfolio-hero h1{font-size:clamp(2.25rem,10vw,3.25rem)}
   .portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3)}
   .portfolio-card__media{aspect-ratio:16/10}
-  .portfolio-card__copy{padding:.7rem}
-  .portfolio-card__copy .eyebrow{font-size:.65rem}
-  .portfolio-card__copy h2{font-size:.82rem}
-  .portfolio-card__copy>p:not(.eyebrow){font-size:.72rem;line-height:1.5}
-  .portfolio-card__copy .text-link{font-size:.72rem}
+  .portfolio-card__copy{padding:.72rem}
+  .portfolio-card__copy .eyebrow{font-size:.75rem}
+  .portfolio-card__copy h2{font-size:.875rem;line-height:1.35}
+  .portfolio-card__copy>p:not(.eyebrow){font-size:.78rem;line-height:1.52}
+  .portfolio-card__copy .text-link{font-size:.78rem}
   .portfolio-filters{gap:var(--space-2);margin-bottom:var(--space-5)}
-  .portfolio-filters button{flex:1 1 calc(33.333% - var(--space-2));min-height:var(--control-height);padding:.35rem .55rem;font-size:.72rem}
+  .portfolio-filters button{flex:1 1 calc(33.333% - var(--space-2));min-height:var(--control-height);padding:.35rem .55rem;font-size:.78rem}
   .portfolio-cta__inner .button{width:100%}
 }
 @media(prefers-reduced-motion:reduce){.portfolio-card:hover .portfolio-card__media img{transform:none}}
 
 @media(max-width:23.75rem){
   .portfolio-card__copy>p:not(.eyebrow){display:none}
-  .portfolio-card__copy h2{font-size:.76rem}
+  .portfolio-card__copy h2{font-size:.8125rem}
 }
