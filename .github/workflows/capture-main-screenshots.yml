@@ -6,6 +6,12 @@ on:
       - rebuild/vnext-foundation-20260921
     paths:
       - ".github/workflows/capture-main-screenshots.yml"
+      - "src/pages/home.js"
+      - "src/data/pages.js"
+      - "src/styles/home.css"
+      - "scripts/build.mjs"
+      - "assets/about_1.png"
+      - "assets/about_2.png"
 
 permissions:
   contents: read
