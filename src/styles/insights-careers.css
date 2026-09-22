@@ -80,30 +80,30 @@
   .insights-hero__actions{display:grid;grid-template-columns:1fr}
   .insights-hero__actions .button{width:100%}
   .insights-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3)}
-  .insight-card__copy{padding:.7rem}
-  .insight-card__copy .eyebrow{font-size:.65rem}
-  .insight-card__copy h2{font-size:.8rem;line-height:1.35}
-  .insight-card__copy>p:not(.eyebrow){font-size:.68rem;line-height:1.45;-webkit-line-clamp:2}
-  .insight-card__copy .text-link{font-size:.7rem}
+  .insight-card__copy{padding:.72rem}
+  .insight-card__copy .eyebrow{font-size:.75rem}
+  .insight-card__copy h2{font-size:.875rem;line-height:1.4}
+  .insight-card__copy>p:not(.eyebrow){font-size:.78rem;line-height:1.5;-webkit-line-clamp:2}
+  .insight-card__copy .text-link{font-size:.78rem}
   .insight-card:last-child:nth-child(odd){grid-column:1/-1;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
   .insight-card:last-child:nth-child(odd) .insight-card__media{height:100%;aspect-ratio:auto}
   .article-content__lead{padding-inline-start:var(--space-3)}
-  .article-content__lead p{font-size:.95rem;line-height:1.75}
+  .article-content__lead p{font-size:1rem;line-height:1.78}
   .article-body__section+ .article-body__section{margin-top:var(--space-8)}
-  .article-body__section h2{font-size:1.15rem}
-  .article-body__section p,.article-body__section li{font-size:.86rem}
-  .article-related h2{font-size:1.15rem}
+  .article-body__section h2{font-size:1.2rem}
+  .article-body__section p,.article-body__section li{font-size:.9375rem;line-height:1.85}
+  .article-related h2{font-size:1.2rem}
   .careers-empty{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3)}
   .careers-empty>div{min-height:12rem;padding:var(--space-4)}
-  .careers-empty h2{font-size:.9rem}
-  .careers-empty p:last-child{font-size:.72rem;line-height:1.55}
+  .careers-empty h2{font-size:.95rem}
+  .careers-empty p:last-child{font-size:.8rem;line-height:1.6}
   .careers-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3)}
   .career-card{padding:var(--space-4)}
-  .career-card h2{font-size:.9rem}
-  .career-card>p:not(.eyebrow){font-size:.72rem}
+  .career-card h2{font-size:.95rem}
+  .career-card>p:not(.eyebrow){font-size:.8rem;line-height:1.6}
   .job-content__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
-  .job-content h2{font-size:1rem}
-  .job-content li{font-size:.75rem}
+  .job-content h2{font-size:1.05rem}
+  .job-content li{font-size:.8125rem}
   .insights-cta__inner .button,.article-cta__inner .button,.job-cta__inner .button{width:100%}
 }
 
