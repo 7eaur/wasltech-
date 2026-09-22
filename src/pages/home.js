@@ -30,14 +30,14 @@ const heroSignals = Object.freeze({
 
 const aboutValues = Object.freeze({
   ar: Object.freeze([
-    Object.freeze({ title: "فريق ذو خبرة", body: "خبرات تقنية وتصميمية تعمل معًا." }),
-    Object.freeze({ title: "رضا العملاء", body: "نهتم بوضوح التواصل وجودة التجربة." }),
-    Object.freeze({ title: "مشاريع ناجحة", body: "تجارب متنوعة بمتطلبات وأهداف مختلفة." })
+    Object.freeze({ title: "تكامل التخصصات", body: "التقنية والتصميم والمحتوى تعمل ضمن مسار واحد." }),
+    Object.freeze({ title: "تواصل واضح", body: "نرتب القرارات والملاحظات بخطوات مفهومة." }),
+    Object.freeze({ title: "تنفيذ متنوع", body: "نتعامل مع مشاريع بمتطلبات وأهداف مختلفة." })
   ]),
   en: Object.freeze([
-    Object.freeze({ title: "Experienced team", body: "Technical and creative expertise working together." }),
-    Object.freeze({ title: "Client satisfaction", body: "We value clear communication and a strong experience." }),
-    Object.freeze({ title: "Successful projects", body: "Different projects shaped around different goals." })
+    Object.freeze({ title: "Connected disciplines", body: "Technology, design, and content work within one delivery path." }),
+    Object.freeze({ title: "Clear communication", body: "Decisions and feedback stay organized and easy to follow." }),
+    Object.freeze({ title: "Varied delivery", body: "We work across projects with different goals and requirements." })
   ])
 });
 
@@ -45,13 +45,13 @@ const whyPoints = Object.freeze({
   ar: Object.freeze([
     Object.freeze({ title: "فهم واضح للمشروع", body: "نبدأ بالهدف والاحتياج حتى يكون الحل مبنيًا على ما يحتاجه مشروعك فعلًا." }),
     Object.freeze({ title: "حلول مخصصة", body: "نرتب التصميم والتقنية والمحتوى بما يناسب طبيعة المشروع بدل فرض قالب جاهز." }),
-    Object.freeze({ title: "جودة وموثوقية", body: "نهتم بالتفاصيل التي تصنع تجربة أوضح وتنفيذًا أكثر اتساقًا." }),
+    Object.freeze({ title: "اهتمام بالتفاصيل", body: "نهتم بالتفاصيل التي تصنع تجربة أوضح وتنفيذًا أكثر اتساقًا." }),
     Object.freeze({ title: "متابعة واضحة", body: "يبقى التواصل منظمًا خلال مراحل العمل حتى تكون القرارات مفهومة." })
   ]),
   en: Object.freeze([
     Object.freeze({ title: "Clear project understanding", body: "We start with the goal and need so the solution fits what the project actually requires." }),
     Object.freeze({ title: "Tailored solutions", body: "Design, technology, and content are shaped around the project instead of a ready-made template." }),
-    Object.freeze({ title: "Quality and reliability", body: "We focus on the details that create a clearer experience and more consistent delivery." }),
+    Object.freeze({ title: "Attention to detail", body: "We focus on the details that create a clearer experience and more consistent delivery." }),
     Object.freeze({ title: "Clear follow-through", body: "Communication stays organized throughout the work so decisions remain easy to understand." })
   ])
 });
