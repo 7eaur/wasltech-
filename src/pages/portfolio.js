@@ -5,6 +5,8 @@ import { ActionLink } from "../components/ActionLink.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
+import { HeroMedia } from "../components/HeroMedia.js";
+import { getPageHeroMedia } from "../config/hero-media.js";
 
 const pageRecord = pages.find((page) => page.id === "portfolio");
 
@@ -62,7 +64,7 @@ export function portfolioPage(locale="ar") {
           <h1>${escapeHtml(content.title)}</h1>
           <p>${escapeHtml(content.support)}</p>
         </div>
-        <div class="portfolio-hero__count"><strong>${projects.length}</strong><span>${locale === "ar" ? "مشروعًا في معرض الأعمال" : "projects in our portfolio"}</span></div>
+        ${HeroMedia({...getPageHeroMedia("portfolio", locale), className:"portfolio-hero__media"})}
       </div>
     </section>
 
