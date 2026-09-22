@@ -3,6 +3,8 @@ import { pages } from "../data/pages.js";
 import { ActionLink } from "../components/ActionLink.js";
 import { documentTemplate } from "../templates/document.js";
 import { escapeHtml } from "../lib/html.js";
+import { HeroMedia } from "../components/HeroMedia.js";
+import { getPageHeroMedia } from "../config/hero-media.js";
 
 const record=pages.find((page)=>page.id==="process");
 const phaseIds=Object.freeze(["understand","plan","build","review-launch"]);
@@ -28,17 +30,18 @@ function renderHero(content,locale){
   return `
     <section class="process-hero">
       <div class="container process-hero__grid">
-        <div>
+        <div class="process-hero__copy">
           <p class="eyebrow">${escapeHtml(content.kicker)}</p>
           <h1>${escapeHtml(content.title)}</h1>
-        </div>
-        <div class="process-hero__support">
-          <p>${escapeHtml(content.support)}</p>
-          <div class="process-hero__actions">
-            ${ActionLink({href:routes.startProject(locale),label:content.primaryCta,variant:"primary",size:"lg"})}
-            ${ActionLink({href:routes.portfolio(locale),label:content.secondaryCta,variant:"ghost",size:"lg"})}
+          <div class="process-hero__support">
+            <p>${escapeHtml(content.support)}</p>
+            <div class="process-hero__actions">
+              ${ActionLink({href:routes.startProject(locale),label:content.primaryCta,variant:"primary",size:"lg"})}
+              ${ActionLink({href:routes.portfolio(locale),label:content.secondaryCta,variant:"ghost",size:"lg"})}
+            </div>
           </div>
         </div>
+        ${HeroMedia({...getPageHeroMedia("process", locale), className:"process-hero__media"})}
       </div>
     </section>
   `;
