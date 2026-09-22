@@ -5,6 +5,7 @@ import { ActionLink } from "../components/ActionLink.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
+import { icon } from "../components/icons.js";
 
 const record=pages.find((page)=>page.id==="contact");
 
@@ -17,9 +18,10 @@ function whatsappHref(locale){
   return `${site.contact.whatsapp}?text=${encodeURIComponent(text)}`;
 }
 
-function renderChannel({label,value,href,external=false,valueDir=""}){
+function renderChannel({label,value,href,iconName,external=false,valueDir=""}){
   return `
     <a class="contact-channel" href="${href}"${external?' target="_blank" rel="noopener"':""}>
+      ${icon(iconName, "contact-channel__icon")}
       <span>${escapeHtml(label)}</span>
       <strong${valueDir ? ` dir="${valueDir}"` : ""}>${escapeHtml(value)}</strong>
     </a>
@@ -58,9 +60,9 @@ export function contactPage(locale="ar"){
           <p>${escapeHtml(direct.support)}</p>
         </div>
         <div class="contact-channels">
-          ${renderChannel({label:locale==="ar"?"واتساب":"WhatsApp",value:site.contact.phoneDisplay,href:whatsappHref(locale),external:true,valueDir:"ltr"})}
-          ${renderChannel({label:locale==="ar"?"البريد الإلكتروني":"Email",value:site.contact.email,href:`mailto:${site.contact.email}`,valueDir:"ltr"})}
-          ${renderChannel({label:locale==="ar"?"إنستغرام":"Instagram",value:site.contact.instagram.handle,href:site.contact.instagram.url,external:true,valueDir:"ltr"})}
+          ${renderChannel({label:locale==="ar"?"واتساب":"WhatsApp",value:site.contact.phoneDisplay,href:whatsappHref(locale),iconName:"whatsapp",external:true,valueDir:"ltr"})}
+          ${renderChannel({label:locale==="ar"?"البريد الإلكتروني":"Email",value:site.contact.email,href:`mailto:${site.contact.email}`,iconName:"mail",valueDir:"ltr"})}
+          ${renderChannel({label:locale==="ar"?"إنستغرام":"Instagram",value:site.contact.instagram.handle,href:site.contact.instagram.url,iconName:"instagram",external:true,valueDir:"ltr"})}
         </div>
       </div>
     </section>
