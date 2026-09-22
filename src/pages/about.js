@@ -105,7 +105,7 @@ function renderMarket(content,locale){
         <div>
           <p>${escapeHtml(market.support)}</p>
           <div class="about-market__facts">
-            <div><strong>${projects.length}</strong><span>${locale==="ar"?"مشروعًا موثقًا في معرض الأعمال":"verified projects in the portfolio"}</span></div>
+            <div><strong>${projects.length}</strong><span>${locale==="ar"?"مشروعًا في معرض الأعمال":"projects in the portfolio"}</span></div>
             <div><strong>8</strong><span>${locale==="ar"?"خدمات ضمن ثلاث عائلات واضحة":"services across three clear families"}</span></div>
           </div>
         </div>
