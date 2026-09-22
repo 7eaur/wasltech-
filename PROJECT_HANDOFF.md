@@ -41,25 +41,28 @@ Active branch:
 `rebuild/vnext-foundation-20260921`
 
 Latest verified **runtime/design checkpoint**:
-`3106d4d93f5ece5208e6dd22d3ce9c2ab6c16d0d`
+`aea64eb0f4339a610fa8f035b8650e12bdbbd8cf`
 
-Latest visual refinement evidence:
+Latest architecture/visual evidence:
 - Homepage: **USER ACCEPTED**
-- VNext verify: `35680961221` — **SUCCESS**
-- responsive route-family matrix: `35680961269` — **SUCCESS**
-- screenshot artifact: `10674342417`
-- QA record: `docs/qa/2026-09-22_phase-13_cross-page-visual-normalization.md`
-- route families checked at 360/390/768/1024/1366/1440 in Arabic and English;
-- no horizontal overflow, missing H1, wrong IBM Plex family, or page JavaScript errors;
-- final CTAs use separate Teal card surfaces before the shared Navy Footer;
-- mobile Footer uses compact two-column navigation plus verified WhatsApp/email/Instagram icon links;
-- Services, Service Detail, Portfolio, Project Detail, About, Process, Contact, Planner, FAQ, Insights, Careers, Privacy, and Terms now share the approved visual rhythm and mobile composition.
+- VNext verify: `35682925238` — **SUCCESS**
+- responsive route-family matrix: `35682925234` — **SUCCESS**
+- screenshot artifact: `10675451706`
+- documentation-head verify: `35682982991` — **SUCCESS**
+- QA record: `docs/qa/2026-09-22_phase-13b_architecture-editorial-media-completion.md`
+- representative route families, including a published Article detail page, checked at 360/390/768/1024/1366/1440 in Arabic and English;
+- image-led Hero surfaces are now part of the page architecture;
+- public service/project count counters are removed and guarded;
+- Insights is a published bilingual editorial system with Article detail routes and schema;
+- Careers keeps an honest empty state while Job detail/JobPosting architecture is ready for future real openings;
+- final CTAs and compact Footer behavior remain consistent across the site;
+- current non-project editorial Hero/article images are temporary and must be replaced/optimized before cutover.
 
 Documentation commits may be newer than that checkpoint. Always fetch live HEAD first.
 
 ## 3. Current phase
 
-**Phase 13 — Cross-page Visual Normalization — COMPLETE FOR USER REVIEW**
+**Phase 13B — Architecture, Editorial & Final Media Preparation — FINAL MEDIA PENDING**
 
 Phases 0–12 are complete.
 
@@ -117,7 +120,7 @@ This sequence is now canonical:
 9. Footer
 
 Important user decisions:
-- all 8 official services remain visible on Home;
+- all canonical service offerings remain visible on Home without a public service-count counter;
 - About and Why Wasl Tech are separate and must **not** be merged;
 - use `فريق وصل تك / Wasl Tech team` in narrative copy rather than generic “company” wording;
 - no unsupported numeric counters such as years/projects/satisfaction percentages;
@@ -147,7 +150,7 @@ Implemented in:
 
 Homepage now has:
 - calm image-supported Hero;
-- all 8 service cards;
+- the complete canonical service set;
 - 3 selected project cards;
 - separate About Team section;
 - separate Why Wasl Tech section;
@@ -215,48 +218,36 @@ QA record:
 
 ## 9. Exact next action — do this first
 
-**Do not immediately redesign other pages.**
+The architecture/content/SEO batch is complete. Do **not** restart page architecture.
 
-First:
+Next:
 
 1. fetch live VNext HEAD;
-2. confirm the Homepage runtime files above have not changed unexpectedly;
-3. retrieve artifact `10674085957` or regenerate the same screenshots;
-4. show the user the latest real Homepage:
-   - Desktop 1440
-   - Mobile 390
-5. visually critique it with the user;
-6. fix any Homepage defect from the root cause;
-7. only after the user accepts the implemented Homepage, use its visual language as the Phase 13 reference for the rest of the site.
+2. read the Phase 13B QA record;
+3. collect the final image set from the user;
+4. replace only the temporary Hero/article assets while preserving their approved layout roles;
+5. optimize final images for responsive web delivery;
+6. review focal crops at Mobile 390 and Desktop 1440;
+7. verify Open Graph image output;
+8. run Preview + Release + quality + SEO checks;
+9. run the full Arabic/English responsive route matrix;
+10. show the final screenshots for visual acceptance;
+11. only after explicit acceptance start Phase 14.
 
-## 10. After Homepage acceptance
+## 10. Final media replacement rules
 
-Normalize the remaining route families in this order:
+- Hero imagery is required across public page families.
+- Project detail continues to use canonical project covers unless the user supplies replacements.
+- Service-detail temporary media can be replaced independently per service.
+- Article covers must be replaced independently per published article.
+- No layout redesign is required merely to swap media.
+- Keep crop-safe focal points for both desktop and mobile.
+- Do not embed essential text inside the image.
+- Final assets must be optimized before production; current temporary editorial files are architecture placeholders only.
 
-1. Shared Header/Footer
-2. Services Directory
-3. Service Detail
-4. Portfolio
-5. Project Detail / Case Study
-6. About
-7. Process
-8. Contact
-9. Project Planner
-10. FAQ
-11. Insights / Careers empty states
-12. Privacy / Terms / secondary pages
-13. English equivalents
+## 11. Required final validation matrix
 
-For every page:
-- preserve existing correct architecture/data;
-- change visual composition/copy only where needed;
-- do not reintroduce duplication;
-- fix shared root causes in shared primitives/styles;
-- avoid patch CSS piles.
-
-## 11. Required Phase 13 visual matrix
-
-Before Phase 13 can close, review:
+Before Phase 13B can close, review:
 - 360
 - 390
 - 768
@@ -268,17 +259,30 @@ For:
 - Arabic RTL
 - English LTR
 
+Include:
+- Home;
+- directories;
+- service detail;
+- portfolio/project detail;
+- About/Process;
+- Contact/Planner;
+- FAQ;
+- Insights + a published Article;
+- Careers;
+- legal pages.
+
 Check:
 - hierarchy;
+- Hero image crop/focal point;
 - section spacing;
-- image crops;
 - header/footer density;
 - button hierarchy;
 - card/surface consistency;
-- long vs short pages;
+- long-form article readability;
 - mobile editing;
 - no horizontal overflow;
-- no generic AI/template feel.
+- no generic AI/template feel;
+- metadata/social image resolution.
 
 ## 12. Content/claim rules
 
@@ -303,12 +307,13 @@ Do not reintroduce them.
 
 ## 13. Current data/content facts
 
-Canonical:
-- 8 official services;
-- 14 projects;
-- 13 FAQ items across 4 groups;
-- 0 published articles;
-- 0 open jobs.
+Canonical current state:
+- service and project data remain centralized in their canonical records;
+- general FAQ content is bilingual;
+- Insights now has published bilingual decision-support articles;
+- Careers has no invented opening and remains publication-state driven;
+- privacy/terms reflect the verified current runtime behavior;
+- article/job route generation is data-driven.
 
 Market:
 - Yemen + Gulf.
