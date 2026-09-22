@@ -363,6 +363,26 @@ Images:
 
 This approved direction should guide Phase 13 cross-page normalization without forcing every page into the same composition.
 
+### Cross-page Hero media rule — 2026-09-22
+
+Every public-facing route family now includes a deliberate Hero image/media surface:
+- directory pages;
+- service detail;
+- portfolio and project detail;
+- About and Process;
+- Contact and Project Planner;
+- FAQ and Insights;
+- Careers;
+- Privacy and Terms;
+- published article/job detail pages;
+- 404 recovery.
+
+Hero composition may vary by page job, but a text-only Hero is no longer the default public pattern.
+
+Current non-project editorial Hero assets are **temporary layout assets**. Their layout role is approved, but they must be replaced with final supplied imagery and optimized before production cutover.
+
+Public marketing surfaces must not display service-count or project-count counters. Use descriptive hierarchy and qualitative language instead.
+
 ## 12. Craft acceptance questions
 
 Before approving a page:
