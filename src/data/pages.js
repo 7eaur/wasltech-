@@ -55,48 +55,54 @@ export const pages = Object.freeze([
     evidenceSources: ["main:index.html", "docs/core/PRODUCT.md", "docs/core/CONTENT_IA.md"],
     content: {
       ar: Object.freeze({
-        purpose: "تقديم وصل تك بسرعة ووضوح، مساعدة الزائر على فهم ما يمكن بناؤه أو تطويره، ثم نقله من الاستكشاف إلى مشروع أو تواصل فعلي.",
-        kicker: "نبني حضورك الرقمي باحتراف",
-        title: "نحوّل فكرتك إلى تجربة رقمية واضحة تخدم مشروعك.",
-        support: "من الموقع والتطبيق إلى المتجر والنظام والهوية والمحتوى، نرتب ما يحتاجه مشروعك حول هدف واضح ونحوّله إلى تجربة أسهل في الفهم والاستخدام.",
+        purpose: "تقديم فريق وصل تك وخدماته وأعماله بسرعة ووضوح، ثم بناء الثقة وشرح طريقة العمل قبل نقل الزائر إلى بدء مشروع أو تواصل فعلي.",
+        kicker: "شريكك في التحول الرقمي",
+        title: "نبني حضورك الرقمي باحتراف.",
+        support: "نصمم ونطور مواقع، تطبيقات، متاجر وحلولًا رقمية تساعد مشروعك على الظهور والعمل بصورة أفضل.",
         primaryCta: "ابدأ مشروعك",
-        secondaryCta: "شاهد أعمالنا",
+        secondaryCta: "استكشف خدماتنا",
         sections: Object.freeze([
           Object.freeze({
             id: "services",
-            kicker: "ما الذي نبنيه",
-            title: "اختر الحل من احتياجك، لا من قائمة خدمات.",
-            support: "مواقع وتطبيقات ومتاجر وأنظمة وهوية ومحتوى؛ نرتبها حول ما يحتاجه مشروعك الآن وما يمكن أن يتوسع إليه لاحقًا."
+            kicker: "خدماتنا",
+            title: "حلول رقمية مصممة حول احتياج مشروعك.",
+            support: "من المواقع والتطبيقات والمتاجر إلى الأنظمة والهوية والتسويق، نختار ونرتب ما يخدم مشروعك ويكمل حضوره."
           }),
           Object.freeze({
             id: "work",
             kicker: "أعمال مختارة",
-            title: "أفضل دليل على طريقة عملنا هو ما بنيناه.",
-            support: "استكشف مشاريع مختلفة في الهدف والنطاق، وشاهد كيف تتغير التجربة عندما يتغير احتياج المشروع."
+            title: "مشاريع نفخر بها.",
+            support: "نماذج مختارة من أعمال فريق وصل تك في مجالات مختلفة، صُممت حول احتياجات وأهداف متنوعة."
+          }),
+          Object.freeze({
+            id: "about",
+            kicker: "من نحن",
+            title: "فريق وصل تك يقدم حلولًا رقمية مدروسة.",
+            support: "نجمع بين الخبرة التقنية والتصميم والمحتوى لنحوّل الأفكار إلى تجارب رقمية واضحة ومتناسقة، مع اهتمام بالتفاصيل وجودة التنفيذ."
           }),
           Object.freeze({
             id: "approach",
             kicker: "لماذا وصل تك",
-            title: "نربط الفكرة بالمحتوى والتصميم والتقنية.",
-            support: "حتى لا يبدو المشروع جميلًا فقط، بل يكون واضحًا في رسالته ومنظمًا في تجربته وقابلًا للتنفيذ والتطوير."
+            title: "شريك تقني يفهم احتياجاتك.",
+            support: "نبدأ بالفهم، ثم نرتب الحل المناسب وننفذه بخطوات واضحة حتى تكون التجربة متماسكة من البداية."
           }),
           Object.freeze({
             id: "process",
             kicker: "كيف نعمل",
-            title: "قرارات أوضح قبل تفاصيل أكثر.",
-            support: "نفهم الهدف، نرتب النطاق، نصمم وننفذ، ثم نراجع قبل الإطلاق بدل القفز مباشرة إلى الشكل."
+            title: "من الفكرة إلى الإطلاق بخطوات واضحة.",
+            support: "رحلة منظمة تبدأ بفهم المشروع والتخطيط له، ثم التصميم والتطوير والمراجعة قبل الإطلاق."
           }),
           Object.freeze({
             id: "faq",
-            kicker: "قبل أن تبدأ",
-            title: "الأسئلة المهمة تستحق إجابات مباشرة.",
-            support: "من اختيار الخدمة إلى المدة والتعديلات والتكاملات، جمعنا ما يساعدك على تكوين صورة أوضح قبل التواصل."
+            kicker: "الأسئلة الشائعة",
+            title: "إجابات سريعة قبل أن تبدأ.",
+            support: "أهم ما يساعدك على تكوين صورة أوضح عن الخدمة وطريقة العمل قبل التواصل."
           }),
           Object.freeze({
             id: "final-cta",
-            kicker: "ابدأ من فكرتك",
-            title: "عندك مشروع؟ احكِ لنا ما تريد الوصول إليه.",
-            support: "لا تحتاج إلى تجهيز وثيقة طويلة؛ شاركنا الفكرة والوضع الحالي والأولوية، ونرتب معك نقطة البداية."
+            kicker: "ابدأ معنا",
+            title: "لديك مشروع؟ لنحوّل الفكرة إلى خطوة عملية.",
+            support: "شاركنا ما تريد بناءه أو تطويره، ونرتب معك نقطة البداية المناسبة."
           })
         ]),
         seo: Object.freeze({
@@ -105,48 +111,54 @@ export const pages = Object.freeze([
         })
       }),
       en: Object.freeze({
-        purpose: "Introduce Wasl Tech quickly and clearly, help visitors understand what can be built or improved, then move them from exploration to a real project conversation.",
-        kicker: "We build your digital presence professionally",
-        title: "We turn your idea into a clear digital experience that serves your business.",
-        support: "From websites and apps to e-commerce, custom systems, brand identity, and content, we organize what your project needs around a clear goal and turn it into an experience that is easier to understand and use.",
+        purpose: "Introduce the Wasl Tech team, services, and selected work clearly, build trust, explain the process, and guide visitors toward a real project conversation.",
+        kicker: "Your digital transformation partner",
+        title: "We build your digital presence professionally.",
+        support: "We design and develop websites, apps, e-commerce, and digital solutions that help your business show up and work better.",
         primaryCta: "Start your project",
-        secondaryCta: "View our work",
+        secondaryCta: "Explore our services",
         sections: Object.freeze([
           Object.freeze({
             id: "services",
-            kicker: "What we build",
-            title: "Choose the solution from your need, not from a service list.",
-            support: "Websites, apps, e-commerce, systems, identity, and content—organized around what your project needs now and how it may grow later."
+            kicker: "Our services",
+            title: "Digital solutions shaped around what your project needs.",
+            support: "From websites, apps, and e-commerce to systems, branding, and marketing, we organize the right mix around your business."
           }),
           Object.freeze({
             id: "work",
             kicker: "Selected work",
-            title: "The clearest proof of how we work is what we have built.",
-            support: "Explore projects with different goals and scopes, and see how the solution changes when the project need changes."
+            title: "Projects we are proud of.",
+            support: "A selection of Wasl Tech work across different categories, each shaped around a distinct need and objective."
+          }),
+          Object.freeze({
+            id: "about",
+            kicker: "About us",
+            title: "The Wasl Tech team builds thoughtful digital solutions.",
+            support: "We bring technical, design, and content expertise together to turn ideas into clear, cohesive digital experiences with attention to detail and execution."
           }),
           Object.freeze({
             id: "approach",
             kicker: "Why Wasl Tech",
-            title: "We connect the idea, content, design, and technology.",
-            support: "So the result does not only look good—it communicates clearly, works as a coherent experience, and can be built and improved with purpose."
+            title: "A technical partner that understands what you need.",
+            support: "We start by understanding the project, then shape the right solution and deliver it through clear, connected steps."
           }),
           Object.freeze({
             id: "process",
             kicker: "How we work",
-            title: "Clearer decisions before more details.",
-            support: "We understand the goal, define the scope, design and build, then review before launch instead of jumping straight into visuals."
+            title: "From idea to launch through clear steps.",
+            support: "An organized journey that starts with understanding and planning, then moves through design, development, review, and launch."
           }),
           Object.freeze({
             id: "faq",
-            kicker: "Before you start",
-            title: "Important questions deserve direct answers.",
-            support: "From choosing a service to timelines, changes, and integrations, we cover what helps you build a clearer picture before you contact us."
+            kicker: "Frequently asked questions",
+            title: "Quick answers before you start.",
+            support: "The essential questions that help you understand the service and working process before you get in touch."
           }),
           Object.freeze({
             id: "final-cta",
-            kicker: "Start with the idea",
-            title: "Have a project? Tell us what you want to achieve.",
-            support: "You do not need a long brief. Share the idea, the current situation, and the priority, and we will help organize the right starting point."
+            kicker: "Start with us",
+            title: "Have a project? Let us turn the idea into a practical next step.",
+            support: "Tell us what you want to build or improve, and we will help organize the right starting point."
           })
         ]),
         seo: Object.freeze({
