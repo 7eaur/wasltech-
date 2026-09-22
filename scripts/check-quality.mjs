@@ -164,7 +164,17 @@ if (projectImageBytes > budgets.projectImagesTotal) {
 }
 
 const portfolioCss = await readFile(path.join(ROOT, "src/styles/portfolio.css"), "utf8");
-if (!/\.portfolio-filters button\{[^}]*min-height:var\(--control-height\)/.test(portfolioCss)) {
+const portfolioFilterRules = [...portfolioCss.matchAll(/\.portfolio-filters button\{([^}]*)\}/g)].map((match) => match[1]);
+if (!portfolioFilterRules.length) {
+  fail("src/styles/portfolio.css", "portfolio filter button rules missing");
+}
+for (const rule of portfolioFilterRules) {
+  const minHeight = rule.match(/min-height:([^;]+)/)?.[1]?.trim();
+  if (minHeight && minHeight !== "var(--control-height)") {
+    fail("src/styles/portfolio.css", `portfolio filter touch target override is too small or non-canonical: ${minHeight}`);
+  }
+}
+if (!portfolioFilterRules.some((rule) => rule.includes("min-height:var(--control-height)"))) {
   fail("src/styles/portfolio.css", "portfolio filter buttons must use the shared control-height touch target");
 }
 
