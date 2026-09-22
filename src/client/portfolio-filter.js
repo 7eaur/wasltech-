@@ -21,7 +21,12 @@ if (browser && controls) {
       button.setAttribute("aria-pressed", String(button.dataset.portfolioFilter === filter));
     }
 
-    if (status) status.textContent = String(visible);
+    if (status) {
+      status.textContent = "";
+      requestAnimationFrame(() => {
+        status.textContent = status.dataset.message || "Results updated.";
+      });
+    }
   };
 
   for (const button of buttons) {
