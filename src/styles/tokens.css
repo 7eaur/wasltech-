@@ -96,8 +96,8 @@
   --space-32:8rem;
 
   /* Responsive section rhythm */
-  --section-space:clamp(4.25rem,7vw,7.5rem);
-  --section-space-compact:clamp(3rem,5vw,5rem);
+  --section-space:clamp(3rem,5vw,5rem);
+  --section-space-compact:clamp(2.25rem,4vw,4rem);
   --page-gutter:clamp(.75rem,2vw,1.5rem);
 
   /* Geometry */
