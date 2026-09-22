@@ -18,8 +18,6 @@ function htmlText(value=""){return String(value).replaceAll("&","&amp;").replace
 
 if(faqs.length!==13) fail("faq","expected 13 canonical FAQ items");
 if(faqGroups.length!==4) fail("faq","expected 4 canonical FAQ groups");
-if(articles.length!==0) fail("insights","articles must remain empty until real content exists");
-if(jobs.length!==0) fail("careers","jobs must remain empty until real openings exist");
 
 for(const locale of ["ar","en"]){
   const faqRecord=pages.find((page)=>page.id==="faq");
@@ -48,8 +46,29 @@ for(const locale of ["ar","en"]){
       if(!html.includes(`<h1>${htmlText(copy.title)}</h1>`)) fail(file,`${id} H1 missing`);
       if(!html.includes(htmlText(copy.seo.title))) fail(file,`${id} SEO title missing`);
     }
-    if(!html.includes(">00<")) fail(file,`${id} honest zero-state count missing`);
+    if(html.includes(">00<")) fail(file,`${id} must not expose a numeric empty-state counter`);
     if(html.includes("VNext Foundation")) fail(file,`${id} placeholder leaked`);
+  }
+
+  const insightsFile=outputPath(routes.insights(locale));
+  const insightsHtml=await readFile(path.join(DIST,insightsFile),"utf8");
+  for(const article of articles.filter((item)=>item.publishedAt && item.localeStatus?.[locale]==="ready")){
+    const articleCopy=article.content[locale];
+    const articleFile=outputPath(routes.article(article.slug,locale));
+    const articleHtml=await readFile(path.join(DIST,articleFile),"utf8");
+    if(!insightsHtml.includes(htmlText(articleCopy.title))) fail(insightsFile,`published article missing from listing: ${article.slug}`);
+    if(!articleHtml.includes(`<h1>${htmlText(articleCopy.title)}</h1>`)) fail(articleFile,"article H1 missing");
+    if(!articleHtml.includes(htmlText(articleCopy.seo.title))) fail(articleFile,"article SEO title missing");
+    if(!articleHtml.includes('"@type":"Article"')) fail(articleFile,"Article structured data missing");
+  }
+
+  const openJobs=jobs.filter((item)=>item.status==="open" && item.localeStatus?.[locale]==="ready");
+  for(const job of openJobs){
+    const copy=job.content[locale];
+    const file=outputPath(routes.job(job.slug,locale));
+    const html=await readFile(path.join(DIST,file),"utf8");
+    if(!html.includes(`<h1>${htmlText(copy.title)}</h1>`)) fail(file,"job H1 missing");
+    if(!html.includes('"@type":"JobPosting"')) fail(file,"JobPosting structured data missing");
   }
 
   for(const id of ["privacy","terms"]){
@@ -106,4 +125,4 @@ if(errors.length){
 }
 
 console.log("VNEXT SECONDARY/LEGAL CHECK: PASSED");
-console.log("Checked FAQ, honest empty states, verified legal copy and runtime privacy behavior.");
+console.log("Checked FAQ, published editorial routes, careers publication states, verified legal copy and runtime privacy behavior.");
