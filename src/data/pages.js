@@ -942,12 +942,12 @@ export const pages = Object.freeze([
             id: "about-work",
             kicker: "العمل معنا",
             title: "نفضّل الوضوح والمسؤولية وجودة التنفيذ.",
-            support: "تفاصيل أي دور وطريقة العمل والمتطلبات ستظهر مع الإعلان نفسه عندما تكون هناك فرصة فعلية."
+            support: "تفاصيل كل دور وطريقة العمل والمتطلبات ستظهر بوضوح مع الإعلان عند نشر أي فرصة."
           })
         ]),
         seo: Object.freeze({
           title: "الوظائف | وصل تك — Wasl Tech",
-          description: "فرص العمل المنشورة لدى وصل تك عند توفر وظائف حقيقية ومعلنة."
+          description: "تابع فرص العمل المنشورة لدى وصل تك، مع تفاصيل الدور والمتطلبات وطريقة التقديم عند توفر أي فرصة."
         })
       }),
       en: Object.freeze({
@@ -973,7 +973,7 @@ export const pages = Object.freeze([
         ]),
         seo: Object.freeze({
           title: "Careers | Wasl Tech",
-          description: "View published career opportunities at Wasl Tech when real, open positions are available."
+          description: "View published career opportunities at Wasl Tech, including role details, requirements, and the application process when positions are available."
         })
       })
     }
