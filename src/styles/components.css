@@ -48,35 +48,6 @@
 .badge{display:inline-flex;align-items:center;min-height:1.75rem;padding:.25rem .6rem;border-radius:var(--radius-full);background:var(--color-bg-soft);color:var(--color-text-secondary);font-size:var(--font-size-xs);font-weight:var(--font-weight-semibold)}
 .badge--accent{background:var(--color-brand-accent-soft);color:var(--color-text-accent)}
 
-.page-hero{padding-block:clamp(var(--space-8),5vw,var(--space-16))}
-.page-hero__shell{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(var(--space-6),4vw,var(--space-12));align-items:center;padding:clamp(var(--space-6),5vw,var(--space-16));background:var(--color-bg-soft);border:var(--border-thin) solid var(--color-border-subtle);border-radius:var(--radius-panel)}
-.page-hero__copy{max-width:48rem}
-.page-hero h1{margin-bottom:var(--space-4);font-size:var(--font-size-hero);letter-spacing:var(--tracking-tight)}
-.page-hero__support{max-width:42rem;color:var(--color-text-secondary);font-size:var(--font-size-md)}
-.page-hero__actions{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-6)}
-.page-hero--detail .page-hero__shell,.page-hero--evidence .page-hero__shell{grid-template-columns:minmax(0,1.05fr) minmax(17rem,.95fr)}
-
-.foundation-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4)}
-.foundation-principles article{padding:var(--space-5);background:var(--color-bg-raised);border:var(--border-thin) solid var(--color-border-default);border-radius:var(--radius-card)}
-.foundation-principles strong{display:block;margin-bottom:var(--space-2);color:var(--color-text-brand)}
-.foundation-principles p{margin:0;color:var(--color-text-secondary);font-size:var(--font-size-sm)}
-
-.contact-cta{padding-block:var(--section-space-compact);background:var(--color-bg-emphasis)}
-.contact-cta__inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-8)}
-.contact-cta h2{margin-bottom:var(--space-2);color:var(--color-text-inverse)}
-.contact-cta p{color:var(--wt-neutral-300)}
-
-@media(max-width:53.75rem){
-  .page-hero--detail .page-hero__shell,.page-hero--evidence .page-hero__shell{grid-template-columns:1fr}
-}
-
-@media(max-width:43.75rem){
-  .foundation-principles{grid-template-columns:1fr}
-  .contact-cta__inner{align-items:stretch;flex-direction:column}
-  .page-hero__actions{display:grid;grid-template-columns:1fr}
-  .page-hero__actions .button{width:100%}
-}
-
 @media(prefers-reduced-motion:reduce){
   .button:hover,.card--interactive:hover{transform:none}
 }
