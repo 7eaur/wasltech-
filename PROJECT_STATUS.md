@@ -5,13 +5,13 @@ Repository: `7eaur/wasltech-`
 Official/legacy branch: `main`  
 Current live `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified VNext implementation checkpoint: `3106d4d93f5ece5208e6dd22d3ce9c2ab6c16d0d`
+Latest verified VNext implementation checkpoint: `aea64eb0f4339a610fa8f035b8650e12bdbbd8cf`
 
 ## Current state
 
 **VNext clean rebuild is ACTIVE.**
 
-**Active phase: Phase 13 — Cross-page Visual Normalization.**
+**Active phase: Phase 13B — Architecture, Editorial & Final Media Preparation.**
 
 Homepage visual redesign is implemented, verified, and **USER ACCEPTED**. The approved calm, elegant, profile-inspired direction has now been extended across the remaining VNext route families without copying legacy architecture or wording.
 
@@ -19,7 +19,7 @@ Approved Home sequence:
 `Hero → Services → Selected Work → About Team → Why Wasl Tech → Process → 3 FAQ → Compact CTA → Footer`.
 
 Important approved constraints:
-- all 8 services remain visible on Home;
+- all canonical service offerings remain visible on Home without exposing a public service-count counter;
 - About and Why Wasl Tech stay separate;
 - narrative copy says `فريق وصل تك / Wasl Tech team`;
 - no unsupported numeric marketing counters;
@@ -28,16 +28,22 @@ Important approved constraints:
 - final CTA is smaller than the Hero;
 - Home FAQ is exactly 3 decision-support questions.
 
-Cross-page implementation/verification checkpoint:
-- runtime/design checkpoint SHA: `3106d4d93f5ece5208e6dd22d3ce9c2ab6c16d0d`;
-- VNext verify run: `35680961221` — **SUCCESS**;
-- responsive route-family matrix run: `35680961269` — **SUCCESS**;
-- matrix screenshot artifact: `10674342417` (`wasltech-vnext-route-matrix-screenshots`);
-- matrix covers representative route families at 360/390/768/1024/1366/1440 in Arabic and English with no horizontal overflow, H1/font/page-error guards;
-- Arabic Desktop 1440 and Mobile 390 full-page screenshots were captured for all representative route families;
-- QA record: `docs/qa/2026-09-22_phase-13_cross-page-visual-normalization.md`.
+Current architecture/editorial verification checkpoint:
+- runtime/design checkpoint SHA: `aea64eb0f4339a610fa8f035b8650e12bdbbd8cf`;
+- VNext verify run: `35682925238` — **SUCCESS**;
+- responsive route-family matrix run: `35682925234` — **SUCCESS**;
+- matrix screenshot artifact: `10675451706` (`wasltech-vnext-route-matrix-screenshots`);
+- documentation-head verify run: `35682982991` — **SUCCESS**;
+- matrix covers representative route families, including a published Article detail page, at 360/390/768/1024/1366/1440 in Arabic and English;
+- no horizontal overflow, missing H1, IBM Plex contract failure, or page JavaScript error;
+- page/service/project/article Hero media contracts are implemented;
+- public service/project count counters are removed and guarded;
+- bilingual Insights listing + Article detail architecture is live in VNext;
+- Careers remains an honest no-opening surface with future Job detail architecture ready;
+- Article/Job structured-data builders and automatic sitemap publication contracts are implemented;
+- QA record: `docs/qa/2026-09-22_phase-13b_architecture-editorial-media-completion.md`.
 
-Cross-page implementation is **COMPLETE FOR REVIEW**. Phase 13 remains **IN PROGRESS** until the user visually accepts the remaining route families. Phase 14 / production cutover has not started.
+Architecture, bilingual public routes, editorial surfaces and technical SEO are **COMPLETE BEFORE FINAL MEDIA**. Phase 13B remains open only for replacing temporary editorial Hero/article imagery, web optimization, final visual matrix and user acceptance. Phase 14 / production cutover has not started.
 
 The published website remains the legacy/current implementation from `main`. VNext is developed separately and must not replace production until the final cutover gates pass.
 
