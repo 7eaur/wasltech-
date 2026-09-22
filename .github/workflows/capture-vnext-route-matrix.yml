@@ -213,9 +213,12 @@ jobs:
             }
             const hiddenCards = await page.locator("[data-project-card][hidden]").count();
             if (!hiddenCards) throw new Error("Portfolio filter did not hide non-matching cards.");
-            const filterStatus = (await page.locator("[data-portfolio-status]").textContent() || "").trim();
-            if (!filterStatus || /\d/.test(filterStatus)) {
-              throw new Error(`Portfolio filter status must be descriptive and count-free: ${filterStatus}`);
+            const status = page.locator("[data-portfolio-status]");
+            await status.waitFor({ state: "attached" });
+            await page.waitForFunction(() => Boolean(document.querySelector("[data-portfolio-status]")?.textContent?.trim()));
+            const filterStatus = (await status.textContent() || "").trim();
+            if (/\d/.test(filterStatus)) {
+              throw new Error(`Portfolio filter status must be count-free: ${filterStatus}`);
             }
 
             await page.goto(base + "/start-project/", { waitUntil: "domcontentloaded" });
