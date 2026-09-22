@@ -286,18 +286,50 @@ for (const group of faqGroups) {
 }
 
 const projectIds = new Set(projects.map((project) => project.id));
+unique(articles, "id", "articles");
+unique(articles, "slug", "articles");
+if (!articles.some((article) => article.publishedAt)) {
+  fail("articles", "Insights requires at least one published article in the current release.");
+}
 for (const article of articles) {
-  validateLocaleRecord(article, `article:${article.id}`);
+  const scope = `article:${article.id}`;
+  validateLocaleRecord(article, scope);
+  if (!article.slug) fail(scope, "slug missing");
+  if (!article.author?.ar || !article.author?.en) fail(scope, "localized author identity missing");
+  if (!article.coverImage) fail(scope, "cover image missing");
+  if (!article.publishedAt) fail(scope, "publishedAt missing");
+  for (const locale of ["ar","en"]) {
+    if (article.localeStatus?.[locale] !== "ready") continue;
+    const copy = article.content?.[locale];
+    if (!copy?.title || !copy?.summary || !copy?.intro) fail(scope, `${locale} core article content missing`);
+    if (!Array.isArray(copy?.sections) || !copy.sections.length) fail(scope, `${locale} article sections missing`);
+    if (!copy?.seo?.title || !copy?.seo?.description) fail(scope, `${locale} article SEO missing`);
+  }
   for (const serviceId of article.relatedServiceIds ?? []) {
-    if (!serviceIds.has(serviceId)) fail(`article:${article.id}`, `unknown service: ${serviceId}`);
+    if (!serviceIds.has(serviceId)) fail(scope, `unknown service: ${serviceId}`);
   }
   for (const projectId of article.relatedProjectIds ?? []) {
-    if (!projectIds.has(projectId)) fail(`article:${article.id}`, `unknown project: ${projectId}`);
+    if (!projectIds.has(projectId)) fail(scope, `unknown project: ${projectId}`);
   }
+  await validateAsset(article.coverImage, scope);
 }
 
+unique(jobs, "id", "jobs");
+unique(jobs, "slug", "jobs");
 for (const job of jobs) {
-  validateLocaleRecord(job, `job:${job.id}`);
+  const scope = `job:${job.id}`;
+  validateLocaleRecord(job, scope);
+  if (job.status === "open") {
+    if (!job.publishedAt) fail(scope, "open job publishedAt missing");
+    for (const locale of ["ar","en"]) {
+      if (job.localeStatus?.[locale] !== "ready") continue;
+      const copy=job.content?.[locale];
+      if (!copy?.title || !copy?.summary) fail(scope, `${locale} job title/summary missing`);
+      if (!Array.isArray(copy?.responsibilities) || !copy.responsibilities.length) fail(scope, `${locale} responsibilities missing`);
+      if (!Array.isArray(copy?.requirements) || !copy.requirements.length) fail(scope, `${locale} requirements missing`);
+      if (!copy?.seo?.title || !copy?.seo?.description) fail(scope, `${locale} job SEO missing`);
+    }
+  }
 }
 
 if (errors.length) {
