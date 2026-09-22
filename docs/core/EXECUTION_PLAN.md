@@ -144,7 +144,7 @@ keyboard, RTL, mobile drawer, 360/390/768/1024/1366/1440, no overflow.
 ## Phase 5 — Homepage
 
 Goal:
-clear positioning → all 8 services → selected proof/work → About Team → Why Wasl Tech → process → short FAQ → compact project CTA.
+clear positioning → official services → selected proof/work → About Team → Why Wasl Tech → process → short FAQ → compact project CTA.
 
 Approved Phase-13 refinement:
 - calm, elegant, profile-inspired composition;
@@ -262,6 +262,33 @@ Check:
 
 Gate:
 full screenshot matrix accepted.
+
+## Phase 13B — Architecture, Editorial & Media Completion
+
+Goal:
+close the architecture gaps discovered during final cross-page review before production cutover.
+
+Outputs:
+- remove public service/project counters;
+- image-led Hero surface across every public page family;
+- central temporary/final Hero-media contract;
+- published bilingual Insights listing;
+- reusable bilingual Article detail routes;
+- future-safe Careers listing and Job detail template without inventing openings;
+- Article and JobPosting structured-data builders;
+- published articles included automatically in canonical/hreflang/sitemap output;
+- Hero images reused for Open Graph/Twitter previews;
+- final image replacement inventory.
+
+Gate:
+- Preview verify green;
+- Release verify green;
+- representative AR/EN route matrix green at the canonical breakpoints;
+- published Article route included in matrix;
+- no public service/project count counter;
+- every public route family has Hero media;
+- no obsolete duplicate page implementation remains;
+- temporary editorial images replaced/optimized before Phase 14.
 
 ## Phase 14 — Cutover & Production Verification
 
