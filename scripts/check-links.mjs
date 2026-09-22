@@ -20,6 +20,10 @@ async function walk(directory){
 }
 
 function relative(file){return path.relative(DIST,file).replaceAll(path.sep,"/");}
+function isPublicHtml(file){
+  const rel=relative(file);
+  return file.endsWith(".html") && !rel.startsWith("__showcase/") && !rel.startsWith("en/__showcase/");
+}
 
 function routeForFile(file){
   const rel=relative(file);
@@ -39,9 +43,10 @@ function idsIn(html){
   return new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((match)=>match[1]));
 }
 
-const htmlFiles=(await walk(DIST)).filter((file)=>file.endsWith(".html"));
+const allFiles=await walk(DIST);
+const htmlFiles=allFiles.filter(isPublicHtml);
 const htmlByFile=new Map();
-const knownFiles=new Set((await walk(DIST)).map((file)=>path.resolve(file)));
+const knownFiles=new Set(allFiles.map((file)=>path.resolve(file)));
 
 for(const file of htmlFiles){
   const html=await readFile(file,"utf8");
@@ -102,4 +107,4 @@ if(errors.length){
 }
 
 console.log("VNEXT LINK CHECK: PASSED");
-console.log(`Checked internal links/fragments across ${htmlFiles.length} generated HTML files.`);
+console.log(`Checked internal links/fragments across ${htmlFiles.length} public generated HTML files.`);
