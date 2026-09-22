@@ -32,8 +32,9 @@ for(const locale of ["ar","en"]){
       if(!html.includes(schemaType)) fail(file,`structured data missing: ${schemaType}`);
     }
 
-    if((html.match(/class="project-primary-media"/g)??[]).length!==1) fail(file,"exactly one primary project media section is required");
-    if(!html.includes(project.image)) fail(file,"primary project image missing");
+    if((html.match(/class="editorial-hero-media[^"]*project-detail-hero__media/g)??[]).length!==1) fail(file,"exactly one project hero media surface is required");
+    if(html.includes('class="project-primary-media"')) fail(file,"duplicate legacy primary project media section must not remain");
+    if(!html.includes(project.image)) fail(file,"project hero image missing");
 
     for(const value of [copy.caseStudy.overview,copy.caseStudy.context,copy.caseStudy.contribution]){
       if(!html.includes(htmlText(value))) fail(file,"case-study story content missing");
