@@ -162,8 +162,8 @@ export const pages = Object.freeze([
           })
         ]),
         seo: Object.freeze({
-          title: "Wasl Tech | Websites, Apps, Systems, Branding & Digital Growth",
-          description: "Wasl Tech builds websites, mobile apps, e-commerce experiences, custom systems, technical solutions, company profiles, brand identities, and digital content for businesses in Yemen and the Gulf."
+          title: "Wasl Tech | Websites, Apps, Systems & Digital Presence",
+          description: "Wasl Tech builds websites, apps, e-commerce, custom systems, brand identities, and digital experiences for businesses in Yemen and the Gulf."
         })
       })
     }
@@ -362,8 +362,8 @@ export const pages = Object.freeze([
           })
         ]),
         seo: Object.freeze({
-          title: "Wasl Tech Services | Web, Apps, E-commerce, Systems, Branding & Marketing",
-          description: "Explore Wasl Tech services across websites, mobile apps, e-commerce, custom software, technical solutions, company profiles, brand identity, and digital marketing."
+          title: "Wasl Tech Services | Web, Apps, E-commerce & Systems",
+          description: "Explore Wasl Tech services for websites, mobile apps, e-commerce, custom software, technical solutions, brand identity, company profiles, and digital marketing."
         })
       })
     }
