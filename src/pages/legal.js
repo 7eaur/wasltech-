@@ -2,6 +2,8 @@ import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
 import { documentTemplate } from "../templates/document.js";
 import { escapeHtml } from "../lib/html.js";
+import { HeroMedia } from "../components/HeroMedia.js";
+import { getPageHeroMedia } from "../config/hero-media.js";
 
 function legalDocument(id,locale){
   const record=pages.find((page)=>page.id===id);
@@ -12,11 +14,12 @@ function legalDocument(id,locale){
   const body=`
     <section class="secondary-hero secondary-hero--legal">
       <div class="container secondary-hero__grid">
-        <div>
+        <div class="secondary-hero__copy">
           <p class="eyebrow">${escapeHtml(content.kicker)}</p>
           <h1>${escapeHtml(content.title)}</h1>
+          <p>${escapeHtml(content.support)}</p>
         </div>
-        <div><p>${escapeHtml(content.support)}</p></div>
+        ${HeroMedia({...getPageHeroMedia(id, locale), className:"secondary-hero__media"})}
       </div>
     </section>
 
