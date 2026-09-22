@@ -118,6 +118,7 @@ export function processPage(locale="ar"){
     activePath:routes.process(locale),
     alternatePath:routes.process(locale==="ar"?"en":"ar"),
     canonicalPath:routes.process(locale),
-    alternatePaths:Object.freeze({ar:routes.process("ar"),en:routes.process("en")})
+    alternatePaths:Object.freeze({ar:routes.process("ar"),en:routes.process("en")}),
+    ogImage:getPageHeroMedia("process",locale).src
   });
 }
