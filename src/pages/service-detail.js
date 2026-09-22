@@ -6,6 +6,8 @@ import { SectionHeader } from "../components/SectionHeader.js";
 import { documentTemplate } from "../templates/document.js";
 import { breadcrumbSchema, faqPageSchema, serviceSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
+import { HeroMedia } from "../components/HeroMedia.js";
+import { getServiceHeroMedia } from "../config/hero-media.js";
 
 function groupFor(service) {
   return serviceGroups.find((group) => group.id === service.group) ?? null;
@@ -44,6 +46,9 @@ function renderHero(service, locale) {
             ${ActionLink({ href:routes.services(locale), label:locale === "ar" ? "العودة للخدمات" : "Back to services", variant:"ghost", size:"lg" })}
           </div>
         </div>
+        ${HeroMedia({...getServiceHeroMedia(service, locale), className:"service-detail-hero__media"})}
+      </div>
+      <div class="container">
         <aside class="service-decision-panel">
           <div>
             <span>${locale === "ar" ? "متى تحتاج هذه الخدمة؟" : "When this service fits"}</span>
