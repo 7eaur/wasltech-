@@ -6,6 +6,8 @@ import { SectionHeader } from "../components/SectionHeader.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
+import { HeroMedia } from "../components/HeroMedia.js";
+import { getPageHeroMedia } from "../config/hero-media.js";
 
 const servicesPageRecord = pages.find((page) => page.id === "services");
 
@@ -32,13 +34,7 @@ function renderHero(content, locale) {
             ${ActionLink({ href:routes.startProject(locale), label:content.secondaryCta, variant:"ghost", size:"lg" })}
           </div>
         </div>
-        <aside class="services-hero__summary" aria-label="${locale === "ar" ? "ملخص الخدمات" : "Services summary"}">
-          <strong>8</strong>
-          <span>${locale === "ar" ? "خدمات" : "services"}</span>
-          <i aria-hidden="true"></i>
-          <strong>3</strong>
-          <span>${locale === "ar" ? "مسارات واضحة" : "clear families"}</span>
-        </aside>
+        ${HeroMedia({...getPageHeroMedia("services", locale), className:"services-hero__media"})}
       </div>
     </section>
   `;
