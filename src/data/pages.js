@@ -857,8 +857,8 @@ export const pages = Object.freeze([
       ar: Object.freeze({
         purpose: "تقديم محتوى عملي يساعد أصحاب المشاريع على فهم الخيارات واتخاذ قرارات أفضل قبل وأثناء التنفيذ.",
         kicker: "أفكار ومعرفة",
-        title: "محتوى يساعدك على اتخاذ قرار أفضل قبل أن تبدأ.",
-        support: "لا توجد مقالات منشورة حاليًا. عندما ننشر، سيكون المحتوى عمليًا ومباشرًا ومرتبطًا بأسئلة حقيقية يواجهها أصحاب المشاريع.",
+        title: "محتوى عملي يساعدك على اتخاذ قرار أوضح قبل التنفيذ.",
+        support: "أدلة ومقارنات وملاحظات عملية حول التخطيط للمواقع والتطبيقات والمتاجر والأنظمة والحضور الرقمي.",
         primaryCta: "استكشف الخدمات",
         secondaryCta: "شاهد الأعمال",
         sections: Object.freeze([
@@ -869,22 +869,22 @@ export const pages = Object.freeze([
             support: "المحتوى هنا سيكون أدلة ومقارنات وقوائم عملية مرتبطة بالمواقع والتطبيقات والمتاجر والأنظمة والهوية والتسويق."
           }),
           Object.freeze({
-            id: "empty",
-            kicker: "حاليًا",
-            title: "لا توجد مقالات منشورة بعد.",
-            support: "لن نملأ القسم بمحتوى لمجرد وجود مدونة؛ أول مادة تُنشر يجب أن تكون مفيدة فعلًا وقابلة للرجوع إليها."
+            id: "latest",
+            kicker: "مقالات مختارة",
+            title: "ابدأ من السؤال الأقرب لقرارك الحالي.",
+            support: "نرتب المقالات حول أسئلة عملية يمكن أن تغيّر النطاق أو الأولوية أو طريقة التنفيذ قبل بدء المشروع."
           })
         ]),
         seo: Object.freeze({
           title: "المحتوى المعرفي | وصل تك — Wasl Tech",
-          description: "محتوى عملي من وصل تك حول تخطيط المواقع والتطبيقات والمتاجر والأنظمة والهوية والحضور الرقمي عند توفر مواد مكتملة."
+          description: "أدلة ومقالات عملية من وصل تك حول تخطيط المواقع والتطبيقات والمتاجر والأنظمة والهوية والحضور الرقمي واتخاذ قرارات أفضل قبل التنفيذ."
         })
       }),
       en: Object.freeze({
         purpose: "Publish practical content that helps business owners understand options and make better decisions before and during a digital project.",
         kicker: "Insights",
-        title: "Content that helps you make a better decision before you build.",
-        support: "No articles are published yet. When we publish, the content will be practical, direct, and tied to real questions business owners face.",
+        title: "Practical content for clearer decisions before you build.",
+        support: "Guides, comparisons, and practical notes on planning websites, apps, e-commerce, systems, and digital presence.",
         primaryCta: "Explore services",
         secondaryCta: "View our work",
         sections: Object.freeze([
@@ -895,15 +895,15 @@ export const pages = Object.freeze([
             support: "The content will include practical guides, comparisons, and checklists around websites, apps, e-commerce, systems, brand identity, and digital growth."
           }),
           Object.freeze({
-            id: "empty",
-            kicker: "Right now",
-            title: "No articles are published yet.",
-            support: "We will not fill the section just to have a blog. The first article should be genuinely useful and worth returning to."
+            id: "latest",
+            kicker: "Selected articles",
+            title: "Start with the question closest to your current decision.",
+            support: "Articles are organized around practical questions that can change scope, priority, or delivery before a project begins."
           })
         ]),
         seo: Object.freeze({
           title: "Insights | Wasl Tech",
-          description: "Practical Wasl Tech content on planning websites, apps, e-commerce, systems, brand identity, and digital presence as complete resources become available."
+          description: "Practical Wasl Tech guides on planning websites, apps, e-commerce, systems, brand identity, digital presence, and clearer pre-build decisions."
         })
       })
     }
