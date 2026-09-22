@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 import { routes } from "../src/config/routes.js";
 import { pages } from "../src/data/pages.js";
-import { serviceGroups } from "../src/data/services.js";
+import { services } from "../src/data/services.js";
 import { getProjectById } from "../src/data/projects.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -48,9 +48,14 @@ for (const locale of ["ar", "en"]) {
   if (!html.includes(htmlText(content.seo.description))) fail(file, "canonical Home SEO description missing");
   if (html.includes("VNext Foundation")) fail(file, "foundation placeholder copy leaked into Home");
 
-  for (const group of serviceGroups) {
-    const title = group.content[locale].title;
-    if (!html.includes(htmlText(title))) fail(file, `service group missing: ${title}`);
+  for (const service of services) {
+    const title = service.content[locale].title;
+    if (!html.includes(htmlText(title))) fail(file, `service missing: ${title}`);
+    if (!html.includes(service.image)) fail(file, `service image missing: ${service.image}`);
+  }
+
+  if ((html.match(/<article class="home-service-card">/g) ?? []).length !== services.length) {
+    fail(file, `Home must show exactly ${services.length} service cards`);
   }
 
   for (const projectId of featuredIds) {
@@ -72,8 +77,25 @@ for (const locale of ["ar", "en"]) {
     }
   }
 
-  for (const sectionId of ["services", "work", "approach", "process", "faq"]) {
-    if (!html.includes(`id="${sectionId}"`)) fail(file, `Home section missing: ${sectionId}`);
+  for (const assetPath of ["assets/about_1.png", "assets/about_2.png"]) {
+    try {
+      const asset = await stat(path.join(DIST, assetPath));
+      if (!asset.isFile()) fail(file, `Home editorial asset is not a file: ${assetPath}`);
+    } catch {
+      fail(file, `Home editorial asset missing from dist: ${assetPath}`);
+    }
+  }
+
+  const sectionOrder = ["services", "work", "about", "approach", "process", "faq"];
+  let lastIndex = -1;
+  for (const sectionId of sectionOrder) {
+    const index = html.indexOf(`id="${sectionId}"`);
+    if (index < 0) {
+      fail(file, `Home section missing: ${sectionId}`);
+      continue;
+    }
+    if (index <= lastIndex) fail(file, `Home section order incorrect at: ${sectionId}`);
+    lastIndex = index;
   }
 
   if ((html.match(/<details class="home-faq__item">/g) ?? []).length !== 3) {
@@ -88,4 +110,4 @@ if (errors.length) {
 }
 
 console.log("VNEXT HOME CHECK: PASSED");
-console.log("Checked bilingual canonical Homepage, featured work, service paths, FAQ and assets.");
+console.log("Checked bilingual Homepage, eight services, selected work, approved section order, FAQ and editorial media.");
