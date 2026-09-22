@@ -1,15 +1,41 @@
 # Wasl Tech VNext — Current Project Status
 
-Last updated: 2026-09-21  
+Last updated: 2026-09-22  
 Repository: `7eaur/wasltech-`  
 Official/legacy branch: `main`  
 Current live `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified VNext implementation HEAD: `0831418f497b860cb0650c51b7b5f1665fb85147`
+Latest verified VNext implementation checkpoint: `4c034ec2276ab3ba96436d35d263db915236043a`
 
 ## Current state
 
 **VNext clean rebuild is ACTIVE.**
+
+**Active phase: Phase 13 — Cross-page Visual Normalization.**
+
+Homepage visual redesign checkpoint is implemented and verified. The user approved a calm, elegant, profile-inspired direction derived from the useful qualities of the published `main` homepage without copying its architecture or wording.
+
+Approved Home sequence:
+`Hero → Services → Selected Work → About Team → Why Wasl Tech → Process → 3 FAQ → Compact CTA → Footer`.
+
+Important approved constraints:
+- all 8 services remain visible on Home;
+- About and Why Wasl Tech stay separate;
+- narrative copy says `فريق وصل تك / Wasl Tech team`;
+- no unsupported numeric marketing counters;
+- use concise qualitative trust cues instead;
+- project imagery stays restrained; no giant portfolio showcase on Home;
+- final CTA is smaller than the Hero;
+- Home FAQ is exactly 3 decision-support questions.
+
+Implementation/verification checkpoint:
+- runtime/design checkpoint SHA: `4c034ec2276ab3ba96436d35d263db915236043a`;
+- VNext verify run: `35677121641` — **SUCCESS**;
+- visual capture run: `35677121570` — **SUCCESS**;
+- screenshot artifact: `10674085957` (`wasltech-vnext-homepage-screenshots`);
+- QA record: `docs/qa/2026-09-22_phase-13_homepage-visual-redesign.md`.
+
+The next conversation must review the latest real Desktop/Mobile homepage screenshots with the user before extending this visual language across the remaining pages. Phase 13 is **IN PROGRESS**, not complete.
 
 The published website remains the legacy/current implementation from `main`. VNext is developed separately and must not replace production until the final cutover gates pass.
 
@@ -660,9 +686,46 @@ CWV policy:
 - deterministic transfer/layout budgets are enforced in CI;
 - final field/runtime CWV measurement is still required on the exact production deployment in Phase 14, because a deployment URL was not reliably retrievable from the connector during this phase.
 
-### Next phase — Phase 13: Cross-page Visual Normalization
+## Phase 13 — Cross-page Visual Normalization
+**IN PROGRESS**
 
-Ready to start.
+Homepage redesign checkpoint:
+- approved sequence implemented;
+- marketing copy rewritten away from internal evidence/justification language;
+- Hero now uses a calm supporting image;
+- all 8 services shown as concise service cards;
+- Selected Work reduced to 3 restrained project cards;
+- About Team and Why Wasl Tech are separate;
+- About trust cues are qualitative, not numeric;
+- Process remains 4 steps;
+- Home FAQ remains 3 questions;
+- final CTA reduced to a compact closing band;
+- `scripts/check-home.mjs` guards service count, section order, media and FAQ count;
+- homepage editorial media included deterministically in build.
+
+Verification:
+- implementation/capture checkpoint SHA: `4c034ec2276ab3ba96436d35d263db915236043a`;
+- VNext verify run `35677121641`: **SUCCESS**;
+- capture run `35677121570`: **SUCCESS**;
+- screenshot artifact `10674085957`: Desktop 1440 + Mobile 390 full-page.
+
+Current gate:
+- homepage latest screenshots still need user visual acceptance;
+- then normalize the same visual language across the rest of the site;
+- full breakpoint matrix is still pending;
+- Phase 14 cutover is not allowed yet.
+
+### Exact next work
+
+1. Fetch live branch HEAD and confirm runtime files have not changed after the documented checkpoint.
+2. Retrieve/regenerate artifact `10674085957` and show the user the latest 1440/390 homepage implementation.
+3. Fix any visual issue from root cause.
+4. Once Home is accepted, normalize Services, service details, Portfolio, project details, About, Process, Contact, Planner, secondary/legal pages, Header and Footer.
+5. Review Arabic + English at 360 / 390 / 768 / 1024 / 1366 / 1440.
+6. Rerun preview, quality and production-release checks.
+7. Document Phase 13 completion before Phase 14.
+
+
 
 ## Production separation
 
