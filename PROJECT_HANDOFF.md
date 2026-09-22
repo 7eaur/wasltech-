@@ -1,12 +1,11 @@
 # Wasl Tech VNext — Conversation Handoff
 
-Last updated: 2026-09-21  
+Last updated: 2026-09-22  
 Repository: `7eaur/wasltech-`  
-Official/legacy branch: `main`  
-Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified implementation HEAD: `0831418f497b860cb0650c51b7b5f1665fb85147`
+Official/production branch: `main`  
+Active VNext branch: `rebuild/vnext-foundation-20260921`
 
-## 1. Start procedure — mandatory
+## 1. Mandatory start procedure
 
 A new conversation must:
 
@@ -16,561 +15,325 @@ A new conversation must:
 4. read this file;
 5. read `AGENTS.md`;
 6. read `docs/README.md`;
-7. read relevant canonical core docs only;
-8. read the SATR audit only when structural/writing reference is needed;
-9. begin Phase 3 from the verified Phase 2B baseline without repeating completed content work.
+7. read only the relevant canonical core docs;
+8. treat live code/runtime/tests as higher authority than old chats or stale docs.
 
-Live repository/code/tests override stale text or chat memory.
+Do **not** restart analysis from zero.
 
-## 2. Understand the two branches correctly
+## 2. Branch truth
 
-### `main`
-This is the official/legacy branch and the source of the currently published website.
+### Production / legacy
+`main` remains the currently published site.
 
-At this handoff:
-`main = a4ed507defe5e7831f3459e12752a89fe0d225fc`
-
-Verified Vercel production:
-- deployment: `dpl_8SBJ3gBagT7V9jgeHuKqjDbskaT9`
-- state: READY
-- target: production
+Verified production reference:
+- Vercel project: `wasltech`
+- production deployment: `dpl_8SBJ3gBagT7V9jgeHuKqjDbskaT9`
 - alias: `wasltech.vercel.app`
-- source: `main@a4ed507...`
+- source branch: `main`
+- verified source SHA: `a4ed507defe5e7831f3459e12752a89fe0d225fc`
 
-That commit added VNext documentation only; the public runtime remains the existing legacy site.
+Production is still legacy/current implementation.
 
-Use the published/legacy implementation as evidence for verified **facts**, assets, images, service/project identity, scope clues and behavior.
+Do not cut over VNext yet.
 
-Do **not** use Legacy wording as the default copy source. Headings, descriptions, CTAs, FAQ wording and section order must be rewritten for VNext unless there is a deliberate reason to preserve a specific phrase.
+### VNext
+Active branch:
+`rebuild/vnext-foundation-20260921`
 
-Do **not** continue VNext by patching its legacy CSS/JS.
+Latest verified **runtime/design checkpoint**:
+`4c034ec2276ab3ba96436d35d263db915236043a`
 
-### `rebuild/vnext-foundation-20260921`
-This is the clean VNext rebuild branch.
+Documentation commits may be newer than that checkpoint. Always fetch live HEAD first.
 
-It contains:
-- new build system;
-- canonical identity/config;
-- bilingual route architecture;
-- normalized data;
-- CI/data guards;
-- Phase 2B content architecture work.
+## 3. Current phase
 
-VNext preview deployments may exist on Vercel but are not production.
+**Phase 13 — Cross-page Visual Normalization — IN PROGRESS**
 
-## 3. Why we moved to this architecture
+Phases 0–12 are complete.
 
-The user explicitly rejected continuing with repeated visual/legacy patches.
+Phase 12 technical release baseline is green:
+- Preview/Production build separation;
+- SEO/canonical/hreflang/sitemap/robots;
+- 404;
+- accessibility/contrast;
+- quality/performance budgets;
+- deterministic project media;
+- runtime smoke;
+- no critical console/page errors.
 
-The direction became:
-- clean architecture;
-- reusable components;
-- centralized data;
-- Arabic + English from the foundation;
-- strong search-engine architecture;
-- service/project/article pages generated from data;
-- exact content/evidence ownership;
-- no duplicated per-page content;
-- no invented claims;
-- future services/projects can be added as records instead of copied pages.
+Phase 13 now owns visual consistency across the whole site.
 
-Later, after Phase 2 normalized the old data, the user clarified two things:
+## 4. User-approved visual direction
 
-1. **do not stop at the data that already exists; define what a strong site actually needs and ask for missing real facts/assets when important.**
-2. **do not migrate all Legacy text as-is; preserve the important verified facts, then write improved, original, marketing-aware and easy-to-use VNext copy.**
+The user rejected:
+- text-heavy VNext composition;
+- giant project showcase imagery;
+- flashy agency/cinematic layouts;
+- over-designed or AI-looking landing pages.
 
-That decision created **Phase 2B — Content Architecture & Evidence Completion** before final visual composition.
+The approved direction is:
 
-## 4. Identity and visual references
+**calm + elegant + sequential + easy to understand + profile-inspired**
 
-### Wasl Tech — Source of Truth
-Use original Wasl assets:
-- `assets/brand/wasl-tech-horizontal.svg`
-- `assets/brand/wasl-tech-horizontal-white.svg`
-- `assets/brand/favicon.svg`
+The published `main` homepage is useful as a **visual direction reference only**:
+- calm spacing;
+- understandable flow;
+- supporting images;
+- easy scanning.
 
-Locked:
-- IBM Plex Sans Arabic;
-- IBM Plex Sans;
+Do **not** copy legacy architecture, wording, or CSS.
+
+Locked brand:
+- IBM Plex Sans Arabic / IBM Plex Sans;
 - Navy `#14305F`;
 - Teal `#0E8889`;
 - Teal Dark `#096B70`;
-- existing approved Navy/Teal scales;
-- cool supporting neutral palette.
+- original Wasl Tech logo assets.
 
-Do not redesign the logo or replace fonts/colors casually.
+## 5. Approved Homepage sequence
 
-### UPDATE CARD — craft benchmark
-Repository:
-`7eaur/update_card`
+This sequence is now canonical:
 
-Use its lessons for:
-- polish;
-- compact density;
-- spacing;
-- controlled surfaces;
-- restrained radii/shadows;
-- image-led composition;
+1. Hero
+2. Services
+3. Selected Work
+4. About the Wasl Tech team
+5. Why Wasl Tech
+6. How We Work
+7. Short FAQ
+8. Compact final CTA
+9. Footer
+
+Important user decisions:
+- all 8 official services remain visible on Home;
+- About and Why Wasl Tech are separate and must **not** be merged;
+- use `فريق وصل تك / Wasl Tech team` in narrative copy rather than generic “company” wording;
+- no unsupported numeric counters such as years/projects/satisfaction percentages;
+- approved qualitative trust cues:
+  - فريق ذو خبرة
+  - رضا العملاء
+  - مشاريع ناجحة
+- selected work stays compact; no huge portfolio/project image dominates the page;
+- Home FAQ = exactly 3 decision-support questions;
+- final CTA is intentionally smaller than Hero;
+- Footer should not dominate the close;
+- copy must be customer-facing and marketing-aware, not internal evidence justification.
+
+Canonical rules are now recorded in:
+- `docs/core/DESIGN_SYSTEM.md`
+- `docs/core/CONTENT_IA.md`
+- `docs/core/EXECUTION_PLAN.md`
+
+## 6. Homepage implementation already completed
+
+Implemented in:
+- `src/pages/home.js`
+- `src/data/pages.js`
+- `src/styles/home.css`
+- `scripts/build.mjs`
+- `scripts/check-home.mjs`
+
+Homepage now has:
+- calm image-supported Hero;
+- all 8 service cards;
+- 3 selected project cards;
+- separate About Team section;
+- separate Why Wasl Tech section;
+- 4-step Process;
+- 3-question FAQ;
+- compact final CTA.
+
+Homepage editorial/checkpoint media:
+- `assets/about_1.png`
+- `assets/about_2.png`
+
+Their **layout role** is approved. The exact images may later be replaced by stronger real/custom assets if they feel generic; do not change the composition merely to replace the asset.
+
+## 7. Homepage implementation commits
+
+Key commits:
+- `98e9f4ab2c542da1f6ff9a8760d8bec45d5b063e` — marketing homepage copy
+- `d3559c2540a4d783ff77ae9399fffa831ad2ee92` — refined profile-inspired layout
+- `b0a4381de25bf91d7e150208433248e0070e750b` — include homepage editorial media in build
+- `736245247522c353af3e333d38ea7c91b3254b78` — guard approved homepage sequence
+- `dcbd8def11c4db30e14f2d7cdf694e988ac52ec4` — spacing-token fix
+- `66adc2591a0bca36bace30a972667cf99c120b5f` — preload media for visual capture only
+- `4c034ec2276ab3ba96436d35d263db915236043a` — remove sticky-scroll capture artifact
+
+The last two are screenshot/capture workflow refinements only.
+
+## 8. Verification evidence
+
+### VNext verify
+Run:
+`35677121641`
+
+SHA:
+`4c034ec2276ab3ba96436d35d263db915236043a`
+
+Result:
+**SUCCESS**
+
+Artifacts:
+- preview: `wasltech-vnext-foundation`
+  - artifact id: `10673711495`
+- release candidate: `wasltech-vnext-release-candidate`
+  - artifact id: `10673746371`
+
+### Latest real Homepage screenshots
+Capture run:
+`35677121570`
+
+Result:
+**SUCCESS**
+
+Artifact:
+- name: `wasltech-vnext-homepage-screenshots`
+- id: `10674085957`
+- digest: `sha256:4317be0be4fcaab6787b08d621ef2aed18483f1114922f2c938ca6d2e1e808a1`
+
+Contains:
+- Desktop full-page: 1440px
+- Mobile full-page: 390px
+
+The capture verifies no horizontal overflow before saving.
+
+QA record:
+`docs/qa/2026-09-22_phase-13_homepage-visual-redesign.md`
+
+## 9. Exact next action — do this first
+
+**Do not immediately redesign other pages.**
+
+First:
+
+1. fetch live VNext HEAD;
+2. confirm the Homepage runtime files above have not changed unexpectedly;
+3. retrieve artifact `10674085957` or regenerate the same screenshots;
+4. show the user the latest real Homepage:
+   - Desktop 1440
+   - Mobile 390
+5. visually critique it with the user;
+6. fix any Homepage defect from the root cause;
+7. only after the user accepts the implemented Homepage, use its visual language as the Phase 13 reference for the rest of the site.
+
+## 10. After Homepage acceptance
+
+Normalize the remaining route families in this order:
+
+1. Shared Header/Footer
+2. Services Directory
+3. Service Detail
+4. Portfolio
+5. Project Detail / Case Study
+6. About
+7. Process
+8. Contact
+9. Project Planner
+10. FAQ
+11. Insights / Careers empty states
+12. Privacy / Terms / secondary pages
+13. English equivalents
+
+For every page:
+- preserve existing correct architecture/data;
+- change visual composition/copy only where needed;
+- do not reintroduce duplication;
+- fix shared root causes in shared primitives/styles;
+- avoid patch CSS piles.
+
+## 11. Required Phase 13 visual matrix
+
+Before Phase 13 can close, review:
+- 360
+- 390
+- 768
+- 1024
+- 1366
+- 1440
+
+For:
+- Arabic RTL
+- English LTR
+
+Check:
+- hierarchy;
+- section spacing;
+- image crops;
+- header/footer density;
+- button hierarchy;
+- card/surface consistency;
+- long vs short pages;
 - mobile editing;
-- reusable component discipline.
-
-Never copy its brand/content/literal layout.
-
-### SATR Technology — structure/writing benchmark
-Reference:
-`https://satr-tec.com/`
-
-Canonical audit:
-`docs/research/SATR_TEC_COMPETITOR_AUDIT_2026-09-21.md`
-
-Use for:
-- page hierarchy;
-- Hero purpose;
-- section sequencing;
-- service-detail depth;
-- case-study storytelling;
-- planner funnel;
-- editorial copy structure;
-- microcopy;
-- content/SEO ideas.
-
-Never copy SATR text, images, code, brand or literal design.
-
-## 5. Architecture already locked
-
-- build-time static multipage;
-- Node 24;
-- minimal browser JS;
-- Arabic default at `/`;
-- English under `/en/`;
-- shared entity ids/slugs;
-- one entity record with localized `content.ar` / `content.en`;
-- generated service/project/article/job routes;
-- crawlable HTML;
-- SEO generated/validated by build;
-- no runtime frontend framework by default.
-
-Canonical routes include:
-Home, About, Services, Service Detail, Portfolio, Project Detail, Process, Contact, Start Project, FAQ, Insights, Article, Careers, Job, Privacy, Terms and 404, mirrored under `/en/`.
-
-## 6. Completed work
-
-### Phase 0
-Canonical documentation/handoff system complete.
-
-### Phase 1
-Build/repository foundation complete.
-
-### Brand + bilingual + SEO freeze
-Complete:
-- `src/config/brand.js`
-- `src/config/locales.js`
-- `src/config/routes.js`
-- `src/styles/tokens.css`
-- `src/styles/brand.css`
-- `src/styles/typography.css`
-- brand/locale/route CI guards.
-
-### Phase 2
-Complete:
-- 8 services → `src/data/services.js`
-- 14 projects → `src/data/projects.js`
-- 13 FAQ / 4 groups → `src/data/faq.js`
-- article contract → `src/data/articles.js`
-- careers contract → `src/data/jobs.js`
-- data guard → `scripts/check-data.mjs`
-
-Verified:
-- run `35552059884`
-- SHA `b7412a4a5143404a9169857b4ef844a7765cfa83`
-- SUCCESS
-- `Services: 8 | Projects: 14 | FAQ: 13 | Articles: 0 | Jobs: 0`
-
-## 7. Phase 2B — COMPLETE
-
-The bilingual content and SEO foundation is verified.
-
-Ready:
-- public page copy in Arabic and English;
-- all 8 service records in Arabic and English;
-- all 14 project records in Arabic and English;
-- general FAQ in Arabic and English;
-- project stories use one primary image only;
-- Arabic/English SEO metadata;
-- locale-aware route/navigation/document foundations;
-- canonical/hreflang/x-default support;
-- Open Graph/Twitter support;
-- structured-data builders;
-- safe preview robots behavior and sitemap/production robots renderers;
-- content/SEO integrity guards.
-
-Privacy and Terms intentionally remain `CONTENT REQUIRED` until final implementation behavior is known. They are not to be filled with generic legal text.
-
-Verified:
-- run `35557088166`
-- SHA `6f0863a1b4a8490522c6df41e9b3be896432dcc0`
-- result **SUCCESS**
-
-## 8. Exact next work — Phase 3
-
-Build the shared design grammar before composing final pages:
-1. audit/refine semantic tokens against the approved Wasl identity;
-2. spacing, container and layout primitives;
-3. Arabic/LTR typography scale and reading behavior;
-4. buttons, links, focus states and form primitives;
-5. cards/media/image contracts;
-6. reusable surfaces and section primitives;
-7. reduced-motion/accessibility baseline;
-8. static component showcase;
-9. review at mobile and desktop breakpoints;
-10. verify and document Phase 3 before Shared Shell.
-
-Do not start Homepage composition before Phase 3 and Phase 4 gates pass.
-
-## 8A. Phase 3 — COMPLETE
-
-Design primitives and visual review are complete.
-
-Final verification:
-- HEAD `b1b2e14968dd5e9fc2f33405e5f106b547ac24c4`
-- run `35559468184`
-- SUCCESS.
-
-Visual review:
-- Arabic/English;
-- 1440 desktop / 390 mobile;
-- no overflow;
-- RTL/LTR correct;
-- mobile control targets normalized;
-- actual visual defect in header CTA behavior found and fixed.
-
-IBM Plex exact glyph rendering should be re-confirmed on a real networked preview later; it does not reopen the primitive/layout gate.
-
-## 8B. Phase 4 Shared Shell — COMPLETE
-
-Verified implementation:
-- HEAD `c2640be27fb76dca4232c134df86ff1d0269d496`
-- run `35562217299`
-- SUCCESS.
-
-Completed:
-- route-family active navigation;
-- localized menu open/close labeling;
-- Escape / outside-click / resize handling;
-- focus return to menu toggle;
-- bilingual route-preserving language switch;
-- mobile menu icon and full-width drawer;
-- reusable Header CTA;
-- bilingual Footer IA;
-- dedicated shared-shell CI gate.
-
-Visual review:
-- Arabic + English;
-- 1440 desktop / 390 mobile;
-- mobile drawer open in both locales;
-- no overflow;
-- mobile CTA hidden;
-- active state correct;
-- Footer responsive collapse correct.
-
-## 8C. Exact next work — Phase 5 Homepage
-
-Do not start until the next explicit continuation point.
-
-When started:
-1. consume canonical Home content from `src/data/pages.js`;
-2. define one strong homepage narrative, not a card wall;
-3. compose Hero → service discovery → proof/work → approach → process → FAQ support → final CTA;
-4. use real project/service data rather than duplicated page copy;
-5. review Arabic desktop/mobile first;
-6. review English desktop/mobile;
-7. fix hierarchy/cropping/density from root cause;
-8. verify SEO and shell contracts remain intact;
-9. document Phase 5 before Services Directory.
-
-## 8D. Phase 5 Homepage — COMPLETE
-
-Verified:
-- HEAD `eae58343daa539e295ce209b3bb442fc0e14647d`
-- run `35562768516`
-- SUCCESS.
-
-Home now consumes canonical page/service/project/FAQ data and contains no duplicated marketing data in the build layer.
-
-Composition:
-- text-led Hero;
-- three service-decision paths;
-- selected real work;
-- approach principles;
-- four-step process;
-- focused FAQ;
-- final CTA.
-
-Visual review:
-- Arabic + English;
-- 1440 desktop / 390 mobile;
 - no horizontal overflow;
-- RTL/LTR reviewed;
-- image crops reviewed;
-- mobile stacking reviewed.
+- no generic AI/template feel.
 
-Performance detail:
-- featured project images use their intrinsic dimensions;
-- project images are lazy-loaded;
-- Hero remains text-led, avoiding an unnecessary LCP image.
+## 12. Content/claim rules
 
-## 8E. Exact next work — Phase 6 Services Directory
+Never invent:
+- metrics;
+- project results;
+- client names;
+- prices;
+- durations;
+- SLAs;
+- certifications;
+- technologies from inference;
+- testimonials.
 
-1. consume canonical Services page content and 8 canonical service records;
-2. keep the three service groups as the information architecture;
-3. avoid eight equal generic cards;
-4. make each service easy to compare by need, value and next action;
-5. use service imagery only when it adds clarity;
-6. review Arabic desktop/mobile first;
-7. review English desktop/mobile;
-8. verify SEO/shell/home contracts remain intact;
-9. document Phase 6 before service detail pages.
+User intentionally does **not** want project:
+- year;
+- live URL;
+- stack;
+- gallery.
 
-## 8F. Phase 6 Services Directory — COMPLETE
+Do not reintroduce them.
 
-Verified:
-- HEAD `054113b9bb2e7d3c832129a56a75894cf6102227`
-- run `35567035544`
-- SUCCESS.
+## 13. Current data/content facts
 
-Directory behavior:
-- 3 canonical service families;
-- 8 canonical services;
-- decision-led rows;
-- no duplicated service business content;
-- Arabic + English visual review at 1440 / 390;
-- no horizontal overflow.
-
-## 8G. Exact next work — Phase 7 Service Detail System
-
-1. build one reusable service-detail architecture;
-2. render all 8 services from `src/data/services.js`;
-3. consume title/subtitle/description/decision/audiences/deliverables/process/FAQ/constraints/CTA/SEO;
-4. surface related verified projects only where they exist;
-5. use one template system without flattening distinct service content;
-6. add Service structured data and breadcrumb data;
-7. generate all Arabic + English service detail routes;
-8. verify every detail link resolves;
-9. review representative short/long services on desktop/mobile;
-10. document Phase 7 before Portfolio.
-
-## 8H. Phase 7 Service Detail System — COMPLETE
-
-Verified:
-- HEAD `1b3ec7fe20c03ab8f3a00887d7ccea4decd7a8f3`
-- run `35567508172`
-- SUCCESS.
-
-Completed:
-- one reusable service-detail page system;
-- 8 services × 2 locales;
-- canonical SEO and social copy;
-- Service / Breadcrumb / FAQ structured data;
-- verified related project proof only;
-- constraints and process content preserved;
-- no invented price, duration, stack or support promises.
-
-Visual review covered proof/no-proof and Arabic/English desktop/mobile.
-
-## 8I. Exact next work — Phase 8 Portfolio & Case-study Foundation
-
-1. build bilingual Portfolio directory from the 14 canonical projects;
-2. expose only real category filters;
-3. keep one primary image per project;
-4. build one reusable project detail/case-study template;
-5. consume context, contribution, scope, delivered outputs and SEO from canonical records;
-6. do not invent year, live URL, stack, gallery or metrics;
-7. connect project detail to related services;
-8. add CreativeWork + Breadcrumb structured data;
-9. generate all 28 localized project detail routes;
-10. visually review listing and representative case studies before About/Process.
-
-## 8J. Phase 8 Portfolio & Case-study Foundation — COMPLETE
-
-Verified:
-- HEAD `5b29dba17ca789a31512c3788ee8e388b40d9346`
-- run `35568080827`
-- SUCCESS.
-
-Completed:
-- bilingual Portfolio evidence browser;
+Canonical:
+- 8 official services;
 - 14 projects;
-- 5 real category filters;
-- filter counts verified in both locales;
-- one reusable case-study system;
-- 28 project routes;
-- one primary image per project;
-- project story/scope/outputs from canonical data;
-- related services/projects;
-- CreativeWork/Breadcrumb structured data;
-- no year/live URL/stack/gallery reintroduced.
+- 13 FAQ items across 4 groups;
+- 0 published articles;
+- 0 open jobs.
 
-Visual review covered:
-- Portfolio Arabic/English desktop/mobile;
-- active filters;
-- Arabic platform case study;
-- English brand identity case study;
-- no horizontal overflow.
+Market:
+- Yemen + Gulf.
 
-## 8K. Exact next work — Phase 9 About + Process
+Verified contact:
+- phone / WhatsApp: `+967775377979`
+- email: `wasltechp@gmail.com`
+- Instagram: `@wasltech.yem`
 
-1. build About from canonical About content;
-2. keep About focused on how Wasl Tech thinks and combines content/design/development;
-3. build Process from canonical Process content;
-4. make Process explain phase name + what happens + what comes out of it;
-5. avoid duplicated filler between About and Process;
-6. keep Yemen + Gulf positioning factual;
-7. generate both locales;
-8. add dedicated gates;
-9. review desktop/mobile in both locales;
-10. document Phase 9 before Project Planner + Contact.
+## 14. Non-negotiable engineering rules
 
-## 8L. Phase 9 About + Process — COMPLETE
+Read `AGENTS.md`.
 
-Verified:
-- HEAD `3942c6da3ad0cc8e435324bbe195909b09972493`
-- run `35568496733`
-- SUCCESS.
+Key reminders:
+- clean VNext architecture;
+- no patch pile;
+- no runtime frontend framework by default;
+- Node 24 build-time static multipage;
+- centralized data;
+- Arabic + English from same records;
+- semantic/crawlable HTML;
+- WCAG 2.2 AA target;
+- LCP ≤2.5s / INP <200ms / CLS <0.1 targets;
+- no critical console/resource errors;
+- no production cutover until Phase 14.
 
-About:
-- how Wasl Tech thinks;
-- one-system approach;
-- what it builds;
-- decision principles;
-- Yemen + Gulf market.
+## 15. Cutover status
 
-Process:
-- Understand;
-- Plan;
-- Design & build;
-- Review & launch;
-- explicit outcome/clarity after each stage;
-- no invented duration.
+**DO NOT MERGE/CUT OVER YET.**
 
-Visual review passed Arabic/English at desktop/mobile with no overflow.
+Phase 13 must finish and be visually accepted first.
 
-## 8M. Exact next work — Phase 10 Project Planner + Contact
-
-1. build Contact as low-friction direct communication;
-2. preserve verified WhatsApp/email/Instagram only;
-3. build Project Planner as structured intake;
-4. use actual planner stages from canonical IA;
-5. no fake backend send/success state;
-6. planner may prepare a WhatsApp message client-side;
-7. validation must be truthful and accessible;
-8. keep Contact and Planner as different surfaces;
-9. visually review desktop/mobile in both locales;
-10. document Phase 10 before secondary pages/legal.
-
-## 8N. Phase 10 Project Planner + Contact — COMPLETE
-
-Verified:
-- HEAD `f3a841bb6a1af80fd4b2461dd475d76331d76ae8`
-- run `35644999070`
-- SUCCESS.
-
-Contact:
-- WhatsApp;
-- email;
-- Instagram;
-- direct contact stays separate from project intake.
-
-Project Planner:
-- need;
-- project stage;
-- priority;
-- context;
-- review;
-- client-side validation;
-- WhatsApp message preparation only;
-- no backend send/storage;
-- RTL-safe phone/URL review.
-
-## 8O. Exact next work — Phase 11 Secondary Pages + Legal + Localization Completion
-
-1. build FAQ from canonical bilingual FAQ data;
-2. build honest Insights empty state;
-3. build honest Careers empty state;
-4. inspect final VNext runtime behavior before writing Privacy/Terms;
-5. Privacy/Terms must describe only actual forms, client-side behavior, external links, analytics/cookies and third parties that are truly present;
-6. do not invent retention periods, processors, tracking, cookies or legal guarantees;
-7. complete any remaining public bilingual localization gaps;
-8. keep incomplete legal pages noindex until verified;
-9. add dedicated gates;
-10. visually review both locales before release QA.
-
-## 8P. Phase 11 Secondary Pages + Legal + Localization — COMPLETE
-
-Verified:
-- HEAD `b99372dd54ae21bce2aa6fc48da383b6eb954d6e`
-- run `35645517860`
-- SUCCESS.
-
-Completed:
-- FAQ: 13 items / 4 groups / both locales;
-- Insights: honest zero-article state;
-- Careers: honest zero-job state;
-- Privacy: verified current-runtime behavior only;
-- Terms: website/service boundary only;
-- Arabic/English localization complete for all current public static surfaces;
-- no invented analytics/cookies/retention/legal claims.
-
-Visual review passed on desktop/mobile with no overflow.
-
-## 8Q. Phase 12 SEO + Performance + Accessibility — COMPLETE
-
-Verified:
-- HEAD `0831418f497b860cb0650c51b7b5f1665fb85147`
-- run `35647059021`
-- SUCCESS.
-
-Technical release foundation:
-- Preview and Production builds are isolated;
-- Production sitemap/robots validated;
-- 68 indexable localized routes;
-- internal showcase excluded from release;
-- bilingual noindex 404;
-- CSS gzip 11,119 bytes;
-- JS gzip 2,678 bytes;
-- project image total 1,026,583 bytes;
-- only 14 referenced project images ship;
-- intrinsic project media dimensions;
-- accessible action/focus contrast;
-- Light/Dark contrast gates;
-- reduced-motion and structural a11y guards;
-- runtime Chromium smoke with zero page/console errors.
-
-Important:
-- Google Fonts remains an external technical dependency and is disclosed in Privacy.
-- Real CWV field/runtime values must still be measured on the exact production SHA in Phase 14.
-
-## 8R. Exact next work — Phase 13 Cross-page Visual Normalization
-
-1. review the whole site as one visual product, not isolated pages;
-2. build a screenshot/measurement matrix across 360, 390, 768, 1024, 1366 and 1440;
-3. compare Arabic and English rhythm;
-4. inspect hero scale, section spacing, button hierarchy, card/surface consistency and image crops;
-5. inspect Header/Footer density across route families;
-6. inspect long-content pages versus short empty-state/legal pages;
-7. inspect representative service/project details;
-8. fix root causes only in shared primitives or responsible page styles;
-9. rerun all quality/release gates;
-10. document Phase 13 before cutover.
-
-## 9. Non-negotiable rules
-
-- Legacy remains evidence only, not a wording or architecture source.
-- Arabic and English share one entity identity and stable slug.
-- Do not duplicate localized content inside templates.
-- Every project uses exactly one primary image.
-- Do not invent metrics, results, clients, prices, timelines, SLAs or legal claims.
-- Incomplete locales/legal pages must remain non-indexable/unpublished.
-- Search metadata must stay tied to canonical content and route identities.
-- No copied SATR wording/design and no copied UPDATE CARD branding/layout.
-- No production cutover before the final release phase.
-- Fix root causes; do not build a patch pile.
+Then Phase 14:
+- merge approved VNext;
+- deploy exact SHA;
+- verify redirects/routes/assets/metadata;
+- runtime smoke;
+- exact production SHA;
+- real production CWV verification;
+- update status/handoff.
