@@ -136,7 +136,6 @@ export function jobPostingSchema({
       sameAs: site.origin,
       logo: absoluteUrl(site.brand.assets.logo)
     }),
-    jobLocationType: location ? undefined : "TELECOMMUTE",
     jobLocation: location ? Object.freeze({
       "@type": "Place",
       address: Object.freeze({
