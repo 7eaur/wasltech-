@@ -6,6 +6,8 @@ import { ActionLink } from "../components/ActionLink.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
+import { HeroMedia } from "../components/HeroMedia.js";
+import { getPageHeroMedia } from "../config/hero-media.js";
 
 const record=pages.find((page)=>page.id==="about");
 
@@ -25,11 +27,14 @@ function renderHero(content,locale){
             ${ActionLink({href:routes.portfolio(locale),label:content.secondaryCta,variant:"ghost",size:"lg"})}
           </div>
         </div>
-        <aside class="about-hero__statement">
-          <span>${escapeHtml(positioning.kicker)}</span>
-          <strong>${escapeHtml(positioning.title)}</strong>
-          <p>${escapeHtml(positioning.support)}</p>
-        </aside>
+        <div class="about-hero__visual">
+          ${HeroMedia({...getPageHeroMedia("about", locale), className:"about-hero__media"})}
+          <aside class="about-hero__statement">
+            <span>${escapeHtml(positioning.kicker)}</span>
+            <strong>${escapeHtml(positioning.title)}</strong>
+            <p>${escapeHtml(positioning.support)}</p>
+          </aside>
+        </div>
       </div>
     </section>
   `;
@@ -105,8 +110,8 @@ function renderMarket(content,locale){
         <div>
           <p>${escapeHtml(market.support)}</p>
           <div class="about-market__facts">
-            <div><strong>${projects.length}</strong><span>${locale==="ar"?"مشروعًا في معرض الأعمال":"projects in the portfolio"}</span></div>
-            <div><strong>8</strong><span>${locale==="ar"?"خدمات ضمن ثلاث عائلات واضحة":"services across three clear families"}</span></div>
+            <div><strong>${locale==="ar"?"سوق عربي":"Arabic-first"}</strong><span>${locale==="ar"?"تجربة واضحة لليمن والخليج مع دعم الإنجليزية عند الحاجة":"Clear Yemen and Gulf experience with English support when needed"}</span></div>
+            <div><strong>${locale==="ar"?"تنفيذ مترابط":"Connected delivery"}</strong><span>${locale==="ar"?"تصميم وتطوير ومحتوى يتحرك ضمن تجربة واحدة":"Design, development, and content shaped as one experience"}</span></div>
           </div>
         </div>
       </div>
