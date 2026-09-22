@@ -133,7 +133,7 @@ Logic:
 Homepage content rules:
 - Home is not a corporate-history page and not a complete FAQ page.
 - Use **فريق وصل تك / Wasl Tech team** in narrative team copy; avoid unnecessary "company" phrasing.
-- Do not use unsupported numeric counters for years, project counts, satisfaction percentages, or similar marketing claims.
+- Do not use public service-count or project-count counters. Also do not use unsupported numeric counters for years, satisfaction percentages, or similar marketing claims.
 - Approved qualitative trust cues include: فريق ذو خبرة، رضا العملاء، مشاريع ناجحة, with wording kept concise and non-numeric.
 - Keep service copy concise; service detail pages own the deeper explanation.
 - Keep selected work visually useful but restrained; no single project image should dominate the homepage.
@@ -325,6 +325,24 @@ Each article should have:
 - related service/project ids;
 - publication state;
 - SEO metadata.
+
+### Current Insights publication state — 2026-09-22
+
+Insights is now a real bilingual editorial surface rather than an empty state.
+
+The current publication architecture includes:
+- bilingual Insights listing;
+- stable bilingual article slugs;
+- article detail template;
+- author/date/category metadata;
+- cover media;
+- structured article body sections;
+- related service links;
+- canonical/hreflang/Open Graph;
+- Article + Breadcrumb structured data;
+- automatic production sitemap inclusion for published records.
+
+Initial articles answer real project-planning questions and must remain decision-support content rather than search-engine filler.
 
 ## 10B. Careers
 
