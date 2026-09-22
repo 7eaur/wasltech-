@@ -86,7 +86,7 @@ export function Footer({ locale = "ar" } = {}) {
                   ${icon("whatsapp", "footer-contact__icon")}
                   <span>
                     <small class="footer-contact__name">${labels.whatsapp}</small>
-                    <bdi class="footer-contact__value" dir="ltr">${site.contact.phoneDisplay}</bdi>
+                    <span class="footer-contact__value"><bdi dir="ltr">${site.contact.phoneDisplay}</bdi></span>
                   </span>
                 </a>
               </li>
@@ -95,7 +95,7 @@ export function Footer({ locale = "ar" } = {}) {
                   ${icon("mail", "footer-contact__icon")}
                   <span>
                     <small class="footer-contact__name">${labels.email}</small>
-                    <bdi class="footer-contact__value" dir="ltr">${site.contact.email}</bdi>
+                    <span class="footer-contact__value"><bdi dir="ltr">${site.contact.email}</bdi></span>
                   </span>
                 </a>
               </li>
@@ -104,7 +104,7 @@ export function Footer({ locale = "ar" } = {}) {
                   ${icon("instagram", "footer-contact__icon")}
                   <span>
                     <small class="footer-contact__name">${labels.instagram}</small>
-                    <bdi class="footer-contact__value" dir="ltr">${escapeHtml(site.contact.instagram.handle)}</bdi>
+                    <span class="footer-contact__value"><bdi dir="ltr">${escapeHtml(site.contact.instagram.handle)}</bdi></span>
                   </span>
                 </a>
               </li>
