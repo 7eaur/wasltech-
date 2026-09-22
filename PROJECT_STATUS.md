@@ -690,10 +690,13 @@ CWV policy:
 **IN PROGRESS**
 
 Homepage redesign checkpoint:
-- latest visual refinement runtime SHA: `ec5b788d393b245e25bf08dc70ad29b7c9715074`;
-- VNext verify run `35679244075`: **SUCCESS**;
-- capture run `35679244011`: **SUCCESS**;
-- screenshot artifact `10673974756`: Desktop 1440 + Mobile 390 full-page;
+- latest visual refinement runtime SHA: `c2687ce94f7fa52ecf502c585a336fb0f16b4bcc`;
+- VNext verify run `35679856561`: **SUCCESS**;
+- capture run `35679856535`: **SUCCESS**;
+- screenshot artifact `10674775774`: Desktop 1440 + Mobile 390 full-page;
+- final CTA is now a separate Teal card on canvas, visually distinct from the Navy footer;
+- mobile Footer is compact two-column navigation with verified WhatsApp/email/Instagram icon links;
+- Home Selected Work heading is neutralized and project cards now include concise verified summaries;
 - mobile service cards now stay two-per-row, selected work uses an edited two-up/horizontal composition, Why is two-up, and Process stays compact/horizontal;
 - decorative hero markers were replaced by restrained inline SVG cues and Process received matching lightweight visual cues;
 - homepage section rhythm was tightened by removing stacked header/grid spacing;
