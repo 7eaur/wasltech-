@@ -86,6 +86,9 @@ async function buildAssets() {
   await cp(path.join(ROOT, "assets/brand"), path.join(DIST, "assets/brand"), {
     recursive: true
   });
+  for (const image of ["about_1.png", "about_2.png"]) {
+    await cp(path.join(ROOT, "assets", image), path.join(DIST, "assets", image));
+  }
   const projectImages = [...new Set(projects.map((project) => project.image))];
   for (const image of projectImages) {
     const relative = image.replace(/^\/+/, "");
