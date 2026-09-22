@@ -387,7 +387,7 @@ export const pages = Object.freeze([
       ar: Object.freeze({
         purpose: "عرض الأعمال كدليل على نوع المشاريع التي نفذتها وصل تك، مع تقديم كل مشروع بقدر المعلومات الحقيقية المتوفرة عنه.",
         kicker: "أعمالنا",
-        title: "أعمال حقيقية، ولكل مشروع منها هدف مختلف.",
+        title: "مشاريع متنوعة، لكل مشروع احتياجه وحلّه.",
         support: "استكشف نماذج من المواقع والتطبيقات والمتاجر والأنظمة والهوية والتسويق، وشاهد كيف يختلف الحل باختلاف طبيعة المشروع.",
         primaryCta: "تصفح الأعمال",
         secondaryCta: "عندي مشروع مشابه",
@@ -413,13 +413,13 @@ export const pages = Object.freeze([
         ]),
         seo: Object.freeze({
           title: "أعمال وصل تك | مشاريع مواقع وتطبيقات ومتاجر وهوية وتسويق",
-          description: "نماذج من أعمال وصل تك في المواقع والتطبيقات والمتاجر والأنظمة والهوية والتسويق، مع عرض المعلومات الموثقة لكل مشروع."
+          description: "نماذج من أعمال وصل تك في المواقع والتطبيقات والمتاجر والأنظمة والهوية والتسويق، مع توضيح سياق كل مشروع ونطاقه."
         })
       }),
       en: Object.freeze({
         purpose: "Present Wasl Tech work as evidence of the kinds of projects we build, using only the real information available for each project.",
         kicker: "Our work",
-        title: "Real projects, each built around a different goal.",
+        title: "Different projects, each shaped around its own need.",
         support: "Explore examples across websites, apps, stores, systems, identity, and marketing, and see how the solution changes with the nature of the project.",
         primaryCta: "Explore the work",
         secondaryCta: "I have a similar project",
