@@ -112,7 +112,7 @@ function renderServices(project,locale) {
       <div class="container project-services__grid">
         <div>
           <p class="eyebrow">${locale === "ar" ? "الخدمات المرتبطة" : "Related services"}</p>
-          <h2>${locale === "ar" ? "الخدمة هنا مرتبطة بما تم بناؤه فعلًا." : "The services here reflect what was actually built."}</h2>
+          <h2>${locale === "ar" ? "الخدمات التي ساهمت في بناء هذا المشروع." : "The services that contributed to this project."}</h2>
         </div>
         <div class="project-services__links">
           ${services.map((service)=>`
