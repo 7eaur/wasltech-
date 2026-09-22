@@ -47,8 +47,7 @@ const cssSources = [
   "src/styles/about-process.css",
   "src/styles/contact-planner.css",
   "src/styles/secondary.css",
-  "src/styles/insights-careers.css",
-  "src/styles/showcase.css"
+  "src/styles/insights-careers.css"
 ];
 
 
@@ -70,7 +69,8 @@ function outputPath(route) {
 
 async function buildStyles() {
   const blocks = [];
-  for (const source of cssSources) {
+  const sources = isProductionBuild ? cssSources : [...cssSources, "src/styles/showcase.css"];
+  for (const source of sources) {
     const content = await readFile(path.join(ROOT, source), "utf8");
     blocks.push(`/* ${source} */\n${content.trim()}\n`);
   }
