@@ -1,6 +1,6 @@
-.portfolio-hero{padding-block:clamp(var(--space-12),7vw,var(--space-24))}
+.portfolio-hero{padding-block:clamp(var(--space-8),4.5vw,var(--space-14))}
 .portfolio-hero__grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(12rem,.85fr);gap:clamp(var(--space-8),7vw,var(--space-20));align-items:end}
-.portfolio-hero h1{max-width:15ch;margin:0;font-size:clamp(2.7rem,2rem + 3.7vw,5.25rem);line-height:1.08;letter-spacing:var(--tracking-tight)}
+.portfolio-hero h1{max-width:15ch;margin:0;font-size:clamp(2.5rem,1.9rem + 3vw,4.5rem);line-height:1.08;letter-spacing:var(--tracking-tight)}
 .portfolio-hero__grid>div:first-child>p:not(.eyebrow){max-width:43rem;margin-top:var(--space-5);color:var(--color-text-secondary);font-size:var(--font-size-md)}
 .portfolio-hero__count{justify-self:end;min-width:12rem;padding:var(--space-5);border-top:2px solid var(--color-brand-accent);border-bottom:var(--border-thin) solid var(--color-border-default)}
 .portfolio-hero__count strong{display:block;color:var(--color-text-brand);font-size:clamp(3rem,6vw,5rem);line-height:1}
@@ -14,21 +14,19 @@
 .portfolio-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-5)}
 .portfolio-card{min-width:0;overflow:hidden;background:var(--color-bg-canvas);border:var(--border-thin) solid var(--color-border-default);border-radius:var(--radius-card)}
 .portfolio-card[hidden]{display:none}
-.portfolio-card--lead{grid-column:span 2}
 .portfolio-card__media{display:block;aspect-ratio:16/10;overflow:hidden;background:var(--color-bg-soft)}
-.portfolio-card--lead .portfolio-card__media{aspect-ratio:16/8}
 .portfolio-card__media img{width:100%;height:100%;object-fit:cover;transition:transform var(--motion-slow) var(--ease-standard)}
 .portfolio-card:hover .portfolio-card__media img{transform:scale(1.015)}
-.portfolio-card__copy{padding:var(--space-5)}
-.portfolio-card__copy h2{margin-bottom:var(--space-2);font-size:var(--font-size-xl)}
+.portfolio-card__copy{padding:var(--space-4)}
+.portfolio-card__copy h2{margin-bottom:var(--space-2);font-size:1rem;line-height:1.35}
 .portfolio-card__copy h2 a:hover{color:var(--color-text-accent)}
-.portfolio-card__copy>p:not(.eyebrow){margin-bottom:var(--space-4);color:var(--color-text-secondary);font-size:var(--font-size-sm)}
+.portfolio-card__copy>p:not(.eyebrow){display:-webkit-box;margin-bottom:var(--space-3);color:var(--color-text-secondary);font-size:.8125rem;line-height:1.6;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
 
-.portfolio-cta{padding-block:clamp(var(--space-14),7vw,var(--space-24));background:var(--color-bg-emphasis)}
-.portfolio-cta__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--space-8);align-items:end}
-.portfolio-cta .eyebrow{color:var(--wt-teal-300)}
-.portfolio-cta h2{max-width:18ch;margin-bottom:var(--space-3);color:var(--color-text-inverse);font-size:var(--font-size-3xl)}
-.portfolio-cta p:not(.eyebrow){max-width:44rem;color:var(--wt-neutral-300)}
+.portfolio-cta{padding-block:var(--space-8);background:var(--color-bg-canvas)}
+.portfolio-cta__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--space-8);align-items:end;padding:clamp(var(--space-6),4vw,var(--space-10));background:var(--wt-teal-700);border-radius:var(--radius-panel)}
+.portfolio-cta .eyebrow{color:var(--wt-teal-100)}
+.portfolio-cta h2{max-width:18ch;margin-bottom:var(--space-3);color:var(--color-text-inverse);font-size:var(--font-size-2xl)}
+.portfolio-cta p:not(.eyebrow){max-width:44rem;color:var(--wt-teal-50)}
 
 @media(max-width:64rem){
   .portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -40,12 +38,23 @@
   .portfolio-cta__inner .button{justify-self:start}
 }
 @media(max-width:43.75rem){
-  .portfolio-hero h1{font-size:clamp(2.35rem,11vw,3.5rem)}
-  .portfolio-grid{grid-template-columns:1fr}
-  .portfolio-card--lead{grid-column:auto}
-  .portfolio-card--lead .portfolio-card__media,.portfolio-card__media{aspect-ratio:16/10}
-  .portfolio-filters{gap:var(--space-2)}
-  .portfolio-filters button{flex:1 1 auto}
+  .portfolio-hero h1{font-size:clamp(2.25rem,10vw,3.25rem)}
+  .portfolio-hero__count{min-width:0;padding:var(--space-4)}
+  .portfolio-hero__count strong{font-size:2rem}
+  .portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3)}
+  .portfolio-card__media{aspect-ratio:16/10}
+  .portfolio-card__copy{padding:.7rem}
+  .portfolio-card__copy .eyebrow{font-size:.65rem}
+  .portfolio-card__copy h2{font-size:.82rem}
+  .portfolio-card__copy>p:not(.eyebrow){font-size:.68rem;line-height:1.45}
+  .portfolio-card__copy .text-link{font-size:.7rem}
+  .portfolio-filters{gap:var(--space-2);margin-bottom:var(--space-5)}
+  .portfolio-filters button{flex:1 1 calc(33.333% - var(--space-2));min-height:2.25rem;padding:.35rem .55rem;font-size:.72rem}
   .portfolio-cta__inner .button{width:100%}
 }
 @media(prefers-reduced-motion:reduce){.portfolio-card:hover .portfolio-card__media img{transform:none}}
+
+@media(max-width:23.75rem){
+  .portfolio-card__copy>p:not(.eyebrow){display:none}
+  .portfolio-card__copy h2{font-size:.76rem}
+}
