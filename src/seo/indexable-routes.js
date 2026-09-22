@@ -7,29 +7,30 @@ import { jobs } from "../data/jobs.js";
 
 const locales = Object.freeze(["ar", "en"]);
 
-function localizedPair(routeFactory) {
-  return Object.freeze({
-    ar: routeFactory("ar"),
-    en: routeFactory("en")
-  });
+function readyLocales(record) {
+  return locales.filter((locale) => record.localeStatus?.[locale] === "ready" && record.content?.[locale]);
+}
+
+function localizedAlternates(record, routeFactory) {
+  return Object.freeze(Object.fromEntries(
+    readyLocales(record).map((locale) => [locale, routeFactory(locale)])
+  ));
 }
 
 function pageEntries() {
   return pages
     .filter((page) => page.routeKey && page.contentState === "READY")
     .flatMap((page) => {
-      const alternates = localizedPair((locale) => routes[page.routeKey](locale));
-      return locales
-        .filter((locale) => page.localeStatus?.[locale] === "ready" && page.content?.[locale])
+      const alternates = localizedAlternates(page, (locale) => routes[page.routeKey](locale));
+      return readyLocales(page)
         .map((locale) => Object.freeze({ path: alternates[locale], alternates }));
     });
 }
 
 function entityEntries(records, routeFactory) {
   return records.flatMap((record) => {
-    const alternates = localizedPair((locale) => routeFactory(record.slug, locale));
-    return locales
-      .filter((locale) => record.localeStatus?.[locale] === "ready" && record.content?.[locale])
+    const alternates = localizedAlternates(record, (locale) => routeFactory(record.slug, locale));
+    return readyLocales(record)
       .map((locale) => Object.freeze({ path: alternates[locale], alternates }));
   });
 }
