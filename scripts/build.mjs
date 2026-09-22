@@ -7,7 +7,6 @@ import { renderPreviewRobots, renderProductionRobots, renderSitemap } from "../s
 import { isProductionBuild, outputDirectoryName } from "../src/config/release.js";
 import { getIndexableEntries } from "../src/seo/indexable-routes.js";
 import { designSystemShowcase } from "../src/pages/design-system.js";
-import { foundationPlaceholder } from "../src/pages/foundation.js";
 import { homePage } from "../src/pages/home.js";
 import { servicesDirectoryPage } from "../src/pages/services.js";
 import { serviceDetailPage } from "../src/pages/service-detail.js";
@@ -52,17 +51,7 @@ const cssSources = [
   "src/styles/showcase.css"
 ];
 
-const placeholderRoutes = Object.freeze([
-  Object.freeze({ key: "services", title: Object.freeze({ ar: "الخدمات", en: "Services" }) }),
-  Object.freeze({ key: "portfolio", title: Object.freeze({ ar: "الأعمال", en: "Work" }) }),
-  Object.freeze({ key: "process", title: Object.freeze({ ar: "كيف نعمل", en: "Process" }) }),
-  Object.freeze({ key: "about", title: Object.freeze({ ar: "من نحن", en: "About" }) }),
-  Object.freeze({ key: "insights", title: Object.freeze({ ar: "المقالات", en: "Insights" }) }),
-  Object.freeze({ key: "faq", title: Object.freeze({ ar: "الأسئلة الشائعة", en: "FAQ" }) }),
-  Object.freeze({ key: "careers", title: Object.freeze({ ar: "الوظائف", en: "Careers" }) }),
-  Object.freeze({ key: "contact", title: Object.freeze({ ar: "تواصل معنا", en: "Contact" }) }),
-  Object.freeze({ key: "startProject", title: Object.freeze({ ar: "ابدأ مشروعك", en: "Start a Project" }) })
-]);
+
 
 async function ensureDirectory(filePath) {
   await mkdir(path.dirname(filePath), { recursive: true });
@@ -176,16 +165,7 @@ async function buildPages() {
     await writeOutput(outputPath(routes.privacy(locale)), privacyPage(locale));
     await writeOutput(outputPath(routes.terms(locale)), termsPage(locale));
 
-    for (const record of placeholderRoutes.filter((item) => !["services","portfolio","about","process","contact","startProject","faq","insights","careers"].includes(item.key))) {
-      await writeOutput(
-        outputPath(routes[record.key](locale)),
-        foundationPlaceholder({
-          title: record.title[locale],
-          routeKey: record.key,
-          locale
-        })
-      );
-    }
+
   }
 
   await writeOutput("404.html", notFoundPage("ar"));
