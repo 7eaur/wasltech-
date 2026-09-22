@@ -18,11 +18,16 @@ import { processPage } from "../src/pages/process.js";
 import { contactPage } from "../src/pages/contact.js";
 import { projectPlannerPage } from "../src/pages/project-planner.js";
 import { faqPage } from "../src/pages/faq.js";
-import { insightsPage, careersPage } from "../src/pages/secondary-empty.js";
+import { insightsPage } from "../src/pages/insights.js";
+import { articleDetailPage } from "../src/pages/article-detail.js";
+import { careersPage } from "../src/pages/careers.js";
+import { jobDetailPage } from "../src/pages/job-detail.js";
 import { privacyPage, termsPage } from "../src/pages/legal.js";
 import { notFoundPage } from "../src/pages/not-found.js";
 import { services } from "../src/data/services.js";
 import { projects } from "../src/data/projects.js";
+import { articles } from "../src/data/articles.js";
+import { jobs } from "../src/data/jobs.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, outputDirectoryName);
@@ -43,6 +48,7 @@ const cssSources = [
   "src/styles/about-process.css",
   "src/styles/contact-planner.css",
   "src/styles/secondary.css",
+  "src/styles/insights-careers.css",
   "src/styles/showcase.css"
 ];
 
@@ -88,6 +94,19 @@ async function buildAssets() {
   });
   for (const image of ["about_1.png", "about_2.png"]) {
     await cp(path.join(ROOT, "assets", image), path.join(DIST, "assets", image));
+  }
+  const editorialImages = [
+    "hero_blog.png",
+    "hero_contact.png",
+    "hero_portfolio.png",
+    "hero_process.png",
+    "blog_brand.png",
+    "blog_ecommerce.png",
+    "blog_web.png"
+  ];
+  await mkdir(path.join(DIST, "assets/gen"), { recursive: true });
+  for (const image of editorialImages) {
+    await cp(path.join(ROOT, "assets/gen", image), path.join(DIST, "assets/gen", image));
   }
   const projectImages = [...new Set(projects.map((project) => project.image))];
   for (const image of projectImages) {
@@ -140,7 +159,20 @@ async function buildPages() {
     await writeOutput(outputPath(routes.startProject(locale)), projectPlannerPage(locale));
     await writeOutput(outputPath(routes.faq(locale)), faqPage(locale));
     await writeOutput(outputPath(routes.insights(locale)), insightsPage(locale));
+    for (const article of articles.filter((item) => item.publishedAt && item.localeStatus?.[locale] === "ready")) {
+      await writeOutput(
+        outputPath(routes.article(article.slug, locale)),
+        articleDetailPage(article, locale)
+      );
+    }
+
     await writeOutput(outputPath(routes.careers(locale)), careersPage(locale));
+    for (const job of jobs.filter((item) => item.status === "open" && item.localeStatus?.[locale] === "ready")) {
+      await writeOutput(
+        outputPath(routes.job(job.slug, locale)),
+        jobDetailPage(job, locale)
+      );
+    }
     await writeOutput(outputPath(routes.privacy(locale)), privacyPage(locale));
     await writeOutput(outputPath(routes.terms(locale)), termsPage(locale));
 
