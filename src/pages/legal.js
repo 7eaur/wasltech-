@@ -50,7 +50,8 @@ function legalDocument(id,locale){
     activePath:route,
     alternatePath:routes[id](alternateLocale),
     canonicalPath:route,
-    alternatePaths:Object.freeze({ar:routes[id]("ar"),en:routes[id]("en")})
+    alternatePaths:Object.freeze({ar:routes[id]("ar"),en:routes[id]("en")}),
+    ogImage:getPageHeroMedia(id,locale).src
   });
 }
 
