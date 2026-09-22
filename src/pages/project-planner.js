@@ -183,6 +183,7 @@ export function projectPlannerPage(locale="ar"){
     activePath:routes.startProject(locale),
     alternatePath:routes.startProject(locale==="ar"?"en":"ar"),
     canonicalPath:routes.startProject(locale),
-    alternatePaths:Object.freeze({ar:routes.startProject("ar"),en:routes.startProject("en")})
+    alternatePaths:Object.freeze({ar:routes.startProject("ar"),en:routes.startProject("en")}),
+    ogImage:getPageHeroMedia("startProject",locale).src
   });
 }
