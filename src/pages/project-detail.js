@@ -5,6 +5,8 @@ import { ActionLink } from "../components/ActionLink.js";
 import { documentTemplate } from "../templates/document.js";
 import { breadcrumbSchema, creativeWorkSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
+import { HeroMedia } from "../components/HeroMedia.js";
+import { getProjectHeroMedia } from "../config/hero-media.js";
 
 function renderBreadcrumb(project,locale) {
   const copy=project.content[locale];
@@ -26,14 +28,15 @@ function renderHero(project,locale) {
   return `
     <section class="project-detail-hero">
       <div class="container project-detail-hero__grid">
-        <div>
+        <div class="project-detail-hero__copy">
           <p class="eyebrow">${escapeHtml(project.platformType[locale])}</p>
           <h1>${escapeHtml(copy.title)}</h1>
+          <div class="project-detail-hero__summary">
+            <p>${escapeHtml(copy.summary)}</p>
+            <a class="text-link" href="#project-story">${locale === "ar" ? "داخل المشروع" : "Inside the project"}</a>
+          </div>
         </div>
-        <div class="project-detail-hero__summary">
-          <p>${escapeHtml(copy.summary)}</p>
-          <a class="text-link" href="#project-story">${locale === "ar" ? "داخل المشروع" : "Inside the project"}</a>
-        </div>
+        ${HeroMedia({...getProjectHeroMedia(project, locale), className:"project-detail-hero__media"})}
       </div>
     </section>
   `;
@@ -185,7 +188,6 @@ export function projectDetailPage(project,locale="ar") {
   const body=[
     renderBreadcrumb(project,locale),
     renderHero(project,locale),
-    renderPrimaryMedia(project,locale),
     renderStory(project,locale),
     renderScope(project,locale),
     renderServices(project,locale),
