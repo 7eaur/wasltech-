@@ -74,6 +74,7 @@ jobs:
             ["planner", "/start-project/"],
             ["faq", "/faq/"],
             ["insights", "/insights/"],
+            ["article-website-or-system", "/insights/website-or-web-system/"],
             ["careers", "/careers/"],
             ["privacy", "/privacy/"],
             ["terms", "/terms/"]
