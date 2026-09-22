@@ -8,6 +8,7 @@ import { SectionHeader } from "../components/SectionHeader.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema, websiteSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
+import { icon } from "../components/icons.js";
 
 const homeRecord = pages.find((page) => page.id === "home");
 
@@ -16,14 +17,14 @@ const featuredFaqIds = Object.freeze(["start-1", "workflow-1", "product-3"]);
 
 const heroSignals = Object.freeze({
   ar: Object.freeze([
-    Object.freeze({ title: "حلول متكاملة", body: "من الفكرة إلى التنفيذ" }),
-    Object.freeze({ title: "تنفيذ منظم", body: "خطوات واضحة ومترابطة" }),
-    Object.freeze({ title: "تواصل مباشر", body: "وضوح في كل مرحلة" })
+    Object.freeze({ icon: "connected", title: "حلول متكاملة", body: "من الفكرة إلى التنفيذ" }),
+    Object.freeze({ icon: "checklist", title: "تنفيذ منظم", body: "خطوات واضحة ومترابطة" }),
+    Object.freeze({ icon: "message", title: "تواصل مباشر", body: "وضوح في كل مرحلة" })
   ]),
   en: Object.freeze([
-    Object.freeze({ title: "Connected solutions", body: "From idea to delivery" }),
-    Object.freeze({ title: "Organized execution", body: "Clear, connected steps" }),
-    Object.freeze({ title: "Direct communication", body: "Clarity through each stage" })
+    Object.freeze({ icon: "connected", title: "Connected solutions", body: "From idea to delivery" }),
+    Object.freeze({ icon: "checklist", title: "Organized execution", body: "Clear, connected steps" }),
+    Object.freeze({ icon: "message", title: "Direct communication", body: "Clarity through each stage" })
   ])
 });
 
@@ -57,16 +58,16 @@ const whyPoints = Object.freeze({
 
 const processSteps = Object.freeze({
   ar: Object.freeze([
-    Object.freeze({ number: "01", title: "فهم المشروع", body: "نستمع للفكرة ونحدد الهدف والاحتياج." }),
-    Object.freeze({ number: "02", title: "التخطيط", body: "نرتب النطاق والمحتوى وخطوات العمل." }),
-    Object.freeze({ number: "03", title: "التصميم والتطوير", body: "نحوّل الخطة إلى تجربة واضحة ومنتج فعلي." }),
-    Object.freeze({ number: "04", title: "الإطلاق والمتابعة", body: "نراجع النسخة ونجهزها للإطلاق والمتابعة." })
+    Object.freeze({ icon: "discover", number: "01", title: "فهم المشروع", body: "نستمع للفكرة ونحدد الهدف والاحتياج." }),
+    Object.freeze({ icon: "plan", number: "02", title: "التخطيط", body: "نرتب النطاق والمحتوى وخطوات العمل." }),
+    Object.freeze({ icon: "build", number: "03", title: "التصميم والتطوير", body: "نحوّل الخطة إلى تجربة واضحة ومنتج فعلي." }),
+    Object.freeze({ icon: "launch", number: "04", title: "الإطلاق والمتابعة", body: "نراجع النسخة ونجهزها للإطلاق والمتابعة." })
   ]),
   en: Object.freeze([
-    Object.freeze({ number: "01", title: "Understand the project", body: "We listen to the idea and define the goal and need." }),
-    Object.freeze({ number: "02", title: "Plan", body: "We organize the scope, content, and working steps." }),
-    Object.freeze({ number: "03", title: "Design and build", body: "We turn the plan into a clear experience and a working product." }),
-    Object.freeze({ number: "04", title: "Launch and follow through", body: "We review the approved version and prepare it for launch." })
+    Object.freeze({ icon: "discover", number: "01", title: "Understand the project", body: "We listen to the idea and define the goal and need." }),
+    Object.freeze({ icon: "plan", number: "02", title: "Plan", body: "We organize the scope, content, and working steps." }),
+    Object.freeze({ icon: "build", number: "03", title: "Design and build", body: "We turn the plan into a clear experience and a working product." }),
+    Object.freeze({ icon: "launch", number: "04", title: "Launch and follow through", body: "We review the approved version and prepare it for launch." })
   ])
 });
 
@@ -77,6 +78,7 @@ function section(content, id) {
 function renderHero(content, locale) {
   const signals = heroSignals[locale].map((item) => `
     <div class="home-hero__signal">
+      ${icon(item.icon, "home-hero__signal-icon")}
       <div>
         <strong>${escapeHtml(item.title)}</strong>
         <small>${escapeHtml(item.body)}</small>
@@ -228,7 +230,10 @@ function renderProcess(content, locale) {
   const copy = section(content, "process");
   const steps = processSteps[locale].map((step) => `
     <article class="home-process__step">
-      <span>${step.number}</span>
+      <div class="home-process__step-head">
+        ${icon(step.icon, "home-process__icon")}
+        <span>${step.number}</span>
+      </div>
       <h3>${escapeHtml(step.title)}</h3>
       <p>${escapeHtml(step.body)}</p>
     </article>
