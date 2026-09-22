@@ -5,7 +5,7 @@ Repository: `7eaur/wasltech-`
 Official/legacy branch: `main`  
 Current live `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
-Latest verified VNext implementation checkpoint: `4c034ec2276ab3ba96436d35d263db915236043a`
+Latest verified VNext implementation checkpoint: `3106d4d93f5ece5208e6dd22d3ce9c2ab6c16d0d`
 
 ## Current state
 
@@ -13,7 +13,7 @@ Latest verified VNext implementation checkpoint: `4c034ec2276ab3ba96436d35d263db
 
 **Active phase: Phase 13 — Cross-page Visual Normalization.**
 
-Homepage visual redesign checkpoint is implemented and verified. The user approved a calm, elegant, profile-inspired direction derived from the useful qualities of the published `main` homepage without copying its architecture or wording.
+Homepage visual redesign is implemented, verified, and **USER ACCEPTED**. The approved calm, elegant, profile-inspired direction has now been extended across the remaining VNext route families without copying legacy architecture or wording.
 
 Approved Home sequence:
 `Hero → Services → Selected Work → About Team → Why Wasl Tech → Process → 3 FAQ → Compact CTA → Footer`.
@@ -28,14 +28,16 @@ Important approved constraints:
 - final CTA is smaller than the Hero;
 - Home FAQ is exactly 3 decision-support questions.
 
-Implementation/verification checkpoint:
-- runtime/design checkpoint SHA: `4c034ec2276ab3ba96436d35d263db915236043a`;
-- VNext verify run: `35677121641` — **SUCCESS**;
-- visual capture run: `35677121570` — **SUCCESS**;
-- screenshot artifact: `10674085957` (`wasltech-vnext-homepage-screenshots`);
-- QA record: `docs/qa/2026-09-22_phase-13_homepage-visual-redesign.md`.
+Cross-page implementation/verification checkpoint:
+- runtime/design checkpoint SHA: `3106d4d93f5ece5208e6dd22d3ce9c2ab6c16d0d`;
+- VNext verify run: `35680961221` — **SUCCESS**;
+- responsive route-family matrix run: `35680961269` — **SUCCESS**;
+- matrix screenshot artifact: `10674342417` (`wasltech-vnext-route-matrix-screenshots`);
+- matrix covers representative route families at 360/390/768/1024/1366/1440 in Arabic and English with no horizontal overflow, H1/font/page-error guards;
+- Arabic Desktop 1440 and Mobile 390 full-page screenshots were captured for all representative route families;
+- QA record: `docs/qa/2026-09-22_phase-13_cross-page-visual-normalization.md`.
 
-The next conversation must review the latest real Desktop/Mobile homepage screenshots with the user before extending this visual language across the remaining pages. Phase 13 is **IN PROGRESS**, not complete.
+Cross-page implementation is **COMPLETE FOR REVIEW**. Phase 13 remains **IN PROGRESS** until the user visually accepts the remaining route families. Phase 14 / production cutover has not started.
 
 The published website remains the legacy/current implementation from `main`. VNext is developed separately and must not replace production until the final cutover gates pass.
 
