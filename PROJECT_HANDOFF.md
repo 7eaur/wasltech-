@@ -41,23 +41,25 @@ Active branch:
 `rebuild/vnext-foundation-20260921`
 
 Latest verified **runtime/design checkpoint**:
-`c2687ce94f7fa52ecf502c585a336fb0f16b4bcc`
+`3106d4d93f5ece5208e6dd22d3ce9c2ab6c16d0d`
 
 Latest visual refinement evidence:
-- VNext verify: `35679856561` — **SUCCESS**
-- capture: `35679856535` — **SUCCESS**
-- screenshot artifact: `10674775774`
-- CTA is visually separated from Footer using a distinct Teal card treatment.
-- Mobile Footer is compressed into two navigation columns plus icon-based verified contact/social links.
-- Selected Work uses neutral copy and each featured project card includes a concise canonical summary.
-- Mobile 390 now keeps key card groups compact/horizontal instead of collapsing every group to one long column.
-- Homepage uses restrained inline SVG cues in Hero/Process, tighter typography, corrected image crops, and normalized section rhythm.
+- Homepage: **USER ACCEPTED**
+- VNext verify: `35680961221` — **SUCCESS**
+- responsive route-family matrix: `35680961269` — **SUCCESS**
+- screenshot artifact: `10674342417`
+- QA record: `docs/qa/2026-09-22_phase-13_cross-page-visual-normalization.md`
+- route families checked at 360/390/768/1024/1366/1440 in Arabic and English;
+- no horizontal overflow, missing H1, wrong IBM Plex family, or page JavaScript errors;
+- final CTAs use separate Teal card surfaces before the shared Navy Footer;
+- mobile Footer uses compact two-column navigation plus verified WhatsApp/email/Instagram icon links;
+- Services, Service Detail, Portfolio, Project Detail, About, Process, Contact, Planner, FAQ, Insights, Careers, Privacy, and Terms now share the approved visual rhythm and mobile composition.
 
 Documentation commits may be newer than that checkpoint. Always fetch live HEAD first.
 
 ## 3. Current phase
 
-**Phase 13 — Cross-page Visual Normalization — IN PROGRESS**
+**Phase 13 — Cross-page Visual Normalization — COMPLETE FOR USER REVIEW**
 
 Phases 0–12 are complete.
 
