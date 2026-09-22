@@ -157,8 +157,76 @@ jobs:
             }
           }
 
+          async function verifyInteractions() {
+            const context = await browser.newContext({
+              viewport: { width: 390, height: 844 },
+              deviceScaleFactor: 1,
+              isMobile: true,
+              hasTouch: true,
+              locale: "ar-YE"
+            });
+            const page = await context.newPage();
+
+            await page.goto(base + "/", { waitUntil: "domcontentloaded" });
+            const toggle = page.locator("[data-menu-toggle]");
+            await toggle.click();
+            if (await toggle.getAttribute("aria-expanded") !== "true") {
+              throw new Error("Mobile navigation did not open.");
+            }
+            if (!(await page.locator("[data-primary-nav]").evaluate((node) => node.hasAttribute("data-open")))) {
+              throw new Error("Mobile navigation open state missing.");
+            }
+            await page.keyboard.press("Escape");
+            if (await toggle.getAttribute("aria-expanded") !== "false") {
+              throw new Error("Mobile navigation did not close on Escape.");
+            }
+            if (!(await toggle.evaluate((node) => document.activeElement === node))) {
+              throw new Error("Mobile navigation did not restore focus after Escape.");
+            }
+
+            await page.goto(base + "/portfolio/", { waitUntil: "domcontentloaded" });
+            const filters = page.locator("[data-portfolio-filter]");
+            if (await filters.count() < 2) throw new Error("Portfolio filters missing.");
+            await filters.nth(1).click();
+            if (await filters.nth(1).getAttribute("aria-pressed") !== "true") {
+              throw new Error("Portfolio filter pressed state missing.");
+            }
+            const hiddenCards = await page.locator("[data-project-card][hidden]").count();
+            if (!hiddenCards) throw new Error("Portfolio filter did not hide non-matching cards.");
+            const filterStatus = (await page.locator("[data-portfolio-status]").textContent() || "").trim();
+            if (!filterStatus || /\d/.test(filterStatus)) {
+              throw new Error(`Portfolio filter status must be descriptive and count-free: ${filterStatus}`);
+            }
+
+            await page.goto(base + "/start-project/", { waitUntil: "domcontentloaded" });
+            const form = page.locator("[data-project-planner]");
+            await form.locator('button[type="submit"]').click();
+            const invalidStatus = (await page.locator("[data-planner-status]").textContent() || "").trim();
+            if (!invalidStatus) throw new Error("Planner invalid state did not produce a status message.");
+
+            await form.locator('select[name="service"]').selectOption({ index: 1 });
+            await form.locator('select[name="stage"]').selectOption({ index: 1 });
+            await form.locator('select[name="priority"]').selectOption({ index: 1 });
+            await form.locator('input[name="name"]').fill("اختبار");
+            await form.locator('input[name="phone"]').fill("775377979");
+            await form.locator('textarea[name="details"]').fill("وصف اختبار كافٍ للتحقق من مسار مراجعة المشروع.");
+            await form.locator('button[type="submit"]').click();
+
+            const review = page.locator("[data-planner-review]");
+            if (await review.isHidden()) throw new Error("Planner review did not open after valid submission.");
+            const whatsappHref = await page.locator("[data-planner-whatsapp]").getAttribute("href");
+            if (!whatsappHref?.startsWith("https://wa.me/967775377979?text=")) {
+              throw new Error(`Planner WhatsApp link invalid: ${whatsappHref}`);
+            }
+            await page.locator("[data-planner-edit]").click();
+            if (!(await review.isHidden())) throw new Error("Planner review did not close on edit.");
+
+            await context.close();
+          }
+
+          await verifyInteractions();
           await browser.close();
-          console.log("VNEXT ROUTE MATRIX: PASSED");
+          console.log("VNEXT ROUTE MATRIX + INTERACTIONS: PASSED");
           EOF
           node /tmp/wasltech-vnext-matrix/matrix.mjs
 
