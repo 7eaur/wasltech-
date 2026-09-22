@@ -104,22 +104,22 @@
   .service-signal{grid-template-columns:1fr;gap:.35rem;padding:var(--space-4)}
   .service-signal+ .service-signal{border-inline-start:var(--border-thin) solid var(--color-border-default);border-top:0}
   .service-signal h2{font-size:.82rem}
-  .service-signal p{font-size:.7rem;line-height:1.5}
+  .service-signal p{font-size:.74rem;line-height:1.55}
   .service-deliverable{grid-template-columns:1fr;gap:.35rem;padding:var(--space-4)}
   .service-deliverable:nth-child(odd){border-inline-end:var(--border-thin) solid var(--color-border-default)}
   .service-deliverable h3{font-size:.82rem}
-  .service-deliverable p{display:-webkit-box;font-size:.7rem;line-height:1.5;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+  .service-deliverable p{display:-webkit-box;font-size:.74rem;line-height:1.55;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
   .service-proof__grid{gap:var(--space-3)}
   .service-proof__card:last-child:nth-child(odd){grid-column:1/-1;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
   .service-proof__card:last-child:nth-child(odd) .service-proof__media{height:100%;aspect-ratio:auto}
   .service-proof__copy{padding:.75rem}
   .service-proof__copy h3{font-size:.82rem}
-  .service-proof__copy>p:not(.eyebrow){display:-webkit-box;font-size:.68rem;line-height:1.45;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+  .service-proof__copy>p:not(.eyebrow){display:-webkit-box;font-size:.72rem;line-height:1.5;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
   .service-process__steps{grid-template-columns:repeat(4,minmax(0,1fr))}
   .service-process__step{padding:var(--space-4) var(--space-2);text-align:center;border-inline-end:var(--border-thin) solid var(--color-border-default);border-bottom:0}
   .service-process__step:last-child{border-inline-end:0}
   .service-process__step>span{margin-bottom:var(--space-3);font-size:.65rem}
-  .service-process__step h3{margin:0;font-size:.7rem;line-height:1.35}
+  .service-process__step h3{margin:0;font-size:.72rem;line-height:1.4}
   .service-process__step p{display:none}
   .service-detail-cta__inner .button{width:100%}
 }
