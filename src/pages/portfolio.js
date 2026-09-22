@@ -99,6 +99,7 @@ export function portfolioPage(locale="ar") {
     alternatePath:routes.portfolio(locale==="ar"?"en":"ar"),
     canonicalPath:routes.portfolio(locale),
     alternatePaths:Object.freeze({ar:routes.portfolio("ar"),en:routes.portfolio("en")}),
+    ogImage:getPageHeroMedia("portfolio",locale).src,
     structuredData:[organizationSchema()]
   });
 }
