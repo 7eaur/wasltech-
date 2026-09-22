@@ -71,8 +71,8 @@ export const pages = Object.freeze([
           Object.freeze({
             id: "work",
             kicker: "أعمال مختارة",
-            title: "مشاريع نفخر بها.",
-            support: "نماذج مختارة من أعمال فريق وصل تك في مجالات مختلفة، صُممت حول احتياجات وأهداف متنوعة."
+            title: "نماذج من أعمالنا.",
+            support: "مجموعة مختارة من مشاريعنا في مجالات مختلفة، لكل مشروع احتياجه وطريقته في الحل والتنفيذ."
           }),
           Object.freeze({
             id: "about",
@@ -127,8 +127,8 @@ export const pages = Object.freeze([
           Object.freeze({
             id: "work",
             kicker: "Selected work",
-            title: "Projects we are proud of.",
-            support: "A selection of Wasl Tech work across different categories, each shaped around a distinct need and objective."
+            title: "A selection of our work.",
+            support: "Selected projects across different categories, each shaped around its own need, context, and solution."
           }),
           Object.freeze({
             id: "about",
