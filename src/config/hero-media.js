@@ -24,11 +24,7 @@ export function getPageHeroMedia(pageKey, locale = "ar") {
     ...media,
     width: 1600,
     height: 1000,
-    alt: localizedAlt(
-      locale,
-      "صورة توضيحية مؤقتة لهوية الصفحة",
-      "Temporary editorial image for this page"
-    )
+    alt: ""
   });
 }
 
@@ -38,11 +34,7 @@ export function getServiceHeroMedia(service, locale = "ar") {
     width: 1600,
     height: 1000,
     temporary: true,
-    alt: localizedAlt(
-      locale,
-      `صورة توضيحية مؤقتة لخدمة ${service.content[locale].title}`,
-      `Temporary editorial image for ${service.content[locale].title}`
-    )
+    alt: service.content[locale].title
   });
 }
 
