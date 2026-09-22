@@ -115,20 +115,30 @@ A service/project/job keeps one stable slug across locales. Articles keep stable
 
 ## 3. Homepage narrative
 
-Recommended sequence:
+Approved sequence:
 
-1. Brand Hero — what Wasl Tech builds and why it matters.
-2. Compact positioning/proof strip.
-3. Service families — help visitor self-identify.
-4. Selected work / proof.
-5. Why Wasl / operating principles.
-6. How we work.
-7. Relevant FAQ/objection handling only if needed.
-8. Project Planner CTA.
+1. Brand Hero — clear promise, short support, primary project action, secondary services action, one calm supporting image.
+2. Services — all 8 official services remain visible as concise comparable cards.
+3. Selected Work — 3 focused project cards, then a link to the full Portfolio.
+4. About the Wasl Tech team — what the team combines and how it approaches digital work.
+5. Why Wasl Tech — separate trust/value section; do not merge it into About.
+6. How We Work — 4 compact sequential steps.
+7. Home FAQ — exactly 3 high-value decision questions, then a link to the full FAQ.
+8. Compact final CTA.
 9. Footer.
 
 Logic:
-**Understand → Explore → See proof → Understand the method → Act**
+**Understand → Explore services → See proof → Know the team → Build trust → Understand the process → Remove final objections → Act**
+
+Homepage content rules:
+- Home is not a corporate-history page and not a complete FAQ page.
+- Use **فريق وصل تك / Wasl Tech team** in narrative team copy; avoid unnecessary "company" phrasing.
+- Do not use unsupported numeric counters for years, project counts, satisfaction percentages, or similar marketing claims.
+- Approved qualitative trust cues include: فريق ذو خبرة، رضا العملاء، مشاريع ناجحة, with wording kept concise and non-numeric.
+- Keep service copy concise; service detail pages own the deeper explanation.
+- Keep selected work visually useful but restrained; no single project image should dominate the homepage.
+- The final CTA must be smaller than the Hero and act as a close, not a second Hero.
+- Homepage wording must sound customer-facing and confident, not like internal evidence justification. Verification stays in data/tests/docs, not in promotional copy.
 
 ## 4. Services directory
 
