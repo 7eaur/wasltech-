@@ -1,7 +1,7 @@
-.services-hero{padding-block:clamp(var(--space-12),7vw,var(--space-24))}
+.services-hero{padding-block:clamp(var(--space-8),4.5vw,var(--space-14))}
 .services-hero__grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(15rem,.8fr);gap:clamp(var(--space-8),6vw,var(--space-20));align-items:end}
 .services-hero__copy{max-width:52rem}
-.services-hero h1{max-width:14ch;margin:0;font-size:clamp(2.7rem,2rem + 3.7vw,5.25rem);line-height:1.08;letter-spacing:var(--tracking-tight)}
+.services-hero h1{max-width:14ch;margin:0;font-size:clamp(2.5rem,1.9rem + 3vw,4.5rem);line-height:1.08;letter-spacing:var(--tracking-tight)}
 .services-hero__copy>p:not(.eyebrow){max-width:43rem;margin-top:var(--space-5);color:var(--color-text-secondary);font-size:var(--font-size-md)}
 .services-hero__actions{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-8)}
 .services-hero__summary{display:grid;grid-template-columns:auto 1fr;gap:var(--space-2) var(--space-4);align-items:baseline;padding:clamp(var(--space-5),3vw,var(--space-7));border-top:2px solid var(--color-brand-accent);border-bottom:var(--border-thin) solid var(--color-border-default)}
@@ -13,7 +13,7 @@
 .service-family:nth-child(even){background:var(--color-bg-subtle)}
 .service-family__header{display:grid;grid-template-columns:4rem minmax(0,1fr);gap:var(--space-5);align-items:start}
 .service-family__number{padding-top:.15rem;color:var(--color-text-accent);font-size:var(--font-size-sm);font-weight:var(--font-weight-bold)}
-.service-family__header .section-header{margin-bottom:clamp(var(--space-8),5vw,var(--space-14))}
+.service-family__header .section-header{margin-bottom:var(--space-7)}
 .service-directory-list{border-top:var(--border-thin) solid var(--color-border-default)}
 .service-directory-row{display:grid;grid-template-columns:3.5rem minmax(12rem,.9fr) minmax(14rem,1.15fr) minmax(14rem,1.15fr) auto;gap:clamp(var(--space-3),2.5vw,var(--space-6));align-items:start;padding-block:clamp(var(--space-5),3vw,var(--space-7));border-bottom:var(--border-thin) solid var(--color-border-default)}
 .service-directory-row__index{color:var(--color-text-muted);font-size:var(--font-size-xs);font-weight:var(--font-weight-bold)}
@@ -24,11 +24,11 @@
 .service-directory-row__decision p,.service-directory-row__scope p{color:var(--color-text-secondary);font-size:var(--font-size-sm)}
 .service-directory-row__action{align-self:center;justify-self:end}
 
-.services-unsure{padding-block:clamp(var(--space-14),7vw,var(--space-24));background:var(--color-bg-emphasis)}
-.services-unsure__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--space-8);align-items:end}
-.services-unsure .eyebrow{color:var(--wt-teal-300)}
-.services-unsure h2{max-width:19ch;margin-bottom:var(--space-3);color:var(--color-text-inverse);font-size:var(--font-size-3xl)}
-.services-unsure p:not(.eyebrow){max-width:44rem;color:var(--wt-neutral-300)}
+.services-unsure{padding-block:var(--space-8);background:var(--color-bg-canvas)}
+.services-unsure__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--space-8);align-items:end;padding:clamp(var(--space-6),4vw,var(--space-10));background:var(--wt-teal-700);border-radius:var(--radius-panel)}
+.services-unsure .eyebrow{color:var(--wt-teal-100)}
+.services-unsure h2{max-width:19ch;margin-bottom:var(--space-3);color:var(--color-text-inverse);font-size:var(--font-size-2xl)}
+.services-unsure p:not(.eyebrow){max-width:44rem;color:var(--wt-teal-50)}
 .services-unsure__actions{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-3)}
 .services-unsure__link{color:var(--wt-neutral-300);font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold)}
 .services-unsure__link:hover{color:var(--wt-neutral-0);text-decoration:underline;text-underline-offset:.18em}
@@ -48,13 +48,33 @@
 }
 
 @media(max-width:43.75rem){
-  .services-hero h1{font-size:clamp(2.35rem,11vw,3.5rem)}
+  .services-hero h1{font-size:clamp(2.25rem,10vw,3.25rem)}
   .services-hero__actions{display:grid;grid-template-columns:1fr}
   .services-hero__actions .button{width:100%}
-  .service-family__header{grid-template-columns:2.25rem minmax(0,1fr);gap:var(--space-3)}
-  .service-directory-row{grid-template-columns:1fr}
-  .service-directory-row__index,.service-directory-row__decision,.service-directory-row__scope,.service-directory-row__action{grid-column:1}
-  .service-directory-row__index{margin-bottom:var(--space-1)}
+  .services-hero__summary{grid-template-columns:auto 1fr auto 1fr;max-width:none;gap:var(--space-2);padding:var(--space-4)}
+  .services-hero__summary i{display:none}
+  .services-hero__summary strong{font-size:1.8rem}
+  .service-family{padding-block:var(--space-8)}
+  .service-family__header{grid-template-columns:2rem minmax(0,1fr);gap:var(--space-2)}
+  .service-family__header .section-header{margin-bottom:var(--space-5)}
+  .service-directory-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3);border-top:0}
+  .service-directory-row{display:flex;min-width:0;flex-direction:column;gap:0;padding:.8rem;background:var(--color-bg-canvas);border:var(--border-thin) solid var(--color-border-default);border-radius:var(--radius-card)}
+  .service-directory-row__index{margin-bottom:.35rem;font-size:.65rem}
+  .service-directory-row__subtitle{margin-bottom:.25rem;font-size:.65rem;line-height:1.35}
+  .service-directory-row__main h3{font-size:.84rem;line-height:1.3}
+  .service-directory-row__decision{padding-top:.55rem}
+  .service-directory-row__decision span{display:none}
+  .service-directory-row__decision p{display:-webkit-box;font-size:.7rem;line-height:1.5;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+  .service-directory-row__scope{display:none}
+  .service-directory-row__action{margin-top:auto;padding-top:.65rem}
+  .service-directory-row__action .text-link{font-size:.7rem}
+  .services-unsure__inner{gap:var(--space-5)}
   .services-unsure__actions{width:100%}
   .services-unsure__actions .button{width:100%}
+}
+
+@media(max-width:23.75rem){
+  .service-directory-list{gap:var(--space-2)}
+  .service-directory-row{padding:.7rem}
+  .service-directory-row__decision p{display:none}
 }
