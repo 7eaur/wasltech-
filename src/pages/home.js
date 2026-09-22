@@ -77,7 +77,6 @@ function section(content, id) {
 function renderHero(content, locale) {
   const signals = heroSignals[locale].map((item) => `
     <div class="home-hero__signal">
-      <span class="home-hero__signal-dot" aria-hidden="true"></span>
       <div>
         <strong>${escapeHtml(item.title)}</strong>
         <small>${escapeHtml(item.body)}</small>
