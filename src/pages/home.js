@@ -329,6 +329,7 @@ export function homePage(locale = "ar") {
       ar: routes.home("ar"),
       en: routes.home("en")
     }),
+    ogImage: "/assets/about_1.png",
     structuredData: [organizationSchema(), websiteSchema(locale)]
   });
 }
