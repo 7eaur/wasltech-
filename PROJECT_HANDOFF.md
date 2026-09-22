@@ -41,7 +41,14 @@ Active branch:
 `rebuild/vnext-foundation-20260921`
 
 Latest verified **runtime/design checkpoint**:
-`4c034ec2276ab3ba96436d35d263db915236043a`
+`ec5b788d393b245e25bf08dc70ad29b7c9715074`
+
+Latest visual refinement evidence:
+- VNext verify: `35679244075` — **SUCCESS**
+- capture: `35679244011` — **SUCCESS**
+- screenshot artifact: `10673974756`
+- Mobile 390 now keeps key card groups compact/horizontal instead of collapsing every group to one long column.
+- Homepage uses restrained inline SVG cues in Hero/Process, tighter typography, corrected image crops, and normalized section rhythm.
 
 Documentation commits may be newer than that checkpoint. Always fetch live HEAD first.
 
