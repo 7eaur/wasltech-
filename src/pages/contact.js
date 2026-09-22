@@ -6,6 +6,8 @@ import { documentTemplate } from "../templates/document.js";
 import { organizationSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
 import { icon } from "../components/icons.js";
+import { HeroMedia } from "../components/HeroMedia.js";
+import { getPageHeroMedia } from "../config/hero-media.js";
 
 const record=pages.find((page)=>page.id==="contact");
 
@@ -40,15 +42,16 @@ export function contactPage(locale="ar"){
   const body=`
     <section class="contact-hero">
       <div class="container contact-hero__grid">
-        <div>
+        <div class="contact-hero__copy">
           <p class="eyebrow">${escapeHtml(content.kicker)}</p>
           <h1>${escapeHtml(content.title)}</h1>
           <p>${escapeHtml(content.support)}</p>
+          <div class="contact-hero__actions">
+            ${ActionLink({href:whatsappHref(locale),label:content.primaryCta,variant:"primary",size:"lg"})}
+            ${ActionLink({href:routes.startProject(locale),label:content.secondaryCta,variant:"ghost",size:"lg"})}
+          </div>
         </div>
-        <div class="contact-hero__actions">
-          ${ActionLink({href:whatsappHref(locale),label:content.primaryCta,variant:"primary",size:"lg"})}
-          ${ActionLink({href:routes.startProject(locale),label:content.secondaryCta,variant:"ghost",size:"lg"})}
-        </div>
+        ${HeroMedia({...getPageHeroMedia("contact", locale), className:"contact-hero__media"})}
       </div>
     </section>
 
