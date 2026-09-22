@@ -70,7 +70,7 @@
   .contact-channel{display:flex;min-width:0;min-height:5rem;flex-direction:column;justify-content:center;gap:.35rem;padding:.7rem .4rem;background:var(--color-bg-soft);border:var(--border-thin) solid var(--color-border-default);border-radius:var(--radius-card);text-align:center}
   .contact-channel__icon{width:1.15rem;height:1.15rem}
   .contact-channel span{font-size:.68rem}
-  .contact-channel strong{max-width:100%;overflow:hidden;font-size:.68rem;text-overflow:ellipsis;white-space:nowrap}
+  .contact-channel strong{max-width:100%;font-size:.7rem;line-height:1.35;overflow-wrap:anywhere;white-space:normal}
   .contact-paths__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3)}
   .contact-paths article{padding:var(--space-4)}
   .contact-paths h2{font-size:.9rem}
@@ -84,7 +84,6 @@
 }
 
 @media(max-width:23.75rem){
-  .contact-channel strong{display:none}
   .planner-fields{grid-template-columns:1fr}
   .planner-field--wide{grid-column:auto}
 }
