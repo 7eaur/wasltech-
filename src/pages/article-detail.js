@@ -54,6 +54,13 @@ export function articleDetailPage(article,locale="ar"){
   const path=routes.article(article.slug,locale);
   const other=locale==="ar"?"en":"ar";
   const media=getArticleHeroMedia(article,locale);
+  const availableLocales=["ar","en"].filter((item)=>article.localeStatus?.[item]==="ready" && article.content?.[item]);
+  const alternatePaths=Object.freeze(Object.fromEntries(
+    availableLocales.map((item)=>[item,routes.article(article.slug,item)])
+  ));
+  const alternatePath=availableLocales.includes(other)
+    ? routes.article(article.slug,other)
+    : routes.insights(other);
 
   const body=`
     <nav class="article-breadcrumb" aria-label="${locale==="ar"?"مسار الصفحة":"Breadcrumb"}">
@@ -114,12 +121,9 @@ export function articleDetailPage(article,locale="ar"){
     body,
     locale,
     activePath:routes.insights(locale),
-    alternatePath:routes.article(article.slug,other),
+    alternatePath,
     canonicalPath:path,
-    alternatePaths:Object.freeze({
-      ar:routes.article(article.slug,"ar"),
-      en:routes.article(article.slug,"en")
-    }),
+    alternatePaths,
     ogTitle:copy.seo.title,
     ogDescription:copy.seo.description,
     ogImage:media.src,
