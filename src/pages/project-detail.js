@@ -42,19 +42,6 @@ function renderHero(project,locale) {
   `;
 }
 
-function renderPrimaryMedia(project,locale) {
-  const title=project.content[locale].title;
-  return `
-    <section class="project-primary-media">
-      <div class="container">
-        <figure>
-          <img src="${project.image}" alt="${escapeHtml(title)}" loading="eager" fetchpriority="high" width="${project.imageDimensions.width}" height="${project.imageDimensions.height}">
-        </figure>
-      </div>
-    </section>
-  `;
-}
-
 function renderStory(project,locale) {
   const story=project.content[locale].caseStudy;
   const labels=locale === "ar"
