@@ -62,7 +62,7 @@
 .career-card h2{margin-bottom:var(--space-3);font-size:var(--font-size-xl)}
 .career-card>p:not(.eyebrow){margin-bottom:var(--space-4);color:var(--color-text-secondary)}
 
-.job-hero__location{font-size:var(--font-size-sm)!important;font-weight:var(--font-weight-semibold)}
+.job-hero__copy>p.job-hero__location{font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold)}
 .job-content__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(var(--space-8),6vw,var(--space-16))}
 .job-content h2{margin-bottom:var(--space-5);font-size:var(--font-size-2xl)}
 .job-content ul{display:grid;border-top:var(--border-thin) solid var(--color-border-default)}
