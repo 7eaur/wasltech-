@@ -17,6 +17,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: vnext-route-matrix-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   route-matrix:
     runs-on: ubuntu-latest
@@ -63,26 +67,27 @@ jobs:
 
           const base = "http://127.0.0.1:4173";
           const routeFamilies = [
-            ["home", "/"],
-            ["services", "/services/"],
-            ["service-web", "/services/web-development/"],
-            ["portfolio", "/portfolio/"],
-            ["project-wasl", "/portfolio/wasl-freelance-platform/"],
-            ["about", "/about/"],
-            ["process", "/process/"],
-            ["contact", "/contact/"],
-            ["planner", "/start-project/"],
-            ["faq", "/faq/"],
-            ["insights", "/insights/"],
-            ["article-website-or-system", "/insights/website-or-web-system/"],
-            ["careers", "/careers/"],
-            ["privacy", "/privacy/"],
-            ["terms", "/terms/"]
+            ["home", "/", "/en/", "/en/", "/"],
+            ["services", "/services/", "/en/services/", "/en/services/", "/services/"],
+            ["service-web", "/services/web-development/", "/en/services/web-development/", "/en/services/web-development/", "/services/web-development/"],
+            ["portfolio", "/portfolio/", "/en/portfolio/", "/en/portfolio/", "/portfolio/"],
+            ["project-wasl", "/portfolio/wasl-freelance-platform/", "/en/portfolio/wasl-freelance-platform/", "/en/portfolio/wasl-freelance-platform/", "/portfolio/wasl-freelance-platform/"],
+            ["about", "/about/", "/en/about/", "/en/about/", "/about/"],
+            ["process", "/process/", "/en/process/", "/en/process/", "/process/"],
+            ["contact", "/contact/", "/en/contact/", "/en/contact/", "/contact/"],
+            ["planner", "/start-project/", "/en/start-project/", "/en/start-project/", "/start-project/"],
+            ["faq", "/faq/", "/en/faq/", "/en/faq/", "/faq/"],
+            ["insights", "/insights/", "/en/insights/", "/en/insights/", "/insights/"],
+            ["article-website-or-system", "/insights/website-or-web-system/", "/en/insights/website-or-web-system/", "/en/insights/website-or-web-system/", "/insights/website-or-web-system/"],
+            ["careers", "/careers/", "/en/careers/", "/en/careers/", "/careers/"],
+            ["privacy", "/privacy/", "/en/privacy/", "/en/privacy/", "/privacy/"],
+            ["terms", "/terms/", "/en/terms/", "/en/terms/", "/terms/"],
+            ["not-found", "/404.html", "/en/404.html", "/en/", "/"]
           ];
           const widths = [360, 390, 768, 1024, 1366, 1440];
           const browser = await chromium.launch({ headless: true });
 
-          async function inspect(path, width, locale) {
+          async function inspect(path, width, locale, expectedSwitch) {
             const isMobile = width <= 390;
             const context = await browser.newContext({
               viewport: { width, height: isMobile ? 844 : 900 },
@@ -127,53 +132,54 @@ jobs:
             if (failedLocalRequests.length) throw new Error(`Failed local requests ${path}: ${failedLocalRequests.join(" | ")}`);
 
             const switchHref = await page.locator(".language-switch").getAttribute("href");
-            const expectedSwitch = locale === "ar"
-              ? (path === "/" ? "/en/" : `/en${path}`)
-              : (path.replace(/^\/en/, "") || "/");
             if (switchHref !== expectedSwitch) {
               throw new Error(`Language switch mismatch ${path}: ${switchHref} !== ${expectedSwitch}`);
             }
             await context.close();
           }
 
-          for (const [name, arPath] of routeFamilies) {
-            const enPath = arPath === "/" ? "/en/" : `/en${arPath}`;
+          async function capture(name, locale, path, suffix, width, height, isMobile) {
+            const context = await browser.newContext({
+              viewport: { width, height },
+              deviceScaleFactor: 1,
+              isMobile,
+              hasTouch: isMobile,
+              locale: locale === "ar" ? "ar-YE" : "en-US"
+            });
+            const page = await context.newPage();
+            await page.goto(base + path, { waitUntil: "networkidle" });
+            await page.evaluate(async () => {
+              document.querySelectorAll("img").forEach((img) => { img.loading = "eager"; });
+              await Promise.all([...document.images].map(async (img) => {
+                if (!img.complete) await new Promise((resolve) => {
+                  img.addEventListener("load", resolve, { once: true });
+                  img.addEventListener("error", resolve, { once: true });
+                });
+                if (img.decode) { try { await img.decode(); } catch {} }
+              }));
+              if (document.fonts?.ready) await document.fonts.ready;
+              window.scrollTo(0, 0);
+            });
+            await page.screenshot({
+              path: `/home/runner/work/wasltech-/wasltech-/route-screenshots/${name}-${locale}-${suffix}.png`,
+              fullPage: true,
+              animations: "disabled"
+            });
+            await context.close();
+          }
+
+          for (const [name, arPath, enPath, arExpectedSwitch, enExpectedSwitch] of routeFamilies) {
             for (const width of widths) {
-              await inspect(arPath, width, "ar");
-              await inspect(enPath, width, "en");
+              await inspect(arPath, width, "ar", arExpectedSwitch);
+              await inspect(enPath, width, "en", enExpectedSwitch);
             }
 
             for (const [suffix, width, height, isMobile] of [
               ["desktop-1440", 1440, 1000, false],
               ["mobile-390", 390, 844, true]
             ]) {
-              const context = await browser.newContext({
-                viewport: { width, height },
-                deviceScaleFactor: 1,
-                isMobile,
-                hasTouch: isMobile,
-                locale: "ar-YE"
-              });
-              const page = await context.newPage();
-              await page.goto(base + arPath, { waitUntil: "networkidle" });
-              await page.evaluate(async () => {
-                document.querySelectorAll("img").forEach((img) => { img.loading = "eager"; });
-                await Promise.all([...document.images].map(async (img) => {
-                  if (!img.complete) await new Promise((resolve) => {
-                    img.addEventListener("load", resolve, { once: true });
-                    img.addEventListener("error", resolve, { once: true });
-                  });
-                  if (img.decode) { try { await img.decode(); } catch {} }
-                }));
-                if (document.fonts?.ready) await document.fonts.ready;
-                window.scrollTo(0, 0);
-              });
-              await page.screenshot({
-                path: `/home/runner/work/wasltech-/wasltech-/route-screenshots/${name}-${suffix}.png`,
-                fullPage: true,
-                animations: "disabled"
-              });
-              await context.close();
+              await capture(name, "ar", arPath, suffix, width, height, isMobile);
+              await capture(name, "en", enPath, suffix, width, height, isMobile);
             }
           }
 
@@ -249,7 +255,7 @@ jobs:
 
           await verifyInteractions();
           await browser.close();
-          console.log("VNEXT ROUTE MATRIX + INTERACTIONS: PASSED");
+          console.log("VNEXT BILINGUAL ROUTE MATRIX + INTERACTIONS: PASSED");
           EOF
           node /tmp/wasltech-vnext-matrix/matrix.mjs
 
