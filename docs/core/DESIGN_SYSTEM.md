@@ -336,6 +336,33 @@ If the VNext shell exposes dark mode:
 
 If product review decides not to expose a theme toggle, document the decision before removing the behavior.
 
+## 11A. Approved Homepage Visual Direction — 2026-09-22
+
+The user approved a calmer, profile-inspired visual direction during Phase 13.
+
+The published `main` homepage is a **visual-direction reference, not an architecture or wording source**. Keep the useful qualities—clarity, calm spacing, image support, easy scanning—while improving hierarchy, copy, responsiveness and craft inside VNext.
+
+Homepage-specific decisions:
+- calm, elegant and sequential rather than agency-showcase or cinematic;
+- one supporting Hero image with moderate scale; no oversized project/device collage;
+- the Hero remains easy to understand in one glance;
+- all 8 official services remain visible on Home as comparable cards;
+- selected work uses compact/equal project cards; no giant project image dominating the page;
+- About and Why Wasl Tech remain separate sections;
+- About uses the wording **Wasl Tech team / فريق وصل تك** in narrative copy instead of generic corporate wording;
+- trust cues use approved qualitative language rather than unsupported numeric counters;
+- process stays compact and sequential;
+- Home FAQ stays intentionally short: 3 decision-support questions, with the full FAQ on its own route;
+- final CTA is a compact closing band, not a large repeated hero;
+- Footer should feel lighter than the final CTA and must not dominate the page.
+
+Images:
+- use real project media for service/work proof when available;
+- supporting editorial/team imagery is allowed when it improves comprehension and stays visually calm;
+- generic stock-office imagery is still not a design goal; current carry-forward editorial images are acceptable as checkpoint assets and may be replaced by stronger real/custom imagery later without changing the layout role.
+
+This approved direction should guide Phase 13 cross-page normalization without forcing every page into the same composition.
+
 ## 12. Craft acceptance questions
 
 Before approving a page:
