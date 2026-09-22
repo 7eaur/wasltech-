@@ -1,0 +1,170 @@
+name: Capture VNext route matrix
+
+on:
+  push:
+    branches:
+      - rebuild/vnext-foundation-20260921
+    paths:
+      - ".github/workflows/capture-vnext-route-matrix.yml"
+      - "src/pages/**"
+      - "src/styles/**"
+      - "src/components/**"
+      - "src/data/**"
+      - "src/config/**"
+      - "src/templates/**"
+      - "scripts/build.mjs"
+
+permissions:
+  contents: read
+
+jobs:
+  route-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout VNext
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Build VNext preview
+        run: npm run vnext:build
+
+      - name: Start built VNext locally
+        run: |
+          cd dist
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/wasltech-vnext-matrix.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/wasltech-vnext-matrix.log
+          exit 1
+
+      - name: Install capture browser
+        working-directory: /tmp
+        run: |
+          mkdir -p wasltech-vnext-matrix
+          cd wasltech-vnext-matrix
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.55.0 >/dev/null
+          npx playwright install --with-deps chromium
+
+      - name: Verify responsive matrix and capture route families
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/route-screenshots"
+          cat > /tmp/wasltech-vnext-matrix/matrix.mjs <<'EOF'
+          import { chromium } from "playwright";
+
+          const base = "http://127.0.0.1:4173";
+          const routeFamilies = [
+            ["home", "/"],
+            ["services", "/services/"],
+            ["service-web", "/services/web-development/"],
+            ["portfolio", "/portfolio/"],
+            ["project-wasl", "/portfolio/wasl-freelance-platform/"],
+            ["about", "/about/"],
+            ["process", "/process/"],
+            ["contact", "/contact/"],
+            ["planner", "/start-project/"],
+            ["faq", "/faq/"],
+            ["insights", "/insights/"],
+            ["careers", "/careers/"],
+            ["privacy", "/privacy/"],
+            ["terms", "/terms/"]
+          ];
+          const widths = [360, 390, 768, 1024, 1366, 1440];
+          const browser = await chromium.launch({ headless: true });
+
+          async function inspect(path, width, locale) {
+            const isMobile = width <= 390;
+            const context = await browser.newContext({
+              viewport: { width, height: isMobile ? 844 : 900 },
+              deviceScaleFactor: 1,
+              isMobile,
+              hasTouch: isMobile,
+              locale: locale === "ar" ? "ar-YE" : "en-US"
+            });
+            const page = await context.newPage();
+            const pageErrors = [];
+            page.on("pageerror", (error) => pageErrors.push(String(error)));
+            await page.goto(base + path, { waitUntil: "domcontentloaded" });
+            await page.evaluate(async () => {
+              if (document.fonts?.ready) await document.fonts.ready;
+              window.scrollTo(0, 0);
+            });
+            const metrics = await page.evaluate(() => ({
+              innerWidth: window.innerWidth,
+              scrollWidth: document.documentElement.scrollWidth,
+              lang: document.documentElement.lang,
+              dir: document.documentElement.dir,
+              h1: document.querySelector("h1")?.textContent?.trim() || "",
+              font: getComputedStyle(document.body).fontFamily
+            }));
+            if (metrics.scrollWidth !== metrics.innerWidth) {
+              throw new Error(`Horizontal overflow ${path} @ ${width}: ${JSON.stringify(metrics)}`);
+            }
+            if (!metrics.h1) throw new Error(`Missing H1: ${path}`);
+            if (!metrics.font.includes("IBM Plex")) throw new Error(`Unexpected body font: ${path} => ${metrics.font}`);
+            if (pageErrors.length) throw new Error(`Page errors ${path}: ${pageErrors.join(" | ")}`);
+            await context.close();
+          }
+
+          for (const [name, arPath] of routeFamilies) {
+            const enPath = arPath === "/" ? "/en/" : `/en${arPath}`;
+            for (const width of widths) {
+              await inspect(arPath, width, "ar");
+              await inspect(enPath, width, "en");
+            }
+
+            for (const [suffix, width, height, isMobile] of [
+              ["desktop-1440", 1440, 1000, false],
+              ["mobile-390", 390, 844, true]
+            ]) {
+              const context = await browser.newContext({
+                viewport: { width, height },
+                deviceScaleFactor: 1,
+                isMobile,
+                hasTouch: isMobile,
+                locale: "ar-YE"
+              });
+              const page = await context.newPage();
+              await page.goto(base + arPath, { waitUntil: "networkidle" });
+              await page.evaluate(async () => {
+                document.querySelectorAll("img").forEach((img) => { img.loading = "eager"; });
+                await Promise.all([...document.images].map(async (img) => {
+                  if (!img.complete) await new Promise((resolve) => {
+                    img.addEventListener("load", resolve, { once: true });
+                    img.addEventListener("error", resolve, { once: true });
+                  });
+                  if (img.decode) { try { await img.decode(); } catch {} }
+                }));
+                if (document.fonts?.ready) await document.fonts.ready;
+                window.scrollTo(0, 0);
+              });
+              await page.screenshot({
+                path: `/home/runner/work/wasltech-/wasltech-/route-screenshots/${name}-${suffix}.png`,
+                fullPage: true,
+                animations: "disabled"
+              });
+              await context.close();
+            }
+          }
+
+          await browser.close();
+          console.log("VNEXT ROUTE MATRIX: PASSED");
+          EOF
+          node /tmp/wasltech-vnext-matrix/matrix.mjs
+
+      - name: Upload route screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: wasltech-vnext-route-matrix-screenshots
+          path: route-screenshots/
+          if-no-files-found: error
+          retention-days: 3
