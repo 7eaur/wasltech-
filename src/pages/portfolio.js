@@ -30,7 +30,7 @@ function renderFilters(locale) {
         </button>
       `).join("")}
     </div>
-    <p class="sr-only" data-portfolio-status aria-live="polite"></p>
+    <p class="sr-only" data-portfolio-status data-message="${locale === "ar" ? "تم تحديث الأعمال المعروضة." : "Displayed work updated."}" aria-live="polite"></p>
   `;
 }
 
