@@ -74,6 +74,79 @@ export function creativeWorkSchema({ locale = "ar", name, description, path, ima
   });
 }
 
+export function articleSchema({
+  locale = "ar",
+  headline,
+  description,
+  path,
+  image,
+  author,
+  publishedAt,
+  updatedAt
+}) {
+  return Object.freeze({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline,
+    description,
+    url: absoluteUrl(path),
+    mainEntityOfPage: absoluteUrl(path),
+    inLanguage: locale,
+    image: image ? absoluteUrl(image) : undefined,
+    datePublished: publishedAt || undefined,
+    dateModified: updatedAt || publishedAt || undefined,
+    author: Object.freeze({
+      "@type": "Organization",
+      name: author || site.brand.name[locale],
+      url: site.origin
+    }),
+    publisher: Object.freeze({
+      "@type": "Organization",
+      name: site.brand.name[locale],
+      url: site.origin,
+      logo: Object.freeze({
+        "@type": "ImageObject",
+        url: absoluteUrl(site.brand.assets.logo)
+      })
+    })
+  });
+}
+
+export function jobPostingSchema({
+  locale = "ar",
+  title,
+  description,
+  path,
+  publishedAt,
+  employmentType,
+  location
+}) {
+  return Object.freeze({
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title,
+    description,
+    url: absoluteUrl(path),
+    datePosted: publishedAt || undefined,
+    employmentType: employmentType || undefined,
+    inLanguage: locale,
+    hiringOrganization: Object.freeze({
+      "@type": "Organization",
+      name: site.brand.name[locale],
+      sameAs: site.origin,
+      logo: absoluteUrl(site.brand.assets.logo)
+    }),
+    jobLocationType: location ? undefined : "TELECOMMUTE",
+    jobLocation: location ? Object.freeze({
+      "@type": "Place",
+      address: Object.freeze({
+        "@type": "PostalAddress",
+        addressLocality: location
+      })
+    }) : undefined
+  });
+}
+
 export function faqPageSchema(items = []) {
   return Object.freeze({
     "@context": "https://schema.org",
