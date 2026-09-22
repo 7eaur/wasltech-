@@ -16,6 +16,13 @@ export function jobDetailPage(job,locale="ar"){
   const path=routes.job(job.slug,locale);
   const other=locale==="ar"?"en":"ar";
   const media=getJobHeroMedia(job,locale);
+  const availableLocales=["ar","en"].filter((item)=>job.localeStatus?.[item]==="ready" && job.content?.[item]);
+  const alternatePaths=Object.freeze(Object.fromEntries(
+    availableLocales.map((item)=>[item,routes.job(job.slug,item)])
+  ));
+  const alternatePath=availableLocales.includes(other)
+    ? routes.job(job.slug,other)
+    : routes.careers(other);
 
   const body=`
     <nav class="job-breadcrumb" aria-label="${locale==="ar"?"مسار الصفحة":"Breadcrumb"}">
@@ -73,9 +80,9 @@ export function jobDetailPage(job,locale="ar"){
     body,
     locale,
     activePath:routes.careers(locale),
-    alternatePath:routes.job(job.slug,other),
+    alternatePath,
     canonicalPath:path,
-    alternatePaths:Object.freeze({ar:routes.job(job.slug,"ar"),en:routes.job(job.slug,"en")}),
+    alternatePaths,
     ogTitle:copy.seo.title,
     ogDescription:copy.seo.description,
     ogImage:media.src,
