@@ -1,7 +1,6 @@
 import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
 import { serviceGroups } from "../data/services.js";
-import { projects } from "../data/projects.js";
 import { ActionLink } from "../components/ActionLink.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema } from "../seo/structured-data.js";
