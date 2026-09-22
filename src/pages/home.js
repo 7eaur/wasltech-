@@ -159,6 +159,7 @@ function renderProjects(content, locale) {
         <div class="home-project__copy">
           <p class="eyebrow">${escapeHtml(project.platformType[locale])}</p>
           <h3><a href="${routes.project(project.slug, locale)}">${escapeHtml(item.title)}</a></h3>
+          <p class="home-project__summary">${escapeHtml(item.summary)}</p>
           <a class="text-link" href="${routes.project(project.slug, locale)}">${locale === "ar" ? "شاهد المشروع" : "View project"}</a>
         </div>
       </article>
