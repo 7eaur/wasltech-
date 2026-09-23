@@ -121,3 +121,66 @@ Worker A must start at Stage 0 and validate the recent CI/architecture cleanup a
 - Remaining blockers: Stage 1 is not yet fully closed because root legacy HTML/assets and deployment compatibility files (`.htaccess`, `.cfignore`, `.wranglerignore`) still need ownership classification, plus the VNext module/CSS graph needs final duplicate/dead-ownership evidence. Stage 2 has started but requires systematic data review beyond the representative service/project records inspected here.
 - Exact next checkpoint: Worker A should finish Stage 1 ownership tracing for root legacy/deployment surfaces and the VNext module/CSS graph. If no P0/P1 appears, continue Stage 2 across pages, FAQ, articles and jobs, including publication-state leakage and relation checks. Correct the stale service header comment opportunistically when touching that file; it is P3 only.
 - Handoff note for next worker: preserve the `.refresh` deletion; it is verified green on run `35693047512`. Do not delete root legacy/deployment files solely because VNext build excludes them—prove whether they are still needed for current production/cutover compatibility first. No main merge, production deployment, public count exposure or final-image replacement occurred.
+
+---
+
+### 2026-09-23 04:52 +03 — Direct comprehensive continuation
+- Starting implementation checkpoint: `d37aa92b47878623fb97ad8b5385e5c8ffb2328d`.
+- Ending implementation checkpoint: `b5d92eaa89443fcc83b76b535b548753c574ee96`.
+- Documentation/media checkpoint before this ledger write: `af144ef2ac9f8a1ef61e74d3350f63b794b97edf`.
+- Stage/checkpoint: direct continuation of Stages 2–18 and final pre-media closeout. No production cutover and no final-image replacement.
+- Repository/runtime findings:
+  - confirmed Vercel preview deployment configuration now builds `npm run vnext:build:release` and serves `dist-release`;
+  - Vercel live preview was verified serving VNext rather than legacy root static HTML;
+  - root legacy files remain rollback/reference only and are excluded from VNext release ownership.
+- Generated release audit:
+  - 76 public HTML files inspected;
+  - 74 indexable routes;
+  - 0 broken internal links;
+  - 0 duplicate titles;
+  - 0 duplicate descriptions;
+  - 0 canonical/hreflang mismatches;
+  - 0 sitemap omissions/extras;
+  - 0 reciprocal alternate-language failures;
+  - 0 invalid JSON-LD records;
+  - 0 missing local OG/Twitter media;
+  - Arabic/English generated section/heading structure parity: PASS.
+- Accessibility/static audit:
+  - 0 duplicate IDs;
+  - skip-link/main target present;
+  - form controls labeled;
+  - buttons and links named;
+  - no heading-level skips detected;
+  - nav regions labeled;
+  - details/summary valid;
+  - external target blank links use noopener.
+- Privacy/runtime truth:
+  - Navigation/Portfolio/Planner client code uses no fetch/XHR/localStorage/sessionStorage/cookies;
+  - Planner prevents automatic submission, prepares review locally, and only prepares a user-activated WhatsApp URL;
+  - Privacy/Terms copy matches current runtime behavior.
+- Performance review:
+  - runtime JS and CSS remain small and dependency-light;
+  - LCP/eager contract remains max one high-priority content image per page;
+  - intrinsic dimensions/lazy-loading guards remain valid;
+  - temporary editorial PNGs remain the only intentionally unresolved major transfer risk and are deferred to Stage 19.
+- Visual review:
+  - reviewed current AR and EN screenshot matrices across Home, Services, Service Detail, Portfolio, Project Detail, About, Process, Contact, Planner, FAQ, Insights, Article, Careers, Privacy, Terms and 404 on desktop/mobile;
+  - no blocking hierarchy, overflow, RTL/LTR, footer/CTA or composition defects found after current fixes.
+- Additional hardening applied:
+  - commit `b5d92eaa89443fcc83b76b535b548753c574ee96`: core interaction test now executes in both Arabic and English for mobile navigation, Portfolio filters and Project Planner invalid/valid/review/edit/WhatsApp localization paths.
+- Verification:
+  - VNext verify run `35808054926` — SUCCESS on media-inventory documentation checkpoint `8161d431...`;
+  - bilingual route/interactions matrix run `35807838023` — SUCCESS on `b5d92eaa...`.
+- Final-media preparation:
+  - created `docs/qa/FINAL_MEDIA_INVENTORY.md`;
+  - 25 logical image slots documented;
+  - practical unique-file target 20–22 because controlled Hero reuse is allowed;
+  - canonical project images are excluded from replacement unless explicitly requested.
+- Severity:
+  - P0: 0
+  - P1: 0
+  - P2: 0 open
+  - P3: temporary editorial media remains by design until Stage 19.
+- Exact next checkpoint: Stage 19 only — receive final user imagery in batches, map each file to the final-media inventory, preserve originals, prepare responsive web derivatives, replace centralized mappings, review crops at 390/1440, verify OG/Twitter media, rerun VNext verify + full route matrix, then request explicit user acceptance before Phase 14.
+- Handoff: Stages 0–18 are closed by evidence. Do not reopen them without a regression caused by final-media implementation. Do not merge to `main` or deploy production yet.
+
