@@ -1246,6 +1246,7 @@ export const pages = Object.freeze([
         support: "يمكنك العودة إلى الرئيسية، تصفح الخدمات، أو مشاهدة أعمالنا للوصول إلى ما تبحث عنه.",
         primaryCta: "العودة للرئيسية",
         secondaryCta: "الخدمات",
+        sections: Object.freeze([]),
         seo: Object.freeze({
           title: "الصفحة غير موجودة | وصل تك — Wasl Tech",
           description: "الصفحة التي تبحث عنها غير موجودة. يمكنك العودة للرئيسية أو استكشاف خدمات وأعمال وصل تك."
