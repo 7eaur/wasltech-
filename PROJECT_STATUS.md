@@ -13,6 +13,8 @@ Latest verified VNext implementation checkpoint: `aea64eb0f4339a610fa8f035b8650e
 
 **Active phase: Phase 13B — Architecture, Editorial & Final Media Preparation.**
 
+**Latest final audit:** Stages 0–18 PASS. Current audit evidence: `docs/qa/2026-09-23_comprehensive-pre-final-media-audit.md`. Exact pending image contract: `docs/qa/FINAL_MEDIA_INVENTORY.md`. Stage 19 final media is the only planned gate before explicit Phase 14 approval.
+
 Homepage visual redesign is implemented, verified, and **USER ACCEPTED**. The approved calm, elegant, profile-inspired direction has now been extended across the remaining VNext route families without copying legacy architecture or wording.
 
 Approved Home sequence:
