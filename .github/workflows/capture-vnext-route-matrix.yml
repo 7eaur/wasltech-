@@ -34,12 +34,12 @@ jobs:
         with:
           node-version: 24
 
-      - name: Build VNext preview
-        run: npm run vnext:build
+      - name: Build VNext release
+        run: npm run vnext:build:release
 
       - name: Start built VNext locally
         run: |
-          cd dist
+          cd dist-release
           python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/wasltech-vnext-matrix.log 2>&1 &
           for i in {1..30}; do
             if curl -fsS http://127.0.0.1:4173/ >/dev/null; then
