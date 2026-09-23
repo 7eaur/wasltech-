@@ -2,7 +2,8 @@
 
 Date: 2026-09-23  
 Status: **PASS — FINAL MEDIA ONLY REMAINS**  
-Implementation checkpoint: `49e2f00e5d9b6ae6bae17311beee577495244122`  
+Implementation checkpoint: `b5d92eaa89443fcc83b76b535b548753c574ee96`  
+Documentation/media-inventory checkpoint: `8161d431546d3e478b5673cb3a2904dc6f2b4b2f`  
 Production `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc` — unchanged
 
 ## Purpose
@@ -13,8 +14,9 @@ Final image replacement was intentionally excluded from implementation work. Tem
 
 ## Final evidence
 
-- VNext verify run: `35803461945` — **SUCCESS**
-- Full responsive/all-route matrix run: `35803461943` — **SUCCESS**
+- VNext verify run: `35808054926` — **SUCCESS** on `8161d431...`
+- Full responsive/all-route matrix run: `35807838023` — **SUCCESS** on `b5d92eaa...`
+- Core interaction coverage now runs in both Arabic and English for Mobile Navigation, Portfolio filtering and Project Planner flows
 - Screenshot artifact: `10727135324`
 - Screenshot artifact digest: `sha256:631cb2ea94d1767fa607c2c4c93fd6006ff3363d64a6df59654163f480bc5592`
 - Vercel VNext preview: `dpl_BNU72k5L9fJm5C8q4AL4auCvBGzs` — **READY**
@@ -169,6 +171,18 @@ The remaining major transfer risk is the **temporary editorial imagery**. Severa
 - P1: **0**
 - P2 implementation/content/SEO/a11y issues found during this audit: fixed
 - P3 historical documentation drift: reconciled in current status/handoff; historical phase records remain as history
+
+## Post-audit hardening
+
+After the comprehensive audit was first closed, one test-coverage gap was strengthened without changing product behavior:
+
+- Mobile Navigation interaction verification now runs in Arabic and English.
+- Portfolio filter pressed/hidden/live-status behavior now runs in Arabic and English.
+- Project Planner invalid/valid/review/edit/WhatsApp-message behavior now runs in Arabic and English.
+- The localized WhatsApp message intro is asserted per locale.
+- Run `35807838023` completed SUCCESS.
+- Exact final media requirements are now documented in `docs/qa/FINAL_MEDIA_INVENTORY.md`.
+- Latest canonical VNext verify after that documentation checkpoint: run `35808054926` — SUCCESS.
 
 ## Final-media blocker
 
