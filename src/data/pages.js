@@ -269,7 +269,7 @@ export const pages = Object.freeze([
         ]),
         seo: Object.freeze({
           title: "About Wasl Tech | Digital Products, Systems & Brand Experiences",
-          description: "Learn how Wasl Tech combines design, development, and content to build websites, apps, e-commerce, systems, and digital brand experiences for businesses in Yemen and the Gulf."
+          description: "Learn how Wasl Tech combines design, development, and content to build websites, apps, e-commerce, systems, and digital brand experiences in Yemen and the Gulf."
         })
       })
     }
@@ -727,7 +727,7 @@ export const pages = Object.freeze([
         ]),
         seo: Object.freeze({
           title: "ابدأ مشروعك | وصل تك — Wasl Tech",
-          description: "جهز معلومات مشروعك وخدمته ومرحلته وأولوياته لبدء نقاش منظم مع وصل تك."
+          description: "جهز معلومات مشروعك ومرحلته وأولوياته في مخطط واضح يساعدك على بدء نقاش منظم مع وصل تك عبر واتساب."
         })
       }),
       en: Object.freeze({
