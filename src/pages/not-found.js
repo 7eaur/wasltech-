@@ -35,7 +35,7 @@ export function notFoundPage(locale = "ar") {
     description: content.seo.description,
     body,
     locale,
-    activePath: routes.home(locale),
+    activePath: null,
     alternatePath: routes.home(locale === "ar" ? "en" : "ar"),
     canonicalPath: null,
     alternatePaths: {},
