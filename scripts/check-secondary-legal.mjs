@@ -106,15 +106,26 @@ for(const forbidden of [
   if(runtimeClient.includes(forbidden)) fail("runtime",`unexpected tracking/storage behavior found: ${forbidden}`);
 }
 
+for(const forbidden of [
+  "fetch(",
+  "XMLHttpRequest",
+  "navigator.sendBeacon",
+  "localStorage",
+  "sessionStorage",
+  "window.open("
+]){
+  if(plannerClient.includes(forbidden)) fail("planner",`unexpected automatic send/storage behavior found: ${forbidden}`);
+}
+
+const legalSource=await readFile(path.join(ROOT,"src/data/pages.js"),"utf8");
 for(const required of [
   "does not automatically send",
   "لا يقوم الموقع بإرسالها تلقائيًا",
   "no analytics tools or tracking cookies",
-  "لا نضيف حاليًا أدوات تحليلات أو ملفات تعريف ارتباط للتتبع",
+  "لا يضيف الموقع حاليًا أدوات تحليلات أو ملفات تعريف ارتباط للتتبع",
   "Google Fonts operate outside this website",
   "Google Fonts خدمات خارجية عن الموقع"
 ]){
-  const legalSource=await readFile(path.join(ROOT,"src/data/pages.js"),"utf8");
   if(!legalSource.includes(required)) fail("legal",`verified privacy statement missing: ${required}`);
 }
 
