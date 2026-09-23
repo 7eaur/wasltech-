@@ -214,78 +214,94 @@ jobs:
             console.log(`VNEXT ALL INDEXABLE ROUTES @ 390/1440: PASSED (${uniquePaths.length} routes)`);
           }
 
-          async function verifyInteractions() {
+          async function verifyInteractions(locale) {
             const context = await browser.newContext({
               viewport: { width: 390, height: 844 },
               deviceScaleFactor: 1,
               isMobile: true,
               hasTouch: true,
-              locale: "ar-YE"
+              locale: locale === "ar" ? "ar-YE" : "en-US"
             });
             const page = await context.newPage();
+            const prefix = locale === "en" ? "/en" : "";
+            const homePath = locale === "en" ? "/en/" : "/";
+            const portfolioPath = `${prefix}/portfolio/`;
+            const plannerPath = `${prefix}/start-project/`;
 
-            await page.goto(base + "/", { waitUntil: "domcontentloaded" });
+            await page.goto(base + homePath, { waitUntil: "domcontentloaded" });
             const toggle = page.locator("[data-menu-toggle]");
             await toggle.click();
             if (await toggle.getAttribute("aria-expanded") !== "true") {
-              throw new Error("Mobile navigation did not open.");
+              throw new Error(`${locale}: Mobile navigation did not open.`);
             }
             if (!(await page.locator("[data-primary-nav]").evaluate((node) => node.hasAttribute("data-open")))) {
-              throw new Error("Mobile navigation open state missing.");
+              throw new Error(`${locale}: Mobile navigation open state missing.`);
             }
             await page.keyboard.press("Escape");
             if (await toggle.getAttribute("aria-expanded") !== "false") {
-              throw new Error("Mobile navigation did not close on Escape.");
+              throw new Error(`${locale}: Mobile navigation did not close on Escape.`);
             }
             if (!(await toggle.evaluate((node) => document.activeElement === node))) {
-              throw new Error("Mobile navigation did not restore focus after Escape.");
+              throw new Error(`${locale}: Mobile navigation did not restore focus after Escape.`);
             }
 
-            await page.goto(base + "/portfolio/", { waitUntil: "domcontentloaded" });
+            await page.goto(base + portfolioPath, { waitUntil: "domcontentloaded" });
             const filters = page.locator("[data-portfolio-filter]");
-            if (await filters.count() < 2) throw new Error("Portfolio filters missing.");
+            if (await filters.count() < 2) throw new Error(`${locale}: Portfolio filters missing.`);
             await filters.nth(1).click();
             if (await filters.nth(1).getAttribute("aria-pressed") !== "true") {
-              throw new Error("Portfolio filter pressed state missing.");
+              throw new Error(`${locale}: Portfolio filter pressed state missing.`);
             }
             const hiddenCards = await page.locator("[data-project-card][hidden]").count();
-            if (!hiddenCards) throw new Error("Portfolio filter did not hide non-matching cards.");
+            if (!hiddenCards) throw new Error(`${locale}: Portfolio filter did not hide non-matching cards.`);
             const status = page.locator("[data-portfolio-status]");
             await status.waitFor({ state: "attached" });
             await page.waitForFunction(() => Boolean(document.querySelector("[data-portfolio-status]")?.textContent?.trim()));
             const filterStatus = (await status.textContent() || "").trim();
             if (/\d/.test(filterStatus)) {
-              throw new Error(`Portfolio filter status must be count-free: ${filterStatus}`);
+              throw new Error(`${locale}: Portfolio filter status must be count-free: ${filterStatus}`);
             }
 
-            await page.goto(base + "/start-project/", { waitUntil: "domcontentloaded" });
+            await page.goto(base + plannerPath, { waitUntil: "domcontentloaded" });
             const form = page.locator("[data-project-planner]");
             await form.locator('button[type="submit"]').click();
             const invalidStatus = (await page.locator("[data-planner-status]").textContent() || "").trim();
-            if (!invalidStatus) throw new Error("Planner invalid state did not produce a status message.");
+            if (!invalidStatus) throw new Error(`${locale}: Planner invalid state did not produce a status message.`);
 
             await form.locator('select[name="service"]').selectOption({ index: 1 });
             await form.locator('select[name="stage"]').selectOption({ index: 1 });
             await form.locator('select[name="priority"]').selectOption({ index: 1 });
-            await form.locator('input[name="name"]').fill("اختبار");
+            await form.locator('input[name="name"]').fill(locale === "ar" ? "اختبار" : "Test user");
             await form.locator('input[name="phone"]').fill("775377979");
-            await form.locator('textarea[name="details"]').fill("وصف اختبار كافٍ للتحقق من مسار مراجعة المشروع.");
+            await form.locator('textarea[name="details"]').fill(
+              locale === "ar"
+                ? "وصف اختبار كافٍ للتحقق من مسار مراجعة المشروع."
+                : "A sufficient test description for verifying the project review flow."
+            );
             await form.locator('button[type="submit"]').click();
 
             const review = page.locator("[data-planner-review]");
-            if (await review.isHidden()) throw new Error("Planner review did not open after valid submission.");
+            if (await review.isHidden()) throw new Error(`${locale}: Planner review did not open after valid submission.`);
             const whatsappHref = await page.locator("[data-planner-whatsapp]").getAttribute("href");
             if (!whatsappHref?.startsWith("https://wa.me/967775377979?text=")) {
-              throw new Error(`Planner WhatsApp link invalid: ${whatsappHref}`);
+              throw new Error(`${locale}: Planner WhatsApp link invalid: ${whatsappHref}`);
+            }
+            const decodedMessage = decodeURIComponent(whatsappHref.split("?text=")[1] || "");
+            const expectedIntro = locale === "ar"
+              ? "مرحباً وصل تك، أود مناقشة مشروع."
+              : "Hello Wasl Tech, I would like to discuss a project.";
+            if (!decodedMessage.includes(expectedIntro)) {
+              throw new Error(`${locale}: Planner WhatsApp message is not localized correctly.`);
             }
             await page.locator("[data-planner-edit]").click();
-            if (!(await review.isHidden())) throw new Error("Planner review did not close on edit.");
+            if (!(await review.isHidden())) throw new Error(`${locale}: Planner review did not close on edit.`);
 
             await context.close();
           }
 
           await verifyAllIndexableRoutes();
-          await verifyInteractions();
+          await verifyInteractions("ar");
+          await verifyInteractions("en");
           await browser.close();
           console.log("VNEXT BILINGUAL ROUTE MATRIX + INTERACTIONS: PASSED");
           EOF
