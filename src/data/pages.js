@@ -294,7 +294,7 @@ export const pages = Object.freeze([
         purpose: "مساعدة الزائر على الوصول إلى الخدمة أو المسار الأقرب لاحتياجه من دون إغراقه في قائمة خدمات أو تفاصيل لا يحتاجها بعد.",
         kicker: "الخدمات",
         title: "ابدأ من احتياج مشروعك، وليس من اسم الخدمة.",
-        support: "نبني المنتجات الرقمية والأنظمة والحلول، ونطوّر الهوية والحضور؛ ثماني خدمات يمكن أن تعمل منفردة أو ضمن مشروع واحد حسب الحاجة.",
+        support: "نبني المنتجات الرقمية والأنظمة والحلول، ونطوّر الهوية والحضور؛ ويمكن أن تعمل هذه المسارات منفردة أو ضمن مشروع واحد حسب الحاجة.",
         primaryCta: "اختر ما تحتاجه",
         secondaryCta: "ابدأ تخطيط مشروعك",
         sections: Object.freeze([
@@ -332,7 +332,7 @@ export const pages = Object.freeze([
         purpose: "Help visitors find the service or direction closest to their real need without overwhelming them with a long list of labels and details.",
         kicker: "Services",
         title: "Start with what your project needs, not with the service name.",
-        support: "We build digital products, systems, and technical solutions, and develop brand presence through eight services that can work independently or as one connected project.",
+        support: "We build digital products, systems, and technical solutions, and develop brand presence through services that can work independently or as one connected project.",
         primaryCta: "Explore the services",
         secondaryCta: "Plan your project",
         sections: Object.freeze([
