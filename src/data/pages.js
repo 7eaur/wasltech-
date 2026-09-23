@@ -478,25 +478,35 @@ export const pages = Object.freeze([
             id: "understand",
             kicker: "01 — الفهم",
             title: "نبدأ من الهدف والمشكلة والسياق.",
-            support: "من سيستخدم المشروع؟ ماذا يجب أن ينجز؟ وما الموجود الآن؟ هذه الإجابات تمنعنا من حل المشكلة الخطأ."
+            support: "من سيستخدم المشروع؟ ماذا يجب أن ينجز؟ وما الموجود الآن؟ هذه الإجابات تمنعنا من حل المشكلة الخطأ.",
+            outcome: "صورة أوضح للهدف والمستخدم والمشكلة التي تستحق الحل."
           }),
           Object.freeze({
             id: "plan",
             kicker: "02 — التخطيط",
             title: "نحوّل الفكرة إلى نطاق يمكن اتخاذ قرار بشأنه.",
-            support: "نرتب الأولويات والمحتوى والوظائف والمسار قبل أن تصبح التفاصيل مكلفة أو متداخلة."
+            support: "نرتب الأولويات والمحتوى والوظائف والمسار قبل أن تصبح التفاصيل مكلفة أو متداخلة.",
+            outcome: "نطاق وأولويات ومسار يمكن اتخاذ قرار واضح بشأنه."
           }),
           Object.freeze({
             id: "build",
             kicker: "03 — التصميم والتنفيذ",
             title: "نبني على قرارات اتفقنا على سببها.",
-            support: "التصميم والتطوير يتحركان ضمن نطاق واضح ومراجعات مرحلية بدل انتظار نسخة نهائية مفاجئة."
+            support: "التصميم والتطوير يتحركان ضمن نطاق واضح ومراجعات مرحلية بدل انتظار نسخة نهائية مفاجئة.",
+            outcome: "نسخة تتقدم ضمن مراجعات مرحلية بدل مفاجأة نهائية."
           }),
           Object.freeze({
             id: "review-launch",
             kicker: "04 — المراجعة والإطلاق",
             title: "نراجع التجربة قبل أن نعتبرها منتهية.",
-            support: "نختبر السيناريوهات الأساسية والمحتوى والاستجابة والتفاصيل، ثم نجهز النسخة للإطلاق أو التسليم."
+            support: "نختبر السيناريوهات الأساسية والمحتوى والاستجابة والتفاصيل، ثم نجهز النسخة للإطلاق أو التسليم.",
+            outcome: "نسخة معتمدة راجعنا سيناريوهاتها الأساسية قبل الإطلاق أو التسليم."
+          }),
+          Object.freeze({
+            id: "principle",
+            kicker: "قاعدة العمل",
+            title: "لا نضيف تفاصيل قبل أن نعرف لماذا نحتاجها.",
+            support: "كل مرحلة تقلل نوعًا مختلفًا من الغموض؛ لذلك لا نقفز إلى التصميم أو التطوير قبل أن يكون القرار السابق واضحًا."
           }),
           Object.freeze({
             id: "final-cta",
@@ -522,25 +532,35 @@ export const pages = Object.freeze([
             id: "understand",
             kicker: "01 — Understand",
             title: "We start with the goal, problem, and context.",
-            support: "Who will use the project? What do they need to achieve? What already exists? These answers keep us from solving the wrong problem."
+            support: "Who will use the project? What do they need to achieve? What already exists? These answers keep us from solving the wrong problem.",
+            outcome: "A clearer picture of the goal, user, and problem worth solving."
           }),
           Object.freeze({
             id: "plan",
             kicker: "02 — Plan",
             title: "We turn the idea into a scope that can be decided on.",
-            support: "We organize priorities, content, features, and flow before details become expensive or tangled."
+            support: "We organize priorities, content, features, and flow before details become expensive or tangled.",
+            outcome: "A scope, priorities, and flow that can be decided on with clarity."
           }),
           Object.freeze({
             id: "build",
             kicker: "03 — Design & build",
             title: "We build on decisions we understand and agree on.",
-            support: "Design and development move within a clear scope and review cycle instead of waiting for one surprising final version."
+            support: "Design and development move within a clear scope and review cycle instead of waiting for one surprising final version.",
+            outcome: "A version that progresses through reviewable stages instead of one final surprise."
           }),
           Object.freeze({
             id: "review-launch",
             kicker: "04 — Review & launch",
             title: "We review the experience before calling it finished.",
-            support: "We check the core scenarios, content, responsiveness, and details, then prepare the approved version for launch or handoff."
+            support: "We check the core scenarios, content, responsiveness, and details, then prepare the approved version for launch or handoff.",
+            outcome: "An approved version whose core scenarios are reviewed before launch or handoff."
+          }),
+          Object.freeze({
+            id: "principle",
+            kicker: "Working rule",
+            title: "We do not add detail before we understand why it is needed.",
+            support: "Each stage removes a different kind of uncertainty, so we do not jump into design or development before the previous decision is clear."
           }),
           Object.freeze({
             id: "final-cta",
@@ -885,6 +905,13 @@ export const pages = Object.freeze([
             kicker: "مقالات مختارة",
             title: "ابدأ من السؤال الأقرب لقرارك الحالي.",
             support: "نرتب المقالات حول أسئلة عملية يمكن أن تغيّر النطاق أو الأولوية أو طريقة التنفيذ قبل بدء المشروع."
+          }),
+          Object.freeze({
+            id: "final-cta",
+            kicker: "هل ما زلت تقارن الخيارات؟",
+            title: "حوّل السؤال إلى قرار يناسب مشروعك.",
+            support: "المقالات تشرح الصورة العامة، أما نطاق مشروعك فيبدأ من أهدافه وسياقه واحتياجه الفعلي.",
+            actionLabel: "ابدأ مشروعك"
           })
         ]),
         seo: Object.freeze({
@@ -911,6 +938,13 @@ export const pages = Object.freeze([
             kicker: "Selected articles",
             title: "Start with the question closest to your current decision.",
             support: "Articles are organized around practical questions that can change scope, priority, or delivery before a project begins."
+          }),
+          Object.freeze({
+            id: "final-cta",
+            kicker: "Still comparing the options?",
+            title: "Turn the question into a decision that fits your project.",
+            support: "The articles explain the general choices. Your project scope should start from its own goals, context, and actual needs.",
+            actionLabel: "Start your project"
           })
         ]),
         seo: Object.freeze({
