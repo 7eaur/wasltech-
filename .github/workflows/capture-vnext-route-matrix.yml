@@ -183,6 +183,30 @@ jobs:
             }
           }
 
+          async function verifyAllIndexableRoutes() {
+            const sitemapResponse = await fetch(base + "/sitemap.xml");
+            if (!sitemapResponse.ok) throw new Error(`Sitemap fetch failed: ${sitemapResponse.status}`);
+            const sitemap = await sitemapResponse.text();
+            const paths = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)]
+              .map((match) => new URL(match[1]).pathname)
+              .filter(Boolean);
+            const uniquePaths = [...new Set(paths)];
+
+            if (!uniquePaths.length) throw new Error("Sitemap did not expose any indexable routes.");
+
+            for (const path of uniquePaths) {
+              const locale = path === "/en/" || path.startsWith("/en/") ? "en" : "ar";
+              const expectedSwitch = locale === "ar"
+                ? (path === "/" ? "/en/" : `/en${path}`)
+                : (path.replace(/^\/en/, "") || "/");
+
+              await inspect(path, 390, locale, expectedSwitch);
+              await inspect(path, 1440, locale, expectedSwitch);
+            }
+
+            console.log(`VNEXT ALL INDEXABLE ROUTES @ 390/1440: PASSED (${uniquePaths.length} routes)`);
+          }
+
           async function verifyInteractions() {
             const context = await browser.newContext({
               viewport: { width: 390, height: 844 },
@@ -253,6 +277,7 @@ jobs:
             await context.close();
           }
 
+          await verifyAllIndexableRoutes();
           await verifyInteractions();
           await browser.close();
           console.log("VNEXT BILINGUAL ROUTE MATRIX + INTERACTIONS: PASSED");
