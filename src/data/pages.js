@@ -597,6 +597,12 @@ export const pages = Object.freeze([
             kicker: "ماذا ترسل؟",
             title: "الهدف أهم من المصطلحات التقنية.",
             support: "أخبرنا ماذا تريد أن تبني أو تحسن، ما الموجود حاليًا، ومن سيستخدمه؛ والباقي نرتبه معك."
+          }),
+          Object.freeze({
+            id: "final-cta",
+            kicker: "ابدأ بالطريقة الأسهل",
+            title: "اختر القناة الأبسط وابدأ منها.",
+            support: "إذا كان السؤال سريعًا استخدم واتساب أو البريد، وإذا كان المشروع يحتاج تفاصيل أكثر فمخطط المشروع يرتبها قبل بدء المحادثة."
           })
         ]),
         seo: Object.freeze({
@@ -629,6 +635,12 @@ export const pages = Object.freeze([
             kicker: "What should you send?",
             title: "The goal matters more than the technical terminology.",
             support: "Tell us what you want to build or improve, what exists today, and who will use it. We will organize the rest with you."
+          }),
+          Object.freeze({
+            id: "final-cta",
+            kicker: "Start the simple way",
+            title: "Choose the simplest channel and start there.",
+            support: "Use WhatsApp or email for a quick question. If the project needs more context, the project planner helps organize the details before the conversation starts."
           })
         ]),
         seo: Object.freeze({
