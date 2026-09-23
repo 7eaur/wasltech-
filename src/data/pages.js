@@ -927,7 +927,7 @@ export const pages = Object.freeze([
       ar: Object.freeze({
         purpose: "عرض فرص العمل الفعلية عندما تكون هناك وظائف مفتوحة، مع إبقاء الصفحة واضحة وصريحة عند عدم وجود فرص.",
         kicker: "الوظائف",
-        title: "لا توجد فرص منشورة حاليًا.",
+        title: "فرص العمل في وصل تك.",
         support: "عندما تتوفر فرصة جديدة سننشر هنا دورها ومتطلباتها وطريقة التقديم.",
         primaryCta: "استكشف وصل تك",
         secondaryCta: "تواصل معنا",
@@ -953,7 +953,7 @@ export const pages = Object.freeze([
       en: Object.freeze({
         purpose: "Show real job opportunities when they exist and keep the page clear and honest when no role is open.",
         kicker: "Careers",
-        title: "There are no published openings right now.",
+        title: "Careers at Wasl Tech.",
         support: "When a role becomes available, we will publish its responsibilities, requirements, and application process here.",
         primaryCta: "Explore Wasl Tech",
         secondaryCta: "Contact us",
@@ -1023,7 +1023,7 @@ export const pages = Object.freeze([
           Object.freeze({
             id: "tracking",
             kicker: "التحليلات والكوكيز",
-            title: "لا نضيف حاليًا أدوات تحليلات أو ملفات تعريف ارتباط للتتبع داخل VNext.",
+            title: "لا يضيف الموقع حاليًا أدوات تحليلات أو ملفات تعريف ارتباط للتتبع.",
             support: "إذا تغير ذلك مستقبلًا، يجب تحديث هذه الصفحة قبل الاعتماد على السلوك الجديد. قد تعالج البنية المستضيفة أو الخدمات الخارجية بيانات تقنية لازمة لتشغيل خدماتها وفق سياساتها."
           }),
           Object.freeze({
@@ -1061,7 +1061,7 @@ export const pages = Object.freeze([
           Object.freeze({
             id: "tracking",
             kicker: "Analytics and cookies",
-            title: "VNext currently adds no analytics tools or tracking cookies.",
+            title: "The current site adds no analytics tools or tracking cookies.",
             support: "If that changes in the future, this page should be updated before the new behavior is relied on. Hosting infrastructure or external services may process technical data required to operate their services under their own policies."
           }),
           Object.freeze({
