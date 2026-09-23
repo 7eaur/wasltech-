@@ -72,16 +72,31 @@ for(const [file,locale] of [["404.html","ar"],["en/404.html","en"]]){
 }
 
 const allHtmlFiles=[
+  ...["ar","en"].map((locale)=>outputPath(routes.home(locale))),
   ...pageKeys.flatMap((key)=>["ar","en"].map((locale)=>outputPath(routes[key](locale)))),
   ...["ar","en"].flatMap((locale)=>services.map((item)=>outputPath(routes.service(item.slug,locale)))),
   ...["ar","en"].flatMap((locale)=>projects.map((item)=>outputPath(routes.project(item.slug,locale)))),
-  ...["ar","en"].flatMap((locale)=>articles.filter((item)=>item.publishedAt && item.localeStatus?.[locale]==="ready").map((item)=>outputPath(routes.article(item.slug,locale))))
+  ...["ar","en"].flatMap((locale)=>articles.filter((item)=>item.publishedAt && item.localeStatus?.[locale]==="ready").map((item)=>outputPath(routes.article(item.slug,locale)))),
+  ...["ar","en"].flatMap((locale)=>jobs.filter((item)=>item.status==="open" && item.localeStatus?.[locale]==="ready").map((item)=>outputPath(routes.job(item.slug,locale)))),
+  "404.html",
+  "en/404.html"
+];
+
+const forbiddenPublicPatterns=[
+  { pattern:/مشروعًا موثقًا|مشاريع موثقة/i, label:"unsupported project-proof copy" },
+  { pattern:/verified projects/i, label:"unsupported project-proof copy" },
+  { pattern:/\b8\s+خدمات\b|ثمان(?:ي|ية)\s+خدمات/i, label:"public service count" },
+  { pattern:/\b8\s+services\b|\beight\s+services\b/i, label:"public service count" },
+  { pattern:/رضا العملاء|مشاريع ناجحة|فريق ذو خبرة|جودة وموثوقية/i, label:"unsupported trust claim" },
+  { pattern:/client satisfaction|successful projects|experienced team|quality and reliability/i, label:"unsupported trust claim" },
+  { pattern:/\bVNext\b/i, label:"internal release terminology" },
+  { pattern:/CONTENT REQUIRED|NOT VERIFIED/i, label:"internal content-state terminology" }
 ];
 
 for(const file of allHtmlFiles){
   const html=await readFile(path.join(DIST,file),"utf8");
-  for(const forbidden of ["مشروعًا موثقًا","مشاريع موثقة","verified projects","8 خدمات","8 services"]){
-    if(html.includes(forbidden)) fail(file,`forbidden public counting/proof copy leaked: ${forbidden}`);
+  for(const {pattern,label} of forbiddenPublicPatterns){
+    if(pattern.test(html)) fail(file,`${label} leaked to public output`);
   }
   if(/>\s*Temporary editorial image/i.test(html)) fail(file,"temporary implementation wording leaked to public output");
 }
