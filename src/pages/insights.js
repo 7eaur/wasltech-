@@ -36,6 +36,7 @@ export function insightsPage(locale="ar"){
   const content=record.content[locale];
   if(!content) throw new Error(`Insights content missing for locale: ${locale}`);
   const latest=section(content,"latest");
+  const finalCta=section(content,"final-cta");
   const articles=getPublishedArticles().filter((item)=>item.localeStatus?.[locale]==="ready");
 
   const body=`
@@ -66,11 +67,11 @@ export function insightsPage(locale="ar"){
     <section class="insights-cta">
       <div class="container insights-cta__inner">
         <div>
-          <p class="eyebrow">${locale==="ar"?"لديك قرار لم تحسمه؟":"Still deciding on the right direction?"}</p>
-          <h2>${locale==="ar"?"شاركنا فكرة المشروع ونرتب معك نقطة البداية.":"Share your project idea and we’ll help define the right starting point."}</h2>
-          <p>${locale==="ar"?"المقال يشرح الفكرة العامة، أما نطاق مشروعك فيبدأ من سياقه واحتياجه الفعلي.":"These articles cover the general decision. Your project scope should start from its actual goals, context, and needs."}</p>
+          <p class="eyebrow">${escapeHtml(finalCta.kicker)}</p>
+          <h2>${escapeHtml(finalCta.title)}</h2>
+          <p>${escapeHtml(finalCta.support)}</p>
         </div>
-        ${ActionLink({href:routes.startProject(locale),label:locale==="ar"?"ابدأ مشروعك":"Start your project",variant:"light",size:"lg"})}
+        ${ActionLink({href:routes.startProject(locale),label:finalCta.actionLabel,variant:"light",size:"lg"})}
       </div>
     </section>
   `;
