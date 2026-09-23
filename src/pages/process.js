@@ -9,21 +9,6 @@ import { getPageHeroMedia } from "../config/hero-media.js";
 const record=pages.find((page)=>page.id==="process");
 const phaseIds=Object.freeze(["understand","plan","build","review-launch"]);
 
-const outcomes=Object.freeze({
-  ar:Object.freeze({
-    "understand":"صورة أوضح للهدف والمستخدم والمشكلة التي تستحق الحل.",
-    "plan":"نطاق وأولويات ومسار يمكن اتخاذ قرار واضح بشأنه.",
-    "build":"نسخة تتقدم ضمن مراجعات مرحلية بدل مفاجأة نهائية.",
-    "review-launch":"نسخة معتمدة راجعنا سيناريوهاتها الأساسية قبل الإطلاق أو التسليم."
-  }),
-  en:Object.freeze({
-    "understand":"A clearer picture of the goal, user, and problem worth solving.",
-    "plan":"A scope, priorities, and flow that can be decided on with clarity.",
-    "build":"A version that progresses through reviewable stages instead of one final surprise.",
-    "review-launch":"An approved version whose core scenarios are reviewed before launch or handoff."
-  })
-});
-
 function section(content,id){return content.sections.find((item)=>item.id===id);}
 
 function renderHero(content,locale){
@@ -64,7 +49,7 @@ function renderPhases(content,locale){
                 </div>
                 <div class="process-phase__outcome">
                   <span>${locale==="ar"?"ما الذي يصبح أوضح":"What becomes clearer"}</span>
-                  <p>${escapeHtml(outcomes[locale][id])}</p>
+                  <p>${escapeHtml(item.outcome)}</p>
                 </div>
               </article>
             `;
@@ -75,15 +60,14 @@ function renderPhases(content,locale){
   `;
 }
 
-function renderPrinciple(locale){
+function renderPrinciple(content){
+  const principle=section(content,"principle");
   return `
     <section class="process-principle">
       <div class="container process-principle__inner">
-        <p class="eyebrow">${locale==="ar"?"قاعدة العمل":"Working rule"}</p>
-        <h2>${locale==="ar"?"لا نزيد التفاصيل قبل أن نعرف لماذا نحتاجها.":"We do not add detail before we understand why it is needed."}</h2>
-        <p>${locale==="ar"
-          ?"كل مرحلة تقلل نوعًا مختلفًا من الغموض؛ لذلك لا نقفز إلى التصميم أو التطوير قبل أن يكون القرار الذي قبله واضحًا."
-          :"Each stage removes a different kind of uncertainty, so we do not jump into design or development before the decision before it is clear."}</p>
+        <p class="eyebrow">${escapeHtml(principle.kicker)}</p>
+        <h2>${escapeHtml(principle.title)}</h2>
+        <p>${escapeHtml(principle.support)}</p>
       </div>
     </section>
   `;
@@ -113,7 +97,7 @@ export function processPage(locale="ar"){
   return documentTemplate({
     title:content.seo.title,
     description:content.seo.description,
-    body:[renderHero(content,locale),renderPhases(content,locale),renderPrinciple(locale),renderCta(content,locale)].join(""),
+    body:[renderHero(content,locale),renderPhases(content,locale),renderPrinciple(content),renderCta(content,locale)].join(""),
     locale,
     activePath:routes.process(locale),
     alternatePath:routes.process(locale==="ar"?"en":"ar"),
