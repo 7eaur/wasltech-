@@ -38,6 +38,7 @@ export function contactPage(locale="ar"){
   const direct=section(content,"direct");
   const project=section(content,"project");
   const context=section(content,"context");
+  const finalCta=section(content,"final-cta");
 
   const body=`
     <section class="contact-hero">
@@ -90,9 +91,9 @@ export function contactPage(locale="ar"){
     <section class="contact-final">
       <div class="container contact-final__inner">
         <div>
-          <p class="eyebrow">${locale==="ar"?"ابدأ بالطريقة الأسهل":"Start the easy way"}</p>
-          <h2>${locale==="ar"?"لسؤال سريع، لا تحتاج نموذجًا طويلًا.":"For a quick question, you do not need a long form."}</h2>
-          <p>${locale==="ar"?"ابدأ برسالة واتساب أو بريد، وإذا كان المشروع يحتاج تفاصيل أكثر استخدم مخطط المشروع.":"Start with WhatsApp or email. If the project needs more context, use the project planner."}</p>
+          <p class="eyebrow">${escapeHtml(finalCta.kicker)}</p>
+          <h2>${escapeHtml(finalCta.title)}</h2>
+          <p>${escapeHtml(finalCta.support)}</p>
         </div>
         ${ActionLink({href:whatsappHref(locale),label:content.primaryCta,variant:"light",size:"lg"})}
       </div>
