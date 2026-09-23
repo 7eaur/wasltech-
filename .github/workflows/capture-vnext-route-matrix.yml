@@ -135,6 +135,13 @@ jobs:
             if (switchHref !== expectedSwitch) {
               throw new Error(`Language switch mismatch ${path}: ${switchHref} !== ${expectedSwitch}`);
             }
+
+            if (path.endsWith("/404.html") || path === "/404.html") {
+              const activeNavItems = await page.locator(".primary-nav [aria-current=\"page\"]").count();
+              if (activeNavItems !== 0) {
+                throw new Error(`404 must not mark primary navigation active: ${path}`);
+              }
+            }
             await context.close();
           }
 
