@@ -64,6 +64,8 @@ Documentation commits may be newer than that checkpoint. Always fetch live HEAD 
 
 **Phase 13B — Architecture, Editorial & Final Media Preparation — FINAL MEDIA PENDING**
 
+Latest acceptance evidence is recorded in `docs/qa/2026-09-23_comprehensive-pre-final-media-audit.md`. Stages 0–18 are closed. Use `docs/qa/FINAL_MEDIA_INVENTORY.md` as the exact image handoff contract; do not reopen prior stages unless final-media work causes a regression.
+
 Phases 0–12 are complete.
 
 Phase 12 technical release baseline is green:
