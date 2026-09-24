@@ -29,6 +29,9 @@ const robots = await readFile(path.join(DIST, "robots.txt"), "utf8");
 if (!robots.includes("User-agent: *") || !robots.includes("Allow: /")) {
   fail("robots.txt", "production robots must allow crawling");
 }
+if (!robots.includes("User-agent: OAI-SearchBot") || !/User-agent: OAI-SearchBot\s+Allow: \/\s*/.test(robots)) {
+  fail("robots.txt", "OAI-SearchBot must be explicitly allowed in production");
+}
 if (!robots.includes(`Sitemap: ${absoluteUrl("/sitemap.xml")}`)) {
   fail("robots.txt", "production sitemap URL missing");
 }
@@ -52,8 +55,12 @@ for (const entry of entries) {
     continue;
   }
 
-  if (!html.includes('name="robots" content="index,follow"')) {
-    fail(file, "release route must be index,follow");
+  const robotsMeta = html.match(/<meta name="robots" content="([^"]+)">/i)?.[1] ?? "";
+  const robotDirectives = new Set(robotsMeta.split(",").map((item) => item.trim()).filter(Boolean));
+  for (const directive of ["index", "follow", "max-image-preview:large"]) {
+    if (!robotDirectives.has(directive)) {
+      fail(file, `release robots directive missing: ${directive}`);
+    }
   }
 
   const canonical = absoluteUrl(entry.path);

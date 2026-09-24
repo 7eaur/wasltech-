@@ -1,5 +1,61 @@
 # Wasl Tech VNext — Current Project Status
 
+## 2026-09-25 — SEARCH VISIBILITY AUTHORITATIVE BATON
+
+This section is the newest execution truth for SEO, AI-search visibility and discoverability. It supersedes older SEO/search-status text below when there is a conflict.
+
+### Live repository truth
+- Repository: `7eaur/wasltech-`
+- Production branch HEAD observed before this phase: `1ecc74ff77b4a1f536182e8d606a5860ce8d209f`
+- Active search branch: `seo/search-visibility-foundation-20260925-v2`
+- Search implementation SHA: `982da1c51ddf7fd6dd958a386b2038718d27a357`
+- Draft verification PR: `#36`
+- Production merge/deploy from this search phase: **NOT PERFORMED**
+
+### Search program state
+- Canonical authority: `docs/core/SEARCH_VISIBILITY.md`
+- S0 — Baseline/source-of-truth audit: **COMPLETE**
+- S1 — Technical search foundation: **COMPLETE / VERIFIED**
+- S2 — Webmaster, indexing and freshness: **NEXT, NOT STARTED**
+- S3–S8: **NOT STARTED**
+
+### S1 implementation
+- production indexing directives now include large image previews;
+- production robots explicitly allow `OAI-SearchBot`;
+- Organization schema uses a stable `@id`;
+- verified contact point and official social profiles strengthen entity consistency;
+- WebSite/Service/CreativeWork/Article/Job schema references the same organization entity where applicable;
+- release CI includes a dedicated search-visibility audit;
+- the audit checks all generated indexable routes for metadata, H1, canonical, indexing directives, JSON-LD validity/type, duplicate titles, leaked internal placeholders and internal-link orphaning.
+
+### Verification evidence
+- GitHub Actions workflow: `VNext verify`
+- run: `36065213520`
+- job: `107853271441`
+- result: **SUCCESS**
+- `VNEXT RELEASE CHECK: PASSED`
+- `SEARCH VISIBILITY CHECK: PASSED`
+- indexable routes checked: **74**
+- crawler eligibility, metadata, entity schema and internal discovery guards: **PASSED**
+
+### Baseline issue carried into S2
+External search/web evidence still exposes legacy URLs/content, including old query-style service URLs. S2 must audit:
+- canonical production domain/DNS and deployed runtime;
+- Google/Bing indexing state;
+- legacy URL inventory;
+- redirect map / 301 behavior;
+- stale indexed URLs and encoding defects;
+- sitemap visibility;
+- crawler/WAF accessibility;
+- Search Console + Bing Webmaster verification;
+- IndexNow implementation/verification.
+
+### Phase gate
+Do **not** merge PR #36 or move to S2 automatically. Keep the search changes isolated until the next phase is explicitly started under the project phase discipline.
+
+QA record:
+`docs/qa/2026-09-25_search-visibility-s1.md`
+
 ## 2026-09-24 — AUTHORITATIVE CURRENT BATON
 
 This section is the current execution truth. It supersedes older historical checkpoint text below when there is any conflict.

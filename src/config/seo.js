@@ -2,7 +2,7 @@ import { site } from "./site.js";
 import { locales } from "./locales.js";
 
 export const SEO_INDEX_STATE = Object.freeze({
-  INDEX: "index,follow",
+  INDEX: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
   NOINDEX: "noindex,follow"
 });
 
