@@ -4,6 +4,7 @@
 .about-hero__support{max-width:45rem;margin-top:var(--space-5);color:var(--color-text-secondary);font-size:var(--font-size-md)}
 .about-hero__actions,.process-hero__actions{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-7)}
 .about-hero__visual{display:grid;gap:var(--space-3)}
+.about-hero__media{aspect-ratio:16/9}
 .about-hero__statement{padding:var(--space-4);background:var(--color-bg-soft);color:var(--color-text-primary);border-top:2px solid var(--color-brand-accent);border-bottom:var(--border-thin) solid var(--color-border-default)}
 .about-hero__statement>span{display:block;margin-bottom:var(--space-4);color:var(--color-text-accent);font-size:var(--font-size-xs);font-weight:var(--font-weight-bold)}
 .about-hero__statement>strong{display:block;margin-bottom:var(--space-3);color:var(--color-text-brand);font-size:var(--font-size-lg);line-height:1.45}
