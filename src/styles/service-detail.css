@@ -47,6 +47,12 @@
 .service-process__step h3{margin-bottom:var(--space-2);font-size:var(--font-size-lg)}
 .service-process__step p{color:var(--color-text-secondary);font-size:var(--font-size-sm)}
 
+.service-articles__list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4)}
+.service-article-link{display:flex;min-width:0;flex-direction:column;gap:var(--space-3);padding:var(--space-5);border:var(--border-thin) solid var(--color-border-default);border-radius:var(--radius-lg);background:var(--color-bg-canvas);text-decoration:none}
+.service-article-link span{color:var(--color-text-accent);font-size:var(--font-size-xs);font-weight:var(--font-weight-semibold)}
+.service-article-link strong{color:var(--color-text-brand);font-size:var(--font-size-lg);line-height:var(--line-height-heading)}
+.service-article-link p{margin:0;color:var(--color-text-secondary)}
+.service-article-link:hover strong{color:var(--color-text-accent)}
 .service-detail-faq__grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(var(--space-8),7vw,var(--space-20));align-items:start}
 .service-detail-faq__grid>div:first-child h2{max-width:15ch;font-size:var(--font-size-2xl)}
 .service-detail-faq__list{border-top:var(--border-thin) solid var(--color-border-default)}
@@ -67,7 +73,7 @@
 
 
 @media(max-width:64rem){
-  .service-proof__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .service-proof__grid,.service-articles__list{grid-template-columns:repeat(2,minmax(0,1fr))}
   .service-process__steps{grid-template-columns:repeat(2,minmax(0,1fr))}
   .service-process__step:nth-child(2){border-inline-end:0}
   .service-process__step:nth-child(-n+2){border-bottom:var(--border-thin) solid var(--color-border-default)}
@@ -84,7 +90,7 @@
   .service-detail-hero__actions .button{width:100%}
   .service-decision-panel>div{padding:var(--space-4)}
   .service-decision-panel p{font-size:.88rem;line-height:1.62}
-  .service-signals__grid,.service-deliverables__list,.service-proof__grid{grid-template-columns:1fr}
+  .service-signals__grid,.service-deliverables__list,.service-proof__grid,.service-articles__list{grid-template-columns:1fr}
   .service-signal{grid-template-columns:2rem minmax(0,1fr);gap:var(--space-3);padding:var(--space-4) 0}
   .service-signal+ .service-signal{border-inline-start:0;border-top:var(--border-thin) solid var(--color-border-default)}
   .service-signal h2{font-size:1.02rem}
