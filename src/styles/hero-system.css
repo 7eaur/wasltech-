@@ -1,0 +1,631 @@
+/* Unified mobile-first hero system.
+   Layout behavior follows the proven Update Card hero pattern while preserving Wasl Tech identity. */
+
+.home-hero{
+  padding-block:.625rem .875rem;
+  overflow:clip;
+}
+.home-hero__grid{
+  display:grid;
+  gap:.875rem;
+  padding:1.125rem 1rem .875rem;
+  background:var(--color-bg-raised);
+  border:var(--border-thin) solid var(--color-border-default);
+  border-radius:1.125rem;
+  box-shadow:var(--shadow-sm);
+  overflow:hidden;
+}
+.home-hero__copy{
+  max-width:none;
+  text-align:center;
+}
+.home-hero .eyebrow{
+  margin-bottom:.5rem;
+}
+.home-hero h1{
+  max-width:14ch;
+  margin:0 auto .625rem;
+  font-size:clamp(2rem,9.6vw,2.8rem);
+  line-height:1.12;
+  letter-spacing:var(--tracking-tight);
+}
+.home-hero__support{
+  max-width:34rem;
+  margin:0 auto;
+  color:var(--color-text-secondary);
+  font-size:.86rem;
+  line-height:1.75;
+}
+.home-hero__media{
+  min-width:0;
+  margin-inline:-.25rem;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  background:var(--color-bg-canvas);
+  border-radius:1rem;
+}
+.home-hero__media img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+}
+.home-hero__actions{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:.5rem;
+  margin:0;
+}
+.home-hero__actions .button{
+  width:100%;
+  min-height:3rem;
+}
+.home-hero__signals{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0;
+  margin:0;
+  padding:.75rem .35rem .125rem;
+  border-top:var(--border-thin) solid var(--color-border-default);
+}
+.home-hero__signal{
+  display:grid;
+  min-width:0;
+  justify-items:center;
+  gap:.35rem;
+  padding-inline:.35rem;
+  text-align:center;
+}
+.home-hero__signal + .home-hero__signal{
+  border-inline-start:var(--border-thin) solid var(--color-border-default);
+}
+.home-hero__signal-icon{
+  margin:0;
+  color:var(--color-text-accent);
+}
+.home-hero__signal strong{
+  display:block;
+  margin:0;
+  color:var(--color-text-brand);
+  font-size:.72rem;
+  line-height:1.35;
+}
+.home-hero__signal small{
+  display:block;
+  color:var(--color-text-secondary);
+  font-size:.66rem;
+  line-height:1.4;
+}
+
+/* Inner pages: compact text first, edge-to-edge visual on mobile. */
+:is(
+  .services-hero,
+  .service-detail-hero,
+  .portfolio-hero,
+  .project-detail-hero,
+  .contact-hero,
+  .planner-hero,
+  .secondary-hero,
+  .about-hero,
+  .process-hero,
+  .insights-hero,
+  .article-hero,
+  .job-hero
+){
+  padding-block:.375rem .625rem;
+  overflow:clip;
+}
+:is(
+  .services-hero__grid,
+  .service-detail-hero__grid,
+  .portfolio-hero__grid,
+  .project-detail-hero__grid,
+  .contact-hero__grid,
+  .planner-hero__grid,
+  .secondary-hero__grid,
+  .about-hero__grid,
+  .process-hero__grid,
+  .insights-hero__grid,
+  .article-hero__grid,
+  .job-hero__grid
+){
+  display:grid;
+  grid-template-columns:1fr;
+  gap:.75rem;
+  align-items:stretch;
+  padding:.875rem 0 0;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  overflow:visible;
+}
+:is(
+  .services-hero__copy,
+  .service-detail-hero__copy,
+  .project-detail-hero__copy,
+  .contact-hero__copy,
+  .planner-hero__copy,
+  .secondary-hero__copy,
+  .process-hero__copy,
+  .insights-hero__copy,
+  .article-hero__copy,
+  .job-hero__copy,
+  .portfolio-hero__grid>div:first-child,
+  .about-hero__grid>div:first-child
+){
+  max-width:none;
+  padding-inline:.125rem;
+  text-align:start;
+}
+:is(
+  .services-hero,
+  .service-detail-hero,
+  .portfolio-hero,
+  .project-detail-hero,
+  .contact-hero,
+  .planner-hero,
+  .secondary-hero,
+  .about-hero,
+  .process-hero,
+  .insights-hero,
+  .article-hero,
+  .job-hero
+) .eyebrow{
+  display:inline-flex;
+  align-items:center;
+  min-height:1.6rem;
+  margin:0 0 .45rem;
+  padding:.25rem .55rem;
+  background:var(--color-bg-soft);
+  color:var(--color-text-accent);
+  border-radius:999px;
+  font-size:.68rem;
+  font-weight:var(--font-weight-bold);
+}
+:is(
+  .services-hero,
+  .service-detail-hero,
+  .portfolio-hero,
+  .project-detail-hero,
+  .contact-hero,
+  .planner-hero,
+  .secondary-hero,
+  .about-hero,
+  .process-hero,
+  .insights-hero,
+  .article-hero,
+  .job-hero
+) h1{
+  max-width:17ch;
+  margin:0 0 .45rem;
+  font-size:clamp(1.9rem,8.6vw,2.5rem);
+  line-height:1.17;
+  letter-spacing:var(--tracking-tight);
+}
+.services-hero__copy>p:not(.eyebrow),
+.contact-hero__copy>p:not(.eyebrow),
+.planner-hero__copy>p:not(.eyebrow),
+.secondary-hero__copy>p:not(.eyebrow),
+.insights-hero__copy>p:not(.eyebrow),
+.job-hero__copy>p:not(.eyebrow),
+.portfolio-hero__grid>div:first-child>p:not(.eyebrow),
+.about-hero__support,
+.process-hero__support>p,
+.article-hero__summary,
+.project-detail-hero__summary p{
+  max-width:36rem;
+  margin:0;
+  color:var(--color-text-secondary);
+  font-size:.82rem;
+  line-height:1.7;
+}
+.service-detail-hero__subtitle{
+  max-width:36rem;
+  margin:.1rem 0 0;
+  color:var(--color-text-accent);
+  font-size:.9rem;
+  font-weight:var(--font-weight-semibold);
+  line-height:1.5;
+}
+.service-detail-hero__description{
+  display:-webkit-box;
+  max-width:36rem;
+  margin:.35rem 0 0;
+  color:var(--color-text-secondary);
+  font-size:.8rem;
+  line-height:1.65;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  overflow:hidden;
+}
+.process-hero__support,
+.project-detail-hero__summary{
+  max-width:36rem;
+  margin:0;
+  padding:0;
+  border:0;
+}
+:is(
+  .services-hero__actions,
+  .service-detail-hero__actions,
+  .contact-hero__actions,
+  .secondary-hero__actions,
+  .about-hero__actions,
+  .process-hero__actions,
+  .insights-hero__actions
+){
+  display:grid;
+  grid-template-columns:1fr;
+  gap:.5rem;
+  margin-top:.7rem;
+}
+:is(
+  .services-hero__actions,
+  .service-detail-hero__actions,
+  .contact-hero__actions,
+  .secondary-hero__actions,
+  .about-hero__actions,
+  .process-hero__actions,
+  .insights-hero__actions
+) .button{
+  width:100%;
+  min-height:2.75rem;
+}
+:is(
+  .services-hero__media,
+  .service-detail-hero__media,
+  .portfolio-hero__media,
+  .project-detail-hero__media,
+  .contact-hero__media,
+  .planner-hero__media,
+  .secondary-hero__media,
+  .about-hero__media,
+  .process-hero__media,
+  .insights-hero__media,
+  .article-hero__media,
+  .job-hero__media
+){
+  width:auto;
+  margin-inline:calc(var(--page-gutter) * -1);
+  aspect-ratio:16/8.6;
+  background:var(--color-bg-soft);
+  border:0;
+  border-radius:0;
+}
+:is(
+  .services-hero__media,
+  .service-detail-hero__media,
+  .portfolio-hero__media,
+  .project-detail-hero__media,
+  .contact-hero__media,
+  .planner-hero__media,
+  .secondary-hero__media,
+  .about-hero__media,
+  .process-hero__media,
+  .insights-hero__media,
+  .article-hero__media,
+  .job-hero__media
+) img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+.about-hero__visual{
+  display:grid;
+  gap:.75rem;
+}
+.about-hero__statement{
+  margin:0;
+  padding:.8rem;
+  background:var(--color-bg-soft);
+  border:var(--border-thin) solid var(--color-border-default);
+  border-radius:.75rem;
+}
+.about-hero__statement>span{
+  margin-bottom:.35rem;
+  font-size:.66rem;
+}
+.about-hero__statement>strong{
+  margin-bottom:.3rem;
+  font-size:.9rem;
+}
+.about-hero__statement p{
+  font-size:.72rem;
+  line-height:1.55;
+}
+.service-decision-panel{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  margin-top:.75rem;
+  overflow:hidden;
+  background:var(--color-bg-soft);
+  border:var(--border-thin) solid var(--color-border-default);
+  border-radius:.75rem;
+}
+.service-decision-panel>div{
+  padding:.75rem;
+}
+.service-decision-panel span{
+  margin-bottom:.3rem;
+  font-size:.65rem;
+}
+.service-decision-panel p{
+  font-size:.7rem;
+  line-height:1.5;
+}
+.article-meta{
+  margin-top:.65rem;
+}
+
+@media(min-width:42.5625rem){
+  .home-hero{
+    padding-block:.875rem .625rem;
+  }
+  .home-hero__grid{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:.75rem 1.875rem;
+    align-items:center;
+    min-height:25rem;
+    padding:1.625rem;
+  }
+  .home-hero__media{
+    grid-column:1;
+    grid-row:1/4;
+    align-self:stretch;
+    display:flex;
+    align-items:center;
+    margin:0;
+    border-radius:1.125rem;
+  }
+  .home-hero__copy{
+    grid-column:2;
+    grid-row:1;
+    align-self:end;
+    text-align:start;
+  }
+  .home-hero .eyebrow{
+    margin-bottom:.7rem;
+  }
+  .home-hero h1{
+    max-width:12ch;
+    margin:0 0 .75rem;
+    font-size:clamp(2.75rem,5vw,4rem);
+  }
+  .home-hero__support{
+    margin-inline:0;
+    font-size:.95rem;
+  }
+  .home-hero__actions{
+    grid-column:2;
+    grid-row:2;
+    display:flex;
+    align-self:center;
+  }
+  .home-hero__actions .button{
+    width:auto;
+  }
+  .home-hero__signals{
+    grid-column:2;
+    grid-row:3;
+    align-self:start;
+  }
+  .home-hero__signal strong{
+    font-size:.76rem;
+  }
+  .home-hero__signal small{
+    font-size:.69rem;
+  }
+
+  :is(
+    .services-hero,
+    .service-detail-hero,
+    .portfolio-hero,
+    .project-detail-hero,
+    .contact-hero,
+    .planner-hero,
+    .secondary-hero,
+    .about-hero,
+    .process-hero,
+    .insights-hero,
+    .article-hero,
+    .job-hero
+  ){
+    padding-block:1.125rem;
+  }
+  :is(
+    .services-hero__grid,
+    .service-detail-hero__grid,
+    .portfolio-hero__grid,
+    .project-detail-hero__grid,
+    .contact-hero__grid,
+    .planner-hero__grid,
+    .secondary-hero__grid,
+    .about-hero__grid,
+    .process-hero__grid,
+    .insights-hero__grid,
+    .article-hero__grid,
+    .job-hero__grid
+  ){
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    align-items:center;
+    gap:1.75rem;
+    padding:1.5rem;
+    background:var(--color-bg-raised);
+    border:var(--border-thin) solid var(--color-border-default);
+    border-radius:1.125rem;
+    box-shadow:var(--shadow-sm);
+    overflow:hidden;
+  }
+  :is(
+    .services-hero,
+    .service-detail-hero,
+    .portfolio-hero,
+    .project-detail-hero,
+    .contact-hero,
+    .planner-hero,
+    .secondary-hero,
+    .about-hero,
+    .process-hero,
+    .insights-hero,
+    .article-hero,
+    .job-hero
+  ) h1{
+    max-width:15ch;
+    font-size:clamp(2.45rem,5vw,3.6rem);
+  }
+  .services-hero__copy>p:not(.eyebrow),
+  .contact-hero__copy>p:not(.eyebrow),
+  .planner-hero__copy>p:not(.eyebrow),
+  .secondary-hero__copy>p:not(.eyebrow),
+  .insights-hero__copy>p:not(.eyebrow),
+  .job-hero__copy>p:not(.eyebrow),
+  .portfolio-hero__grid>div:first-child>p:not(.eyebrow),
+  .about-hero__support,
+  .process-hero__support>p,
+  .article-hero__summary,
+  .project-detail-hero__summary p{
+    font-size:.95rem;
+  }
+  .service-detail-hero__subtitle{
+    font-size:1rem;
+  }
+  .service-detail-hero__description{
+    display:block;
+    font-size:.92rem;
+    overflow:visible;
+  }
+  :is(
+    .services-hero__actions,
+    .service-detail-hero__actions,
+    .contact-hero__actions,
+    .secondary-hero__actions,
+    .about-hero__actions,
+    .process-hero__actions,
+    .insights-hero__actions
+  ){
+    display:flex;
+    flex-wrap:wrap;
+  }
+  :is(
+    .services-hero__actions,
+    .service-detail-hero__actions,
+    .contact-hero__actions,
+    .secondary-hero__actions,
+    .about-hero__actions,
+    .process-hero__actions,
+    .insights-hero__actions
+  ) .button{
+    width:auto;
+  }
+  :is(
+    .services-hero__media,
+    .service-detail-hero__media,
+    .portfolio-hero__media,
+    .project-detail-hero__media,
+    .contact-hero__media,
+    .planner-hero__media,
+    .secondary-hero__media,
+    .about-hero__media,
+    .process-hero__media,
+    .insights-hero__media,
+    .article-hero__media,
+    .job-hero__media
+  ){
+    width:100%;
+    margin:0;
+    aspect-ratio:16/9;
+    border-radius:.875rem;
+  }
+  .about-hero__statement{
+    padding:1rem;
+  }
+  .service-decision-panel{
+    margin-top:1rem;
+    border-radius:.875rem;
+  }
+}
+
+@media(min-width:62.5625rem){
+  .home-hero{
+    padding-block:1.125rem .75rem;
+  }
+  .home-hero__grid{
+    gap:1rem 2.625rem;
+    min-height:26.875rem;
+    padding:2rem 2.125rem;
+  }
+  .home-hero h1{
+    font-size:clamp(3rem,4.7vw,4.8rem);
+  }
+  .home-hero__support{
+    max-width:37rem;
+    font-size:1rem;
+  }
+  :is(
+    .services-hero__grid,
+    .service-detail-hero__grid,
+    .portfolio-hero__grid,
+    .project-detail-hero__grid,
+    .contact-hero__grid,
+    .planner-hero__grid,
+    .secondary-hero__grid,
+    .about-hero__grid,
+    .process-hero__grid,
+    .insights-hero__grid,
+    .article-hero__grid,
+    .job-hero__grid
+  ){
+    gap:2.75rem;
+    min-height:22.5rem;
+    padding:2.125rem;
+  }
+  :is(
+    .services-hero,
+    .service-detail-hero,
+    .portfolio-hero,
+    .project-detail-hero,
+    .contact-hero,
+    .planner-hero,
+    .secondary-hero,
+    .about-hero,
+    .process-hero,
+    .insights-hero,
+    .article-hero,
+    .job-hero
+  ) h1{
+    font-size:clamp(2.9rem,4.2vw,4.2rem);
+  }
+}
+
+@media(max-width:22.5rem){
+  .home-hero__grid{
+    padding:.95rem .75rem .75rem;
+  }
+  .home-hero h1{
+    font-size:1.9rem;
+  }
+  .home-hero__support{
+    font-size:.8rem;
+  }
+  .home-hero__signal small{
+    display:none;
+  }
+  :is(
+    .services-hero,
+    .service-detail-hero,
+    .portfolio-hero,
+    .project-detail-hero,
+    .contact-hero,
+    .planner-hero,
+    .secondary-hero,
+    .about-hero,
+    .process-hero,
+    .insights-hero,
+    .article-hero,
+    .job-hero
+  ) h1{
+    font-size:1.82rem;
+  }
+}

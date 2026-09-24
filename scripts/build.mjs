@@ -47,7 +47,8 @@ const cssSources = [
   "src/styles/about-process.css",
   "src/styles/contact-planner.css",
   "src/styles/secondary.css",
-  "src/styles/insights-careers.css"
+  "src/styles/insights-careers.css",
+  "src/styles/hero-system.css"
 ];
 
 

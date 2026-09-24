@@ -93,18 +93,18 @@ function renderHero(content, locale) {
           <p class="eyebrow">${escapeHtml(content.kicker)}</p>
           <h1>${escapeHtml(content.title)}</h1>
           <p class="home-hero__support">${escapeHtml(content.support)}</p>
-          <div class="home-hero__actions">
-            ${ActionLink({ href: routes.startProject(locale), label: content.primaryCta, variant: "primary", size: "lg" })}
-            ${ActionLink({ href: routes.services(locale), label: content.secondaryCta, variant: "ghost", size: "lg" })}
-          </div>
-          <div class="home-hero__signals" aria-label="${locale === "ar" ? "مزايا العمل مع فريق وصل تك" : "Working with the Wasl Tech team"}">
-            ${signals}
-          </div>
         </div>
         <div class="home-hero__media">
           <img src="/assets/media/home-hero.webp"
             alt="${locale === "ar" ? "واجهات رقمية تمثل خدمات المواقع والتطبيقات والحلول التقنية من وصل تك" : "Digital interfaces representing Wasl Tech websites, apps, and technical solutions"}"
-            width="1448" height="1086" loading="eager" fetchpriority="high" decoding="async">
+            width="1200" height="900" loading="eager" fetchpriority="high" decoding="async">
+        </div>
+        <div class="home-hero__actions">
+          ${ActionLink({ href: routes.startProject(locale), label: content.primaryCta, variant: "primary", size: "lg" })}
+          ${ActionLink({ href: routes.services(locale), label: content.secondaryCta, variant: "ghost", size: "lg" })}
+        </div>
+        <div class="home-hero__signals" aria-label="${locale === "ar" ? "مزايا العمل مع فريق وصل تك" : "Working with the Wasl Tech team"}">
+          ${signals}
         </div>
       </div>
     </section>
