@@ -1,5 +1,42 @@
 # Wasl Tech VNext — Final Media Inventory
 
+## 2026-09-25 — Performance-safe fallback + remaining final images
+
+The current release no longer depends on the multi-megabyte temporary PNG Hero/article assets at runtime. Until final user imagery is supplied, the affected surfaces intentionally reuse existing optimized WebP media already approved in the project.
+
+Already complete — do not request again:
+- Homepage Hero.
+- Homepage/About supporting image.
+- About page Hero.
+- All 8 service images, including service-detail Hero reuse.
+- All project/portfolio record images.
+
+### Remaining final media to request
+
+A practical final set is **8 unique images**:
+
+| ID | Final use | Reuse |
+|---|---|---|
+| FINAL-01 | Services directory Hero | unique |
+| FINAL-02 | Portfolio directory Hero | unique |
+| FINAL-03 | Process / How we work Hero | unique |
+| FINAL-04 | Contact + Project Planner Hero | shared |
+| FINAL-05 | FAQ + Insights Hero | shared |
+| FINAL-06 | Article cover — Website or web system? | unique |
+| FINAL-07 | Article cover — Before building an e-commerce store | unique |
+| FINAL-08 | Article cover — Prepare website content before design | unique |
+
+No additional image is required for Careers at this stage; it may intentionally reuse the approved About/workplace image. Privacy, Terms, and 404 may also reuse neutral existing media and do not require dedicated user-supplied assets unless a later visual review proves otherwise.
+
+Preferred source for FINAL-01 through FINAL-08:
+- horizontal and crop-safe;
+- ideally at least 1600 × 1000;
+- no embedded headings, buttons, or essential text;
+- important subject kept away from extreme edges;
+- suitable for Arabic and English reuse.
+
+Runtime derivatives must remain optimized and should not replace the preserved original source file.
+
 ## 2026-09-24 — Current integration checkpoint
 - All 8 service source JPEGs are present under `assets/services/source/`.
 - All 8 runtime WebP derivatives are present under `assets/services/`.
