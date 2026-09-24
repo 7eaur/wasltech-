@@ -1,5 +1,15 @@
 # Wasl Tech VNext — Current Project Status
 
+## 2026-09-24 — Final marketing rewrite baseline adopted
+- Canonical marketing source: `إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md` from source commit `b87872d12adcc836018fe61a7ef1556f04aa5b86`.
+- The exact source document is preserved on the active VNext branch for reference.
+- Home, Services, all 8 service records, About, Process, Portfolio, Contact, Project Planner, and core FAQ copy follow the new outcome-led baseline in Arabic and English.
+- Packages/pricing are not part of the public sales path.
+- Trust remains evidence-led: no invented metrics, testimonials, results, durations, SLAs, or guarantees.
+- Process uses the six-stage flow: Understand → Decide → Design → Build → Test → Launch & Evolve.
+- Project/portfolio CTAs use case-study language rather than generic “more” wording.
+- Production `main` remains unchanged; no cutover has started.
+
 ## 2026-09-24 — Final marketing rewrite alignment
 - Canonical content source: `b87872d12adcc836018fe61a7ef1556f04aa5b86:إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md`.
 - Adopted the no-packages/no-pricing marketing baseline across Home, Services, all eight service records, About, Process, and FAQ in Arabic and English.

@@ -92,7 +92,7 @@ function renderAudience(service, locale) {
       <div class="container service-audience__grid">
         <div>
           <p class="eyebrow">${locale === "ar" ? "لمن تناسب" : "Who it fits"}</p>
-          <h2>${locale === "ar" ? "خدمة تُبنى حول احتياج فعلي، لا قالب ثابت." : "A service shaped around a real need, not a fixed package."}</h2>
+          <h2>${locale === "ar" ? "خدمة تُبنى حول احتياج فعلي، لا قالب ثابت." : "A service shaped around a real need, not a fixed template."}</h2>
         </div>
         <ul class="service-audience__list">
           ${copy.audiences.map((item)=>`<li>${escapeHtml(item)}</li>`).join("")}
