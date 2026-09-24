@@ -835,23 +835,23 @@ const serviceRecords = [
           },
           {
             "title": "قواعد بيانات وصلاحيات",
-            "description": "بناء أو ربط واجهات تسمح للموقع أو التطبيق أو الخدمات الخارجية بتبادل البيانات."
+            "description": "تنظيم البيانات والعلاقات والصلاحيات بما يناسب تشغيل النظام وأدوار المستخدمين."
           },
           {
             "title": "تكاملات API",
-            "description": "تنظيم الكيانات والعلاقات والبيانات بطريقة تناسب تشغيل النظام وتطوره."
+            "description": "ربط النظام بالمواقع أو التطبيقات أو الخدمات الخارجية عندما تتوفر واجهات تكامل مناسبة."
           },
           {
             "title": "أتمتة العمليات",
-            "description": "تحديد ما يستطيع كل نوع من المستخدمين رؤيته أو تنفيذه داخل النظام."
-          },
-          {
-            "title": "تقارير ولوحات متابعة",
             "description": "تحويل الخطوات اليدوية المتكررة إلى تدفقات آلية عندما تكون قابلة لذلك."
           },
           {
+            "title": "تقارير ولوحات متابعة",
+            "description": "تجميع المعلومات المهمة في عرض يساعد الفريق على المتابعة وقراءة ما يحدث داخل النظام."
+          },
+          {
             "title": "منصات داخلية ومكونات مخصصة",
-            "description": "تجميع المعلومات المهمة في عرض يساعد الإدارة على المتابعة واتخاذ القرار."
+            "description": "بناء واجهات ووظائف داخلية تخدم السيناريوهات الخاصة التي لا يغطيها الحل الجاهز."
           },
           {
             "title": "تطوير مرحلي يبدأ بالأولوية الأعلى",
@@ -955,23 +955,23 @@ const serviceRecords = [
           },
           {
             "title": "Databases and permissions",
-            "description": "Building or integrating interfaces that let websites, apps, and external services exchange data."
+            "description": "Organizing data, relationships, and access rules around how the system operates and who can do what."
           },
           {
             "title": "API integrations",
-            "description": "Structuring entities, relationships, and data to support the system's operation and future development."
+            "description": "Connecting the system to websites, apps, or external services when suitable integration interfaces are available."
           },
           {
             "title": "Process automation",
-            "description": "Defining what each type of user can see and do inside the system."
+            "description": "Turning repetitive manual steps into automated flows when the process is suitable for automation."
           },
           {
             "title": "Reports and monitoring dashboards",
-            "description": "Turning repetitive manual steps into automated or guided processes where appropriate."
+            "description": "Bringing important information into views that help the team monitor what is happening inside the system."
           },
           {
             "title": "Internal platforms and custom components",
-            "description": "Bringing important operational information into clearer views for management and follow-up."
+            "description": "Building internal interfaces and features for workflows that off-the-shelf tools do not cover well."
           },
           {
             "title": "Phased development starting from the highest priority",
@@ -1116,7 +1116,7 @@ const serviceRecords = [
             "description": "نحدد هل الأنسب تطوير شيء جديد، ربط الموجود، أتمتة خطوة، أو تحسين البنية الحالية."
           },
           {
-            "title": "ننفيذ أبسط حل مناسب",
+            "title": "ننفذ أبسط حل مناسب",
             "description": "نطبق المسار الذي يحل المشكلة بأقل تعقيد ممكن مع الحفاظ على قابلية التطوير."
           },
           {

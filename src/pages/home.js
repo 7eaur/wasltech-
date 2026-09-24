@@ -300,7 +300,6 @@ export function homePage(locale = "ar") {
     renderServices(content, locale),
     renderProjects(content, locale),
     renderAbout(content, locale),
-    renderWhy(content, locale),
     renderProcess(content, locale),
     renderFaq(content, locale),
     renderFinalCta(content, locale)

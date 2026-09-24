@@ -1,5 +1,12 @@
 # Wasl Tech VNext — Conversation Handoff
 
+## 2026-09-24 — Final marketing rewrite alignment
+- Canonical content source: `b87872d12adcc836018fe61a7ef1556f04aa5b86:إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md`.
+- Adopted the no-packages/no-pricing marketing baseline across Home, Services, all eight service records, About, Process, and FAQ in Arabic and English.
+- Final Home journey: Hero → Services → Work/Trust → About → Process → FAQ → Final CTA.
+- Service-detail order: need/problem → audience → deliverables → scope-dependent constraints → process → related work → FAQ → CTA.
+- No unverified counters, testimonials, or numerical outcome claims were introduced.
+
 ## 2026-09-24 — Canonical marketing content baseline
 Source of truth for the new marketing voice:
 - source commit: `b87872d12adcc836018fe61a7ef1556f04aa5b86`

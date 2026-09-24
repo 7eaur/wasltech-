@@ -92,7 +92,7 @@ function renderAudience(service, locale) {
       <div class="container service-audience__grid">
         <div>
           <p class="eyebrow">${locale === "ar" ? "لمن تناسب" : "Who it fits"}</p>
-          <h2>${locale === "ar" ? "خدمة تُبنى حول احتياج فعلي، لا قالب ثابت." : "A service shaped around a real need, not a fixed template."}</h2>
+          <h2>${locale === "ar" ? "خدمة تُبنى حول احتياج فعلي، لا قالب ثابت." : "A service shaped around a real need, not a fixed package."}</h2>
         </div>
         <ul class="service-audience__list">
           ${copy.audiences.map((item)=>`<li>${escapeHtml(item)}</li>`).join("")}
@@ -153,7 +153,7 @@ function renderProof(service, locale) {
           })).join("")}
         </div>
         <div class="service-proof__more">
-          <a class="text-link" href="${routes.portfolio(locale)}">${locale === "ar" ? "استكشف دراسات الحالة" : "Explore case studies"}</a>
+          <a class="text-link" href="${routes.portfolio(locale)}">${locale === "ar" ? "شاهد جميع الأعمال" : "View all work"}</a>
         </div>
       </div>
     </section>
@@ -246,10 +246,10 @@ export function serviceDetailPage(service, locale="ar") {
     renderSignals(service,locale),
     renderAudience(service,locale),
     renderDeliverables(service,locale),
-    renderProof(service,locale),
-    renderProcess(service,locale),
-    renderFaq(service,locale),
     renderConstraints(service,locale),
+    renderProcess(service,locale),
+    renderProof(service,locale),
+    renderFaq(service,locale),
     renderFinalCta(service,locale)
   ].join("");
 
