@@ -79,7 +79,7 @@ const processSteps = Object.freeze({
   ])
 });
 
-function section(function section(content, id) {
+function section(content, id) {
   return content.sections.find((item) => item.id === id);
 }
 
