@@ -76,6 +76,18 @@ const serviceRecords = [
           "المؤسسات",
           "المشاريع الناشئة"
         ],
+        "subservices": [
+          {
+            "id": "landing-pages",
+            "title": "تصميم صفحات الهبوط",
+            "description": "صفحات مركزة للحملات والإعلانات وإطلاق المنتجات أو الخدمات، برسالة واضحة ومسار تواصل مباشر."
+          },
+          {
+            "id": "portfolio-websites",
+            "title": "تصميم مواقع ومعارض الأعمال",
+            "description": "مواقع مرتبة واحترافية لعرض المشاريع والأعمال والخبرات بطريقة تسهّل استعراضها والتواصل بشأنها."
+          }
+        ],
         "deliverables": [
           {
             "title": "استراتيجية وهيكل المحتوى",
@@ -195,6 +207,18 @@ const serviceRecords = [
           "Clinics",
           "Organizations",
           "Startups"
+        ],
+        "subservices": [
+          {
+            "id": "landing-pages",
+            "title": "Landing Page Design",
+            "description": "Focused pages for campaigns, ads, product launches, or individual services, with a clear message and direct contact path."
+          },
+          {
+            "id": "portfolio-websites",
+            "title": "Portfolio & Showcase Websites",
+            "description": "Professional websites for presenting projects, work, and expertise in a clear structure that makes browsing and contact easier."
+          }
         ],
         "deliverables": [
           {
