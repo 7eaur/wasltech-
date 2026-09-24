@@ -7,6 +7,12 @@ This file defines where project truth lives. It exists to prevent overlapping do
 
 ## Current handoff record
 
+For Search / AI visibility work, read first:
+- `PROJECT_STATUS.md` — 2026-09-25 Search Visibility baton
+- `PROJECT_HANDOFF.md` — 2026-09-25 Search Visibility resume point
+- `docs/core/SEARCH_VISIBILITY.md`
+- `docs/qa/2026-09-25_search-visibility-s1.md`
+
 For the current 2026-09-24 continuation, read:
 - `PROJECT_STATUS.md`
 - `PROJECT_HANDOFF.md`
