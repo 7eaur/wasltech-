@@ -48,7 +48,9 @@ const cssSources = [
   "src/styles/contact-planner.css",
   "src/styles/secondary.css",
   "src/styles/insights-careers.css",
-  "src/styles/hero-system.css"
+  "src/styles/hero-home.css",
+  "src/styles/hero-pages.css",
+  "src/styles/hero-responsive.css"
 ];
 
 

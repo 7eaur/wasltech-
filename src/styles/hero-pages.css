@@ -1,0 +1,260 @@
+/* Inner pages: compact text first, edge-to-edge visual on mobile. */
+:is(
+  .services-hero,
+  .service-detail-hero,
+  .portfolio-hero,
+  .project-detail-hero,
+  .contact-hero,
+  .planner-hero,
+  .secondary-hero,
+  .about-hero,
+  .process-hero,
+  .insights-hero,
+  .article-hero,
+  .job-hero
+){
+  padding-block:.375rem .625rem;
+  overflow:clip;
+}
+:is(
+  .services-hero__grid,
+  .service-detail-hero__grid,
+  .portfolio-hero__grid,
+  .project-detail-hero__grid,
+  .contact-hero__grid,
+  .planner-hero__grid,
+  .secondary-hero__grid,
+  .about-hero__grid,
+  .process-hero__grid,
+  .insights-hero__grid,
+  .article-hero__grid,
+  .job-hero__grid
+){
+  display:grid;
+  grid-template-columns:1fr;
+  gap:.75rem;
+  align-items:stretch;
+  padding:.875rem 0 0;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  overflow:visible;
+}
+:is(
+  .services-hero__copy,
+  .service-detail-hero__copy,
+  .project-detail-hero__copy,
+  .contact-hero__copy,
+  .planner-hero__copy,
+  .secondary-hero__copy,
+  .process-hero__copy,
+  .insights-hero__copy,
+  .article-hero__copy,
+  .job-hero__copy,
+  .portfolio-hero__grid>div:first-child,
+  .about-hero__grid>div:first-child
+){
+  max-width:none;
+  padding-inline:.125rem;
+  text-align:start;
+}
+:is(
+  .services-hero,
+  .service-detail-hero,
+  .portfolio-hero,
+  .project-detail-hero,
+  .contact-hero,
+  .planner-hero,
+  .secondary-hero,
+  .about-hero,
+  .process-hero,
+  .insights-hero,
+  .article-hero,
+  .job-hero
+) .eyebrow{
+  display:inline-flex;
+  align-items:center;
+  min-height:1.6rem;
+  margin:0 0 .45rem;
+  padding:.25rem .55rem;
+  background:var(--color-bg-soft);
+  color:var(--color-text-accent);
+  border-radius:999px;
+  font-size:.68rem;
+  font-weight:var(--font-weight-bold);
+}
+:is(
+  .services-hero,
+  .service-detail-hero,
+  .portfolio-hero,
+  .project-detail-hero,
+  .contact-hero,
+  .planner-hero,
+  .secondary-hero,
+  .about-hero,
+  .process-hero,
+  .insights-hero,
+  .article-hero,
+  .job-hero
+) h1{
+  max-width:17ch;
+  margin:0 0 .45rem;
+  font-size:clamp(1.9rem,8.6vw,2.5rem);
+  line-height:1.17;
+  letter-spacing:var(--tracking-tight);
+}
+.services-hero__copy>p:not(.eyebrow),
+.contact-hero__copy>p:not(.eyebrow),
+.planner-hero__copy>p:not(.eyebrow),
+.secondary-hero__copy>p:not(.eyebrow),
+.insights-hero__copy>p:not(.eyebrow),
+.job-hero__copy>p:not(.eyebrow),
+.portfolio-hero__grid>div:first-child>p:not(.eyebrow),
+.about-hero__support,
+.process-hero__support>p,
+.article-hero__summary,
+.project-detail-hero__summary p{
+  max-width:36rem;
+  margin:0;
+  color:var(--color-text-secondary);
+  font-size:.82rem;
+  line-height:1.7;
+}
+.service-detail-hero__subtitle{
+  max-width:36rem;
+  margin:.1rem 0 0;
+  color:var(--color-text-accent);
+  font-size:.9rem;
+  font-weight:var(--font-weight-semibold);
+  line-height:1.5;
+}
+.service-detail-hero__description{
+  display:-webkit-box;
+  max-width:36rem;
+  margin:.35rem 0 0;
+  color:var(--color-text-secondary);
+  font-size:.8rem;
+  line-height:1.65;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  overflow:hidden;
+}
+.process-hero__support,
+.project-detail-hero__summary{
+  max-width:36rem;
+  margin:0;
+  padding:0;
+  border:0;
+}
+:is(
+  .services-hero__actions,
+  .service-detail-hero__actions,
+  .contact-hero__actions,
+  .secondary-hero__actions,
+  .about-hero__actions,
+  .process-hero__actions,
+  .insights-hero__actions
+){
+  display:grid;
+  grid-template-columns:1fr;
+  gap:.5rem;
+  margin-top:.7rem;
+}
+:is(
+  .services-hero__actions,
+  .service-detail-hero__actions,
+  .contact-hero__actions,
+  .secondary-hero__actions,
+  .about-hero__actions,
+  .process-hero__actions,
+  .insights-hero__actions
+) .button{
+  width:100%;
+  min-height:2.75rem;
+}
+:is(
+  .services-hero__media,
+  .service-detail-hero__media,
+  .portfolio-hero__media,
+  .project-detail-hero__media,
+  .contact-hero__media,
+  .planner-hero__media,
+  .secondary-hero__media,
+  .about-hero__media,
+  .process-hero__media,
+  .insights-hero__media,
+  .article-hero__media,
+  .job-hero__media
+){
+  width:auto;
+  margin-inline:calc(var(--page-gutter) * -1);
+  aspect-ratio:16/8.6;
+  background:var(--color-bg-soft);
+  border:0;
+  border-radius:0;
+}
+:is(
+  .services-hero__media,
+  .service-detail-hero__media,
+  .portfolio-hero__media,
+  .project-detail-hero__media,
+  .contact-hero__media,
+  .planner-hero__media,
+  .secondary-hero__media,
+  .about-hero__media,
+  .process-hero__media,
+  .insights-hero__media,
+  .article-hero__media,
+  .job-hero__media
+) img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+.about-hero__visual{
+  display:grid;
+  gap:.75rem;
+}
+.about-hero__statement{
+  margin:0;
+  padding:.8rem;
+  background:var(--color-bg-soft);
+  border:var(--border-thin) solid var(--color-border-default);
+  border-radius:.75rem;
+}
+.about-hero__statement>span{
+  margin-bottom:.35rem;
+  font-size:.66rem;
+}
+.about-hero__statement>strong{
+  margin-bottom:.3rem;
+  font-size:.9rem;
+}
+.about-hero__statement p{
+  font-size:.72rem;
+  line-height:1.55;
+}
+.service-decision-panel{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  margin-top:.75rem;
+  overflow:hidden;
+  background:var(--color-bg-soft);
+  border:var(--border-thin) solid var(--color-border-default);
+  border-radius:.75rem;
+}
+.service-decision-panel>div{
+  padding:.75rem;
+}
+.service-decision-panel span{
+  margin-bottom:.3rem;
+  font-size:.65rem;
+}
+.service-decision-panel p{
+  font-size:.7rem;
+  line-height:1.5;
+}
+.article-meta{
+  margin-top:.65rem;
+}
