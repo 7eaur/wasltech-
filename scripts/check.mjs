@@ -186,22 +186,6 @@ for (const file of ctaSourceFiles) {
   const source = await readFile(path.join(ROOT, file), "utf8");
   if (!source.includes("CallToAction")) fail(file, "closing CTA must use the shared CallToAction component");
 }
-for (const legacyClass of [
-  "home-final-cta",
-  "about-cta",
-  "process-cta",
-  "services-unsure",
-  "service-detail-cta",
-  "portfolio-cta",
-  "project-detail-cta",
-  "contact-final",
-  "insights-cta",
-  "article-cta",
-  "job-cta"
-]) {
-  if (cssSourceBundle.includes(`.${legacyClass}`)) fail("styles", `legacy page-specific CTA selector remains: .${legacyClass}`);
-}
-
 const packageJson = JSON.parse(await readFile(path.join(ROOT, "package.json"), "utf8"));
 if (packageJson.dependencies && Object.keys(packageJson.dependencies).length) {
   fail("package.json", "Phase 1 must not introduce runtime dependencies");
@@ -303,6 +287,22 @@ const cssSourcesForTokenCheck = await Promise.all(
   ].map((file) => readFile(path.join(ROOT, file), "utf8"))
 );
 const cssSourceBundle = cssSourcesForTokenCheck.join("\n");
+for (const legacyClass of [
+  "home-final-cta",
+  "about-cta",
+  "process-cta",
+  "services-unsure",
+  "service-detail-cta",
+  "portfolio-cta",
+  "project-detail-cta",
+  "contact-final",
+  "insights-cta",
+  "article-cta",
+  "job-cta"
+]) {
+  if (cssSourceBundle.includes(`.${legacyClass}`)) fail("styles", `legacy page-specific CTA selector remains: .${legacyClass}`);
+}
+
 const declaredCustomProperties = new Set(
   [...cssSourceBundle.matchAll(/(--[a-z0-9-]+)\s*:/gi)].map((match) => match[1])
 );
