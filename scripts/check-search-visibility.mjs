@@ -115,7 +115,7 @@ const graph = new Map();
 
 for (const [route, html] of htmlByRoute.entries()) {
   const outgoing = new Set();
-  for (const match of html.matchAll(/<a\\b[^>]*\\shref="([^"]+)"/gi)) {
+  for (const match of html.matchAll(/<a\b[^>]*\shref="([^"]+)"/gi)) {
     try {
       const url = new URL(match[1], absoluteUrl(route));
       if (url.origin !== new URL(absoluteUrl("/")).origin) continue;
