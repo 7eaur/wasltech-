@@ -76,6 +76,18 @@ const serviceRecords = [
           "المؤسسات",
           "المشاريع الناشئة"
         ],
+        "subservices": [
+          {
+            "id": "landing-pages",
+            "title": "تصميم صفحات الهبوط",
+            "description": "صفحات مركزة للحملات والإعلانات وإطلاق المنتجات أو الخدمات، برسالة واضحة ومسار تواصل مباشر."
+          },
+          {
+            "id": "portfolio-websites",
+            "title": "تصميم مواقع ومعارض الأعمال",
+            "description": "مواقع مرتبة واحترافية لعرض المشاريع والأعمال والخبرات بطريقة تسهّل استعراضها والتواصل بشأنها."
+          }
+        ],
         "deliverables": [
           {
             "title": "استراتيجية وهيكل المحتوى",
@@ -195,6 +207,18 @@ const serviceRecords = [
           "Clinics",
           "Organizations",
           "Startups"
+        ],
+        "subservices": [
+          {
+            "id": "landing-pages",
+            "title": "Landing Page Design",
+            "description": "Focused pages for campaigns, ads, product launches, or individual services, with a clear message and direct contact path."
+          },
+          {
+            "id": "portfolio-websites",
+            "title": "Portfolio & Showcase Websites",
+            "description": "Professional websites for presenting projects, work, and expertise in a clear structure that makes browsing and contact easier."
+          }
         ],
         "deliverables": [
           {
@@ -328,6 +352,33 @@ const serviceRecords = [
           "الأنظمة الداخلية",
           "المبادرات الرقمية"
         ],
+        "subservices": [
+          {
+            "id": "android-apps",
+            "title": "تطبيقات Android",
+            "description": "تطبيقات مخصصة لأجهزة Android بواجهات واضحة وتجربة متجاوبة مع احتياج المشروع."
+          },
+          {
+            "id": "ios-apps",
+            "title": "تطبيقات iOS",
+            "description": "تطبيقات مخصصة لأجهزة iPhone وiPad مع تجربة استخدام مناسبة لمنظومة Apple."
+          },
+          {
+            "id": "cross-platform-apps",
+            "title": "تطبيقات متعددة المنصات",
+            "description": "حلول تعمل على Android وiOS من قاعدة تطوير موحدة عندما يكون ذلك مناسبًا للمشروع."
+          },
+          {
+            "id": "service-booking-apps",
+            "title": "تطبيقات الخدمات والحجوزات",
+            "description": "تطبيقات لتنظيم الطلبات والحجوزات والمواعيد وربط العميل بالخدمة بسهولة."
+          },
+          {
+            "id": "internal-business-apps",
+            "title": "تطبيقات الأعمال الداخلية",
+            "description": "تطبيقات تساعد فرق العمل على متابعة العمليات والمهام والبيانات من الجوال."
+          }
+        ],
         "deliverables": [
           {
             "title": "تحليل المستخدم والوظائف الأساسية",
@@ -447,6 +498,33 @@ const serviceRecords = [
           "Startups",
           "Internal systems",
           "Digital initiatives"
+        ],
+        "subservices": [
+          {
+            "id": "android-apps",
+            "title": "Android Apps",
+            "description": "Custom Android applications with clear interfaces and an experience shaped around the project needs."
+          },
+          {
+            "id": "ios-apps",
+            "title": "iOS Apps",
+            "description": "Applications for iPhone and iPad with an experience designed for the Apple ecosystem."
+          },
+          {
+            "id": "cross-platform-apps",
+            "title": "Cross-platform Apps",
+            "description": "Solutions that run on Android and iOS from a shared development base when that approach fits the project."
+          },
+          {
+            "id": "service-booking-apps",
+            "title": "Service & Booking Apps",
+            "description": "Applications for orders, bookings, appointments, and easier customer access to services."
+          },
+          {
+            "id": "internal-business-apps",
+            "title": "Internal Business Apps",
+            "description": "Mobile applications that help teams follow operations, tasks, and business data."
+          }
         ],
         "deliverables": [
           {
@@ -580,6 +658,33 @@ const serviceRecords = [
           "الشركات التجارية",
           "المتاجر الناشئة"
         ],
+        "subservices": [
+          {
+            "id": "online-store",
+            "title": "إنشاء متجر إلكتروني",
+            "description": "متجر متكامل لعرض المنتجات واستقبال الطلبات وإدارة تجربة الشراء عبر الويب."
+          },
+          {
+            "id": "multi-vendor-store",
+            "title": "متاجر متعددة البائعين",
+            "description": "منصات تجمع أكثر من بائع داخل متجر واحد مع تنظيم المنتجات والطلبات والصلاحيات حسب النطاق."
+          },
+          {
+            "id": "payment-shipping-integration",
+            "title": "ربط الدفع والشحن",
+            "description": "تكامل وسائل الدفع وخدمات الشحن المتاحة بما يتناسب مع السوق وبيئة المشروع."
+          },
+          {
+            "id": "products-orders-management",
+            "title": "إدارة المنتجات والطلبات",
+            "description": "تنظيم المنتجات والمخزون والطلبات والحالات التشغيلية من لوحة إدارة واضحة."
+          },
+          {
+            "id": "store-redesign-optimization",
+            "title": "تطوير وتحسين متجر قائم",
+            "description": "تحسين تجربة متجر موجود من حيث الواجهة والتنقل والأداء ومسار الشراء."
+          }
+        ],
         "deliverables": [
           {
             "title": "هيكلة وتصنيف المنتجات",
@@ -695,6 +800,33 @@ const serviceRecords = [
           "Home businesses",
           "Trading companies",
           "New e-commerce ventures"
+        ],
+        "subservices": [
+          {
+            "id": "online-store",
+            "title": "Online Store Development",
+            "description": "A complete store for presenting products, receiving orders, and managing the web shopping experience."
+          },
+          {
+            "id": "multi-vendor-store",
+            "title": "Multi-vendor Stores",
+            "description": "Platforms that bring multiple sellers into one store with product, order, and permission workflows defined by scope."
+          },
+          {
+            "id": "payment-shipping-integration",
+            "title": "Payment & Shipping Integration",
+            "description": "Connecting available payment methods and shipping services to fit the market and project environment."
+          },
+          {
+            "id": "products-orders-management",
+            "title": "Product & Order Management",
+            "description": "Managing products, inventory, orders, and operational states through a clear admin experience."
+          },
+          {
+            "id": "store-redesign-optimization",
+            "title": "Existing Store Improvement",
+            "description": "Improving an existing store's interface, navigation, performance, and purchase journey."
+          }
         ],
         "deliverables": [
           {
@@ -824,6 +956,33 @@ const serviceRecords = [
           "المشاريع الناشئة",
           "المشاريع ذات المتطلبات الخاصة"
         ],
+        "subservices": [
+          {
+            "id": "management-systems",
+            "title": "أنظمة الإدارة",
+            "description": "أنظمة تساعد على تنظيم البيانات والعمليات والمتابعة داخل الشركة أو المؤسسة."
+          },
+          {
+            "id": "custom-systems",
+            "title": "أنظمة مخصصة",
+            "description": "برمجيات تُبنى حسب إجراءات ومتطلبات المشروع بدل فرض نظام جاهز لا يناسبه."
+          },
+          {
+            "id": "dashboards",
+            "title": "لوحات التحكم",
+            "description": "واجهات إدارية لعرض البيانات وإدارة المستخدمين والمحتوى والعمليات من مكان واحد."
+          },
+          {
+            "id": "process-automation",
+            "title": "أتمتة العمليات",
+            "description": "تحويل الخطوات اليدوية المتكررة إلى تدفقات رقمية تقلل الوقت والتكرار."
+          },
+          {
+            "id": "apis-integrations",
+            "title": "واجهات API والتكاملات",
+            "description": "بناء وربط واجهات برمجية لتبادل البيانات بين الأنظمة والخدمات المختلفة."
+          }
+        ],
         "deliverables": [
           {
             "title": "أنظمة إدارية وتشغيلية",
@@ -943,6 +1102,33 @@ const serviceRecords = [
           "Internal operations",
           "Startups",
           "Projects with specialized requirements"
+        ],
+        "subservices": [
+          {
+            "id": "management-systems",
+            "title": "Management Systems",
+            "description": "Systems that organize data, operations, and follow-up inside companies and organizations."
+          },
+          {
+            "id": "custom-systems",
+            "title": "Custom Systems",
+            "description": "Software built around the project's own workflows and requirements instead of forcing an unsuitable ready-made system."
+          },
+          {
+            "id": "dashboards",
+            "title": "Admin Dashboards",
+            "description": "Administrative interfaces for data, users, content, and operations in one place."
+          },
+          {
+            "id": "process-automation",
+            "title": "Process Automation",
+            "description": "Turning repetitive manual steps into digital workflows that reduce time and duplication."
+          },
+          {
+            "id": "apis-integrations",
+            "title": "APIs & Integrations",
+            "description": "Building and connecting APIs so different systems and services can exchange data reliably."
+          }
         ],
         "deliverables": [
           {
@@ -1076,6 +1262,33 @@ const serviceRecords = [
           "فرق العمل",
           "المشاريع التي تحتاج مسارًا تقنيًا أوضح"
         ],
+        "subservices": [
+          {
+            "id": "systems-integration",
+            "title": "تكامل الأنظمة",
+            "description": "ربط أنظمة وخدمات مختلفة لتبادل البيانات وتنفيذ العمليات ضمن مسار واحد."
+          },
+          {
+            "id": "cloud-solutions",
+            "title": "الحلول السحابية",
+            "description": "ترتيب البنية والخدمات السحابية المناسبة لاستضافة وتشغيل الحلول الرقمية حسب الحاجة."
+          },
+          {
+            "id": "third-party-services",
+            "title": "ربط خدمات الطرف الثالث",
+            "description": "دمج خدمات مثل البريد والرسائل والتخزين والتحليلات وغيرها عند توفر واجهات الربط المناسبة."
+          },
+          {
+            "id": "technical-consulting",
+            "title": "الاستشارات والحلول التقنية",
+            "description": "مراجعة الاحتياج والمشكلة التقنية واقتراح مسار عملي يناسب المشروع ومرحلته."
+          },
+          {
+            "id": "technical-improvements",
+            "title": "تحسين الأنظمة والحلول القائمة",
+            "description": "تحسين بنية أو أداء أو تكامل حل موجود بدل إعادة بنائه بالكامل عندما يكون ذلك أنسب."
+          }
+        ],
         "deliverables": [
           {
             "title": "ربط الأنظمة والخدمات",
@@ -1191,6 +1404,33 @@ const serviceRecords = [
           "Internal processes",
           "Growing businesses",
           "Projects with integration needs"
+        ],
+        "subservices": [
+          {
+            "id": "systems-integration",
+            "title": "Systems Integration",
+            "description": "Connecting different systems and services so data and operations can move through one coordinated flow."
+          },
+          {
+            "id": "cloud-solutions",
+            "title": "Cloud Solutions",
+            "description": "Organizing suitable cloud infrastructure and services for hosting and running digital products as needed."
+          },
+          {
+            "id": "third-party-services",
+            "title": "Third-party Service Integration",
+            "description": "Integrating email, messaging, storage, analytics, and other services when suitable APIs are available."
+          },
+          {
+            "id": "technical-consulting",
+            "title": "Technical Consulting & Solutions",
+            "description": "Reviewing the technical need or problem and defining a practical path that fits the project stage."
+          },
+          {
+            "id": "technical-improvements",
+            "title": "Existing Solution Improvements",
+            "description": "Improving the structure, performance, or integrations of an existing solution when a full rebuild is unnecessary."
+          }
         ],
         "deliverables": [
           {
@@ -1320,6 +1560,28 @@ const serviceRecords = [
           "العلامات التجارية",
           "المشاريع الجديدة"
         ],
+        "subservices": [
+          {
+            "id": "company-profile",
+            "title": "بروفايل شركة",
+            "description": "ملف تعريفي يقدم الشركة وخدماتها ونقاط قوتها ومعلومات التواصل ضمن تصميم احترافي."
+          },
+          {
+            "id": "organization-profile",
+            "title": "بروفايل مؤسسة",
+            "description": "ملف منظم للمؤسسات والجهات يوضح التعريف والأهداف والخدمات أو البرامج بصورة واضحة."
+          },
+          {
+            "id": "services-profile",
+            "title": "بروفايل خدمات",
+            "description": "عرض مركز للخدمات والحلول مع شرح مبسط يساعد العميل على فهم ما تقدمه الجهة."
+          },
+          {
+            "id": "corporate-presentations",
+            "title": "عروض تقديمية للشركات",
+            "description": "عروض احترافية للاجتماعات والعروض التجارية والتعريف بالمشاريع والخدمات."
+          }
+        ],
         "deliverables": [
           {
             "title": "ترتيب الرسالة والمحتوى",
@@ -1427,6 +1689,28 @@ const serviceRecords = [
           "Service providers",
           "Brands",
           "New businesses"
+        ],
+        "subservices": [
+          {
+            "id": "company-profile",
+            "title": "Company Profile",
+            "description": "A professional document presenting the company, services, strengths, and contact information."
+          },
+          {
+            "id": "organization-profile",
+            "title": "Organization Profile",
+            "description": "A structured profile for organizations that explains identity, goals, services, or programs clearly."
+          },
+          {
+            "id": "services-profile",
+            "title": "Services Profile",
+            "description": "A focused presentation of services and solutions that helps clients understand what the organization provides."
+          },
+          {
+            "id": "corporate-presentations",
+            "title": "Corporate Presentations",
+            "description": "Professional presentations for meetings, commercial proposals, projects, and service introductions."
+          }
         ],
         "deliverables": [
           {
@@ -1548,6 +1832,33 @@ const serviceRecords = [
           "المبادرات",
           "تجديد الهوية"
         ],
+        "subservices": [
+          {
+            "id": "logo-design",
+            "title": "تصميم الشعار",
+            "description": "تصميم شعار يعبر عن شخصية المشروع ويصلح للاستخدام عبر المنصات والتطبيقات الأساسية."
+          },
+          {
+            "id": "visual-identity",
+            "title": "تصميم الهوية البصرية",
+            "description": "بناء نظام بصري متناسق يشمل الألوان والخطوط والعناصر التي توحّد حضور العلامة."
+          },
+          {
+            "id": "social-media-templates",
+            "title": "قوالب السوشيال ميديا",
+            "description": "قوالب مرنة تساعد العلامة على نشر محتوى متناسق وسهل التحديث."
+          },
+          {
+            "id": "print-design",
+            "title": "تصميم المطبوعات",
+            "description": "تصميم مواد مثل البطاقات والبروشورات والملفات والمطبوعات المرتبطة بالهوية."
+          },
+          {
+            "id": "brand-assets",
+            "title": "تطبيقات ومواد الهوية",
+            "description": "تجهيز استخدامات الهوية على المواد الرقمية والمطبوعة التي يحتاجها المشروع."
+          }
+        ],
         "deliverables": [
           {
             "title": "استراتيجية واتجاه بصري",
@@ -1659,6 +1970,33 @@ const serviceRecords = [
           "Commercial pages",
           "Initiatives",
           "Brand refresh projects"
+        ],
+        "subservices": [
+          {
+            "id": "logo-design",
+            "title": "Logo Design",
+            "description": "A logo that reflects the project's character and works across the main digital and physical uses."
+          },
+          {
+            "id": "visual-identity",
+            "title": "Visual Identity Design",
+            "description": "A consistent visual system of colors, typography, and brand elements that unifies the brand presence."
+          },
+          {
+            "id": "social-media-templates",
+            "title": "Social Media Templates",
+            "description": "Flexible templates that help the brand publish consistent content that is easy to update."
+          },
+          {
+            "id": "print-design",
+            "title": "Print Design",
+            "description": "Design for business cards, brochures, profiles, and other printed brand materials."
+          },
+          {
+            "id": "brand-assets",
+            "title": "Brand Applications & Assets",
+            "description": "Preparing the brand identity for the digital and print materials the project actually needs."
+          }
         ],
         "deliverables": [
           {
@@ -1784,6 +2122,33 @@ const serviceRecords = [
           "المشاريع",
           "الشركات"
         ],
+        "subservices": [
+          {
+            "id": "social-media-management",
+            "title": "إدارة حسابات التواصل",
+            "description": "تنظيم حضور العلامة على منصات التواصل من حيث النشر والمتابعة وتناسق الرسالة."
+          },
+          {
+            "id": "content-creation",
+            "title": "صناعة المحتوى",
+            "description": "إعداد محتوى نصي وبصري يخدم أهداف العلامة ويتناسب مع قنواتها وجمهورها."
+          },
+          {
+            "id": "ad-campaigns",
+            "title": "الحملات الإعلانية",
+            "description": "تجهيز وإدارة حملات مدفوعة للوصول إلى جمهور محدد وفق الهدف والميزانية المعتمدة."
+          },
+          {
+            "id": "marketing-plans",
+            "title": "الخطط التسويقية",
+            "description": "وضع خطة محتوى وقنوات ورسائل تساعد على تنظيم النشاط التسويقي خلال فترة محددة."
+          },
+          {
+            "id": "digital-presence-optimization",
+            "title": "تحسين الحضور الرقمي",
+            "description": "مراجعة نقاط الظهور الرقمية وتوحيد الرسائل وتحسين تجربة الوصول إلى العلامة وخدماتها."
+          }
+        ],
         "deliverables": [
           {
             "title": "استراتيجية الرسائل والمحتوى",
@@ -1899,6 +2264,33 @@ const serviceRecords = [
           "Emerging brands",
           "Projects",
           "Companies"
+        ],
+        "subservices": [
+          {
+            "id": "social-media-management",
+            "title": "Social Media Management",
+            "description": "Organizing the brand's social presence across publishing, follow-up, and message consistency."
+          },
+          {
+            "id": "content-creation",
+            "title": "Content Creation",
+            "description": "Creating written and visual content aligned with the brand goals, channels, and audience."
+          },
+          {
+            "id": "ad-campaigns",
+            "title": "Advertising Campaigns",
+            "description": "Preparing and managing paid campaigns to reach defined audiences within the approved goal and budget."
+          },
+          {
+            "id": "marketing-plans",
+            "title": "Marketing Plans",
+            "description": "Defining content, channels, and messaging to organize marketing activity over a specific period."
+          },
+          {
+            "id": "digital-presence-optimization",
+            "title": "Digital Presence Optimization",
+            "description": "Reviewing digital touchpoints, aligning messaging, and improving how people discover the brand and its services."
+          }
         ],
         "deliverables": [
           {

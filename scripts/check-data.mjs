@@ -114,12 +114,14 @@ for (const service of services) {
       fail(scope, "English is READY but English service SEO is incomplete");
     }
   }
-  if (!Array.isArray(service.content?.ar?.deliverables) || !service.content.ar.deliverables.length) {
-    fail(scope, "Arabic deliverables missing");
-  }
-  if (service.fieldState.problemNeed === "READY" && !service.content?.ar?.decision?.problemNeed) {
-    fail(scope, "problemNeed is READY but decision.problemNeed is missing");
-  }
+  const arSubservices = service.content?.ar?.subservices ?? [], enSubservices = service.content?.en?.subservices ?? [];
+  if (!arSubservices.length || !enSubservices.length) fail(scope, "localized subservices missing");
+  const arSubserviceIds = arSubservices.map((item) => item.id), enSubserviceIds = enSubservices.map((item) => item.id);
+  if (new Set(arSubserviceIds).size !== arSubserviceIds.length || new Set(enSubserviceIds).size !== enSubserviceIds.length) fail(scope, "duplicate subservice id");
+  if (arSubserviceIds.join("|") !== enSubserviceIds.join("|")) fail(scope, "Arabic/English subservice ids must match");
+  for (const locale of ["ar","en"]) for (const item of service.content?.[locale]?.subservices ?? []) if (!item.id || !item.title || !item.description) fail(scope, `${locale} subservice is incomplete`);
+  if (!Array.isArray(service.content?.ar?.deliverables) || !service.content.ar.deliverables.length) fail(scope, "Arabic deliverables missing");
+  if (service.fieldState.problemNeed === "READY" && !service.content?.ar?.decision?.problemNeed) fail(scope, "problemNeed is READY but decision.problemNeed is missing");
   if (["PARTIAL", "READY"].includes(service.fieldState.constraintsDependencies)) {
     if (!Array.isArray(service.content?.ar?.constraints) || !service.content.ar.constraints.length) {
       fail(scope, "constraintsDependencies has content state but constraints are missing");

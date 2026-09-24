@@ -30,6 +30,12 @@
 .service-audience__list{display:flex;flex-wrap:wrap;gap:var(--space-2)}
 .service-audience__list li{padding:.55rem .8rem;background:var(--color-bg-soft);border:var(--border-thin) solid var(--color-border-subtle);border-radius:var(--radius-full);color:var(--color-text-secondary);font-size:var(--font-size-sm);font-weight:var(--font-weight-medium)}
 
+.service-subservices__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:var(--border-thin) solid var(--color-border-default)}
+.service-subservice{padding:var(--space-6);border-bottom:var(--border-thin) solid var(--color-border-default)}
+.service-subservice:nth-child(odd){border-inline-end:var(--border-thin) solid var(--color-border-default)}
+.service-subservice h3{margin-bottom:var(--space-2);font-size:clamp(1.05rem,.98rem + .22vw,1.25rem)}
+.service-subservice p{max-width:44rem;color:var(--color-text-secondary);font-size:var(--font-size-sm);line-height:1.72}
+
 .service-deliverables__list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:var(--border-thin) solid var(--color-border-default)}
 .service-deliverable{display:grid;grid-template-columns:3rem minmax(0,1fr);gap:var(--space-4);padding:var(--space-6);border-bottom:var(--border-thin) solid var(--color-border-default)}
 .service-deliverable:nth-child(odd){border-inline-end:var(--border-thin) solid var(--color-border-default)}
@@ -84,7 +90,11 @@
   .service-detail-hero__actions .button{width:100%}
   .service-decision-panel>div{padding:var(--space-4)}
   .service-decision-panel p{font-size:.88rem;line-height:1.62}
-  .service-signals__grid,.service-deliverables__list,.service-proof__grid{grid-template-columns:1fr}
+  .service-signals__grid,.service-subservices__grid,.service-deliverables__list,.service-proof__grid{grid-template-columns:1fr}
+  .service-subservice{padding:var(--space-4) 0}
+  .service-subservice:nth-child(odd){border-inline-end:0}
+  .service-subservice h3{font-size:1rem}
+  .service-subservice p{font-size:.88rem;line-height:1.65}
   .service-signal{grid-template-columns:2rem minmax(0,1fr);gap:var(--space-3);padding:var(--space-4) 0}
   .service-signal+ .service-signal{border-inline-start:0;border-top:var(--border-thin) solid var(--color-border-default)}
   .service-signal h2{font-size:1.02rem}
