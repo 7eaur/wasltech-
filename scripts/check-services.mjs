@@ -12,7 +12,7 @@ const errors = [];
 
 function fail(scope,message){ errors.push(`${scope}: ${message}`); }
 function outputPath(route){ return route === "/" ? "index.html" : path.join(route.replace(/^\//,""),"index.html"); }
-function htmlText(value=""){ return String(value).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;"); }
+function htmlText(value=""){ return String(value).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;"); }
 
 const page = pages.find((item)=>item.id==="services");
 if (!page) fail("services","canonical Services page missing");

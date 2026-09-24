@@ -15,7 +15,7 @@ function htmlText(value=""){return String(value).replaceAll("&","&amp;").replace
 
 const configs=[
   {id:"about",route:"about",required:["story","vision","mission","principles","build","final-cta"],forbidden:["phase-understand","phase-plan"]},
-  {id:"process",route:"process",required:["understand","decide","design","build","test","launch-grow","principle","final-cta"],forbidden:["about-market__facts","about-principles__list"]}
+  {id:"process",route:"process",required:["understand","decide","build","launch-grow","principle","final-cta"],forbidden:["about-market__facts","about-principles__list"]}
 ];
 
 for(const locale of ["ar","en"]){

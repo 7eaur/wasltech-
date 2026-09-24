@@ -92,7 +92,7 @@ for (const locale of ["ar", "en"]) {
     }
   }
 
-  const sectionOrder = ["services", "work", "about", "process", "faq"];
+  const sectionOrder = ["services", "work", "about", "approach", "process", "faq"];
   let lastIndex = -1;
   for (const sectionId of sectionOrder) {
     const index = html.indexOf(`id="${sectionId}"`);
