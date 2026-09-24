@@ -3,8 +3,8 @@
   .motion-enabled .editorial-hero-media{animation:wt-hero-media-in 560ms var(--ease-enter) 40ms both}
 
   .motion-enabled .motion-reveal{
-    opacity:0;
-    transform:translate3d(0,.75rem,0);
+    opacity:.88;
+    transform:translate3d(0,.5rem,0);
     transition:
       opacity 420ms var(--ease-enter),
       transform 500ms var(--ease-enter);
@@ -25,6 +25,6 @@
 }
 
 @media(max-width:53.75rem) and (prefers-reduced-motion:no-preference){
-  .motion-enabled .motion-reveal{transform:translate3d(0,.5rem,0);transition-duration:360ms,420ms}
+  .motion-enabled .motion-reveal{opacity:.92;transform:translate3d(0,.35rem,0);transition-duration:360ms,420ms}
   .motion-enabled .motion-reveal.motion-reveal--visible{transform:translate3d(0,0,0)}
 }
