@@ -87,22 +87,6 @@ async function buildAssets() {
   await cp(path.join(ROOT, "assets/brand"), path.join(DIST, "assets/brand"), {
     recursive: true
   });
-  for (const image of ["about_1.png", "about_2.png"]) {
-    await cp(path.join(ROOT, "assets", image), path.join(DIST, "assets", image));
-  }
-  const editorialImages = [
-    "hero_blog.png",
-    "hero_contact.png",
-    "hero_portfolio.png",
-    "hero_process.png",
-    "blog_brand.png",
-    "blog_ecommerce.png",
-    "blog_web.png"
-  ];
-  await mkdir(path.join(DIST, "assets/gen"), { recursive: true });
-  for (const image of editorialImages) {
-    await cp(path.join(ROOT, "assets/gen", image), path.join(DIST, "assets/gen", image));
-  }
   const siteMediaImages = ["home-hero.webp", "about-us.webp"];
   await mkdir(path.join(DIST, "assets/media"), { recursive: true });
   for (const image of siteMediaImages) {
