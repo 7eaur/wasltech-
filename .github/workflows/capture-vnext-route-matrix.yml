@@ -339,6 +339,8 @@ jobs:
             await session.send("Emulation.setCPUThrottlingRate", { rate: 4 });
 
             await page.addInitScript(() => {
+              Object.defineProperty(navigator, "deviceMemory", { configurable: true, get: () => 2 });
+              Object.defineProperty(navigator, "hardwareConcurrency", { configurable: true, get: () => 2 });
               window.__waslLongTasks = [];
               try {
                 const observer = new PerformanceObserver((list) => {
@@ -366,6 +368,7 @@ jobs:
             const metrics = await page.evaluate(() => ({
               textLength: document.body.innerText.trim().length,
               motionEnabled: document.documentElement.classList.contains("motion-enabled"),
+              motionTargets: document.querySelectorAll(".motion-reveal").length,
               longTasks: window.__waslLongTasks ?? [],
               overlyTransparentVisible: [...document.querySelectorAll(".motion-reveal")].filter((node) => {
                 const rect = node.getBoundingClientRect();
@@ -378,7 +381,8 @@ jobs:
             if (domReadyMs > 8000) throw new Error(`Degraded runtime DOM ready too slow: ${domReadyMs}ms`);
             if (maxLongTask > 250) throw new Error(`Degraded runtime long task too high: ${maxLongTask.toFixed(1)}ms`);
             if (metrics.textLength < 500) throw new Error("Degraded runtime rendered too little content.");
-            if (!metrics.motionEnabled) throw new Error("Degraded runtime motion enhancement did not initialize.");
+            if (metrics.motionEnabled) throw new Error("Degraded low-power runtime must disable optional presentation motion.");
+            if (metrics.motionTargets) throw new Error(`Degraded low-power runtime created motion targets: ${metrics.motionTargets}`);
             if (metrics.overlyTransparentVisible) throw new Error(`Visible motion targets became too transparent: ${metrics.overlyTransparentVisible}`);
 
             await context.close();
