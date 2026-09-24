@@ -118,7 +118,7 @@ function renderServices(content, locale) {
     return `
       <article class="home-service-card">
         <a class="home-service-card__media" href="${routes.service(service.slug, locale)}" aria-label="${escapeHtml(item.title)}">
-          <img src="${service.image}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" width="800" height="533">
+          <img src="${service.image}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" width="1280" height="720">
         </a>
         <div class="home-service-card__body">
           <h3><a href="${routes.service(service.slug, locale)}">${escapeHtml(item.title)}</a></h3>
