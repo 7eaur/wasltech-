@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { routes } from "../src/config/routes.js";
+import { site } from "../src/config/site.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist");
@@ -68,12 +69,36 @@ for (const contract of [
 
 const footerSource = await readFile(path.join(ROOT, "src/components/Footer.js"), "utf8");
 for (const contract of [
-  '<bdi dir="ltr">${site.contact.phoneDisplay}</bdi>',
-  '<bdi dir="ltr">${site.contact.email}</bdi>',
-  '<bdi dir="ltr">${escapeHtml(site.contact.instagram.handle)}</bdi>'
+  "footer-social",
+  "footer-contact__icon-wrap",
+  "site.contact.whatsapp",
+  "site.contact.phoneUri",
+  "site.contact.email",
+  "site.contact.domain",
+  "site.contact.social"
 ]) {
   if (!footerSource.includes(contract)) {
-    fail("src/components/Footer.js", `missing RTL-safe footer contact contract: ${contract}`);
+    fail("src/components/Footer.js", `missing shared footer contract: ${contract}`);
+  }
+}
+
+for (const locale of ["ar", "en"]) {
+  const file = outputPath(routes.home(locale));
+  const html = await readFile(path.join(DIST, file), "utf8");
+  const renderedContracts = [
+    `href="${site.contact.whatsapp}"`,
+    `href="tel:${site.contact.phoneUri}"`,
+    `href="mailto:${site.contact.email}"`,
+    `<bdi dir="ltr">${site.contact.phoneDisplay}</bdi>`,
+    `<bdi dir="ltr">${site.contact.email}</bdi>`,
+    `<bdi dir="ltr">${site.contact.domain}</bdi>`,
+    ...Object.values(site.contact.social).map((url) => `href="${url}"`)
+  ];
+
+  for (const contract of renderedContracts) {
+    if (!html.includes(contract)) {
+      fail(file, `missing rendered footer contact/social contract: ${contract}`);
+    }
   }
 }
 
