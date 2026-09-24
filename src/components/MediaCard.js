@@ -12,7 +12,7 @@ function renderAttributes(attributes){
 }
 
 export function MediaCard({
-  href,
+  href="",
   image,
   kicker="",
   title,
@@ -24,9 +24,10 @@ export function MediaCard({
   className="",
   attributes={}
 }){
-  if(!href || !title) throw new Error("MediaCard requires href and title.");
+  if(!title) throw new Error("MediaCard requires title.");
   if(!image?.src) throw new Error("MediaCard requires image.src.");
   if(!headingLevels.has(headingLevel)) throw new Error("MediaCard headingLevel must be 2 or 3.");
+  if(actionLabel && !href) throw new Error("MediaCard actionLabel requires href.");
 
   const heading=`h${headingLevel}`;
   const classes=[
@@ -39,15 +40,20 @@ export function MediaCard({
   const width=Number(image.width ?? 1280);
   const height=Number(image.height ?? 720);
   const alt=image.alt ?? title;
+  const imageMarkup=`<img src="${escapeHtml(image.src)}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async" width="${width}" height="${height}">`;
+  const media=href
+    ? `<a class="media-card__media" href="${escapeHtml(href)}" aria-label="${escapeHtml(title)}">${imageMarkup}</a>`
+    : `<figure class="media-card__media">${imageMarkup}</figure>`;
+  const titleMarkup=href
+    ? `<a href="${escapeHtml(href)}">${escapeHtml(title)}</a>`
+    : escapeHtml(title);
 
   return `
     <article class="${escapeHtml(classes)}"${attrs}>
-      <a class="media-card__media" href="${escapeHtml(href)}" aria-label="${escapeHtml(title)}">
-        <img src="${escapeHtml(image.src)}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async" width="${width}" height="${height}">
-      </a>
+      ${media}
       <div class="media-card__copy">
         ${kicker ? `<p class="eyebrow">${escapeHtml(kicker)}</p>` : ""}
-        <${heading} class="media-card__title"><a href="${escapeHtml(href)}">${escapeHtml(title)}</a></${heading}>
+        <${heading} class="media-card__title">${titleMarkup}</${heading}>
         ${body ? `<p class="media-card__body">${escapeHtml(body)}</p>` : ""}
         ${actionLabel ? `<a class="text-link media-card__action" href="${escapeHtml(href)}">${escapeHtml(actionLabel)}</a>` : ""}
       </div>

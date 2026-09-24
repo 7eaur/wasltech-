@@ -141,7 +141,6 @@ function renderProof(service, locale) {
         })}
         <div class="service-proof__grid">
           ${projects.map((project)=>MediaCard({
-            href:routes.project(project.slug,locale),
             image:{
               src:project.image,
               alt:project.content[locale].title,
