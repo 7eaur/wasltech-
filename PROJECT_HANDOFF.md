@@ -1,5 +1,24 @@
 # Wasl Tech VNext — Conversation Handoff
 
+## 2026-09-24 — Canonical marketing content baseline
+Source of truth for the new marketing voice:
+- source commit: `b87872d12adcc836018fe61a7ef1556f04aa5b86`
+- file: `إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md`
+- the file has been copied unchanged into the active VNext branch for future reference.
+
+Implementation state:
+- canonical page copy updated for Home, Services, About, Portfolio, Process, Contact, and Project Planner;
+- all eight service records updated with outcome-led positioning, problem/need, scope, deliverables, and CTA copy;
+- FAQ decision-support wording updated;
+- Home trust signals, Why Wasl Tech, and six-step process updated;
+- no packages or public pricing introduced;
+- no unverified metrics or testimonials introduced;
+- keep project outcome claims limited to what existing project records actually establish;
+- do not revert to generic CTAs such as “تعرف أكثر / المزيد / ابدأ الآن” where a contextual CTA is available.
+
+Production remains `main`; do not cut over without explicit user approval.
+
+
 ## 2026-09-24 — Footer, typography, and About refresh
 - Footer contact details are compact text rows without contact icons; social links remain unchanged.
 - Site-wide text flow now uses available layout width more naturally across mobile and desktop instead of narrow fixed heading measures.

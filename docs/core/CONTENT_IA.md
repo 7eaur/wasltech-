@@ -1,5 +1,36 @@
 # Wasl Tech VNext — Content, Information Architecture & Writing System
 
+## 2026-09-24 — Marketing IA override
+This section overrides older marketing-copy guidance where it conflicts.
+
+Canonical source: `إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md` from commit `b87872d12adcc836018fe61a7ef1556f04aa5b86`.
+
+### Positioning
+Wasl Tech is presented as a partner for building digital products, systems/solutions, and brand presence from a real business need through launch.
+
+### Public journey
+- start from the problem or desired outcome;
+- show the relevant service family without forcing the visitor to know the technical label;
+- prove capability through real work and documented deliverables;
+- explain a reviewable working process;
+- move to Project Planner or direct contact.
+
+### Commercial constraints
+- no package catalogue or public package comparison;
+- no invented prices, metrics, testimonials, outcomes, timelines, SLAs, certifications, or guarantees;
+- support/maintenance language must stay conditional on the agreed project scope;
+- contextual CTA labels are preferred over generic “learn more” wording.
+
+### Core Home sequence
+Hero → Services → Selected Work / evidence → About → Why Wasl Tech → Process → Short FAQ → Compact final CTA → Footer.
+
+### Process model
+Understand → Decide → Design → Build → Test → Launch & Evolve.
+
+### Service-detail model
+Outcome-led Hero → problem/need → solution/scope → audience → deliverables → scope-dependent constraints → process → related real work → service FAQ → contextual CTA.
+
+
 Status: CANONICAL CONTENT/IA AUTHORITY
 
 ## 1. Content principle

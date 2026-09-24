@@ -34,7 +34,7 @@ function renderHero(project,locale) {
           <h1>${escapeHtml(copy.title)}</h1>
           <div class="project-detail-hero__summary">
             <p>${escapeHtml(copy.summary)}</p>
-            <a class="text-link" href="#project-story">${locale === "ar" ? "داخل المشروع" : "Inside the project"}</a>
+            <a class="text-link" href="#project-story">${locale === "ar" ? "اقرأ دراسة الحالة" : "Read the case study"}</a>
           </div>
         </div>
         ${HeroMedia({...getProjectHeroMedia(project, locale), className:"project-detail-hero__media"})}
@@ -153,10 +153,10 @@ function renderRelated(project,locale) {
 
 function renderCta(project,locale) {
   return CallToAction({
-    kicker:locale === "ar" ? "مشروعك التالي" : "Your next project",
-    title:locale === "ar" ? "عندك فكرة قريبة؟ نبدأ من احتياجك أنت." : "Have a similar direction in mind? We start from your own need.",
-    description:locale === "ar" ? "شاركنا ما تريد بناءه أو تحسينه، ونرتب معك النطاق المناسب بدل نسخ مشروع جاهز." : "Tell us what you want to build or improve, and we will shape the scope around your project rather than copying an existing one.",
-    action:{href:routes.startProject(locale),label:locale === "ar" ? "ابدأ مشروعك" : "Start your project"}
+    kicker:locale === "ar" ? "تحدٍ مشابه؟" : "A similar challenge?",
+    title:locale === "ar" ? "لديك تحدٍ مشابه؟ ناقش الحل معنا." : "Have a similar challenge? Discuss the solution with us.",
+    description:locale === "ar" ? "شاركنا المشكلة أو النتيجة التي تريدها، ونبدأ من سياق مشروعك قبل اقتراح الحل." : "Share the problem or outcome you want, and we will start from your project context before proposing a solution.",
+    action:{href:routes.startProject(locale),label:locale === "ar" ? "ناقش حلًا مشابهًا" : "Discuss a similar solution"}
   });
 }
 

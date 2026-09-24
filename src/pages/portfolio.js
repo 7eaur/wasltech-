@@ -43,7 +43,7 @@ function renderProject(project,locale,index) {
     kicker:project.platformType[locale],
     title:copy.title,
     body:copy.summary,
-    actionLabel:locale === "ar" ? "داخل المشروع" : "Inside the project",
+    actionLabel:locale === "ar" ? "اقرأ دراسة الحالة" : "Read the case study",
     headingLevel:2,
     featured:index===0,
     attributes:{"data-project-card":true,"data-category":project.category}
