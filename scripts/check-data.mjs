@@ -114,6 +114,22 @@ for (const service of services) {
       fail(scope, "English is READY but English service SEO is incomplete");
     }
   }
+  if (!Array.isArray(service.content?.ar?.subservices) || !service.content.ar.subservices.length) {
+    fail(scope, "Arabic subservices missing");
+  }
+  if (!Array.isArray(service.content?.en?.subservices) || !service.content.en.subservices.length) {
+    fail(scope, "English subservices missing");
+  }
+  const arSubserviceIds = service.content?.ar?.subservices?.map((item) => item.id) ?? [];
+  const enSubserviceIds = service.content?.en?.subservices?.map((item) => item.id) ?? [];
+  if (new Set(arSubserviceIds).size !== arSubserviceIds.length) fail(scope, "duplicate Arabic subservice id");
+  if (new Set(enSubserviceIds).size !== enSubserviceIds.length) fail(scope, "duplicate English subservice id");
+  if (arSubserviceIds.join("|") !== enSubserviceIds.join("|")) fail(scope, "Arabic/English subservice ids must match");
+  for (const locale of ["ar","en"]) {
+    for (const item of service.content?.[locale]?.subservices ?? []) {
+      if (!item.id || !item.title || !item.description) fail(scope, `${locale} subservice is incomplete`);
+    }
+  }
   if (!Array.isArray(service.content?.ar?.deliverables) || !service.content.ar.deliverables.length) {
     fail(scope, "Arabic deliverables missing");
   }
