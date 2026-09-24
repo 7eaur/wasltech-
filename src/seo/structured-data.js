@@ -11,7 +11,7 @@ export function organizationSchema() {
     logo: absoluteUrl(site.brand.assets.logo),
     email: site.contact.email,
     telephone: site.contact.phoneUri,
-    sameAs: Object.freeze([site.contact.instagram.url])
+    sameAs: Object.freeze(Object.values(site.contact.social))
   });
 }
 
