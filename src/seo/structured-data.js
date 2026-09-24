@@ -15,11 +15,14 @@ export function organizationSchema() {
     name: site.brand.name.en,
     alternateName: site.brand.name.ar,
     url: site.origin,
+    description: site.entity.description,
+    disambiguatingDescription: site.entity.disambiguatingDescription,
+    slogan: site.brand.slogan.en,
     logo: absoluteUrl(site.brand.assets.logo),
     email: site.contact.email,
     telephone: site.contact.phoneUri,
     areaServed: Object.freeze(["Yemen", "Gulf region"]),
-    sameAs: Object.freeze(Object.values(site.contact.social)),
+    sameAs: site.entity.sameAs,
     contactPoint: Object.freeze({
       "@type": "ContactPoint",
       contactType: "customer service",
@@ -39,6 +42,7 @@ export function websiteSchema() {
     name: site.brand.name.en,
     alternateName: site.brand.name.ar,
     url: site.origin,
+    description: site.entity.description,
     inLanguage: Object.freeze(["ar", "en"]),
     publisher: organizationReference()
   });
