@@ -50,7 +50,7 @@
 .service-articles__list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4)}
 .service-article-link{display:flex;min-width:0;flex-direction:column;gap:var(--space-3);padding:var(--space-5);border:var(--border-thin) solid var(--color-border-default);border-radius:var(--radius-lg);background:var(--color-bg-canvas);text-decoration:none}
 .service-article-link span{color:var(--color-text-accent);font-size:var(--font-size-xs);font-weight:var(--font-weight-semibold)}
-.service-article-link strong{color:var(--color-text-brand);font-size:var(--font-size-lg);line-height:var(--line-height-heading)}
+.service-article-link strong{color:var(--color-text-brand);font-size:var(--font-size-lg);line-height:var(--line-heading)}
 .service-article-link p{margin:0;color:var(--color-text-secondary)}
 .service-article-link:hover strong{color:var(--color-text-accent)}
 .service-detail-faq__grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(var(--space-8),7vw,var(--space-20));align-items:start}
