@@ -367,9 +367,10 @@ jobs:
               textLength: document.body.innerText.trim().length,
               motionEnabled: document.documentElement.classList.contains("motion-enabled"),
               longTasks: window.__waslLongTasks ?? [],
-              unrevealedVisible: [...document.querySelectorAll(".motion-reveal")].filter((node) => {
+              overlyTransparentVisible: [...document.querySelectorAll(".motion-reveal")].filter((node) => {
                 const rect = node.getBoundingClientRect();
-                return rect.top < innerHeight && rect.bottom > 0 && getComputedStyle(node).opacity === "0";
+                const opacity = Number.parseFloat(getComputedStyle(node).opacity);
+                return rect.top < innerHeight && rect.bottom > 0 && opacity < 0.75;
               }).length
             }));
 
@@ -378,7 +379,7 @@ jobs:
             if (maxLongTask > 250) throw new Error(`Degraded runtime long task too high: ${maxLongTask.toFixed(1)}ms`);
             if (metrics.textLength < 500) throw new Error("Degraded runtime rendered too little content.");
             if (!metrics.motionEnabled) throw new Error("Degraded runtime motion enhancement did not initialize.");
-            if (metrics.unrevealedVisible) throw new Error(`Visible motion targets remained hidden: ${metrics.unrevealedVisible}`);
+            if (metrics.overlyTransparentVisible) throw new Error(`Visible motion targets became too transparent: ${metrics.overlyTransparentVisible}`);
 
             await context.close();
 
