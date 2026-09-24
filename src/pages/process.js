@@ -8,7 +8,7 @@ import { HeroMedia } from "../components/HeroMedia.js";
 import { getPageHeroMedia } from "../config/hero-media.js";
 
 const record=pages.find((page)=>page.id==="process");
-const phaseIds=Object.freeze(["understand","plan","build","review-launch"]);
+const phaseIds=Object.freeze(["understand","decide","design","build","test","launch-grow"]);
 
 function section(content,id){return content.sections.find((item)=>item.id===id);}
 

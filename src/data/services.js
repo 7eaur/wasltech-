@@ -22,7 +22,7 @@ export const serviceGroups = Object.freeze([
     "order": 2,
     "content": {
       "ar": {
-        "title": "الأنظمة والحلول"
+        "title": "الأنظمة والهندسة"
       },
       "en": { "title": "Systems & Engineering" }
     }
@@ -52,11 +52,11 @@ const serviceRecords = [
     "content": {
       "ar": {
         "title": "تطوير المواقع الإلكترونية",
-        "subtitle": "موقع يعرّف بمشروعك ويقود الزائر للخطوة التالية",
-        "description": "نبني مواقع تجمع بين المحتوى الواضح، تجربة الاستخدام، الأداء، والهوية؛ من الصفحات التعريفية إلى المواقع التي تحتاج إدارة محتوى وربطًا بالخدمات.",
+        "subtitle": "موقع يحول الزيارة إلى فهم وثقة وخطوة تالية.",
+        "description": "نصمم ونطوّر مواقع للشركات والمشاريع التي تريد أن تشرح قيمتها بسرعة، تعرض خدماتها بوضوح، وتمنح الزائر سببًا للتواصل أو الشراء.",
         "decision": {
-          "problemNeed": "عندما يكون لديك مشروع جيد لكن موقعه لا يشرح قيمته بسرعة أو لا يقود الزائر إلى خطوة واضحة.",
-          "scopeSummary": "نرتب المحتوى والصفحات والتجربة والتطوير والإطلاق ضمن موقع متجاوب، مع إدارة محتوى أو تكاملات عند الحاجة."
+          "problemNeed": "موقعك هو أول موظف يقابل عميلك. إذا لم يشرح من أنت وماذا تقدم ولماذا يختارك، فأنت تخسر فرصًا قبل أن يبدأ الحديث.",
+          "scopeSummary": "استراتيجية وهيكل المحتوى، تجربة المستخدم، التصميم، التطوير المتجاوب، صفحات الخدمات والأعمال، النماذج، إدارة المحتوى عند الحاجة، وتجهيز الإطلاق."
         },
         "heroCards": [
           {
@@ -78,35 +78,35 @@ const serviceRecords = [
         ],
         "deliverables": [
           {
-            "title": "واجهة وهوية للموقع",
+            "title": "استراتيجية وهيكل المحتوى",
             "description": "تصميم بصري منسجم مع هوية المشروع ويعطي المحتوى ترتيبًا واضحًا من أول شاشة."
           },
           {
-            "title": "تطوير متجاوب",
+            "title": "تجربة مستخدم ومسار تحويل واضح",
             "description": "تنفيذ يكيّف الصفحات والعناصر مع أحجام الشاشات الأساسية دون كسر التجربة."
           },
           {
-            "title": "هيكلة الصفحات",
+            "title": "تصميم بصري مرتبط بالهوية",
             "description": "ترتيب الرئيسية والخدمات ومن نحن والصفحات الأخرى حول رحلة الزائر وهدف الموقع."
           },
           {
-            "title": "نماذج تواصل",
+            "title": "تطوير متجاوب للجوال والكمبيوتر",
             "description": "نماذج بسيطة تجمع المعلومات المطلوبة وتوجهها إلى قناة التواصل المناسبة."
           },
           {
-            "title": "تجربة استخدام",
+            "title": "صفحات خدمات وأعمال وحالات استخدام",
             "description": "تنقل واضح وأزرار وخطوات مفهومة تقلل التشتت وتساعد الزائر على الوصول لما يحتاجه."
           },
           {
-            "title": "تحسين الأداء",
+            "title": "نماذج تواصل وربط بالقنوات المناسبة",
             "description": "تنظيم الأصول وطريقة التحميل لتقليل الانتظار وتحسين تجربة التصفح."
           },
           {
-            "title": "الدومين والاستضافة",
+            "title": "لوحة تحكم أو إدارة محتوى عند الحاجة",
             "description": "تهيئة وربط الموقع بالنطاق والاستضافة وتجهيزه للعمل عند الإطلاق."
           },
           {
-            "title": "إدارة المحتوى عند الحاجة",
+            "title": "تحسين الأداء وتجهيز الإطلاق",
             "description": "لوحة تحكم أو نظام إدارة يتيح تحديث المحتوى بدون الرجوع إلى الكود في كل تعديل."
           }
         ],
@@ -147,19 +147,19 @@ const serviceRecords = [
           }
         ],
         "constraints": [
-                  "جودة المحتوى والصور المتاحة تؤثر مباشرة على جودة العرض النهائي.",
-                  "أي تكامل مع خدمة خارجية يعتمد على توفر الصلاحيات أو واجهة الربط المناسبة.",
-                  "الدومين والاستضافة وتجهيزات الإطلاق تُرتب حسب بيئة المشروع ونطاقه."
+          "جودة المحتوى والصور المتاحة تؤثر مباشرة على جودة العرض النهائي.",
+          "أي تكامل مع خدمة خارجية يعتمد على توفر الصلاحيات أو واجهة الربط المناسبة.",
+          "الدومين والاستضافة وتجهيزات الإطلاق تُرتب حسب بيئة المشروع ونطاقه."
         ],
         "relatedArticleTopics": [
-                  "كيف تحدد صفحات موقع شركتك قبل بدء التصميم؟",
-                  "متى تحتاج لوحة تحكم في موقعك؟",
-                  "ما الذي يجعل موقع الشركة واضحًا وسهل الاستخدام؟"
+          "كيف تحدد صفحات موقع شركتك قبل بدء التصميم؟",
+          "متى تحتاج لوحة تحكم في موقعك؟",
+          "ما الذي يجعل موقع الشركة واضحًا وسهل الاستخدام؟"
         ],
         "cta": {
-          "title": "عندك مشروع يحتاج موقعًا يليق به؟",
+          "title": "اجعل موقعك يعمل لصالح مشروعك",
           "description": "شاركنا هدف الموقع وما الذي تريد من الزائر أن يفعله، ونرتب معك النطاق المناسب.",
-          "label": "ابدأ موقعك"
+          "label": "خطط لموقعك"
         },
         "seo": {
           "primaryTopic": "تصميم وتطوير مواقع إلكترونية",
@@ -172,11 +172,11 @@ const serviceRecords = [
       },
       "en": {
         "title": "Website Design & Development",
-        "subtitle": "A website that explains your business and guides visitors to the next step",
-        "description": "We build websites that bring clear content, user experience, performance, and brand identity together—from focused company sites to platforms that need content management and service integrations.",
+        "subtitle": "A website that turns a visit into understanding, trust, and a next step.",
+        "description": "We design and build websites for businesses that need to explain their value quickly, present services clearly, and give visitors a reason to contact or buy.",
         "decision": {
-          "problemNeed": "When you have a strong business but the website does not explain its value quickly or guide visitors toward a clear action.",
-          "scopeSummary": "We organize content, pages, experience, development, and launch into one responsive website, with content management or integrations when needed."
+          "problemNeed": "Your website is often the first employee a customer meets. If it cannot explain who you are, what you offer, and why you are worth choosing, opportunities are lost before the conversation starts.",
+          "scopeSummary": "Content strategy and structure, UX, visual design, responsive development, service and work pages, forms, optional CMS, performance, and launch preparation."
         },
         "heroCards": [
           {
@@ -189,44 +189,44 @@ const serviceRecords = [
           }
         ],
         "audiences": [
-                  "Companies",
-                  "Professional offices",
-                  "Service businesses",
-                  "Clinics",
-                  "Organizations",
-                  "Startups"
+          "Companies",
+          "Professional offices",
+          "Service businesses",
+          "Clinics",
+          "Organizations",
+          "Startups"
         ],
         "deliverables": [
           {
-            "title": "Website interface & visual direction",
+            "title": "Content strategy and structure",
             "description": "A visual system aligned with the brand and a page hierarchy that makes the content easier to understand."
           },
           {
-            "title": "Responsive development",
+            "title": "User experience and a clear conversion path",
             "description": "Implementation that adapts layouts and components to key screen sizes without breaking the experience."
           },
           {
-            "title": "Page architecture",
+            "title": "Visual design aligned with the brand",
             "description": "Structuring the homepage, services, about, and supporting pages around the visitor journey and business goal."
           },
           {
-            "title": "Contact forms",
+            "title": "Responsive desktop and mobile development",
             "description": "Simple forms that collect the right information and route it to the appropriate contact channel."
           },
           {
-            "title": "User experience",
+            "title": "Service, work, and use-case pages",
             "description": "Clear navigation, actions, and interaction patterns that reduce friction and help visitors find what they need."
           },
           {
-            "title": "Performance optimization",
+            "title": "Contact forms and channel connections",
             "description": "Asset and loading decisions that reduce unnecessary delay and improve browsing quality."
           },
           {
-            "title": "Domain & hosting setup",
+            "title": "CMS or admin experience when needed",
             "description": "Preparing the website for launch on the selected domain and hosting environment."
           },
           {
-            "title": "Content management when needed",
+            "title": "Performance optimization and launch preparation",
             "description": "A management layer that lets the team update content without editing code for every change."
           }
         ],
@@ -267,19 +267,19 @@ const serviceRecords = [
           }
         ],
         "constraints": [
-                  "The quality of available content and imagery directly affects the final presentation.",
-                  "External integrations depend on access, permissions, or an available integration interface.",
-                  "Domain, hosting, and launch setup are arranged according to the project environment and scope."
+          "The quality of available content and imagery directly affects the final presentation.",
+          "External integrations depend on access, permissions, or an available integration interface.",
+          "Domain, hosting, and launch setup are arranged according to the project environment and scope."
         ],
         "relatedArticleTopics": [
-                  "How do you define the right pages for a company website?",
-                  "When does a website need a content management system?",
-                  "What makes a company website clear and easy to use?"
+          "How do you define the right pages for a company website?",
+          "When does a website need a content management system?",
+          "What makes a company website clear and easy to use?"
         ],
         "cta": {
-          "title": "Need a website that represents the business properly?",
-          "description": "Tell us what the website needs to achieve and what you want visitors to do, and we will help shape the right scope.",
-          "label": "Start your website"
+          "title": "Make your website work for the business",
+          "description": "Tell us what the website needs to achieve and what visitors should do next, and we will shape the scope.",
+          "label": "Plan your website"
         },
         "seo": {
           "primaryTopic": "website design and development",
@@ -304,11 +304,11 @@ const serviceRecords = [
     "content": {
       "ar": {
         "title": "تطوير تطبيقات الجوال",
-        "subtitle": "تطبيق يجعل خدمتك أقرب وأسهل في الاستخدام",
-        "description": "نصمم ونطور تطبيقات مبنية حول رحلة المستخدم، مع ما يحتاجه المشروع من حسابات وإشعارات وربط بالأنظمة وواجهات إدارة حسب النطاق.",
+        "subtitle": "ضع خدمتك في يد العميل بالطريقة التي يتوقعها.",
+        "description": "نحوّل الفكرة إلى تطبيق واضح وسهل الاستخدام، من ترتيب الشاشات وتجربة العميل إلى البرمجة والربط والاختبار والإطلاق.",
         "decision": {
-          "problemNeed": "عندما تحتاج الخدمة أن تكون أقرب للمستخدم على الجوال، لكن الرحلة والوظائف ما تزال موزعة أو غير واضحة.",
-          "scopeSummary": "نحوّل الوظائف الأساسية إلى تجربة تطبيق مترابطة تشمل الواجهات والحسابات والتكاملات والإدارة حسب نطاق المشروع."
+          "problemNeed": "التطبيق الناجح ليس مجموعة شاشات؛ هو أقصر طريق بين حاجة المستخدم والخدمة التي تقدمها.",
+          "scopeSummary": "تحليل المستخدم والوظائف، تجربة الاستخدام، Android وiOS حسب النطاق، الحسابات والإشعارات، API، لوحة الإدارة، الاختبار وتجهيز الإطلاق."
         },
         "heroCards": [
           {
@@ -330,35 +330,35 @@ const serviceRecords = [
         ],
         "deliverables": [
           {
-            "title": "تصميم تجربة التطبيق",
+            "title": "تحليل المستخدم والوظائف الأساسية",
             "description": "بناء تدفقات وشاشات واضحة تراعي طبيعة المستخدم والمهام الأساسية داخل التطبيق."
           },
           {
-            "title": "تطبيق Android",
+            "title": "تجربة استخدام ومسارات واضحة",
             "description": "تنفيذ نسخة أندرويد وفق المتطلبات والوظائف المعتمدة للمشروع."
           },
           {
-            "title": "تطبيق iOS عند الحاجة",
+            "title": "تطبيقات Android وiOS حسب النطاق",
             "description": "تجهيز نسخة iOS عندما يتطلب نطاق المشروع دعم أجهزة Apple."
           },
           {
-            "title": "تكامل API",
+            "title": "حسابات وصلاحيات وإشعارات",
             "description": "ربط التطبيق بالموقع أو النظام أو الخدمات الخلفية لتبادل البيانات والعمليات."
           },
           {
-            "title": "الحسابات وتسجيل الدخول",
+            "title": "ربط API والأنظمة الحالية",
             "description": "تجهيز تدفقات التسجيل والدخول وإدارة الحسابات بما يناسب سيناريو الاستخدام."
           },
           {
-            "title": "الإشعارات",
+            "title": "لوحة إدارة عند الحاجة",
             "description": "إضافة التنبيهات المطلوبة للطلبات أو التحديثات أو الرسائل عندما تكون جزءًا من التجربة."
           },
           {
-            "title": "لوحة إدارة",
+            "title": "اختبار السيناريوهات والأداء",
             "description": "واجهة لإدارة المحتوى والبيانات والعمليات التي يحتاجها فريق المشروع."
           },
           {
-            "title": "اختبار قبل الإطلاق",
+            "title": "تجهيز الإصدار للإطلاق",
             "description": "مراجعة السيناريوهات الأساسية والأداء والسلوك على الأجهزة المستهدفة قبل تجهيز النسخة النهائية."
           }
         ],
@@ -399,19 +399,19 @@ const serviceRecords = [
           }
         ],
         "constraints": [
-                  "المنصات المستهدفة والخصائص الأساسية يجب حسمها ضمن نطاق التطبيق.",
-                  "الربط مع نظام أو موقع قائم يعتمد على توفر API أو وسيلة تكامل مناسبة.",
-                  "النشر على متاجر التطبيقات يرتبط بحسابات ومتطلبات كل منصة."
+          "المنصات المستهدفة والخصائص الأساسية يجب حسمها ضمن نطاق التطبيق.",
+          "الربط مع نظام أو موقع قائم يعتمد على توفر API أو وسيلة تكامل مناسبة.",
+          "النشر على متاجر التطبيقات يرتبط بحسابات ومتطلبات كل منصة."
         ],
         "relatedArticleTopics": [
-                  "كيف تحوّل فكرة التطبيق إلى نطاق قابل للتنفيذ؟",
-                  "هل تبدأ بـ Android أم Android وiOS؟",
-                  "متى يحتاج التطبيق إلى لوحة تحكم وBackend؟"
+          "كيف تحوّل فكرة التطبيق إلى نطاق قابل للتنفيذ؟",
+          "هل تبدأ بـ Android أم Android وiOS؟",
+          "متى يحتاج التطبيق إلى لوحة تحكم وBackend؟"
         ],
         "cta": {
-          "title": "عندك فكرة تحتاج تجربة على الجوال؟",
-          "description": "احكِ لنا عن المستخدم وما الذي يجب أن ينجزه داخل التطبيق، ونبدأ من الوظائف الأساسية.",
-          "label": "ابدأ تطبيقك"
+          "title": "خلّ فكرتك قابلة للاستخدام",
+          "description": "شاركنا الفكرة وما الذي يجب أن ينجزه المستخدم بسهولة، ونرتب معك نطاق التطبيق.",
+          "label": "ابنِ تطبيقك"
         },
         "seo": {
           "primaryTopic": "تطوير تطبيقات الجوال",
@@ -424,11 +424,11 @@ const serviceRecords = [
       },
       "en": {
         "title": "Mobile App Development",
-        "subtitle": "An app that makes your service easier to reach and use",
-        "description": "We design and build mobile apps around real user journeys, with accounts, notifications, system integrations, APIs, and administration features as the project requires.",
+        "subtitle": "Put your service in the customer's hand the way they expect.",
+        "description": "We turn the idea into a clear, usable app—from screen flow and user experience to development, integrations, testing, and launch.",
         "decision": {
-          "problemNeed": "When the service needs to be closer to users on mobile, but the journey and functionality are still fragmented or unclear.",
-          "scopeSummary": "We turn the essential functions into one connected app experience covering interfaces, accounts, integrations, and administration according to scope."
+          "problemNeed": "A successful app is not a collection of screens; it is the shortest clear path between a user need and the service you provide.",
+          "scopeSummary": "User and feature analysis, UX flows, Android and iOS by scope, accounts, notifications, APIs, admin tools, testing, and release preparation."
         },
         "heroCards": [
           {
@@ -441,44 +441,44 @@ const serviceRecords = [
           }
         ],
         "audiences": [
-                  "E-commerce businesses",
-                  "Companies",
-                  "Service providers",
-                  "Startups",
-                  "Internal systems",
-                  "Digital initiatives"
+          "E-commerce businesses",
+          "Companies",
+          "Service providers",
+          "Startups",
+          "Internal systems",
+          "Digital initiatives"
         ],
         "deliverables": [
           {
-            "title": "App experience design",
+            "title": "User and core feature analysis",
             "description": "Clear flows and screens based on user needs and the core tasks inside the product."
           },
           {
-            "title": "Android app",
+            "title": "Clear user experience and flows",
             "description": "Android implementation based on the approved requirements and feature scope."
           },
           {
-            "title": "iOS app when needed",
+            "title": "Android and iOS apps by scope",
             "description": "An iOS version when supporting Apple devices is part of the project scope."
           },
           {
-            "title": "API integration",
+            "title": "Accounts, permissions, and notifications",
             "description": "Connecting the app to an existing website, system, or backend service for data and operations."
           },
           {
-            "title": "Accounts & authentication",
+            "title": "API and existing-system integrations",
             "description": "Registration, sign-in, and account management flows that fit the product scenario."
           },
           {
-            "title": "Push notifications",
+            "title": "Admin dashboard when needed",
             "description": "Relevant notifications for orders, updates, messages, or other product events when needed."
           },
           {
-            "title": "Admin dashboard",
+            "title": "Scenario and performance testing",
             "description": "An interface for the team to manage content, data, and operational workflows."
           },
           {
-            "title": "Pre-launch testing",
+            "title": "Release preparation",
             "description": "Reviewing key scenarios, performance, and behavior on target devices before release."
           }
         ],
@@ -519,19 +519,19 @@ const serviceRecords = [
           }
         ],
         "constraints": [
-                  "Target platforms and core functionality must be defined within the app scope.",
-                  "Integration with an existing system depends on an available API or suitable integration method.",
-                  "Publishing to app stores depends on each platform's account and submission requirements."
+          "Target platforms and core functionality must be defined within the app scope.",
+          "Integration with an existing system depends on an available API or suitable integration method.",
+          "Publishing to app stores depends on each platform's account and submission requirements."
         ],
         "relatedArticleTopics": [
-                  "How do you turn an app idea into an executable scope?",
-                  "Should you start with Android only or Android and iOS?",
-                  "When does an app need a backend and admin dashboard?"
+          "How do you turn an app idea into an executable scope?",
+          "Should you start with Android only or Android and iOS?",
+          "When does an app need a backend and admin dashboard?"
         ],
         "cta": {
-          "title": "Have an idea that belongs on mobile?",
-          "description": "Tell us who the user is and what they need to accomplish in the app, and we will start from the essential functions.",
-          "label": "Start your app"
+          "title": "Make the idea usable",
+          "description": "Tell us what the user needs to accomplish, and we will organize the app scope around that.",
+          "label": "Build your app"
         },
         "seo": {
           "primaryTopic": "mobile app development",
@@ -556,11 +556,11 @@ const serviceRecords = [
     "content": {
       "ar": {
         "title": "المتاجر الإلكترونية",
-        "subtitle": "متجر يرتّب رحلة العميل من المنتج إلى الطلب",
-        "description": "نبني متاجر تنظّم المنتجات والتصفح والسلة والطلبات، مع لوحة إدارة وخيارات الدفع والشحن المتاحة بما يناسب طريقة عمل المتجر.",
+        "subtitle": "متجر يجعل اكتشاف المنتج وطلبه أسهل.",
+        "description": "نبني متجرًا يعرض منتجاتك بطريقة مقنعة، ويرتب تجربة التصفح والسلة والطلب، ويمنح فريقك أدوات واضحة لإدارة المنتجات والطلبات.",
         "decision": {
-          "problemNeed": "عندما تريد البيع أونلاين لكن عرض المنتجات والطلب والدفع والتوصيل يحتاج أن يعمل كرحلة واحدة بدل خطوات منفصلة.",
-          "scopeSummary": "نبني واجهة المتجر وإدارة المنتجات والسلة والطلبات وخيارات الدفع والشحن بما يناسب طريقة تشغيل النشاط."
+          "problemNeed": "المنتج الجيد لا يبيع وحده إذا كان العميل لا يجد ما يريد أو لا يثق في الخطوة التالية.",
+          "scopeSummary": "هيكلة وتصنيف المنتجات، صفحات المنتجات، السلة والطلب، إدارة المنتجات والمخزون، الدفع والشحن حسب المتاح، الحسابات والتنبيهات، والتقارير."
         },
         "heroCards": [
           {
@@ -582,36 +582,32 @@ const serviceRecords = [
         ],
         "deliverables": [
           {
-            "title": "واجهة متجر",
+            "title": "هيكلة وتصنيف المنتجات",
             "description": "تصميم يبرز المنتجات ويجعل التصفح والمقارنة والطلب واضحًا على الجوال والكمبيوتر."
           },
           {
-            "title": "إدارة المنتجات",
+            "title": "صفحات منتجات تقود إلى الشراء",
             "description": "إضافة المنتجات وتحديث بياناتها وأسعارها وصورها من لوحة الإدارة."
           },
           {
-            "title": "تصنيفات وتنظيم",
+            "title": "سلة وطلب وتأكيد واضح",
             "description": "تقسيم المنتجات بطريقة تسهّل البحث والوصول بدل عرضها في قائمة واحدة."
           },
           {
-            "title": "السلة والطلب",
+            "title": "إدارة المنتجات والمخزون عند الحاجة",
             "description": "تجربة مرتبة لإضافة المنتجات ومراجعة الطلب وإكمال بيانات الشراء."
           },
           {
-            "title": "إدارة الطلبات",
+            "title": "الدفع والشحن وفق المزوّدات المتاحة",
             "description": "متابعة الطلبات وحالاتها والبيانات المرتبطة بها من مكان واحد."
           },
           {
-            "title": "خيارات الدفع",
+            "title": "حسابات العملاء والتنبيهات عند الحاجة",
             "description": "إضافة بوابات أو طرق الدفع المتاحة والمناسبة لسوق المشروع عند الحاجة."
           },
           {
-            "title": "الشحن والتوصيل",
+            "title": "تقارير وبيانات تساعد على قراءة أداء المتجر",
             "description": "تهيئة خيارات التوصيل أو الربط المتاح بما يناسب آلية تشغيل المتجر."
-          },
-          {
-            "title": "تقارير ومتابعة",
-            "description": "عرض البيانات الأساسية للمبيعات والطلبات لمساعدة الإدارة على متابعة النشاط."
           }
         ],
         "process": [
@@ -651,19 +647,19 @@ const serviceRecords = [
           }
         ],
         "constraints": [
-                  "بوابات الدفع تعتمد على المزوّدات المتاحة في بلد وسوق المتجر.",
-                  "ربط شركات الشحن أو التوصيل يعتمد على توفر وسيلة تكامل مناسبة.",
-                  "تنظيم المنتجات والصور والأسعار جزء أساسي من جاهزية المتجر للإطلاق."
+          "بوابات الدفع تعتمد على المزوّدات المتاحة في بلد وسوق المتجر.",
+          "ربط شركات الشحن أو التوصيل يعتمد على توفر وسيلة تكامل مناسبة.",
+          "تنظيم المنتجات والصور والأسعار جزء أساسي من جاهزية المتجر للإطلاق."
         ],
         "relatedArticleTopics": [
-                  "ما الذي تحتاجه قبل إطلاق متجر إلكتروني؟",
-                  "كيف تختار طريقة الدفع والتوصيل لمتجرك؟",
-                  "كيف تبني تصنيفات منتجات تسهّل على العميل الشراء؟"
+          "ما الذي تحتاجه قبل إطلاق متجر إلكتروني؟",
+          "كيف تختار طريقة الدفع والتوصيل لمتجرك؟",
+          "كيف تبني تصنيفات منتجات تسهّل على العميل الشراء؟"
         ],
         "cta": {
-          "title": "حوّل منتجاتك إلى تجربة شراء مرتبة.",
-          "description": "شاركنا نوع المنتجات وطريقة الطلب والتوصيل، ونحدد معك ما يحتاجه المتجر من البداية.",
-          "label": "ابدأ متجرك"
+          "title": "حوّل منتجاتك إلى تجربة شراء",
+          "description": "شاركنا نوع المنتجات وطريقة الطلب الحالية وما الذي تريد تحسينه، ونرتب نطاق المتجر.",
+          "label": "خطط لمتجرك"
         },
         "seo": {
           "primaryTopic": "تصميم وتطوير متاجر إلكترونية",
@@ -676,11 +672,11 @@ const serviceRecords = [
       },
       "en": {
         "title": "E-commerce Development",
-        "subtitle": "A store that organizes the customer journey from product to order",
-        "description": "We build e-commerce experiences that organize products, browsing, cart, orders, administration, and available payment and delivery options around how the business actually operates.",
+        "subtitle": "An online store that makes products easier to discover and order.",
+        "description": "We build stores that present products clearly, organize browsing, cart, and ordering, and give the team practical tools to manage products and orders.",
         "decision": {
-          "problemNeed": "When you want to sell online but product discovery, ordering, payment, and delivery need to work as one journey instead of separate steps.",
-          "scopeSummary": "We build the storefront, product management, cart, orders, and available payment and delivery options around the operating model of the business."
+          "problemNeed": "A good product does not sell itself if customers cannot find what they want or trust the next step.",
+          "scopeSummary": "Product architecture, product pages, cart and ordering, catalog and stock management, payment and shipping where available, accounts, alerts, and reporting."
         },
         "heroCards": [
           {
@@ -693,45 +689,41 @@ const serviceRecords = [
           }
         ],
         "audiences": [
-                  "Product businesses",
-                  "Local stores",
-                  "Brands",
-                  "Home businesses",
-                  "Trading companies",
-                  "New e-commerce ventures"
+          "Product businesses",
+          "Local stores",
+          "Brands",
+          "Home businesses",
+          "Trading companies",
+          "New e-commerce ventures"
         ],
         "deliverables": [
           {
-            "title": "Storefront experience",
+            "title": "Product structure and categories",
             "description": "A product-focused interface that makes browsing, comparison, and ordering clear across mobile and desktop."
           },
           {
-            "title": "Product management",
+            "title": "Product pages that guide toward purchase",
             "description": "Adding and updating products, details, pricing, and imagery through the administration layer."
           },
           {
-            "title": "Categories & organization",
+            "title": "Clear cart, order, and confirmation flow",
             "description": "Structuring products so customers can browse and find items without facing one long list."
           },
           {
-            "title": "Cart & checkout flow",
+            "title": "Product and inventory management when needed",
             "description": "A clear journey for adding products, reviewing the order, and completing purchase information."
           },
           {
-            "title": "Order management",
+            "title": "Payment and shipping through available providers",
             "description": "Tracking orders, statuses, and related customer information from one place."
           },
           {
-            "title": "Payment options",
+            "title": "Customer accounts and alerts when needed",
             "description": "Integrating suitable available payment methods or gateways when needed."
           },
           {
-            "title": "Shipping & delivery",
+            "title": "Reporting and store performance data",
             "description": "Configuring delivery options or supported integrations according to the store's operating model."
-          },
-          {
-            "title": "Reporting & monitoring",
-            "description": "Presenting essential sales and order information to help the business monitor activity."
           }
         ],
         "process": [
@@ -771,19 +763,19 @@ const serviceRecords = [
           }
         ],
         "constraints": [
-                  "Payment options depend on providers available in the store's target market.",
-                  "Shipping or delivery integrations depend on the availability of a suitable integration method.",
-                  "Well-organized product data, imagery, and pricing are essential to launch readiness."
+          "Payment options depend on providers available in the store's target market.",
+          "Shipping or delivery integrations depend on the availability of a suitable integration method.",
+          "Well-organized product data, imagery, and pricing are essential to launch readiness."
         ],
         "relatedArticleTopics": [
-                  "What do you need before launching an online store?",
-                  "How do you choose payment and delivery options for e-commerce?",
-                  "How should product categories be structured to make shopping easier?"
+          "What do you need before launching an online store?",
+          "How do you choose payment and delivery options for e-commerce?",
+          "How should product categories be structured to make shopping easier?"
         ],
         "cta": {
-          "title": "Turn your products into an organized buying experience.",
-          "description": "Tell us what you sell and how ordering and delivery work, and we will define what the store needs from the start.",
-          "label": "Start your store"
+          "title": "Turn products into a buying experience",
+          "description": "Tell us what you sell and how orders work today, and we will shape the right store scope.",
+          "label": "Plan your store"
         },
         "seo": {
           "primaryTopic": "e-commerce design and development",
@@ -808,11 +800,11 @@ const serviceRecords = [
     "content": {
       "ar": {
         "title": "البرمجة وتطوير الأنظمة",
-        "subtitle": "نظام يُبنى على طريقة عملك، لا العكس",
-        "description": "عندما لا يكفي الحل الجاهز، نطوّر أنظمة ولوحات تحكم وواجهات API وقواعد بيانات وصلاحيات وأتمتة ترتبط بسير العمل الفعلي للمشروع.",
+        "subtitle": "إذا كان عملك خاصًا، فحلّك لا يجب أن يكون قالبًا جاهزًا.",
+        "description": "نطوّر الأنظمة ولوحات التحكم والخصائص التي تناسب طريقة عملك، ونحوّل العمليات المتفرقة إلى مسارات رقمية واضحة يمكن لفريقك استخدامها وتطويرها.",
         "decision": {
-          "problemNeed": "عندما تصبح الأدوات الجاهزة قيدًا لأن طريقة عملك تحتاج منطقًا أو صلاحيات أو تكاملات خاصة.",
-          "scopeSummary": "نبني الأنظمة واللوحات وقواعد البيانات وواجهات API والأتمتة حول سير العمل الفعلي، ويمكن تقسيم التنفيذ إلى مراحل."
+          "problemNeed": "عندما يجبرك الحل الجاهز على تغيير عملك، أو تعتمد على جداول ورسائل وعمليات يدوية، يكون الوقت قد حان لنظام مصمم حولك.",
+          "scopeSummary": "أنظمة إدارية وتشغيلية، لوحات تحكم، قواعد بيانات وصلاحيات، تكاملات API، أتمتة، تقارير، ومنصات داخلية مخصصة."
         },
         "heroCards": [
           {
@@ -834,7 +826,7 @@ const serviceRecords = [
         ],
         "deliverables": [
           {
-            "title": "وظائف مخصصة",
+            "title": "أنظمة إدارية وتشغيلية",
             "description": "تطوير الخصائص التي يحتاجها السيناريو الفعلي للمشروع بدل حشو النظام بوظائف غير مستخدمة."
           },
           {
@@ -842,27 +834,27 @@ const serviceRecords = [
             "description": "واجهات لإدارة البيانات والعمليات والمتابعة بحسب أدوار المستخدمين."
           },
           {
-            "title": "واجهات API",
+            "title": "قواعد بيانات وصلاحيات",
             "description": "بناء أو ربط واجهات تسمح للموقع أو التطبيق أو الخدمات الخارجية بتبادل البيانات."
           },
           {
-            "title": "قواعد بيانات",
+            "title": "تكاملات API",
             "description": "تنظيم الكيانات والعلاقات والبيانات بطريقة تناسب تشغيل النظام وتطوره."
           },
           {
-            "title": "أدوار وصلاحيات",
+            "title": "أتمتة العمليات",
             "description": "تحديد ما يستطيع كل نوع من المستخدمين رؤيته أو تنفيذه داخل النظام."
           },
           {
-            "title": "أتمتة العمليات",
+            "title": "تقارير ولوحات متابعة",
             "description": "تحويل الخطوات اليدوية المتكررة إلى تدفقات آلية عندما تكون قابلة لذلك."
           },
           {
-            "title": "تقارير ولوحات متابعة",
+            "title": "منصات داخلية ومكونات مخصصة",
             "description": "تجميع المعلومات المهمة في عرض يساعد الإدارة على المتابعة واتخاذ القرار."
           },
           {
-            "title": "تنفيذ على مراحل",
+            "title": "تطوير مرحلي يبدأ بالأولوية الأعلى",
             "description": "تقسيم النظام إلى أولويات واضحة حتى يبدأ بما هو أهم ثم يتوسع بصورة منظمة."
           }
         ],
@@ -903,18 +895,18 @@ const serviceRecords = [
           }
         ],
         "constraints": [
-                  "تطوير نظام قائم يعتمد على جودة بنيته الحالية وإمكانية الوصول إلى الكود والبيانات.",
-                  "التكامل مع أنظمة خارجية يحتاج إلى صلاحيات أو توثيق أو API قابل للاستخدام.",
-                  "المشاريع الكبيرة تُرتب عادةً إلى مراحل حتى يبقى النطاق قابلًا للمراجعة والتنفيذ."
+          "تطوير نظام قائم يعتمد على جودة بنيته الحالية وإمكانية الوصول إلى الكود والبيانات.",
+          "التكامل مع أنظمة خارجية يحتاج إلى صلاحيات أو توثيق أو API قابل للاستخدام.",
+          "المشاريع الكبيرة تُرتب عادةً إلى مراحل حتى يبقى النطاق قابلًا للمراجعة والتنفيذ."
         ],
         "relatedArticleTopics": [
-                  "متى تحتاج نظامًا مخصصًا بدل برنامج جاهز؟",
-                  "كيف تقسّم مشروع النظام إلى مراحل بدون فقدان الصورة الكاملة؟",
-                  "ما الفرق بين لوحة التحكم والنظام المتكامل؟"
+          "متى تحتاج نظامًا مخصصًا بدل برنامج جاهز؟",
+          "كيف تقسّم مشروع النظام إلى مراحل بدون فقدان الصورة الكاملة؟",
+          "ما الفرق بين لوحة التحكم والنظام المتكامل؟"
         ],
         "cta": {
-          "title": "عندك عملية تحتاج نظامًا مخصصًا؟",
-          "description": "صف لنا ما يحدث الآن وما الذي تريد تنظيمه أو أتمتته، ونحوّله إلى نطاق برمجي واضح.",
+          "title": "حوّل طريقة عملك إلى نظام",
+          "description": "صف لنا العملية الحالية وما الذي يستهلك الوقت أو يتكرر، ونرتب معك نطاق النظام.",
           "label": "ناقش نظامك"
         },
         "seo": {
@@ -928,11 +920,11 @@ const serviceRecords = [
       },
       "en": {
         "title": "Custom Software & Systems",
-        "subtitle": "A system built around how you work—not the other way around",
-        "description": "When an off-the-shelf tool is not enough, we build custom systems, dashboards, APIs, databases, permissions, and automation around the project's real workflow.",
+        "subtitle": "If your work is specific, your solution should not be a generic template.",
+        "description": "We build systems, dashboards, and features around how your team actually works, turning fragmented operations into clear digital workflows that can evolve.",
         "decision": {
-          "problemNeed": "When ready-made tools become a constraint because the business needs custom logic, permissions, workflows, or integrations.",
-          "scopeSummary": "We build systems, dashboards, databases, APIs, and automation around the real workflow, with phased delivery when that makes the project easier to manage."
+          "problemNeed": "When an off-the-shelf tool forces your business to change or your team depends on spreadsheets, messages, and manual work, a custom system may be the right path.",
+          "scopeSummary": "Operational systems, dashboards, databases and permissions, APIs, automation, reporting, internal platforms, and staged custom components."
         },
         "heroCards": [
           {
@@ -945,44 +937,44 @@ const serviceRecords = [
           }
         ],
         "audiences": [
-                  "Companies",
-                  "Digital platforms",
-                  "Teams",
-                  "Internal operations",
-                  "Startups",
-                  "Projects with specialized requirements"
+          "Companies",
+          "Digital platforms",
+          "Teams",
+          "Internal operations",
+          "Startups",
+          "Projects with specialized requirements"
         ],
         "deliverables": [
           {
-            "title": "Custom functionality",
+            "title": "Administrative and operational systems",
             "description": "Features built around the actual scenarios the system needs to support."
           },
           {
-            "title": "Admin dashboards",
+            "title": "Dashboards",
             "description": "Interfaces for managing data, workflows, and monitoring according to user roles."
           },
           {
-            "title": "APIs",
+            "title": "Databases and permissions",
             "description": "Building or integrating interfaces that let websites, apps, and external services exchange data."
           },
           {
-            "title": "Databases",
+            "title": "API integrations",
             "description": "Structuring entities, relationships, and data to support the system's operation and future development."
           },
           {
-            "title": "Roles & permissions",
+            "title": "Process automation",
             "description": "Defining what each type of user can see and do inside the system."
           },
           {
-            "title": "Workflow automation",
+            "title": "Reports and monitoring dashboards",
             "description": "Turning repetitive manual steps into automated or guided processes where appropriate."
           },
           {
-            "title": "Reports & monitoring",
+            "title": "Internal platforms and custom components",
             "description": "Bringing important operational information into clearer views for management and follow-up."
           },
           {
-            "title": "Phased development",
+            "title": "Phased development starting from the highest priority",
             "description": "Breaking a larger system into priorities so the most important part can be built first and expanded in a controlled way."
           }
         ],
@@ -1023,18 +1015,18 @@ const serviceRecords = [
           }
         ],
         "constraints": [
-                  "Improving an existing system depends on the quality of its current architecture and access to its code and data.",
-                  "External integrations require the necessary permissions, documentation, or an available API.",
-                  "Larger projects are usually easier to control when implementation is organized into clear phases."
+          "Improving an existing system depends on the quality of its current architecture and access to its code and data.",
+          "External integrations require the necessary permissions, documentation, or an available API.",
+          "Larger projects are usually easier to control when implementation is organized into clear phases."
         ],
         "relatedArticleTopics": [
-                  "When do you need custom software instead of a ready-made tool?",
-                  "How do you phase a large software system without losing the big picture?",
-                  "What is the difference between an admin dashboard and a complete operational system?"
+          "When do you need custom software instead of a ready-made tool?",
+          "How do you phase a large software system without losing the big picture?",
+          "What is the difference between an admin dashboard and a complete operational system?"
         ],
         "cta": {
-          "title": "Have a workflow that needs its own system?",
-          "description": "Tell us what happens today and what you want to organize or automate, and we will turn it into a clearer software scope.",
+          "title": "Turn your workflow into a system",
+          "description": "Describe the current process and where time or repetition accumulates, and we will organize the system scope.",
           "label": "Discuss your system"
         },
         "seo": {
@@ -1060,11 +1052,11 @@ const serviceRecords = [
     "content": {
       "ar": {
         "title": "الحلول التقنية",
-        "subtitle": "حل تقني يبدأ من المشكلة، لا من الأداة",
-        "description": "نحلل الوضع الحالي ونرتب الربط أو الأتمتة أو تنظيم البيانات أو التكامل بين الأنظمة، ثم نختار الحل الذي يخدم الاحتياج بدل إضافة أدوات بلا داعٍ.",
+        "subtitle": "نعالج أصل المشكلة قبل أن نضيف أداة جديدة.",
+        "description": "نحلل الأنظمة والخطوات والبيانات التي يعتمد عليها عملك، ثم نرتب الربط أو الأتمتة أو التحسين الذي يزيل التكرار والتشتت ويجعل التشغيل أكثر وضوحًا.",
         "decision": {
-          "problemNeed": "عندما تعرف أن هناك مشكلة تقنية أو تكرارًا أو تشتتًا، لكنك لا تريد القفز مباشرة إلى بناء نظام جديد.",
-          "scopeSummary": "نحلل الموجود ثم نرتب الربط أو الأتمتة أو تنظيم البيانات أو التطوير بالقدر الذي يعالج المشكلة فعليًا."
+          "problemNeed": "عندما تتوزع البيانات بين أدوات متعددة وتتكرر الخطوات اليدوية، تكون الأولوية لفهم عنق الزجاجة قبل شراء أداة أخرى.",
+          "scopeSummary": "ربط الأنظمة والخدمات، أتمتة العمليات، تنظيم تدفق البيانات، لوحات متابعة، تكامل الويب والتطبيقات، وتحسين البنية الحالية."
         },
         "heroCards": [
           {
@@ -1086,36 +1078,32 @@ const serviceRecords = [
         ],
         "deliverables": [
           {
-            "title": "تحليل الاحتياج",
+            "title": "ربط الأنظمة والخدمات",
             "description": "فهم الوضع الحالي وتحديد ما الذي يحتاج تحسينًا أو ربطًا أو أتمتة قبل اختيار الحل."
           },
           {
-            "title": "ربط الأنظمة",
+            "title": "أتمتة العمليات المتكررة",
             "description": "تنسيق تبادل البيانات والعمليات بين الأدوات أو المنصات عندما تسمح البنية بذلك."
           },
           {
-            "title": "أتمتة الخطوات",
+            "title": "تنظيم تدفق البيانات",
             "description": "تقليل الأعمال اليدوية المتكررة وتحويلها إلى تدفقات أو إجراءات أوضح."
           },
           {
-            "title": "تنظيم البيانات",
+            "title": "لوحات متابعة",
             "description": "ترتيب حركة البيانات بين المصادر والأنظمة لتقليل التكرار والتشتت."
           },
           {
-            "title": "مكونات مخصصة",
+            "title": "تكامل الويب والتطبيقات",
             "description": "اختيار أو بناء أجزاء تقنية تخدم الحاجة الفعلية بدل إضافة طبقات غير ضرورية."
           },
           {
-            "title": "تطوير تدريجي",
+            "title": "تحسين البنية الحالية",
             "description": "تقسيم التحسينات إلى مراحل تبدأ بالأكثر أثرًا ثم تتوسع حسب الحاجة."
           },
           {
-            "title": "لوحات متابعة",
+            "title": "حلول تدريجية تبدأ من عنق الزجاجة الحقيقي",
             "description": "تجميع المعلومات التي يحتاجها الفريق في شاشة أو مسار أوضح للمتابعة."
-          },
-          {
-            "title": "تكامل الويب والتطبيقات",
-            "description": "ربط الحل مع الموقع أو التطبيق أو النظام القائم عندما يكون ذلك جزءًا من السيناريو."
           }
         ],
         "process": [
@@ -1155,19 +1143,19 @@ const serviceRecords = [
           }
         ],
         "constraints": [
-                  "إمكانية الربط تعتمد على الأنظمة الحالية وما تسمح به من وصول وتكامل.",
-                  "بعض المشكلات تُحل بتحسين الموجود ولا تحتاج بناء نظام جديد.",
-                  "الأولوية تكون للحل الأقل تعقيدًا الذي يعالج المشكلة الفعلية قبل التوسع."
+          "إمكانية الربط تعتمد على الأنظمة الحالية وما تسمح به من وصول وتكامل.",
+          "بعض المشكلات تُحل بتحسين الموجود ولا تحتاج بناء نظام جديد.",
+          "الأولوية تكون للحل الأقل تعقيدًا الذي يعالج المشكلة الفعلية قبل التوسع."
         ],
         "relatedArticleTopics": [
-                  "متى يكون ربط الأنظمة أفضل من استبدالها؟",
-                  "كيف تعرف أن عملية يدوية تستحق الأتمتة؟",
-                  "كيف تبدأ تحليل مشكلة تقنية قبل اختيار الأداة؟"
+          "متى يكون ربط الأنظمة أفضل من استبدالها؟",
+          "كيف تعرف أن عملية يدوية تستحق الأتمتة؟",
+          "كيف تبدأ تحليل مشكلة تقنية قبل اختيار الأداة؟"
         ],
         "cta": {
-          "title": "المشكلة واضحة لكن الحل التقني ليس كذلك؟",
-          "description": "شاركنا الوضع الحالي والنتيجة المطلوبة، ونرتب معك الخيارات والخطوة التالية.",
-          "label": "ناقش الحل"
+          "title": "أوقف التكرار والتشتت",
+          "description": "شاركنا أين تتكرر الخطوات أو تتوزع البيانات، ونبدأ بتحليل المشكلة قبل اختيار الأداة.",
+          "label": "ناقش الحل التقني"
         },
         "seo": {
           "primaryTopic": "حلول تقنية وربط الأنظمة",
@@ -1180,11 +1168,11 @@ const serviceRecords = [
       },
       "en": {
         "title": "Technical Solutions & Integrations",
-        "subtitle": "A technical solution that starts with the problem, not the tool",
-        "description": "We analyze the current situation and organize integrations, automation, data flow, or system improvements around the actual need instead of adding technology for its own sake.",
+        "subtitle": "Fix the root problem before adding another tool.",
+        "description": "We analyze the systems, steps, and data your work depends on, then organize the integration, automation, or improvement that reduces repetition and fragmentation.",
         "decision": {
-          "problemNeed": "When you can see a technical bottleneck, repeated work, or disconnected systems but do not want to jump straight into building something new.",
-          "scopeSummary": "We review what already exists, then organize the right level of integration, automation, data structure, or development to solve the real problem."
+          "problemNeed": "When data is split across tools and manual steps keep repeating, the first priority is understanding the bottleneck before buying another tool.",
+          "scopeSummary": "System and service integrations, automation, data flow, dashboards, web and app connections, and improvements to existing architecture."
         },
         "heroCards": [
           {
@@ -1197,45 +1185,41 @@ const serviceRecords = [
           }
         ],
         "audiences": [
-                  "Companies",
-                  "Operations teams",
-                  "Existing digital products",
-                  "Internal processes",
-                  "Growing businesses",
-                  "Projects with integration needs"
+          "Companies",
+          "Operations teams",
+          "Existing digital products",
+          "Internal processes",
+          "Growing businesses",
+          "Projects with integration needs"
         ],
         "deliverables": [
           {
-            "title": "Technical needs analysis",
+            "title": "Connect systems and services",
             "description": "Reviewing the current state to define what truly needs improvement, integration, or automation."
           },
           {
-            "title": "System integration",
+            "title": "Automate repetitive operations",
             "description": "Coordinating data and operations between tools or platforms when the architecture allows it."
           },
           {
-            "title": "Workflow automation",
+            "title": "Organize data flow",
             "description": "Reducing repetitive manual work through clearer automated or assisted flows."
           },
           {
-            "title": "Data organization",
+            "title": "Monitoring dashboards",
             "description": "Improving how data moves between sources and systems to reduce duplication and fragmentation."
           },
           {
-            "title": "Custom technical components",
+            "title": "Web and app integration",
             "description": "Choosing or building focused components that solve the actual need without unnecessary layers."
           },
           {
-            "title": "Incremental improvement",
+            "title": "Improve existing architecture",
             "description": "Organizing technical improvements into stages that start with the highest-impact work."
           },
           {
-            "title": "Monitoring views",
+            "title": "Incremental solutions starting from the real bottleneck",
             "description": "Bringing important operational information into clearer dashboards or workflows."
-          },
-          {
-            "title": "Web & app integration",
-            "description": "Connecting the solution with the existing website, app, or system when that is part of the use case."
           }
         ],
         "process": [
@@ -1275,19 +1259,19 @@ const serviceRecords = [
           }
         ],
         "constraints": [
-                  "Integration depends on what the current systems allow in terms of access and connectivity.",
-                  "Some problems are better solved by improving what already exists rather than replacing it.",
-                  "We prioritize the least complex solution that addresses the actual problem before adding more layers."
+          "Integration depends on what the current systems allow in terms of access and connectivity.",
+          "Some problems are better solved by improving what already exists rather than replacing it.",
+          "We prioritize the least complex solution that addresses the actual problem before adding more layers."
         ],
         "relatedArticleTopics": [
-                  "When is integration better than replacing an existing system?",
-                  "How do you know when a manual process is worth automating?",
-                  "How should you analyze a technical problem before choosing a tool?"
+          "When is integration better than replacing an existing system?",
+          "How do you know when a manual process is worth automating?",
+          "How should you analyze a technical problem before choosing a tool?"
         ],
         "cta": {
-          "title": "The problem is clear, but the technical solution is not?",
-          "description": "Tell us what is happening today and the result you want, and we will help organize the options and next step.",
-          "label": "Discuss the solution"
+          "title": "Stop the repetition and fragmentation",
+          "description": "Tell us where steps repeat or data gets split, and we will start by analyzing the problem before choosing the tool.",
+          "label": "Discuss the technical solution"
         },
         "seo": {
           "primaryTopic": "technical solutions and system integration",
@@ -1312,11 +1296,11 @@ const serviceRecords = [
     "content": {
       "ar": {
         "title": "تصميم البروفايلات",
-        "subtitle": "بروفايل يشرح شركتك قبل أن تبدأ أنت بالشرح",
-        "description": "نرتب قصة الشركة وخدماتها وأعمالها وبياناتها في ملف واضح ومتناسق مع الهوية، مناسب للمشاركة الرقمية والطباعة والعروض.",
+        "subtitle": "اجعل شركتك مفهومة ومقنعة في أول قراءة.",
+        "description": "نأخذ معلوماتك وخدماتك وأعمالك ونحوّلها إلى ملف تعريفي مرتب يساعد العملاء والشركاء على فهم من أنت، ماذا تقدم، ولماذا يثقون بك.",
         "decision": {
-          "problemNeed": "عندما تكون معلومات شركتك كثيرة أو متفرقة ولا تقدم صورة واضحة عند إرسالها لعميل أو جهة مهتمة.",
-          "scopeSummary": "نرتب المحتوى ونحسن صياغته ونبني له إخراجًا بصريًا متناسقًا مع الهوية للاستخدام الرقمي والطباعة."
+          "problemNeed": "عندما تكون معلومات الشركة موجودة لكنها مبعثرة أو طويلة، يصبح تقديمها للعميل أضعف من قيمة العمل نفسه.",
+          "scopeSummary": "ترتيب الرسالة والمحتوى، التحرير عند الحاجة، هيكلة الخدمات والأعمال، تصميم متوافق مع الهوية، وملف جاهز للمشاركة والطباعة."
         },
         "heroCards": [
           {
@@ -1338,36 +1322,24 @@ const serviceRecords = [
         ],
         "deliverables": [
           {
-            "title": "غلاف وافتتاحية",
+            "title": "ترتيب الرسالة والمحتوى",
             "description": "بداية تعطي القارئ فكرة واضحة عن الشركة قبل الدخول في التفاصيل."
           },
           {
-            "title": "تعريف الشركة",
+            "title": "كتابة وتحرير المحتوى عند الحاجة",
             "description": "صياغة وترتيب نبذة الشركة والرؤية والمعلومات الأساسية بصورة مختصرة ومفهومة."
           },
           {
-            "title": "عرض الخدمات",
+            "title": "هيكلة الخدمات والأعمال",
             "description": "تقديم الخدمات بطريقة تساعد القارئ على فهم الفرق والقيمة بدل قائمة أسماء فقط."
           },
           {
-            "title": "عرض الأعمال",
+            "title": "تصميم متوافق مع الهوية",
             "description": "إبراز المشاريع أو النماذج المناسبة عندما تكون متاحة وتخدم الرسالة."
           },
           {
-            "title": "تنظيم المحتوى",
+            "title": "ملف جاهز للمشاركة والطباعة والعرض",
             "description": "اختصار التكرار وترتيب النصوص والصور ضمن تسلسل مريح للقراءة."
-          },
-          {
-            "title": "تطبيق الهوية",
-            "description": "استخدام الألوان والخطوط والعناصر البصرية بما يحافظ على اتساق العلامة."
-          },
-          {
-            "title": "نسخة رقمية",
-            "description": "إخراج مناسب للمشاركة عبر الهاتف والبريد والعروض والاجتماعات."
-          },
-          {
-            "title": "نسخة للطباعة",
-            "description": "تجهيز المقاسات والجودة والهوامش بما يناسب الطباعة عند الحاجة."
           }
         ],
         "process": [
@@ -1407,19 +1379,19 @@ const serviceRecords = [
           }
         ],
         "constraints": [
-                  "جودة البروفايل تعتمد على توفر معلومات وصور وهوية يمكن البناء عليها.",
-                  "نسخة الطباعة تحتاج مواصفات إخراج تناسب المقاس والاستخدام النهائي.",
-                  "تسليم ملفات المصدر أو النسخ القابلة للتعديل يحدد ضمن نطاق المشروع."
+          "جودة البروفايل تعتمد على توفر معلومات وصور وهوية يمكن البناء عليها.",
+          "نسخة الطباعة تحتاج مواصفات إخراج تناسب المقاس والاستخدام النهائي.",
+          "تسليم ملفات المصدر أو النسخ القابلة للتعديل يحدد ضمن نطاق المشروع."
         ],
         "relatedArticleTopics": [
-                  "ما الذي يجب أن يحتويه بروفايل الشركة؟",
-                  "كيف ترتب خدمات شركتك داخل البروفايل؟",
-                  "ما الفرق بين بروفايل العرض ونسخة الطباعة؟"
+          "ما الذي يجب أن يحتويه بروفايل الشركة؟",
+          "كيف ترتب خدمات شركتك داخل البروفايل؟",
+          "ما الفرق بين بروفايل العرض ونسخة الطباعة؟"
         ],
         "cta": {
-          "title": "اجعل تعريف شركتك أوضح من أول صفحة.",
-          "description": "شاركنا المحتوى والهوية وما تريد أن يعرفه العميل عنك، ونحوّله إلى بروفايل مرتب وسهل التصفح.",
-          "label": "ابدأ بروفايلك"
+          "title": "قدّم شركتك كما تستحق",
+          "description": "أرسل المعلومات الحالية وما تريد أن يفهمه القارئ أولًا، ونرتب معك البروفايل.",
+          "label": "صمّم بروفايلك"
         },
         "seo": {
           "primaryTopic": "تصميم بروفايل شركة",
@@ -1432,11 +1404,11 @@ const serviceRecords = [
       },
       "en": {
         "title": "Company Profile Design",
-        "subtitle": "A company profile that explains the business before you have to",
-        "description": "We organize the company's story, services, work, and key information into a clear profile aligned with the brand and prepared for digital sharing, presentations, and print.",
+        "subtitle": "Make your company clear and convincing from the first read.",
+        "description": "We turn your information, services, and work into a structured company profile that helps clients and partners understand who you are, what you offer, and why they should trust the business.",
         "decision": {
-          "problemNeed": "When company information is scattered or too long and does not present a clear picture when shared with a client or partner.",
-          "scopeSummary": "We organize and improve the content, then build a visual presentation aligned with the brand for digital and print use."
+          "problemNeed": "When company information exists but is scattered or too long, the presentation becomes weaker than the work itself.",
+          "scopeSummary": "Message and content structure, editing when needed, services and work organization, brand-aligned design, and a shareable printable presentation file."
         },
         "heroCards": [
           {
@@ -1449,45 +1421,33 @@ const serviceRecords = [
           }
         ],
         "audiences": [
-                  "Companies",
-                  "Organizations",
-                  "Professional offices",
-                  "Service providers",
-                  "Brands",
-                  "New businesses"
+          "Companies",
+          "Organizations",
+          "Professional offices",
+          "Service providers",
+          "Brands",
+          "New businesses"
         ],
         "deliverables": [
           {
-            "title": "Cover & opening",
+            "title": "Organize message and content",
             "description": "A clear first impression that introduces the company before the detailed sections begin."
           },
           {
-            "title": "Company introduction",
+            "title": "Write and edit content when needed",
             "description": "Writing and organizing the company overview, vision, and key information in a concise format."
           },
           {
-            "title": "Service presentation",
+            "title": "Structure services and work",
             "description": "Presenting services in a way that explains value and distinction instead of listing names only."
           },
           {
-            "title": "Work showcase",
+            "title": "Design aligned with the identity",
             "description": "Highlighting relevant projects or examples when they are available and support the story."
           },
           {
-            "title": "Content organization",
+            "title": "File ready for sharing, print, and presentation",
             "description": "Reducing repetition and arranging text and images into a comfortable reading flow."
-          },
-          {
-            "title": "Brand application",
-            "description": "Using the approved colors, typography, and visual language consistently throughout the profile."
-          },
-          {
-            "title": "Digital version",
-            "description": "Output prepared for phones, email sharing, presentations, and meetings."
-          },
-          {
-            "title": "Print version",
-            "description": "Preparing dimensions, quality, and margins for print when required."
           }
         ],
         "process": [
@@ -1527,19 +1487,19 @@ const serviceRecords = [
           }
         ],
         "constraints": [
-                  "The quality of the profile depends on the information, imagery, and brand material available to build from.",
-                  "Print output requires specifications that fit the final size and production use.",
-                  "Editable or source-file delivery is defined within the agreed project scope."
+          "The quality of the profile depends on the information, imagery, and brand material available to build from.",
+          "Print output requires specifications that fit the final size and production use.",
+          "Editable or source-file delivery is defined within the agreed project scope."
         ],
         "relatedArticleTopics": [
-                  "What should a company profile include?",
-                  "How should company services be organized inside a profile?",
-                  "What is the difference between a digital profile and a print-ready version?"
+          "What should a company profile include?",
+          "How should company services be organized inside a profile?",
+          "What is the difference between a digital profile and a print-ready version?"
         ],
         "cta": {
-          "title": "Make the company clearer from the first page.",
-          "description": "Share the content, identity, and what you want clients to understand, and we will turn it into a clear, organized company profile.",
-          "label": "Start your profile"
+          "title": "Present your company the way it deserves",
+          "description": "Send the current information and what readers should understand first, and we will organize the profile around that.",
+          "label": "Design your company profile"
         },
         "seo": {
           "primaryTopic": "company profile design",
@@ -1564,11 +1524,11 @@ const serviceRecords = [
     "content": {
       "ar": {
         "title": "الهوية البصرية والتصميم الجرافيكي",
-        "subtitle": "هوية تجعل مشروعك معروفًا ومتسقًا في كل ظهور",
-        "description": "نبني نظامًا بصريًا يبدأ من الشعار والألوان ويمتد إلى القوالب والمواد التعريفية وتطبيقات الهوية، حتى يظهر المشروع بصورة واحدة واضحة عبر نقاط التواصل.",
+        "subtitle": "هوية تجعل مشروعك معروفًا قبل أن تشرح ما تفعله.",
+        "description": "نبني هوية بصرية تعكس شخصية مشروعك، وتمنح فريقك نظامًا واضحًا لاستخدام الشعار والألوان والخطوط والتطبيقات في كل نقطة تواصل.",
         "decision": {
-          "problemNeed": "عندما يظهر مشروعك بأشكال مختلفة ولا يوجد نظام بصري يجعل الناس يتعرفون عليه ويحافظ على اتساقه.",
-          "scopeSummary": "نبني الشعار والألوان والخطوط والتطبيقات والقوالب كهوية قابلة للاستخدام، وليس كعناصر منفصلة."
+          "problemNeed": "عندما يظهر المشروع كل مرة بشكل مختلف، تصبح العلامة أصعب في التذكر والتطبيق ويضيع جزء من قيمتها في التفاصيل.",
+          "scopeSummary": "استراتيجية واتجاه بصري، شعار، ألوان وخطوط، قواعد الاستخدام، تطبيقات رقمية ومطبوعة، وقوالب ودليل هوية حسب النطاق."
         },
         "heroCards": [
           {
@@ -1590,36 +1550,28 @@ const serviceRecords = [
         ],
         "deliverables": [
           {
-            "title": "تصميم الشعار",
+            "title": "استراتيجية واتجاه بصري",
             "description": "بناء علامة بصرية قابلة للاستخدام وتناسب شخصية المشروع وسياق ظهوره."
           },
           {
-            "title": "الألوان والخطوط",
+            "title": "شعار ونظام ألوان وخطوط",
             "description": "تحديد نظام لوني وتايبوغرافي يكوّن أساسًا متسقًا للهوية."
           },
           {
-            "title": "تطبيقات الهوية",
+            "title": "قواعد استخدام الهوية",
             "description": "تطبيق النظام البصري على المواد والقنوات التي يحتاجها المشروع فعليًا."
           },
           {
-            "title": "تصاميم السوشيال",
+            "title": "تطبيقات رقمية ومطبوعة",
             "description": "قوالب ومنشورات تحافظ على شخصية العلامة بدل الاعتماد على شكل مختلف في كل مرة."
           },
           {
-            "title": "البنرات الإعلانية",
+            "title": "قوالب جاهزة للاستخدام",
             "description": "تصميم مواد حملات تحمل الرسالة والهوية بوضوح ضمن المساحات المطلوبة."
           },
           {
-            "title": "قوالب قابلة للتكرار",
+            "title": "دليل هوية بحسب نطاق المشروع",
             "description": "نظام قوالب يساعد الفريق على الحفاظ على الاتساق في الاستخدام اليومي."
-          },
-          {
-            "title": "دليل الهوية",
-            "description": "مرجع يوضح طريقة استخدام الشعار والألوان والخطوط والعناصر الأساسية."
-          },
-          {
-            "title": "مطبوعات وهوية تطبيقية",
-            "description": "تجهيز بطاقات وأوراق ومواد مطبوعة أو رقمية بحسب احتياج العلامة."
           }
         ],
         "process": [
@@ -1659,18 +1611,18 @@ const serviceRecords = [
           }
         ],
         "constraints": [
-                  "نطاق الهوية يحدد التطبيقات المطلوبة بدل افتراض أن كل مشروع يحتاج نفس الحزمة.",
-                  "ملفات المصدر والتطبيقات النهائية تُحدد ضمن نطاق التسليم.",
-                  "الطباعة والإنتاج الفعلي منفصلان عن تجهيز التصاميم ما لم يشملهما الاتفاق."
+          "نطاق الهوية يحدد التطبيقات المطلوبة بدل افتراض أن كل مشروع يحتاج نفس الحزمة.",
+          "ملفات المصدر والتطبيقات النهائية تُحدد ضمن نطاق التسليم.",
+          "الطباعة والإنتاج الفعلي منفصلان عن تجهيز التصاميم ما لم يشملهما الاتفاق."
         ],
         "relatedArticleTopics": [
-                  "متى تحتاج هوية بصرية كاملة وليس شعارًا فقط؟",
-                  "كيف تختار تطبيقات الهوية التي يحتاجها مشروعك فعلًا؟",
-                  "لماذا تحتاج العلامة إلى نظام ألوان وخطوط واضح؟"
+          "متى تحتاج هوية بصرية كاملة وليس شعارًا فقط؟",
+          "كيف تختار تطبيقات الهوية التي يحتاجها مشروعك فعلًا؟",
+          "لماذا تحتاج العلامة إلى نظام ألوان وخطوط واضح؟"
         ],
         "cta": {
-          "title": "ابنِ هوية يمكن تطبيقها، لا شعارًا منفصلًا.",
-          "description": "شاركنا طبيعة المشروع والجمهور والانطباع الذي تريد بناءه، ونرتب الهوية على هذا الأساس.",
+          "title": "ابنِ علامة يمكن تمييزها",
+          "description": "شاركنا طبيعة المشروع والجمهور والانطباع الذي تريد بناءه، ونرتب معك نطاق الهوية.",
           "label": "ابدأ هويتك"
         },
         "seo": {
@@ -1684,11 +1636,11 @@ const serviceRecords = [
       },
       "en": {
         "title": "Brand Identity & Graphic Design",
-        "subtitle": "An identity that makes your project recognizable and consistent wherever it appears",
-        "description": "We build visual systems that start with the logo and color direction and extend into templates, communication materials, and brand applications so the project appears as one coherent brand.",
+        "subtitle": "A brand identity that is recognizable before you explain what you do.",
+        "description": "We build visual identities that reflect the project and give the team a clear system for using the logo, colors, typography, and applications across touchpoints.",
         "decision": {
-          "problemNeed": "When the project appears in different visual styles and there is no system that makes the brand recognizable and consistent.",
-          "scopeSummary": "We build the logo, colors, typography, applications, and reusable templates as one usable identity system rather than separate design files."
+          "problemNeed": "When the project looks different every time, the brand becomes harder to remember and harder for the team to apply consistently.",
+          "scopeSummary": "Visual direction, logo, color and type system, usage rules, digital and print applications, templates, and a brand guide by scope."
         },
         "heroCards": [
           {
@@ -1701,45 +1653,37 @@ const serviceRecords = [
           }
         ],
         "audiences": [
-                  "New businesses",
-                  "Companies",
-                  "E-commerce brands",
-                  "Commercial pages",
-                  "Initiatives",
-                  "Brand refresh projects"
+          "New businesses",
+          "Companies",
+          "E-commerce brands",
+          "Commercial pages",
+          "Initiatives",
+          "Brand refresh projects"
         ],
         "deliverables": [
           {
-            "title": "Logo design",
+            "title": "Visual strategy and direction",
             "description": "A usable visual mark that fits the personality and context of the brand."
           },
           {
-            "title": "Color & typography system",
+            "title": "Logo, color, and typography system",
             "description": "A visual foundation that defines how color and type work consistently across the identity."
           },
           {
-            "title": "Brand applications",
+            "title": "Brand usage rules",
             "description": "Applying the visual system to the materials and channels the project actually needs."
           },
           {
-            "title": "Social media design",
+            "title": "Digital and print applications",
             "description": "Templates and post systems that maintain brand character across recurring content."
           },
           {
-            "title": "Campaign banners",
+            "title": "Ready-to-use templates",
             "description": "Promotional materials that carry the message and identity clearly across required formats."
           },
           {
-            "title": "Reusable templates",
+            "title": "Brand guideline by project scope",
             "description": "A template system that helps the team maintain consistency in day-to-day use."
-          },
-          {
-            "title": "Brand guidelines",
-            "description": "A reference that explains how to use the logo, colors, typography, and key visual elements."
-          },
-          {
-            "title": "Print & applied materials",
-            "description": "Preparing cards, stationery, and other digital or printed brand applications according to need."
           }
         ],
         "process": [
@@ -1779,18 +1723,18 @@ const serviceRecords = [
           }
         ],
         "constraints": [
-                  "The identity scope should be based on the applications the project actually needs rather than a fixed package.",
-                  "Source files and final deliverables are defined within the agreed scope.",
-                  "Physical printing or production is separate from preparing the design files unless explicitly included."
+          "The identity scope should be based on the applications the project actually needs rather than a fixed package.",
+          "Source files and final deliverables are defined within the agreed scope.",
+          "Physical printing or production is separate from preparing the design files unless explicitly included."
         ],
         "relatedArticleTopics": [
-                  "When do you need a full brand identity instead of only a logo?",
-                  "How do you choose the brand applications your business actually needs?",
-                  "Why does a brand need a clear color and typography system?"
+          "When do you need a full brand identity instead of only a logo?",
+          "How do you choose the brand applications your business actually needs?",
+          "Why does a brand need a clear color and typography system?"
         ],
         "cta": {
-          "title": "Build an identity that can be used—not just a standalone logo.",
-          "description": "Tell us about the project, audience, and impression you want to create, and we will shape the identity around that.",
+          "title": "Build a recognizable brand",
+          "description": "Tell us about the project, audience, and impression you want to build, and we will shape the identity scope.",
           "label": "Start your identity"
         },
         "seo": {
@@ -1816,11 +1760,11 @@ const serviceRecords = [
     "content": {
       "ar": {
         "title": "التسويق الرقمي وإدارة المحتوى",
-        "subtitle": "محتوى يجعل مشروعك مفهومًا قبل أن تطلب التفاعل",
-        "description": "نخطط ونكتب ونصمم محتوى متناسقًا مع هوية المشروع، من خطة النشر وإدارة الصفحات إلى الحملات المدفوعة والتقارير عند الحاجة.",
+        "subtitle": "لا تنشر أكثر؛ قل الشيء الصحيح للناس الصحيحة.",
+        "description": "نرتب رسالتك ومحتواك وحملاتك بحيث يعرف جمهورك ماذا تقدم، لمن، ولماذا يبدأ معك — من الاستراتيجية والكتابة والتصميم إلى النشر والقياس حسب النطاق.",
         "decision": {
-          "problemNeed": "عندما تنشر باستمرار لكن الرسالة والهوية والهدف لا تعمل معًا، فيبدو المحتوى متفرقًا أو غير واضح.",
-          "scopeSummary": "نرتب الرسائل وخطة المحتوى والكتابة والتصميم والنشر والحملات حسب النطاق والجمهور والمنصات."
+          "problemNeed": "إذا كنت تنشر باستمرار لكن الجمهور لا يفهم عرضك أو الفرق الذي تقدمه، فالمشكلة في الرسالة والمسار لا في عدد المنشورات وحده.",
+          "scopeSummary": "استراتيجية الرسائل والمحتوى، الكتابة، إدارة المنصات، تصميم المنشورات والإعلانات، الريلز والاستوريات، الحملات المدفوعة، وقراءة المؤشرات."
         },
         "heroCards": [
           {
@@ -1842,36 +1786,32 @@ const serviceRecords = [
         ],
         "deliverables": [
           {
-            "title": "خطة محتوى",
+            "title": "استراتيجية الرسائل والمحتوى",
             "description": "تحديد الموضوعات والمحاور والإيقاع المناسب للنشر بناءً على الخدمة والجمهور والهدف."
           },
           {
-            "title": "كتابة المحتوى",
+            "title": "كتابة المحتوى التسويقي",
             "description": "صياغة منشورات ورسائل واضحة تتحدث بلغة العلامة وتوصل الفكرة بدون حشو."
           },
           {
-            "title": "تصميم المنشورات",
+            "title": "إدارة منصات التواصل",
             "description": "تحويل الرسالة إلى محتوى بصري متسق مع الهوية ومناسب للمنصة."
           },
           {
-            "title": "إدارة الصفحات",
+            "title": "تصميم المنشورات والإعلانات",
             "description": "تنظيم النشر والجدولة والمتابعة وفق النطاق المتفق عليه."
           },
           {
-            "title": "الحملات المدفوعة",
+            "title": "ريلز واستوريات تخدم الرسالة",
             "description": "إعداد وإدارة الحملات عند الحاجة ضمن الهدف والميزانية والجمهور المحدد."
           },
           {
-            "title": "تحسين الظهور",
+            "title": "حملات مدفوعة حسب الهدف والميزانية",
             "description": "مراجعة المحتوى وطريقة تقديمه لزيادة وضوح الرسالة والوصول المناسب."
           },
           {
-            "title": "ريلز واستوريات",
+            "title": "قراءة المؤشرات وتحسين الخطة",
             "description": "أفكار وصيغ قصيرة تخدم الرسالة بدل إنتاج فيديو لمجرد زيادة عدد المنشورات."
-          },
-          {
-            "title": "تقارير أداء",
-            "description": "قراءة المؤشرات المتاحة لفهم ما الذي يعمل وما الذي يحتاج تعديلًا في الخطة."
           }
         ],
         "process": [
@@ -1911,19 +1851,19 @@ const serviceRecords = [
           }
         ],
         "constraints": [
-                  "الحملات المدفوعة ترتبط بميزانية الإعلان والمنصة والجمهور المستهدف.",
-                  "نطاق إدارة الصفحات وعدد المنصات وإيقاع النشر يحدد ضمن الاتفاق.",
-                  "لا نعد بنتيجة رقمية ثابتة؛ تتم المراجعة بناءً على المؤشرات المتاحة وأداء المحتوى والحملة."
+          "الحملات المدفوعة ترتبط بميزانية الإعلان والمنصة والجمهور المستهدف.",
+          "نطاق إدارة الصفحات وعدد المنصات وإيقاع النشر يحدد ضمن الاتفاق.",
+          "لا نعد بنتيجة رقمية ثابتة؛ تتم المراجعة بناءً على المؤشرات المتاحة وأداء المحتوى والحملة."
         ],
         "relatedArticleTopics": [
-                  "كيف تبني خطة محتوى مرتبطة بهدف مشروعك؟",
-                  "متى تحتاج إدارة محتوى كاملة ومتى تكفيك خطة؟",
-                  "كيف تفرق بين المحتوى العضوي والحملة المدفوعة؟"
+          "كيف تبني خطة محتوى مرتبطة بهدف مشروعك؟",
+          "متى تحتاج إدارة محتوى كاملة ومتى تكفيك خطة؟",
+          "كيف تفرق بين المحتوى العضوي والحملة المدفوعة؟"
         ],
         "cta": {
-          "title": "اجعل حضورك يقول الرسالة الصحيحة باستمرار.",
-          "description": "شاركنا ما تقدمه ولمن، ونبني حوله محتوى وخطة حضور أوضح وأكثر اتساقًا.",
-          "label": "طوّر حضورك"
+          "title": "حوّل حضورك إلى سبب للاختيار",
+          "description": "شاركنا الجمهور والعرض والقنوات الحالية، ونرتب الرسالة والخطة حسب الهدف والنطاق.",
+          "label": "طوّر تسويقك"
         },
         "seo": {
           "primaryTopic": "تسويق رقمي وإدارة محتوى",
@@ -1936,11 +1876,11 @@ const serviceRecords = [
       },
       "en": {
         "title": "Digital Marketing & Content Management",
-        "subtitle": "Content that makes the business understandable before asking for engagement",
-        "description": "We plan, write, and design content that aligns with the brand—from content strategy and page management to paid campaigns and reporting when needed.",
+        "subtitle": "Do not publish more; say the right thing to the right people.",
+        "description": "We organize your message, content, and campaigns so the audience understands what you offer, who it is for, and why they should start with you—from strategy and writing to design, publishing, and measurement by scope.",
         "decision": {
-          "problemNeed": "When you keep publishing but the message, identity, and objective do not work together, leaving the content fragmented or unclear.",
-          "scopeSummary": "We organize messaging, content planning, writing, design, publishing, and campaigns according to the agreed scope, audience, and platforms."
+          "problemNeed": "If you publish consistently but the audience still does not understand the offer or difference, the problem may be the message and path rather than the number of posts.",
+          "scopeSummary": "Messaging and content strategy, copywriting, social management, post and ad design, reels and stories, paid campaigns, and performance review."
         },
         "heroCards": [
           {
@@ -1953,45 +1893,41 @@ const serviceRecords = [
           }
         ],
         "audiences": [
-                  "Commercial pages",
-                  "E-commerce businesses",
-                  "Service businesses",
-                  "Emerging brands",
-                  "Projects",
-                  "Companies"
+          "Commercial pages",
+          "E-commerce businesses",
+          "Service businesses",
+          "Emerging brands",
+          "Projects",
+          "Companies"
         ],
         "deliverables": [
           {
-            "title": "Content plan",
+            "title": "Messaging and content strategy",
             "description": "Defining content themes, topics, and publishing rhythm around the offer, audience, and objective."
           },
           {
-            "title": "Content writing",
+            "title": "Marketing copywriting",
             "description": "Clear posts and messages written in the voice of the brand without unnecessary filler."
           },
           {
-            "title": "Social content design",
+            "title": "Social media management",
             "description": "Turning the message into visual content that fits the brand and the platform."
           },
           {
-            "title": "Page management",
+            "title": "Post and ad design",
             "description": "Organizing scheduling, publishing, and follow-up according to the agreed scope."
           },
           {
-            "title": "Paid campaigns",
+            "title": "Reels and stories that serve the message",
             "description": "Planning and managing campaigns when needed, based on objective, budget, audience, and platform."
           },
           {
-            "title": "Visibility improvement",
+            "title": "Paid campaigns by goal and budget",
             "description": "Reviewing how content is presented to make the message clearer and improve relevant reach."
           },
           {
-            "title": "Short-form content",
+            "title": "Review metrics and improve the plan",
             "description": "Ideas and formats for reels and stories that serve the message instead of adding video for volume alone."
-          },
-          {
-            "title": "Performance reporting",
-            "description": "Reading available indicators to understand what is working and what needs adjustment."
           }
         ],
         "process": [
@@ -2031,19 +1967,19 @@ const serviceRecords = [
           }
         ],
         "constraints": [
-                  "Paid campaigns depend on the advertising budget, selected platform, and target audience.",
-                  "The number of platforms, management scope, and publishing rhythm are defined in the agreement.",
-                  "We do not promise a fixed numeric result; performance is reviewed based on available indicators and how the content and campaign perform."
+          "Paid campaigns depend on the advertising budget, selected platform, and target audience.",
+          "The number of platforms, management scope, and publishing rhythm are defined in the agreement.",
+          "We do not promise a fixed numeric result; performance is reviewed based on available indicators and how the content and campaign perform."
         ],
         "relatedArticleTopics": [
-                  "How do you build a content plan around a business objective?",
-                  "When do you need full content management and when is a plan enough?",
-                  "What is the difference between organic content and a paid campaign?"
+          "How do you build a content plan around a business objective?",
+          "When do you need full content management and when is a plan enough?",
+          "What is the difference between organic content and a paid campaign?"
         ],
         "cta": {
-          "title": "Make your presence communicate the right message consistently.",
-          "description": "Tell us what you offer and who it is for, and we will build a clearer, more consistent content direction around it.",
-          "label": "Improve your presence"
+          "title": "Turn your presence into a reason to choose you",
+          "description": "Tell us about the audience, offer, and current channels, and we will organize the message and plan around the goal.",
+          "label": "Improve your marketing"
         },
         "seo": {
           "primaryTopic": "digital marketing and content management",
@@ -2090,6 +2026,7 @@ function phase2bServiceRecord(service) {
       english: CONTENT_STATE.READY
     }),
     evidenceSources: Object.freeze([
+      "content:b87872d12adcc836018fe61a7ef1556f04aa5b86:إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md",
       "main:js/services-data.js",
       `main:${service.image}`
     ])

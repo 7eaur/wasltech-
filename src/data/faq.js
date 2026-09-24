@@ -1,7 +1,7 @@
 /**
  * Wasl Tech VNext — Canonical general FAQ data.
  * Source facts: visible FAQ content and matching FAQPage schema in legacy faq.html.
- * Arabic and English wording are VNext editorial rewrites reviewed for the Phase 2B content baseline.
+ * Arabic and English wording follows the 2026-09-24 final marketing rewrite baseline without packages.
  */
 
 export const faqGroups = Object.freeze([
@@ -16,7 +16,9 @@ export const faqGroups = Object.freeze([
       "ar": {
         "title": "قبل بدء المشروع"
       },
-      "en": { "title": "Before starting" }
+      "en": {
+        "title": "Before starting"
+      }
     },
     "items": [
       {
@@ -27,12 +29,12 @@ export const faqGroups = Object.freeze([
         },
         "content": {
           "ar": {
-            "question": "عندي فكرة، لكن ما أعرف أي خدمة أحتاج. من أين أبدأ؟",
-            "answer": "ابدأ بالهدف أو المشكلة التي تريد حلها. نحن نرتب معك الاحتياج أولًا ثم نحدد هل الأنسب موقعًا أو تطبيقًا أو متجرًا أو نظامًا أو خدمة أخرى."
+            "question": "لدي فكرة، لكن لا أعرف أي خدمة أحتاج. ماذا أفعل؟",
+            "answer": "لا تحتاج إلى اختيار الخدمة من البداية. أخبرنا ما الذي تريد تحقيقه أو المشكلة التي تريد حلها، وسنحدد معك هل تحتاج موقعًا أو تطبيقًا أو متجرًا أو نظامًا أو مزيجًا من ذلك."
           },
           "en": {
-            "question": "I have an idea, but I do not know which service I need. Where do I start?",
-            "answer": "Start with the goal or the problem you want to solve. We help organize the need first, then determine whether the right path is a website, app, store, system, or another service."
+            "question": "I have an idea, but I do not know which service I need. What should I do?",
+            "answer": "You do not need to choose the service first. Tell us what you want to achieve or the problem you want to solve, and we will help determine whether the right path is a website, app, store, system, or a combination."
           }
         }
       },
@@ -44,12 +46,12 @@ export const faqGroups = Object.freeze([
         },
         "content": {
           "ar": {
-            "question": "هل لازم نبدأ المشروع من الصفر؟",
-            "answer": "لا. إذا كان لديك مشروع قائم نراجع الموجود أولًا، ثم نحدد ما يستحق الاحتفاظ به وما يحتاج تحسينًا أو إعادة بناء."
+            "question": "هل تعملون مع مشروع قائم؟",
+            "answer": "نعم. نراجع الموجود، نحدد ما يستحق الاحتفاظ به، ثم نقرر هل الأفضل تحسينه أو ربطه أو إعادة بناء جزء منه."
           },
           "en": {
-            "question": "Do we have to start the project from scratch?",
-            "answer": "No. If you already have a project, we review what exists first and decide what is worth keeping, improving, integrating, or rebuilding."
+            "question": "Do you work with existing projects?",
+            "answer": "Yes. We review what already exists, identify what is worth keeping, then decide whether the better path is improvement, integration, or rebuilding a specific part."
           }
         }
       },
@@ -61,12 +63,12 @@ export const faqGroups = Object.freeze([
         },
         "content": {
           "ar": {
-            "question": "هل يمكن تنفيذ المشروع على مراحل بدل تنفيذه كاملًا مرة واحدة؟",
-            "answer": "نعم. يمكن ترتيب المشروع حسب الأولوية والبدء بالجزء الأكثر أهمية، ثم التوسع على مراحل عندما يكون ذلك أنسب للنطاق."
+            "question": "هل يمكن تنفيذ المشروع على مراحل؟",
+            "answer": "نعم، وغالبًا يكون ذلك أفضل عندما يحتوي المشروع على أكثر من أولوية. نبدأ بالجزء الذي يحقق القيمة الأسرع، ثم نبني المرحلة التالية على ما تعلمناه."
           },
           "en": {
-            "question": "Can the project be delivered in phases instead of all at once?",
-            "answer": "Yes. The work can be prioritized so the most important part is built first, then expanded in stages when that fits the project better."
+            "question": "Can the project be delivered in stages?",
+            "answer": "Yes, and that is often the better approach when a project has several priorities. We start with the part that creates value first, then shape the next stage around what we learn."
           }
         }
       }
@@ -83,7 +85,9 @@ export const faqGroups = Object.freeze([
       "ar": {
         "title": "المواقع والتطبيقات والمتاجر"
       },
-      "en": { "title": "Websites, apps & e-commerce" }
+      "en": {
+        "title": "Websites, apps & e-commerce"
+      }
     },
     "items": [
       {
@@ -94,12 +98,12 @@ export const faqGroups = Object.freeze([
         },
         "content": {
           "ar": {
-            "question": "هل الموقع سيعمل بشكل جيد على الجوال؟",
-            "answer": "نعم. نبني الواجهة بصورة متجاوبة من البداية ونراجع التجربة على الجوال والتابلت والكمبيوتر."
+            "question": "هل الموقع أو المتجر يعمل على الجوال؟",
+            "answer": "نعم. نبدأ بتجربة متجاوبة من أول التصميم، ونراجعها على الجوال والتابلت والكمبيوتر."
           },
           "en": {
-            "question": "Will the website work well on mobile?",
-            "answer": "Yes. Responsive behavior is designed from the beginning and reviewed across mobile, tablet, and desktop."
+            "question": "Will the website or store work on mobile?",
+            "answer": "Yes. Responsive behavior is considered from the design stage and reviewed across mobile, tablet, and desktop."
           }
         }
       },
@@ -111,12 +115,12 @@ export const faqGroups = Object.freeze([
         },
         "content": {
           "ar": {
-            "question": "هل أستطيع إدارة المحتوى أو البيانات بنفسي؟",
-            "answer": "إذا كان المشروع يحتاج تحديثًا مستمرًا يمكن إضافة لوحة تحكم أو نظام إدارة يناسب المحتوى والعمليات المطلوبة."
+            "question": "هل يمكن ربط الحل بنظام موجود؟",
+            "answer": "نعم إذا كانت البنية ووسائل الوصول تسمح بذلك. نراجع النظام الحالي أولًا، ثم نحدد طريقة الربط التي لا تزيد التعقيد على فريقك."
           },
           "en": {
-            "question": "Can I manage the content or data myself?",
-            "answer": "If the project needs regular updates, we can include an admin dashboard or content management experience suited to the content and workflows involved."
+            "question": "Can the solution connect to an existing system?",
+            "answer": "Yes, when the current architecture and access methods allow it. We review the existing system first, then define an integration approach that does not add unnecessary complexity for the team."
           }
         }
       },
@@ -167,7 +171,9 @@ export const faqGroups = Object.freeze([
       "ar": {
         "title": "الهوية والبروفايلات والتسويق"
       },
-      "en": { "title": "Brand, profiles & marketing" }
+      "en": {
+        "title": "Brand, profiles & marketing"
+      }
     },
     "items": [
       {
@@ -178,12 +184,12 @@ export const faqGroups = Object.freeze([
         },
         "content": {
           "ar": {
-            "question": "هل أقدر أطلب هوية بصرية فقط بدون موقع أو تطبيق؟",
-            "answer": "نعم. الهوية خدمة مستقلة ويمكن تنفيذها وحدها أو ضمن مشروع أوسع حسب ما يحتاجه نشاطك."
+            "question": "هل تقدمون الهوية أو البروفايل وحدهما؟",
+            "answer": "نعم. يمكن تنفيذ الهوية أو البروفايل أو خطة المحتوى كمشروع مستقل، أو ربطها بموقع ومتجر وحملة أكبر."
           },
           "en": {
-            "question": "Can I request brand identity only, without a website or app?",
-            "answer": "Yes. Brand identity can be delivered as a standalone project or as part of a wider digital project, depending on what the business needs."
+            "question": "Can you deliver brand identity or a company profile as a standalone project?",
+            "answer": "Yes. Identity, company profiles, or a content plan can be delivered independently or connected to a larger website, store, or campaign."
           }
         }
       },
@@ -234,7 +240,9 @@ export const faqGroups = Object.freeze([
       "ar": {
         "title": "التنفيذ وطريقة العمل"
       },
-      "en": { "title": "Delivery & working process" }
+      "en": {
+        "title": "Delivery & working process"
+      }
     },
     "items": [
       {
@@ -245,12 +253,12 @@ export const faqGroups = Object.freeze([
         },
         "content": {
           "ar": {
-            "question": "كم يحتاج المشروع من وقت؟",
-            "answer": "يعتمد ذلك على نوع المشروع ونطاقه والوظائف المطلوبة. نحدد المدة بعد فهم المتطلبات وترتيب ما سيدخل في التنفيذ."
+            "question": "كم تستغرق المشاريع؟",
+            "answer": "المدة تعتمد على نوع الحل، حجمه، جاهزية المحتوى، وسرعة القرارات والمراجعات. نحدد المدة بعد تثبيت النطاق بدل إعطاء رقم عام لا يناسب كل مشروع."
           },
           "en": {
-            "question": "How long does a project take?",
-            "answer": "It depends on the project type, scope, and required functionality. We define the timeline after understanding and organizing the work that will be included."
+            "question": "How long do projects take?",
+            "answer": "Timing depends on the solution type, scope, content readiness, and review speed. We define the timeline after the scope is clear instead of giving one generic number for every project."
           }
         }
       },
@@ -262,12 +270,12 @@ export const faqGroups = Object.freeze([
         },
         "content": {
           "ar": {
-            "question": "ماذا يحدث بعد أن أتواصل معكم؟",
-            "answer": "نبدأ بفهم الهدف والوضع الحالي وما تريد الوصول إليه، ثم نرتب النطاق والأسئلة المهمة قبل اقتراح الخطوة التالية."
+            "question": "ماذا يحدث بعد أن أتواصل؟",
+            "answer": "نفهم الهدف والوضع الحالي، نسأل عن المعلومات التي تنقصنا، ثم نوضح المسار والنطاق والخطوة التالية. لن نبدأ بالحل قبل أن نفهم المشكلة."
           },
           "en": {
             "question": "What happens after I contact you?",
-            "answer": "We start by understanding the goal, current situation, and what you want to achieve, then organize the scope and the important questions before recommending the next step."
+            "answer": "We understand the goal and current situation, ask for the missing context, then explain the path, scope, and next step. We do not start with a solution before understanding the problem."
           }
         }
       },
@@ -279,12 +287,12 @@ export const faqGroups = Object.freeze([
         },
         "content": {
           "ar": {
-            "question": "ماذا لو ظهرت متطلبات جديدة أثناء التنفيذ؟",
-            "answer": "نراجعها أولًا ونوضح أثرها على النطاق الحالي. إذا كانت إضافة مفيدة نرتبها ضمن المرحلة المناسبة بدل إدخالها عشوائيًا."
+            "question": "ماذا لو ظهرت فكرة جديدة أثناء التنفيذ؟",
+            "answer": "نراجع فائدتها وتأثيرها على النطاق، ثم نقرر هل تدخل في المرحلة الحالية أو تذهب إلى مرحلة لاحقة. هكذا نحمي الأولويات ولا نترك الأفكار الجيدة تضيع."
           },
           "en": {
-            "question": "What if new requirements appear during the project?",
-            "answer": "We review them first and explain how they affect the current scope. If the addition is useful, we place it in the right stage instead of inserting it randomly into ongoing work."
+            "question": "What if a new idea appears during implementation?",
+            "answer": "We review its value and impact on scope, then decide whether it belongs in the current stage or a later one. This protects priorities without losing useful ideas."
           }
         }
       }

@@ -19,61 +19,67 @@ const featuredFaqIds = Object.freeze(["start-1", "workflow-1", "product-3"]);
 
 const heroSignals = Object.freeze({
   ar: Object.freeze([
-    Object.freeze({ icon: "connected", title: "حلول متكاملة", body: "من الفكرة إلى التنفيذ" }),
-    Object.freeze({ icon: "checklist", title: "تنفيذ منظم", body: "خطوات واضحة ومترابطة" }),
-    Object.freeze({ icon: "message", title: "تواصل مباشر", body: "وضوح في كل مرحلة" })
+    Object.freeze({ icon: "connected", title: "نفهم مشروعك قبل أن نبني", body: "نبدأ من الهدف والمشكلة" }),
+    Object.freeze({ icon: "checklist", title: "حلول مترابطة", body: "لا خدمات متفرقة" }),
+    Object.freeze({ icon: "message", title: "تواصل مباشر", body: "من البداية إلى الإطلاق" })
   ]),
   en: Object.freeze([
-    Object.freeze({ icon: "connected", title: "Connected solutions", body: "From idea to delivery" }),
-    Object.freeze({ icon: "checklist", title: "Organized execution", body: "Clear, connected steps" }),
-    Object.freeze({ icon: "message", title: "Direct communication", body: "Clarity through each stage" })
+    Object.freeze({ icon: "connected", title: "We understand before we build", body: "Start from the goal and problem" }),
+    Object.freeze({ icon: "checklist", title: "Connected solutions", body: "Not fragmented services" }),
+    Object.freeze({ icon: "message", title: "Direct communication", body: "From start to launch" })
   ])
 });
 
 const aboutValues = Object.freeze({
   ar: Object.freeze([
-    Object.freeze({ title: "تكامل التخصصات", body: "التقنية والتصميم والمحتوى تعمل ضمن مسار واحد." }),
-    Object.freeze({ title: "تواصل واضح", body: "نرتب القرارات والملاحظات بخطوات مفهومة." }),
-    Object.freeze({ title: "تنفيذ متنوع", body: "نتعامل مع مشاريع بمتطلبات وأهداف مختلفة." })
+    Object.freeze({ title: "نفهم قبل أن ننفذ", body: "نبدأ من المشكلة والهدف قبل اختيار الشكل أو التقنية." }),
+    Object.freeze({ title: "نربط التفاصيل", body: "المحتوى والتصميم والبرمجة والهوية تعمل ضمن مسار واحد." }),
+    Object.freeze({ title: "نوضح ما نبنيه", body: "النطاق والمخرجات والمراجعات تبقى مفهومة خلال التنفيذ." })
   ]),
   en: Object.freeze([
-    Object.freeze({ title: "Connected disciplines", body: "Technology, design, and content work within one delivery path." }),
-    Object.freeze({ title: "Clear communication", body: "Decisions and feedback stay organized and easy to follow." }),
-    Object.freeze({ title: "Varied delivery", body: "We work across projects with different goals and requirements." })
+    Object.freeze({ title: "Understand before executing", body: "We start from the problem and goal before choosing design or technology." }),
+    Object.freeze({ title: "Connect the details", body: "Content, design, software, and identity work within one path." }),
+    Object.freeze({ title: "Make the work clear", body: "Scope, deliverables, and reviews remain understandable during delivery." })
   ])
 });
 
 const whyPoints = Object.freeze({
   ar: Object.freeze([
-    Object.freeze({ title: "فهم واضح للمشروع", body: "نبدأ بالهدف والاحتياج حتى يكون الحل مبنيًا على ما يحتاجه مشروعك فعلًا." }),
-    Object.freeze({ title: "حلول مخصصة", body: "نرتب التصميم والتقنية والمحتوى بما يناسب طبيعة المشروع بدل فرض قالب جاهز." }),
-    Object.freeze({ title: "اهتمام بالتفاصيل", body: "نهتم بالتفاصيل التي تصنع تجربة أوضح وتنفيذًا أكثر اتساقًا." }),
-    Object.freeze({ title: "متابعة واضحة", body: "يبقى التواصل منظمًا خلال مراحل العمل حتى تكون القرارات مفهومة." })
+    Object.freeze({ title: "نبدأ من العمل لا من الشاشة", body: "نفهم نموذج العمل والجمهور وما الذي يجب أن يتحسن قبل أن نرسم أول واجهة." }),
+    Object.freeze({ title: "نصل الأجزاء ببعضها", body: "المحتوى والتصميم والتطوير والهوية تعمل كمنظومة واحدة بدل مشاريع منفصلة." }),
+    Object.freeze({ title: "نبني لما تحتاجه الآن", body: "لا نبيع أدوات لا تحتاجها؛ نرتب الحل الحالي بحيث يمكن تطويره عندما يكبر الاحتياج." }),
+    Object.freeze({ title: "نريك ما يحدث أثناء التنفيذ", body: "المراحل والمراجعات واضحة حتى تشارك في القرارات قبل الوصول إلى النسخة النهائية." }),
+    Object.freeze({ title: "وعودنا مرتبطة بما ننجزه", body: "نوضح ما سنبنيه وما يحتاجه المشروع دون أرقام أو وعود فضفاضة غير قابلة للتحقق." })
   ]),
   en: Object.freeze([
-    Object.freeze({ title: "Clear project understanding", body: "We start with the goal and need so the solution fits what the project actually requires." }),
-    Object.freeze({ title: "Tailored solutions", body: "Design, technology, and content are shaped around the project instead of a ready-made template." }),
-    Object.freeze({ title: "Attention to detail", body: "We focus on the details that create a clearer experience and more consistent delivery." }),
-    Object.freeze({ title: "Clear follow-through", body: "Communication stays organized throughout the work so decisions remain easy to understand." })
+    Object.freeze({ title: "Start from the business, not the screen", body: "We understand the business model, audience, and what needs to improve before drawing the first interface." }),
+    Object.freeze({ title: "Connect the parts", body: "Content, design, development, and identity work as one system instead of separate projects." }),
+    Object.freeze({ title: "Build for what you need now", body: "We do not sell tools you do not need; the current solution can evolve as the need grows." }),
+    Object.freeze({ title: "Show what is happening", body: "Stages and reviews stay clear so you can take part in decisions before the final version." }),
+    Object.freeze({ title: "Tie promises to deliverables", body: "We explain what will be built and what the project needs without unverified numbers or vague guarantees." })
   ])
 });
 
 const processSteps = Object.freeze({
   ar: Object.freeze([
-    Object.freeze({ icon: "discover", number: "01", title: "فهم المشروع", body: "نستمع للفكرة ونحدد الهدف والاحتياج." }),
-    Object.freeze({ icon: "plan", number: "02", title: "التخطيط", body: "نرتب النطاق والمحتوى وخطوات العمل." }),
-    Object.freeze({ icon: "build", number: "03", title: "التصميم والتطوير", body: "نحوّل الخطة إلى تجربة واضحة ومنتج فعلي." }),
-    Object.freeze({ icon: "launch", number: "04", title: "الإطلاق والمتابعة", body: "نراجع النسخة ونجهزها للإطلاق والمتابعة." })
+    Object.freeze({ icon: "discover", number: "01", title: "نفهم", body: "نفهم المشكلة والمستخدم والوضع الحالي." }),
+    Object.freeze({ icon: "plan", number: "02", title: "نقرر", body: "نحدد النطاق والأولوية والمخرجات." }),
+    Object.freeze({ icon: "build", number: "03", title: "نصمم", body: "نحوّل القرار إلى بنية ورسالة وتجربة." }),
+    Object.freeze({ icon: "connected", number: "04", title: "نبني", body: "نحوّل الخطة إلى منتج أو نظام يعمل." }),
+    Object.freeze({ icon: "checklist", number: "05", title: "نختبر", body: "نراجع السيناريوهات والاستجابة والتفاصيل." }),
+    Object.freeze({ icon: "launch", number: "06", title: "نطلق ونطوّر", body: "نجهز الاستخدام ونرتب الخطوة التالية حسب النطاق." })
   ]),
   en: Object.freeze([
-    Object.freeze({ icon: "discover", number: "01", title: "Understand the project", body: "We listen to the idea and define the goal and need." }),
-    Object.freeze({ icon: "plan", number: "02", title: "Plan", body: "We organize the scope, content, and working steps." }),
-    Object.freeze({ icon: "build", number: "03", title: "Design and build", body: "We turn the plan into a clear experience and a working product." }),
-    Object.freeze({ icon: "launch", number: "04", title: "Launch and follow through", body: "We review the approved version and prepare it for launch." })
+    Object.freeze({ icon: "discover", number: "01", title: "Understand", body: "Understand the problem, user, and current situation." }),
+    Object.freeze({ icon: "plan", number: "02", title: "Decide", body: "Define scope, priority, and deliverables." }),
+    Object.freeze({ icon: "build", number: "03", title: "Design", body: "Turn the decision into structure, message, and experience." }),
+    Object.freeze({ icon: "connected", number: "04", title: "Build", body: "Turn the plan into a working product or system." }),
+    Object.freeze({ icon: "checklist", number: "05", title: "Test", body: "Review scenarios, responsiveness, and details." }),
+    Object.freeze({ icon: "launch", number: "06", title: "Launch & evolve", body: "Prepare real use and organize the next step by scope." })
   ])
 });
 
-function section(content, id) {
+function section(function section(content, id) {
   return content.sections.find((item) => item.id === id);
 }
 
@@ -103,7 +109,7 @@ function renderHero(content, locale) {
         </div>
         <div class="home-hero__actions">
           ${ActionLink({ href: routes.startProject(locale), label: content.primaryCta, variant: "primary", size: "lg" })}
-          ${ActionLink({ href: routes.services(locale), label: content.secondaryCta, variant: "ghost", size: "lg" })}
+          ${ActionLink({ href: routes.portfolio(locale), label: content.secondaryCta, variant: "ghost", size: "lg" })}
         </div>
         <div class="home-hero__signals" aria-label="${locale === "ar" ? "مزايا العمل مع فريق وصل تك" : "Working with the Wasl Tech team"}">
           ${signals}
@@ -132,7 +138,7 @@ function renderServices(content, locale) {
         ${SectionHeader({ kicker: copy.kicker, title: copy.title, supporting: copy.support })}
         <div class="home-service-grid">${cards}</div>
         <div class="home-section-action">
-          <a class="text-link" href="${routes.services(locale)}">${locale === "ar" ? "استكشف جميع الخدمات" : "Explore all services"}</a>
+          <a class="text-link" href="${routes.services(locale)}">${locale === "ar" ? "استكشف كل خدماتنا" : "Explore all services"}</a>
         </div>
       </div>
     </section>
@@ -162,7 +168,7 @@ function renderProjects(content, locale) {
       <div class="container">
         <div class="home-section-heading-row">
           ${SectionHeader({ kicker: copy.kicker, title: copy.title, supporting: copy.support })}
-          <a class="text-link" href="${routes.portfolio(locale)}">${locale === "ar" ? "شاهد جميع الأعمال" : "View all work"}</a>
+          <a class="text-link" href="${routes.portfolio(locale)}">${locale === "ar" ? "استكشف دراسات الحالة" : "Explore case studies"}</a>
         </div>
         <div class="home-project-grid">${cards}</div>
       </div>
@@ -192,7 +198,7 @@ function renderAbout(content, locale) {
           <h2>${escapeHtml(copy.title)}</h2>
           <p>${escapeHtml(copy.support)}</p>
           <div class="home-about__values">${values}</div>
-          <a class="text-link" href="${routes.about(locale)}">${locale === "ar" ? "تعرّف على فريق وصل تك" : "Meet the Wasl Tech team"}</a>
+          <a class="text-link" href="${routes.about(locale)}">${locale === "ar" ? "تعرّف على وصل تك" : "About Wasl Tech"}</a>
         </div>
       </div>
     </section>
@@ -279,7 +285,7 @@ function renderFinalCta(content, locale) {
     title: copy.title,
     description: copy.support,
     action: { href: routes.startProject(locale), label: content.primaryCta },
-    secondaryAction: { href: routes.contact(locale), label: locale === "ar" ? "تواصل معنا" : "Contact us" }
+    secondaryAction: { href: routes.contact(locale), label: locale === "ar" ? "تحدث معنا" : "Talk to us" }
   });
 }
 

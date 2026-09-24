@@ -22,14 +22,6 @@ function pageSection(content, id) {
   return content.sections.find((item) => item.id === id);
 }
 
-function publicHeroSupport(content, locale) {
-  if (locale === "ar") {
-    return "نبني المنتجات الرقمية والأنظمة والحلول، ونطوّر الهوية والحضور بما يناسب احتياج المشروع، سواء كان المسار مستقلًا أو جزءًا من مشروع متكامل.";
-  }
-
-  return "We build digital products, systems, and technical solutions, and develop brand presence around what the project needs—whether as a focused engagement or one connected project.";
-}
-
 function renderHero(content, locale) {
   return `
     <section class="services-hero">
@@ -37,7 +29,7 @@ function renderHero(content, locale) {
         <div class="services-hero__copy">
           <p class="eyebrow">${escapeHtml(content.kicker)}</p>
           <h1>${escapeHtml(content.title)}</h1>
-          <p>${escapeHtml(publicHeroSupport(content, locale))}</p>
+          <p>${escapeHtml(content.support)}</p>
           <div class="services-hero__actions">
             ${ActionLink({ href:"#service-families", label:content.primaryCta, variant:"primary", size:"lg" })}
             ${ActionLink({ href:routes.startProject(locale), label:content.secondaryCta, variant:"ghost", size:"lg" })}
@@ -69,7 +61,7 @@ function renderServiceRow(service, locale) {
         <p>${escapeHtml(copy.decision.scopeSummary)}</p>
       </div>
       <div class="service-directory-row__action">
-        <a class="text-link" href="${routes.service(service.slug,locale)}">${locale === "ar" ? "تفاصيل الخدمة" : "Service details"}</a>
+        <a class="text-link" href="${routes.service(service.slug,locale)}">${locale === "ar" ? "شاهد ما تتضمنه الخدمة" : "See what the service includes"}</a>
       </div>
     </article>
   `;
@@ -106,7 +98,7 @@ function renderUnsure(content,locale) {
     title:copy.title,
     description:copy.support,
     action:{href:routes.startProject(locale),label:content.secondaryCta},
-    secondaryAction:{href:routes.contact(locale),label:locale === "ar" ? "تواصل معنا مباشرة" : "Contact us directly"}
+    secondaryAction:{href:routes.contact(locale),label:locale === "ar" ? "ابدأ النقاش مباشرة" : "Start the conversation directly"}
   });
 }
 
