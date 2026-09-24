@@ -19,11 +19,6 @@
 .insight-card__copy h2 a:hover{color:var(--color-text-accent)}
 .insight-card__copy>p:not(.eyebrow){display:-webkit-box;margin-bottom:var(--space-3);color:var(--color-text-secondary);font-size:clamp(.86rem,.82rem + .12vw,.94rem);line-height:1.7;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
 
-.insights-cta,.article-cta,.job-cta{padding-block:var(--space-8);background:var(--color-bg-canvas)}
-.insights-cta__inner,.article-cta__inner,.job-cta__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--space-8);align-items:end;padding:clamp(var(--space-6),4vw,var(--space-10));background:var(--wt-teal-700);border-radius:var(--radius-panel)}
-.insights-cta .eyebrow,.article-cta .eyebrow,.job-cta .eyebrow{color:var(--wt-teal-100)}
-.insights-cta h2,.article-cta h2,.job-cta h2{max-width:21ch;margin-bottom:var(--space-3);color:var(--color-text-inverse);font-size:var(--font-size-2xl)}
-.insights-cta p:not(.eyebrow),.article-cta p:not(.eyebrow),.job-cta p:not(.eyebrow){max-width:46rem;color:var(--wt-teal-50)}
 
 .article-breadcrumb,.job-breadcrumb{padding-top:var(--space-5)}
 .article-breadcrumb ol,.job-breadcrumb ol{display:flex;flex-wrap:wrap;gap:var(--space-2);align-items:center;color:var(--color-text-muted);font-size:var(--font-size-sm)}
@@ -75,8 +70,6 @@
 @media(max-width:53.75rem){
   .insights-hero__grid,.article-hero__grid,.job-hero__grid,.article-content__layout,.article-related__grid{grid-template-columns:1fr}
   .article-content__lead{position:static;max-width:48rem}
-  .insights-cta__inner,.article-cta__inner,.job-cta__inner{grid-template-columns:1fr}
-  .insights-cta__inner .button,.article-cta__inner .button,.job-cta__inner .button{justify-self:start}
 }
 
 @media(max-width:43.75rem){
@@ -107,7 +100,6 @@
   .job-content__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
   .job-content h2{font-size:1.05rem}
   .job-content li{font-size:.8125rem}
-  .insights-cta__inner .button,.article-cta__inner .button,.job-cta__inner .button{width:100%}
 }
 
 @media(max-width:23.75rem){.job-content__grid{grid-template-columns:1fr}}

@@ -1,7 +1,7 @@
 import { routes } from "../config/routes.js";
 import { getProjectsByCategory } from "../data/projects.js";
 import { getServiceById } from "../data/services.js";
-import { ActionLink } from "../components/ActionLink.js";
+import { CallToAction } from "../components/CallToAction.js";
 import { documentTemplate } from "../templates/document.js";
 import { breadcrumbSchema, creativeWorkSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
@@ -151,18 +151,12 @@ function renderRelated(project,locale) {
 }
 
 function renderCta(project,locale) {
-  return `
-    <section class="project-detail-cta">
-      <div class="container project-detail-cta__inner">
-        <div>
-          <p class="eyebrow">${locale === "ar" ? "مشروعك التالي" : "Your next project"}</p>
-          <h2>${locale === "ar" ? "عندك فكرة قريبة؟ نبدأ من احتياجك أنت." : "Have a similar direction in mind? We start from your own need."}</h2>
-          <p>${locale === "ar" ? "شاركنا ما تريد بناءه أو تحسينه، ونرتب معك النطاق المناسب بدل نسخ مشروع جاهز." : "Tell us what you want to build or improve, and we will shape the scope around your project rather than copying an existing one."}</p>
-        </div>
-        ${ActionLink({href:routes.startProject(locale),label:locale === "ar" ? "ابدأ مشروعك" : "Start your project",variant:"light",size:"lg"})}
-      </div>
-    </section>
-  `;
+  return CallToAction({
+    kicker:locale === "ar" ? "مشروعك التالي" : "Your next project",
+    title:locale === "ar" ? "عندك فكرة قريبة؟ نبدأ من احتياجك أنت." : "Have a similar direction in mind? We start from your own need.",
+    description:locale === "ar" ? "شاركنا ما تريد بناءه أو تحسينه، ونرتب معك النطاق المناسب بدل نسخ مشروع جاهز." : "Tell us what you want to build or improve, and we will shape the scope around your project rather than copying an existing one.",
+    action:{href:routes.startProject(locale),label:locale === "ar" ? "ابدأ مشروعك" : "Start your project"}
+  });
 }
 
 export function projectDetailPage(project,locale="ar") {

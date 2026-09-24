@@ -1,7 +1,7 @@
 import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
 import { projects } from "../data/projects.js";
-import { ActionLink } from "../components/ActionLink.js";
+import { CallToAction } from "../components/CallToAction.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
@@ -77,16 +77,12 @@ export function portfolioPage(locale="ar") {
       </div>
     </section>
 
-    <section class="portfolio-cta">
-      <div class="container portfolio-cta__inner">
-        <div>
-          <p class="eyebrow">${escapeHtml(content.sections.find((item)=>item.id==="final-cta")?.kicker ?? "")}</p>
-          <h2>${escapeHtml(content.sections.find((item)=>item.id==="final-cta")?.title ?? "")}</h2>
-          <p>${escapeHtml(content.sections.find((item)=>item.id==="final-cta")?.support ?? "")}</p>
-        </div>
-        ${ActionLink({href:routes.startProject(locale),label:content.secondaryCta,variant:"light",size:"lg"})}
-      </div>
-    </section>
+    ${CallToAction({
+      kicker: content.sections.find((item)=>item.id==="final-cta")?.kicker ?? "",
+      title: content.sections.find((item)=>item.id==="final-cta")?.title ?? "",
+      description: content.sections.find((item)=>item.id==="final-cta")?.support ?? "",
+      action:{href:routes.startProject(locale),label:content.secondaryCta}
+    })}
     <script src="/assets/js/portfolio-filter.js" defer></script>
   `;
 

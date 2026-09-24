@@ -1,7 +1,7 @@
 import { routes } from "../config/routes.js";
 import { site } from "../config/site.js";
 import { pages } from "../data/pages.js";
-import { ActionLink } from "../components/ActionLink.js";
+import { ActionLink } from "../components/ActionLink.js";\nimport { CallToAction } from "../components/CallToAction.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
@@ -88,16 +88,12 @@ export function contactPage(locale="ar"){
       </div>
     </section>
 
-    <section class="contact-final">
-      <div class="container contact-final__inner">
-        <div>
-          <p class="eyebrow">${escapeHtml(finalCta.kicker)}</p>
-          <h2>${escapeHtml(finalCta.title)}</h2>
-          <p>${escapeHtml(finalCta.support)}</p>
-        </div>
-        ${ActionLink({href:whatsappHref(locale),label:content.primaryCta,variant:"light",size:"lg"})}
-      </div>
-    </section>
+    ${CallToAction({
+      kicker:finalCta.kicker,
+      title:finalCta.title,
+      description:finalCta.support,
+      action:{href:whatsappHref(locale),label:content.primaryCta}
+    })}
   `;
 
   return documentTemplate({

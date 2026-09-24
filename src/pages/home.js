@@ -3,7 +3,7 @@ import { pages } from "../data/pages.js";
 import { services } from "../data/services.js";
 import { getProjectById } from "../data/projects.js";
 import { faqs } from "../data/faq.js";
-import { ActionLink } from "../components/ActionLink.js";
+import { ActionLink } from "../components/ActionLink.js";\nimport { CallToAction } from "../components/CallToAction.js";
 import { SectionHeader } from "../components/SectionHeader.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema, websiteSchema } from "../seo/structured-data.js";
@@ -283,21 +283,13 @@ function renderFaq(content, locale) {
 
 function renderFinalCta(content, locale) {
   const copy = section(content, "final-cta");
-  return `
-    <section class="home-final-cta">
-      <div class="container home-final-cta__inner">
-        <div>
-          <p class="eyebrow">${escapeHtml(copy.kicker)}</p>
-          <h2>${escapeHtml(copy.title)}</h2>
-          <p>${escapeHtml(copy.support)}</p>
-        </div>
-        <div class="home-final-cta__actions">
-          ${ActionLink({ href: routes.startProject(locale), label: content.primaryCta, variant: "light", size: "md" })}
-          ${ActionLink({ href: routes.contact(locale), label: locale === "ar" ? "تواصل معنا" : "Contact us", variant: "ghost", size: "md" })}
-        </div>
-      </div>
-    </section>
-  `;
+  return CallToAction({
+    kicker: copy.kicker,
+    title: copy.title,
+    description: copy.support,
+    action: { href: routes.startProject(locale), label: content.primaryCta },
+    secondaryAction: { href: routes.contact(locale), label: locale === "ar" ? "تواصل معنا" : "Contact us" }
+  });
 }
 
 export function homePage(locale = "ar") {

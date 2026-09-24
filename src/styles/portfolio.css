@@ -23,19 +23,12 @@
 .portfolio-card__copy h2 a:hover{color:var(--color-text-accent)}
 .portfolio-card__copy>p:not(.eyebrow){display:-webkit-box;margin-bottom:var(--space-3);color:var(--color-text-secondary);font-size:clamp(.86rem,.82rem + .12vw,.94rem);line-height:1.7;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
 
-.portfolio-cta{padding-block:var(--space-8);background:var(--color-bg-canvas)}
-.portfolio-cta__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--space-8);align-items:end;padding:clamp(var(--space-6),4vw,var(--space-10));background:var(--wt-teal-700);border-radius:var(--radius-panel)}
-.portfolio-cta .eyebrow{color:var(--wt-teal-100)}
-.portfolio-cta h2{max-width:18ch;margin-bottom:var(--space-3);color:var(--color-text-inverse);font-size:var(--font-size-2xl)}
-.portfolio-cta p:not(.eyebrow){max-width:44rem;color:var(--wt-teal-50)}
 
 @media(max-width:64rem){
   .portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:53.75rem){
   .portfolio-hero__grid{grid-template-columns:1fr}
-  .portfolio-cta__inner{grid-template-columns:1fr}
-  .portfolio-cta__inner .button{justify-self:start}
 }
 @media(max-width:43.75rem){
   .portfolio-hero h1{font-size:clamp(2.25rem,10vw,3.25rem)}
@@ -49,7 +42,6 @@
   .portfolio-card__copy .text-link{font-size:.86rem}
   .portfolio-filters{gap:var(--space-2);margin-bottom:var(--space-5)}
   .portfolio-filters button{flex:1 1 calc(33.333% - var(--space-2));min-height:var(--control-height);padding:.35rem .55rem;font-size:.78rem}
-  .portfolio-cta__inner .button{width:100%}
 }
 @media(prefers-reduced-motion:reduce){.portfolio-card:hover .portfolio-card__media img{transform:none}}
 

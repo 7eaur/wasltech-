@@ -158,6 +158,50 @@ for (const file of sourceFiles) {
   }
 }
 
+const ctaComponentSource = await readFile(path.join(ROOT, "src/components/CallToAction.js"), "utf8");
+for (const contract of [
+  "export function CallToAction",
+  "site-cta__inner",
+  "site-cta__copy",
+  "site-cta__actions",
+  "ActionLink({"
+]) {
+  if (!ctaComponentSource.includes(contract)) fail("src/components/CallToAction.js", `missing shared CTA contract: ${contract}`);
+}
+
+const ctaSourceFiles = [
+  "src/pages/home.js",
+  "src/pages/about.js",
+  "src/pages/process.js",
+  "src/pages/services.js",
+  "src/pages/service-detail.js",
+  "src/pages/portfolio.js",
+  "src/pages/project-detail.js",
+  "src/pages/contact.js",
+  "src/pages/insights.js",
+  "src/pages/article-detail.js",
+  "src/pages/job-detail.js"
+];
+for (const file of ctaSourceFiles) {
+  const source = await readFile(path.join(ROOT, file), "utf8");
+  if (!source.includes("CallToAction")) fail(file, "closing CTA must use the shared CallToAction component");
+}
+for (const legacyClass of [
+  "home-final-cta",
+  "about-cta",
+  "process-cta",
+  "services-unsure",
+  "service-detail-cta",
+  "portfolio-cta",
+  "project-detail-cta",
+  "contact-final",
+  "insights-cta",
+  "article-cta",
+  "job-cta"
+]) {
+  if (cssSourceBundle.includes(`.${legacyClass}`)) fail("styles", `legacy page-specific CTA selector remains: .${legacyClass}`);
+}
+
 const packageJson = JSON.parse(await readFile(path.join(ROOT, "package.json"), "utf8"));
 if (packageJson.dependencies && Object.keys(packageJson.dependencies).length) {
   fail("package.json", "Phase 1 must not introduce runtime dependencies");

@@ -48,6 +48,27 @@
 .badge{display:inline-flex;align-items:center;min-height:1.75rem;padding:.25rem .6rem;border-radius:var(--radius-full);background:var(--color-bg-soft);color:var(--color-text-secondary);font-size:var(--font-size-xs);font-weight:var(--font-weight-semibold)}
 .badge--accent{background:var(--color-brand-accent-soft);color:var(--color-text-accent)}
 
+.site-cta{padding-block:clamp(var(--space-6),3vw,var(--space-8));background:var(--color-bg-canvas)}
+.site-cta__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(var(--space-5),3vw,var(--space-8));align-items:center;padding:clamp(1.25rem,2.4vw,2rem);background:var(--wt-teal-700);border-radius:var(--radius-panel)}
+.site-cta__copy{min-width:0;max-width:58rem}
+.site-cta .eyebrow{margin-bottom:.4rem;color:var(--wt-teal-100);font-size:clamp(.72rem,.69rem + .08vw,.78rem)}
+.site-cta h2{max-width:none;margin:0;color:var(--color-text-inverse);font-size:clamp(1.28rem,1.12rem + .48vw,1.68rem);font-weight:var(--font-weight-bold);line-height:1.35;letter-spacing:0}
+.site-cta__description{max-width:52rem;margin-top:.45rem;color:var(--wt-teal-50);font-size:clamp(.86rem,.82rem + .12vw,.94rem);line-height:1.65}
+.site-cta__actions{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;justify-content:flex-end}
+.site-cta__actions .button{min-height:2.75rem;padding-inline:1rem;font-size:clamp(.84rem,.81rem + .1vw,.9rem)}
+.site-cta__secondary{color:var(--wt-neutral-100);font-size:clamp(.82rem,.79rem + .08vw,.88rem);font-weight:var(--font-weight-semibold)}
+.site-cta__secondary:hover{color:var(--wt-neutral-0);text-decoration:underline;text-underline-offset:.18em}
+
+@media(max-width:43.75rem){
+  .site-cta{padding-block:var(--space-6)}
+  .site-cta__inner{grid-template-columns:1fr;gap:var(--space-4);padding:var(--space-5)}
+  .site-cta h2{font-size:clamp(1.2rem,5vw,1.45rem);line-height:1.4}
+  .site-cta__description{font-size:.875rem;line-height:1.65}
+  .site-cta__actions{display:grid;grid-template-columns:1fr;justify-content:stretch}
+  .site-cta__actions .button{width:100%}
+  .site-cta__secondary{justify-self:center}
+}
+
 @media(prefers-reduced-motion:reduce){
   .button:hover,.card--interactive:hover{transform:none}
 }

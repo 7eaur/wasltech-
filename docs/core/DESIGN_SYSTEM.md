@@ -186,6 +186,14 @@ Shared contracts include:
 - ProjectCard
 - FAQ
 - CTA
+
+CTA contract:
+- all closing CTA sections use `src/components/CallToAction.js`; page-specific CTA wrappers are not allowed;
+- CTA is a compact closing band, never a second Hero;
+- the page may change only the kicker, title, description, primary action label/URL, and optional secondary action;
+- CTA heading scale stays below page-section/Hero scale and remains responsive;
+- the primary CTA uses the medium control size by default; optional secondary action is a quiet text link;
+- spacing, radius, color, and responsive behavior are owned by the shared component stylesheet.
 - form fields
 - project/service metadata
 

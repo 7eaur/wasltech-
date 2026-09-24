@@ -1,7 +1,7 @@
 import { routes } from "../config/routes.js";
 import { serviceGroups } from "../data/services.js";
 import { getProjectsByService } from "../data/projects.js";
-import { ActionLink } from "../components/ActionLink.js";
+import { ActionLink } from "../components/ActionLink.js";\nimport { CallToAction } from "../components/CallToAction.js";
 import { SectionHeader } from "../components/SectionHeader.js";
 import { documentTemplate } from "../templates/document.js";
 import { breadcrumbSchema, faqPageSchema, serviceSchema } from "../seo/structured-data.js";
@@ -224,18 +224,12 @@ function renderConstraints(service, locale) {
 
 function renderFinalCta(service, locale) {
   const copy = service.content[locale];
-  return `
-    <section class="service-detail-cta">
-      <div class="container service-detail-cta__inner">
-        <div>
-          <p class="eyebrow">${locale === "ar" ? "الخطوة التالية" : "Next step"}</p>
-          <h2>${escapeHtml(copy.cta.title)}</h2>
-          <p>${escapeHtml(copy.cta.description)}</p>
-        </div>
-        ${ActionLink({href:routes.startProject(locale),label:copy.cta.label,variant:"light",size:"lg"})}
-      </div>
-    </section>
-  `;
+  return CallToAction({
+    kicker:locale === "ar" ? "الخطوة التالية" : "Next step",
+    title:copy.cta.title,
+    description:copy.cta.description,
+    action:{href:routes.startProject(locale),label:copy.cta.label}
+  });
 }
 
 export function serviceDetailPage(service, locale="ar") {

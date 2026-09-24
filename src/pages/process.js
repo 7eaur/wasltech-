@@ -1,6 +1,6 @@
 import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
-import { ActionLink } from "../components/ActionLink.js";
+import { ActionLink } from "../components/ActionLink.js";\nimport { CallToAction } from "../components/CallToAction.js";
 import { documentTemplate } from "../templates/document.js";
 import { escapeHtml } from "../lib/html.js";
 import { HeroMedia } from "../components/HeroMedia.js";
@@ -75,18 +75,12 @@ function renderPrinciple(content){
 
 function renderCta(content,locale){
   const cta=section(content,"final-cta");
-  return `
-    <section class="process-cta">
-      <div class="container process-cta__inner">
-        <div>
-          <p class="eyebrow">${escapeHtml(cta.kicker)}</p>
-          <h2>${escapeHtml(cta.title)}</h2>
-          <p>${escapeHtml(cta.support)}</p>
-        </div>
-        ${ActionLink({href:routes.startProject(locale),label:content.primaryCta,variant:"light",size:"lg"})}
-      </div>
-    </section>
-  `;
+  return CallToAction({
+    kicker:cta.kicker,
+    title:cta.title,
+    description:cta.support,
+    action:{href:routes.startProject(locale),label:content.primaryCta}
+  });
 }
 
 export function processPage(locale="ar"){

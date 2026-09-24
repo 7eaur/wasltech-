@@ -21,16 +21,7 @@
 .service-directory-row__decision span,.service-directory-row__scope span{display:block;margin-bottom:.35rem;color:var(--color-text-muted);font-size:var(--font-size-xs);font-weight:var(--font-weight-semibold)}
 .service-directory-row__decision p,.service-directory-row__scope p{color:var(--color-text-secondary);font-size:var(--font-size-sm);line-height:1.7}
 .service-directory-row__action .text-link{font-size:var(--font-size-sm)}
-.services-unsure{padding-block:var(--space-8);background:var(--color-bg-canvas)}
-.services-unsure__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--space-8);align-items:end;padding:clamp(var(--space-6),4vw,var(--space-10));background:var(--wt-teal-700);border-radius:var(--radius-panel)}
-.services-unsure .eyebrow{color:var(--wt-teal-100)}
-.services-unsure h2{margin-bottom:var(--space-3);color:var(--color-text-inverse);font-size:var(--font-size-2xl)}
-.services-unsure p:not(.eyebrow){max-width:52rem;color:var(--wt-teal-50)}
-.services-unsure__actions{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-3)}
-.services-unsure__link{color:var(--wt-neutral-300);font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold)}
-.services-unsure__link:hover{color:var(--wt-neutral-0);text-decoration:underline;text-underline-offset:.18em}
 @media(max-width:64rem){.service-directory-list{grid-template-columns:1fr}.service-directory-row{grid-template-columns:minmax(12rem,.7fr) minmax(0,1.3fr)}}
-@media(max-width:53.75rem){.services-hero__grid,.services-unsure__inner{grid-template-columns:1fr}}
 @media(max-width:43.75rem){
  .services-hero h1{font-size:clamp(2.15rem,9vw,3.1rem)}
  .service-family{padding-block:var(--space-8)}
@@ -46,8 +37,6 @@
  .service-directory-row__scope{display:none}
  .service-directory-row__action{align-self:end}
  .service-directory-row__action .text-link{font-size:.86rem}
- .services-unsure__actions{width:100%}
- .services-unsure__actions .button{width:100%}
 }
 @media(max-width:23.75rem){.service-directory-row{grid-template-columns:1fr;grid-template-areas:"main" "decision" "action"}.service-directory-row__decision p{-webkit-line-clamp:2}}
 @media(prefers-reduced-motion:reduce){.service-directory-row:hover .service-directory-row__media img{transform:none}}

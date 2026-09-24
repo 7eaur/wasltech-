@@ -1,7 +1,7 @@
 import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
 import { serviceGroups } from "../data/services.js";
-import { ActionLink } from "../components/ActionLink.js";
+import { CallToAction } from "../components/CallToAction.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
@@ -110,18 +110,12 @@ function renderBuild(content,locale){
 
 function renderCta(content,locale){
   const cta=section(content,"final-cta");
-  return `
-    <section class="about-cta">
-      <div class="container about-cta__inner">
-        <div>
-          <p class="eyebrow">${escapeHtml(cta.kicker)}</p>
-          <h2>${escapeHtml(cta.title)}</h2>
-          <p>${escapeHtml(cta.support)}</p>
-        </div>
-        ${ActionLink({href:routes.startProject(locale),label:content.primaryCta,variant:"light",size:"lg"})}
-      </div>
-    </section>
-  `;
+  return CallToAction({
+    kicker:cta.kicker,
+    title:cta.title,
+    description:cta.support,
+    action:{href:routes.startProject(locale),label:content.primaryCta}
+  });
 }
 
 export function aboutPage(locale="ar"){

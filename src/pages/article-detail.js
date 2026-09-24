@@ -1,6 +1,6 @@
 import { routes } from "../config/routes.js";
 import { getServiceById } from "../data/services.js";
-import { ActionLink } from "../components/ActionLink.js";
+import { CallToAction } from "../components/CallToAction.js";
 import { HeroMedia } from "../components/HeroMedia.js";
 import { getArticleHeroMedia } from "../config/hero-media.js";
 import { documentTemplate } from "../templates/document.js";
@@ -103,16 +103,12 @@ export function articleDetailPage(article,locale="ar"){
 
     ${renderRelatedServices(article,locale)}
 
-    <section class="article-cta">
-      <div class="container article-cta__inner">
-        <div>
-          <p class="eyebrow">${locale==="ar"?"خطوتك التالية":"Your next step"}</p>
-          <h2>${locale==="ar"?"حوّل السؤال العام إلى نطاق يناسب مشروعك.":"Turn the general question into a scope that fits your project."}</h2>
-          <p>${locale==="ar"?"شاركنا السياق الحالي وما تريد الوصول إليه، ونبدأ من الاحتياج الفعلي.":"Share the current context and what you want to achieve, and we will start from the actual need."}</p>
-        </div>
-        ${ActionLink({href:routes.startProject(locale),label:locale==="ar"?"ابدأ مشروعك":"Start your project",variant:"light",size:"lg"})}
-      </div>
-    </section>
+    ${CallToAction({
+      kicker:locale==="ar"?"خطوتك التالية":"Your next step",
+      title:locale==="ar"?"حوّل السؤال العام إلى نطاق يناسب مشروعك.":"Turn the general question into a scope that fits your project.",
+      description:locale==="ar"?"شاركنا السياق الحالي وما تريد الوصول إليه، ونبدأ من الاحتياج الفعلي.":"Share the current context and what you want to achieve, and we will start from the actual need.",
+      action:{href:routes.startProject(locale),label:locale==="ar"?"ابدأ مشروعك":"Start your project"}
+    })}
   `;
 
   return documentTemplate({

@@ -1,5 +1,5 @@
 import { routes } from "../config/routes.js";
-import { ActionLink } from "../components/ActionLink.js";
+import { CallToAction } from "../components/CallToAction.js";
 import { HeroMedia } from "../components/HeroMedia.js";
 import { getJobHeroMedia } from "../config/hero-media.js";
 import { documentTemplate } from "../templates/document.js";
@@ -62,16 +62,12 @@ export function jobDetailPage(job,locale="ar"){
       </div>
     </section>
 
-    <section class="job-cta">
-      <div class="container job-cta__inner">
-        <div>
-          <p class="eyebrow">${locale==="ar"?"التقديم":"Apply"}</p>
-          <h2>${locale==="ar"?"راجع تفاصيل الدور ثم تواصل معنا بالطريقة الموضحة في الإعلان.":"Review the role details, then contact us through the method stated for the opening."}</h2>
-          <p>${locale==="ar"?"لا نعتبر فتح الصفحة أو التواصل العام طلب توظيف مكتملًا؛ طريقة التقديم الفعلية تُحدد مع كل فرصة منشورة.":"Viewing the page or sending a general message is not a completed application; the actual application method is defined with each published role."}</p>
-        </div>
-        ${ActionLink({href:job.applyUrl || routes.contact(locale),label:locale==="ar"?"تواصل معنا":"Contact us",variant:"light",size:"lg"})}
-      </div>
-    </section>
+    ${CallToAction({
+      kicker:locale==="ar"?"التقديم":"Apply",
+      title:locale==="ar"?"راجع تفاصيل الدور ثم تواصل معنا بالطريقة الموضحة في الإعلان.":"Review the role details, then contact us through the method stated for the opening.",
+      description:locale==="ar"?"لا نعتبر فتح الصفحة أو التواصل العام طلب توظيف مكتملًا؛ طريقة التقديم الفعلية تُحدد مع كل فرصة منشورة.":"Viewing the page or sending a general message is not a completed application; the actual application method is defined with each published role.",
+      action:{href:job.applyUrl || routes.contact(locale),label:locale==="ar"?"تواصل معنا":"Contact us"}
+    })}
   `;
 
   return documentTemplate({

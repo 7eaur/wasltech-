@@ -38,17 +38,10 @@
 .project-related__copy h3 a:hover{color:var(--color-text-accent)}
 .project-related__copy>p:not(.eyebrow){color:var(--color-text-secondary);font-size:var(--font-size-sm)}
 
-.project-detail-cta{padding-block:var(--space-8);background:var(--color-bg-canvas)}
-.project-detail-cta__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--space-8);align-items:end;padding:clamp(var(--space-6),4vw,var(--space-10));background:var(--wt-teal-700);border-radius:var(--radius-panel)}
-.project-detail-cta .eyebrow{color:var(--wt-teal-100)}
-.project-detail-cta h2{max-width:20ch;margin-bottom:var(--space-3);color:var(--color-text-inverse);font-size:var(--font-size-2xl)}
-.project-detail-cta p:not(.eyebrow){max-width:46rem;color:var(--wt-teal-50)}
 
 @media(max-width:53.75rem){
   .project-detail-hero__grid,.project-services__grid{grid-template-columns:1fr}
   .project-scope__grid{grid-template-columns:1fr}
-  .project-detail-cta__inner{grid-template-columns:1fr}
-  .project-detail-cta__inner .button{justify-self:start}
 }
 @media(max-width:43.75rem){
   .project-detail-hero h1{font-size:clamp(2.25rem,10vw,3.25rem)}
@@ -66,6 +59,5 @@
   .project-related__copy{padding:var(--space-4) .05rem .1rem}
   .project-related__copy h3{font-size:1.05rem}
   .project-related__copy>p:not(.eyebrow){font-size:.9rem;line-height:1.68}
-  .project-detail-cta__inner .button{width:100%}
 }
 

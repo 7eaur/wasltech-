@@ -82,14 +82,6 @@
 .home-faq__item[open] summary::after{content:"−"}
 .home-faq__item p{max-width:48rem;padding:0 0 var(--space-5);color:var(--color-text-secondary);line-height:1.75}
 
-.home-final-cta{padding-block:var(--space-8);background:var(--color-bg-canvas)}
-.home-final-cta__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--space-8);align-items:center;padding:clamp(var(--space-6),4vw,var(--space-10));background:var(--wt-teal-700);border-radius:var(--radius-panel)}
-.home-final-cta .eyebrow{color:var(--wt-teal-100)}
-.home-final-cta h2{max-width:22ch;margin-bottom:var(--space-2);color:var(--color-text-inverse);font-size:var(--font-size-2xl)}
-.home-final-cta p:not(.eyebrow){max-width:46rem;color:var(--wt-teal-50);font-size:var(--font-size-sm)}
-.home-final-cta__actions{display:flex;flex-wrap:wrap;gap:var(--space-3)}
-.home-final-cta__actions .button--ghost{background:transparent;border-color:rgb(255 255 255 / 45%);color:var(--color-text-inverse)}
-.home-final-cta__actions .button--ghost:hover{background:rgb(255 255 255 / 10%)}
 
 @media(max-width:64rem){
   .home-hero__grid{grid-template-columns:1fr 1fr;gap:var(--space-8)}
@@ -162,15 +154,11 @@
   .home-process__step p{grid-column:2;color:var(--color-text-secondary);font-size:.88rem;line-height:1.65}
   .home-faq__grid{grid-template-columns:1fr;gap:var(--space-6)}
   .home-faq__item summary{padding-block:var(--space-4);font-size:.9375rem}
-  .home-final-cta__inner{grid-template-columns:1fr}
-  .home-final-cta__actions{justify-content:flex-start}
 }
 
 @media(max-width:40rem){
   .home-hero__actions{display:grid;grid-template-columns:1fr}
   .home-hero__actions .button{width:100%}
-  .home-final-cta__actions{display:grid;grid-template-columns:1fr}
-  .home-final-cta__actions .button{width:100%}
   .home-section-action{margin-top:var(--space-4)}
   .home-section-action .text-link,.home-section-heading-row>.text-link{font-size:.8125rem}
 }

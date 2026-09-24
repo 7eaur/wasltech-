@@ -1,7 +1,7 @@
 import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
 import { serviceGroups, getServicesByGroup } from "../data/services.js";
-import { ActionLink } from "../components/ActionLink.js";
+import { ActionLink } from "../components/ActionLink.js";\nimport { CallToAction } from "../components/CallToAction.js";
 import { SectionHeader } from "../components/SectionHeader.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema } from "../seo/structured-data.js";
@@ -99,23 +99,14 @@ function renderFamily(group, content, locale) {
 }
 
 function renderUnsure(content,locale) {
-  const section = pageSection(content,"unsure");
-
-  return `
-    <section class="services-unsure">
-      <div class="container services-unsure__inner">
-        <div>
-          <p class="eyebrow">${escapeHtml(section.kicker)}</p>
-          <h2>${escapeHtml(section.title)}</h2>
-          <p>${escapeHtml(section.support)}</p>
-        </div>
-        <div class="services-unsure__actions">
-          ${ActionLink({href:routes.startProject(locale),label:content.secondaryCta,variant:"light",size:"lg"})}
-          <a class="services-unsure__link" href="${routes.contact(locale)}">${locale === "ar" ? "أو تواصل معنا مباشرة" : "Or contact us directly"}</a>
-        </div>
-      </div>
-    </section>
-  `;
+  const copy = pageSection(content,"unsure");
+  return CallToAction({
+    kicker:copy.kicker,
+    title:copy.title,
+    description:copy.support,
+    action:{href:routes.startProject(locale),label:content.secondaryCta},
+    secondaryAction:{href:routes.contact(locale),label:locale === "ar" ? "تواصل معنا مباشرة" : "Contact us directly"}
+  });
 }
 
 export function servicesDirectoryPage(locale="ar") {
