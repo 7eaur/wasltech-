@@ -13,7 +13,7 @@ const errors = [];
 
 function fail(scope,message){ errors.push(`${scope}: ${message}`); }
 function outputPath(route){ return route === "/" ? "index.html" : path.join(route.replace(/^\//,""),"index.html"); }
-function htmlText(value=""){ return String(value).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;"); }
+function htmlText(value=""){ return String(value).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;"); }
 
 for (const locale of ["ar","en"]) {
   const alternateLocale = locale === "ar" ? "en" : "ar";
@@ -39,6 +39,11 @@ for (const locale of ["ar","en"]) {
 
     if (!html.includes(htmlText(copy.decision.problemNeed))) fail(file,"problem/need content missing");
     if (!html.includes(htmlText(copy.decision.scopeSummary))) fail(file,"scope summary missing");
+
+    for (const subservice of copy.subservices ?? []) {
+      if (!html.includes(htmlText(subservice.title))) fail(file,`subservice missing: ${subservice.title}`);
+      if (!html.includes(htmlText(subservice.description))) fail(file,`subservice description missing: ${subservice.id}`);
+    }
 
     for (const deliverable of copy.deliverables) {
       if (!html.includes(htmlText(deliverable.title))) fail(file,`deliverable missing: ${deliverable.title}`);
@@ -68,7 +73,7 @@ for (const locale of ["ar","en"]) {
     }
 
     const relatedArticles = getPublishedArticlesByService(service.id, locale).slice(0,3);
-    const hasRelatedArticles = /class="[^"]*\bservice-articles\b[^"]*"/.test(html);
+    const hasRelatedArticles = /class="[^"]*\\bservice-articles\\b[^"]*"/.test(html);
     if (Boolean(relatedArticles.length) !== hasRelatedArticles) {
       fail(file,`related article visibility mismatch for service: ${service.id}`);
     }
