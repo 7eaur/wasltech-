@@ -35,12 +35,12 @@
   .about-direction__grid{grid-template-columns:1fr}
   .about-direction__item{padding:var(--space-6) 0}
   .about-direction__item+ .about-direction__item{border-inline-start:0;border-top:var(--border-thin) solid var(--color-border-default)}
-  .about-direction__item h2{font-size:1.65rem}
+  .about-direction__item h2{font-size:clamp(1.45rem,6.5vw,1.8rem)}
   .about-values__list{grid-template-columns:1fr}
   .about-values__list article{grid-template-columns:2rem minmax(0,1fr);gap:var(--space-3);padding:var(--space-5) 0;border-inline-end:0}
   .about-values__list article:nth-child(odd){border-inline-end:0}
-  .about-values__list h3{font-size:1rem}
-  .about-values__list p{font-size:.82rem}
+  .about-values__list h3{font-size:1.08rem}
+  .about-values__list p{font-size:.9rem;line-height:1.7}
   .about-build__paths a{grid-template-columns:2rem minmax(0,1fr);gap:var(--space-3)}
-  .about-build__paths strong{font-size:1rem}
+  .about-build__paths strong{font-size:1.08rem}
 }

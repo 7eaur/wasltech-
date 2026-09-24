@@ -30,8 +30,8 @@
 .project-related__header{display:flex;align-items:end;justify-content:space-between;gap:var(--space-6);margin-bottom:var(--space-8)}
 .project-related__header h2{font-size:var(--font-size-2xl)}
 .project-related__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-5)}
-.project-related__grid>article{overflow:hidden;background:var(--color-bg-canvas);border:var(--border-thin) solid var(--color-border-default);border-radius:var(--radius-card)}
-.project-related__media{display:block;aspect-ratio:16/9;overflow:hidden;background:var(--color-bg-soft)}
+.project-related__grid>article{background:transparent}
+.project-related__media{display:block;aspect-ratio:16/9;overflow:hidden;background:var(--color-bg-soft);border-radius:var(--radius-card)}
 .project-related__media img{width:100%;height:100%;object-fit:cover}
 .project-related__copy{padding:var(--space-4)}
 .project-related__copy h3{margin-bottom:var(--space-2);font-size:var(--font-size-lg)}
@@ -54,21 +54,18 @@
   .project-detail-hero h1{font-size:clamp(2.25rem,10vw,3.25rem)}
   .project-detail-hero__summary{padding-top:var(--space-3)}
   .project-story__item{grid-template-columns:2rem minmax(0,1fr);gap:var(--space-3);padding-block:var(--space-5)}
-  .project-story__item h2{font-size:.95rem;line-height:1.55}
-  .project-scope__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
-  .project-scope h2{margin-bottom:var(--space-4);font-size:1rem}
-  .project-scope li{padding:var(--space-3) 0;font-size:.75rem}
+  .project-story__item h2{font-size:1.05rem;line-height:1.6}
+  .project-scope__grid{grid-template-columns:1fr;gap:var(--space-6)}
+  .project-scope h2{margin-bottom:var(--space-4);font-size:1.2rem}
+  .project-scope li{padding:var(--space-3) 0;font-size:.92rem;line-height:1.65}
   .project-services__links a{padding:var(--space-4) 0}
-  .project-services__links span{font-size:.9rem}
-  .project-services__links small{font-size:.72rem}
+  .project-services__links span{font-size:1rem}
+  .project-services__links small{font-size:.84rem;line-height:1.55}
   .project-related__header{align-items:start;gap:var(--space-3);margin-bottom:var(--space-5)}
-  .project-related__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3)}
-  .project-related__copy{padding:.7rem}
-  .project-related__copy h3{font-size:.82rem}
-  .project-related__copy>p:not(.eyebrow){display:-webkit-box;font-size:.68rem;line-height:1.45;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+  .project-related__grid{grid-template-columns:1fr;gap:var(--space-5)}
+  .project-related__copy{padding:var(--space-4) .05rem .1rem}
+  .project-related__copy h3{font-size:1.05rem}
+  .project-related__copy>p:not(.eyebrow){font-size:.9rem;line-height:1.68}
   .project-detail-cta__inner .button{width:100%}
 }
 
-@media(max-width:23.75rem){
-  .project-related__copy>p:not(.eyebrow){display:none}
-}
