@@ -1,9 +1,13 @@
 /* Responsive text-flow guard.
    Containers control readable measure; headings use the width actually available to them. */
-main h1,
-main h2,
-main h3{
-  max-width:100% !important;
+main :is(
+  [class$="__copy"],
+  [class$="__content"],
+  [class$="__intro"],
+  [class$="__header"]
+) :is(h1,h2,h3),
+main .section-header :is(h1,h2,h3){
+  max-width:100%;
   overflow-wrap:normal;
   word-break:normal;
   hyphens:none;

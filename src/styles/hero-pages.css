@@ -268,5 +268,5 @@
 .process-hero__actions,
 .insights-hero__actions,
 .planner-hero__copy>.text-link{
-  display:none !important;
+  display:none;
 }
