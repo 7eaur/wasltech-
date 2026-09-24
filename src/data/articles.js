@@ -370,3 +370,12 @@ export function getArticleBySlug(slug) {
 export function getPublishedArticles() {
   return articles.filter((item) => item.publishedAt && item.localeStatus.ar === "ready");
 }
+
+export function getPublishedArticlesByService(serviceId, locale = "ar") {
+  return articles.filter((item) =>
+    item.publishedAt &&
+    item.localeStatus?.[locale] === "ready" &&
+    item.content?.[locale] &&
+    item.relatedServiceIds.includes(serviceId)
+  );
+}
