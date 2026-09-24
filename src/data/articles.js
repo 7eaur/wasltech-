@@ -10,6 +10,7 @@ function article(record) {
     ...record,
     localeStatus: Object.freeze(record.localeStatus),
     author: Object.freeze(record.author),
+    coverDimensions: record.coverDimensions ? Object.freeze(record.coverDimensions) : undefined,
     relatedServiceIds: Object.freeze(record.relatedServiceIds ?? []),
     relatedProjectIds: Object.freeze(record.relatedProjectIds ?? []),
     content: Object.freeze({
@@ -360,7 +361,505 @@ export const articles = Object.freeze([
         }
       }
     }
-  })
+  }),
+
+  article({
+    id: "article-scope-mobile-app",
+    slug: "turn-app-idea-into-buildable-scope",
+    category: "planning",
+    localeStatus: { ar: "ready", en: "ready" },
+    author: { ar: "فريق وصل تك", en: "Wasl Tech team" },
+    coverImage: "/assets/services/mobile-app-development.webp",
+    coverDimensions: { width: 1280, height: 720 },
+    coverTemporary: false,
+    publishedAt: "2026-09-25",
+    updatedAt: "2026-09-25",
+    relatedServiceIds: ["app"],
+    relatedProjectIds: [],
+    content: {
+      ar: {
+        categoryLabel: "تخطيط التطبيقات",
+        title: "كيف تحوّل فكرة التطبيق إلى نطاق قابل للتنفيذ؟",
+        summary: "الفكرة تصبح مشروعًا قابلًا للتنفيذ عندما تتحول من قائمة أمنيات إلى مستخدمين واضحين، ومهام أساسية، وبيانات، وحالات عمل يمكن تصميمها واختبارها.",
+        intro: "قبل اختيار التقنية أو رسم عشرات الشاشات، اكتب ما الذي يجب أن ينجزه التطبيق فعلًا. هذه الخطوة تفصل بين فكرة عامة ونطاق يمكن لفريق التصميم والتطوير مراجعته وبناؤه على مراحل.",
+        sections: [
+          {
+            heading: "ابدأ بالمستخدم والمهمة الأساسية",
+            paragraphs: [
+              "اكتب من سيستخدم التطبيق وما المهمة التي يعود من أجلها. قد يكون المستخدم عميلًا يطلب خدمة، أو موظفًا يتابع عمليات، أو بائعًا يدير منتجات. وضوح الدور يمنع خلط احتياجات مختلفة داخل شاشة واحدة.",
+              "إذا كان التطبيق يخدم أكثر من نوع مستخدم، اكتب لكل نوع ما الذي يمكنه رؤيته وما الذي يمكنه تنفيذه."
+            ]
+          },
+          {
+            heading: "حوّل الخصائص إلى مسارات استخدام",
+            paragraphs: ["بدل كتابة «تسجيل، دفع، إشعارات» كقائمة منفصلة، اربط كل خاصية بمسار مكتمل من البداية إلى النتيجة."],
+            bullets: [
+              "كيف يبدأ المستخدم؟",
+              "ما البيانات التي يدخلها أو يختارها؟",
+              "ما الخطوة التي تؤكد نجاح العملية؟",
+              "ما الذي يحدث عند الخطأ أو الإلغاء؟",
+              "هل تحتاج الإدارة إلى مراجعة أو اعتماد؟"
+            ]
+          },
+          {
+            heading: "حدد ما يحتاج إلى إدارة خلف التطبيق",
+            paragraphs: ["أي تطبيق يحتوي بيانات متغيرة يحتاج قرارًا واضحًا حول مصدرها وطريقة إدارتها. قد تحتاج لوحة إدارة، أو API، أو تكاملًا مع خدمة خارجية، أو مزيجًا من ذلك."],
+            bullets: [
+              "المستخدمون والصلاحيات.",
+              "المحتوى أو المنتجات أو الخدمات.",
+              "الطلبات والحالات.",
+              "الإشعارات والرسائل.",
+              "التقارير أو المتابعة التشغيلية عند الحاجة."
+            ]
+          },
+          {
+            heading: "افصل النسخة الأولى عن الأفكار اللاحقة",
+            paragraphs: [
+              "ليس كل ما قد يحتاجه التطبيق مستقبلًا يجب أن يدخل في أول إصدار. رتب الخصائص إلى: ضروري لتشغيل الفكرة، مهم بعد ثبات المسار، وتحسين يمكن إضافته لاحقًا.",
+              "هذا التقسيم لا يعني بناء منتج ناقص؛ بل يمنع أن يصبح النطاق الأول خليطًا من مسارات لم تُختبر بعد."
+            ]
+          },
+          {
+            heading: "ما الذي يجب أن يكون واضحًا قبل بدء التصميم؟",
+            paragraphs: ["عندما تستطيع الإجابة عن النقاط التالية يصبح من السهل تحويل الفكرة إلى تدفق شاشات ونطاق فني قابل للمراجعة."],
+            bullets: [
+              "أنواع المستخدمين.",
+              "المهمة الأساسية لكل مستخدم.",
+              "المسارات الرئيسية.",
+              "البيانات التي تُحفظ أو تُعرض.",
+              "ما الذي تديره لوحة الإدارة.",
+              "التكاملات الخارجية المعروفة.",
+              "حدود النسخة الأولى."
+            ]
+          }
+        ],
+        seo: {
+          title: "كيف تحوّل فكرة التطبيق إلى نطاق قابل للتنفيذ؟ | وصل تك",
+          description: "دليل عملي لتحويل فكرة تطبيق الجوال إلى مستخدمين ومسارات وبيانات ولوحة إدارة ونطاق واضح يمكن تصميمه وتطويره على مراحل."
+        }
+      },
+      en: {
+        categoryLabel: "App planning",
+        title: "How do you turn an app idea into a buildable scope?",
+        summary: "An app idea becomes buildable when it is translated from a wish list into clear users, core tasks, data, and workflows that a team can design and test.",
+        intro: "Before choosing technology or drawing dozens of screens, define what the app must actually help people accomplish. This separates a broad idea from a scope that design and engineering can review and deliver in stages.",
+        sections: [
+          {
+            heading: "Start with the user and the core task",
+            paragraphs: [
+              "Write down who will use the app and the task they return to complete. The user may be a customer requesting a service, an employee following operations, or a seller managing products. A clear role keeps different needs from being mixed into the same flow.",
+              "If the app serves multiple user types, define what each role can see and do."
+            ]
+          },
+          {
+            heading: "Turn features into complete user flows",
+            paragraphs: ["Instead of listing “sign in, payments, notifications” as isolated features, connect each capability to a complete path from entry to outcome."],
+            bullets: [
+              "How does the user start?",
+              "What data do they enter or choose?",
+              "What confirms that the action succeeded?",
+              "What happens when something fails or is cancelled?",
+              "Does an administrator need to review or approve anything?"
+            ]
+          },
+          {
+            heading: "Define what must be managed behind the app",
+            paragraphs: ["Any app with changing data needs a clear source of truth and a way to manage it. That may require an admin dashboard, APIs, external services, or a combination of them."],
+            bullets: [
+              "Users and permissions.",
+              "Content, products, or services.",
+              "Orders and workflow states.",
+              "Notifications and messages.",
+              "Operational reporting when needed."
+            ]
+          },
+          {
+            heading: "Separate the first release from later ideas",
+            paragraphs: [
+              "Not every future idea belongs in the first release. Group features into what is required to operate the core idea, what matters after the main flow is proven, and what can be added later.",
+              "This does not mean shipping an incomplete product. It prevents the first scope from becoming a collection of untested workflows."
+            ]
+          },
+          {
+            heading: "What should be clear before design starts?",
+            paragraphs: ["When you can answer the following points, the idea can be turned into screen flows and an implementation scope that is easier to review."],
+            bullets: [
+              "User types.",
+              "The core task for each user.",
+              "Primary workflows.",
+              "Data that is stored or displayed.",
+              "What the admin area controls.",
+              "Known external integrations.",
+              "Boundaries of the first release."
+            ]
+          }
+        ],
+        seo: {
+          title: "Turn an App Idea Into a Buildable Scope | Wasl Tech",
+          description: "A practical guide to defining app users, workflows, data, admin needs, integrations, and a clear first-release scope before design and development."
+        }
+      }
+    }
+  }),
+  article({
+    id: "article-integrate-or-replace",
+    slug: "integrate-systems-or-replace-them",
+    category: "technical",
+    localeStatus: { ar: "ready", en: "ready" },
+    author: { ar: "فريق وصل تك", en: "Wasl Tech team" },
+    coverImage: "/assets/services/technical-solutions.webp",
+    coverDimensions: { width: 1280, height: 720 },
+    coverTemporary: false,
+    publishedAt: "2026-09-25",
+    updatedAt: "2026-09-25",
+    relatedServiceIds: ["technical"],
+    relatedProjectIds: [],
+    content: {
+      ar: {
+        categoryLabel: "حلول وتكامل",
+        title: "متى يكون ربط الأنظمة أفضل من استبدالها؟",
+        summary: "ليست كل مشكلة تقنية سببًا لإعادة بناء النظام. أحيانًا تكون القيمة في ربط الأدوات الحالية وتوحيد انتقال البيانات بدل استبدال ما يعمل بالفعل.",
+        intro: "عندما تستخدم الشركة أكثر من نظام أو خدمة، يظهر السؤال: هل نبني كل شيء من جديد أم نربط الموجود؟ القرار الصحيح يبدأ من المشكلة التشغيلية والبيانات التي يجب أن تنتقل، وليس من الرغبة في تغيير التقنية فقط.",
+        sections: [
+          {
+            heading: "ابدأ بما يعمل اليوم",
+            paragraphs: [
+              "حدد الأنظمة التي يعتمد عليها الفريق فعلًا، وما الذي ينجح فيها، وما الذي يسبب تكرارًا أو تأخيرًا. استبدال نظام مستقر قد يخلق مشروع ترحيل كبير بدون أن يحل المشكلة الأصلية.",
+              "إذا كانت المشكلة هي نقل بيانات أو تكرار إدخالها بين أداتين، فقد يكون التكامل هو المسار الأبسط."
+            ]
+          },
+          {
+            heading: "متى يكون التكامل منطقيًا؟",
+            paragraphs: ["الربط مناسب عندما تستطيع الأنظمة الحالية الاستمرار في أدوارها لكن تحتاج إلى تبادل بيانات أو تشغيل خطوة تلقائيًا."],
+            bullets: [
+              "وجود API أو وسيلة موثوقة لتبادل البيانات.",
+              "وضوح النظام الذي يملك كل نوع من البيانات.",
+              "الحاجة إلى تقليل الإدخال اليدوي المتكرر.",
+              "الحاجة إلى مزامنة حالة أو حدث بين نظامين.",
+              "إمكانية مراقبة الأخطاء وإعادة المحاولة."
+            ]
+          },
+          {
+            heading: "ومتى يصبح الاستبدال أقرب للمنطق؟",
+            paragraphs: ["التكامل لا يصلح كل شيء. إذا كان النظام الأساسي نفسه يعطل العمل أو لا يوفر وصولًا مناسبًا للبيانات، فقد يتحول الربط إلى طبقة إضافية فوق مشكلة أعمق."],
+            bullets: [
+              "النظام لا يدعم العمليات الأساسية المطلوبة.",
+              "البيانات غير قابلة للاستخراج أو الاعتماد.",
+              "تعدد الحلول الجزئية أصبح أصعب من نظام موحد.",
+              "قيود الأمان أو الصلاحيات لا يمكن معالجتها بصورة مناسبة.",
+              "تكلفة الصيانة والتعقيد أصبحت جزءًا من المشكلة."
+            ]
+          },
+          {
+            heading: "حدد مصدر الحقيقة لكل معلومة",
+            paragraphs: [
+              "قبل بناء أي تكامل، حدد أين تُنشأ المعلومة وأي نظام يملك النسخة الأساسية منها. من دون ذلك قد تتحول المزامنة إلى تعارض بين نسخ مختلفة من نفس البيانات.",
+              "بعد تحديد الملكية يمكن رسم اتجاه انتقال البيانات: من يرسل، من يستقبل، وماذا يحدث عند الفشل أو التكرار."
+            ]
+          },
+          {
+            heading: "قرار الربط يبدأ من عملية واحدة",
+            paragraphs: ["بدل محاولة ربط كل الأنظمة دفعة واحدة، اختر عملية واضحة تسبب وقتًا أو تكرارًا، وارسمها من البداية للنهاية. إذا أثبت الربط قيمته وأصبح قابلًا للمراقبة، يمكن توسيع التكامل إلى العمليات التالية."]
+          }
+        ],
+        seo: {
+          title: "متى يكون ربط الأنظمة أفضل من استبدالها؟ | وصل تك",
+          description: "دليل لاتخاذ قرار بين تكامل الأنظمة الحالية واستبدالها، من خلال العمليات والبيانات وواجهات API ومصدر الحقيقة والتعقيد التشغيلي."
+        }
+      },
+      en: {
+        categoryLabel: "Integration & solutions",
+        title: "When is system integration better than replacement?",
+        summary: "Not every technical problem requires rebuilding the system. Sometimes the better move is connecting existing tools and improving data flow instead of replacing what already works.",
+        intro: "When a business relies on several systems or services, the question becomes whether to rebuild everything or connect what exists. The decision should start with the operational problem and the data that must move, not with a desire to change technology for its own sake.",
+        sections: [
+          {
+            heading: "Start with what already works",
+            paragraphs: [
+              "Identify the systems the team actually depends on, what works well, and where duplication or delay appears. Replacing a stable system can create a major migration project without solving the original issue.",
+              "If the main problem is moving the same data or entering it repeatedly across tools, integration may be the simpler path."
+            ]
+          },
+          {
+            heading: "When does integration make sense?",
+            paragraphs: ["Integration fits when existing systems can keep their roles but need to exchange data or trigger steps automatically."],
+            bullets: [
+              "An API or another reliable data-exchange method exists.",
+              "Ownership of each type of data is clear.",
+              "Repeated manual entry needs to be reduced.",
+              "A status or event needs to move between systems.",
+              "Failures can be monitored and retried."
+            ]
+          },
+          {
+            heading: "When is replacement more reasonable?",
+            paragraphs: ["Integration cannot fix every foundation problem. If the core system blocks the work or does not provide dependable access to data, another connection may only add complexity."],
+            bullets: [
+              "The system cannot support required core operations.",
+              "Data cannot be extracted or trusted.",
+              "Multiple partial workarounds are harder than one coherent system.",
+              "Security or permission limitations cannot be addressed appropriately.",
+              "Maintenance complexity has become part of the problem."
+            ]
+          },
+          {
+            heading: "Define the source of truth for every data type",
+            paragraphs: [
+              "Before building an integration, decide where each record is created and which system owns the authoritative version. Without this, synchronization can become a conflict between different copies of the same data.",
+              "Once ownership is clear, map the direction of data flow: who sends, who receives, and what happens when a request fails or repeats."
+            ]
+          },
+          {
+            heading: "Start integration with one clear process",
+            paragraphs: ["Instead of connecting every system at once, choose one workflow that causes duplication or delay and map it from beginning to end. If the integration is reliable and observable, the same pattern can expand to the next process."]
+          }
+        ],
+        seo: {
+          title: "System Integration or Replacement? How to Decide | Wasl Tech",
+          description: "A practical guide to deciding whether to integrate existing systems or replace them by examining workflows, APIs, data ownership, and operational complexity."
+        }
+      }
+    }
+  }),
+  article({
+    id: "article-company-profile-content",
+    slug: "what-should-company-profile-include",
+    category: "profiles",
+    localeStatus: { ar: "ready", en: "ready" },
+    author: { ar: "فريق وصل تك", en: "Wasl Tech team" },
+    coverImage: "/assets/services/company-profiles.webp",
+    coverDimensions: { width: 1280, height: 720 },
+    coverTemporary: false,
+    publishedAt: "2026-09-25",
+    updatedAt: "2026-09-25",
+    relatedServiceIds: ["profiles"],
+    relatedProjectIds: [],
+    content: {
+      ar: {
+        categoryLabel: "بروفايلات الشركات",
+        title: "ما الذي يجب أن يحتويه بروفايل الشركة؟",
+        summary: "البروفايل الجيد ليس تجميعًا لكل معلومات الشركة؛ هو ترتيب لما يحتاج القارئ أن يعرفه كي يفهم الجهة وخدماتها ويثق بالخطوة التالية.",
+        intro: "قبل البدء بالتصميم، حدد من سيقرأ البروفايل ولماذا. ملف يُرسل إلى عميل محتمل يحتاج ترتيبًا مختلفًا عن عرض يستخدم في اجتماع أو ملف يُرفق بمناقصة، حتى لو شاركت جميع النسخ نفس الهوية الأساسية.",
+        sections: [
+          {
+            heading: "ابدأ برسالة تعريف قصيرة",
+            paragraphs: ["القارئ يحتاج أولًا إلى فهم من أنتم، ماذا تقدمون، ولمن. يمكن بعد ذلك توسيع القصة في قسم «من نحن»، لكن البداية يجب أن تكون مباشرة ولا تحتاج صفحات طويلة لفهم النشاط."]
+          },
+          {
+            heading: "رتب الخدمات حسب قرار العميل",
+            paragraphs: ["لا تضع أسماء الخدمات فقط. لكل خدمة اشرح الاحتياج الذي تعالجه وما الذي يحصل عليه العميل بصورة موجزة."],
+            bullets: [
+              "اسم الخدمة.",
+              "ما المشكلة أو الحاجة التي تخدمها.",
+              "النطاق أو المخرجات الرئيسية.",
+              "ما الذي يميز طريقة تقديمها عندما توجد حقيقة يمكن إثباتها."
+            ]
+          },
+          {
+            heading: "استخدم الأعمال كدليل لا كزينة",
+            paragraphs: [
+              "إذا كانت هناك مشاريع أو صور يمكن نشرها، اربطها بالخدمة أو القدرة التي تثبتها. لا تحتاج كل صفحة إلى عدد كبير من الأعمال؛ يكفي الدليل المرتبط بالرسالة.",
+              "تجنب إضافة أرقام نتائج أو أسماء عملاء أو شعارات لا يوجد اعتماد واضح لنشرها."
+            ]
+          },
+          {
+            heading: "أضف ما يحتاجه القارئ للتواصل",
+            paragraphs: ["الملف يجب أن يقود إلى خطوة واضحة. اجمع قنوات التواصل المعتمدة واترك مساحة مناسبة لبيانات الشركة التي يحتاجها نوع الجمهور المستهدف."],
+            bullets: [
+              "الهاتف أو واتساب.",
+              "البريد الإلكتروني.",
+              "الموقع الإلكتروني.",
+              "حسابات التواصل الرسمية عند الحاجة.",
+              "العنوان أو بيانات قانونية فقط إذا كانت مطلوبة ومعتمدة."
+            ]
+          },
+          {
+            heading: "فكر في نسخة الاستخدام قبل مقاس التصميم",
+            paragraphs: [
+              "حدد هل البروفايل سيُقرأ على الهاتف، يُرسل PDF، يُطبع، أو يُعرض على شاشة. نفس المحتوى قد يحتاج ترتيبًا مختلفًا حسب الاستخدام.",
+              "عندما يكون المحتوى معتمدًا قبل التصميم، يصبح من الأسهل ضبط عدد الصفحات والتسلسل والصور بدون حشو أو اختصار يضر بالرسالة."
+            ]
+          }
+        ],
+        seo: {
+          title: "ما الذي يجب أن يحتويه بروفايل الشركة؟ | وصل تك",
+          description: "دليل لترتيب محتوى بروفايل الشركة من التعريف والخدمات والأعمال إلى بيانات التواصل ونسخة الاستخدام قبل بدء التصميم."
+        }
+      },
+      en: {
+        categoryLabel: "Company profiles",
+        title: "What should a company profile include?",
+        summary: "A strong company profile is not a dump of every company fact. It organizes what a reader needs to understand the business, its services, and the next step.",
+        intro: "Before design starts, define who will read the profile and why. A document sent to a prospective client may need a different sequence from a presentation used in a meeting or a profile attached to a formal proposal, even when they share the same brand system.",
+        sections: [
+          {
+            heading: "Start with a short positioning statement",
+            paragraphs: ["The reader first needs to understand who you are, what you provide, and who it is for. The story can expand later in an About section, but the opening should make the business understandable without several pages of context."]
+          },
+          {
+            heading: "Organize services around the client decision",
+            paragraphs: ["Do not list service names alone. For each service, explain the need it addresses and what the client receives in concise terms."],
+            bullets: [
+              "Service name.",
+              "The problem or need it addresses.",
+              "Primary scope or deliverables.",
+              "A differentiator only when it is a fact you can support."
+            ]
+          },
+          {
+            heading: "Use work as evidence, not decoration",
+            paragraphs: [
+              "When projects or approved images are available, connect them to the service or capability they demonstrate. A profile does not need a large gallery if a smaller set provides clearer evidence.",
+              "Avoid outcome numbers, client names, or logos when publication has not been approved."
+            ]
+          },
+          {
+            heading: "Include what the reader needs to contact you",
+            paragraphs: ["The profile should lead to a clear next step. Include approved contact channels and the company information that matters to the intended audience."],
+            bullets: [
+              "Phone or WhatsApp.",
+              "Email.",
+              "Website.",
+              "Official social accounts when useful.",
+              "Address or legal details only when required and approved."
+            ]
+          },
+          {
+            heading: "Decide the use format before the page size",
+            paragraphs: [
+              "Clarify whether the profile will be read on phones, sent as a PDF, printed, or presented on a screen. The same content may need a different sequence depending on how it will be used.",
+              "When content is approved before design, page count, hierarchy, and imagery can be shaped without filler or harmful compression."
+            ]
+          }
+        ],
+        seo: {
+          title: "What Should a Company Profile Include? | Wasl Tech",
+          description: "A practical guide to organizing company profile content from positioning and services to work evidence, contact information, and the intended use format."
+        }
+      }
+    }
+  }),
+  article({
+    id: "article-content-plan-goal",
+    slug: "build-content-plan-around-business-goal",
+    category: "marketing",
+    localeStatus: { ar: "ready", en: "ready" },
+    author: { ar: "فريق وصل تك", en: "Wasl Tech team" },
+    coverImage: "/assets/services/digital-marketing.webp",
+    coverDimensions: { width: 1280, height: 720 },
+    coverTemporary: false,
+    publishedAt: "2026-09-25",
+    updatedAt: "2026-09-25",
+    relatedServiceIds: ["marketing"],
+    relatedProjectIds: [],
+    content: {
+      ar: {
+        categoryLabel: "تسويق ومحتوى",
+        title: "كيف تبني خطة محتوى مرتبطة بهدف مشروعك؟",
+        summary: "خطة المحتوى لا تبدأ بعدد المنشورات. تبدأ بالهدف والجمهور والرسائل التي تساعد الشخص على الانتقال من المعرفة إلى الفهم ثم اتخاذ خطوة مناسبة.",
+        intro: "عندما تُبنى الخطة على «ننشر كل يوم» فقط، يصبح المحتوى جدولًا يحتاج التعبئة. الأفضل أن تبدأ بالنتيجة التي تريد دعمها، ثم تحدد أنواع المحتوى والقنوات التي تخدمها.",
+        sections: [
+          {
+            heading: "حدد الهدف الذي يخدمه المحتوى",
+            paragraphs: ["لا تستخدم كلمة «انتشار» كهدف وحيد. اكتب ما الذي تريد أن يتغير عند الجمهور: أن يفهم خدمة جديدة، يطلب عرضًا، يعود للمتجر، أو يعرف طريقة استخدام منتج."],
+            bullets: [
+              "زيادة وضوح خدمة أو منتج.",
+              "دعم قرار قبل الشراء.",
+              "إجابة أسئلة متكررة.",
+              "إعادة تذكير جمهور يعرف العلامة.",
+              "توجيه الجمهور إلى صفحة أو إجراء محدد."
+            ]
+          },
+          {
+            heading: "قسم الجمهور حسب الحاجة لا حسب العمر فقط",
+            paragraphs: ["الجمهور المفيد للمحتوى هو مجموعة تشترك في سؤال أو مشكلة أو مرحلة قرار. قد يكون شخصًا يتعرف على الخدمة لأول مرة، أو يقارن بين خيارات، أو يحتاج دليلًا قبل البدء."]
+          },
+          {
+            heading: "حوّل الرسائل إلى محاور مستمرة",
+            paragraphs: ["المحور الجيد يعطيك أكثر من فكرة بدون تكرار نفس المنشور. اربط كل محور بجانب يريد الجمهور فهمه."],
+            bullets: [
+              "المشكلة أو الحاجة.",
+              "طريقة الحل.",
+              "أمثلة أو أعمال حقيقية.",
+              "أسئلة واعتراضات قبل القرار.",
+              "طريقة العمل وما يحتاجه العميل للاستعداد."
+            ]
+          },
+          {
+            heading: "اختر القناة حسب طبيعة الرسالة",
+            paragraphs: [
+              "ليست كل فكرة مناسبة لكل منصة. المحتوى القصير قد يلفت الانتباه إلى سؤال، بينما الموقع أو المقال يناسب شرحًا يحتاج سياقًا وتفاصيل يمكن الرجوع إليها.",
+              "استخدم القناة لتقديم الرسالة بالشكل الذي يساعد المستخدم، لا لمجرد نسخ نفس المحتوى في كل مكان."
+            ]
+          },
+          {
+            heading: "راجع الخطة على أساس الجودة والنتيجة",
+            paragraphs: [
+              "في نهاية كل دورة، راجع أي موضوع جذب أسئلة حقيقية أو زيارات ذات صلة أو تواصلًا مفيدًا، وأي محتوى لم يخدم هدفًا واضحًا.",
+              "الهدف من المراجعة ليس مطاردة رقم واحد، بل فهم الرسائل التي تساعد الجمهور وتحسين ما تنشره بعد ذلك."
+            ]
+          }
+        ],
+        seo: {
+          title: "كيف تبني خطة محتوى مرتبطة بهدف مشروعك؟ | وصل تك",
+          description: "دليل لبناء خطة محتوى تبدأ بالهدف والجمهور والرسائل والمحاور والقنوات بدل الاعتماد على عدد المنشورات فقط."
+        }
+      },
+      en: {
+        categoryLabel: "Marketing & content",
+        title: "How do you build a content plan around a business goal?",
+        summary: "A content plan should not start with a post count. It starts with the goal, audience, and messages that help people move from awareness to understanding and an appropriate next step.",
+        intro: "When the plan begins with “we need to post every day,” content becomes a calendar that needs filling. A stronger approach starts with the outcome you want to support, then selects the content types and channels that serve it.",
+        sections: [
+          {
+            heading: "Define the goal the content should support",
+            paragraphs: ["Do not use “reach” as the only goal. Write down what should change for the audience: understand a new service, request a proposal, return to a store, or learn how to use a product."],
+            bullets: [
+              "Make a service or product clearer.",
+              "Support a decision before purchase.",
+              "Answer recurring questions.",
+              "Reconnect with an audience that already knows the brand.",
+              "Move people to a specific page or action."
+            ]
+          },
+          {
+            heading: "Segment the audience by need, not age alone",
+            paragraphs: ["A useful content audience is a group that shares a question, problem, or decision stage. It may be someone discovering the service, comparing options, or preparing to start."]
+          },
+          {
+            heading: "Turn messages into repeatable themes",
+            paragraphs: ["A useful theme can produce multiple ideas without repeating the same post. Tie each theme to something the audience needs to understand."],
+            bullets: [
+              "The problem or need.",
+              "How the solution works.",
+              "Real work or examples.",
+              "Questions and objections before a decision.",
+              "The working process and what the client should prepare."
+            ]
+          },
+          {
+            heading: "Choose the channel around the message",
+            paragraphs: [
+              "Not every idea belongs on every platform. Short content can introduce a question, while a website or article is better for explanations that need context and a durable reference.",
+              "Use each channel in the format that helps the user instead of copying the same content everywhere."
+            ]
+          },
+          {
+            heading: "Review the plan for quality and outcome",
+            paragraphs: [
+              "At the end of a cycle, review which topics generated real questions, relevant visits, or useful conversations, and which content had no clear purpose.",
+              "The goal is not to chase one metric. It is to learn which messages help the audience and improve what you publish next."
+            ]
+          }
+        ],
+        seo: {
+          title: "Build a Content Plan Around a Business Goal | Wasl Tech",
+          description: "A practical guide to planning content around goals, audience needs, message themes, and channel fit instead of starting with a posting quota."
+        }
+      }
+    }
+  }),
+
 ]);
 
 export function getArticleBySlug(slug) {
