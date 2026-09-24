@@ -92,6 +92,7 @@ ${structuredDataTags}
   <link rel="icon" href="${site.brand.assets.favicon}">
   <link rel="stylesheet" href="/assets/css/site.css">
   <script src="/assets/js/navigation.js" defer></script>
+  <script src="/assets/js/motion.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">${copy[locale].skip}</a>
