@@ -1,7 +1,8 @@
 import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
 import { projects } from "../data/projects.js";
-import { CallToAction } from "../components/CallToAction.js";\nimport { MediaCard } from "../components/MediaCard.js";
+import { CallToAction } from "../components/CallToAction.js";
+import { MediaCard } from "../components/MediaCard.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
