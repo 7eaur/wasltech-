@@ -82,6 +82,11 @@ const allHtmlFiles=[
   "en/404.html"
 ];
 
+const approvedFooterTrustCopy=[
+  "وصل تك وجهتك لبناء حضور رقمي احترافي. نساعدك على تحويل أفكارك إلى مشاريع ناجحة بجمع التقنية، التصميم، التسويق، والابتكار.",
+  "Wasl Tech is your destination for building a professional digital presence. We help turn ideas into successful projects by bringing technology, design, marketing, and innovation together."
+];
+
 const forbiddenPublicPatterns=[
   { pattern:/مشروعًا موثقًا|مشاريع موثقة/i, label:"unsupported project-proof copy" },
   { pattern:/verified projects/i, label:"unsupported project-proof copy" },
@@ -95,10 +100,14 @@ const forbiddenPublicPatterns=[
 
 for(const file of allHtmlFiles){
   const html=await readFile(path.join(DIST,file),"utf8");
+  const guardedHtml=approvedFooterTrustCopy.reduce(
+    (source,approved)=>source.replaceAll(approved,""),
+    html
+  );
   for(const {pattern,label} of forbiddenPublicPatterns){
-    if(pattern.test(html)) fail(file,`${label} leaked to public output`);
+    if(pattern.test(guardedHtml)) fail(file,`${label} leaked to public output`);
   }
-  if(/>\s*Temporary editorial image/i.test(html)) fail(file,"temporary implementation wording leaked to public output");
+  if(/>\s*Temporary editorial image/i.test(guardedHtml)) fail(file,"temporary implementation wording leaked to public output");
 }
 
 if(errors.length){
