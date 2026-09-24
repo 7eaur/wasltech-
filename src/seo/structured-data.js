@@ -1,28 +1,46 @@
 import { site } from "../config/site.js";
 import { absoluteUrl } from "../config/seo.js";
 
+export const organizationEntityId = absoluteUrl("/#organization");
+export const websiteEntityId = absoluteUrl("/#website");
+
+const organizationReference = () => Object.freeze({ "@id": organizationEntityId });
+const websiteReference = () => Object.freeze({ "@id": websiteEntityId });
+
 export function organizationSchema() {
   return Object.freeze({
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": organizationEntityId,
     name: site.brand.name.en,
     alternateName: site.brand.name.ar,
     url: site.origin,
     logo: absoluteUrl(site.brand.assets.logo),
     email: site.contact.email,
     telephone: site.contact.phoneUri,
-    sameAs: Object.freeze(Object.values(site.contact.social))
+    areaServed: Object.freeze(["Yemen", "Gulf region"]),
+    sameAs: Object.freeze(Object.values(site.contact.social)),
+    contactPoint: Object.freeze({
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      email: site.contact.email,
+      telephone: site.contact.phoneUri,
+      areaServed: Object.freeze(["Yemen", "Gulf region"]),
+      availableLanguage: Object.freeze(["ar", "en"])
+    })
   });
 }
 
-export function websiteSchema(locale = "ar") {
+export function websiteSchema() {
   return Object.freeze({
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: site.brand.name[locale],
-    alternateName: site.brand.name[locale === "ar" ? "en" : "ar"],
+    "@id": websiteEntityId,
+    name: site.brand.name.en,
+    alternateName: site.brand.name.ar,
     url: site.origin,
-    inLanguage: locale
+    inLanguage: Object.freeze(["ar", "en"]),
+    publisher: organizationReference()
   });
 }
 
@@ -45,14 +63,13 @@ export function serviceSchema({ locale = "ar", name, description, path }) {
   return Object.freeze({
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${absoluteUrl(path)}#service`,
     name,
     description,
     url: absoluteUrl(path),
-    provider: Object.freeze({
-      "@type": "Organization",
-      name: site.brand.name[locale],
-      url: site.origin
-    }),
+    inLanguage: locale,
+    provider: organizationReference(),
+    isPartOf: websiteReference(),
     areaServed: Object.freeze(["Yemen", "Gulf region"])
   });
 }
@@ -61,15 +78,13 @@ export function creativeWorkSchema({ locale = "ar", name, description, path, ima
   return Object.freeze({
     "@context": "https://schema.org",
     "@type": "CreativeWork",
+    "@id": `${absoluteUrl(path)}#creative-work`,
     name,
     description,
     url: absoluteUrl(path),
     inLanguage: locale,
-    creator: Object.freeze({
-      "@type": "Organization",
-      name: site.brand.name[locale],
-      url: site.origin
-    }),
+    creator: organizationReference(),
+    isPartOf: websiteReference(),
     image: image ? absoluteUrl(image) : undefined
   });
 }
@@ -87,6 +102,7 @@ export function articleSchema({
   return Object.freeze({
     "@context": "https://schema.org",
     "@type": "Article",
+    "@id": `${absoluteUrl(path)}#article`,
     headline,
     description,
     url: absoluteUrl(path),
@@ -100,15 +116,8 @@ export function articleSchema({
       name: author || site.brand.name[locale],
       url: site.origin
     }),
-    publisher: Object.freeze({
-      "@type": "Organization",
-      name: site.brand.name[locale],
-      url: site.origin,
-      logo: Object.freeze({
-        "@type": "ImageObject",
-        url: absoluteUrl(site.brand.assets.logo)
-      })
-    })
+    publisher: organizationReference(),
+    isPartOf: websiteReference()
   });
 }
 
@@ -124,18 +133,15 @@ export function jobPostingSchema({
   return Object.freeze({
     "@context": "https://schema.org",
     "@type": "JobPosting",
+    "@id": `${absoluteUrl(path)}#job`,
     title,
     description,
     url: absoluteUrl(path),
     datePosted: publishedAt || undefined,
     employmentType: employmentType || undefined,
     inLanguage: locale,
-    hiringOrganization: Object.freeze({
-      "@type": "Organization",
-      name: site.brand.name[locale],
-      sameAs: site.origin,
-      logo: absoluteUrl(site.brand.assets.logo)
-    }),
+    hiringOrganization: organizationReference(),
+    isPartOf: websiteReference(),
     jobLocation: location ? Object.freeze({
       "@type": "Place",
       address: Object.freeze({
