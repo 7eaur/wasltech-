@@ -7,47 +7,81 @@ Use this section first for search-visibility work. It supersedes older SEO/searc
 ### Resume source of truth
 - Repository: `7eaur/wasltech-`
 - Production branch: `main`
-- SEO work branch: `seo/search-visibility-foundation-20260925`
+- Live `main` at final check: `1cb5d939b58c1e03ff63fce5b27d476d116e7a90`
+- SEO branch: `seo/search-visibility-foundation-20260925`
+- Latest verified SEO checkpoint before final handoff docs: `7c27a9c8e0dcf6c23d09c60f6814c74ac3b41456`
 - Draft PR: `#37`
-- Main checkpoint merged into SEO branch: `427e8bc5939f8bb4f0051fc3a3d562f646a0c0da`
-- Merge checkpoint: `409a5ee31e49b9a1119884c9475b059bec548a41`
-- Read `docs/core/SEARCH_VISIBILITY.md` and `docs/research/SEARCH_INTENT_MAP_2026-09-25.md` before search changes.
+- Latest SEO verify: `36070906421` — **SUCCESS**
+- Read first:
+  - `docs/qa/2026-09-25_final-seo-conversation-handoff.md`
+  - `docs/core/SEARCH_VISIBILITY.md`
+  - `docs/core/WEBMASTER_MEASUREMENT.md`
+  - `docs/core/EXTERNAL_ENTITY_PROFILE.md`
+  - `docs/research/SEARCH_INTENT_MAP_2026-09-25.md`
+  - `AGENTS.md`
 
-### Completed
-- SEO/AI search governance standard.
-- Production search visibility CI gate.
-- OAI-SearchBot production allowance.
-- bilingual canonical/hreflang/sitemap/robots validation.
-- title/description/H1/OG/Twitter validation.
-- internal indexable-route reachability validation.
-- canonical Organization/WebSite entity graph.
-- service/CreativeWork/Article/Job structured-data relationships.
-- global Footer links to privacy/terms.
-- eight-service topic ownership map.
-- current main subservices reconciled into the SEO branch.
-- service → project and service → published article internal linking.
+### Critical branch warning
+The branches have diverged since the last integrated `main` checkpoint:
+- merge base: `427e8bc5939f8bb4f0051fc3a3d562f646a0c0da`;
+- SEO branch: **47 commits ahead** of current `main`;
+- SEO branch: **22 commits behind** current `main`.
+
+**Do not merge the SEO PR directly.**
+First re-fetch current `main`, reconcile it into the SEO branch, inspect conflicts and changed public surfaces, then rerun all required verification.
+
+### Completed SEO program
+- Phase 0 — governance & baseline.
+- Phase 1 — technical discoverability.
+- Phase 2 — entity + structured data.
+- Phase 3 — intent & topical architecture.
+- Phase 4 — service-page authority.
+- Phase 5 — case-study evidence authority.
+- Phase 6 — Insights/topic clusters.
+- Phase 7 — AI answer readiness.
+- Phase 8 — website-side external entity consistency.
+- Phase 9 — pre-publication webmaster/measurement preparation.
 
 ### Active phase
-**Phase 9 — Webmaster integrations & measurement — publication dependent.**
+**Phase 9 — publication-dependent completion.**
 
-Phases 5–8 are complete on the website side. Phase 8 passed Preview + Release verification in run `36069375128`.
+What remains:
+1. reconcile latest `main`;
+2. obtain explicit approval before merge/cutover;
+3. deploy the exact approved SHA;
+4. connect `www.wasl-tech.com` as canonical production domain;
+5. run `npm run vnext:check:production-search` against the real domain;
+6. authorize/verify Google Search Console Domain property and submit sitemap;
+7. authorize/import/verify Bing Webmaster and sitemap;
+8. record Day-0 baseline;
+9. start Phase 10 only after real search/query/citation data exists.
 
-Phase 9 is pre-publication ready:
-- verified implementation commit: `5f1cf8b733a17e14f3373957586523298ad6fb51`
-- Preview + Release verification: `36069649090` — **SUCCESS**
-- `docs/core/WEBMASTER_MEASUREMENT.md`
-- `npm run vnext:check:production-search`
+### Live connector state
+- Windsor.ai: **CONNECTED**
+- GA4: **CONNECTED**, account `Wasl Tech` (`530356719`)
+- GA4 90-day reads: currently **0 rows**; do not treat this as a valid SEO baseline.
+- Google Search Console: **AUTHORIZATION PENDING**
+- Bing Webmaster: **AUTHORIZATION PENDING**
 
-Do not create separate indexable subservice pages by default. Current subservices are sections of their parent service. Dedicated URLs require distinct search intent plus substantial unique evidence/content.
+### Locked search/content rules
+- no keyword stuffing;
+- no duplicate city/location doorway pages;
+- no mass SEO article/page generation;
+- no fake reviews, results, client counts, awards, guarantees, prices, durations or certifications;
+- no hidden AI-only content or cloaking;
+- no assumption that `llms.txt` is a ranking requirement;
+- `OAI-SearchBot` remains allowed for ChatGPT Search discovery;
+- service subservices remain sections of their parent service unless a distinct intent + substantial unique evidence justifies a separate URL;
+- project/case-study claims remain evidence-bounded;
+- external entity identity uses `وصل تك | Wasl Tech`, `wasl-tech.com`, Yemen + Gulf and the canonical contact/profile contract.
 
 ### Publication rule
-The user will connect `www.wasl-tech.com` as the primary domain at publication. Until that point, do not diagnose the old/current external domain as the final VNext search state. At publication verify the real domain, redirects, robots, sitemap, canonical/hreflang, crawler access and webmaster submission.
+The user will connect `www.wasl-tech.com` as the primary domain at publication. Until then, do not diagnose the old/current external domain as the final VNext search state.
 
 ### Safety / release
 - PR remains draft.
 - Do not merge SEO changes into `main` without explicit approval.
-- Do not manually publish production.
-- Re-fetch `main` before merge because parallel project work may continue.
+- Do not manually publish production without explicit approval.
+- Do not lose newer `main` work while resolving branch divergence.
 
 
 ## 2026-09-24 — AUTHORITATIVE RESUME POINT

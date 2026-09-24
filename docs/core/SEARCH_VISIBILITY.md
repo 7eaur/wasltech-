@@ -322,6 +322,13 @@ A change affecting public search surfaces cannot be called complete until:
 
 ## 12. Current priority
 
-The immediate priority is Phase 0 → Phase 1.
+Phases 0–8 are complete on the SEO branch. Phase 9 is pre-publication ready.
 
-Do not jump to mass content production before technical discoverability and measurement foundations are verified.
+Current priority:
+1. reconcile the latest `main` into the SEO branch;
+2. preserve all verified search/entity/content gates;
+3. wait for explicit production approval;
+4. complete real-domain smoke + Search Console + Bing Webmaster after `www.wasl-tech.com` is live;
+5. begin Phase 10 only from real query/index/citation evidence.
+
+Do not mass-produce SEO pages or articles. Do not treat pre-publication previews as the final search state.

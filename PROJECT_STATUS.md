@@ -7,11 +7,13 @@ This is the newest execution truth for SEO / AI-search work.
 ### Repository / branch truth
 - Repository: `7eaur/wasltech-`
 - Production branch: `main`
-- Current main integrated into SEO program: `427e8bc5939f8bb4f0051fc3a3d562f646a0c0da`
+- Live `main` at final handoff check: `1cb5d939b58c1e03ff63fce5b27d476d116e7a90`
+- Last `main` checkpoint already integrated into the SEO program: `427e8bc5939f8bb4f0051fc3a3d562f646a0c0da`
 - Search work branch: `seo/search-visibility-foundation-20260925`
-- Search merge checkpoint: `409a5ee31e49b9a1119884c9475b059bec548a41`
+- Latest verified SEO checkpoint before this final documentation batch: `7c27a9c8e0dcf6c23d09c60f6814c74ac3b41456`
 - Draft PR: `#37`
-- SEO branch is currently **0 commits behind main** at this checkpoint.
+- Final divergence check: SEO branch is **47 commits ahead / 22 commits behind** current `main` (merge base `427e8bc...`).
+- **Do not merge directly. Reconcile current `main` into the SEO branch first, resolve conflicts intentionally, then rerun Preview + Release + route/search checks.**
 - No SEO changes have been merged to production.
 
 ### Domain / publication rule
@@ -75,6 +77,13 @@ This is the newest execution truth for SEO / AI-search work.
 - Pre-main-sync Phase 4 implementation: run `36067243475` — SUCCESS.
 - Reconciled main/subservice + SEO branch verification: run `36067842747` — SUCCESS.
 - Service authority audit: `docs/qa/2026-09-25_service-search-authority-audit.md`.
+
+### Final conversation handoff
+- Final handoff: `docs/qa/2026-09-25_final-seo-conversation-handoff.md`
+- Latest SEO verification on `7c27a9c8...`: run `36070906421` — **SUCCESS**
+- Phase 9 is pre-publication ready; Search Console/Bing authorization and real-domain smoke remain publication-dependent.
+- Windsor.ai is connected; GA4 is connected but currently returns no usable 90-day rows; Search Console and Bing remain authorization-pending.
+- Production cutover is **NOT APPROVED**.
 
 ### Next SEO action
 **Publication-dependent Phase 9 completion**
