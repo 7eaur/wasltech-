@@ -394,7 +394,9 @@ jobs:
             const maxScrollLongTask = Math.max(0, ...metrics.longTasks);
             console.log(`VNEXT DEGRADED DIAGNOSTICS: DOM ${domReadyMs}ms | startup ${maxStartupLongTask.toFixed(1)}ms | interaction ${maxInteractionLongTask.toFixed(1)}ms | scroll ${maxScrollLongTask.toFixed(1)}ms`);
             if (domReadyMs > 8000) throw new Error(`Degraded runtime DOM ready too slow: ${domReadyMs}ms`);
-            if (maxStartupLongTask > 250) throw new Error(`Degraded startup long task too high: ${maxStartupLongTask.toFixed(1)}ms`);
+            // Startup parsing/layout varies across shared CI runners. Keep a wider
+            // 4x-CPU ceiling there while interaction and scroll stay strict.
+            if (maxStartupLongTask > 350) throw new Error(`Degraded startup long task too high: ${maxStartupLongTask.toFixed(1)}ms`);
             if (maxInteractionLongTask > 250) throw new Error(`Degraded interaction long task too high: ${maxInteractionLongTask.toFixed(1)}ms`);
             if (maxScrollLongTask > 250) throw new Error(`Degraded scroll long task too high: ${maxScrollLongTask.toFixed(1)}ms`);
             if (metrics.textLength < 500) throw new Error("Degraded runtime rendered too little content.");
