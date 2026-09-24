@@ -354,6 +354,12 @@ jobs:
             await page.goto(base + "/", { waitUntil: "domcontentloaded", timeout: 15000 });
             const domReadyMs = Date.now() - started;
             await page.locator("h1").waitFor({ state: "visible", timeout: 4000 });
+            await page.waitForTimeout(250);
+            const startupLongTasks = await page.evaluate(() => {
+              const values = [...(window.__waslLongTasks ?? [])];
+              window.__waslLongTasks = [];
+              return values;
+            });
 
             const toggle = page.locator("[data-menu-toggle]");
             await toggle.click();
@@ -361,6 +367,12 @@ jobs:
               throw new Error("Degraded runtime: mobile navigation did not respond.");
             }
             await page.keyboard.press("Escape");
+            await page.waitForTimeout(120);
+            const interactionLongTasks = await page.evaluate(() => {
+              const values = [...(window.__waslLongTasks ?? [])];
+              window.__waslLongTasks = [];
+              return values;
+            });
 
             await page.evaluate(() => window.scrollTo(0, Math.round(document.body.scrollHeight * 0.55)));
             await page.waitForTimeout(700);
@@ -377,9 +389,14 @@ jobs:
               }).length
             }));
 
-            const maxLongTask = Math.max(0, ...metrics.longTasks);
+            const maxStartupLongTask = Math.max(0, ...startupLongTasks);
+            const maxInteractionLongTask = Math.max(0, ...interactionLongTasks);
+            const maxScrollLongTask = Math.max(0, ...metrics.longTasks);
+            console.log(`VNEXT DEGRADED DIAGNOSTICS: DOM ${domReadyMs}ms | startup ${maxStartupLongTask.toFixed(1)}ms | interaction ${maxInteractionLongTask.toFixed(1)}ms | scroll ${maxScrollLongTask.toFixed(1)}ms`);
             if (domReadyMs > 8000) throw new Error(`Degraded runtime DOM ready too slow: ${domReadyMs}ms`);
-            if (maxLongTask > 250) throw new Error(`Degraded runtime long task too high: ${maxLongTask.toFixed(1)}ms`);
+            if (maxStartupLongTask > 250) throw new Error(`Degraded startup long task too high: ${maxStartupLongTask.toFixed(1)}ms`);
+            if (maxInteractionLongTask > 250) throw new Error(`Degraded interaction long task too high: ${maxInteractionLongTask.toFixed(1)}ms`);
+            if (maxScrollLongTask > 250) throw new Error(`Degraded scroll long task too high: ${maxScrollLongTask.toFixed(1)}ms`);
             if (metrics.textLength < 500) throw new Error("Degraded runtime rendered too little content.");
             if (metrics.motionEnabled) throw new Error("Degraded low-power runtime must disable optional presentation motion.");
             if (metrics.motionTargets) throw new Error(`Degraded low-power runtime created motion targets: ${metrics.motionTargets}`);
@@ -399,13 +416,13 @@ jobs:
             if (reducedEnabled) throw new Error("Reduced-motion mode must not enable presentation motion.");
             await reducedContext.close();
 
-            console.log(`VNEXT DEGRADED RUNTIME: PASSED (DOM ready ${domReadyMs}ms, max long task ${maxLongTask.toFixed(1)}ms)`);
+            console.log(`VNEXT DEGRADED RUNTIME: PASSED (DOM ${domReadyMs}ms; startup ${maxStartupLongTask.toFixed(1)}ms; interaction ${maxInteractionLongTask.toFixed(1)}ms; scroll ${maxScrollLongTask.toFixed(1)}ms)`);
           }
 
+          await verifyDegradedRuntime();
           await verifyAllIndexableRoutes();
           await verifyInteractions("ar");
           await verifyInteractions("en");
-          await verifyDegradedRuntime();
           await browser.close();
           console.log("VNEXT BILINGUAL ROUTE MATRIX + INTERACTIONS + DEGRADED RUNTIME: PASSED");
           EOF
