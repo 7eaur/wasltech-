@@ -97,7 +97,8 @@ export function articleSchema({
   image,
   author,
   publishedAt,
-  updatedAt
+  updatedAt,
+  relatedServices = []
 }) {
   return Object.freeze({
     "@context": "https://schema.org",
@@ -113,11 +114,20 @@ export function articleSchema({
     dateModified: updatedAt || publishedAt || undefined,
     author: Object.freeze({
       "@type": "Organization",
+      "@id": organizationEntityId,
       name: author || site.brand.name[locale],
       url: site.origin
     }),
     publisher: organizationReference(),
-    isPartOf: websiteReference()
+    isPartOf: websiteReference(),
+    about: relatedServices.length ? Object.freeze(
+      relatedServices.map((service) => Object.freeze({
+        "@type": "Service",
+        "@id": `${absoluteUrl(service.path)}#service`,
+        name: service.name,
+        url: absoluteUrl(service.path)
+      }))
+    ) : undefined
   });
 }
 

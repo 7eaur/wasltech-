@@ -24,8 +24,19 @@ function renderBody(copy){
   `).join("");
 }
 
+function relatedServicesFor(article,locale){
+  return (article.relatedServiceIds??[])
+    .map(getServiceById)
+    .filter(Boolean)
+    .map((service)=>({
+      service,
+      name:service.content[locale].title,
+      path:routes.service(service.slug,locale)
+    }));
+}
+
 function renderRelatedServices(article,locale){
-  const services=(article.relatedServiceIds??[]).map(getServiceById).filter(Boolean);
+  const services=relatedServicesFor(article,locale);
   if(!services.length) return "";
 
   return `
@@ -36,8 +47,8 @@ function renderRelatedServices(article,locale){
           <h2>${locale==="ar"?"إذا كان هذا السؤال قريبًا من مشروعك، فهذه المسارات قد تكون نقطة البداية.":"If this question is close to your project, these service paths may be a useful starting point."}</h2>
         </div>
         <div class="article-related__links">
-          ${services.map((service)=>`
-            <a href="${routes.service(service.slug,locale)}">
+          ${services.map(({service,path})=>`
+            <a href="${path}">
               <strong>${escapeHtml(service.content[locale].title)}</strong>
               <span>${escapeHtml(service.content[locale].subtitle)}</span>
             </a>
@@ -61,6 +72,8 @@ export function articleDetailPage(article,locale="ar"){
   const alternatePath=availableLocales.includes(other)
     ? routes.article(article.slug,other)
     : routes.insights(other);
+  const hasMaterialUpdate=Boolean(article.updatedAt && article.updatedAt !== article.publishedAt);
+  const updatedLabel=locale==="ar"?"آخر تحديث":"Updated";
 
   const body=`
     <nav class="article-breadcrumb" aria-label="${locale==="ar"?"مسار الصفحة":"Breadcrumb"}">
@@ -83,6 +96,7 @@ export function articleDetailPage(article,locale="ar"){
             <div class="article-meta">
               <span>${escapeHtml(article.author[locale])}</span>
               <time datetime="${article.publishedAt}">${escapeHtml(formatDate(article.publishedAt,locale))}</time>
+              ${hasMaterialUpdate ? `<span class="article-meta__updated">${updatedLabel}: <time datetime="${article.updatedAt}">${escapeHtml(formatDate(article.updatedAt,locale))}</time></span>` : ""}
             </div>
           </div>
           ${HeroMedia({...media,className:"article-hero__media"})}
@@ -133,7 +147,8 @@ export function articleDetailPage(article,locale="ar"){
         image:media.src,
         author:article.author[locale],
         publishedAt:article.publishedAt,
-        updatedAt:article.updatedAt
+        updatedAt:article.updatedAt,
+        relatedServices:relatedServicesFor(article,locale).map(({name,path})=>({name,path}))
       }),
       breadcrumbSchema([
         {name:locale==="ar"?"الرئيسية":"Home",path:routes.home(locale)},
