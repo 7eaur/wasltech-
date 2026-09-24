@@ -32,25 +32,30 @@ This is the newest execution truth for SEO / AI-search work.
 - QA: `docs/qa/2026-09-25_ai-answer-readiness-audit.md`
 - Release gate now verifies answer-ready static content, snippet eligibility, Article entity relationships and canonical Organization authorship/publishing.
 
+### Latest external-entity verification
+- Commit: `5433003b69f360384b7c2dcd5515b9389ba4faf2`
+- Preview + Release verification: `36069375128` — **SUCCESS**
+- QA: `docs/qa/2026-09-25_external-entity-consistency-audit.md`
+- External identity contract: `docs/core/EXTERNAL_ENTITY_PROFILE.md`
+
+### Phase 9 preparation
+- Webmaster plan: `docs/core/WEBMASTER_MEASUREMENT.md`
+- Production smoke command: `npm run vnext:check:production-search`
+- Search Console/Bing verification intentionally waits for canonical-domain publication and account authorization.
+
 ### Phase state
 - **Phase 0 — Governance & baseline: COMPLETE**
 - **Phase 1 — Technical discoverability: COMPLETE in release candidate**
 - **Phase 2 — Entity + structured data: COMPLETE**
 - **Phase 3 — Intent & topical architecture: COMPLETE**
 - **Phase 4 — Service-page authority: COMPLETE**
-- **Phase 5 — Evidence / case-study authority: ACTIVE**
+- **Phase 5 — Evidence / case-study authority: COMPLETE**
+- **Phase 6 — Insights / topic clusters: COMPLETE**
+- **Phase 7 — AI answer readiness: COMPLETE**
+- **Phase 8 — External entity consistency: COMPLETE on website side**
+- **Phase 9 — Webmaster integrations & measurement: PRE-PUBLICATION READY / WAITING FOR DOMAIN + ACCOUNT VERIFICATION**
+- **Phase 10 — Continuous optimization: NOT STARTED; requires post-launch data**
 
-Completed foundation:
-- executable search-visibility release gate;
-- explicit production allowance for `OAI-SearchBot`;
-- unique title/description, H1, canonical, hreflang, OG/Twitter, JSON-LD and internal-reachability checks;
-- legal pages linked from global Footer instead of existing as isolated sitemap entries;
-- stable Organization/WebSite entity IDs with Service/CreativeWork/Article/Job relationships;
-- all eight services assigned one canonical commercial topic owner;
-- subservices from current `main` retained inside their parent service pages by default rather than expanded into thin SEO URLs;
-- related project cards now link to project detail pages;
-- published related articles can surface from service detail pages;
-- SEO branch pushes run the full VNext verification workflow.
 
 ### Verification evidence
 - Phase 1 integrated search gate: run `36066357251` — SUCCESS.
@@ -61,16 +66,19 @@ Completed foundation:
 - Service authority audit: `docs/qa/2026-09-25_service-search-authority-audit.md`.
 
 ### Next SEO action
-**Phase 5 — Evidence / case-study authority**
+**Publication-dependent Phase 9 completion**
 
-Audit the existing project records and generated case studies:
-1. classify which project facts are verified enough to strengthen search trust;
-2. preserve real project/service relationships;
-3. improve project-to-service internal linking only from existing evidence;
-4. identify missing evidence explicitly rather than inventing outcomes, stacks, clients, metrics or dates;
-5. only after the evidence layer is sound proceed to Phase 6 Insights/topic-cluster publishing.
+After explicit production approval:
+1. re-fetch and reconcile latest `main`;
+2. merge only the verified SEO branch;
+3. deploy exact SHA;
+4. connect `www.wasl-tech.com` as canonical domain;
+5. run real-domain production search smoke;
+6. verify Search Console Domain property + sitemap;
+7. import/verify Bing Webmaster + sitemap;
+8. record Day-0 baseline;
+9. begin Phase 10 only after real search data arrives.
 
-Do not mass-produce SEO pages or articles.
 
 ## 2026-09-24 — AUTHORITATIVE CURRENT BATON
 

@@ -27,7 +27,9 @@ The older `docs/qa/2026-09-24_footer-service-media-handoff.md` record is histori
 6. `docs/core/DESIGN_SYSTEM.md` — stable UX/UI/brand rules.
 7. `docs/core/ENGINEERING_ARCHITECTURE.md` — stable code architecture.
 8. `docs/core/CONTENT_IA.md` — information architecture and writing system.
-9. `docs/core/SEARCH_VISIBILITY.md` — canonical SEO, AI-search visibility, crawler, entity and measurement rules.\n10. `docs/core/EXECUTION_PLAN.md` — phase sequence and acceptance goals.
+9. `docs/core/SEARCH_VISIBILITY.md` — canonical SEO, AI-search visibility, crawler, entity and measurement rules.
+10. `docs/core/EXTERNAL_ENTITY_PROFILE.md` — canonical identity/profile contract for external platforms.
+11. `docs/core/WEBMASTER_MEASUREMENT.md` — Search Console, Bing, IndexNow and post-launch measurement plan.\n10. `docs/core/EXECUTION_PLAN.md` — phase sequence and acceptance goals.
 11. `docs/core/QA_RELEASE.md` — quality/release gates.
 12. Relevant `docs/research/*` only when external/reference evidence is needed.
 

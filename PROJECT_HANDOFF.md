@@ -28,11 +28,15 @@ Use this section first for search-visibility work. It supersedes older SEO/searc
 - service → project and service → published article internal linking.
 
 ### Active phase
-**Phase 8 — External authority & entity consistency.**
+**Phase 9 — Webmaster integrations & measurement — publication dependent.**
 
-Phases 5–7 are now complete. AI answer readiness passed full Preview + Release verification in run `36069033203`; see `docs/qa/2026-09-25_ai-answer-readiness-audit.md`.
+Phases 5–8 are complete on the website side. Phase 8 passed Preview + Release verification in run `36069375128`.
 
-Do not create separate indexable subservice pages by default. Current subservices are sections of their parent service. Dedicated URLs require distinct search intent plus substantial unique evidence/content. Current subservices are sections of their parent service. Dedicated URLs require distinct search intent plus substantial unique evidence/content.
+Phase 9 is pre-publication ready:
+- `docs/core/WEBMASTER_MEASUREMENT.md`
+- `npm run vnext:check:production-search`
+
+Do not create separate indexable subservice pages by default. Current subservices are sections of their parent service. Dedicated URLs require distinct search intent plus substantial unique evidence/content.
 
 ### Publication rule
 The user will connect `www.wasl-tech.com` as the primary domain at publication. Until that point, do not diagnose the old/current external domain as the final VNext search state. At publication verify the real domain, redirects, robots, sitemap, canonical/hreflang, crawler access and webmaster submission.
