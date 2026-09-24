@@ -47,38 +47,38 @@ export const pages = Object.freeze([
     evidenceSources: ["content:b87872d12adcc836018fe61a7ef1556f04aa5b86:إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md","docs/core/PRODUCT.md"],
     content: {
       ar: Object.freeze({
-        purpose: "تقديم وصل تك كشريك يبني المنتجات والحلول والحضور الرقمي من المشكلة إلى نتيجة قابلة للاستخدام والتطوير.",
-        kicker: "شريكك في بناء المستقبل الرقمي",
-        title: "من فكرة على الورق إلى منتج رقمي يعمل.",
-        support: "في وصل تك، نصمم ونطوّر المواقع والتطبيقات والمتاجر والأنظمة والهوية الرقمية التي تجعل مشروعك أوضح، أقوى، وأسهل في الوصول إلى عملائه.",
-        primaryCta: "خطط مشروعك الآن",
-        secondaryCta: "شاهد ماذا بنينا",
+        purpose: "تقديم وصل تك كشركة حلول رقمية متكاملة تساعد المشاريع والعلامات التجارية على بناء حضور رقمي احترافي.",
+        kicker: "وصل تك",
+        title: "نبني حضورك الرقمي باحتراف",
+        support: "في وصل تك، نساعد المشاريع والعلامات التجارية على بناء حضور رقمي متكامل يجمع بين التصميم، البرمجة، التسويق، والهوية الرقمية.",
+        primaryCta: "اكتشف خدماتنا",
+        secondaryCta: "تواصل معنا",
         sections: Object.freeze([
-          Object.freeze({id:"services",kicker:"خدمات وصل تك",title:"كل ما يحتاجه مشروعك ليظهر ويعمل وينمو.",support:"اختر نقطة البداية، ونحن نرتب بقية المسار. يمكنك البدء بخدمة واحدة أو بناء منظومة تجمع المنتج والتقنية والهوية والحضور."}),
-          Object.freeze({id:"work",kicker:"أعمال حقيقية",title:"شاهد ما بنيناه، لا ما نقوله عن أنفسنا.",support:"كل مشروع بدأ من احتياج مختلف. نعرض ما تم بناؤه وما أصبح أوضح أو أسهل أو ممكنًا، دون أرقام أو نتائج غير موثقة."}),
-          Object.freeze({id:"about",kicker:"من نحن",title:"نربط الفكرة بالتنفيذ حتى يصبح ما تريد بناءه واضحًا وقابلًا للاستخدام.",support:"نجمع الاستراتيجية والتصميم والبرمجة والهوية والتسويق ضمن مسار واحد يخدم هدف المشروع بدل أن تبقى الخدمات أجزاء متفرقة."}),
-          Object.freeze({id:"approach",kicker:"لماذا وصل تك",title:"لأنك لا تحتاج منفذًا فقط؛ تحتاج من يفهم لماذا تبني.",support:"نبدأ من العمل والمستخدم، نربط التفاصيل ببعضها، ونوضح النطاق والمخرجات والمراجعات قبل أن تتحول التفاصيل إلى تعقيد."}),
-          Object.freeze({id:"process",kicker:"كيف نعمل",title:"نقلل المخاطرة قبل أن نزيد التفاصيل.",support:"نفهم، نقرر، نصمم، نبني، نختبر، ثم نجهز الحل للإطلاق والتطوير عبر مراحل واضحة ومراجعات مفهومة."}),
-          Object.freeze({id:"faq",kicker:"أسئلة قبل أن تبدأ",title:"إجابات واضحة قبل أن تختار الحل.",support:"لا تحتاج إلى معرفة اسم التقنية أو الخدمة من البداية. نبدأ من الهدف والمشكلة ونرتب المسار معك."}),
-          Object.freeze({id:"final-cta",kicker:"ابدأ من احتياجك",title:"جاهز تنقل مشروعك إلى مستوى آخر؟",support:"أخبرنا أين يقف مشروعك، وما الذي تريد بناءه أو إصلاحه أو تحسينه. نساعدك على تحويل الفكرة إلى خطوة واضحة قابلة للتنفيذ."})
+          Object.freeze({id:"services",kicker:"خدماتنا",title:"حلول رقمية متكاملة لنمو مشروعك",support:"نقدم خدمات رقمية تساعد المشاريع على بناء حضور واضح، متناسق، واحترافي، من الفكرة حتى الإطلاق."}),
+          Object.freeze({id:"work",kicker:"أعمالنا",title:"نماذج من أعمالنا",support:"نماذج من المشاريع التي نفذناها في المواقع والتطبيقات والمتاجر والهوية والحلول الرقمية."}),
+          Object.freeze({id:"about",kicker:"من هي وصل تك؟",title:"حلول رقمية تجمع الإبداع والتقنية",support:"وصل تك شركة تقنية تقدم حلولًا رقمية متكاملة تساعد الشركات والأفراد على بناء حضور قوي على الإنترنت وتحويل الأفكار إلى تجارب رقمية ناجحة ومؤثرة."}),
+          Object.freeze({id:"approach",kicker:"لماذا وصل تك؟",title:"ما يميز طريقة عملنا",support:"نهتم بالتصميم الاحترافي، الحلول المرنة، وضوح التواصل، والدعم المستمر حتى يظهر مشروعك بصورة تليق به."}),
+          Object.freeze({id:"process",kicker:"كيف نعمل؟",title:"من الفكرة إلى الإطلاق بخطوات واضحة",support:"نستمع لاحتياجاتك، نخطط، نصمم ونطوّر، ثم نطلق المشروع وندعمك بعد الإطلاق."}),
+          Object.freeze({id:"faq",kicker:"الأسئلة الشائعة",title:"إجابات تساعدك قبل أن تبدأ",support:"أهم الأسئلة حول الخدمات، التنفيذ، وما الذي تحتاجه للبدء معنا."}),
+          Object.freeze({id:"final-cta",kicker:"ابدأ مشروعك",title:"لا تعرف من أين تبدأ؟",support:"راسلنا بفكرة مشروعك، وسنساعدك على اختيار الحل المناسب حسب احتياجك وميزانيتك."})
         ]),
         seo: Object.freeze({title:"وصل تك | نبني منتجاتك وحلولك وحضورك الرقمي",description:"نحوّل أفكار واحتياجات الشركات والمشاريع في اليمن والخليج إلى مواقع وتطبيقات ومتاجر وأنظمة وهوية وحضور رقمي جاهز للعمل."})
       }),
       en: Object.freeze({
         purpose: "Position Wasl Tech as a partner that turns real business needs into usable, evolvable digital products, systems, and brand presence.",
-        kicker: "Your partner for building the digital future",
-        title: "From an idea on paper to a digital product that works.",
-        support: "Wasl Tech designs and builds websites, apps, e-commerce, systems, and digital identities that make your business clearer, stronger, and easier for customers to reach.",
-        primaryCta: "Plan your project",
-        secondaryCta: "See what we built",
+        kicker: "Wasl Tech",
+        title: "We build your digital presence professionally",
+        support: "At Wasl Tech, we help projects and brands build an integrated digital presence through design, development, marketing, and digital identity.",
+        primaryCta: "Explore our services",
+        secondaryCta: "Contact us",
         sections: Object.freeze([
-          Object.freeze({id:"services",kicker:"Wasl Tech services",title:"What your project needs to show up, work, and grow.",support:"Start with one need, and we will organize the rest of the path. A project can begin with one service or connect product, technology, brand, and presence."}),
-          Object.freeze({id:"work",kicker:"Real work",title:"See what we built, not what we say about ourselves.",support:"Every project started from a different need. We show what was built and what became clearer, easier, or possible without publishing unverified results."}),
-          Object.freeze({id:"about",kicker:"About us",title:"We connect the idea to execution until what you want to build becomes clear and usable.",support:"Strategy, design, software, identity, and marketing work as one path around the project goal instead of separate disconnected services."}),
-          Object.freeze({id:"approach",kicker:"Why Wasl Tech",title:"You do not only need an executor; you need a partner who understands why you are building.",support:"We start with the business and user, connect the details, and make scope, deliverables, and reviews clear before complexity grows."}),
-          Object.freeze({id:"process",kicker:"How we work",title:"We reduce risk before adding detail.",support:"We understand, decide, design, build, test, and prepare the solution for launch and growth through clear reviewable stages."}),
-          Object.freeze({id:"faq",kicker:"Questions before you start",title:"Clear answers before you choose a solution.",support:"You do not need to know the service or technology name first. Start with the goal and problem, and we will organize the path with you."}),
-          Object.freeze({id:"final-cta",kicker:"Start from the need",title:"Ready to move your project forward?",support:"Tell us where the project stands and what you want to build, fix, or improve. We will help turn it into a clear next step."})
+          Object.freeze({id:"services",kicker:"Our services",title:"Integrated digital solutions for your project's growth",support:"We provide digital services that help projects build a clear, consistent, and professional presence from idea to launch."}),
+          Object.freeze({id:"work",kicker:"Our work",title:"Selected work",support:"A selection of projects across websites, apps, e-commerce, identity, and digital solutions."}),
+          Object.freeze({id:"about",kicker:"About Wasl Tech",title:"Digital solutions that combine creativity and technology",support:"Wasl Tech provides integrated digital solutions that help companies and individuals build a strong online presence and turn ideas into effective digital experiences."}),
+          Object.freeze({id:"approach",kicker:"Why Wasl Tech?",title:"What makes our approach different",support:"Professional design, flexible solutions, clear communication, attention to detail, and continued support around your project."}),
+          Object.freeze({id:"process",kicker:"How we work",title:"From idea to launch through clear steps",support:"We listen, plan, design and build, then launch and support the project after release."}),
+          Object.freeze({id:"faq",kicker:"FAQ",title:"Answers that help before you start",support:"Common questions about services, execution, and what you need to begin."}),
+          Object.freeze({id:"final-cta",kicker:"Start your project",title:"Not sure where to start?",support:"Tell us about your project idea and we will help you choose the right solution for your needs and budget."})
         ]),
         seo: Object.freeze({title:"Wasl Tech | Digital Products, Systems & Brand Presence",description:"Wasl Tech turns business ideas and needs across Yemen and the Gulf into websites, apps, e-commerce, systems, identities, and practical digital experiences."})
       })
@@ -92,41 +92,41 @@ export const pages = Object.freeze([
       ar:Object.freeze({
         purpose:"تعريف وصل تك كفريق يربط الاستراتيجية والتصميم والبرمجة والهوية والتسويق حول احتياج المشروع الحقيقي.",
         kicker:"من نحن",
-        title:"نحن الفريق الذي يربط ما تريد قوله بما تريد أن يفعله العميل.",
-        support:"وصل تك شركة حلول رقمية تعمل عند تقاطع الاستراتيجية والتصميم والبرمجة والهوية والتسويق. نساعد المشاريع على بناء منتجات وحضور رقمي يشرح القيمة، يسهل الاستخدام، ويرتب طريقة العمل.",
+        title:"نبني حضورك الرقمي باحتراف",
+        support:"في وصل تك نساعد العلامات التجارية والمشاريع على بناء حضور رقمي قوي واحترافي، من خلال التصميم الإبداعي، التقنية المتقدمة، والتسويق الذكي. نؤمن أن كل فكرة تستحق أن تُرى وتُحدث أثرًا.",
         primaryCta:"ابدأ الحديث معنا",secondaryCta:"شاهد الأعمال",
         sections:Object.freeze([
-          Object.freeze({id:"story",kicker:"قصتنا",title:"بدأنا من فجوة واضحة: أفكار جيدة لا تجد تنفيذًا يفهمها.",support:"رأينا مشاريع تملك قيمة حقيقية لكنها تظهر بواجهة ضعيفة، أو تعمل بعمليات متفرقة، أو تتحدث إلى جمهورها برسائل غير واضحة. لذلك نبدأ من الواقع ثم نرتب القرار ونبني التجربة.",body:Object.freeze(["لا نؤمن بأن كل مشروع يحتاج التقنية نفسها أو كل الخدمات. نحدد ما الذي يعمل، وما الذي يتعطل، ومن المستخدم، وما النتيجة التي تستحق الاستثمار.","بعد ذلك نبني ما يحتاجه المشروع فعلًا: موقعًا، تطبيقًا، متجرًا، نظامًا، هوية، بروفايل، أو منظومة تجمع أكثر من مسار."])}),
-          Object.freeze({id:"vision",kicker:"رؤيتنا",title:"أن تكون وصل تك الشريك الذي تلجأ إليه المشاريع عندما تريد أن تتحول رقميًا دون أن تفقد وضوحها أو هويتها.",support:"نريد أن يبقى القرار مفهومًا والتقنية في خدمة العمل، لا أن يصبح المشروع أسير أدوات أو تعقيد لا يحتاجه."}),
-          Object.freeze({id:"mission",kicker:"رسالتنا",title:"نبني حلولًا رقمية حقيقية لمشكلات حقيقية.",support:"نحوّل الاحتياج إلى نتيجة يمكن استخدامها وتطويرها والاعتماد عليها، مع نطاق ومخرجات ومراجعات واضحة."}),
-          Object.freeze({id:"principles",kicker:"ما يميزنا",title:"الوضوح قبل التنفيذ، والترابط قبل كثرة الأدوات.",support:"نستخدم التقنية والتصميم لخدمة الهدف، ونفضّل القرارات المفهومة على التعقيد.",items:Object.freeze([
-            Object.freeze({title:"نفهم قبل أن ننفذ",body:"الحل الصحيح يبدأ من المشكلة الصحيحة والمستخدم الحقيقي."}),
-            Object.freeze({title:"نربط كل التفاصيل",body:"المحتوى والتصميم والتقنية تعمل كمنظومة واحدة."}),
-            Object.freeze({title:"نبني للمرحلة الحالية والقادمة",body:"الحل يخدم احتياج اليوم ويمكن توسيعه عندما يتطور المشروع."}),
-            Object.freeze({title:"نقول ما نستطيع فعله بوضوح",body:"الثقة تبدأ من نطاق مفهوم ومخرجات محددة قابلة للمراجعة."})
+          Object.freeze({id:"story",kicker:"قصتنا",title:"رحلة بدأت من الشغف بالتقنية والإبداع",support:"بدأت رحلتنا من شغفنا بالتقنية والإبداع، ورؤيتنا لمساعدة الشركات والأفراد على الاستفادة من العالم الرقمي بأفضل طريقة ممكنة.",body:Object.freeze(["نحن شريكك في كل خطوة، من الفكرة إلى الإطلاق وما بعده.","نركز على الجودة، وضوح العمل، وبناء حلول رقمية تخدم هدف المشروع وتدعم نموه."])}),
+          Object.freeze({id:"vision",kicker:"اتجاهنا",title:"رؤيتنا",support:"أن نكون الخيار الأول في العالم العربي في تقديم الحلول الرقمية المتكاملة، وأن نصنع تأثيرًا إيجابيًا ومستدامًا في حياة عملائنا ومجتمعاتهم."}),
+          Object.freeze({id:"mission",kicker:"ما نقدمه",title:"رسالتنا",support:"تقديم حلول رقمية مبتكرة وفعالة تساعد عملاءنا على النمو والتطور في بيئة رقمية تنافسية، عبر فهم احتياجاتهم وتقديم تجارب تحقق قيمة حقيقية."}),
+          Object.freeze({id:"principles",kicker:"مبادئنا",title:"ماذا نؤمن؟",support:"مبادئ بسيطة تحكم طريقة تفكيرنا في التصميم والتقنية والعمل مع العميل.",items:Object.freeze([
+            Object.freeze({title:"الفكرة تستحق الظهور",body:"كل فكرة تحمل قيمة، ونحن هنا لنحولها إلى تجربة رقمية مميزة."}),
+            Object.freeze({title:"التصميم رسالة",body:"التصميم ليس مجرد شكل جميل؛ هو طريقة توصل المعنى وتبني علاقة."}),
+            Object.freeze({title:"التقنية وسيلة للنمو",body:"نستخدم التقنية لبناء حلول قابلة للتطوير وتخدم أهداف المشروع."}),
+            Object.freeze({title:"الوضوح يصنع الثقة",body:"نؤمن بالشفافية والتواصل الواضح في كل مرحلة من العمل."})
           ])}),
-          Object.freeze({id:"build",kicker:"ما نبنيه",title:"منتجات وأنظمة وحضور رقمي يبدأ من احتياج فعلي.",support:"مواقع وتطبيقات ومتاجر وأنظمة وهوية وبروفايلات وتسويق؛ كل مسار يمكن أن يعمل مستقلًا أو ضمن مشروع مترابط."}),
-          Object.freeze({id:"final-cta",kicker:"ابدأ من الحقيقة",title:"لديك فجوة مشابهة؟ دعنا نبدأ من حقيقتها.",support:"شاركنا ما الذي يعمل اليوم وما الذي تريد تغييره، ونرتب معك نقطة البداية قبل اقتراح الحل."})
+          Object.freeze({id:"build",kicker:"خدماتنا",title:"ماذا نصنع؟",support:"مواقع وتطبيقات، متاجر إلكترونية، هويات بصرية، بروفايلات، محتوى وتسويق، وأنظمة وحلول تقنية مخصصة."}),
+          Object.freeze({id:"final-cta",kicker:"ابدأ معنا",title:"لديك فكرة تستحق أن تظهر؟",support:"شاركنا فكرتك، ونساعدك على تحويلها إلى حضور رقمي احترافي يناسب مشروعك."})
         ]),
         seo:Object.freeze({title:"من نحن | وصل تك — Wasl Tech",description:"تعرف على وصل تك، فريق حلول رقمية يربط الاستراتيجية والتصميم والبرمجة والهوية والتسويق حول احتياج المشروع الحقيقي."})
       }),
       en:Object.freeze({
         purpose:"Introduce Wasl Tech as a team that connects strategy, design, software, identity, and marketing around a real project need.",
-        kicker:"About us",title:"We connect what you want to say with what you want the customer to do.",
-        support:"Wasl Tech works at the intersection of strategy, design, software, identity, and marketing to build products and digital presence that explain value, improve usability, and organize how work gets done.",
+        kicker:"About us",title:"We build your digital presence professionally",
+        support:"At Wasl Tech, we help brands and projects build a strong professional digital presence through creative design, advanced technology, and smart marketing. We believe every idea deserves to be seen and make an impact.",
         primaryCta:"Start the conversation",secondaryCta:"View our work",
         sections:Object.freeze([
-          Object.freeze({id:"story",kicker:"Our story",title:"We started from a clear gap: good ideas often lack execution that truly understands them.",support:"We saw valuable projects presented through weak interfaces, fragmented operations, or unclear messages. So we start from reality, organize the decision, and build the experience.",body:Object.freeze(["Not every project needs the same technology or every service. We identify what works, what breaks, who the user is, and which outcome deserves investment.","Then we build what the project actually needs: a website, app, store, system, identity, company profile, or a connected combination."])}),
-          Object.freeze({id:"vision",kicker:"Our vision",title:"To be the partner projects turn to when they want digital transformation without losing clarity, identity, or control.",support:"Technology should serve the business and keep decisions understandable rather than add unnecessary complexity."}),
-          Object.freeze({id:"mission",kicker:"Our mission",title:"Build real digital solutions for real problems.",support:"We turn needs into outcomes that can be used, improved, and relied on, with clear scope, deliverables, and reviews."}),
-          Object.freeze({id:"principles",kicker:"What sets us apart",title:"Clarity before execution, and connection before more tools.",support:"We use technology and design to serve the goal and prefer understandable decisions over unnecessary complexity.",items:Object.freeze([
-            Object.freeze({title:"Understand before executing",body:"The right solution starts with the right problem and real user."}),
-            Object.freeze({title:"Connect the details",body:"Content, design, and technology work as one system."}),
-            Object.freeze({title:"Build for now and next",body:"The solution serves today's need and can expand as the project grows."}),
-            Object.freeze({title:"Be clear about what we can do",body:"Trust starts with understandable scope and reviewable deliverables."})
+          Object.freeze({id:"story",kicker:"Our story",title:"A journey that started with a passion for technology and creativity",support:"Our journey began with a passion for technology and creativity and a vision to help companies and individuals benefit from the digital world in the best possible way.",body:Object.freeze(["We stay with the project from the idea to launch and beyond.","We focus on quality, clarity, and digital solutions that serve the project goal and support growth."])}),
+          Object.freeze({id:"vision",kicker:"Our direction",title:"Our vision",support:"To become a leading choice in the Arab world for integrated digital solutions and create positive, sustainable impact for our clients and communities."}),
+          Object.freeze({id:"mission",kicker:"What we do",title:"Our mission",support:"To provide innovative and effective digital solutions that help clients grow in a competitive digital environment through understanding their needs and delivering valuable experiences."}),
+          Object.freeze({id:"principles",kicker:"Our principles",title:"What we believe",support:"Simple principles guide how we think about design, technology, and working with clients.",items:Object.freeze([
+            Object.freeze({title:"Every idea deserves to be seen",body:"Every idea carries value, and we help turn it into a distinctive digital experience."}),
+            Object.freeze({title:"Design is a message",body:"Design is not only appearance; it communicates meaning and builds a relationship."}),
+            Object.freeze({title:"Technology supports growth",body:"We use technology to build solutions that can evolve with the project."}),
+            Object.freeze({title:"Clarity builds trust",body:"We believe in transparent communication throughout every stage of the work."})
           ])}),
-          Object.freeze({id:"build",kicker:"What we build",title:"Products, systems, and digital presence that start from a real need.",support:"Websites, apps, e-commerce, systems, identity, company profiles, and marketing can stand alone or work together."}),
-          Object.freeze({id:"final-cta",kicker:"Start from reality",title:"Have a similar gap? Let us start from what is actually happening.",support:"Tell us what works today and what you want to change, and we will organize the starting point before proposing the solution."})
+          Object.freeze({id:"build",kicker:"Our services",title:"What we build",support:"Websites and apps, e-commerce, brand identity, company profiles, content and marketing, and custom technical solutions."}),
+          Object.freeze({id:"final-cta",kicker:"Start with us",title:"Have an idea that deserves to be seen?",support:"Share your idea and we will help turn it into a professional digital presence that fits your project."})
         ]),
         seo:Object.freeze({title:"About Wasl Tech | Strategy, Design & Digital Products",description:"Meet Wasl Tech, a digital solutions team connecting strategy, design, software, identity, and marketing around real project needs."})
       })
@@ -139,25 +139,25 @@ export const pages = Object.freeze([
     content:{
       ar:Object.freeze({
         purpose:"مساعدة الزائر على الوصول إلى الحل الصحيح من الهدف أو المشكلة بدل إجباره على اختيار اسم خدمة أو باقة.",
-        kicker:"خدماتنا",title:"لا تحتاج إلى شراء كل شيء. تحتاج إلى الحل الصحيح.",support:"من أول موقع تعريفي إلى منصة أو نظام متكامل، نساعدك على تحديد ما يحتاجه مشروعك الآن، ثم نبنيه بطريقة تخدم المرحلة التالية.",
-        primaryCta:"اكتشف المسار المناسب",secondaryCta:"صف مشكلتك",
+        kicker:"خدماتنا",title:"حلول رقمية متكاملة لنمو مشروعك",support:"في وصل تك، نقدم خدمات رقمية تساعد المشاريع على بناء حضور واضح، متناسق، واحترافي، من الفكرة حتى الإطلاق.",
+        primaryCta:"استكشف الخدمات",secondaryCta:"تواصل معنا",
         sections:Object.freeze([
-          Object.freeze({id:"digital-products",kicker:"المنتجات الرقمية",title:"منتج رقمي يحقق وظيفته.",support:"مواقع وتطبيقات ومتاجر ومنصات مصممة حول المستخدم والهدف، لا حول عدد الشاشات أو الخصائص."}),
-          Object.freeze({id:"systems",kicker:"الأنظمة والهندسة",title:"نظام يرتب طريقة العمل.",support:"برمجة مخصصة ولوحات تحكم وتكاملات وأتمتة تقلل الفوضى والخطوات اليدوية عندما لا يكفي الحل الجاهز."}),
-          Object.freeze({id:"brand-presence",kicker:"الهوية والحضور",title:"حضور يرفع وضوح العلامة.",support:"هوية وبروفايل ومحتوى وتسويق يجعل المشروع مفهومًا ومتسقًا عبر نقاط التواصل."}),
-          Object.freeze({id:"unsure",kicker:"ابدأ من المشكلة",title:"لا تعرف اسم الخدمة؟ هذا ليس عائقًا.",support:"أرسل الهدف أو المشكلة كما هي، وسنرتب معك المسار بدل أن نطلب منك اختيار حل لا تعرفه بعد."})
+          Object.freeze({id:"digital-products",kicker:"المواقع والتطبيقات والمتاجر",title:"حلول رقمية احترافية لعملائك",support:"مواقع عصرية وسريعة، تطبيقات جوال احترافية، ومتاجر إلكترونية متكاملة تمنح عملاءك تجربة واضحة وسهلة."}),
+          Object.freeze({id:"systems",kicker:"البرمجة والحلول التقنية",title:"حلول مخصصة تطور أداء عملك",support:"حلول برمجية مخصصة، لوحات تحكم، تكاملات، وأتمتة تساعدك على تنظيم العمل وتطوير الأداء."}),
+          Object.freeze({id:"brand-presence",kicker:"الهوية والتسويق",title:"حضور واضح ومتناسق لعلامتك",support:"هوية بصرية، بروفايلات، محتوى وتسويق رقمي يساعد علامتك على الظهور بصورة احترافية والوصول إلى جمهورها."}),
+          Object.freeze({id:"unsure",kicker:"نساعدك في الاختيار",title:"لا تعرف من أين تبدأ؟",support:"راسلنا بفكرة مشروعك، وسنساعدك على اختيار الحل المناسب حسب احتياجك وميزانيتك."})
         ]),
         seo:Object.freeze({title:"خدمات وصل تك | مواقع، تطبيقات، أنظمة وهوية",description:"خدمات وصل تك لبناء المواقع والتطبيقات والمتاجر والأنظمة والحلول التقنية والهوية والبروفايلات والتسويق انطلاقًا من احتياج المشروع."})
       }),
       en:Object.freeze({
         purpose:"Help visitors reach the right solution from the goal or problem instead of forcing them to choose a service name or package.",
-        kicker:"Our services",title:"You do not need to buy everything. You need the right solution.",support:"From a first company website to a connected platform or system, we help identify what the project needs now and build it in a way that supports the next stage.",
-        primaryCta:"Find the right path",secondaryCta:"Describe the problem",
+        kicker:"Our services",title:"Integrated digital solutions for your project's growth",support:"Wasl Tech provides digital services that help projects build a clear, consistent, and professional presence from idea to launch.",
+        primaryCta:"Explore services",secondaryCta:"Contact us",
         sections:Object.freeze([
-          Object.freeze({id:"digital-products",kicker:"Digital products",title:"A digital product that does its job.",support:"Websites, apps, e-commerce, and platforms designed around the user and business goal, not the number of screens or features."}),
-          Object.freeze({id:"systems",kicker:"Systems & engineering",title:"A system that organizes how work gets done.",support:"Custom software, dashboards, integrations, and automation that reduce fragmented steps when off-the-shelf tools are not enough."}),
-          Object.freeze({id:"brand-presence",kicker:"Brand & presence",title:"A presence that makes the brand clearer.",support:"Identity, company profiles, content, and marketing that keep the project understandable and consistent across touchpoints."}),
-          Object.freeze({id:"unsure",kicker:"Start from the problem",title:"Do not know the service name? That is not a blocker.",support:"Send the goal or problem as it is, and we will organize the path instead of asking you to choose a solution first."})
+          Object.freeze({id:"digital-products",kicker:"Websites, apps & e-commerce",title:"Professional digital experiences for your customers",support:"Modern websites, professional mobile apps, and integrated e-commerce experiences that stay clear and easy to use."}),
+          Object.freeze({id:"systems",kicker:"Software & technical solutions",title:"Custom solutions that improve how your business works",support:"Custom software, dashboards, integrations, and automation that help organize work and improve performance."}),
+          Object.freeze({id:"brand-presence",kicker:"Brand & marketing",title:"A clear, consistent presence for your brand",support:"Brand identity, company profiles, content, and digital marketing that help the brand look professional and reach its audience."}),
+          Object.freeze({id:"unsure",kicker:"We can help you choose",title:"Not sure where to start?",support:"Tell us about your project idea and we will help you choose the right solution for your needs and budget."})
         ]),
         seo:Object.freeze({title:"Wasl Tech Services | Websites, Apps, Systems & Brand",description:"Wasl Tech services for websites, apps, e-commerce, systems, technical solutions, identity, company profiles, and marketing—starting from the project need."})
       })
@@ -177,23 +177,23 @@ export const pages = Object.freeze([
     fieldState:{purpose:CONTENT_STATE.READY,arabicCore:CONTENT_STATE.READY,sections:CONTENT_STATE.READY,cta:CONTENT_STATE.READY,seo:CONTENT_STATE.READY,businessFacts:CONTENT_STATE.READY,english:CONTENT_STATE.READY},
     evidenceSources:["content:b87872d12adcc836018fe61a7ef1556f04aa5b86:إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md"],
     content:{
-      ar:Object.freeze({purpose:"شرح طريقة العمل من الفهم إلى الإطلاق مع نطاق ومخرجات ومراجعات واضحة.",kicker:"كيف نعمل",title:"ستعرف ما الذي نبنيه، أين وصلنا، وما الخطوة التالية.",support:"نبدأ بفهم الهدف والمشكلة، ثم نحول القرار إلى تجربة ومنتج عبر مراحل واضحة. بعد الإطلاق نوضح خيارات الدعم والتحسين بحسب نطاق المشروع.",primaryCta:"خطط لمشروعك",secondaryCta:"شاهد الأعمال",sections:Object.freeze([
-        Object.freeze({id:"understand",kicker:"01 — نفهم",title:"نبدأ من الهدف والمشكلة والجمهور والوضع الحالي.",support:"نستمع لما تريد تغييره وما الموجود اليوم قبل التفكير في التقنية.",outcome:"صورة مشتركة لما يجب أن ينجح."}),
-        Object.freeze({id:"decide",kicker:"02 — نقرر",title:"نحدد النطاق والأولوية والمخرجات.",support:"نقارن المسارات ونقرر ما يدخل في المرحلة الحالية وما يؤجل.",outcome:"قرار يمكن اعتماده بدل قائمة رغبات مفتوحة."}),
+      ar:Object.freeze({purpose:"شرح طريقة عمل وصل تك بصورة بسيطة من فهم الاحتياج حتى الإطلاق والدعم.",kicker:"كيف نعمل؟",title:"خطوات واضحة من الفكرة إلى الإطلاق",support:"نستمع لاحتياجاتك، نخطط، نصمم ونطوّر، ثم نطلق المشروع وندعمك بعد الإطلاق.",primaryCta:"ابدأ مشروعك",secondaryCta:"شاهد أعمالنا",sections:Object.freeze([
+        Object.freeze({id:"understand",kicker:"01 — نستمع",title:"نستمع لاحتياجاتك وأهدافك",support:"نفهم رؤيتك وما تريد الوصول إليه قبل بدء التنفيذ.",outcome:"فهم واضح للمشروع وأهدافه."}),
+        Object.freeze({id:"decide",kicker:"02 — نخطط",title:"نضع خطة واضحة للمشروع",support:"نرتب الخطوات والأولويات ونحدد المسار المناسب قبل بدء التصميم والتطوير.",outcome:"خطة تنفيذ واضحة ومفهومة."}),
         Object.freeze({id:"design",kicker:"03 — نصمم",title:"نحوّل القرار إلى بنية ورسالة وتجربة.",support:"نرتب المسار والمحتوى والواجهة والهوية بما يجعل الحل مفهومًا وقابلًا للمراجعة.",outcome:"اتجاه وتجربة يمكن رؤيتها قبل اكتمال البناء."}),
-        Object.freeze({id:"build",kicker:"04 — نبني",title:"نحوّل الخطة إلى منتج أو نظام يعمل.",support:"نطور الموقع أو التطبيق أو المتجر أو النظام ضمن مراحل قابلة للاستخدام والمراجعة.",outcome:"نسخة تعمل ويمكن تقييمها على سيناريوهات حقيقية."}),
+        Object.freeze({id:"build",kicker:"03 — نصمم ونطوّر",title:"نحوّل الخطة إلى حل رقمي متكامل",support:"نصمم ونطوّر الحل وفق احتياج المشروع مع مراجعة التفاصيل خلال التنفيذ.",outcome:"حل رقمي جاهز للمراجعة والاستخدام."}),
         Object.freeze({id:"test",kicker:"05 — نختبر",title:"نراجع السيناريوهات والاستجابة والمحتوى.",support:"نفحص السلوك على الشاشات والأجهزة والتفاصيل الأساسية ضمن النطاق.",outcome:"نسخة جاهزة للإطلاق ضمن ما تم اعتماده."}),
-        Object.freeze({id:"launch-grow",kicker:"06 — نطلق ونطوّر",title:"نجهز التشغيل ونرتب ما بعد الإطلاق.",support:"نوضح الخطوة التالية وخيارات الدعم أو التحسينات بحسب احتياج المشروع ونطاق الخدمة.",outcome:"منتج يدخل الاستخدام مع مسار واضح لما بعده."}),
+        Object.freeze({id:"launch-grow",kicker:"04 — نطلق وندعم",title:"نطلق المشروع ونستمر معك",support:"نجهز المشروع للإطلاق ونوفر الدعم والتطوير وفق ما يحتاجه المشروع بعد التشغيل.",outcome:"إطلاق منظم ومسار واضح لما بعده."}),
         Object.freeze({id:"principle",kicker:"أثناء العمل",title:"لن تكون آخر من يعرف ما يحدث في مشروعك.",support:"نشارك التحديثات وفق آلية التواصل المتفق عليها، ونوضح ما تم إنجازه وما يحتاج قرارًا قبل الانتقال للمرحلة التالية."}),
         Object.freeze({id:"final-cta",kicker:"ابدأ بالسؤال الصحيح",title:"لا تنتظر حتى تعرف كل الإجابات.",support:"شارك ما تعرفه عن المشروع الآن، وسنساعدك على تحديد ما يحتاج إلى بحث وقرار وتنفيذ."})
       ]),seo:Object.freeze({title:"كيف نعمل | وصل تك — Wasl Tech",description:"طريقة عمل وصل تك من فهم المشكلة وتحديد النطاق إلى التصميم والبناء والاختبار والإطلاق وخيارات الدعم بعده."})}),
-      en:Object.freeze({purpose:"Explain how work moves from understanding to launch with clear scope, deliverables, reviews, and next steps.",kicker:"How we work",title:"Know what we are building, where we are, and what comes next.",support:"We start from the goal and problem, turn decisions into an experience and working product, then clarify support and improvement options according to project scope.",primaryCta:"Plan your project",secondaryCta:"View our work",sections:Object.freeze([
-        Object.freeze({id:"understand",kicker:"01 — Understand",title:"Start with the goal, problem, audience, and current situation.",support:"We listen to what should change and what exists today before choosing technology.",outcome:"A shared picture of what needs to succeed."}),
-        Object.freeze({id:"decide",kicker:"02 — Decide",title:"Define scope, priority, and deliverables.",support:"We compare paths and decide what belongs in the current stage and what should wait.",outcome:"An approvable decision instead of an open wish list."}),
+      en:Object.freeze({purpose:"Explain Wasl Tech's simple workflow from understanding the need to launch and support.",kicker:"How we work",title:"Clear steps from idea to launch",support:"We listen, plan, design and build, then launch the project and support it after release.",primaryCta:"Start your project",secondaryCta:"View our work",sections:Object.freeze([
+        Object.freeze({id:"understand",kicker:"01 — Listen",title:"We listen to your needs and goals",support:"We understand your vision and what you want to achieve before execution begins.",outcome:"A clear understanding of the project and its goals."}),
+        Object.freeze({id:"decide",kicker:"02 — Plan",title:"We create a clear project plan",support:"We organize steps, priorities, and the right path before design and development begin.",outcome:"A clear, understandable implementation plan."}),
         Object.freeze({id:"design",kicker:"03 — Design",title:"Turn the decision into structure, message, and experience.",support:"We organize flow, content, interface, and identity so the solution is understandable and reviewable.",outcome:"A direction and experience that can be seen before full build."}),
-        Object.freeze({id:"build",kicker:"04 — Build",title:"Turn the plan into a working product or system.",support:"We build the website, app, store, or system in stages that can be used and reviewed.",outcome:"A working version that can be tested against real scenarios."}),
+        Object.freeze({id:"build",kicker:"03 — Design & develop",title:"We turn the plan into an integrated digital solution",support:"We design and build according to the project need while reviewing key details during execution.",outcome:"A digital solution ready for review and use."}),
         Object.freeze({id:"test",kicker:"05 — Test",title:"Review scenarios, responsiveness, and content.",support:"We check behavior across the relevant screens, devices, and key details within scope.",outcome:"A version ready for launch within the approved scope."}),
-        Object.freeze({id:"launch-grow",kicker:"06 — Launch & evolve",title:"Prepare operation and organize what comes after launch.",support:"We clarify the next step and support or improvement options based on project need and service scope.",outcome:"A product entering real use with a clear path forward."}),
+        Object.freeze({id:"launch-grow",kicker:"04 — Launch & support",title:"We launch the project and stay with you",support:"We prepare the project for launch and provide support and improvements according to the project's needs after release.",outcome:"An organized launch and a clear path after release."}),
         Object.freeze({id:"principle",kicker:"During the work",title:"You should not be the last person to know what is happening in your project.",support:"Updates follow the agreed communication process, with completed work and decisions needed before the next stage made clear."}),
         Object.freeze({id:"final-cta",kicker:"Start with the right question",title:"Do not wait until you know every answer.",support:"Share what you know about the project now, and we will help identify what needs research, decision, and execution."})
       ]),seo:Object.freeze({title:"How We Work | Wasl Tech",description:"Wasl Tech's process from understanding the problem and defining scope through design, build, testing, launch, and post-launch options."})})

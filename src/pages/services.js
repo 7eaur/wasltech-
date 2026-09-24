@@ -43,25 +43,18 @@ function renderHero(content, locale) {
 
 function renderServiceRow(service, locale) {
   const copy = service.content[locale];
+  const features = copy.deliverables.slice(0,4).map((item)=>`<li>${escapeHtml(item.title)}</li>`).join("");
   return `
     <article class="service-directory-row">
-      <div class="service-directory-row__main">
-        <a class="service-directory-row__media" href="${routes.service(service.slug,locale)}" aria-label="${escapeHtml(copy.title)}">
-          <img src="${service.image}" alt="${escapeHtml(copy.title)}" width="1280" height="720" loading="lazy" decoding="async">
-        </a>
+      <a class="service-directory-row__media" href="${routes.service(service.slug,locale)}" aria-label="${escapeHtml(copy.title)}">
+        <img src="${service.image}" alt="${escapeHtml(copy.title)}" width="1280" height="720" loading="lazy" decoding="async">
+      </a>
+      <div class="service-directory-row__copy">
         <p class="service-directory-row__subtitle">${escapeHtml(copy.subtitle)}</p>
         <h3><a href="${routes.service(service.slug,locale)}">${escapeHtml(copy.title)}</a></h3>
-      </div>
-      <div class="service-directory-row__decision">
-        <span>${locale === "ar" ? "متى تحتاجها؟" : "When it fits"}</span>
-        <p>${escapeHtml(copy.decision.problemNeed)}</p>
-      </div>
-      <div class="service-directory-row__scope">
-        <span>${locale === "ar" ? "ما الذي يشمله المسار؟" : "What the path covers"}</span>
-        <p>${escapeHtml(copy.decision.scopeSummary)}</p>
-      </div>
-      <div class="service-directory-row__action">
-        <a class="text-link" href="${routes.service(service.slug,locale)}">${locale === "ar" ? "شاهد ما تتضمنه الخدمة" : "See what the service includes"}</a>
+        <p class="service-directory-row__summary">${escapeHtml(copy.description)}</p>
+        <ul class="service-directory-row__features">${features}</ul>
+        <a class="text-link" href="${routes.service(service.slug,locale)}">${locale === "ar" ? "اعرف المزيد" : "Learn more"}</a>
       </div>
     </article>
   `;

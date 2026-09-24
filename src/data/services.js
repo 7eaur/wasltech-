@@ -52,11 +52,11 @@ const serviceRecords = [
     "content": {
       "ar": {
         "title": "تطوير المواقع الإلكترونية",
-        "subtitle": "موقع يحول الزيارة إلى فهم وثقة وخطوة تالية.",
-        "description": "نصمم ونطوّر مواقع للشركات والمشاريع التي تريد أن تشرح قيمتها بسرعة، تعرض خدماتها بوضوح، وتمنح الزائر سببًا للتواصل أو الشراء.",
+        "subtitle": "مواقع عصرية وسريعة ومتجاوبة مع جميع الأجهزة.",
+        "description": "نصمم ونطوّر مواقع إلكترونية احترافية تعكس هوية مشروعك، تعرض خدماتك بوضوح، وتمنح الزائر تجربة سهلة ومميزة.",
         "decision": {
-          "problemNeed": "موقعك هو أول موظف يقابل عميلك. إذا لم يشرح من أنت وماذا تقدم ولماذا يختارك، فأنت تخسر فرصًا قبل أن يبدأ الحديث.",
-          "scopeSummary": "استراتيجية وهيكل المحتوى، تجربة المستخدم، التصميم، التطوير المتجاوب، صفحات الخدمات والأعمال، النماذج، إدارة المحتوى عند الحاجة، وتجهيز الإطلاق."
+          "problemNeed": "تحتاجها عندما تريد حضورًا احترافيًا على الإنترنت يعرّف بخدماتك ويجعل الوصول إليك أسهل.",
+          "scopeSummary": "تصميم حديث ومتجاوب، صفحات الخدمات والأعمال، إدارة المحتوى عند الحاجة، تحسين الأداء، وتجهيز الإطلاق."
         },
         "heroCards": [
           {
@@ -172,11 +172,11 @@ const serviceRecords = [
       },
       "en": {
         "title": "Website Design & Development",
-        "subtitle": "A website that turns a visit into understanding, trust, and a next step.",
-        "description": "We design and build websites for businesses that need to explain their value quickly, present services clearly, and give visitors a reason to contact or buy.",
+        "subtitle": "Modern, fast, responsive websites for every screen.",
+        "description": "We design and build professional websites that reflect your brand, present services clearly, and give visitors an easy, polished experience.",
         "decision": {
-          "problemNeed": "Your website is often the first employee a customer meets. If it cannot explain who you are, what you offer, and why you are worth choosing, opportunities are lost before the conversation starts.",
-          "scopeSummary": "Content strategy and structure, UX, visual design, responsive development, service and work pages, forms, optional CMS, performance, and launch preparation."
+          "problemNeed": "Choose this when you need a professional online presence that explains your services and makes it easier for customers to reach you.",
+          "scopeSummary": "Modern responsive design, service and work pages, optional content management, performance optimization, and launch preparation."
         },
         "heroCards": [
           {
@@ -304,11 +304,11 @@ const serviceRecords = [
     "content": {
       "ar": {
         "title": "تطوير تطبيقات الجوال",
-        "subtitle": "ضع خدمتك في يد العميل بالطريقة التي يتوقعها.",
-        "description": "نحوّل الفكرة إلى تطبيق واضح وسهل الاستخدام، من ترتيب الشاشات وتجربة العميل إلى البرمجة والربط والاختبار والإطلاق.",
+        "subtitle": "تطبيقات جوال احترافية لأندرويد وiOS.",
+        "description": "نصمم ونطوّر تطبيقات جوال تمنح عملاءك تجربة سلسة ومميزة، مع الربط بالأنظمة والخدمات التي يحتاجها مشروعك.",
         "decision": {
-          "problemNeed": "التطبيق الناجح ليس مجموعة شاشات؛ هو أقصر طريق بين حاجة المستخدم والخدمة التي تقدمها.",
-          "scopeSummary": "تحليل المستخدم والوظائف، تجربة الاستخدام، Android وiOS حسب النطاق، الحسابات والإشعارات، API، لوحة الإدارة، الاختبار وتجهيز الإطلاق."
+          "problemNeed": "تحتاجها عندما تريد تقديم خدمتك أو منتجك عبر تجربة مخصصة للجوال وسهلة الاستخدام.",
+          "scopeSummary": "تصميم واجهة وتجربة المستخدم، Android وiOS حسب النطاق، ربط الأنظمة والخدمات، الاختبار، وتجهيز الإطلاق."
         },
         "heroCards": [
           {
@@ -424,11 +424,11 @@ const serviceRecords = [
       },
       "en": {
         "title": "Mobile App Development",
-        "subtitle": "Put your service in the customer's hand the way they expect.",
-        "description": "We turn the idea into a clear, usable app—from screen flow and user experience to development, integrations, testing, and launch.",
+        "subtitle": "Professional mobile apps for Android and iOS.",
+        "description": "We design and build mobile apps that give customers a smooth experience and connect with the systems and services your project needs.",
         "decision": {
-          "problemNeed": "A successful app is not a collection of screens; it is the shortest clear path between a user need and the service you provide.",
-          "scopeSummary": "User and feature analysis, UX flows, Android and iOS by scope, accounts, notifications, APIs, admin tools, testing, and release preparation."
+          "problemNeed": "Choose this when your service or product needs a dedicated mobile experience that is easy to use.",
+          "scopeSummary": "UI and UX design, Android and iOS by scope, system integrations, testing, and release preparation."
         },
         "heroCards": [
           {
@@ -556,11 +556,11 @@ const serviceRecords = [
     "content": {
       "ar": {
         "title": "المتاجر الإلكترونية",
-        "subtitle": "متجر يجعل اكتشاف المنتج وطلبه أسهل.",
-        "description": "نبني متجرًا يعرض منتجاتك بطريقة مقنعة، ويرتب تجربة التصفح والسلة والطلب، ويمنح فريقك أدوات واضحة لإدارة المنتجات والطلبات.",
+        "subtitle": "متاجر إلكترونية متكاملة لتجربة تسوق سهلة وآمنة.",
+        "description": "نصمم ونطوّر متاجر إلكترونية احترافية تساعدك على عرض منتجاتك وإدارة الطلبات والمخزون وتقديم تجربة شراء سهلة لعملائك.",
         "decision": {
-          "problemNeed": "المنتج الجيد لا يبيع وحده إذا كان العميل لا يجد ما يريد أو لا يثق في الخطوة التالية.",
-          "scopeSummary": "هيكلة وتصنيف المنتجات، صفحات المنتجات، السلة والطلب، إدارة المنتجات والمخزون، الدفع والشحن حسب المتاح، الحسابات والتنبيهات، والتقارير."
+          "problemNeed": "تحتاجها عندما تريد بيع منتجاتك عبر الإنترنت وإدارة الطلبات والمنتجات من مكان واحد.",
+          "scopeSummary": "تصميم متجر احترافي، إدارة المنتجات والمخزون، السلة والطلبات، الدفع والشحن حسب المتاح، والتقارير."
         },
         "heroCards": [
           {
@@ -672,11 +672,11 @@ const serviceRecords = [
       },
       "en": {
         "title": "E-commerce Development",
-        "subtitle": "An online store that makes products easier to discover and order.",
-        "description": "We build stores that present products clearly, organize browsing, cart, and ordering, and give the team practical tools to manage products and orders.",
+        "subtitle": "Integrated e-commerce for an easy and secure shopping experience.",
+        "description": "We design and build professional online stores that help you present products, manage orders and inventory, and give customers an easy buying experience.",
         "decision": {
-          "problemNeed": "A good product does not sell itself if customers cannot find what they want or trust the next step.",
-          "scopeSummary": "Product architecture, product pages, cart and ordering, catalog and stock management, payment and shipping where available, accounts, alerts, and reporting."
+          "problemNeed": "Choose this when you want to sell online and manage products and orders from one place.",
+          "scopeSummary": "Professional store design, catalog and inventory management, cart and orders, available payment and shipping options, and reporting."
         },
         "heroCards": [
           {
@@ -800,11 +800,11 @@ const serviceRecords = [
     "content": {
       "ar": {
         "title": "البرمجة وتطوير الأنظمة",
-        "subtitle": "إذا كان عملك خاصًا، فحلّك لا يجب أن يكون قالبًا جاهزًا.",
-        "description": "نطوّر الأنظمة ولوحات التحكم والخصائص التي تناسب طريقة عملك، ونحوّل العمليات المتفرقة إلى مسارات رقمية واضحة يمكن لفريقك استخدامها وتطويرها.",
+        "subtitle": "حلول برمجية مخصصة وأنظمة ذكية لأتمتة أعمالك وتطوير الأداء.",
+        "description": "نطوّر أنظمة ويب مخصصة ولوحات تحكم وتكاملات تساعدك على تنظيم العمليات، تقليل العمل اليدوي، ورفع كفاءة التشغيل.",
         "decision": {
-          "problemNeed": "عندما يجبرك الحل الجاهز على تغيير عملك، أو تعتمد على جداول ورسائل وعمليات يدوية، يكون الوقت قد حان لنظام مصمم حولك.",
-          "scopeSummary": "أنظمة إدارية وتشغيلية، لوحات تحكم، قواعد بيانات وصلاحيات، تكاملات API، أتمتة، تقارير، ومنصات داخلية مخصصة."
+          "problemNeed": "تحتاجها عندما لا يلائمك الحل الجاهز أو عندما تعتمد أعمالك على خطوات يدوية ومتفرقة.",
+          "scopeSummary": "أنظمة ويب مخصصة، لوحات تحكم وتقارير، قواعد بيانات وصلاحيات، تكامل APIs، وأتمتة العمليات."
         },
         "heroCards": [
           {
@@ -920,11 +920,11 @@ const serviceRecords = [
       },
       "en": {
         "title": "Custom Software & Systems",
-        "subtitle": "If your work is specific, your solution should not be a generic template.",
-        "description": "We build systems, dashboards, and features around how your team actually works, turning fragmented operations into clear digital workflows that can evolve.",
+        "subtitle": "Custom software and smart systems that automate work and improve performance.",
+        "description": "We build custom web systems, dashboards, and integrations that organize operations, reduce manual work, and improve efficiency.",
         "decision": {
-          "problemNeed": "When an off-the-shelf tool forces your business to change or your team depends on spreadsheets, messages, and manual work, a custom system may be the right path.",
-          "scopeSummary": "Operational systems, dashboards, databases and permissions, APIs, automation, reporting, internal platforms, and staged custom components."
+          "problemNeed": "Choose this when off-the-shelf software does not fit your work or when operations depend on fragmented manual steps.",
+          "scopeSummary": "Custom web systems, dashboards and reports, databases and permissions, APIs, and workflow automation."
         },
         "heroCards": [
           {
@@ -1052,11 +1052,11 @@ const serviceRecords = [
     "content": {
       "ar": {
         "title": "الحلول التقنية",
-        "subtitle": "نعالج أصل المشكلة قبل أن نضيف أداة جديدة.",
-        "description": "نحلل الأنظمة والخطوات والبيانات التي يعتمد عليها عملك، ثم نرتب الربط أو الأتمتة أو التحسين الذي يزيل التكرار والتشتت ويجعل التشغيل أكثر وضوحًا.",
+        "subtitle": "حلول تقنية مرنة قابلة للتطوير تتناسب مع احتياجات عملك.",
+        "description": "نقدم حلولًا تقنية وتكاملات تربط الأنظمة والخدمات، تقلل التكرار، وتساعد أعمالك على العمل بصورة أكثر كفاءة واستقرارًا.",
         "decision": {
-          "problemNeed": "عندما تتوزع البيانات بين أدوات متعددة وتتكرر الخطوات اليدوية، تكون الأولوية لفهم عنق الزجاجة قبل شراء أداة أخرى.",
-          "scopeSummary": "ربط الأنظمة والخدمات، أتمتة العمليات، تنظيم تدفق البيانات، لوحات متابعة، تكامل الويب والتطبيقات، وتحسين البنية الحالية."
+          "problemNeed": "تحتاجها عندما تتوزع البيانات بين أكثر من نظام أو تتكرر العمليات اليدوية ويصبح الربط ضرورة.",
+          "scopeSummary": "ربط الأنظمة والخدمات، أتمتة العمليات، تنظيم البيانات، لوحات متابعة، وتحسين البنية الحالية."
         },
         "heroCards": [
           {
@@ -1168,11 +1168,11 @@ const serviceRecords = [
       },
       "en": {
         "title": "Technical Solutions & Integrations",
-        "subtitle": "Fix the root problem before adding another tool.",
-        "description": "We analyze the systems, steps, and data your work depends on, then organize the integration, automation, or improvement that reduces repetition and fragmentation.",
+        "subtitle": "Flexible technical solutions that scale with your business needs.",
+        "description": "We provide integrations and technical solutions that connect systems and services, reduce repetition, and improve operational efficiency and stability.",
         "decision": {
-          "problemNeed": "When data is split across tools and manual steps keep repeating, the first priority is understanding the bottleneck before buying another tool.",
-          "scopeSummary": "System and service integrations, automation, data flow, dashboards, web and app connections, and improvements to existing architecture."
+          "problemNeed": "Choose this when data is spread across systems or repeated manual work makes integration necessary.",
+          "scopeSummary": "System and service integrations, automation, data organization, dashboards, and improvements to existing architecture."
         },
         "heroCards": [
           {
@@ -1296,11 +1296,11 @@ const serviceRecords = [
     "content": {
       "ar": {
         "title": "تصميم البروفايلات",
-        "subtitle": "اجعل شركتك مفهومة ومقنعة في أول قراءة.",
-        "description": "نأخذ معلوماتك وخدماتك وأعمالك ونحوّلها إلى ملف تعريفي مرتب يساعد العملاء والشركاء على فهم من أنت، ماذا تقدم، ولماذا يثقون بك.",
+        "subtitle": "بروفايل شركة احترافي يعرّف بمشروعك وخدماتك بوضوح.",
+        "description": "نرتب معلومات الشركة وخدماتها وأعمالها داخل ملف تعريفي أنيق واحترافي جاهز للمشاركة الرقمية والطباعة.",
         "decision": {
-          "problemNeed": "عندما تكون معلومات الشركة موجودة لكنها مبعثرة أو طويلة، يصبح تقديمها للعميل أضعف من قيمة العمل نفسه.",
-          "scopeSummary": "ترتيب الرسالة والمحتوى، التحرير عند الحاجة، هيكلة الخدمات والأعمال، تصميم متوافق مع الهوية، وملف جاهز للمشاركة والطباعة."
+          "problemNeed": "تحتاجه عندما تريد تقديم شركتك أو خدماتك للعملاء والشركاء بصورة مرتبة وواضحة.",
+          "scopeSummary": "ترتيب المحتوى، كتابة وتحرير عند الحاجة، عرض الخدمات والأعمال، تصميم متوافق مع الهوية، ونسخ جاهزة للمشاركة والطباعة."
         },
         "heroCards": [
           {
@@ -1404,11 +1404,11 @@ const serviceRecords = [
       },
       "en": {
         "title": "Company Profile Design",
-        "subtitle": "Make your company clear and convincing from the first read.",
-        "description": "We turn your information, services, and work into a structured company profile that helps clients and partners understand who you are, what you offer, and why they should trust the business.",
+        "subtitle": "A professional company profile that presents your business and services clearly.",
+        "description": "We organize company information, services, and work into a polished profile ready for digital sharing and print.",
         "decision": {
-          "problemNeed": "When company information exists but is scattered or too long, the presentation becomes weaker than the work itself.",
-          "scopeSummary": "Message and content structure, editing when needed, services and work organization, brand-aligned design, and a shareable printable presentation file."
+          "problemNeed": "Choose this when you need to present your company and services to clients or partners in a clear, organized way.",
+          "scopeSummary": "Content organization, writing and editing when needed, service and work presentation, brand-aligned design, and shareable print-ready versions."
         },
         "heroCards": [
           {
@@ -1524,11 +1524,11 @@ const serviceRecords = [
     "content": {
       "ar": {
         "title": "الهوية البصرية والتصميم الجرافيكي",
-        "subtitle": "هوية تجعل مشروعك معروفًا قبل أن تشرح ما تفعله.",
-        "description": "نبني هوية بصرية تعكس شخصية مشروعك، وتمنح فريقك نظامًا واضحًا لاستخدام الشعار والألوان والخطوط والتطبيقات في كل نقطة تواصل.",
+        "subtitle": "هوية متناسقة تجعل مشروعك يُرى بثقة.",
+        "description": "نصمم هويات بصرية وتصاميم جرافيكية تساعد مشروعك على الظهور بشكل متناسق واحترافي، من الشعار والألوان إلى القوالب والبروفايلات والبنرات.",
         "decision": {
-          "problemNeed": "عندما يظهر المشروع كل مرة بشكل مختلف، تصبح العلامة أصعب في التذكر والتطبيق ويضيع جزء من قيمتها في التفاصيل.",
-          "scopeSummary": "استراتيجية واتجاه بصري، شعار، ألوان وخطوط، قواعد الاستخدام، تطبيقات رقمية ومطبوعة، وقوالب ودليل هوية حسب النطاق."
+          "problemNeed": "تحتاجها عندما تريد هوية تعكس شخصية مشروعك وتوحّد طريقة ظهوره أمام العملاء.",
+          "scopeSummary": "تصميم شعار، ألوان وخطوط، قوالب سوشيال ميديا، بروفايل، بنرات، مطبوعات، ودليل هوية حسب النطاق."
         },
         "heroCards": [
           {
@@ -1636,11 +1636,11 @@ const serviceRecords = [
       },
       "en": {
         "title": "Brand Identity & Graphic Design",
-        "subtitle": "A brand identity that is recognizable before you explain what you do.",
-        "description": "We build visual identities that reflect the project and give the team a clear system for using the logo, colors, typography, and applications across touchpoints.",
+        "subtitle": "A consistent identity that helps your project appear with confidence.",
+        "description": "We design visual identities and graphics that help your project look consistent and professional, from logo and colors to templates, profiles, and banners.",
         "decision": {
-          "problemNeed": "When the project looks different every time, the brand becomes harder to remember and harder for the team to apply consistently.",
-          "scopeSummary": "Visual direction, logo, color and type system, usage rules, digital and print applications, templates, and a brand guide by scope."
+          "problemNeed": "Choose this when you need an identity that reflects the project and unifies how it appears to customers.",
+          "scopeSummary": "Logo design, colors and typography, social templates, company profile, banners, print materials, and a brand guide by scope."
         },
         "heroCards": [
           {
@@ -1760,11 +1760,11 @@ const serviceRecords = [
     "content": {
       "ar": {
         "title": "التسويق الرقمي وإدارة المحتوى",
-        "subtitle": "لا تنشر أكثر؛ قل الشيء الصحيح للناس الصحيحة.",
-        "description": "نرتب رسالتك ومحتواك وحملاتك بحيث يعرف جمهورك ماذا تقدم، لمن، ولماذا يبدأ معك — من الاستراتيجية والكتابة والتصميم إلى النشر والقياس حسب النطاق.",
+        "subtitle": "استراتيجيات تسويق رقمي تساعدك على زيادة الوعي والوصول إلى العملاء.",
+        "description": "نخطط للمحتوى والحملات، ندير قنوات التواصل، ونصمم الرسائل والمواد التسويقية بما يساعد علامتك على الظهور بصورة أوضح وأكثر اتساقًا.",
         "decision": {
-          "problemNeed": "إذا كنت تنشر باستمرار لكن الجمهور لا يفهم عرضك أو الفرق الذي تقدمه، فالمشكلة في الرسالة والمسار لا في عدد المنشورات وحده.",
-          "scopeSummary": "استراتيجية الرسائل والمحتوى، الكتابة، إدارة المنصات، تصميم المنشورات والإعلانات، الريلز والاستوريات، الحملات المدفوعة، وقراءة المؤشرات."
+          "problemNeed": "تحتاجها عندما تريد بناء حضور مستمر والوصول إلى جمهورك برسائل ومحتوى أكثر وضوحًا.",
+          "scopeSummary": "إدارة منصات التواصل، كتابة المحتوى، تصميم المنشورات والإعلانات، الحملات المدفوعة حسب النطاق، وتحليل الأداء."
         },
         "heroCards": [
           {
@@ -1876,11 +1876,11 @@ const serviceRecords = [
       },
       "en": {
         "title": "Digital Marketing & Content Management",
-        "subtitle": "Do not publish more; say the right thing to the right people.",
-        "description": "We organize your message, content, and campaigns so the audience understands what you offer, who it is for, and why they should start with you—from strategy and writing to design, publishing, and measurement by scope.",
+        "subtitle": "Digital marketing strategies that help increase awareness and reach customers.",
+        "description": "We plan content and campaigns, manage social channels, and create marketing messages and materials that help your brand appear more clearly and consistently.",
         "decision": {
-          "problemNeed": "If you publish consistently but the audience still does not understand the offer or difference, the problem may be the message and path rather than the number of posts.",
-          "scopeSummary": "Messaging and content strategy, copywriting, social management, post and ad design, reels and stories, paid campaigns, and performance review."
+          "problemNeed": "Choose this when you need a consistent digital presence and clearer communication with your audience.",
+          "scopeSummary": "Social media management, copywriting, post and ad design, paid campaigns by scope, and performance analysis."
         },
         "heroCards": [
           {

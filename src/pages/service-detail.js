@@ -92,7 +92,7 @@ function renderAudience(service, locale) {
       <div class="container service-audience__grid">
         <div>
           <p class="eyebrow">${locale === "ar" ? "لمن تناسب" : "Who it fits"}</p>
-          <h2>${locale === "ar" ? "خدمة تُبنى حول احتياج فعلي، لا قالب ثابت." : "A service shaped around a real need, not a fixed template."}</h2>
+          <h2>${locale === "ar" ? "هل هذه الخدمة مناسبة لمشروعك؟" : "Is this service right for your project?"}</h2>
         </div>
         <ul class="service-audience__list">
           ${copy.audiences.map((item)=>`<li>${escapeHtml(item)}</li>`).join("")}
@@ -109,9 +109,9 @@ function renderDeliverables(service, locale) {
       <div class="container">
         ${SectionHeader({
           kicker:locale === "ar" ? "ما الذي تحصل عليه" : "What you receive",
-          title:locale === "ar" ? "مخرجات واضحة يمكن فهمها ومراجعتها." : "Clear deliverables you can understand and review.",
+          title:locale === "ar" ? "ما الذي نقدمه ضمن هذه الخدمة؟" : "What do we provide within this service?",
           supporting:locale === "ar"
-            ? "المخرجات الفعلية تتحدد حسب نطاق مشروعك، لكن هذه هي العناصر التي يمكن أن تدخل ضمن الخدمة."
+            ? "يتم تحديد التفاصيل النهائية حسب احتياج المشروع ونطاق العمل."
             : "The exact deliverables depend on your project scope, but these are the elements that may be included in the service."
         })}
         <div class="service-deliverables__list">
@@ -136,7 +136,7 @@ function renderProof(service, locale) {
       <div class="container">
         ${SectionHeader({
           kicker:locale === "ar" ? "أعمال مرتبطة" : "Related work",
-          title:locale === "ar" ? "نماذج من مشاريع مرتبطة بهذه الخدمة." : "Examples of projects connected to this service.",
+          title:locale === "ar" ? "نماذج من أعمال مرتبطة بالخدمة" : "Related work examples",
           supporting:locale === "ar" ? "استكشف كيف تُترجم هذه الخدمة داخل مشاريع ومتطلبات مختلفة." : "See how this service takes shape across different projects and needs."
         })}
         <div class="service-proof__grid">
@@ -167,8 +167,8 @@ function renderProcess(service, locale) {
       <div class="container">
         ${SectionHeader({
           kicker:locale === "ar" ? "طريقة التنفيذ" : "How it is delivered",
-          title:locale === "ar" ? "نرتب العمل قبل أن تتراكم التفاصيل." : "We organize the work before details start to pile up.",
-          supporting:locale === "ar" ? "كل مرحلة لها هدف واضح، ثم ننتقل للمرحلة التالية على أساس ما تم مراجعته." : "Each stage has a clear purpose, and the next stage builds on what has already been reviewed."
+          title:locale === "ar" ? "كيف ننفذ الخدمة؟" : "How do we deliver the service?",
+          supporting:locale === "ar" ? "خطوات واضحة من فهم الاحتياج إلى التنفيذ والتسليم." : "Clear steps from understanding the need to execution and delivery."
         })}
         <div class="service-process__steps">
           ${items.map((item,index)=>`
@@ -191,7 +191,7 @@ function renderFaq(service, locale) {
       <div class="container service-detail-faq__grid">
         <div>
           <p class="eyebrow">${locale === "ar" ? "أسئلة قبل البدء" : "Questions before you start"}</p>
-          <h2>${locale === "ar" ? "إجابات مرتبطة بهذه الخدمة تحديدًا." : "Answers specific to this service."}</h2>
+          <h2>${locale === "ar" ? "الأسئلة الشائعة" : "Frequently asked questions"}</h2>
         </div>
         <div class="service-detail-faq__list">
           ${items.map((item)=>`
@@ -213,7 +213,7 @@ function renderConstraints(service, locale) {
       <div class="container service-constraints__inner">
         <div>
           <p class="eyebrow">${locale === "ar" ? "ما يعتمد على المشروع" : "What depends on the project"}</p>
-          <h2>${locale === "ar" ? "بعض التفاصيل لا تُحسم قبل معرفة السياق." : "Some details should not be fixed before the context is known."}</h2>
+          <h2>${locale === "ar" ? "تفاصيل تعتمد على احتياج المشروع" : "Details that depend on the project"}</h2>
         </div>
         <ul>
           ${items.map((item)=>`<li>${escapeHtml(item)}</li>`).join("")}
