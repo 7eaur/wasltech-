@@ -168,7 +168,8 @@ jobs:
               deviceScaleFactor: 1,
               isMobile,
               hasTouch: isMobile,
-              locale: locale === "ar" ? "ar-YE" : "en-US"
+              locale: locale === "ar" ? "ar-YE" : "en-US",
+              reducedMotion: "reduce"
             });
             const page = await context.newPage();
             await page.goto(base + path, { waitUntil: "networkidle" });
