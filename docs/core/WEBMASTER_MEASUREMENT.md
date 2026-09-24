@@ -155,3 +155,26 @@ The smoke verifies representative live surfaces:
 - one published Article.
 
 This script intentionally is not part of pre-publication CI because the user will connect the canonical domain only at publication.
+
+
+## 10. Live connector state — 2026-09-25
+
+Windsor.ai is connected to ChatGPT for this project.
+
+Current verified source state:
+- Google Analytics 4 connector: connected;
+- GA4 account: `Wasl Tech` (`530356719`);
+- GA4 reads for the last 90 days currently return zero rows, including unfiltered channel and hostname reads; therefore this property is **not accepted as a usable organic-search baseline yet**;
+- Google Search Console connector: available but not yet authorized;
+- Bing Webmaster connector: available but not yet authorized;
+- Google Business Profile / Instagram connectors: available but not required to complete pre-publication technical SEO.
+
+Search Console and Bing authorization must be completed by the account owner through Windsor's secure authorization forms. Sensitive Bing API credentials must never be pasted into chat.
+
+Once Search Console/Bing are connected and the canonical domain is live:
+1. verify the correct site/property;
+2. submit/confirm the canonical sitemap;
+3. record Day-0 index/query baseline;
+4. inspect Bing AI Performance when populated;
+5. start Phase 10 evidence-driven optimization.
+

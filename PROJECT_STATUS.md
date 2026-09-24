@@ -38,6 +38,14 @@ This is the newest execution truth for SEO / AI-search work.
 - QA: `docs/qa/2026-09-25_external-entity-consistency-audit.md`
 - External identity contract: `docs/core/EXTERNAL_ENTITY_PROFILE.md`
 
+### Live measurement connector state
+- Windsor.ai integration: **CONNECTED**
+- GA4: **CONNECTED** — account `Wasl Tech` (`530356719`)
+- GA4 90-day reads currently return **0 rows**, including unfiltered channel/hostname reads; not accepted as a valid SEO baseline.
+- Google Search Console: **AUTHORIZATION PENDING**
+- Bing Webmaster: **AUTHORIZATION PENDING**
+- Phase 10 remains blocked until the canonical domain is live and real search data exists.
+
 ### Phase 9 preparation
 - Pre-publication implementation commit: `5f1cf8b733a17e14f3373957586523298ad6fb51`
 - Preview + Release verification: `36069649090` — **SUCCESS**
