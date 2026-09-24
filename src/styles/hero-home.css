@@ -16,6 +16,7 @@
   overflow:hidden;
 }
 .home-hero__copy{
+  order:1;
   max-width:none;
   text-align:center;
 }
@@ -23,20 +24,21 @@
   margin-bottom:.5rem;
 }
 .home-hero h1{
-  max-width:14ch;
+  max-width:none;
   margin:0 auto .625rem;
   font-size:clamp(2rem,9.6vw,2.8rem);
   line-height:1.12;
   letter-spacing:var(--tracking-tight);
 }
 .home-hero__support{
-  max-width:34rem;
+  max-width:100%;
   margin:0 auto;
   color:var(--color-text-secondary);
   font-size:.86rem;
   line-height:1.75;
 }
 .home-hero__media{
+  order:2;
   min-width:0;
   margin-inline:-.25rem;
   aspect-ratio:4/3;
@@ -52,6 +54,7 @@
   object-position:center;
 }
 .home-hero__actions{
+  order:3;
   display:grid;
   grid-template-columns:1fr;
   gap:.5rem;
@@ -62,6 +65,7 @@
   min-height:3rem;
 }
 .home-hero__signals{
+  order:4;
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:0;

@@ -50,7 +50,8 @@ const cssSources = [
   "src/styles/insights-careers.css",
   "src/styles/hero-home.css",
   "src/styles/hero-pages.css",
-  "src/styles/hero-responsive.css"
+  "src/styles/hero-responsive.css",
+  "src/styles/text-flow.css"
 ];
 
 

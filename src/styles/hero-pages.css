@@ -98,7 +98,7 @@
   .article-hero,
   .job-hero
 ) h1{
-  max-width:17ch;
+  max-width:none;
   margin:0 0 .45rem;
   font-size:clamp(1.9rem,8.6vw,2.5rem);
   line-height:1.17;
@@ -257,4 +257,16 @@
 }
 .article-meta{
   margin-top:.65rem;
+}
+
+/* Inner-page heroes are informational only. Primary actions remain on the Home hero and page CTAs. */
+.services-hero__actions,
+.service-detail-hero__actions,
+.contact-hero__actions,
+.secondary-hero__actions,
+.about-hero__actions,
+.process-hero__actions,
+.insights-hero__actions,
+.planner-hero__copy>.text-link{
+  display:none !important;
 }

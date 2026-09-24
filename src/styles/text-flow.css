@@ -1,0 +1,57 @@
+/* Responsive text-flow guard.
+   Containers control readable measure; headings use the width actually available to them. */
+main h1,
+main h2,
+main h3{
+  max-width:100% !important;
+  overflow-wrap:normal;
+  word-break:normal;
+  hyphens:none;
+}
+
+main p,
+main li{
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+
+.section-header,
+.section-header p{
+  max-width:min(100%,48rem);
+}
+
+:is(
+  .home-hero__copy,
+  .services-hero__copy,
+  .service-detail-hero__copy,
+  .project-detail-hero__copy,
+  .contact-hero__copy,
+  .planner-hero__copy,
+  .secondary-hero__copy,
+  .process-hero__copy,
+  .insights-hero__copy,
+  .article-hero__copy,
+  .job-hero__copy
+){
+  min-width:0;
+}
+
+@media(max-width:48rem){
+  .section-header,
+  .section-header p,
+  .lead,
+  .prose{
+    max-width:100%;
+  }
+
+  main h1,
+  main h2,
+  main h3{
+    text-wrap:balance;
+  }
+
+  main p,
+  main li{
+    text-wrap:pretty;
+  }
+}
