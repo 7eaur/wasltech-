@@ -60,7 +60,7 @@ for (const locale of ["ar", "en"]) {
     }
   }
 
-  if ((html.match(/<article class="home-service-card">/g) ?? []).length !== services.length) {
+  if ((html.match(/<article class="media-card media-card--compact">/g) ?? []).length !== services.length) {
     fail(file, `Home must show exactly ${services.length} service cards`);
   }
 
