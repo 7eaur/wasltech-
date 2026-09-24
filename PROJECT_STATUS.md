@@ -1,11 +1,120 @@
 # Wasl Tech VNext — Current Project Status
 
-Last updated: 2026-09-22  
+Last updated: 2026-09-24  
 Repository: `7eaur/wasltech-`  
 Official/legacy branch: `main`  
 Current live `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
 Latest verified VNext implementation checkpoint: `aea64eb0f4339a610fa8f035b8650e12bdbbd8cf`
+
+## 2026-09-24 — Current execution update
+
+This section is the newest execution truth and overrides stale historical “next phase” text below when there is a conflict.
+
+### Live branch / verification truth
+- Active VNext branch: `rebuild/vnext-foundation-20260921`
+- Implementation HEAD before this documentation handoff: `4e11e5e9c13e4f9a8c477a21ce62a0e1f21d8d4f`
+- Latest VNext verify run: `35990862213` — **SUCCESS**
+- Latest responsive route matrix run: `35990862361` — **SUCCESS**
+- Current VNext preview for that implementation SHA: `dpl_76PAUqyTasFFvTgHUzLCzQGnn1GH` — **READY**
+- Production remains unchanged on `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`
+- Production deployment remains `dpl_8SBJ3gBagT7V9jgeHuKqjDbskaT9` — **READY**
+- **No Phase 14 cutover has started.**
+
+### Footer batch — implemented and verified
+The shared VNext Footer was rebuilt from the legacy/live Wasl contact evidence and the user-provided long brand copy.
+
+Approved Arabic Footer description:
+`وصل تك وجهتك لبناء حضور رقمي احترافي. نساعدك على تحويل أفكارك إلى مشاريع ناجحة بجمع التقنية، التصميم، التسويق، والابتكار.`
+
+English counterpart:
+`Wasl Tech is your destination for building a professional digital presence. We help turn ideas into successful projects by bringing technology, design, marketing, and innovation together.`
+
+Current Footer contact truth:
+- WhatsApp / phone: `+967 775 377 979`
+- WhatsApp URL: `https://wa.me/967775377979`
+- Email: `info@wasl-tech.com`
+- Website: `www.wasl-tech.com`
+- Instagram: `@wasltech.yem`
+- Social icon links restored from the legacy shared Footer: Facebook, X, Instagram, Telegram, TikTok.
+
+Important evidence decision:
+- legacy `main` still contained `wasltechp@gmail.com`;
+- the user explicitly asked to take contact data from the old live site `wasl-tech.com`;
+- the live old site exposed `info@wasl-tech.com`, so that address is now the VNext contact email.
+
+Files changed by the Footer batch include:
+- `src/config/site.js`
+- `src/components/icons.js`
+- `src/components/Footer.js`
+- `src/styles/layout.css`
+- `scripts/check-shell.mjs`
+- `scripts/check-public-surfaces.mjs`
+
+The final Footer implementation is covered by the green verify + responsive matrix runs above.
+
+### Service media batch — received/prepared, NOT yet committed to GitHub
+The user supplied the final primary images for all eight services and approved their mapping.
+
+Locked mapping:
+1. `web-development` → website shown on laptop
+2. `mobile-app-development` → mobile application / phone
+3. `ecommerce` → e-commerce store on laptop
+4. `custom-software` → code editor on laptop
+5. `technical-solutions` → cloud/server infrastructure
+6. `company-profiles` → printed company profile/brochure
+7. `brand-design` → Wasl Tech stationery/identity mockup
+8. `digital-marketing` → analytics/dashboard screen
+
+Prepared derivative contract:
+- format: WebP
+- dimensions: `1280 × 720`
+- intended filenames:
+  - `web-development.webp`
+  - `mobile-app-development.webp`
+  - `ecommerce.webp`
+  - `custom-software.webp`
+  - `technical-solutions.webp`
+  - `company-profiles.webp`
+  - `brand-design.webp`
+  - `digital-marketing.webp`
+- observed prepared sizes: approximately **41–77 KB** each.
+
+**Critical current blocker/status:**
+- the eight original user images are **NOT yet present in the repository**;
+- the WebP derivatives are **NOT yet present in the repository**;
+- `src/data/services.js` is **NOT yet changed** to point at them;
+- do not claim otherwise;
+- the attempted GitHub connector binary upload was blocked because current-chat image attachments were exposed as asset pointers rather than raw bytes accepted by the Git blob endpoint.
+
+The user's explicit requirement is to:
+1. preserve/upload the **original eight images** to the repository;
+2. verify each original exists in GitHub after commit;
+3. upload the optimized WebP derivatives;
+4. update canonical service image paths so the same service image is used in the Home/Services presentation and the service-detail Hero;
+5. verify generated routes and responsive behavior.
+
+A recommended repository layout is:
+- originals: `assets/services/source/<service-slug>.jpeg` (preserve originals unchanged)
+- web derivatives: `assets/services/<service-slug>.webp`
+
+If the original current-chat attachments are unavailable in a new conversation, ask the user to re-upload the same eight originals. Do not substitute generated images.
+
+### Publishing / commit policy from the user
+The user explicitly requested: **do not publish every small change because of deployment limits.**
+
+From now on:
+- do not manually deploy Vercel for each edit;
+- batch multiple edits and publish only when the user says `انشر` or explicitly requests a review deployment;
+- because Vercel Git integration may automatically create a Preview for every pushed branch commit, avoid one-commit-per-small-edit;
+- prefer one consolidated Git commit per approved batch;
+- do not touch `main` or Production without explicit cutover approval.
+
+### Immediate next implementation task
+The next conversation must **not restart design analysis**. It should first complete the pending service-media upload/binding batch above, then run local/CI verification. Manual Vercel publishing remains deferred until the user asks for it.
+
+Detailed dated evidence:
+`docs/qa/2026-09-24_footer-service-media-handoff.md`
 
 ## Current state
 

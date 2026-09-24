@@ -5,6 +5,16 @@ Repository: `7eaur/wasltech-`
 
 This file defines where project truth lives. It exists to prevent overlapping documentation, stale handoffs, and conflicting decisions.
 
+## Current handoff record
+
+For the 2026-09-24 Footer + service-media continuation, read:
+- `PROJECT_STATUS.md`
+- `PROJECT_HANDOFF.md`
+- `docs/qa/2026-09-24_footer-service-media-handoff.md`
+- `docs/qa/FINAL_MEDIA_INVENTORY.md`
+
+The dated QA record documents the verified Footer batch, the user's no-per-edit-publish rule, the exact eight-service image mapping, and the fact that service originals/WebP derivatives are **prepared but not yet committed to GitHub**.
+
 ## Read order for every new conversation
 
 1. `PROJECT_STATUS.md` — current live state only.

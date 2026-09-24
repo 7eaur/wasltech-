@@ -1,10 +1,54 @@
 # Wasl Tech VNext — Final Media Inventory
 
-Status: **PENDING USER MEDIA**
+Status: **PARTIAL MEDIA RECEIVED — SERVICE SET PREPARED, REPO INTEGRATION PENDING**
 Phase: 13B — final media gate
 Branch: `rebuild/vnext-foundation-20260921`
 
 This file is the exact media handoff contract for the final pre-cutover image stage.
+
+## 2026-09-24 intake update — service set received
+
+Status for Section C has advanced from “waiting for media” to **user originals received and mapping approved**, but repository integration is still pending.
+
+Locked service-image mapping and intended filenames:
+
+| Service slot | Slug | Supplied subject | Web derivative | Current repo status |
+|---|---|---|---|---|
+| SERVICE-01 | `web-development` | Wasl website on laptop | `web-development.webp` | **NOT YET UPLOADED** |
+| SERVICE-02 | `mobile-app-development` | Wasl mobile app / phone | `mobile-app-development.webp` | **NOT YET UPLOADED** |
+| SERVICE-03 | `ecommerce` | e-commerce storefront on laptop | `ecommerce.webp` | **NOT YET UPLOADED** |
+| SERVICE-04 | `custom-software` | source-code editor on laptop | `custom-software.webp` | **NOT YET UPLOADED** |
+| SERVICE-05 | `technical-solutions` | cloud/server infrastructure | `technical-solutions.webp` | **NOT YET UPLOADED** |
+| SERVICE-06 | `company-profiles` | printed profile/brochure | `company-profiles.webp` | **NOT YET UPLOADED** |
+| SERVICE-07 | `brand-design` | Wasl identity/stationery mockup | `brand-design.webp` | **NOT YET UPLOADED** |
+| SERVICE-08 | `digital-marketing` | analytics/dashboard screen | `digital-marketing.webp` | **NOT YET UPLOADED** |
+
+Prepared derivative specification:
+- WebP
+- `1280 × 720`
+- approximately `41–77 KB` per file
+- same canonical image should feed the service card/listing and service-detail Hero wherever the current architecture consumes `service.image`.
+
+The user's explicit storage requirement is:
+- keep/upload the **original user files unchanged** as source;
+- separately keep optimized WebP derivatives for runtime use;
+- verify GitHub contains all eight originals after the commit.
+
+Recommended paths:
+- originals: `assets/services/source/<service-slug>.jpeg`
+- derivatives: `assets/services/<service-slug>.webp`
+
+Current integration state:
+- originals: **not yet in GitHub**
+- derivatives: **not yet in GitHub**
+- `src/data/services.js`: **not yet updated**
+- user mapping: **approved**
+- local optimization: **completed**
+- manual Vercel deployment: **deferred by user request**
+
+If the original attachments are not accessible in the next conversation, ask the user to re-upload the same eight source files. Do not regenerate or silently substitute media.
+
+The remaining Home/page-Hero/article media slots in Sections A, B, and D remain pending unless separately supplied.
 
 ## Rules
 

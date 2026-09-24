@@ -1,9 +1,90 @@
 # Wasl Tech VNext — Conversation Handoff
 
-Last updated: 2026-09-22  
+Last updated: 2026-09-24  
 Repository: `7eaur/wasltech-`  
 Official/production branch: `main`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`
+
+## 0. Immediate baton — 2026-09-24
+
+This is the exact resume point for the next conversation.
+
+### First actions
+1. Fetch live `main` and `rebuild/vnext-foundation-20260921`.
+2. Read this file, `PROJECT_STATUS.md`, and `docs/qa/2026-09-24_footer-service-media-handoff.md`.
+3. Confirm whether the live VNext HEAD is newer than the implementation checkpoint `4e11e5e9c13e4f9a8c477a21ce62a0e1f21d8d4f`; if newer, inspect the documentation-only handoff commit before doing code work.
+4. Do **not** restart architecture, homepage, Footer, or final-audit work from zero.
+5. Do **not** merge/cut over `main`.
+6. Do **not** manually publish a Vercel Preview until the user explicitly says `انشر`.
+
+### What is already complete
+- VNext architecture/page systems and final audit Stages 0–18 were previously closed.
+- Footer contact/social redesign is implemented.
+- Final implementation checkpoint `4e11e5e9...` has:
+  - VNext verify `35990862213` — **SUCCESS**
+  - responsive route matrix `35990862361` — **SUCCESS**
+- Production is still legacy `main` at `a4ed507d...`.
+
+### Footer state — do not redo unless the user asks
+Shared Footer now contains:
+- long Wasl Tech description instead of the short slogan;
+- icon-led WhatsApp, phone, email, and website contact rows;
+- Facebook, X, Instagram, Telegram, and TikTok social icons;
+- mobile layout keeps contact values visible;
+- Footer bottom with copyright/domain.
+
+Current contact source of truth:
+- phone / WhatsApp: `+967 775 377 979`
+- email: `info@wasl-tech.com`
+- domain: `www.wasl-tech.com`
+- Instagram: `@wasltech.yem`
+
+The email intentionally follows the old **live** site, not the older Gmail value still found in legacy source code.
+
+### Service images — exact pending task
+The user supplied and approved eight service originals. The mapping is locked:
+
+| Service slug | Supplied image subject | Derivative filename |
+|---|---|---|
+| `web-development` | Wasl website displayed on a laptop | `web-development.webp` |
+| `mobile-app-development` | Wasl mobile app on phone | `mobile-app-development.webp` |
+| `ecommerce` | e-commerce store shown on laptop | `ecommerce.webp` |
+| `custom-software` | code editor on laptop | `custom-software.webp` |
+| `technical-solutions` | cloud/server infrastructure | `technical-solutions.webp` |
+| `company-profiles` | printed company profile/brochure | `company-profiles.webp` |
+| `brand-design` | Wasl Tech identity/stationery mockup | `brand-design.webp` |
+| `digital-marketing` | analytics/dashboard screen | `digital-marketing.webp` |
+
+Prepared web derivative target:
+- WebP
+- `1280×720`
+- roughly `41–77 KB` each.
+
+**Do not misunderstand current status:** neither the originals nor derivatives have been committed to GitHub yet, and `src/data/services.js` still points at old project JPEGs.
+
+The user specifically wants the **originals uploaded and verified**, not merely optimized local copies.
+
+Recommended implementation:
+1. preserve originals unchanged under `assets/services/source/<slug>.jpeg`;
+2. add optimized derivatives under `assets/services/<slug>.webp`;
+3. update each service record's `image` field in `src/data/services.js` to `/assets/services/<slug>.webp`;
+4. verify the service-detail Hero already consumes the canonical service image; keep one media owner rather than duplicating mappings;
+5. verify each of the 16 localized service-detail routes plus Home/Services usage;
+6. run `VNext verify`;
+7. run the route matrix after the **whole batch**, not after each file;
+8. only publish manually if the user later says `انشر`.
+
+### Binary upload caveat
+The prior attempt through the GitHub connector failed because current-chat images were returned to the connector as asset pointers, not raw bytes for Git blobs.
+
+If a new conversation cannot access the eight original attachments, ask the user to re-upload those same originals. Never pretend they are already in the repo, and never regenerate substitutes.
+
+### Commit/deployment discipline
+The user wants to conserve deployment limits. Vercel Git integration can create a Preview for every pushed commit even when no manual deploy is requested. Therefore:
+- prepare the full next batch first;
+- push one consolidated commit;
+- avoid sequential tiny Git commits;
+- do not invoke a manual Vercel deployment until requested.
 
 ## 1. Mandatory start procedure
 
