@@ -15,6 +15,13 @@ export const site = Object.freeze({
       handle: "@wasltech.yem",
       url: "https://www.instagram.com/wasltech.yem"
     }),
+    social: Object.freeze({
+      facebook: "https://www.facebook.com/share/1DtjBgZgad/?mibextid=qi2Omg",
+      x: "https://x.com/50lxt",
+      instagram: "https://www.instagram.com/wasltech.yem",
+      telegram: "https://t.me/wasltechyem",
+      tiktok: "https://www.tiktok.com/@wasltech.yem"
+    }),
     domain: "www.wasl-tech.com"
   })
 });
