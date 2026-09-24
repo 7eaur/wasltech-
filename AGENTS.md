@@ -93,6 +93,28 @@ Mandatory:
 
 SEO is a first-class product requirement, but do not create thin keyword pages or fabricate content to chase rankings.
 
+## 5B. Search visibility / AI discovery
+
+Authority:
+`docs/core/SEARCH_VISIBILITY.md`
+
+Search visibility is a first-class product/release requirement.
+
+Mandatory:
+- preserve crawlable build-time HTML;
+- preserve unique title/description, one H1, canonical and reciprocal hreflang;
+- production sitemap/robots must be generated and verified;
+- production must explicitly allow `OAI-SearchBot`;
+- structured data must match visible verified content;
+- no thin keyword pages, doorway pages, keyword stuffing, scaled search filler, fake authority or fabricated schema;
+- service/article expansion follows real user intent and evidence, not arbitrary keyword volume;
+- Google Search Console and Bing Webmaster/AI Performance evidence outrank SEO folklore once connected;
+- do not treat `llms.txt` or any AI-specific file as a ranking requirement without official engine evidence;
+- every search-affecting release must pass the executable search visibility gate.
+
+Current program order:
+**Governance → Technical discoverability → Entity/schema → Intent architecture → Service authority → Evidence → Insights clusters → AI answer readiness → External authority → Measurement → Continuous optimization.**
+
 ## 6. Brand / design rules
 
 Authority:
