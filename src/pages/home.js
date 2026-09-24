@@ -5,6 +5,7 @@ import { getProjectById } from "../data/projects.js";
 import { faqs } from "../data/faq.js";
 import { ActionLink } from "../components/ActionLink.js";
 import { SectionHeader } from "../components/SectionHeader.js";
+import { ProductGrid } from "../components/ProductGrid.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema, websiteSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
@@ -113,26 +114,12 @@ function renderHero(content, locale) {
 
 function renderServices(content, locale) {
   const copy = section(content, "services");
-  const cards = services.map((service) => {
-    const item = service.content[locale];
-    return `
-      <article class="home-service-card">
-        <a class="home-service-card__media" href="${routes.service(service.slug, locale)}" aria-label="${escapeHtml(item.title)}">
-          <img src="${service.image}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" width="1280" height="720">
-        </a>
-        <div class="home-service-card__body">
-          <h3><a href="${routes.service(service.slug, locale)}">${escapeHtml(item.title)}</a></h3>
-          <p>${escapeHtml(item.subtitle)}</p>
-        </div>
-      </article>
-    `;
-  }).join("");
 
   return `
     <section class="section home-services" id="services">
       <div class="container">
         ${SectionHeader({ kicker: copy.kicker, title: copy.title, supporting: copy.support })}
-        <div class="home-service-grid">${cards}</div>
+        ${ProductGrid({ items: services, locale })}
         <div class="home-section-action">
           <a class="text-link" href="${routes.services(locale)}">${locale === "ar" ? "استكشف جميع الخدمات" : "Explore all services"}</a>
         </div>

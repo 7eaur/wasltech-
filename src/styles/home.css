@@ -182,10 +182,9 @@
   .home-project:hover .home-project__media img{transform:none}
 }
 
-@media(max-width:23.75rem){
-  .home-service-grid,.home-why__grid,.home-project-grid{gap:var(--space-2)}
-  .home-service-card__body,.home-project__copy{padding:.6rem}
-  .home-service-card__body p,.home-why__item p{display:none}
-  .home-service-card__body h3,.home-project__copy h3,.home-why__item h3{font-size:.8125rem}
-  .home-hero__signal small{display:none}
+
+
+@media(max-width:40rem){
+  .home-service-grid{grid-template-columns:1fr}
+  .home-service-card{display:grid;grid-template-columns:minmax(7.25rem,.78fr) minmax(0,1.22fr)}
 }
