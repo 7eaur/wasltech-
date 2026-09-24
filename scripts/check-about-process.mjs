@@ -27,7 +27,8 @@ for(const locale of ["ar","en"]){
     const html=await readFile(path.join(DIST,file),"utf8");
 
     if(!copy){fail(file,`localized ${config.id} content missing`);continue;}
-    if(!html.includes(`<h1>${htmlText(copy.title)}</h1>`)) fail(file,`${config.id} H1 missing`);
+    if(!html.includes(`<h1>${htmlText(copy.kicker)}</h1>`)) fail(file,`${config.id} H1 missing`);
+    if(!html.includes(`<h2 class="inner-hero__subtitle">${htmlText(copy.title)}</h2>`)) fail(file,`${config.id} hero subtitle missing`);
     if(!html.includes(htmlText(copy.seo.title))) fail(file,`${config.id} SEO title missing`);
     if(!html.includes(htmlText(copy.seo.description))) fail(file,`${config.id} SEO description missing`);
     if(html.includes("VNext Foundation")) fail(file,"foundation placeholder leaked");

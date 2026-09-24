@@ -91,7 +91,7 @@ export const pages = Object.freeze([
     content:{
       ar:Object.freeze({
         purpose:"تعريف وصل تك كفريق يربط الاستراتيجية والتصميم والبرمجة والهوية والتسويق حول احتياج المشروع الحقيقي.",
-        kicker:"من نحن",
+        kicker:"من نحن؟",
         title:"نبني حضورك الرقمي باحتراف",
         support:"في وصل تك نساعد العلامات التجارية والمشاريع على بناء حضور رقمي قوي واحترافي، من خلال التصميم الإبداعي، التقنية المتقدمة، والتسويق الذكي. نؤمن أن كل فكرة تستحق أن تُرى وتُحدث أثرًا.",
         primaryCta:"ابدأ الحديث معنا",secondaryCta:"شاهد الأعمال",
@@ -168,8 +168,8 @@ export const pages = Object.freeze([
     fieldState:{purpose:CONTENT_STATE.READY,arabicCore:CONTENT_STATE.READY,sections:CONTENT_STATE.READY,cta:CONTENT_STATE.READY,seo:CONTENT_STATE.READY,businessFacts:CONTENT_STATE.READY,english:CONTENT_STATE.READY},
     evidenceSources:["content:b87872d12adcc836018fe61a7ef1556f04aa5b86:إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md","src/data/projects.js"],
     content:{
-      ar:Object.freeze({purpose:"عرض الأعمال كدليل على نوع المشكلات والحلول والمخرجات التي تنفذها وصل تك.",kicker:"أعمالنا",title:"مشاريع حقيقية، وحلول يمكن رؤيتها.",support:"استكشف ما بنيناه في المواقع والمنصات والتطبيقات والمتاجر والأنظمة والهوية والحملات. لا نعرض النتيجة فقط؛ نوضح الفكرة والاحتياج وما تم تنفيذه.",primaryCta:"استكشف دراسات الحالة",secondaryCta:"ناقش حلًا مشابهًا",sections:Object.freeze([Object.freeze({id:"evidence",kicker:"الدليل",title:"شاهد ما بنيناه، لا ما نقوله عن أنفسنا.",support:"نضيف النتائج والأرقام والشهادات فقط عندما تكون موثقة وقابلة للنشر."}),Object.freeze({id:"case-studies",kicker:"دراسات الحالة",title:"كل مشروع يبدأ من حاجة مختلفة.",support:"داخل كل مشروع نوضح المشكلة والحل والمخرجات المتاحة، دون اختراع أثر غير موثق."}),Object.freeze({id:"final-cta",kicker:"لديك تحدٍ مشابه؟",title:"ناقش الحل معنا.",support:"شاركنا المشكلة أو الهدف الذي تريد الوصول إليه، ونبدأ من السياق قبل اقتراح المنتج أو التقنية."})]),seo:Object.freeze({title:"أعمال وصل تك | مشاريع ودراسات حالة",description:"مشاريع وصل تك في المواقع والتطبيقات والمتاجر والأنظمة والهوية والتسويق مع عرض الاحتياج والحل والمخرجات المتاحة."})}),
-      en:Object.freeze({purpose:"Present the portfolio as evidence of the problems, solutions, and deliverables Wasl Tech works on.",kicker:"Our work",title:"Real projects and solutions you can see.",support:"Explore websites, platforms, apps, e-commerce, systems, identities, and campaigns. We show the need and what was built, not only the final visual.",primaryCta:"Explore case studies",secondaryCta:"Discuss a similar solution",sections:Object.freeze([Object.freeze({id:"evidence",kicker:"Evidence",title:"See what we built, not what we say about ourselves.",support:"Results, numbers, and testimonials are added only when verified and publishable."}),Object.freeze({id:"case-studies",kicker:"Case studies",title:"Every project starts from a different need.",support:"Each project explains the problem, solution, and available deliverables without inventing unverified impact."}),Object.freeze({id:"final-cta",kicker:"Have a similar challenge?",title:"Discuss the solution with us.",support:"Share the problem or goal, and we will start from context before proposing a product or technology."})]),seo:Object.freeze({title:"Wasl Tech Work | Projects & Case Studies",description:"Explore Wasl Tech projects across websites, apps, e-commerce, systems, identity, and marketing with the need, solution, and available deliverables."})})
+      ar:Object.freeze({purpose:"عرض نماذج من أعمال وصل تك في الخدمات الرقمية المختلفة.",kicker:"أعمالنا",title:"نماذج من أعمالنا",support:"استكشف مجموعة من المشاريع التي نفذناها في المواقع والتطبيقات والمتاجر والأنظمة والهوية والتسويق.",primaryCta:"استكشف الأعمال",secondaryCta:"ناقش مشروعك معنا",sections:Object.freeze([Object.freeze({id:"evidence",kicker:"أعمال متنوعة",title:"مشاريع في مجالات رقمية مختلفة",support:"نماذج توضّح نوع الحلول والتجارب التي نبنيها."}),Object.freeze({id:"case-studies",kicker:"تفاصيل المشاريع",title:"تعرّف على كل مشروع",support:"داخل كل مشروع نعرض فكرته وما تم تنفيذه بصورة واضحة ومباشرة."}),Object.freeze({id:"final-cta",kicker:"لديك مشروع؟",title:"خلّنا نبنيه معك",support:"شاركنا فكرتك أو احتياجك، ونرتب معك الخطوة المناسبة للبدء."})]),seo:Object.freeze({title:"أعمال وصل تك | مشاريع ودراسات حالة",description:"نماذج من أعمال وصل تك في المواقع والتطبيقات والمتاجر والأنظمة والهوية والتسويق."})}),
+      en:Object.freeze({purpose:"Show selected Wasl Tech work across digital services.",kicker:"Our work",title:"Selected projects",support:"Explore projects across websites, apps, e-commerce, systems, identity, and digital marketing.",primaryCta:"Explore our work",secondaryCta:"Discuss your project",sections:Object.freeze([Object.freeze({id:"evidence",kicker:"Different projects",title:"Work across different digital needs",support:"Examples of the solutions and experiences we build."}),Object.freeze({id:"case-studies",kicker:"Project details",title:"Explore each project",support:"Each project presents the idea and what was delivered in a clear, direct way."}),Object.freeze({id:"final-cta",kicker:"Have a project?",title:"Let us build it with you",support:"Share your idea or need and we will help organize the right starting point."})]),seo:Object.freeze({title:"Wasl Tech Work | Projects & Case Studies",description:"Selected Wasl Tech work across websites, apps, e-commerce, systems, identity, and digital marketing."})})
     }
   }),
   page({
@@ -184,8 +184,8 @@ export const pages = Object.freeze([
         Object.freeze({id:"build",kicker:"03 — نصمم ونطوّر",title:"نحوّل الخطة إلى حل رقمي متكامل",support:"نصمم ونطوّر الحل وفق احتياج المشروع مع مراجعة التفاصيل خلال التنفيذ.",outcome:"حل رقمي جاهز للمراجعة والاستخدام."}),
         Object.freeze({id:"test",kicker:"05 — نختبر",title:"نراجع السيناريوهات والاستجابة والمحتوى.",support:"نفحص السلوك على الشاشات والأجهزة والتفاصيل الأساسية ضمن النطاق.",outcome:"نسخة جاهزة للإطلاق ضمن ما تم اعتماده."}),
         Object.freeze({id:"launch-grow",kicker:"04 — نطلق وندعم",title:"نطلق المشروع ونستمر معك",support:"نجهز المشروع للإطلاق ونوفر الدعم والتطوير وفق ما يحتاجه المشروع بعد التشغيل.",outcome:"إطلاق منظم ومسار واضح لما بعده."}),
-        Object.freeze({id:"principle",kicker:"أثناء العمل",title:"لن تكون آخر من يعرف ما يحدث في مشروعك.",support:"نشارك التحديثات وفق آلية التواصل المتفق عليها، ونوضح ما تم إنجازه وما يحتاج قرارًا قبل الانتقال للمرحلة التالية."}),
-        Object.freeze({id:"final-cta",kicker:"ابدأ بالسؤال الصحيح",title:"لا تنتظر حتى تعرف كل الإجابات.",support:"شارك ما تعرفه عن المشروع الآن، وسنساعدك على تحديد ما يحتاج إلى بحث وقرار وتنفيذ."})
+        Object.freeze({id:"principle",kicker:"أثناء العمل",title:"تواصل واضح في كل مرحلة",support:"نبقيك على اطلاع بما تم إنجازه، وما يحتاج مراجعة أو قرارًا قبل الانتقال للخطوة التالية."}),
+        Object.freeze({id:"final-cta",kicker:"ابدأ مشروعك",title:"جاهز تبدأ؟",support:"شاركنا فكرتك أو احتياجك الحالي، ونرتب معك الخطوة التالية."})
       ]),seo:Object.freeze({title:"كيف نعمل | وصل تك — Wasl Tech",description:"طريقة عمل وصل تك من فهم المشكلة وتحديد النطاق إلى التصميم والبناء والاختبار والإطلاق وخيارات الدعم بعده."})}),
       en:Object.freeze({purpose:"Explain Wasl Tech's simple workflow from understanding the need to launch and support.",kicker:"How we work",title:"Clear steps from idea to launch",support:"We listen, plan, design and build, then launch the project and support it after release.",primaryCta:"Start your project",secondaryCta:"View our work",sections:Object.freeze([
         Object.freeze({id:"understand",kicker:"01 — Listen",title:"We listen to your needs and goals",support:"We understand your vision and what you want to achieve before execution begins.",outcome:"A clear understanding of the project and its goals."}),
@@ -194,8 +194,8 @@ export const pages = Object.freeze([
         Object.freeze({id:"build",kicker:"03 — Design & develop",title:"We turn the plan into an integrated digital solution",support:"We design and build according to the project need while reviewing key details during execution.",outcome:"A digital solution ready for review and use."}),
         Object.freeze({id:"test",kicker:"05 — Test",title:"Review scenarios, responsiveness, and content.",support:"We check behavior across the relevant screens, devices, and key details within scope.",outcome:"A version ready for launch within the approved scope."}),
         Object.freeze({id:"launch-grow",kicker:"04 — Launch & support",title:"We launch the project and stay with you",support:"We prepare the project for launch and provide support and improvements according to the project's needs after release.",outcome:"An organized launch and a clear path after release."}),
-        Object.freeze({id:"principle",kicker:"During the work",title:"You should not be the last person to know what is happening in your project.",support:"Updates follow the agreed communication process, with completed work and decisions needed before the next stage made clear."}),
-        Object.freeze({id:"final-cta",kicker:"Start with the right question",title:"Do not wait until you know every answer.",support:"Share what you know about the project now, and we will help identify what needs research, decision, and execution."})
+        Object.freeze({id:"principle",kicker:"During the work",title:"Clear communication at every stage",support:"We keep you informed about what is complete and what needs review or a decision before the next step."}),
+        Object.freeze({id:"final-cta",kicker:"Start your project",title:"Ready to start?",support:"Share your idea or current need and we will organize the next step with you."})
       ]),seo:Object.freeze({title:"How We Work | Wasl Tech",description:"Wasl Tech's process from understanding the problem and defining scope through design, build, testing, launch, and post-launch options."})})
     }
   }),
@@ -204,17 +204,17 @@ export const pages = Object.freeze([
     fieldState:{purpose:CONTENT_STATE.READY,arabicCore:CONTENT_STATE.READY,sections:CONTENT_STATE.READY,cta:CONTENT_STATE.READY,seo:CONTENT_STATE.READY,businessFacts:CONTENT_STATE.READY,english:CONTENT_STATE.READY},
     evidenceSources:["content:b87872d12adcc836018fe61a7ef1556f04aa5b86:إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md","src/config/site.js"],
     content:{
-      ar:Object.freeze({purpose:"جعل التواصل يبدأ من المشكلة أو النتيجة المطلوبة بدل اسم الخدمة.",kicker:"ابدأ من هنا",title:"قل لنا ما الذي تريد تغييره في مشروعك.",support:"فكرة جديدة، مشروع قائم، عملية متعبة، أو حضور لا يعكس قيمتك — اشرح الوضع كما هو، وسنساعدك على اختيار الخطوة التي تستحق أن تبدأ بها.",primaryCta:"ابدأ النقاش على واتساب",secondaryCta:"خطط لمشروعك",sections:Object.freeze([
-        Object.freeze({id:"direct",kicker:"تواصل مباشر",title:"إذا كان السؤال سريعًا، ابدأ بأبسط قناة.",support:"واتساب أو البريد مناسب لسؤال محدد أو لتحديد الخطوة التالية."}),
-        Object.freeze({id:"project",kicker:"مشروع يحتاج سياقًا",title:"إذا كانت التفاصيل أكثر، استخدم مخطط المشروع.",support:"لا تحتاج إلى وثيقة تقنية؛ نطلب فقط ما يساعدنا على فهم الهدف والوضع الحالي والأولوية."}),
-        Object.freeze({id:"context",kicker:"ما الذي ترسله؟",title:"النتيجة أهم من المصطلحات.",support:"أخبرنا ماذا تريد أن تبني أو تحسن، من المستخدم، وما الموجود اليوم. نرتب اسم الخدمة والتقنية بعد ذلك."}),
-        Object.freeze({id:"final-cta",kicker:"ابدأ بالمشكلة",title:"لا تحتاج إلى معرفة الحل قبل أن تتواصل.",support:"شارك المشكلة أو النتيجة التي تريدها، وسنساعدك على تحويلها إلى مسار قابل للنقاش."})
+      ar:Object.freeze({purpose:"تسهيل التواصل مع وصل تك وبدء مناقشة المشروع.",kicker:"تواصل معنا",title:"نحن هنا لمساعدتك",support:"سواء لديك فكرة جديدة أو مشروع قائم، تواصل معنا وسنساعدك على تحديد الخطوة المناسبة للبدء.",primaryCta:"تواصل عبر واتساب",secondaryCta:"ابدأ مشروعك",sections:Object.freeze([
+        Object.freeze({id:"direct",kicker:"تواصل مباشر",title:"اختر الطريقة الأنسب للتواصل",support:"تواصل معنا عبر واتساب أو البريد الإلكتروني، وسنرد عليك لمناقشة احتياجك."}),
+        Object.freeze({id:"project",kicker:"لديك مشروع؟",title:"شاركنا تفاصيل مشروعك",support:"استخدم نموذج المشروع لترتيب الفكرة والمتطلبات الأساسية قبل التواصل."}),
+        Object.freeze({id:"context",kicker:"غير متأكد من الخدمة؟",title:"سنساعدك على اختيار الأنسب",support:"اشرح فكرتك أو احتياجك كما هو، وسنوجّهك إلى الخدمة أو المسار المناسب."}),
+        Object.freeze({id:"final-cta",kicker:"ابدأ الآن",title:"ابدأ الحديث معنا",support:"راسلنا وسنناقش معك فكرتك واحتياجك والخطوة المناسبة للبدء."})
       ]),seo:Object.freeze({title:"تواصل مع وصل تك | ابدأ من هدف مشروعك",description:"تواصل مع وصل تك عبر واتساب أو مخطط المشروع وابدأ من المشكلة أو النتيجة التي تريد بناءها أو تحسينها."})}),
-      en:Object.freeze({purpose:"Make contact start from the problem or desired outcome instead of a service name.",kicker:"Start here",title:"Tell us what you want to change in your project.",support:"A new idea, an existing project, a painful process, or a presence that does not reflect its value—describe the situation as it is, and we will help identify the right starting point.",primaryCta:"Start on WhatsApp",secondaryCta:"Plan your project",sections:Object.freeze([
-        Object.freeze({id:"direct",kicker:"Direct contact",title:"For a quick question, start with the simplest channel.",support:"WhatsApp or email works well for a focused question or to identify the next step."}),
-        Object.freeze({id:"project",kicker:"A project with more context",title:"If there is more to explain, use the project planner.",support:"You do not need a technical document; we only ask for what helps us understand the goal, current situation, and priority."}),
-        Object.freeze({id:"context",kicker:"What should you send?",title:"The outcome matters more than the terminology.",support:"Tell us what you want to build or improve, who uses it, and what exists today. We can organize the service and technology after that."}),
-        Object.freeze({id:"final-cta",kicker:"Start from the problem",title:"You do not need to know the solution before contacting us.",support:"Share the problem or desired outcome, and we will help turn it into a path that can be discussed."})
+      en:Object.freeze({purpose:"Make it easy to contact Wasl Tech and start discussing a project.",kicker:"Contact us",title:"We are here to help",support:"Whether you have a new idea or an existing project, contact us and we will help identify the right starting point.",primaryCta:"Contact us on WhatsApp",secondaryCta:"Start your project",sections:Object.freeze([
+        Object.freeze({id:"direct",kicker:"Direct contact",title:"Choose the best way to reach us",support:"Contact us through WhatsApp or email and we will discuss what you need."}),
+        Object.freeze({id:"project",kicker:"Have a project?",title:"Share your project details",support:"Use the project form to organize the idea and essential requirements before contacting us."}),
+        Object.freeze({id:"context",kicker:"Not sure which service?",title:"We will help you choose",support:"Describe your idea or need and we will guide you to the most suitable service or path."}),
+        Object.freeze({id:"final-cta",kicker:"Start now",title:"Start the conversation",support:"Message us and we will discuss your idea, needs, and the right next step."})
       ]),seo:Object.freeze({title:"Contact Wasl Tech | Start From Your Project Goal",description:"Contact Wasl Tech through WhatsApp or the project planner and start from the problem or outcome you want to build or improve."})})
     }
   }),
@@ -223,14 +223,14 @@ export const pages = Object.freeze([
     fieldState:{purpose:CONTENT_STATE.READY,arabicCore:CONTENT_STATE.READY,sections:CONTENT_STATE.READY,cta:CONTENT_STATE.READY,seo:CONTENT_STATE.READY,businessFacts:CONTENT_STATE.READY,english:CONTENT_STATE.READY},
     evidenceSources:["content:b87872d12adcc836018fe61a7ef1556f04aa5b86:إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md","src/pages/project-planner.js"],
     content:{
-      ar:Object.freeze({purpose:"جمع الحد الأدنى من السياق الذي يساعد على فهم المشروع قبل فتح المحادثة.",kicker:"مخطط المشروع",title:"قبل أن نختار الحل، دعنا نفهم ما يحتاجه مشروعك.",support:"لا تحتاج إلى كتابة وثيقة تقنية. اختر الأقرب لوضعك، وأخبرنا بالنتيجة التي تريدها، وسنرتب الأسئلة والخطوة التالية معك.",primaryCta:"أرسل تفاصيل مشروعك",secondaryCta:"تواصل مباشرة",sections:Object.freeze([
+      ar:Object.freeze({purpose:"جمع تفاصيل المشروع الأساسية قبل بدء المحادثة.",kicker:"ابدأ مشروعك",title:"شاركنا تفاصيل مشروعك",support:"أخبرنا بما تريد بناءه أو تطويره، وسنرتب المعلومات الأساسية لتبدأ المحادثة بصورة أوضح.",primaryCta:"جهّز تفاصيل مشروعك",secondaryCta:"تواصل مباشرة",sections:Object.freeze([
         Object.freeze({id:"need",kicker:"01 — الهدف",title:"ما الذي تريد بناءه أو تحسينه؟",support:"اختر الاحتياج الأقرب، أو اختر أنك غير متأكد ونبدأ من المشكلة."}),
         Object.freeze({id:"stage",kicker:"02 — الوضع الحالي",title:"هل تبدأ من فكرة أم تطور مشروعًا قائمًا؟",support:"معرفة المرحلة تساعدنا على طرح الأسئلة المناسبة بدل افتراض نقطة البداية."}),
         Object.freeze({id:"priority",kicker:"03 — الأولوية",title:"ما الشيء الذي يجب أن ينجح أولًا؟",support:"نرتب الأولوية حتى لا يتحول المشروع إلى قائمة رغبات مفتوحة."}),
         Object.freeze({id:"context",kicker:"04 — السياق",title:"من المستخدم؟ ما الموجود؟ وما أهم التفاصيل؟",support:"شارك ما تعرفه الآن؛ لا تحتاج إلى استخدام مصطلحات تقنية."}),
         Object.freeze({id:"review",kicker:"05 — المراجعة",title:"راجع الصورة قبل فتح واتساب.",support:"التفاصيل تبقى في المتصفح حتى تختار أنت فتح المحادثة وإرسالها."})
       ]),seo:Object.freeze({title:"خطط مشروعك | وصل تك — Wasl Tech",description:"رتب هدف المشروع ووضعه الحالي وأولويته وسياقه قبل فتح محادثة واتساب مع وصل تك."})}),
-      en:Object.freeze({purpose:"Collect the minimum context needed to understand the project before opening the conversation.",kicker:"Project planner",title:"Before choosing a solution, let us understand what the project needs.",support:"You do not need a technical document. Choose what is closest to your situation, describe the outcome you want, and we will organize the questions and next step.",primaryCta:"Send project details",secondaryCta:"Contact us directly",sections:Object.freeze([
+      en:Object.freeze({purpose:"Collect the essential project details before starting the conversation.",kicker:"Start your project",title:"Share your project details",support:"Tell us what you want to build or improve and we will organize the essential information for a clearer conversation.",primaryCta:"Prepare project details",secondaryCta:"Contact us directly",sections:Object.freeze([
         Object.freeze({id:"need",kicker:"01 — Goal",title:"What do you want to build or improve?",support:"Choose the closest need, or say you are not sure and start from the problem."}),
         Object.freeze({id:"stage",kicker:"02 — Current state",title:"Are you starting from an idea or improving an existing project?",support:"Knowing the stage helps us ask the right questions instead of assuming the starting point."}),
         Object.freeze({id:"priority",kicker:"03 — Priority",title:"What needs to succeed first?",support:"We organize the priority so the project does not become an open wish list."}),
@@ -258,7 +258,7 @@ export const pages = Object.freeze([
       ar: Object.freeze({
         purpose: "الإجابة عن الأسئلة التي يحتاج العميل معرفتها قبل بدء المشروع أو التواصل.",
         kicker: "الأسئلة الشائعة",
-        title: "قبل أن تبدأ، هذه أكثر الأسئلة التي تهمك.",
+        title: "إجابات تساعدك قبل أن تبدأ",
         support: "إجابات مختصرة وواضحة حول الخدمات، طريقة التنفيذ، وما الذي تحتاجه للبدء.",
         primaryCta: "ابدأ مشروعك",
         secondaryCta: "تواصل معنا",
@@ -296,7 +296,7 @@ export const pages = Object.freeze([
       en: Object.freeze({
         purpose: "Answer the questions that most often affect a project decision before the first conversation.",
         kicker: "Frequently asked questions",
-        title: "Before you start, these are the questions that matter most.",
+        title: "Answers that help before you start",
         support: "Clear answers about services, how delivery works, and what you need before starting a project.",
         primaryCta: "Start your project",
         secondaryCta: "Contact us",

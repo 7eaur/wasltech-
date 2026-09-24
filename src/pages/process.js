@@ -17,8 +17,8 @@ function renderHero(content,locale){
     <section class="process-hero">
       <div class="container process-hero__grid">
         <div class="process-hero__copy">
-          <p class="eyebrow">${escapeHtml(content.kicker)}</p>
-          <h1>${escapeHtml(content.title)}</h1>
+          <h1>${escapeHtml(content.kicker)}</h1>
+          <h2 class="inner-hero__subtitle">${escapeHtml(content.title)}</h2>
           <div class="process-hero__support">
             <p>${escapeHtml(content.support)}</p>
             <div class="process-hero__actions">

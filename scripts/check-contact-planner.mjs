@@ -25,7 +25,8 @@ for(const locale of ["ar","en"]){
 
   if(!contactCopy) fail(contactFile,"localized Contact content missing");
   else {
-    if(!contactHtml.includes(`<h1>${htmlText(contactCopy.title)}</h1>`)) fail(contactFile,"Contact H1 missing");
+    if(!contactHtml.includes(`<h1>${htmlText(contactCopy.kicker)}</h1>`)) fail(contactFile,"Contact H1 missing");
+    if(!contactHtml.includes(`<h2 class="inner-hero__subtitle">${htmlText(contactCopy.title)}</h2>`)) fail(contactFile,"Contact subtitle missing");
     if(!contactHtml.includes(htmlText(contactCopy.seo.title))) fail(contactFile,"Contact SEO title missing");
   }
 
@@ -40,7 +41,8 @@ for(const locale of ["ar","en"]){
 
   if(!plannerCopy) fail(plannerFile,"localized Planner content missing");
   else {
-    if(!plannerHtml.includes(`<h1>${htmlText(plannerCopy.title)}</h1>`)) fail(plannerFile,"Planner H1 missing");
+    if(!plannerHtml.includes(`<h1>${htmlText(plannerCopy.kicker)}</h1>`)) fail(plannerFile,"Planner H1 missing");
+    if(!plannerHtml.includes(`<h2 class="inner-hero__subtitle">${htmlText(plannerCopy.title)}</h2>`)) fail(plannerFile,"Planner subtitle missing");
     if(!plannerHtml.includes(htmlText(plannerCopy.seo.title))) fail(plannerFile,"Planner SEO title missing");
   }
 

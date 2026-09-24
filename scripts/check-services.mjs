@@ -27,7 +27,8 @@ for (const locale of ["ar","en"]) {
     continue;
   }
 
-  if (!html.includes(`<h1>${htmlText(content.title)}</h1>`)) fail(file,"canonical Services H1 missing");
+  if (!html.includes(`<h1>${htmlText(content.kicker)}</h1>`)) fail(file,"canonical Services H1 missing");
+  if (!html.includes(`<h2 class="inner-hero__subtitle">${htmlText(content.title)}</h2>`)) fail(file,"canonical Services subtitle missing");
   if (!html.includes(htmlText(content.seo.title))) fail(file,"Services SEO title missing");
   if (!html.includes(htmlText(content.seo.description))) fail(file,"Services SEO description missing");
   if (html.includes("VNext Foundation")) fail(file,"foundation placeholder leaked into Services");

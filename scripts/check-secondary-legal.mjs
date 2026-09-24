@@ -26,7 +26,8 @@ for(const locale of ["ar","en"]){
   const faqHtml=await readFile(path.join(DIST,faqFile),"utf8");
   if(!faqCopy) fail(faqFile,"localized FAQ page content missing");
   else {
-    if(!faqHtml.includes(`<h1>${htmlText(faqCopy.title)}</h1>`)) fail(faqFile,"FAQ H1 missing");
+    if(!faqHtml.includes(`<h1>${htmlText(faqCopy.kicker)}</h1>`)) fail(faqFile,"FAQ H1 missing");
+    if(!faqHtml.includes(`<h2 class="inner-hero__subtitle">${htmlText(faqCopy.title)}</h2>`)) fail(faqFile,"FAQ subtitle missing");
     if(!faqHtml.includes(htmlText(faqCopy.seo.title))) fail(faqFile,"FAQ SEO title missing");
   }
   if((faqHtml.match(/class="faq-item"/g)??[]).length!==13) fail(faqFile,"FAQ page must render all 13 questions");

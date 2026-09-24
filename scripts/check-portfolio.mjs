@@ -13,7 +13,7 @@ const categories=["web","app","store","brand","marketing"];
 
 function fail(scope,message){errors.push(`${scope}: ${message}`);}
 function outputPath(route){return route==="/"?"index.html":path.join(route.replace(/^\//,""),"index.html");}
-function htmlText(value=""){return String(value).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");}
+function htmlText(value=""){return String(value).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");}
 
 const page=pages.find((item)=>item.id==="portfolio");
 if(!page) fail("portfolio","canonical Portfolio page missing");
@@ -24,7 +24,8 @@ for(const locale of ["ar","en"]){
   const html=await readFile(path.join(DIST,file),"utf8");
 
   if(!copy){ fail(file,"localized Portfolio content missing"); continue; }
-  if(!html.includes(`<h1>${htmlText(copy.title)}</h1>`)) fail(file,"canonical Portfolio H1 missing");
+  if(!html.includes(`<h1>${htmlText(copy.kicker)}</h1>`)) fail(file,"canonical Portfolio H1 missing");
+  if(!html.includes(`<h2 class="inner-hero__subtitle">${htmlText(copy.title)}</h2>`)) fail(file,"Portfolio subtitle missing");
   if(!html.includes(htmlText(copy.seo.title))) fail(file,"Portfolio SEO title missing");
   if(!html.includes(htmlText(copy.seo.description))) fail(file,"Portfolio SEO description missing");
   if((html.match(/data-project-card/g)??[]).length!==projects.length) fail(file,"Portfolio must render all canonical projects");

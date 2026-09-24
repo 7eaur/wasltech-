@@ -16,8 +16,8 @@ function renderHero(content,locale){
     <section class="about-hero">
       <div class="container about-hero__grid">
         <div class="about-hero__copy">
-          <p class="eyebrow">${escapeHtml(content.kicker)}</p>
-          <h1>${escapeHtml(content.title)}</h1>
+          <h1>${escapeHtml(content.kicker)}</h1>
+          <h2 class="inner-hero__subtitle">${escapeHtml(content.title)}</h2>
           <p class="about-hero__support">${escapeHtml(content.support)}</p>
         </div>
         ${HeroMedia({...getPageHeroMedia("about", locale), className:"about-hero__media"})}

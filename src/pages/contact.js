@@ -45,8 +45,8 @@ export function contactPage(locale="ar"){
     <section class="contact-hero">
       <div class="container contact-hero__grid">
         <div class="contact-hero__copy">
-          <p class="eyebrow">${escapeHtml(content.kicker)}</p>
-          <h1>${escapeHtml(content.title)}</h1>
+          <h1>${escapeHtml(content.kicker)}</h1>
+          <h2 class="inner-hero__subtitle">${escapeHtml(content.title)}</h2>
           <p>${escapeHtml(content.support)}</p>
           <div class="contact-hero__actions">
             ${ActionLink({href:whatsappHref(locale),label:content.primaryCta,variant:"primary",size:"lg"})}

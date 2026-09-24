@@ -59,8 +59,8 @@ export function portfolioPage(locale="ar") {
     <section class="portfolio-hero">
       <div class="container portfolio-hero__grid">
         <div>
-          <p class="eyebrow">${escapeHtml(content.kicker)}</p>
-          <h1>${escapeHtml(content.title)}</h1>
+          <h1>${escapeHtml(content.kicker)}</h1>
+          <h2 class="inner-hero__subtitle">${escapeHtml(content.title)}</h2>
           <p>${escapeHtml(content.support)}</p>
         </div>
         ${HeroMedia({...getPageHeroMedia("portfolio", locale), className:"portfolio-hero__media"})}

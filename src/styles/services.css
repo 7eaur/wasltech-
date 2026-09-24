@@ -1,7 +1,7 @@
 .services-hero{padding-block:clamp(var(--space-7),4vw,var(--space-12))}
 .services-hero__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(20rem,.95fr);gap:clamp(var(--space-8),5vw,var(--space-16));align-items:center}
 .services-hero__copy{max-width:52rem}
-.services-hero h1{margin:0;font-size:clamp(2.05rem,1.65rem + 1.8vw,3.25rem);line-height:1.15;letter-spacing:var(--tracking-tight)}
+.services-hero h1{margin:0;font-size:clamp(2.15rem,1.75rem + 1.5vw,2.9rem);line-height:1.16;letter-spacing:var(--tracking-tight)}
 .services-hero__copy>p:not(.eyebrow){max-width:48rem;margin-top:var(--space-4);color:var(--color-text-secondary);font-size:clamp(.92rem,.88rem + .12vw,1rem);line-height:1.75}
 .services-hero__actions{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-6)}
 .service-family{padding-block:clamp(var(--space-8),5vw,var(--section-space));border-top:var(--border-thin) solid var(--color-border-subtle)}

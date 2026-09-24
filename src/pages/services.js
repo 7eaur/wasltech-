@@ -27,8 +27,8 @@ function renderHero(content, locale) {
     <section class="services-hero">
       <div class="container services-hero__grid">
         <div class="services-hero__copy">
-          <p class="eyebrow">${escapeHtml(content.kicker)}</p>
-          <h1>${escapeHtml(content.title)}</h1>
+          <h1>${escapeHtml(content.kicker)}</h1>
+          <h2 class="inner-hero__subtitle">${escapeHtml(content.title)}</h2>
           <p>${escapeHtml(content.support)}</p>
           <div class="services-hero__actions">
             ${ActionLink({ href:"#service-families", label:content.primaryCta, variant:"primary", size:"lg" })}

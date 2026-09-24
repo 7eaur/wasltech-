@@ -38,8 +38,8 @@ export function faqPage(locale="ar"){
     <section class="secondary-hero">
       <div class="container secondary-hero__grid">
         <div class="secondary-hero__copy">
-          <p class="eyebrow">${escapeHtml(content.kicker)}</p>
-          <h1>${escapeHtml(content.title)}</h1>
+          <h1>${escapeHtml(content.kicker)}</h1>
+          <h2 class="inner-hero__subtitle">${escapeHtml(content.title)}</h2>
           <p>${escapeHtml(content.support)}</p>
           <div class="secondary-hero__actions">
             ${ActionLink({href:routes.startProject(locale),label:content.primaryCta,variant:"primary",size:"lg"})}

@@ -41,7 +41,7 @@ function renderHero(service, locale) {
         <div class="service-detail-hero__copy">
           <p class="eyebrow">${escapeHtml(groupTitle)}</p>
           <h1>${escapeHtml(copy.title)}</h1>
-          <p class="service-detail-hero__subtitle">${escapeHtml(copy.subtitle)}</p>
+          <h2 class="service-detail-hero__subtitle inner-hero__subtitle">${escapeHtml(copy.subtitle)}</h2>
           <p class="service-detail-hero__description">${escapeHtml(copy.description)}</p>
           <div class="service-detail-hero__actions">
             ${ActionLink({ href:routes.startProject(locale), label:copy.cta.label, variant:"primary", size:"lg" })}

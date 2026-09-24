@@ -100,8 +100,8 @@ export function projectPlannerPage(locale="ar"){
     <section class="planner-hero">
       <div class="container planner-hero__grid">
         <div class="planner-hero__copy">
-          <p class="eyebrow">${escapeHtml(content.kicker)}</p>
-          <h1>${escapeHtml(content.title)}</h1>
+          <h1>${escapeHtml(content.kicker)}</h1>
+          <h2 class="inner-hero__subtitle">${escapeHtml(content.title)}</h2>
           <p>${escapeHtml(content.support)}</p>
           <a class="text-link" href="${routes.contact(locale)}">${escapeHtml(content.secondaryCta)}</a>
         </div>

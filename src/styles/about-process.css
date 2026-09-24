@@ -1,3 +1,4 @@
+.process-hero h1{max-width:16ch;font-size:clamp(2.15rem,1.75rem + 1.5vw,2.9rem);line-height:1.16}
 
 .process-hero__support{max-width:42rem;margin-top:var(--space-5);padding-top:var(--space-4);border-top:2px solid var(--color-brand-accent)}
 .process-hero__support>p{max-width:40rem;color:var(--color-text-secondary);font-size:var(--font-size-md)}
@@ -13,7 +14,7 @@
 .process-principle{padding-block:var(--space-8);background:var(--color-bg-canvas)}
 .process-principle__inner{max-width:60rem;padding:clamp(var(--space-6),4vw,var(--space-10));background:var(--color-bg-emphasis);border-radius:var(--radius-panel)}
 .process-principle .eyebrow{color:var(--wt-teal-300)}
-.process-principle h2{margin-bottom:var(--space-4);color:var(--color-text-inverse);font-size:var(--font-size-3xl)}
+.process-principle h2{max-width:28ch;margin-bottom:var(--space-4);color:var(--color-text-inverse);font-size:clamp(1.45rem,1.25rem + .7vw,2rem);line-height:1.35}
 .process-principle p:not(.eyebrow){max-width:48rem;color:var(--wt-neutral-300);font-size:var(--font-size-md)}
 
 @media(max-width:53.75rem){
