@@ -1,7 +1,7 @@
 import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
 import { projects } from "../data/projects.js";
-import { CallToAction } from "../components/CallToAction.js";
+import { CallToAction } from "../components/CallToAction.js";\nimport { MediaCard } from "../components/MediaCard.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
@@ -36,19 +36,17 @@ function renderFilters(locale) {
 
 function renderProject(project,locale,index) {
   const copy=project.content[locale];
-  return `
-    <article class="portfolio-card${index===0 ? " portfolio-card--lead" : ""}" data-project-card data-category="${project.category}">
-      <a class="portfolio-card__media" href="${routes.project(project.slug,locale)}" aria-label="${escapeHtml(copy.title)}">
-        <img src="${project.image}" alt="" loading="lazy" width="${project.imageDimensions.width}" height="${project.imageDimensions.height}" decoding="async">
-      </a>
-      <div class="portfolio-card__copy">
-        <p class="eyebrow">${escapeHtml(project.platformType[locale])}</p>
-        <h2><a href="${routes.project(project.slug,locale)}">${escapeHtml(copy.title)}</a></h2>
-        <p>${escapeHtml(copy.summary)}</p>
-        <a class="text-link" href="${routes.project(project.slug,locale)}">${locale === "ar" ? "داخل المشروع" : "Inside the project"}</a>
-      </div>
-    </article>
-  `;
+  return MediaCard({
+    href:routes.project(project.slug,locale),
+    image:{src:project.image,alt:copy.title,width:project.imageDimensions.width,height:project.imageDimensions.height},
+    kicker:project.platformType[locale],
+    title:copy.title,
+    body:copy.summary,
+    actionLabel:locale === "ar" ? "داخل المشروع" : "Inside the project",
+    headingLevel:2,
+    featured:index===0,
+    attributes:{"data-project-card":true,"data-category":project.category}
+  });
 }
 
 export function portfolioPage(locale="ar") {

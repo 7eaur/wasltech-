@@ -4,7 +4,7 @@ import { services } from "../data/services.js";
 import { getProjectById } from "../data/projects.js";
 import { faqs } from "../data/faq.js";
 import { ActionLink } from "../components/ActionLink.js";
-import { CallToAction } from "../components/CallToAction.js";
+import { CallToAction } from "../components/CallToAction.js";\nimport { MediaCard } from "../components/MediaCard.js";
 import { SectionHeader } from "../components/SectionHeader.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema, websiteSchema } from "../seo/structured-data.js";
@@ -116,17 +116,13 @@ function renderServices(content, locale) {
   const copy = section(content, "services");
   const cards = services.map((service) => {
     const item = service.content[locale];
-    return `
-      <article class="home-service-card">
-        <a class="home-service-card__media" href="${routes.service(service.slug, locale)}" aria-label="${escapeHtml(item.title)}">
-          <img src="${service.image}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async" width="1280" height="720">
-        </a>
-        <div class="home-service-card__body">
-          <h3><a href="${routes.service(service.slug, locale)}">${escapeHtml(item.title)}</a></h3>
-          <p>${escapeHtml(item.subtitle)}</p>
-        </div>
-      </article>
-    `;
+    return MediaCard({
+      href:routes.service(service.slug,locale),
+      image:{src:service.image,alt:item.title,width:1280,height:720},
+      title:item.title,
+      body:item.subtitle,
+      compact:true
+    });
   }).join("");
 
   return `
@@ -150,21 +146,14 @@ function renderProjects(content, locale) {
     const item = project.content[locale];
     const dimensions = project.imageDimensions;
     if (!dimensions) throw new Error(`Featured media dimensions missing: ${project.id}`);
-
-    return `
-      <article class="home-project">
-        <a class="home-project__media" href="${routes.project(project.slug, locale)}" aria-label="${escapeHtml(item.title)}">
-          <img src="${project.image}" alt="${escapeHtml(item.title)}" loading="lazy" decoding="async"
-            width="${dimensions.width}" height="${dimensions.height}">
-        </a>
-        <div class="home-project__copy">
-          <p class="eyebrow">${escapeHtml(project.platformType[locale])}</p>
-          <h3><a href="${routes.project(project.slug, locale)}">${escapeHtml(item.title)}</a></h3>
-          <p class="home-project__summary">${escapeHtml(item.summary)}</p>
-          <a class="text-link" href="${routes.project(project.slug, locale)}">${locale === "ar" ? "شاهد المشروع" : "View project"}</a>
-        </div>
-      </article>
-    `;
+    return MediaCard({
+      href:routes.project(project.slug,locale),
+      image:{src:project.image,alt:item.title,width:dimensions.width,height:dimensions.height},
+      kicker:project.platformType[locale],
+      title:item.title,
+      body:item.summary,
+      actionLabel:locale === "ar" ? "شاهد المشروع" : "View project"
+    });
   }).join("");
 
   return `

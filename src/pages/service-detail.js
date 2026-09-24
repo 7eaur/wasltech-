@@ -3,6 +3,7 @@ import { serviceGroups } from "../data/services.js";
 import { getProjectsByService } from "../data/projects.js";
 import { ActionLink } from "../components/ActionLink.js";
 import { CallToAction } from "../components/CallToAction.js";
+import { MediaCard } from "../components/MediaCard.js";
 import { SectionHeader } from "../components/SectionHeader.js";
 import { documentTemplate } from "../templates/document.js";
 import { breadcrumbSchema, faqPageSchema, serviceSchema } from "../seo/structured-data.js";
@@ -139,18 +140,18 @@ function renderProof(service, locale) {
           supporting:locale === "ar" ? "استكشف كيف تُترجم هذه الخدمة داخل مشاريع ومتطلبات مختلفة." : "See how this service takes shape across different projects and needs."
         })}
         <div class="service-proof__grid">
-          ${projects.map((project)=>`
-            <article class="service-proof__card">
-              <div class="service-proof__media">
-                <img src="${project.image}" alt="" loading="lazy" width="${project.imageDimensions.width}" height="${project.imageDimensions.height}" decoding="async">
-              </div>
-              <div class="service-proof__copy">
-                <p class="eyebrow">${escapeHtml(project.platformType[locale])}</p>
-                <h3>${escapeHtml(project.content[locale].title)}</h3>
-                <p>${escapeHtml(project.content[locale].summary)}</p>
-              </div>
-            </article>
-          `).join("")}
+          ${projects.map((project)=>MediaCard({
+            href:routes.project(project.slug,locale),
+            image:{
+              src:project.image,
+              alt:project.content[locale].title,
+              width:project.imageDimensions.width,
+              height:project.imageDimensions.height
+            },
+            kicker:project.platformType[locale],
+            title:project.content[locale].title,
+            body:project.content[locale].summary
+          })).join("")}
         </div>
         <div class="service-proof__more">
           <a class="text-link" href="${routes.portfolio(locale)}">${locale === "ar" ? "شاهد جميع الأعمال" : "View all work"}</a>

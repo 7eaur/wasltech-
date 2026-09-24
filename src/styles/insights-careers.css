@@ -6,18 +6,6 @@
 
 .insights-directory .section-header{margin-bottom:var(--space-7)}
 .insights-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(var(--space-5),2.4vw,var(--space-8))}
-.insight-card{min-width:0;background:transparent}
-.insight-card__media{display:block;aspect-ratio:16/10;overflow:hidden;background:var(--color-bg-soft);border-radius:var(--radius-card)}
-.insight-card__media img{width:100%;height:100%;object-fit:cover;transition:transform var(--motion-slow) var(--ease-standard)}
-.insight-card:hover .insight-card__media img{transform:scale(1.015)}
-.insight-card--featured{grid-column:span 2;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:stretch}
-.insight-card--featured .insight-card__media{height:100%;aspect-ratio:auto}
-.insight-card--featured .insight-card__copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(var(--space-5),3vw,var(--space-8))}
-.insight-card--featured .insight-card__copy h2{font-size:clamp(1.35rem,1.1rem + .65vw,1.8rem)}
-.insight-card__copy{padding:var(--space-4) .15rem .1rem}
-.insight-card__copy h2{margin-bottom:.4rem;font-size:clamp(1rem,.92rem + .22vw,1.18rem);line-height:1.42}
-.insight-card__copy h2 a:hover{color:var(--color-text-accent)}
-.insight-card__copy>p:not(.eyebrow){display:-webkit-box;margin-bottom:var(--space-3);color:var(--color-text-secondary);font-size:clamp(.86rem,.82rem + .12vw,.94rem);line-height:1.7;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
 
 
 .article-breadcrumb,.job-breadcrumb{padding-top:var(--space-5)}
@@ -77,12 +65,6 @@
   .insights-hero__actions{display:grid;grid-template-columns:1fr}
   .insights-hero__actions .button{width:100%}
   .insights-grid{grid-template-columns:1fr;gap:var(--space-6)}
-  .insight-card--featured{grid-column:auto;display:block}
-  .insight-card__copy{padding:.7rem .05rem .1rem}
-  .insight-card__copy .eyebrow{font-size:.75rem}
-  .insight-card__copy h2{font-size:1.05rem;line-height:1.42}
-  .insight-card__copy>p:not(.eyebrow){font-size:.9rem;line-height:1.68;-webkit-line-clamp:3}
-  .insight-card__copy .text-link{font-size:.9rem}
   .article-content__lead{padding-inline-start:var(--space-3)}
   .article-content__lead p{font-size:1rem;line-height:1.78}
   .article-body__section+ .article-body__section{margin-top:var(--space-8)}
@@ -105,5 +87,4 @@
 @media(max-width:23.75rem){.job-content__grid{grid-template-columns:1fr}}
 
 @media(prefers-reduced-motion:reduce){
-  .insight-card:hover .insight-card__media img{transform:none}
 }

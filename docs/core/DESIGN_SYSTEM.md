@@ -182,8 +182,9 @@ Shared contracts include:
 - Button
 - TextLink
 - ResponsiveImage
-- ServiceCard
-- ProjectCard
+- MediaCard for repeated image + label + title + summary + action patterns
+- ServiceCard only when service-specific decision content differs from MediaCard
+- ProjectCard only when project-specific metadata requires a distinct pattern
 - FAQ
 - CTA
 
@@ -194,6 +195,12 @@ CTA contract:
 - CTA heading scale stays below page-section/Hero scale and remains responsive;
 - the primary CTA uses the medium control size by default; optional secondary action is a quiet text link;
 - spacing, radius, color, and responsive behavior are owned by the shared component stylesheet.
+Media-card contract:
+- repeated image/title/summary cards use `src/components/MediaCard.js` rather than page-specific card markup;
+- page grids may control column count, but card typography, media ratio, spacing, and responsive behavior stay shared;
+- use `featured` only to establish one clear lead item, not to create a giant visual block;
+- compact cards may hide supporting copy on small screens when two-up density is intentionally required.
+
 - form fields
 - project/service metadata
 

@@ -2,7 +2,7 @@ import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
 import { getPublishedArticles } from "../data/articles.js";
 import { ActionLink } from "../components/ActionLink.js";
-import { CallToAction } from "../components/CallToAction.js";
+import { CallToAction } from "../components/CallToAction.js";\nimport { MediaCard } from "../components/MediaCard.js";
 import { HeroMedia } from "../components/HeroMedia.js";
 import { SectionHeader } from "../components/SectionHeader.js";
 import { getPageHeroMedia, getArticleHeroMedia } from "../config/hero-media.js";
@@ -17,19 +17,16 @@ function section(content,id){return content.sections.find((item)=>item.id===id);
 function articleCard(article,locale,index){
   const copy=article.content[locale];
   const media=getArticleHeroMedia(article,locale);
-  return `
-    <article class="insight-card${index===0 ? " insight-card--featured" : ""}">
-      <a class="insight-card__media" href="${routes.article(article.slug,locale)}" aria-label="${escapeHtml(copy.title)}">
-        <img src="${media.src}" alt="${escapeHtml(media.alt)}" width="${media.width}" height="${media.height}" loading="lazy" decoding="async">
-      </a>
-      <div class="insight-card__copy">
-        <p class="eyebrow">${escapeHtml(copy.categoryLabel)}</p>
-        <h2><a href="${routes.article(article.slug,locale)}">${escapeHtml(copy.title)}</a></h2>
-        <p>${escapeHtml(copy.summary)}</p>
-        <a class="text-link" href="${routes.article(article.slug,locale)}">${locale==="ar"?"اقرأ المقال":"Read article"}</a>
-      </div>
-    </article>
-  `;
+  return MediaCard({
+    href:routes.article(article.slug,locale),
+    image:{src:media.src,alt:media.alt,width:media.width,height:media.height},
+    kicker:copy.categoryLabel,
+    title:copy.title,
+    body:copy.summary,
+    actionLabel:locale==="ar"?"اقرأ المقال":"Read article",
+    headingLevel:2,
+    featured:index===0
+  });
 }
 
 export function insightsPage(locale="ar"){

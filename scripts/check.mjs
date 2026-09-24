@@ -128,6 +128,7 @@ const sourceFiles = [
   path.join(ROOT, "scripts/check-quality.mjs"),
   path.join(ROOT, "scripts/check-shell.mjs"),
   path.join(ROOT, "scripts/check-cta.mjs"),
+  path.join(ROOT, "scripts/check-media-card.mjs"),
   path.join(ROOT, "scripts/check-home.mjs"),
   path.join(ROOT, "scripts/check-services.mjs"),
   path.join(ROOT, "scripts/check-service-details.mjs"),

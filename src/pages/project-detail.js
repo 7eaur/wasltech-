@@ -2,6 +2,7 @@ import { routes } from "../config/routes.js";
 import { getProjectsByCategory } from "../data/projects.js";
 import { getServiceById } from "../data/services.js";
 import { CallToAction } from "../components/CallToAction.js";
+import { MediaCard } from "../components/MediaCard.js";
 import { documentTemplate } from "../templates/document.js";
 import { breadcrumbSchema, creativeWorkSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
@@ -132,18 +133,18 @@ function renderRelated(project,locale) {
           <a class="text-link" href="${routes.portfolio(locale)}">${locale === "ar" ? "كل الأعمال" : "All work"}</a>
         </div>
         <div class="project-related__grid">
-          ${related.map((item)=>`
-            <article>
-              <a class="project-related__media" href="${routes.project(item.slug,locale)}" aria-label="${escapeHtml(item.content[locale].title)}">
-                <img src="${item.image}" alt="" loading="lazy" width="${item.imageDimensions.width}" height="${item.imageDimensions.height}" decoding="async">
-              </a>
-              <div class="project-related__copy">
-                <p class="eyebrow">${escapeHtml(item.platformType[locale])}</p>
-                <h3><a href="${routes.project(item.slug,locale)}">${escapeHtml(item.content[locale].title)}</a></h3>
-                <p>${escapeHtml(item.content[locale].summary)}</p>
-              </div>
-            </article>
-          `).join("")}
+          ${related.map((item)=>MediaCard({
+            href:routes.project(item.slug,locale),
+            image:{
+              src:item.image,
+              alt:item.content[locale].title,
+              width:item.imageDimensions.width,
+              height:item.imageDimensions.height
+            },
+            kicker:item.platformType[locale],
+            title:item.content[locale].title,
+            body:item.content[locale].summary
+          })).join("")}
         </div>
       </div>
     </section>
