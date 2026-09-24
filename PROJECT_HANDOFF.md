@@ -28,7 +28,9 @@ Use this section first for search-visibility work. It supersedes older SEO/searc
 - service → project and service → published article internal linking.
 
 ### Active phase
-**Phase 4 — Service-page authority.**
+**Phase 5 — Evidence / case-study authority.**
+
+Phase 4 service authority is complete and recorded in `docs/qa/2026-09-25_service-search-authority-audit.md`. The reconciled branch passed full Preview + Release verification in run `36067842747`.
 
 Do not create separate indexable subservice pages by default. Current subservices are sections of their parent service. Dedicated URLs require distinct search intent plus substantial unique evidence/content.
 
