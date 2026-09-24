@@ -37,6 +37,40 @@ The website is not a generic agency template and is not a marketplace/e-commerce
 
 The official logo assets are authoritative. Never redraw, stretch, retype, filter-recolor, or approximate the wordmark.
 
+## 2A. Language, discovery and site scope
+
+VNext is designed and generated in **Arabic and English from the same architecture**.
+
+Locale model:
+- Arabic is default at `/`;
+- English lives under `/en/`;
+- entity identity/slugs stay stable across languages;
+- Arabic uses RTL;
+- English uses LTR.
+
+Public product surfaces include:
+- home;
+- about;
+- services directory;
+- service detail pages;
+- portfolio;
+- project/case-study pages when evidence supports them;
+- process;
+- contact;
+- dedicated project planner;
+- FAQ;
+- insights/articles;
+- careers and job details when real jobs exist;
+- privacy policy;
+- terms of use;
+- 404.
+
+Articles are a real maintained content system for useful search/discovery content, not SEO filler.
+
+Privacy and terms must reflect actual Wasl behavior and tools; they are not copied from competitors.
+
+SEO/discovery is a first-class product goal. Services, projects and articles should form a useful internal-link network so search visitors can enter through the page that best matches their intent.
+
 ## 3. Official services
 
 The service taxonomy remains eight independent services:
@@ -74,11 +108,10 @@ Portfolio content is evidence.
 
 Rules:
 - use only verified project records/assets;
-- project technology appears only when verified;
+- each project uses exactly one primary image;
 - do not invent conversion/revenue/performance outcomes;
 - do not invent client problems, testimonials, duration, or metrics;
-- live links are shown only if public and verified;
-- case studies should distinguish known facts from missing information.
+- case studies focus on the project summary, context, Wasl contribution, scope and delivered outputs.
 
 Missing fields use `CONTENT REQUIRED` or `NOT VERIFIED`.
 

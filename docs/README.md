@@ -5,18 +5,31 @@ Repository: `7eaur/wasltech-`
 
 This file defines where project truth lives. It exists to prevent overlapping documentation, stale handoffs, and conflicting decisions.
 
+## Current handoff record
+
+For the current 2026-09-24 continuation, read:
+- `PROJECT_STATUS.md`
+- `PROJECT_HANDOFF.md`
+- `docs/qa/2026-09-24_final-conversation-handoff.md`
+- `docs/qa/FINAL_MEDIA_INVENTORY.md`
+
+The authoritative resume point is the current baton at the top of `PROJECT_STATUS.md` / `PROJECT_HANDOFF.md` together with `docs/qa/2026-09-24_final-conversation-handoff.md`.
+
+The older `docs/qa/2026-09-24_footer-service-media-handoff.md` record is historical evidence only. Its former “service media pending” instruction is superseded: all eight service originals and WebP derivatives are committed and wired through the canonical service data, and Home/About media are also integrated.
+
 ## Read order for every new conversation
 
 1. `PROJECT_STATUS.md` — current live state only.
 2. `PROJECT_HANDOFF.md` — exact execution baton / next action.
-3. `AGENTS.md` — non-negotiable operating rules.
-4. `docs/core/PRODUCT.md` — stable product/business truth.
-5. `docs/core/DESIGN_SYSTEM.md` — stable UX/UI/brand rules.
-6. `docs/core/ENGINEERING_ARCHITECTURE.md` — stable code architecture.
-7. `docs/core/CONTENT_IA.md` — information architecture and writing system.
-8. `docs/core/EXECUTION_PLAN.md` — phase sequence and acceptance goals.
-9. `docs/core/QA_RELEASE.md` — quality/release gates.
-10. Relevant `docs/research/*` only when external/reference evidence is needed.
+3. `docs/qa/2026-09-24_final-conversation-handoff.md` — concise current-conversation baton when resuming this phase.
+4. `AGENTS.md` — non-negotiable operating rules.
+5. `docs/core/PRODUCT.md` — stable product/business truth.
+6. `docs/core/DESIGN_SYSTEM.md` — stable UX/UI/brand rules.
+7. `docs/core/ENGINEERING_ARCHITECTURE.md` — stable code architecture.
+8. `docs/core/CONTENT_IA.md` — information architecture and writing system.
+9. `docs/core/EXECUTION_PLAN.md` — phase sequence and acceptance goals.
+10. `docs/core/QA_RELEASE.md` — quality/release gates.
+11. Relevant `docs/research/*` only when external/reference evidence is needed.
 
 Live code/runtime always override stale documentation.
 

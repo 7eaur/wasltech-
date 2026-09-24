@@ -1,0 +1,205 @@
+import { routes } from "../config/routes.js";
+import { getProjectsByCategory } from "../data/projects.js";
+import { getServiceById } from "../data/services.js";
+import { CallToAction } from "../components/CallToAction.js";
+import { MediaCard } from "../components/MediaCard.js";
+import { documentTemplate } from "../templates/document.js";
+import { breadcrumbSchema, creativeWorkSchema } from "../seo/structured-data.js";
+import { escapeHtml } from "../lib/html.js";
+import { HeroMedia } from "../components/HeroMedia.js";
+import { getProjectHeroMedia } from "../config/hero-media.js";
+
+function renderBreadcrumb(project,locale) {
+  const copy=project.content[locale];
+  return `
+    <nav class="project-breadcrumb" aria-label="${locale === "ar" ? "مسار الصفحة" : "Breadcrumb"}">
+      <div class="container">
+        <ol>
+          <li><a href="${routes.home(locale)}">${locale === "ar" ? "الرئيسية" : "Home"}</a></li>
+          <li><a href="${routes.portfolio(locale)}">${locale === "ar" ? "الأعمال" : "Work"}</a></li>
+          <li aria-current="page">${escapeHtml(copy.title)}</li>
+        </ol>
+      </div>
+    </nav>
+  `;
+}
+
+function renderHero(project,locale) {
+  const copy=project.content[locale];
+  return `
+    <section class="project-detail-hero">
+      <div class="container project-detail-hero__grid">
+        <div class="project-detail-hero__copy">
+          <p class="eyebrow">${escapeHtml(project.platformType[locale])}</p>
+          <h1>${escapeHtml(copy.title)}</h1>
+          <div class="project-detail-hero__summary">
+            <p>${escapeHtml(copy.summary)}</p>
+            <a class="text-link" href="#project-story">${locale === "ar" ? "اقرأ دراسة الحالة" : "Read the case study"}</a>
+          </div>
+        </div>
+        ${HeroMedia({...getProjectHeroMedia(project, locale), className:"project-detail-hero__media"})}
+      </div>
+    </section>
+  `;
+}
+
+function renderStory(project,locale) {
+  const story=project.content[locale].caseStudy;
+  const labels=locale === "ar"
+    ? {overview:"المشروع",context:"السياق",contribution:"ما نفذناه"}
+    : {overview:"The project",context:"Context",contribution:"What we built"};
+
+  return `
+    <section class="section project-story" id="project-story">
+      <div class="container project-story__grid">
+        ${[
+          ["overview",story.overview],
+          ["context",story.context],
+          ["contribution",story.contribution]
+        ].map(([key,value],index)=>`
+          <article class="project-story__item">
+            <span>0${index+1}</span>
+            <div>
+              <p class="eyebrow">${labels[key]}</p>
+              <h2>${escapeHtml(value)}</h2>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderScope(project,locale) {
+  const story=project.content[locale].caseStudy;
+  return `
+    <section class="section section--subtle project-scope">
+      <div class="container project-scope__grid">
+        <div>
+          <p class="eyebrow">${locale === "ar" ? "النطاق" : "Scope"}</p>
+          <h2>${locale === "ar" ? "ما الذي دخل في هذا المشروع." : "What was part of this project."}</h2>
+          <ul>
+            ${story.scope.map((item)=>`<li>${escapeHtml(item)}</li>`).join("")}
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow">${locale === "ar" ? "المخرجات" : "Delivered outputs"}</p>
+          <h2>${locale === "ar" ? "ما الذي خرج من التنفيذ." : "What the work delivered."}</h2>
+          <ul>
+            ${story.deliveredOutputs.map((item)=>`<li>${escapeHtml(item)}</li>`).join("")}
+          </ul>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderServices(project,locale) {
+  const services=project.serviceIds.map(getServiceById).filter(Boolean);
+  if(!services.length) return "";
+
+  return `
+    <section class="section project-services">
+      <div class="container project-services__grid">
+        <div>
+          <p class="eyebrow">${locale === "ar" ? "الخدمات المرتبطة" : "Related services"}</p>
+          <h2>${locale === "ar" ? "الخدمات التي ساهمت في بناء هذا المشروع." : "The services that contributed to this project."}</h2>
+        </div>
+        <div class="project-services__links">
+          ${services.map((service)=>`
+            <a href="${routes.service(service.slug,locale)}">
+              <span>${escapeHtml(service.content[locale].title)}</span>
+              <small>${escapeHtml(service.content[locale].subtitle)}</small>
+            </a>
+          `).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderRelated(project,locale) {
+  const related=getProjectsByCategory(project.category).filter((item)=>item.id!==project.id).slice(0,2);
+  if(!related.length) return "";
+
+  return `
+    <section class="section section--subtle project-related">
+      <div class="container">
+        <div class="project-related__header">
+          <div>
+            <p class="eyebrow">${locale === "ar" ? "أعمال مرتبطة" : "Related work"}</p>
+            <h2>${locale === "ar" ? "مشاريع أخرى من نفس المسار." : "Other projects from the same path."}</h2>
+          </div>
+          <a class="text-link" href="${routes.portfolio(locale)}">${locale === "ar" ? "كل الأعمال" : "All work"}</a>
+        </div>
+        <div class="project-related__grid">
+          ${related.map((item)=>MediaCard({
+            href:routes.project(item.slug,locale),
+            image:{
+              src:item.image,
+              alt:item.content[locale].title,
+              width:item.imageDimensions.width,
+              height:item.imageDimensions.height
+            },
+            kicker:item.platformType[locale],
+            title:item.content[locale].title,
+            body:item.content[locale].summary
+          })).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderCta(project,locale) {
+  return CallToAction({
+    kicker:locale === "ar" ? "تحدٍ مشابه؟" : "A similar challenge?",
+    title:locale === "ar" ? "لديك تحدٍ مشابه؟ ناقش الحل معنا." : "Have a similar challenge? Discuss the solution with us.",
+    description:locale === "ar" ? "شاركنا المشكلة أو النتيجة التي تريدها، ونبدأ من سياق مشروعك قبل اقتراح الحل." : "Share the problem or outcome you want, and we will start from your project context before proposing a solution.",
+    action:{href:routes.startProject(locale),label:locale === "ar" ? "ناقش حلًا مشابهًا" : "Discuss a similar solution"}
+  });
+}
+
+export function projectDetailPage(project,locale="ar") {
+  const copy=project?.content?.[locale];
+  if(!project || !copy) throw new Error(`Project detail content missing for locale: ${locale}`);
+
+  const path=routes.project(project.slug,locale);
+  const alternateLocale=locale === "ar" ? "en" : "ar";
+
+  const body=[
+    renderBreadcrumb(project,locale),
+    renderHero(project,locale),
+    renderStory(project,locale),
+    renderScope(project,locale),
+    renderServices(project,locale),
+    renderRelated(project,locale),
+    renderCta(project,locale)
+  ].join("");
+
+  return documentTemplate({
+    title:copy.seo.title,
+    description:copy.seo.description,
+    body,
+    locale,
+    activePath:path,
+    alternatePath:routes.project(project.slug,alternateLocale),
+    canonicalPath:path,
+    alternatePaths:Object.freeze({
+      ar:routes.project(project.slug,"ar"),
+      en:routes.project(project.slug,"en")
+    }),
+    ogTitle:copy.seo.title,
+    ogDescription:copy.seo.description,
+    ogImage:project.image,
+    ogType:"article",
+    structuredData:[
+      creativeWorkSchema({locale,name:copy.title,description:copy.summary,path,image:project.image}),
+      breadcrumbSchema([
+        {name:locale === "ar" ? "الرئيسية" : "Home",path:routes.home(locale)},
+        {name:locale === "ar" ? "الأعمال" : "Work",path:routes.portfolio(locale)},
+        {name:copy.title,path}
+      ])
+    ]
+  });
+}

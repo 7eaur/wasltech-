@@ -101,19 +101,56 @@ Regression budgets should become executable CI limits after Phase 1/3 establishe
 
 ## 7. SEO gate
 
-Check:
-- crawlable HTML;
-- titles/descriptions;
+SEO is verified as generated output, not assumed from architecture.
+
+Check every indexable route:
+- crawlable HTML contains its primary content without client rendering;
+- unique title;
+- useful meta description;
 - canonical;
-- sitemap;
-- robots;
+- one H1;
+- semantic heading order;
 - internal links;
-- service/project URL structure;
-- redirects from legacy URLs;
-- Open Graph;
-- structured data matches visible content;
-- unfinished content noindex;
-- no duplicate locale pages.
+- Open Graph baseline;
+- image alt/dimensions where required.
+
+Bilingual checks:
+- Arabic default route and English `/en/` route map to the same stable entity identity;
+- reciprocal `hreflang="ar"` / `hreflang="en"` exist when both translations are published;
+- no incomplete locale is exposed as a normal indexable page;
+- no mixed-language taxonomy leak;
+- canonical never points one language at the other incorrectly.
+
+Discovery checks:
+- sitemap is generated from publishable routes/data;
+- sitemap excludes drafts/noindex;
+- robots policy is explicit and valid;
+- newly published services/projects/articles/jobs enter sitemap automatically;
+- redirects from legacy URLs are verified;
+- internal related-content links resolve;
+- no orphan high-value service/article page where avoidable.
+
+Structured-data checks:
+- Organization/LocalBusiness only with supported facts;
+- BreadcrumbList matches visible route hierarchy;
+- Article matches visible article data;
+- FAQPage only when visible FAQ content matches exactly;
+- no fabricated ratings/reviews/prices/availability.
+
+Content/search checks:
+- no duplicate slugs;
+- no accidentally duplicated page titles at scale;
+- no thin service/article pages created only for keywords;
+- no `NOT VERIFIED` / `CONTENT REQUIRED` published;
+- useful intent-specific copy exists for service/article pages;
+- project/service/article relationships are valid.
+
+Performance/search delivery:
+- LCP asset strategy reviewed;
+- responsive images;
+- minimal JavaScript;
+- no indexing-critical content hidden behind interaction;
+- Core Web Vitals budgets remain in force.
 
 ## 8. Content/design gate
 
@@ -161,6 +198,20 @@ Production is updated only when:
 - no critical runtime error appears;
 - visual smoke check passes on real production;
 - redirects are verified after routing changes.
+
+## 11B. Final editorial media gate
+
+Before production cutover:
+- every public route family must retain its Hero media surface;
+- temporary editorial images must be replaced with approved final imagery where requested;
+- final Hero/article images must be optimized for web delivery;
+- LCP Hero image must remain the only eager content image on the page unless a documented exception exists;
+- intrinsic dimensions must remain present;
+- crop/focal point must be reviewed at 390 and 1440;
+- social preview images must resolve;
+- public UI must not expose service-count or project-count counters.
+
+The current temporary editorial assets are valid only for architecture/layout verification and do not satisfy the final media-performance gate.
 
 ## 12. Documentation closeout
 

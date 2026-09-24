@@ -22,58 +22,94 @@ Node target: 24.
 
 ## 2. Target repository structure
 
+VNext is bilingual from the architecture level. Arabic and English share the same entities, templates and build pipeline.
+
 ```text
 src/
   config/
     site.js
+    brand.js
+    locales.js
+    routes.js
     navigation.js
   data/
     services.js
     projects.js
     faq.js
+    jobs.js
+  content/
+    pages/
+      ar/
+      en/
+    articles/
+      ar/
+      en/
+    legal/
+      ar/
+      en/
   components/
     Header.js
     Footer.js
+    LanguageSwitcher.js
+    Breadcrumbs.js
     PageHero.js
     SectionHeader.js
     ResponsiveImage.js
     ServiceCard.js
     ProjectCard.js
+    ArticleCard.js
+    JobCard.js
+    FAQ.js
     ContactCTA.js
-    icons.js
+    ProjectPlanner.js
   templates/
     document.js
+    standardPage.js
+    articlePage.js
+    legalPage.js
   pages/
     home.js
     services.js
     serviceDetail.js
     portfolio.js
+    projectDetail.js
     about.js
     process.js
     contact.js
+    startProject.js
     faq.js
+    insights.js
+    articleDetail.js
+    careers.js
+    jobDetail.js
+    privacy.js
+    terms.js
     notFound.js
   styles/
     tokens.css
+    brand.css
+    typography.css
     base.css
     layout.css
     components.css
     media.css
     pages/
-      home.css
-      services.css
-      service-detail.css
-      portfolio.css
-      about.css
-      process.css
-      contact.css
   client/
     navigation.js
     portfolio.js
     planner.js
+    accordion.js
+    privacy-preferences.js
+  lib/
+    html.js
+    i18n.js
+    urls.js
+    seo.js
+    validation.js
 scripts/
   build.mjs
   check.mjs
+  sitemap.mjs
   visual-qa.mjs
 public/
   assets/
@@ -81,7 +117,9 @@ dist/
 docs/
 ```
 
-The exact file list may evolve, but responsibility boundaries must not collapse.
+Files are created only when a real responsibility exists. The structure is a responsibility map, not permission to create empty abstraction layers.
+
+Dynamic entities such as services, projects, articles and jobs are data/content records. Page templates render them; adding one record must not require copying a page implementation.
 
 ## 3. No-patching rule
 
@@ -109,8 +147,20 @@ Required flow:
 
 ## 4. Single source of truth rules
 
+Brand identity/assets:
+`src/config/brand.js` + `src/styles/tokens.css` + `src/styles/brand.css` + `src/styles/typography.css`
+
 Business/contact configuration:
 `src/config/site.js`
+
+Locales:
+`src/config/locales.js`
+
+Route builders:
+`src/config/routes.js`
+
+Navigation:
+`src/config/navigation.js`
 
 Services:
 `src/data/services.js`
@@ -121,10 +171,17 @@ Projects:
 FAQ:
 `src/data/faq.js`
 
-Navigation:
-`src/config/navigation.js`
+Jobs:
+`src/data/jobs.js` when job content exists.
 
-Do not duplicate those values in page modules.
+Long-form localized content:
+`src/content/*`
+
+Do not duplicate the same entity in Arabic and English files as separate identities. One service/project/job record owns one stable id/slug and localized fields.
+
+Articles may use localized source files because their bodies are long-form content, but each translation must share a stable article identity and translation relationship.
+
+Do not duplicate business facts inside page modules.
 
 ## 5. Component rules
 
@@ -185,20 +242,43 @@ No decorative animation runtime.
 
 ## 9. Routing / URL strategy
 
-VNext should prefer clean crawlable routes.
+Arabic is the default locale.
 
-Proposed final routes:
+Arabic examples:
 - `/`
 - `/services/`
 - `/services/<service-slug>/`
 - `/portfolio/`
-- `/portfolio/<project-slug>/` when case studies are ready
+- `/portfolio/<project-slug>/`
+- `/insights/`
+- `/insights/<article-slug>/`
+- `/careers/`
+- `/careers/<job-slug>/`
 - `/about/`
 - `/process/`
 - `/contact/`
+- `/start-project/`
 - `/faq/`
+- `/privacy/`
+- `/terms/`
 
-Legacy `*.html` and `service-web.html?id=...` URLs must receive redirects at cutover if routes change.
+English mirrors the same stable slug identities under `/en/`:
+- `/en/`
+- `/en/services/`
+- `/en/services/<service-slug>/`
+- etc.
+
+Stable entity slugs do not change by locale. The visible title changes; the identity does not.
+
+This simplifies:
+- translation relationships;
+- canonical/hreflang generation;
+- sitemap generation;
+- analytics;
+- related-content relationships;
+- redirects.
+
+Legacy `*.html` and `service-web.html?id=...` URLs must receive verified redirects at cutover.
 
 No SEO-breaking URL migration without redirect verification.
 
@@ -242,24 +322,57 @@ Mandatory:
 
 ## 12. SEO architecture
 
+SEO is a build concern, not a final-page patch.
+
+Every indexable page must generate crawlable HTML containing its primary content without requiring client JavaScript.
+
 Every indexable page:
 - unique title;
-- unique meta description;
-- canonical;
+- useful meta description;
+- canonical URL;
 - one H1;
-- semantic headings;
-- crawlable main copy;
+- semantic heading structure;
+- crawlable body copy;
+- Open Graph baseline;
 - internal links;
-- Open Graph baseline.
+- language metadata.
 
-Site-level:
-- sitemap;
-- robots;
-- Organization/LocalBusiness schema only if supported;
-- FAQ schema only when visible FAQ matches;
-- service/project schema only if accurate;
-- redirects tested;
-- noindex for unfinished/private/utility content.
+Bilingual pages:
+- self canonical;
+- reciprocal `hreflang="ar"` and `hreflang="en"` when both translations are published;
+- optional `x-default` according to final locale strategy;
+- never publish an incomplete translation as if complete.
+
+Build-generated discovery:
+- `sitemap.xml` generated from published routes/data;
+- `robots.txt` generated/validated;
+- draft/noindex content excluded from sitemap;
+- new published service/project/article/job records automatically enter the correct listing and sitemap.
+
+Structured data only when truthful:
+- Organization/LocalBusiness;
+- BreadcrumbList;
+- Article;
+- FAQPage when visible FAQ matches;
+- Service/project-related schema only when fields are supported.
+
+Internal-link graph:
+- service → relevant verified projects/articles;
+- project → services used;
+- article → relevant services/projects;
+- related content derived from stable ids rather than copied links where practical.
+
+Search performance depends on useful content and authority as well as architecture. VNext must not create thin pages merely to target keywords.
+
+SEO checks must validate:
+- duplicate slugs;
+- duplicate titles where avoidable;
+- missing canonical;
+- missing hreflang pairs;
+- broken internal links;
+- missing image alt/dimensions;
+- published `NOT VERIFIED` markers;
+- sitemap/indexability mismatch.
 
 ## 13. Build and release discipline
 

@@ -1,0 +1,316 @@
+name: Capture VNext route matrix
+
+on:
+  push:
+    branches:
+      - rebuild/vnext-foundation-20260921
+    paths:
+      - ".github/workflows/capture-vnext-route-matrix.yml"
+      - "src/pages/**"
+      - "src/styles/**"
+      - "src/components/**"
+      - "src/data/**"
+      - "src/config/**"
+      - "src/templates/**"
+      - "scripts/build.mjs"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vnext-route-matrix-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  route-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout VNext
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Build VNext release
+        run: npm run vnext:build:release
+
+      - name: Start built VNext locally
+        run: |
+          cd dist-release
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/wasltech-vnext-matrix.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/wasltech-vnext-matrix.log
+          exit 1
+
+      - name: Install capture browser
+        working-directory: /tmp
+        run: |
+          mkdir -p wasltech-vnext-matrix
+          cd wasltech-vnext-matrix
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.55.0 >/dev/null
+          npx playwright install --with-deps chromium
+
+      - name: Verify responsive matrix and capture route families
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/route-screenshots"
+          cat > /tmp/wasltech-vnext-matrix/matrix.mjs <<'EOF'
+          import { chromium } from "playwright";
+
+          const base = "http://127.0.0.1:4173";
+          const routeFamilies = [
+            ["home", "/", "/en/", "/en/", "/"],
+            ["services", "/services/", "/en/services/", "/en/services/", "/services/"],
+            ["service-web", "/services/web-development/", "/en/services/web-development/", "/en/services/web-development/", "/services/web-development/"],
+            ["portfolio", "/portfolio/", "/en/portfolio/", "/en/portfolio/", "/portfolio/"],
+            ["project-wasl", "/portfolio/wasl-freelance-platform/", "/en/portfolio/wasl-freelance-platform/", "/en/portfolio/wasl-freelance-platform/", "/portfolio/wasl-freelance-platform/"],
+            ["about", "/about/", "/en/about/", "/en/about/", "/about/"],
+            ["process", "/process/", "/en/process/", "/en/process/", "/process/"],
+            ["contact", "/contact/", "/en/contact/", "/en/contact/", "/contact/"],
+            ["planner", "/start-project/", "/en/start-project/", "/en/start-project/", "/start-project/"],
+            ["faq", "/faq/", "/en/faq/", "/en/faq/", "/faq/"],
+            ["insights", "/insights/", "/en/insights/", "/en/insights/", "/insights/"],
+            ["article-website-or-system", "/insights/website-or-web-system/", "/en/insights/website-or-web-system/", "/en/insights/website-or-web-system/", "/insights/website-or-web-system/"],
+            ["careers", "/careers/", "/en/careers/", "/en/careers/", "/careers/"],
+            ["privacy", "/privacy/", "/en/privacy/", "/en/privacy/", "/privacy/"],
+            ["terms", "/terms/", "/en/terms/", "/en/terms/", "/terms/"],
+            ["not-found", "/404.html", "/en/404.html", "/en/", "/"]
+          ];
+          const widths = [360, 390, 768, 1024, 1366, 1440];
+          const browser = await chromium.launch({ headless: true });
+
+          async function inspect(path, width, locale, expectedSwitch) {
+            const isMobile = width <= 390;
+            const context = await browser.newContext({
+              viewport: { width, height: isMobile ? 844 : 900 },
+              deviceScaleFactor: 1,
+              isMobile,
+              hasTouch: isMobile,
+              locale: locale === "ar" ? "ar-YE" : "en-US"
+            });
+            const page = await context.newPage();
+            const pageErrors = [];
+            const consoleErrors = [];
+            const failedLocalRequests = [];
+            page.on("pageerror", (error) => pageErrors.push(String(error)));
+            page.on("console", (message) => {
+              if (message.type() === "error") consoleErrors.push(message.text());
+            });
+            page.on("requestfailed", (request) => {
+              if (request.url().startsWith(base)) {
+                failedLocalRequests.push(`${request.url()} :: ${request.failure()?.errorText || "failed"}`);
+              }
+            });
+            await page.goto(base + path, { waitUntil: "domcontentloaded" });
+            await page.evaluate(async () => {
+              if (document.fonts?.ready) await document.fonts.ready;
+              window.scrollTo(0, 0);
+            });
+            const metrics = await page.evaluate(() => ({
+              innerWidth: window.innerWidth,
+              scrollWidth: document.documentElement.scrollWidth,
+              lang: document.documentElement.lang,
+              dir: document.documentElement.dir,
+              h1: document.querySelector("h1")?.textContent?.trim() || "",
+              font: getComputedStyle(document.body).fontFamily
+            }));
+            if (metrics.scrollWidth !== metrics.innerWidth) {
+              throw new Error(`Horizontal overflow ${path} @ ${width}: ${JSON.stringify(metrics)}`);
+            }
+            if (!metrics.h1) throw new Error(`Missing H1: ${path}`);
+            if (!metrics.font.includes("IBM Plex")) throw new Error(`Unexpected body font: ${path} => ${metrics.font}`);
+            if (pageErrors.length) throw new Error(`Page errors ${path}: ${pageErrors.join(" | ")}`);
+            if (consoleErrors.length) throw new Error(`Console errors ${path}: ${consoleErrors.join(" | ")}`);
+            if (failedLocalRequests.length) throw new Error(`Failed local requests ${path}: ${failedLocalRequests.join(" | ")}`);
+
+            const switchHref = await page.locator(".language-switch").getAttribute("href");
+            if (switchHref !== expectedSwitch) {
+              throw new Error(`Language switch mismatch ${path}: ${switchHref} !== ${expectedSwitch}`);
+            }
+
+            if (path.endsWith("/404.html") || path === "/404.html") {
+              const activeNavItems = await page.locator(".primary-nav [aria-current=\"page\"]").count();
+              if (activeNavItems !== 0) {
+                throw new Error(`404 must not mark primary navigation active: ${path}`);
+              }
+            }
+            await context.close();
+          }
+
+          async function capture(name, locale, path, suffix, width, height, isMobile) {
+            const context = await browser.newContext({
+              viewport: { width, height },
+              deviceScaleFactor: 1,
+              isMobile,
+              hasTouch: isMobile,
+              locale: locale === "ar" ? "ar-YE" : "en-US"
+            });
+            const page = await context.newPage();
+            await page.goto(base + path, { waitUntil: "networkidle" });
+            await page.evaluate(async () => {
+              document.querySelectorAll("img").forEach((img) => { img.loading = "eager"; });
+              await Promise.all([...document.images].map(async (img) => {
+                if (!img.complete) await new Promise((resolve) => {
+                  img.addEventListener("load", resolve, { once: true });
+                  img.addEventListener("error", resolve, { once: true });
+                });
+                if (img.decode) { try { await img.decode(); } catch {} }
+              }));
+              if (document.fonts?.ready) await document.fonts.ready;
+              window.scrollTo(0, 0);
+            });
+            await page.screenshot({
+              path: `/home/runner/work/wasltech-/wasltech-/route-screenshots/${name}-${locale}-${suffix}.png`,
+              fullPage: true,
+              animations: "disabled"
+            });
+            await context.close();
+          }
+
+          for (const [name, arPath, enPath, arExpectedSwitch, enExpectedSwitch] of routeFamilies) {
+            for (const width of widths) {
+              await inspect(arPath, width, "ar", arExpectedSwitch);
+              await inspect(enPath, width, "en", enExpectedSwitch);
+            }
+
+            for (const [suffix, width, height, isMobile] of [
+              ["desktop-1440", 1440, 1000, false],
+              ["mobile-390", 390, 844, true]
+            ]) {
+              await capture(name, "ar", arPath, suffix, width, height, isMobile);
+              await capture(name, "en", enPath, suffix, width, height, isMobile);
+            }
+          }
+
+          async function verifyAllIndexableRoutes() {
+            const sitemapResponse = await fetch(base + "/sitemap.xml");
+            if (!sitemapResponse.ok) throw new Error(`Sitemap fetch failed: ${sitemapResponse.status}`);
+            const sitemap = await sitemapResponse.text();
+            const paths = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)]
+              .map((match) => new URL(match[1]).pathname)
+              .filter(Boolean);
+            const uniquePaths = [...new Set(paths)];
+
+            if (!uniquePaths.length) throw new Error("Sitemap did not expose any indexable routes.");
+
+            for (const path of uniquePaths) {
+              const locale = path === "/en/" || path.startsWith("/en/") ? "en" : "ar";
+              const expectedSwitch = locale === "ar"
+                ? (path === "/" ? "/en/" : `/en${path}`)
+                : (path.replace(/^\/en/, "") || "/");
+
+              await inspect(path, 390, locale, expectedSwitch);
+              await inspect(path, 1440, locale, expectedSwitch);
+            }
+
+            console.log(`VNEXT ALL INDEXABLE ROUTES @ 390/1440: PASSED (${uniquePaths.length} routes)`);
+          }
+
+          async function verifyInteractions(locale) {
+            const context = await browser.newContext({
+              viewport: { width: 390, height: 844 },
+              deviceScaleFactor: 1,
+              isMobile: true,
+              hasTouch: true,
+              locale: locale === "ar" ? "ar-YE" : "en-US"
+            });
+            const page = await context.newPage();
+            const prefix = locale === "en" ? "/en" : "";
+            const homePath = locale === "en" ? "/en/" : "/";
+            const portfolioPath = `${prefix}/portfolio/`;
+            const plannerPath = `${prefix}/start-project/`;
+
+            await page.goto(base + homePath, { waitUntil: "domcontentloaded" });
+            const toggle = page.locator("[data-menu-toggle]");
+            await toggle.click();
+            if (await toggle.getAttribute("aria-expanded") !== "true") {
+              throw new Error(`${locale}: Mobile navigation did not open.`);
+            }
+            if (!(await page.locator("[data-primary-nav]").evaluate((node) => node.hasAttribute("data-open")))) {
+              throw new Error(`${locale}: Mobile navigation open state missing.`);
+            }
+            await page.keyboard.press("Escape");
+            if (await toggle.getAttribute("aria-expanded") !== "false") {
+              throw new Error(`${locale}: Mobile navigation did not close on Escape.`);
+            }
+            if (!(await toggle.evaluate((node) => document.activeElement === node))) {
+              throw new Error(`${locale}: Mobile navigation did not restore focus after Escape.`);
+            }
+
+            await page.goto(base + portfolioPath, { waitUntil: "domcontentloaded" });
+            const filters = page.locator("[data-portfolio-filter]");
+            if (await filters.count() < 2) throw new Error(`${locale}: Portfolio filters missing.`);
+            await filters.nth(1).click();
+            if (await filters.nth(1).getAttribute("aria-pressed") !== "true") {
+              throw new Error(`${locale}: Portfolio filter pressed state missing.`);
+            }
+            const hiddenCards = await page.locator("[data-project-card][hidden]").count();
+            if (!hiddenCards) throw new Error(`${locale}: Portfolio filter did not hide non-matching cards.`);
+            const status = page.locator("[data-portfolio-status]");
+            await status.waitFor({ state: "attached" });
+            await page.waitForFunction(() => Boolean(document.querySelector("[data-portfolio-status]")?.textContent?.trim()));
+            const filterStatus = (await status.textContent() || "").trim();
+            if (/\d/.test(filterStatus)) {
+              throw new Error(`${locale}: Portfolio filter status must be count-free: ${filterStatus}`);
+            }
+
+            await page.goto(base + plannerPath, { waitUntil: "domcontentloaded" });
+            const form = page.locator("[data-project-planner]");
+            await form.locator('button[type="submit"]').click();
+            const invalidStatus = (await page.locator("[data-planner-status]").textContent() || "").trim();
+            if (!invalidStatus) throw new Error(`${locale}: Planner invalid state did not produce a status message.`);
+
+            await form.locator('select[name="service"]').selectOption({ index: 1 });
+            await form.locator('select[name="stage"]').selectOption({ index: 1 });
+            await form.locator('select[name="priority"]').selectOption({ index: 1 });
+            await form.locator('input[name="name"]').fill(locale === "ar" ? "اختبار" : "Test user");
+            await form.locator('input[name="phone"]').fill("775377979");
+            await form.locator('textarea[name="details"]').fill(
+              locale === "ar"
+                ? "وصف اختبار كافٍ للتحقق من مسار مراجعة المشروع."
+                : "A sufficient test description for verifying the project review flow."
+            );
+            await form.locator('button[type="submit"]').click();
+
+            const review = page.locator("[data-planner-review]");
+            if (await review.isHidden()) throw new Error(`${locale}: Planner review did not open after valid submission.`);
+            const whatsappHref = await page.locator("[data-planner-whatsapp]").getAttribute("href");
+            if (!whatsappHref?.startsWith("https://wa.me/967775377979?text=")) {
+              throw new Error(`${locale}: Planner WhatsApp link invalid: ${whatsappHref}`);
+            }
+            const decodedMessage = decodeURIComponent(whatsappHref.split("?text=")[1] || "");
+            const expectedIntro = locale === "ar"
+              ? "مرحباً وصل تك، أود مناقشة مشروع."
+              : "Hello Wasl Tech, I would like to discuss a project.";
+            if (!decodedMessage.includes(expectedIntro)) {
+              throw new Error(`${locale}: Planner WhatsApp message is not localized correctly.`);
+            }
+            await page.locator("[data-planner-edit]").click();
+            if (!(await review.isHidden())) throw new Error(`${locale}: Planner review did not close on edit.`);
+
+            await context.close();
+          }
+
+          await verifyAllIndexableRoutes();
+          await verifyInteractions("ar");
+          await verifyInteractions("en");
+          await browser.close();
+          console.log("VNEXT BILINGUAL ROUTE MATRIX + INTERACTIONS: PASSED");
+          EOF
+          node /tmp/wasltech-vnext-matrix/matrix.mjs
+
+      - name: Upload route screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: wasltech-vnext-route-matrix-screenshots
+          path: route-screenshots/
+          if-no-files-found: error
+          retention-days: 3

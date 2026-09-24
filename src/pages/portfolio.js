@@ -1,0 +1,100 @@
+import { routes } from "../config/routes.js";
+import { pages } from "../data/pages.js";
+import { projects } from "../data/projects.js";
+import { CallToAction } from "../components/CallToAction.js";
+import { MediaCard } from "../components/MediaCard.js";
+import { documentTemplate } from "../templates/document.js";
+import { organizationSchema } from "../seo/structured-data.js";
+import { escapeHtml } from "../lib/html.js";
+import { HeroMedia } from "../components/HeroMedia.js";
+import { getPageHeroMedia } from "../config/hero-media.js";
+
+const pageRecord = pages.find((page) => page.id === "portfolio");
+
+const categoryOrder = Object.freeze(["web","app","store","brand","marketing"]);
+const categoryLabels = Object.freeze({
+  all:Object.freeze({ar:"الكل",en:"All"}),
+  web:Object.freeze({ar:"مواقع وأنظمة",en:"Web & systems"}),
+  app:Object.freeze({ar:"تطبيقات",en:"Apps"}),
+  store:Object.freeze({ar:"متاجر",en:"E-commerce"}),
+  brand:Object.freeze({ar:"هوية بصرية",en:"Brand identity"}),
+  marketing:Object.freeze({ar:"تسويق",en:"Marketing"})
+});
+
+function renderFilters(locale) {
+  const filters=["all",...categoryOrder];
+  return `
+    <div class="portfolio-filters" data-portfolio-filters hidden aria-label="${locale === "ar" ? "تصفية الأعمال" : "Filter work"}">
+      ${filters.map((id,index)=>`
+        <button type="button" data-portfolio-filter="${id}" aria-pressed="${index===0 ? "true" : "false"}">
+          ${escapeHtml(categoryLabels[id][locale])}
+        </button>
+      `).join("")}
+    </div>
+    <p class="sr-only" data-portfolio-status data-message="${locale === "ar" ? "تم تحديث الأعمال المعروضة." : "Displayed work updated."}" aria-live="polite"></p>
+  `;
+}
+
+function renderProject(project,locale,index) {
+  const copy=project.content[locale];
+  return MediaCard({
+    href:routes.project(project.slug,locale),
+    image:{src:project.image,alt:copy.title,width:project.imageDimensions.width,height:project.imageDimensions.height},
+    kicker:project.platformType[locale],
+    title:copy.title,
+    body:copy.summary,
+    actionLabel:locale === "ar" ? "اقرأ دراسة الحالة" : "Read the case study",
+    headingLevel:2,
+    featured:index===0,
+    attributes:{"data-project-card":true,"data-category":project.category}
+  });
+}
+
+export function portfolioPage(locale="ar") {
+  if(!pageRecord) throw new Error("Canonical Portfolio page record missing.");
+  const content=pageRecord.content[locale];
+  if(!content) throw new Error(`Portfolio content missing for locale: ${locale}`);
+
+  const body=`
+    <section class="portfolio-hero">
+      <div class="container portfolio-hero__grid">
+        <div>
+          <h1>${escapeHtml(content.kicker)}</h1>
+          <h2 class="inner-hero__subtitle">${escapeHtml(content.title)}</h2>
+          <p>${escapeHtml(content.support)}</p>
+        </div>
+        ${HeroMedia({...getPageHeroMedia("portfolio", locale), className:"portfolio-hero__media"})}
+      </div>
+    </section>
+
+    <section class="section portfolio-browser" data-portfolio-browser>
+      <div class="container">
+        ${renderFilters(locale)}
+        <div class="portfolio-grid">
+          ${projects.map((project,index)=>renderProject(project,locale,index)).join("")}
+        </div>
+      </div>
+    </section>
+
+    ${CallToAction({
+      kicker: content.sections.find((item)=>item.id==="final-cta")?.kicker ?? "",
+      title: content.sections.find((item)=>item.id==="final-cta")?.title ?? "",
+      description: content.sections.find((item)=>item.id==="final-cta")?.support ?? "",
+      action:{href:routes.startProject(locale),label:content.secondaryCta}
+    })}
+    <script src="/assets/js/portfolio-filter.js" defer></script>
+  `;
+
+  return documentTemplate({
+    title:content.seo.title,
+    description:content.seo.description,
+    body,
+    locale,
+    activePath:routes.portfolio(locale),
+    alternatePath:routes.portfolio(locale==="ar"?"en":"ar"),
+    canonicalPath:routes.portfolio(locale),
+    alternatePaths:Object.freeze({ar:routes.portfolio("ar"),en:routes.portfolio("en")}),
+    ogImage:getPageHeroMedia("portfolio",locale).src,
+    structuredData:[organizationSchema()]
+  });
+}

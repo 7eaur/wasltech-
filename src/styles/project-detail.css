@@ -1,0 +1,53 @@
+.project-breadcrumb{padding-top:var(--space-5)}
+.project-breadcrumb ol{display:flex;flex-wrap:wrap;gap:var(--space-2);align-items:center;color:var(--color-text-muted);font-size:var(--font-size-sm)}
+.project-breadcrumb li+li::before{content:"/";margin-inline-end:var(--space-2);color:var(--color-border-strong)}
+.project-breadcrumb a:hover{color:var(--color-text-accent)}
+
+.project-detail-hero{padding-block:clamp(var(--space-8),4.5vw,var(--space-14))}
+.project-detail-hero__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(20rem,.95fr);gap:clamp(var(--space-8),5vw,var(--space-16));align-items:center}
+.project-detail-hero h1{max-width:15ch;margin:0;font-size:clamp(2.5rem,1.9rem + 3vw,4.5rem);line-height:1.08;letter-spacing:var(--tracking-tight)}
+.project-detail-hero__summary{max-width:42rem;margin-top:var(--space-5);padding-top:var(--space-4);border-top:2px solid var(--color-brand-accent)}
+.project-detail-hero__summary p{margin-bottom:var(--space-5);color:var(--color-text-secondary);font-size:var(--font-size-md)}
+
+.project-story__grid{border-top:var(--border-thin) solid var(--color-border-default)}
+.project-story__item{display:grid;grid-template-columns:4rem minmax(0,1fr);gap:var(--space-5);padding-block:clamp(var(--space-6),4vw,var(--space-10));border-bottom:var(--border-thin) solid var(--color-border-default)}
+.project-story__item>span{color:var(--color-text-accent);font-size:var(--font-size-sm);font-weight:var(--font-weight-bold)}
+.project-story__item h2{max-width:52rem;color:var(--color-text-primary);font-size:var(--font-size-xl);font-weight:var(--font-weight-semibold);line-height:1.6}
+
+.project-scope__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(var(--space-8),7vw,var(--space-20))}
+.project-scope h2{max-width:18ch;margin-bottom:var(--space-6);font-size:var(--font-size-2xl)}
+.project-scope ul{display:grid;border-top:var(--border-thin) solid var(--color-border-default)}
+.project-scope li{padding:var(--space-4) 0;border-bottom:var(--border-thin) solid var(--color-border-default);color:var(--color-text-secondary);font-weight:var(--font-weight-medium)}
+
+.project-services__grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(var(--space-8),7vw,var(--space-20));align-items:start}
+.project-services h2{max-width:18ch;font-size:var(--font-size-2xl)}
+.project-services__links{display:grid;border-top:var(--border-thin) solid var(--color-border-default)}
+.project-services__links a{display:grid;gap:var(--space-1);padding:var(--space-5) 0;border-bottom:var(--border-thin) solid var(--color-border-default)}
+.project-services__links a:hover span{color:var(--color-text-accent)}
+.project-services__links span{color:var(--color-text-brand);font-size:var(--font-size-lg);font-weight:var(--font-weight-semibold)}
+.project-services__links small{color:var(--color-text-secondary)}
+
+.project-related__header{display:flex;align-items:end;justify-content:space-between;gap:var(--space-6);margin-bottom:var(--space-8)}
+.project-related__header h2{font-size:var(--font-size-2xl)}
+.project-related__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-5)}
+
+
+@media(max-width:53.75rem){
+  .project-detail-hero__grid,.project-services__grid{grid-template-columns:1fr}
+  .project-scope__grid{grid-template-columns:1fr}
+}
+@media(max-width:43.75rem){
+  .project-detail-hero h1{font-size:clamp(2.25rem,10vw,3.25rem)}
+  .project-detail-hero__summary{padding-top:var(--space-3)}
+  .project-story__item{grid-template-columns:2rem minmax(0,1fr);gap:var(--space-3);padding-block:var(--space-5)}
+  .project-story__item h2{font-size:1.05rem;line-height:1.6}
+  .project-scope__grid{grid-template-columns:1fr;gap:var(--space-6)}
+  .project-scope h2{margin-bottom:var(--space-4);font-size:1.2rem}
+  .project-scope li{padding:var(--space-3) 0;font-size:.92rem;line-height:1.65}
+  .project-services__links a{padding:var(--space-4) 0}
+  .project-services__links span{font-size:1rem}
+  .project-services__links small{font-size:.84rem;line-height:1.55}
+  .project-related__header{align-items:start;gap:var(--space-3);margin-bottom:var(--space-5)}
+  .project-related__grid{grid-template-columns:1fr;gap:var(--space-5)}
+}
+

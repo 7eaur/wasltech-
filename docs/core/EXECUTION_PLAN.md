@@ -43,22 +43,77 @@ Outputs:
 Gate:
 minimal generated page builds deterministically and checks pass.
 
+### Pre-Phase-2 architecture freeze
+
+Before Phase 2, the following product decisions are locked:
+- original Wasl identity assets;
+- IBM Plex Sans Arabic / IBM Plex Sans;
+- official Navy/Teal palette with semantic token layer;
+- Arabic default + English under `/en/`;
+- stable shared slugs across locales;
+- generated service/project/article/job detail routes;
+- insights, careers, privacy and terms are part of the planned architecture;
+- SEO is generated/validated at build time.
+
+These decisions must not be re-opened casually during data normalization.
+
 ## Phase 2 — Data & Content Normalization
 
 Goal:
-move repeated business content into canonical data.
+build the bilingual, extensible content/data layer before real page design.
+
+Inputs:
+- verified legacy service data;
+- verified portfolio data;
+- current FAQ data;
+- approved product/service taxonomy;
+- approved bilingual route/locale contracts.
 
 Outputs:
-- site config;
-- navigation config;
-- 8 services model;
-- portfolio model;
-- FAQ model;
+- `src/config/locales.js`;
+- `src/config/routes.js`;
+- localized navigation model;
+- 8-service canonical model with stable ids/slugs and `ar/en` fields;
+- portfolio canonical model with stable ids/slugs and localized fields;
+- FAQ canonical model;
+- jobs model contract;
+- article/content metadata contract;
 - verified asset mapping;
-- missing fields explicitly marked.
+- relation fields between services/projects/articles;
+- explicit `null`, `NOT VERIFIED`, or omitted fields when evidence is missing;
+- data-integrity checks for duplicate ids/slugs, locale completeness and broken relations.
 
 Gate:
-no service/project business content duplicated across page modules.
+- no service/project business content duplicated across page modules;
+- every entity has one stable identity across locales;
+- no incomplete English content is silently treated as publishable;
+- adding a future service/project record does not require a copied page implementation.
+
+## Phase 2B — Content Architecture & Evidence Completion
+
+Goal:
+move from normalized legacy data to a complete content model suitable for final pages, SEO and future expansion.
+
+This phase does not invent business facts. It identifies what a strong public site needs, reuses verified repository evidence, and requests user/business input only for meaningful gaps.
+
+Outputs:
+- complete service content contract;
+- complete project/case-study contract;
+- page-level localized content contract;
+- article/content planning contract;
+- field-level gap audit;
+- explicit `READY / PARTIAL / CONTENT REQUIRED / NOT VERIFIED / NOT APPLICABLE` states;
+- SEO content requirements per entity/page;
+- prioritized list of business inputs needed from the user;
+- representative real-content fixtures for later design review.
+
+Gate:
+- no important page is being designed against unknown content structure;
+- service detail fields are defined before Service Detail UI work;
+- case-study capability is defined before project detail UI work;
+- missing factual claims are explicitly requested rather than invented;
+- English content requirements are known before localization completion;
+- design can proceed using realistic content lengths and known evidence constraints.
 
 ## Phase 3 — Design Tokens & Shared Primitives
 
@@ -89,10 +144,20 @@ keyboard, RTL, mobile drawer, 360/390/768/1024/1366/1440, no overflow.
 ## Phase 5 — Homepage
 
 Goal:
-strong positioning → service discovery → proof → process → project planner.
+clear positioning → official services → selected proof/work → About Team → Why Wasl Tech → process → short FAQ → compact project CTA.
+
+Approved Phase-13 refinement:
+- calm, elegant, profile-inspired composition;
+- one supporting Hero visual;
+- services remain visible as 8 concise comparable cards;
+- About and Why stay separate;
+- qualitative trust language replaces unsupported numeric counters;
+- selected work stays restrained;
+- Home FAQ stays at 3 questions;
+- final CTA is smaller than the Hero.
 
 Gate:
-no generic card-wall layout; real hierarchy; approved mobile/desktop screenshots.
+real hierarchy, no oversized showcase/cinematic treatment, approved mobile/desktop screenshots, and all homepage structural guards green.
 
 ## Phase 6 — Services Directory
 
@@ -140,13 +205,28 @@ replace flat contact experience with a clearer project-intake journey while pres
 Gate:
 validation is truthful; no fake send/success; keyboard/mobile tested.
 
-## Phase 11 — FAQ + Utility + Localization Readiness
+## Phase 11 — FAQ + Insights + Careers + Legal + Localization Completion
 
 Goal:
-support decision-making and future bilingual growth without publishing incomplete English pages.
+complete decision-support and secondary public surfaces without weakening content quality.
+
+Outputs:
+- FAQ;
+- insights listing/article template;
+- careers listing/job template and honest empty state;
+- privacy;
+- terms;
+- 404;
+- complete Arabic/English locale behavior;
+- language switcher/hreflang relationships.
 
 Gate:
-FAQ data/schema sync; 404 works; unfinished content is noindex.
+- FAQ data/schema sync;
+- article/job publication states work;
+- privacy/terms reflect real behavior;
+- unfinished translations remain noindex/unpublished;
+- no mixed-language taxonomy leaks;
+- all generated localized routes resolve correctly.
 
 ## Phase 12 — SEO + Performance + Accessibility
 
@@ -182,6 +262,33 @@ Check:
 
 Gate:
 full screenshot matrix accepted.
+
+## Phase 13B — Architecture, Editorial & Media Completion
+
+Goal:
+close the architecture gaps discovered during final cross-page review before production cutover.
+
+Outputs:
+- remove public service/project counters;
+- image-led Hero surface across every public page family;
+- central temporary/final Hero-media contract;
+- published bilingual Insights listing;
+- reusable bilingual Article detail routes;
+- future-safe Careers listing and Job detail template without inventing openings;
+- Article and JobPosting structured-data builders;
+- published articles included automatically in canonical/hreflang/sitemap output;
+- Hero images reused for Open Graph/Twitter previews;
+- final image replacement inventory.
+
+Gate:
+- Preview verify green;
+- Release verify green;
+- representative AR/EN route matrix green at the canonical breakpoints;
+- published Article route included in matrix;
+- no public service/project count counter;
+- every public route family has Hero media;
+- no obsolete duplicate page implementation remains;
+- temporary editorial images replaced/optimized before Phase 14.
 
 ## Phase 14 — Cutover & Production Verification
 

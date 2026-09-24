@@ -1,0 +1,25 @@
+/* Site-wide responsive text flow.
+   Available layout width drives wrapping instead of narrow fixed measures. */
+main{font-size:clamp(.9375rem,.9rem + .14vw,1.025rem)}
+main :is(h1,h2,h3){text-wrap:pretty;overflow-wrap:normal;word-break:normal;hyphens:none}
+main p,main li{text-wrap:pretty;overflow-wrap:break-word;word-break:normal}
+main :is(section,article) [class] > :is(h1,h2),
+main :is(section,article) [class] [class] > :is(h1,h2),
+main :is([class$="__copy"],[class$="__content"],[class$="__intro"],[class$="__header"],[class$="__main"],[class$="__summary"]) :is(h1,h2,h3),
+main .section-header :is(h1,h2,h3){max-width:none}
+main :is([class$="__copy"],[class$="__content"],[class$="__intro"],[class$="__header"]) > p:not(.eyebrow),
+main .section-header > p:not(.eyebrow){width:auto;max-width:min(100%,64rem);font-size:clamp(.9rem,.84rem + .22vw,1.0625rem);line-height:1.75}
+.section-header{width:100%;max-width:min(100%,64rem)}
+.section-header p{max-width:min(100%,60rem)}
+:is(.home-hero__copy,.services-hero__copy,.service-detail-hero__copy,.project-detail-hero__copy,.contact-hero__copy,.planner-hero__copy,.secondary-hero__copy,.process-hero__copy,.insights-hero__copy,.article-hero__copy,.job-hero__copy){min-width:0}
+@media(min-width:64.0625rem){
+  main :is([class$="__copy"],[class$="__content"],[class$="__intro"],[class$="__header"]) > p:not(.eyebrow),
+  main .section-header > p:not(.eyebrow){max-width:min(100%,68rem)}
+}
+@media(max-width:48rem){
+  main{font-size:.9375rem}
+  .section-header,.section-header p,.lead,.prose{max-width:100%}
+  main :is(h1,h2,h3){text-wrap:pretty}
+  main :is([class$="__copy"],[class$="__content"],[class$="__intro"],[class$="__header"]) > p:not(.eyebrow),
+  main .section-header > p:not(.eyebrow){max-width:100%;line-height:1.7}
+}
