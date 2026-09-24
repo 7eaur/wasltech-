@@ -73,7 +73,7 @@ for (const locale of ["ar","en"]) {
     }
 
     const relatedArticles = getPublishedArticlesByService(service.id, locale).slice(0,3);
-    const hasRelatedArticles = /class="[^"]*\bservice-articles\b[^"]*"/.test(html);
+    const hasRelatedArticles = html.includes("service-articles");
     if (Boolean(relatedArticles.length) !== hasRelatedArticles) {
       fail(file,`related article visibility mismatch for service: ${service.id}`);
     }
