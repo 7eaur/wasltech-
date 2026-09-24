@@ -31,7 +31,8 @@ This is the newest execution truth for SEO / AI-search work.
 - **Phase 1 — Technical discoverability: COMPLETE in release candidate**
 - **Phase 2 — Entity + structured data: COMPLETE**
 - **Phase 3 — Intent & topical architecture: COMPLETE**
-- **Phase 4 — Service-page authority: ACTIVE**
+- **Phase 4 — Service-page authority: COMPLETE**
+- **Phase 5 — Evidence / case-study authority: ACTIVE**
 
 Completed foundation:
 - executable search-visibility release gate;
@@ -50,14 +51,18 @@ Completed foundation:
 - Phase 2 entity/schema gate: run `36066590901` — SUCCESS.
 - Phase 3 intent-map checkpoint: run `36066801225` — SUCCESS.
 - Pre-main-sync Phase 4 implementation: run `36067243475` — SUCCESS.
-- A new full verification is required after the current main/subservice reconciliation before advancing Phase 4 further.
+- Reconciled main/subservice + SEO branch verification: run `36067842747` — SUCCESS.
+- Service authority audit: `docs/qa/2026-09-25_service-search-authority-audit.md`.
 
 ### Next SEO action
-Continue Phase 4 only after the reconciled branch is green:
-1. audit all eight service pages plus their new subservice sections as one intent system;
-2. refine metadata/body phrasing only where it improves real user intent;
-3. keep subservices under parent pages unless evidence justifies a dedicated page;
-4. then proceed to verified case-study/evidence strengthening before scaling Insights content.
+**Phase 5 — Evidence / case-study authority**
+
+Audit the existing project records and generated case studies:
+1. classify which project facts are verified enough to strengthen search trust;
+2. preserve real project/service relationships;
+3. improve project-to-service internal linking only from existing evidence;
+4. identify missing evidence explicitly rather than inventing outcomes, stacks, clients, metrics or dates;
+5. only after the evidence layer is sound proceed to Phase 6 Insights/topic-cluster publishing.
 
 Do not mass-produce SEO pages or articles.
 
