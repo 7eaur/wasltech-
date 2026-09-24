@@ -1,6 +1,7 @@
 import { routes } from "../config/routes.js";
 import { serviceGroups } from "../data/services.js";
 import { getProjectsByService } from "../data/projects.js";
+import { getPublishedArticlesByService } from "../data/articles.js";
 import { ActionLink } from "../components/ActionLink.js";
 import { CallToAction } from "../components/CallToAction.js";
 import { MediaCard } from "../components/MediaCard.js";
@@ -169,6 +170,7 @@ function renderProof(service, locale) {
         })}
         <div class="service-proof__grid">
           ${projects.map((project)=>MediaCard({
+            href:routes.project(project.slug,locale),
             image:{
               src:project.image,
               alt:project.content[locale].title,
@@ -182,6 +184,34 @@ function renderProof(service, locale) {
         </div>
         <div class="service-proof__more">
           <a class="text-link" href="${routes.portfolio(locale)}">${locale === "ar" ? "شاهد جميع الأعمال" : "View all work"}</a>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderArticles(service, locale) {
+  const items = getPublishedArticlesByService(service.id, locale).slice(0, 3);
+  if (!items.length) return "";
+
+  return `
+    <section class="section section--subtle service-articles">
+      <div class="container">
+        ${SectionHeader({
+          kicker:locale === "ar" ? "أدلة مرتبطة" : "Related guidance",
+          title:locale === "ar" ? "محتوى يساعدك على اتخاذ القرار قبل التنفيذ" : "Guidance to help you decide before implementation",
+          supporting:locale === "ar"
+            ? "مقالات عملية مرتبطة بهذه الخدمة تساعدك على ترتيب النطاق والأسئلة قبل بدء المشروع."
+            : "Practical articles related to this service that help clarify scope and key questions before you start."
+        })}
+        <div class="service-articles__list">
+          ${items.map((article)=>`
+            <a class="service-article-link" href="${routes.article(article.slug,locale)}">
+              <span>${escapeHtml(article.content[locale].categoryLabel)}</span>
+              <strong>${escapeHtml(article.content[locale].title)}</strong>
+              <p>${escapeHtml(article.content[locale].summary)}</p>
+            </a>
+          `).join("")}
         </div>
       </div>
     </section>
@@ -278,6 +308,7 @@ export function serviceDetailPage(service, locale="ar") {
     renderConstraints(service,locale),
     renderProcess(service,locale),
     renderProof(service,locale),
+    renderArticles(service,locale),
     renderFaq(service,locale),
     renderFinalCta(service,locale)
   ].join("");

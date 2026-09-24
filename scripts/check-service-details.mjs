@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { routes } from "../src/config/routes.js";
 import { services } from "../src/data/services.js";
 import { getProjectsByService } from "../src/data/projects.js";
+import { getPublishedArticlesByService } from "../src/data/articles.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist");
@@ -66,10 +67,20 @@ for (const locale of ["ar","en"]) {
       if (!html.includes(htmlText(project.content[locale].title))) {
         fail(file,`related project missing: ${project.id}`);
       }
+      if (!html.includes(`href="${routes.project(project.slug,locale)}"`)) {
+        fail(file,`related project link missing: ${project.id}`);
+      }
     }
 
-    if (/href="\/((en\/)?portfolio\/)[^"]+\/"/.test(html)) {
-      fail(file,"future project-detail link leaked before Phase 8");
+    const relatedArticles = getPublishedArticlesByService(service.id, locale).slice(0,3);
+    const hasRelatedArticles = html.includes("service-articles");
+    if (Boolean(relatedArticles.length) !== hasRelatedArticles) {
+      fail(file,`related article visibility mismatch for service: ${service.id}`);
+    }
+    for (const article of relatedArticles) {
+      if (!html.includes(`href="${routes.article(article.slug,locale)}"`)) {
+        fail(file,`related article link missing: ${article.id}`);
+      }
     }
 
     if (html.includes("VNext Foundation")) fail(file,"foundation placeholder leaked into service detail");

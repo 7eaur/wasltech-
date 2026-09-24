@@ -28,7 +28,7 @@ Hero → Services → Selected Work / evidence → About → Why Wasl Tech → P
 Understand → Decide → Design → Build → Test → Launch & Evolve.
 
 ### Service-detail model
-Outcome-led Hero → problem/need → solution/scope → audience → deliverables → scope-dependent constraints → process → related real work → service FAQ → contextual CTA.
+Outcome-led Hero → problem/need → solution/scope → audience → deliverables → scope-dependent constraints → process → related real work → related guidance when published → service FAQ → contextual CTA.
 
 
 Status: CANONICAL CONTENT/IA AUTHORITY
@@ -205,8 +205,9 @@ Sequence:
 6. Possible integrations/capabilities where relevant.
 7. Related verified work.
 8. Service-specific process.
-9. FAQ.
-10. Planner CTA.
+9. Related decision-support articles when real published content exists.
+10. FAQ.
+11. Planner CTA.
 
 Do not add price/duration/support promises until approved as real business rules.
 

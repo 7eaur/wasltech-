@@ -1,5 +1,88 @@
 # Wasl Tech VNext — Current Project Status
 
+## 2026-09-25 — SEARCH VISIBILITY PROGRAM ACTIVE
+
+This is the newest execution truth for SEO / AI-search work.
+
+### Repository / branch truth
+- Repository: `7eaur/wasltech-`
+- Production branch: `main`
+- Current main integrated into SEO program: `427e8bc5939f8bb4f0051fc3a3d562f646a0c0da`
+- Search work branch: `seo/search-visibility-foundation-20260925`
+- Search merge checkpoint: `409a5ee31e49b9a1119884c9475b059bec548a41`
+- Draft PR: `#37`
+- SEO branch is currently **0 commits behind main** at this checkpoint.
+- No SEO changes have been merged to production.
+
+### Domain / publication rule
+- Canonical target remains `https://www.wasl-tech.com`.
+- Per user instruction, the primary domain will be connected at publication time.
+- Do not treat the currently separate live domain state as the final production verification target.
+- At publication, run a real-domain crawl/indexability/canonical/redirect/crawler smoke check before submission to webmaster tools.
+
+### Canonical authority
+- `docs/core/SEARCH_VISIBILITY.md` — SEO + AI discovery standard.
+- `docs/research/SEARCH_INTENT_MAP_2026-09-25.md` — current intent/topic ownership map.
+- `AGENTS.md` — non-negotiable operating rules.
+- Engine-specific behavior follows current official Google/Bing/OpenAI guidance.
+
+### Latest AI-readiness verification
+- Commit: `f2982c41f6bb342502dcebd0f9154b4893c31980`
+- VNext Preview + Release verification: `36069033203` — **SUCCESS**
+- QA: `docs/qa/2026-09-25_ai-answer-readiness-audit.md`
+- Release gate now verifies answer-ready static content, snippet eligibility, Article entity relationships and canonical Organization authorship/publishing.
+
+### Latest external-entity verification
+- Commit: `5433003b69f360384b7c2dcd5515b9389ba4faf2`
+- Preview + Release verification: `36069375128` — **SUCCESS**
+- QA: `docs/qa/2026-09-25_external-entity-consistency-audit.md`
+- External identity contract: `docs/core/EXTERNAL_ENTITY_PROFILE.md`
+
+### Phase 9 preparation
+- Pre-publication implementation commit: `5f1cf8b733a17e14f3373957586523298ad6fb51`
+- Preview + Release verification: `36069649090` — **SUCCESS**
+- Webmaster plan: `docs/core/WEBMASTER_MEASUREMENT.md`
+- Production smoke command: `npm run vnext:check:production-search`
+- The production-domain smoke is intentionally not executed before domain cutover.
+- Search Console/Bing verification intentionally waits for canonical-domain publication and account authorization.
+
+### Phase state
+- **Phase 0 — Governance & baseline: COMPLETE**
+- **Phase 1 — Technical discoverability: COMPLETE in release candidate**
+- **Phase 2 — Entity + structured data: COMPLETE**
+- **Phase 3 — Intent & topical architecture: COMPLETE**
+- **Phase 4 — Service-page authority: COMPLETE**
+- **Phase 5 — Evidence / case-study authority: COMPLETE**
+- **Phase 6 — Insights / topic clusters: COMPLETE**
+- **Phase 7 — AI answer readiness: COMPLETE**
+- **Phase 8 — External entity consistency: COMPLETE on website side**
+- **Phase 9 — Webmaster integrations & measurement: PRE-PUBLICATION READY / WAITING FOR DOMAIN + ACCOUNT VERIFICATION**
+- **Phase 10 — Continuous optimization: NOT STARTED; requires post-launch data**
+
+
+### Verification evidence
+- Phase 1 integrated search gate: run `36066357251` — SUCCESS.
+- Phase 2 entity/schema gate: run `36066590901` — SUCCESS.
+- Phase 3 intent-map checkpoint: run `36066801225` — SUCCESS.
+- Pre-main-sync Phase 4 implementation: run `36067243475` — SUCCESS.
+- Reconciled main/subservice + SEO branch verification: run `36067842747` — SUCCESS.
+- Service authority audit: `docs/qa/2026-09-25_service-search-authority-audit.md`.
+
+### Next SEO action
+**Publication-dependent Phase 9 completion**
+
+After explicit production approval:
+1. re-fetch and reconcile latest `main`;
+2. merge only the verified SEO branch;
+3. deploy exact SHA;
+4. connect `www.wasl-tech.com` as canonical domain;
+5. run real-domain production search smoke;
+6. verify Search Console Domain property + sitemap;
+7. import/verify Bing Webmaster + sitemap;
+8. record Day-0 baseline;
+9. begin Phase 10 only after real search data arrives.
+
+
 ## 2026-09-24 — AUTHORITATIVE CURRENT BATON
 
 This section is the current execution truth. It supersedes older historical checkpoint text below when there is any conflict.

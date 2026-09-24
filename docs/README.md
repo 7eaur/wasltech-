@@ -27,9 +27,12 @@ The older `docs/qa/2026-09-24_footer-service-media-handoff.md` record is histori
 6. `docs/core/DESIGN_SYSTEM.md` — stable UX/UI/brand rules.
 7. `docs/core/ENGINEERING_ARCHITECTURE.md` — stable code architecture.
 8. `docs/core/CONTENT_IA.md` — information architecture and writing system.
-9. `docs/core/EXECUTION_PLAN.md` — phase sequence and acceptance goals.
-10. `docs/core/QA_RELEASE.md` — quality/release gates.
-11. Relevant `docs/research/*` only when external/reference evidence is needed.
+9. `docs/core/SEARCH_VISIBILITY.md` — canonical SEO, AI-search visibility, crawler, entity and measurement rules.
+10. `docs/core/EXTERNAL_ENTITY_PROFILE.md` — canonical identity/profile contract for external platforms.
+11. `docs/core/WEBMASTER_MEASUREMENT.md` — Search Console, Bing, IndexNow and post-launch measurement plan.
+12. `docs/core/EXECUTION_PLAN.md` — phase sequence and acceptance goals.
+13. `docs/core/QA_RELEASE.md` — quality/release gates.
+14. Relevant `docs/research/*` only when external/reference evidence is needed.
 
 Live code/runtime always override stale documentation.
 
@@ -44,6 +47,9 @@ Live code/runtime always override stale documentation.
 | Visual/UX/design rules | `docs/core/DESIGN_SYSTEM.md` |
 | Repository/code architecture | `docs/core/ENGINEERING_ARCHITECTURE.md` |
 | Site map, page purpose, copywriting | `docs/core/CONTENT_IA.md` |
+| SEO / AI search visibility / crawler policy / measurement | `docs/core/SEARCH_VISIBILITY.md` |
+| External profile/entity consistency | `docs/core/EXTERNAL_ENTITY_PROFILE.md` |
+| Webmaster verification / search measurement | `docs/core/WEBMASTER_MEASUREMENT.md` |
 | Phase plan / phase order | `docs/core/EXECUTION_PLAN.md` |
 | Performance, accessibility, SEO, visual/release gates | `docs/core/QA_RELEASE.md` |
 | Competitor/reference research | `docs/research/*` |
