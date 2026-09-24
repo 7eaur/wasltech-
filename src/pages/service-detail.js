@@ -103,6 +103,34 @@ function renderAudience(service, locale) {
   `;
 }
 
+function renderSubservices(service, locale) {
+  const copy = service.content[locale];
+  const items = copy.subservices ?? [];
+  if (!items.length) return "";
+
+  return `
+    <section class="section service-subservices">
+      <div class="container">
+        ${SectionHeader({
+          kicker:locale === "ar" ? "خدمات ضمن هذه الخدمة" : "Services within this area",
+          title:locale === "ar" ? "ما الذي يمكننا تنفيذه ضمن هذه الخدمة؟" : "What can we deliver within this service?",
+          supporting:locale === "ar"
+            ? "هذه الأنواع جزء من الخدمة الرئيسية وتُحدد تفاصيلها حسب احتياج المشروع."
+            : "These are service types within the main offering, with details defined according to each project."
+        })}
+        <div class="service-subservices__grid">
+          ${items.map((item)=>`
+            <article class="service-subservice">
+              <h3>${escapeHtml(item.title)}</h3>
+              <p>${escapeHtml(item.description)}</p>
+            </article>
+          `).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
 function renderDeliverables(service, locale) {
   const items = service.content[locale].deliverables;
   return `
@@ -275,6 +303,7 @@ export function serviceDetailPage(service, locale="ar") {
     renderHero(service,locale),
     renderSignals(service,locale),
     renderAudience(service,locale),
+    renderSubservices(service,locale),
     renderDeliverables(service,locale),
     renderConstraints(service,locale),
     renderProcess(service,locale),
