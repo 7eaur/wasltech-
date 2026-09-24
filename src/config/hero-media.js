@@ -1,16 +1,16 @@
 const PAGE_MEDIA = Object.freeze({
-  services: Object.freeze({ src:"/assets/gen/hero_portfolio.png", temporary:true }),
-  portfolio: Object.freeze({ src:"/assets/gen/hero_portfolio.png", temporary:true }),
+  services: Object.freeze({ src:"/assets/services/web-development.webp", width:1280, height:720, temporary:true }),
+  portfolio: Object.freeze({ src:"/assets/media/home-hero.webp", width:1200, height:900, temporary:true }),
   about: Object.freeze({ src:"/assets/media/about-us.webp", width:1536, height:864, temporary:false }),
-  process: Object.freeze({ src:"/assets/gen/hero_process.png", temporary:true }),
-  contact: Object.freeze({ src:"/assets/gen/hero_contact.png", temporary:true }),
-  startProject: Object.freeze({ src:"/assets/gen/hero_contact.png", temporary:true }),
-  faq: Object.freeze({ src:"/assets/gen/hero_blog.png", temporary:true }),
-  insights: Object.freeze({ src:"/assets/gen/hero_blog.png", temporary:true }),
-  careers: Object.freeze({ src:"/assets/about_2.png", temporary:true }),
-  privacy: Object.freeze({ src:"/assets/gen/hero_blog.png", temporary:true }),
-  terms: Object.freeze({ src:"/assets/gen/hero_process.png", temporary:true }),
-  notFound: Object.freeze({ src:"/assets/gen/hero_contact.png", temporary:true })
+  process: Object.freeze({ src:"/assets/services/technical-solutions.webp", width:1280, height:720, temporary:true }),
+  contact: Object.freeze({ src:"/assets/media/about-us.webp", width:1536, height:864, temporary:true }),
+  startProject: Object.freeze({ src:"/assets/media/about-us.webp", width:1536, height:864, temporary:true }),
+  faq: Object.freeze({ src:"/assets/media/home-hero.webp", width:1200, height:900, temporary:true }),
+  insights: Object.freeze({ src:"/assets/services/web-development.webp", width:1280, height:720, temporary:true }),
+  careers: Object.freeze({ src:"/assets/media/about-us.webp", width:1536, height:864, temporary:true }),
+  privacy: Object.freeze({ src:"/assets/services/technical-solutions.webp", width:1280, height:720, temporary:true }),
+  terms: Object.freeze({ src:"/assets/services/technical-solutions.webp", width:1280, height:720, temporary:true }),
+  notFound: Object.freeze({ src:"/assets/media/home-hero.webp", width:1200, height:900, temporary:true })
 });
 
 function localizedAlt(locale, ar, en) {
@@ -51,8 +51,8 @@ export function getProjectHeroMedia(project, locale = "ar") {
 export function getArticleHeroMedia(article, locale = "ar") {
   return Object.freeze({
     src: article.coverImage || PAGE_MEDIA.insights.src,
-    width: 1600,
-    height: 1000,
+    width: article.coverWidth ?? 1600,
+    height: article.coverHeight ?? 1000,
     temporary: Boolean(article.coverTemporary ?? !article.coverImage),
     alt: article.content[locale].title
   });
@@ -61,8 +61,8 @@ export function getArticleHeroMedia(article, locale = "ar") {
 export function getJobHeroMedia(job, locale = "ar") {
   return Object.freeze({
     src: job.heroImage || PAGE_MEDIA.careers.src,
-    width: 1600,
-    height: 1000,
+    width: job.heroWidth ?? PAGE_MEDIA.careers.width ?? 1600,
+    height: job.heroHeight ?? PAGE_MEDIA.careers.height ?? 1000,
     temporary: Boolean(job.heroTemporary ?? !job.heroImage),
     alt: job.content[locale].title
   });

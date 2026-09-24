@@ -316,7 +316,7 @@ export function homePage(locale = "ar") {
       ar: routes.home("ar"),
       en: routes.home("en")
     }),
-    ogImage: "/assets/about_1.png",
+    ogImage: "/assets/media/home-hero.webp",
     structuredData: [organizationSchema(), websiteSchema(locale)]
   });
 }

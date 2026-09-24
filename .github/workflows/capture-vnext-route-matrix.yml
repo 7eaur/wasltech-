@@ -3,16 +3,33 @@ name: Capture VNext route matrix
 on:
   push:
     branches:
+      - main
       - rebuild/vnext-foundation-20260921
     paths:
       - ".github/workflows/capture-vnext-route-matrix.yml"
       - "src/pages/**"
       - "src/styles/**"
       - "src/components/**"
+      - "src/client/**"
       - "src/data/**"
       - "src/config/**"
       - "src/templates/**"
       - "scripts/build.mjs"
+      - "scripts/check-quality.mjs"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/capture-vnext-route-matrix.yml"
+      - "src/pages/**"
+      - "src/styles/**"
+      - "src/components/**"
+      - "src/client/**"
+      - "src/data/**"
+      - "src/config/**"
+      - "src/templates/**"
+      - "scripts/build.mjs"
+      - "scripts/check-quality.mjs"
 
 permissions:
   contents: read
@@ -151,7 +168,8 @@ jobs:
               deviceScaleFactor: 1,
               isMobile,
               hasTouch: isMobile,
-              locale: locale === "ar" ? "ar-YE" : "en-US"
+              locale: locale === "ar" ? "ar-YE" : "en-US",
+              reducedMotion: "reduce"
             });
             const page = await context.newPage();
             await page.goto(base + path, { waitUntil: "networkidle" });
@@ -299,11 +317,114 @@ jobs:
             await context.close();
           }
 
+          async function verifyDegradedRuntime() {
+            const context = await browser.newContext({
+              viewport: { width: 390, height: 844 },
+              deviceScaleFactor: 1,
+              isMobile: true,
+              hasTouch: true,
+              locale: "ar-YE",
+              reducedMotion: "no-preference"
+            });
+            const page = await context.newPage();
+            const session = await context.newCDPSession(page);
+            await session.send("Network.enable");
+            await session.send("Network.emulateNetworkConditions", {
+              offline: false,
+              latency: 180,
+              downloadThroughput: 180 * 1024,
+              uploadThroughput: 80 * 1024,
+              connectionType: "cellular3g"
+            });
+            await session.send("Emulation.setCPUThrottlingRate", { rate: 4 });
+
+            await page.addInitScript(() => {
+              Object.defineProperty(navigator, "deviceMemory", { configurable: true, get: () => 2 });
+              Object.defineProperty(navigator, "hardwareConcurrency", { configurable: true, get: () => 2 });
+              window.__waslLongTasks = [];
+              try {
+                const observer = new PerformanceObserver((list) => {
+                  for (const entry of list.getEntries()) window.__waslLongTasks.push(entry.duration);
+                });
+                observer.observe({ type: "longtask", buffered: true });
+              } catch {}
+            });
+
+            const started = Date.now();
+            await page.goto(base + "/", { waitUntil: "domcontentloaded", timeout: 15000 });
+            const domReadyMs = Date.now() - started;
+            await page.locator("h1").waitFor({ state: "visible", timeout: 4000 });
+            await page.waitForTimeout(250);
+            const startupLongTasks = await page.evaluate(() => {
+              const values = [...(window.__waslLongTasks ?? [])];
+              window.__waslLongTasks = [];
+              return values;
+            });
+
+            const toggle = page.locator("[data-menu-toggle]");
+            await toggle.click();
+            if (await toggle.getAttribute("aria-expanded") !== "true") {
+              throw new Error("Degraded runtime: mobile navigation did not respond.");
+            }
+            await page.keyboard.press("Escape");
+            await page.waitForTimeout(120);
+            const interactionLongTasks = await page.evaluate(() => {
+              const values = [...(window.__waslLongTasks ?? [])];
+              window.__waslLongTasks = [];
+              return values;
+            });
+
+            await page.evaluate(() => window.scrollTo(0, Math.round(document.body.scrollHeight * 0.55)));
+            await page.waitForTimeout(700);
+
+            const metrics = await page.evaluate(() => ({
+              textLength: document.body.innerText.trim().length,
+              motionEnabled: document.documentElement.classList.contains("motion-enabled"),
+              motionTargets: document.querySelectorAll(".motion-reveal").length,
+              longTasks: window.__waslLongTasks ?? [],
+              overlyTransparentVisible: [...document.querySelectorAll(".motion-reveal")].filter((node) => {
+                const rect = node.getBoundingClientRect();
+                const opacity = Number.parseFloat(getComputedStyle(node).opacity);
+                return rect.top < innerHeight && rect.bottom > 0 && opacity < 0.75;
+              }).length
+            }));
+
+            const maxStartupLongTask = Math.max(0, ...startupLongTasks);
+            const maxInteractionLongTask = Math.max(0, ...interactionLongTasks);
+            const maxScrollLongTask = Math.max(0, ...metrics.longTasks);
+            console.log(`VNEXT DEGRADED DIAGNOSTICS: DOM ${domReadyMs}ms | startup ${maxStartupLongTask.toFixed(1)}ms | interaction ${maxInteractionLongTask.toFixed(1)}ms | scroll ${maxScrollLongTask.toFixed(1)}ms`);
+            if (domReadyMs > 8000) throw new Error(`Degraded runtime DOM ready too slow: ${domReadyMs}ms`);
+            if (maxStartupLongTask > 250) throw new Error(`Degraded startup long task too high: ${maxStartupLongTask.toFixed(1)}ms`);
+            if (maxInteractionLongTask > 250) throw new Error(`Degraded interaction long task too high: ${maxInteractionLongTask.toFixed(1)}ms`);
+            if (maxScrollLongTask > 250) throw new Error(`Degraded scroll long task too high: ${maxScrollLongTask.toFixed(1)}ms`);
+            if (metrics.textLength < 500) throw new Error("Degraded runtime rendered too little content.");
+            if (metrics.motionEnabled) throw new Error("Degraded low-power runtime must disable optional presentation motion.");
+            if (metrics.motionTargets) throw new Error(`Degraded low-power runtime created motion targets: ${metrics.motionTargets}`);
+            if (metrics.overlyTransparentVisible) throw new Error(`Visible motion targets became too transparent: ${metrics.overlyTransparentVisible}`);
+
+            await context.close();
+
+            const reducedContext = await browser.newContext({
+              viewport: { width: 390, height: 844 },
+              isMobile: true,
+              hasTouch: true,
+              reducedMotion: "reduce"
+            });
+            const reducedPage = await reducedContext.newPage();
+            await reducedPage.goto(base + "/", { waitUntil: "domcontentloaded" });
+            const reducedEnabled = await reducedPage.locator("html").evaluate((node) => node.classList.contains("motion-enabled"));
+            if (reducedEnabled) throw new Error("Reduced-motion mode must not enable presentation motion.");
+            await reducedContext.close();
+
+            console.log(`VNEXT DEGRADED RUNTIME: PASSED (DOM ${domReadyMs}ms; startup ${maxStartupLongTask.toFixed(1)}ms; interaction ${maxInteractionLongTask.toFixed(1)}ms; scroll ${maxScrollLongTask.toFixed(1)}ms)`);
+          }
+
+          await verifyDegradedRuntime();
           await verifyAllIndexableRoutes();
           await verifyInteractions("ar");
           await verifyInteractions("en");
           await browser.close();
-          console.log("VNEXT BILINGUAL ROUTE MATRIX + INTERACTIONS: PASSED");
+          console.log("VNEXT BILINGUAL ROUTE MATRIX + INTERACTIONS + DEGRADED RUNTIME: PASSED");
           EOF
           node /tmp/wasltech-vnext-matrix/matrix.mjs
 

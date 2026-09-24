@@ -13,6 +13,7 @@ const budgets = Object.freeze({
   cssGzip: 16 * 1024,
   jsGzipTotal: 8 * 1024,
   htmlGzipPerPage: 16 * 1024,
+  runtimeRasterEach: 180 * 1024,
   projectImageEach: 150 * 1024,
   projectImagesTotal: 1200 * 1024
 });
@@ -81,6 +82,7 @@ if (cssGzip > budgets.cssGzip) {
 
 const jsFiles = [
   "assets/js/navigation.js",
+  "assets/js/motion.js",
   "assets/js/portfolio-filter.js",
   "assets/js/project-planner.js"
 ];
@@ -105,12 +107,24 @@ for (const file of htmlFiles) {
     fail(rel, `HTML gzip budget exceeded: ${pageGzip} > ${budgets.htmlGzipPerPage}`);
   }
 
+  if (!source.includes('src="/assets/js/motion.js" defer')) {
+    fail(rel, "progressive motion client missing");
+  }
+
   const images = source.match(/<img\b[^>]*>/gi) ?? [];
   for (const tag of images) {
     const src = attr(tag, "src") ?? "unknown";
     if (attr(tag, "alt") === null) fail(rel, `image missing alt: ${src}`);
     if (attr(tag, "width") === null || attr(tag, "height") === null) {
       fail(rel, `image missing intrinsic width/height: ${src}`);
+    }
+
+    if (/^\/assets\/.*\.(?:png|jpe?g|webp|avif)$/i.test(src)) {
+      const imagePath = path.join(DIST, src.replace(/^\//, ""));
+      const info = await stat(imagePath);
+      if (info.size > budgets.runtimeRasterEach) {
+        fail(src, `referenced runtime raster exceeds ${budgets.runtimeRasterEach} bytes: ${info.size}`);
+      }
     }
   }
 
@@ -181,6 +195,14 @@ if (!portfolioFilterRules.some((rule) => rule.includes("min-height:var(--control
 const baseCss = await readFile(path.join(ROOT, "src/styles/base.css"), "utf8");
 if (!baseCss.includes("@media(prefers-reduced-motion:reduce)")) {
   fail("src/styles/base.css", "prefers-reduced-motion baseline missing");
+}
+
+const motionSource = await readFile(path.join(ROOT, "src/client/motion.js"), "utf8");
+for (const contract of ["IntersectionObserver", "prefers-reduced-motion", "saveData"]) {
+  if (!motionSource.includes(contract)) fail("src/client/motion.js", `missing motion performance contract: ${contract}`);
+}
+if (/addEventListener\(\s*["']scroll["']/.test(motionSource)) {
+  fail("src/client/motion.js", "continuous scroll listeners are forbidden for presentation motion");
 }
 
 const tokens = await readFile(path.join(ROOT, "src/styles/tokens.css"), "utf8");

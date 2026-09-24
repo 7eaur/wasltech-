@@ -52,7 +52,8 @@ const cssSources = [
   "src/styles/hero-home.css",
   "src/styles/hero-pages.css",
   "src/styles/hero-responsive.css",
-  "src/styles/text-flow.css"
+  "src/styles/text-flow.css",
+  "src/styles/motion.css"
 ];
 
 
@@ -86,22 +87,6 @@ async function buildAssets() {
   await cp(path.join(ROOT, "assets/brand"), path.join(DIST, "assets/brand"), {
     recursive: true
   });
-  for (const image of ["about_1.png", "about_2.png"]) {
-    await cp(path.join(ROOT, "assets", image), path.join(DIST, "assets", image));
-  }
-  const editorialImages = [
-    "hero_blog.png",
-    "hero_contact.png",
-    "hero_portfolio.png",
-    "hero_process.png",
-    "blog_brand.png",
-    "blog_ecommerce.png",
-    "blog_web.png"
-  ];
-  await mkdir(path.join(DIST, "assets/gen"), { recursive: true });
-  for (const image of editorialImages) {
-    await cp(path.join(ROOT, "assets/gen", image), path.join(DIST, "assets/gen", image));
-  }
   const siteMediaImages = ["home-hero.webp", "about-us.webp"];
   await mkdir(path.join(DIST, "assets/media"), { recursive: true });
   for (const image of siteMediaImages) {
@@ -128,6 +113,8 @@ async function buildAssets() {
 
   const navigation = await readFile(path.join(ROOT, "src/client/navigation.js"), "utf8");
   await writeOutput("assets/js/navigation.js", navigation);
+  const motion = await readFile(path.join(ROOT, "src/client/motion.js"), "utf8");
+  await writeOutput("assets/js/motion.js", motion);
   const portfolioFilter = await readFile(path.join(ROOT, "src/client/portfolio-filter.js"), "utf8");
   await writeOutput("assets/js/portfolio-filter.js", portfolioFilter);
   const projectPlanner = await readFile(path.join(ROOT, "src/client/project-planner.js"), "utf8");
