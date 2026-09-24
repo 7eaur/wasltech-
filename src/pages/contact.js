@@ -1,7 +1,8 @@
 import { routes } from "../config/routes.js";
 import { site } from "../config/site.js";
 import { pages } from "../data/pages.js";
-import { ActionLink } from "../components/ActionLink.js";\nimport { CallToAction } from "../components/CallToAction.js";
+import { ActionLink } from "../components/ActionLink.js";
+import { CallToAction } from "../components/CallToAction.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";

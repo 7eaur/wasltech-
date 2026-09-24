@@ -1,7 +1,8 @@
 import { routes } from "../config/routes.js";
 import { serviceGroups } from "../data/services.js";
 import { getProjectsByService } from "../data/projects.js";
-import { ActionLink } from "../components/ActionLink.js";\nimport { CallToAction } from "../components/CallToAction.js";
+import { ActionLink } from "../components/ActionLink.js";
+import { CallToAction } from "../components/CallToAction.js";
 import { SectionHeader } from "../components/SectionHeader.js";
 import { documentTemplate } from "../templates/document.js";
 import { breadcrumbSchema, faqPageSchema, serviceSchema } from "../seo/structured-data.js";

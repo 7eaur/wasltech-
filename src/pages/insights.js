@@ -1,7 +1,8 @@
 import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
 import { getPublishedArticles } from "../data/articles.js";
-import { ActionLink } from "../components/ActionLink.js";\nimport { CallToAction } from "../components/CallToAction.js";
+import { ActionLink } from "../components/ActionLink.js";
+import { CallToAction } from "../components/CallToAction.js";
 import { HeroMedia } from "../components/HeroMedia.js";
 import { SectionHeader } from "../components/SectionHeader.js";
 import { getPageHeroMedia, getArticleHeroMedia } from "../config/hero-media.js";
