@@ -51,8 +51,8 @@ export function getProjectHeroMedia(project, locale = "ar") {
 export function getArticleHeroMedia(article, locale = "ar") {
   return Object.freeze({
     src: article.coverImage || PAGE_MEDIA.insights.src,
-    width: 1600,
-    height: 1000,
+    width: article.coverDimensions?.width ?? 1600,
+    height: article.coverDimensions?.height ?? 1000,
     temporary: Boolean(article.coverTemporary ?? !article.coverImage),
     alt: article.content[locale].title
   });
