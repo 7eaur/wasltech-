@@ -1,5 +1,47 @@
 # Wasl Tech VNext — Conversation Handoff
 
+## 2026-09-25 — AUTHORITATIVE SEO RESUME POINT
+
+Use this section first for search-visibility work. It supersedes older SEO/search next-action notes.
+
+### Resume source of truth
+- Repository: `7eaur/wasltech-`
+- Production branch: `main`
+- SEO work branch: `seo/search-visibility-foundation-20260925`
+- Draft PR: `#37`
+- Main checkpoint merged into SEO branch: `427e8bc5939f8bb4f0051fc3a3d562f646a0c0da`
+- Merge checkpoint: `409a5ee31e49b9a1119884c9475b059bec548a41`
+- Read `docs/core/SEARCH_VISIBILITY.md` and `docs/research/SEARCH_INTENT_MAP_2026-09-25.md` before search changes.
+
+### Completed
+- SEO/AI search governance standard.
+- Production search visibility CI gate.
+- OAI-SearchBot production allowance.
+- bilingual canonical/hreflang/sitemap/robots validation.
+- title/description/H1/OG/Twitter validation.
+- internal indexable-route reachability validation.
+- canonical Organization/WebSite entity graph.
+- service/CreativeWork/Article/Job structured-data relationships.
+- global Footer links to privacy/terms.
+- eight-service topic ownership map.
+- current main subservices reconciled into the SEO branch.
+- service → project and service → published article internal linking.
+
+### Active phase
+**Phase 4 — Service-page authority.**
+
+Do not create separate indexable subservice pages by default. Current subservices are sections of their parent service. Dedicated URLs require distinct search intent plus substantial unique evidence/content.
+
+### Publication rule
+The user will connect `www.wasl-tech.com` as the primary domain at publication. Until that point, do not diagnose the old/current external domain as the final VNext search state. At publication verify the real domain, redirects, robots, sitemap, canonical/hreflang, crawler access and webmaster submission.
+
+### Safety / release
+- PR remains draft.
+- Do not merge SEO changes into `main` without explicit approval.
+- Do not manually publish production.
+- Re-fetch `main` before merge because parallel project work may continue.
+
+
 ## 2026-09-24 — AUTHORITATIVE RESUME POINT
 
 Use this section first in a new conversation. It supersedes the older “Immediate baton” and historical pending-media instructions below.
