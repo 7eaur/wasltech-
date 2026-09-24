@@ -26,6 +26,12 @@ This is the newest execution truth for SEO / AI-search work.
 - `AGENTS.md` — non-negotiable operating rules.
 - Engine-specific behavior follows current official Google/Bing/OpenAI guidance.
 
+### Latest AI-readiness verification
+- Commit: `f2982c41f6bb342502dcebd0f9154b4893c31980`
+- VNext Preview + Release verification: `36069033203` — **SUCCESS**
+- QA: `docs/qa/2026-09-25_ai-answer-readiness-audit.md`
+- Release gate now verifies answer-ready static content, snippet eligibility, Article entity relationships and canonical Organization authorship/publishing.
+
 ### Phase state
 - **Phase 0 — Governance & baseline: COMPLETE**
 - **Phase 1 — Technical discoverability: COMPLETE in release candidate**
