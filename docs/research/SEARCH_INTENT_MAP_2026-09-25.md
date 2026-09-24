@@ -50,6 +50,21 @@ Implementation policy:
 
 English mirrors the same entity ownership under `/en/`.
 
+## 3A. Subservice ownership policy
+
+The current subservices inside the eight primary service pages are **supporting intent sections**, not standalone indexable landing pages.
+
+Examples include landing pages, Android/iOS apps, multi-vendor stores, dashboards, APIs/integrations, company profiles, logo/identity work and social/content services.
+
+Rules:
+- keep each subservice under its canonical parent service by default;
+- use its descriptive heading/body to expand parent-page topical coverage naturally;
+- do not create a standalone URL only because a subservice name can be used as a keyword;
+- a dedicated subservice page is justified only when Search Console/Bing evidence or a clear business requirement shows materially distinct intent **and** Wasl can provide substantial unique scope, evidence, FAQs and internal links;
+- when a standalone page is justified later, update this ownership map first so the new page does not cannibalize its parent.
+
+This preserves the current main implementation while preventing thin-page expansion.
+
 ## 4. Existing informational owners
 
 ### Published
