@@ -512,7 +512,7 @@ export const articles = Object.freeze([
     coverTemporary: false,
     publishedAt: "2026-09-25",
     updatedAt: "2026-09-25",
-    relatedServiceIds: ["technical"],
+    relatedServiceIds: ["tech"],
     relatedProjectIds: [],
     content: {
       ar: {
