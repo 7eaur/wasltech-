@@ -5,6 +5,7 @@ on:
     branches:
       - rebuild/vnext-foundation-20260921
       - main
+      - "seo/**"
     paths-ignore:
       - "docs/qa/FINAL_AUDIT_CONTINUOUS_LOG.md"
   pull_request:
