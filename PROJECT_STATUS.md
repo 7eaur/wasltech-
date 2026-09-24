@@ -2,32 +2,64 @@
 
 ## 2026-09-25 — SEARCH VISIBILITY PROGRAM ACTIVE
 
-This section is the newest execution truth for SEO / AI-search work and supersedes older search-related next-step text where it conflicts.
+This is the newest execution truth for SEO / AI-search work.
 
-### Production baseline
+### Repository / branch truth
 - Repository: `7eaur/wasltech-`
 - Production branch: `main`
-- Production baseline HEAD when this program started: `10a36c9b5f717e3f060d616df86ede28deeb89a5`
+- Current main integrated into SEO program: `427e8bc5939f8bb4f0051fc3a3d562f646a0c0da`
 - Search work branch: `seo/search-visibility-foundation-20260925`
-- Production design/content architecture is preserved; this program builds on it rather than restarting VNext.
+- Search merge checkpoint: `409a5ee31e49b9a1119884c9475b059bec548a41`
+- Draft PR: `#37`
+- SEO branch is currently **0 commits behind main** at this checkpoint.
+- No SEO changes have been merged to production.
+
+### Domain / publication rule
+- Canonical target remains `https://www.wasl-tech.com`.
+- Per user instruction, the primary domain will be connected at publication time.
+- Do not treat the currently separate live domain state as the final production verification target.
+- At publication, run a real-domain crawl/indexability/canonical/redirect/crawler smoke check before submission to webmaster tools.
 
 ### Canonical authority
-- `docs/core/SEARCH_VISIBILITY.md` is now the canonical SEO + AI discovery standard.
-- `AGENTS.md` makes the standard non-negotiable for future work.
-- Google/Bing/OpenAI official guidance is the external authority for engine-specific behavior.
+- `docs/core/SEARCH_VISIBILITY.md` — SEO + AI discovery standard.
+- `docs/research/SEARCH_INTENT_MAP_2026-09-25.md` — current intent/topic ownership map.
+- `AGENTS.md` — non-negotiable operating rules.
+- Engine-specific behavior follows current official Google/Bing/OpenAI guidance.
 
-### Current phase
-**Phase 0 — Governance & baseline → Phase 1 — Technical discoverability.**
+### Phase state
+- **Phase 0 — Governance & baseline: COMPLETE**
+- **Phase 1 — Technical discoverability: COMPLETE in release candidate**
+- **Phase 2 — Entity + structured data: COMPLETE**
+- **Phase 3 — Intent & topical architecture: COMPLETE**
+- **Phase 4 — Service-page authority: ACTIVE**
 
-Implemented in the working branch:
-- canonical phased SEO/AI visibility standard;
-- executable production search-visibility gate;
-- release verification wired to that gate;
+Completed foundation:
+- executable search-visibility release gate;
 - explicit production allowance for `OAI-SearchBot`;
-- Organization schema `sameAs` aligned to canonical configured social profiles.
+- unique title/description, H1, canonical, hreflang, OG/Twitter, JSON-LD and internal-reachability checks;
+- legal pages linked from global Footer instead of existing as isolated sitemap entries;
+- stable Organization/WebSite entity IDs with Service/CreativeWork/Article/Job relationships;
+- all eight services assigned one canonical commercial topic owner;
+- subservices from current `main` retained inside their parent service pages by default rather than expanded into thin SEO URLs;
+- related project cards now link to project detail pages;
+- published related articles can surface from service detail pages;
+- SEO branch pushes run the full VNext verification workflow.
 
-Do not start mass article/page production yet. First close the technical discoverability audit and its release gates.
+### Verification evidence
+- Phase 1 integrated search gate: run `36066357251` — SUCCESS.
+- Phase 2 entity/schema gate: run `36066590901` — SUCCESS.
+- Phase 3 intent-map checkpoint: run `36066801225` — SUCCESS.
+- Pre-main-sync Phase 4 implementation: run `36067243475` — SUCCESS.
+- A new full verification is required after the current main/subservice reconciliation before advancing Phase 4 further.
 
+### Next SEO action
+Continue Phase 4 only after the reconciled branch is green:
+1. audit all eight service pages plus their new subservice sections as one intent system;
+2. refine metadata/body phrasing only where it improves real user intent;
+3. keep subservices under parent pages unless evidence justifies a dedicated page;
+4. then proceed to verified case-study/evidence strengthening before scaling Insights content.
+
+Do not mass-produce SEO pages or articles.
 
 ## 2026-09-24 — AUTHORITATIVE CURRENT BATON
 
