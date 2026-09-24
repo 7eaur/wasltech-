@@ -12,7 +12,7 @@ const errors = [];
 
 function fail(scope,message){ errors.push(`${scope}: ${message}`); }
 function outputPath(route){ return route === "/" ? "index.html" : path.join(route.replace(/^\//,""),"index.html"); }
-function htmlText(value=""){ return String(value).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#39;"); }
+function htmlText(value=""){ return String(value).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;"); }
 
 for (const locale of ["ar","en"]) {
   const alternateLocale = locale === "ar" ? "en" : "ar";
