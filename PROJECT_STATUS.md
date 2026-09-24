@@ -1,5 +1,34 @@
 # Wasl Tech VNext — Current Project Status
 
+## 2026-09-25 — SEARCH VISIBILITY PROGRAM ACTIVE
+
+This section is the newest execution truth for SEO / AI-search work and supersedes older search-related next-step text where it conflicts.
+
+### Production baseline
+- Repository: `7eaur/wasltech-`
+- Production branch: `main`
+- Production baseline HEAD when this program started: `10a36c9b5f717e3f060d616df86ede28deeb89a5`
+- Search work branch: `seo/search-visibility-foundation-20260925`
+- Production design/content architecture is preserved; this program builds on it rather than restarting VNext.
+
+### Canonical authority
+- `docs/core/SEARCH_VISIBILITY.md` is now the canonical SEO + AI discovery standard.
+- `AGENTS.md` makes the standard non-negotiable for future work.
+- Google/Bing/OpenAI official guidance is the external authority for engine-specific behavior.
+
+### Current phase
+**Phase 0 — Governance & baseline → Phase 1 — Technical discoverability.**
+
+Implemented in the working branch:
+- canonical phased SEO/AI visibility standard;
+- executable production search-visibility gate;
+- release verification wired to that gate;
+- explicit production allowance for `OAI-SearchBot`;
+- Organization schema `sameAs` aligned to canonical configured social profiles.
+
+Do not start mass article/page production yet. First close the technical discoverability audit and its release gates.
+
+
 ## 2026-09-24 — AUTHORITATIVE CURRENT BATON
 
 This section is the current execution truth. It supersedes older historical checkpoint text below when there is any conflict.
