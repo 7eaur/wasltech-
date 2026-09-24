@@ -10,6 +10,7 @@ const DIST = path.join(ROOT, "dist-release");
 const errors = [];
 const seenTitles = new Map();
 const seenDescriptions = new Map();
+const htmlByRoute = new Map();
 
 function fail(scope, message) {
   errors.push(`${scope}: ${message}`);
@@ -106,6 +107,47 @@ for (const entry of getIndexableEntries()) {
     } catch {
       fail(route, `JSON-LD block ${index + 1} is not valid JSON`);
     }
+  }
+}
+
+const indexablePaths = new Set(getIndexableEntries().map((entry) => entry.path));
+const graph = new Map();
+
+for (const [route, html] of htmlByRoute.entries()) {
+  const outgoing = new Set();
+  for (const match of html.matchAll(/<a\\b[^>]*\\shref="([^"]+)"/gi)) {
+    try {
+      const url = new URL(match[1], absoluteUrl(route));
+      if (url.origin !== new URL(absoluteUrl("/")).origin) continue;
+      let pathname = url.pathname;
+      if (!pathname.endsWith("/") && !pathname.split("/").at(-1)?.includes(".")) pathname += "/";
+      if (indexablePaths.has(pathname)) outgoing.add(pathname);
+    } catch {
+      // Malformed URLs are covered by the general link checker.
+    }
+  }
+  graph.set(route, outgoing);
+}
+
+function reachableFrom(start) {
+  const visited = new Set([start]);
+  const queue = [start];
+  while (queue.length) {
+    const current = queue.shift();
+    for (const next of graph.get(current) ?? []) {
+      if (visited.has(next)) continue;
+      visited.add(next);
+      queue.push(next);
+    }
+  }
+  return visited;
+}
+
+for (const [locale, home] of [["ar", "/"], ["en", "/en/"]]) {
+  const reachable = reachableFrom(home);
+  const localePaths = [...indexablePaths].filter((route) => locale === "ar" ? !route.startsWith("/en/") : route.startsWith("/en/"));
+  for (const route of localePaths) {
+    if (!reachable.has(route)) fail(route, `indexable page is not reachable from the ${locale} homepage through internal links`);
   }
 }
 
