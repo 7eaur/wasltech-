@@ -1,5 +1,64 @@
 # Wasl Tech VNext — Conversation Handoff
 
+## 2026-09-24 — AUTHORITATIVE RESUME POINT
+
+Use this section first in a new conversation. It supersedes the older “Immediate baton” and historical pending-media instructions below.
+
+### Source of truth
+1. Fetch live GitHub repository `7eaur/wasltech-`.
+2. Active work branch: `rebuild/vnext-foundation-20260921`.
+3. Production branch: `main`; do not merge or cut over without explicit approval.
+4. Implementation HEAD at handoff time: `93b7fc58f104da20a1818ad7e9ff4147922d37ce`.
+5. Read:
+   - `PROJECT_STATUS.md`
+   - this file
+   - `docs/qa/2026-09-24_final-conversation-handoff.md`
+   - `docs/core/CONTENT_IA.md`
+   - `docs/core/DESIGN_SYSTEM.md`
+   - `docs/qa/FINAL_MEDIA_INVENTORY.md`
+
+### Current project state
+- Final marketing rewrite source is adopted from:
+  `b87872d12adcc836018fe61a7ef1556f04aa5b86:إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md`.
+- No public packages or prices.
+- Home/Services/About/Process/Portfolio/Contact/Planner/core FAQ and all 8 service records are aligned to the outcome-led copy in Arabic/English.
+- Home mobile Hero: copy → image → actions → signals.
+- Inner-page Hero actions are removed.
+- Typography/card hierarchy has been rebalanced for mobile and desktop.
+- Footer contacts are text-only, compact rows; social icons remain.
+- About page was rebuilt around story → vision/mission → principles → what we build → final CTA.
+- All 8 service originals + WebP derivatives are committed and wired.
+- Home Hero + About media are committed and wired.
+- Shared reusable `MediaCard` and `CallToAction` contracts are part of current live code; do not recreate page-specific duplicates without a real need.
+
+### Verification
+- VNext verify: `36052391480` — SUCCESS
+- Route matrix: `36052391498` — SUCCESS
+- Preview deployment: `dpl_8j8ebNEuqtSW2kp9UMLpj8hFoz5K` — READY
+- Preview: `https://wasltech-472tnx2s9-wasl15.vercel.app`
+- Production `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc` and unchanged by VNext runtime.
+
+### Do not redo
+- service image upload/mapping;
+- Home/About media upload;
+- Footer contact redesign;
+- general responsive typography foundation;
+- About rewrite;
+- final marketing rewrite adoption;
+- Hero mobile ordering;
+- removal of inner-Hero buttons;
+- MediaCard/CTA shared-component refactor;
+unless live HEAD proves a regression.
+
+### What to do next
+- Start by verifying live HEAD because it may be newer than this handoff.
+- Inspect the latest preview visually before changing design.
+- Continue from the user's next explicit feedback.
+- If changing design/content substantially: batch edits, run VNext verify, then full route matrix at review point.
+- Do not manually deploy on every commit; Git integration can auto-create previews.
+- If the user says `انشر`, confirm the target branch/HEAD and verify Vercel reaches `READY`.
+
+
 ## 2026-09-24 — Final marketing rewrite alignment
 - Canonical content source: `b87872d12adcc836018fe61a7ef1556f04aa5b86:إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md`.
 - Adopted the no-packages/no-pricing marketing baseline across Home, Services, all eight service records, About, Process, and FAQ in Arabic and English.
@@ -51,86 +110,8 @@ The approved service-media batch is now integrated rather than pending upload:
 
 Do not manually deploy Vercel. Check the GitHub VNext verify run for the integration commit before calling the batch technically verified.
 
-## 0. Immediate baton — 2026-09-24
-
-This is the exact resume point for the next conversation.
-
-### First actions
-1. Fetch live `main` and `rebuild/vnext-foundation-20260921`.
-2. Read this file, `PROJECT_STATUS.md`, and `docs/qa/2026-09-24_footer-service-media-handoff.md`.
-3. Confirm whether the live VNext HEAD is newer than the implementation checkpoint `4e11e5e9c13e4f9a8c477a21ce62a0e1f21d8d4f`; if newer, inspect the documentation-only handoff commit before doing code work.
-4. Do **not** restart architecture, homepage, Footer, or final-audit work from zero.
-5. Do **not** merge/cut over `main`.
-6. Do **not** manually publish a Vercel Preview until the user explicitly says `انشر`.
-
-### What is already complete
-- VNext architecture/page systems and final audit Stages 0–18 were previously closed.
-- Footer contact/social redesign is implemented.
-- Final implementation checkpoint `4e11e5e9...` has:
-  - VNext verify `35990862213` — **SUCCESS**
-  - responsive route matrix `35990862361` — **SUCCESS**
-- Production is still legacy `main` at `a4ed507d...`.
-
-### Footer state — do not redo unless the user asks
-Shared Footer now contains:
-- long Wasl Tech description instead of the short slogan;
-- icon-led WhatsApp, phone, email, and website contact rows;
-- Facebook, X, Instagram, Telegram, and TikTok social icons;
-- mobile layout keeps contact values visible;
-- Footer bottom with copyright/domain.
-
-Current contact source of truth:
-- phone / WhatsApp: `+967 775 377 979`
-- email: `info@wasl-tech.com`
-- domain: `www.wasl-tech.com`
-- Instagram: `@wasltech.yem`
-
-The email intentionally follows the old **live** site, not the older Gmail value still found in legacy source code.
-
-### Service images — exact pending task
-The user supplied and approved eight service originals. The mapping is locked:
-
-| Service slug | Supplied image subject | Derivative filename |
-|---|---|---|
-| `web-development` | Wasl website displayed on a laptop | `web-development.webp` |
-| `mobile-app-development` | Wasl mobile app on phone | `mobile-app-development.webp` |
-| `ecommerce` | e-commerce store shown on laptop | `ecommerce.webp` |
-| `custom-software` | code editor on laptop | `custom-software.webp` |
-| `technical-solutions` | cloud/server infrastructure | `technical-solutions.webp` |
-| `company-profiles` | printed company profile/brochure | `company-profiles.webp` |
-| `brand-design` | Wasl Tech identity/stationery mockup | `brand-design.webp` |
-| `digital-marketing` | analytics/dashboard screen | `digital-marketing.webp` |
-
-Prepared web derivative target:
-- WebP
-- `1280×720`
-- roughly `41–77 KB` each.
-
-**Do not misunderstand current status:** neither the originals nor derivatives have been committed to GitHub yet, and `src/data/services.js` still points at old project JPEGs.
-
-The user specifically wants the **originals uploaded and verified**, not merely optimized local copies.
-
-Recommended implementation:
-1. preserve originals unchanged under `assets/services/source/<slug>.jpeg`;
-2. add optimized derivatives under `assets/services/<slug>.webp`;
-3. update each service record's `image` field in `src/data/services.js` to `/assets/services/<slug>.webp`;
-4. verify the service-detail Hero already consumes the canonical service image; keep one media owner rather than duplicating mappings;
-5. verify each of the 16 localized service-detail routes plus Home/Services usage;
-6. run `VNext verify`;
-7. run the route matrix after the **whole batch**, not after each file;
-8. only publish manually if the user later says `انشر`.
-
-### Binary upload caveat
-The prior attempt through the GitHub connector failed because current-chat images were returned to the connector as asset pointers, not raw bytes for Git blobs.
-
-If a new conversation cannot access the eight original attachments, ask the user to re-upload those same originals. Never pretend they are already in the repo, and never regenerate substitutes.
-
-### Commit/deployment discipline
-The user wants to conserve deployment limits. Vercel Git integration can create a Preview for every pushed commit even when no manual deploy is requested. Therefore:
-- prepare the full next batch first;
-- push one consolidated commit;
-- avoid sequential tiny Git commits;
-- do not invoke a manual Vercel deployment until requested.
+## 0. Historical baton — superseded
+The older baton below originally described pending service-media work. That work is now complete. Use **AUTHORITATIVE RESUME POINT** at the top of this file and `docs/qa/2026-09-24_final-conversation-handoff.md`.
 
 ## 1. Mandatory start procedure
 

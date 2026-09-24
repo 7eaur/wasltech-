@@ -1,5 +1,17 @@
 # Wasl Tech VNext — Final Media Inventory
 
+## 2026-09-24 — Current integration checkpoint
+- All 8 service source JPEGs are present under `assets/services/source/`.
+- All 8 runtime WebP derivatives are present under `assets/services/`.
+- `src/data/services.js` owns their canonical mappings.
+- Home, Services and service-detail Hero surfaces share the same service image ownership.
+- Home Hero runtime media: `assets/media/home-hero.webp`.
+- Home/About runtime media: `assets/media/about-us.webp`.
+- Corresponding source originals are preserved under `assets/media/source/`.
+- These integrated media items are **not pending**.
+- Any remaining “pending media” in this inventory refers only to other editorial Hero/article slots not explicitly marked integrated.
+
+
 Status: **PARTIAL MEDIA RECEIVED — SERVICE SET + HOME/ABOUT MEDIA INTEGRATED; OTHER EDITORIAL MEDIA PENDING**
 Phase: 13B — final media gate
 Branch: `rebuild/vnext-foundation-20260921`

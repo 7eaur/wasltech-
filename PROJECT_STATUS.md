@@ -1,5 +1,89 @@
 # Wasl Tech VNext — Current Project Status
 
+## 2026-09-24 — AUTHORITATIVE CURRENT BATON
+
+This section is the current execution truth. It supersedes older historical checkpoint text below when there is any conflict.
+
+### Live repository truth
+- Repository: `7eaur/wasltech-`
+- Production branch: `main`
+- Production HEAD: `a4ed507defe5e7831f3459e12752a89fe0d225fc`
+- Active VNext branch: `rebuild/vnext-foundation-20260921`
+- Current VNext implementation HEAD before this documentation commit: `93b7fc58f104da20a1818ad7e9ff4147922d37ce`
+- Latest implementation message: `fix(content): preserve case-study polish after rewrite alignment`
+- Production cutover: **NOT STARTED**
+- `main` has not been merged with VNext.
+
+### Canonical marketing content
+- Canonical marketing source commit: `b87872d12adcc836018fe61a7ef1556f04aa5b86`
+- Canonical source file: `إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md`
+- The source file is preserved on the active VNext branch.
+- The no-packages / no-public-pricing direction is adopted.
+- Current public marketing copy follows the outcome-led rewrite across Home, Services, all eight service records, About, Process, Portfolio/case-study surfaces, Contact, Project Planner and core FAQ in Arabic and English.
+- Trust remains evidence-led: no invented counters, testimonials, numerical results, guarantees, timelines or SLAs.
+- Case-study CTAs and project language must remain contextual rather than generic “more” wording.
+- Home public journey: **Hero → Services → Work/Trust → About → Process → FAQ → Final CTA → Footer**.
+- Service-detail public journey: **need/problem → audience → deliverables → scope-dependent items → process → related work → FAQ → CTA**.
+
+### Current visual system
+- Update Card remains a craft/reference source for hero density, spacing and mobile sequencing; Wasl Tech identity/copy remain independent.
+- Home mobile Hero order is locked as: **copy → image → actions → trust/signals**.
+- Inner-page Heroes are informational and do not show Hero action buttons; primary actions remain in page CTA surfaces.
+- Site-wide typography uses flexible responsive sizing/measure rather than narrow hard-coded text widths.
+- Card system has been rebalanced to reduce “card walls”, improve hierarchy and increase readability across Home, Services, service details, Portfolio, Project detail, Insights, Contact, Process and secondary pages.
+- Footer contact information is compact text-only rows without contact icons; social icons remain.
+
+### Final media currently integrated
+All service originals and runtime derivatives are already committed and wired.
+
+Canonical service mapping:
+1. `web-development` → `assets/services/web-development.webp`
+2. `mobile-app-development` → `assets/services/mobile-app-development.webp`
+3. `ecommerce` → `assets/services/ecommerce.webp`
+4. `custom-software` → `assets/services/custom-software.webp`
+5. `technical-solutions` → `assets/services/technical-solutions.webp`
+6. `company-profiles` → `assets/services/company-profiles.webp`
+7. `brand-design` → `assets/services/brand-design.webp`
+8. `digital-marketing` → `assets/services/digital-marketing.webp`
+
+Original service JPEGs are preserved under:
+`assets/services/source/<slug>.jpeg`
+
+Shared media ownership:
+- Home Hero: `assets/media/home-hero.webp`
+- Home/About image: `assets/media/about-us.webp`
+- originals preserved under `assets/media/source/`
+- `src/data/services.js` owns canonical service-image paths used by Home, Services and service-detail Hero surfaces.
+
+### Current verification and preview
+- VNext verify run: `36052391480` — **SUCCESS**
+- Responsive route matrix run: `36052391498` — **SUCCESS**
+- Vercel deployment: `dpl_8j8ebNEuqtSW2kp9UMLpj8hFoz5K` — **READY**
+- Vercel preview URL: `https://wasltech-472tnx2s9-wasl15.vercel.app`
+- Latest verified deployment is tied to implementation HEAD `93b7fc58f104da20a1818ad7e9ff4147922d37ce`.
+- Vercel Git integration may automatically create previews on branch pushes. Do not add manual deployments unless the user explicitly asks to publish/review.
+
+### Remaining work
+- Do **not** restart architecture, media integration, Footer, typography, About or marketing rewrite from zero.
+- First inspect live HEAD and the latest preview.
+- Continue only from new user feedback or a newly observed regression.
+- Final subjective visual review is still valuable after any future content/design change, especially at mobile and desktop breakpoints.
+- Some non-project editorial Hero/article media may still be temporary; `docs/qa/FINAL_MEDIA_INVENTORY.md` remains the media source of truth for anything not explicitly marked integrated.
+- Before production cutover: full final-media review, VNext verify, full route matrix, SEO/OG verification, explicit user acceptance, then explicit cutover approval.
+
+### Working rules that remain locked
+- Do not merge VNext into `main` without explicit approval.
+- Do not perform production cutover without explicit approval.
+- Batch edits; avoid one small commit per visual tweak because Git integration can consume Vercel preview quota.
+- Run `npm run vnext:verify` after meaningful batches.
+- Run the full route matrix at major review points, not every tiny edit.
+- “Ready locally” ≠ “committed” ≠ “verified” ≠ “deployed”; report status precisely.
+- Never claim Vercel is published until the deployment is actually `READY`.
+
+Reference handoff:
+`docs/qa/2026-09-24_final-conversation-handoff.md`
+
+
 ## 2026-09-24 — Final marketing rewrite baseline adopted
 - Canonical marketing source: `إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md` from source commit `b87872d12adcc836018fe61a7ef1556f04aa5b86`.
 - The exact source document is preserved on the active VNext branch for reference.
@@ -39,7 +123,7 @@ Latest verified VNext implementation checkpoint: `aea64eb0f4339a610fa8f035b8650e
 - Homepage Hero uses `/assets/media/home-hero.webp`; source preserved at `assets/media/source/home-hero.jpeg`.
 - Homepage About and the About page Hero use `/assets/media/about-us.webp`; source preserved at `assets/media/source/about-us.jpeg`.
 - Build ownership copies runtime service/site media without shipping source originals.
-- Manual Vercel deployment remains deferred. GitHub `vnext:verify` must be checked on this implementation commit before the media batch is marked technically verified.
+- Service + Home/About media integration is complete and covered by current verification. Manual Vercel deployments should still be avoided unless the user explicitly requests publishing/review.
 
 ## 2026-09-24 — Current execution update
 
@@ -87,52 +171,8 @@ Files changed by the Footer batch include:
 
 The final Footer implementation is covered by the green verify + responsive matrix runs above.
 
-### Service media batch — received/prepared, NOT yet committed to GitHub
-The user supplied the final primary images for all eight services and approved their mapping.
-
-Locked mapping:
-1. `web-development` → website shown on laptop
-2. `mobile-app-development` → mobile application / phone
-3. `ecommerce` → e-commerce store on laptop
-4. `custom-software` → code editor on laptop
-5. `technical-solutions` → cloud/server infrastructure
-6. `company-profiles` → printed company profile/brochure
-7. `brand-design` → Wasl Tech stationery/identity mockup
-8. `digital-marketing` → analytics/dashboard screen
-
-Prepared derivative contract:
-- format: WebP
-- dimensions: `1280 × 720`
-- intended filenames:
-  - `web-development.webp`
-  - `mobile-app-development.webp`
-  - `ecommerce.webp`
-  - `custom-software.webp`
-  - `technical-solutions.webp`
-  - `company-profiles.webp`
-  - `brand-design.webp`
-  - `digital-marketing.webp`
-- observed prepared sizes: approximately **41–77 KB** each.
-
-**Critical current blocker/status:**
-- the eight original user images are **NOT yet present in the repository**;
-- the WebP derivatives are **NOT yet present in the repository**;
-- `src/data/services.js` is **NOT yet changed** to point at them;
-- do not claim otherwise;
-- the attempted GitHub connector binary upload was blocked because current-chat image attachments were exposed as asset pointers rather than raw bytes accepted by the Git blob endpoint.
-
-The user's explicit requirement is to:
-1. preserve/upload the **original eight images** to the repository;
-2. verify each original exists in GitHub after commit;
-3. upload the optimized WebP derivatives;
-4. update canonical service image paths so the same service image is used in the Home/Services presentation and the service-detail Hero;
-5. verify generated routes and responsive behavior.
-
-A recommended repository layout is:
-- originals: `assets/services/source/<service-slug>.jpeg` (preserve originals unchanged)
-- web derivatives: `assets/services/<service-slug>.webp`
-
-If the original current-chat attachments are unavailable in a new conversation, ask the user to re-upload the same eight originals. Do not substitute generated images.
+### Service media batch — COMPLETE; older pending note superseded
+The eight service-image originals and WebP derivatives are committed and verified. Canonical runtime mappings are owned by `src/data/services.js` and shared by Home, Services and service-detail surfaces. See the authoritative baton at the top of this file and `docs/qa/FINAL_MEDIA_INVENTORY.md` for current media truth.
 
 ### Publishing / commit policy from the user
 The user explicitly requested: **do not publish every small change because of deployment limits.**
@@ -145,7 +185,7 @@ From now on:
 - do not touch `main` or Production without explicit cutover approval.
 
 ### Immediate next implementation task
-The next conversation must **not restart design analysis**. It should first complete the pending service-media upload/binding batch above, then run local/CI verification. Manual Vercel publishing remains deferred until the user asks for it.
+There is no pending service-media upload task. Resume from the live VNext HEAD, inspect the current preview, and continue only from the user's next requested design/content change or a newly observed regression.
 
 Detailed dated evidence:
 `docs/qa/2026-09-24_footer-service-media-handoff.md`

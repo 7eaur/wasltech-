@@ -14,6 +14,20 @@ Rules:
 - do not mark stages complete without evidence;
 - final imagery is deferred until Stage 19.
 
+
+### 2026-09-24 — Final conversation handoff / marketing-rewrite closeout
+- Live VNext implementation HEAD before documentation commit: `93b7fc58f104da20a1818ad7e9ff4147922d37ce`.
+- Canonical marketing source: `b87872d12adcc836018fe61a7ef1556f04aa5b86:إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md`.
+- Current live branch is 14 commits ahead of the last card/typography visual-pass checkpoint `ba23b0c19d761e4f94349dc707ed6b90d8bb8cc0`; those later commits preserve the design pass while adopting and polishing the final marketing rewrite.
+- Current implementation includes shared MediaCard/CallToAction contracts, marketing IA updates, service-detail/content alignment, case-study CTA polish, compact text-only Footer contacts, flexible typography/card hierarchy, all service media, and Home/About media.
+- VNext verify run `36052391480`: SUCCESS.
+- Route matrix run `36052391498`: SUCCESS.
+- Vercel Preview `dpl_8j8ebNEuqtSW2kp9UMLpj8hFoz5K`: READY at `wasltech-472tnx2s9-wasl15.vercel.app`.
+- Production main remains `a4ed507defe5e7831f3459e12752a89fe0d225fc`; no cutover.
+- Documentation reconciled so stale “service media pending” instructions no longer override live truth.
+- Next worker must fetch live HEAD first, read `docs/qa/2026-09-24_final-conversation-handoff.md`, then continue only from new user feedback/regressions.
+
+
 ---
 
 ## Baseline before recurring workers
