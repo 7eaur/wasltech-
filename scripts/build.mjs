@@ -45,6 +45,7 @@ const cssSources = [
   "src/styles/portfolio.css",
   "src/styles/project-detail.css",
   "src/styles/about-process.css",
+  "src/styles/about-page.css",
   "src/styles/contact-planner.css",
   "src/styles/secondary.css",
   "src/styles/insights-careers.css",

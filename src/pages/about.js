@@ -9,86 +9,74 @@ import { HeroMedia } from "../components/HeroMedia.js";
 import { getPageHeroMedia } from "../config/hero-media.js";
 
 const record=pages.find((page)=>page.id==="about");
-
 function section(content,id){return content.sections.find((item)=>item.id===id);}
 
 function renderHero(content,locale){
-  const positioning=section(content,"positioning");
   return `
     <section class="about-hero">
       <div class="container about-hero__grid">
-        <div>
+        <div class="about-hero__copy">
           <p class="eyebrow">${escapeHtml(content.kicker)}</p>
           <h1>${escapeHtml(content.title)}</h1>
           <p class="about-hero__support">${escapeHtml(content.support)}</p>
-          <div class="about-hero__actions">
-            ${ActionLink({href:routes.startProject(locale),label:content.primaryCta,variant:"primary",size:"lg"})}
-            ${ActionLink({href:routes.portfolio(locale),label:content.secondaryCta,variant:"ghost",size:"lg"})}
-          </div>
         </div>
-        <div class="about-hero__visual">
-          ${HeroMedia({...getPageHeroMedia("about", locale), className:"about-hero__media"})}
-          <aside class="about-hero__statement">
-            <span>${escapeHtml(positioning.kicker)}</span>
-            <strong>${escapeHtml(positioning.title)}</strong>
-            <p>${escapeHtml(positioning.support)}</p>
-          </aside>
-        </div>
+        ${HeroMedia({...getPageHeroMedia("about", locale), className:"about-hero__media"})}
       </div>
     </section>
   `;
 }
 
-function renderSystem(content,locale){
-  const build=section(content,"build");
+function renderStory(content){
+  const story=section(content,"story");
   return `
-    <section class="section about-system">
-      <div class="container about-system__grid">
-        <div class="about-system__intro">
-          <p class="eyebrow">${escapeHtml(build.kicker)}</p>
-          <h2>${escapeHtml(build.title)}</h2>
-          <p>${escapeHtml(build.support)}</p>
+    <section class="section about-story">
+      <div class="container about-story__grid">
+        <div class="about-story__heading">
+          <p class="eyebrow">${escapeHtml(story.kicker)}</p>
+          <h2>${escapeHtml(story.title)}</h2>
         </div>
-        <div class="about-system__families">
-          ${serviceGroups.map((group,index)=>`
-            <article>
-              <span>0${index+1}</span>
-              <h3>${escapeHtml(group.content[locale].title)}</h3>
-            </article>
-          `).join("")}
+        <div class="about-story__copy">
+          <p class="about-story__lead">${escapeHtml(story.support)}</p>
+          ${story.body.map((paragraph)=>`<p>${escapeHtml(paragraph)}</p>`).join("")}
         </div>
       </div>
     </section>
   `;
 }
 
-function renderPrinciples(content,locale){
+function renderDirection(content){
+  const vision=section(content,"vision");
+  const mission=section(content,"mission");
+  return `
+    <section class="section section--subtle about-direction">
+      <div class="container about-direction__grid">
+        ${[vision,mission].map((item)=>`
+          <article class="about-direction__item">
+            <p class="eyebrow">${escapeHtml(item.kicker)}</p>
+            <h2>${escapeHtml(item.title)}</h2>
+            <p>${escapeHtml(item.support)}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderPrinciples(content){
   const principles=section(content,"principles");
-  const items=locale==="ar"
-    ? [
-        ["سبب قبل الشكل","كل عنصر بصري أو تقني يجب أن يخدم هدفًا يمكن شرحه."],
-        ["نطاق قبل التوسع","نحدد ما يستحق التنفيذ الآن وما يمكن تأجيله بدل تضخيم المشروع."],
-        ["مراجعة قبل الاعتماد","نفضّل قرارات ومراحل يمكن مراجعتها على نسخة نهائية مفاجئة."]
-      ]
-    : [
-        ["Reason before appearance","Every visual or technical element should serve a purpose we can explain."],
-        ["Scope before expansion","We decide what deserves to be built now and what can wait instead of inflating the project."],
-        ["Review before approval","We prefer decisions and stages that can be reviewed over one surprising final version."]
-      ];
-
   return `
-    <section class="section section--subtle about-principles">
+    <section class="section about-values">
       <div class="container">
-        <div class="about-principles__header">
+        <div class="about-values__header">
           <p class="eyebrow">${escapeHtml(principles.kicker)}</p>
           <h2>${escapeHtml(principles.title)}</h2>
           <p>${escapeHtml(principles.support)}</p>
         </div>
-        <div class="about-principles__list">
-          ${items.map((item,index)=>`
+        <div class="about-values__list">
+          ${principles.items.map((item,index)=>`
             <article>
               <span>0${index+1}</span>
-              <div><h3>${escapeHtml(item[0])}</h3><p>${escapeHtml(item[1])}</p></div>
+              <div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.body)}</p></div>
             </article>
           `).join("")}
         </div>
@@ -97,21 +85,23 @@ function renderPrinciples(content,locale){
   `;
 }
 
-function renderMarket(content,locale){
-  const market=section(content,"market");
+function renderBuild(content,locale){
+  const build=section(content,"build");
   return `
-    <section class="section about-market">
-      <div class="container about-market__grid">
-        <div>
-          <p class="eyebrow">${escapeHtml(market.kicker)}</p>
-          <h2>${escapeHtml(market.title)}</h2>
+    <section class="section section--subtle about-build">
+      <div class="container about-build__grid">
+        <div class="about-build__intro">
+          <p class="eyebrow">${escapeHtml(build.kicker)}</p>
+          <h2>${escapeHtml(build.title)}</h2>
+          <p>${escapeHtml(build.support)}</p>
         </div>
-        <div>
-          <p>${escapeHtml(market.support)}</p>
-          <div class="about-market__facts">
-            <div><strong>${locale==="ar"?"سوق عربي":"Arabic-first"}</strong><span>${locale==="ar"?"تجربة واضحة لليمن والخليج مع دعم الإنجليزية عند الحاجة":"Clear Yemen and Gulf experience with English support when needed"}</span></div>
-            <div><strong>${locale==="ar"?"تنفيذ مترابط":"Connected delivery"}</strong><span>${locale==="ar"?"تصميم وتطوير ومحتوى يتحرك ضمن تجربة واحدة":"Design, development, and content shaped as one experience"}</span></div>
-          </div>
+        <div class="about-build__paths">
+          ${serviceGroups.map((group,index)=>`
+            <a href="${routes.services(locale)}#${group.id}">
+              <span>0${index+1}</span>
+              <strong>${escapeHtml(group.content[locale].title)}</strong>
+            </a>
+          `).join("")}
         </div>
       </div>
     </section>
@@ -138,11 +128,10 @@ export function aboutPage(locale="ar"){
   if(!record) throw new Error("Canonical About page record missing.");
   const content=record.content[locale];
   if(!content) throw new Error(`About content missing for locale: ${locale}`);
-
   return documentTemplate({
     title:content.seo.title,
     description:content.seo.description,
-    body:[renderHero(content,locale),renderSystem(content,locale),renderPrinciples(content,locale),renderMarket(content,locale),renderCta(content,locale)].join(""),
+    body:[renderHero(content,locale),renderStory(content),renderDirection(content),renderPrinciples(content),renderBuild(content,locale),renderCta(content,locale)].join(""),
     locale,
     activePath:routes.about(locale),
     alternatePath:routes.about(locale==="ar"?"en":"ar"),

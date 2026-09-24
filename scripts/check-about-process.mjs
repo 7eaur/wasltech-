@@ -14,7 +14,7 @@ function outputPath(route){return route==="/"?"index.html":path.join(route.repla
 function htmlText(value=""){return String(value).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");}
 
 const configs=[
-  {id:"about",route:"about",required:["positioning","build","principles","market","final-cta"],forbidden:["phase-understand","phase-plan"]},
+  {id:"about",route:"about",required:["story","vision","mission","principles","build","final-cta"],forbidden:["phase-understand","phase-plan"]},
   {id:"process",route:"process",required:["understand","plan","build","review-launch","final-cta"],forbidden:["about-market__facts","about-principles__list"]}
 ];
 

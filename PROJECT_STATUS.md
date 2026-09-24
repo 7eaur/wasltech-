@@ -1,5 +1,12 @@
 # Wasl Tech VNext — Current Project Status
 
+## 2026-09-24 — Footer, typography, and About refresh
+- Footer contact details are compact text rows without contact icons; social links remain unchanged.
+- Site-wide text flow now uses available layout width more naturally across mobile and desktop instead of narrow fixed heading measures.
+- About page content and IA refreshed around: story, vision, mission, principles, what we build, and final CTA.
+- About copy is adapted from the legacy Wasl Tech About direction and reviewed reference patterns, while keeping Wasl Tech's own brand voice and current scope.
+- No production cutover or merge to main.
+
 Last updated: 2026-09-24  
 Repository: `7eaur/wasltech-`  
 Official/legacy branch: `main`  

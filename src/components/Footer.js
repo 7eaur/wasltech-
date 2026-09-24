@@ -87,16 +87,13 @@ function renderSocialLinks(labels) {
     .join("");
 }
 
-function contactLink({ href, iconName, label, value, external = false }) {
+function contactLink({ href, label, value, external = false }) {
   return `
     <li>
       <a class="footer-contact__link" href="${href}"${external ? ' target="_blank" rel="noopener"' : ""}
         aria-label="${escapeHtml(label)}: ${escapeHtml(value)}">
-        <span class="footer-contact__icon-wrap">${icon(iconName, "footer-contact__icon")}</span>
-        <span class="footer-contact__copy">
-          <small class="footer-contact__name">${escapeHtml(label)}</small>
-          <span class="footer-contact__value"><bdi dir="ltr">${escapeHtml(value)}</bdi></span>
-        </span>
+        <span class="footer-contact__name">${escapeHtml(label)}</span>
+        <span class="footer-contact__value"><bdi dir="ltr">${escapeHtml(value)}</bdi></span>
       </a>
     </li>
   `;
@@ -136,26 +133,22 @@ export function Footer({ locale = "ar" } = {}) {
               <ul class="footer-contact__links">
                 ${contactLink({
                   href: site.contact.whatsapp,
-                  iconName: "whatsapp",
                   label: labels.whatsapp,
                   value: site.contact.phoneDisplay,
                   external: true
                 })}
                 ${contactLink({
                   href: `tel:${site.contact.phoneUri}`,
-                  iconName: "phone",
                   label: labels.phone,
                   value: site.contact.phoneDisplay
                 })}
                 ${contactLink({
                   href: `mailto:${site.contact.email}`,
-                  iconName: "mail",
                   label: labels.email,
                   value: site.contact.email
                 })}
                 ${contactLink({
                   href: site.origin,
-                  iconName: "globe",
                   label: labels.website,
                   value: site.contact.domain,
                   external: true

@@ -70,7 +70,7 @@ for (const contract of [
 const footerSource = await readFile(path.join(ROOT, "src/components/Footer.js"), "utf8");
 for (const contract of [
   "footer-social",
-  "footer-contact__icon-wrap",
+  "footer-contact__value",
   "site.contact.whatsapp",
   "site.contact.phoneUri",
   "site.contact.email",

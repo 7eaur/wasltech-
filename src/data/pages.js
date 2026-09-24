@@ -182,94 +182,130 @@ export const pages = Object.freeze([
       businessFacts: CONTENT_STATE.READY,
       english: CONTENT_STATE.READY
     },
-    evidenceSources: ["main:about.html", "docs/core/PRODUCT.md"],
+    evidenceSources: [
+      "legacy:https://www.wasl-tech.com/about",
+      "reference:https://satr-tec.com/about",
+      "docs/core/PRODUCT.md"
+    ],
     content: {
       ar: Object.freeze({
-        purpose: "توضيح كيف تفكر وصل تك في المشروع كمنظومة واحدة تجمع الفكرة والمحتوى والتجربة والتقنية بدل التعامل مع كل جزء بمعزل عن الآخر.",
-        kicker: "عن وصل تك",
-        title: "لا نبني واجهة فقط؛ نبني الطريقة التي يظهر ويعمل بها مشروعك.",
-        support: "نجمع بين التصميم والتطوير والمحتوى لنحوّل الفكرة إلى حضور رقمي منظم وواضح، مع تنفيذ يناسب طبيعة المشروع واحتياجه في اليمن والخليج.",
+        purpose: "تقديم وصل تك وقصتها ورؤيتها ورسالتها ومبادئ العمل بصورة واضحة، ثم ربط ذلك بالخدمات التي نبني من خلالها الحضور الرقمي للمشروع.",
+        kicker: "من نحن",
+        title: "نبني حضورك الرقمي باحتراف.",
+        support: "في وصل تك نجمع بين البرمجة والتصميم والمحتوى والتسويق لبناء تجارب رقمية واضحة تخدم هدف المشروع وتمنحه حضورًا متناسقًا من الفكرة إلى الإطلاق.",
         primaryCta: "ابدأ مشروعك",
         secondaryCta: "شاهد الأعمال",
         sections: Object.freeze([
           Object.freeze({
-            id: "positioning",
-            kicker: "طريقتنا",
-            title: "ننظر للمشروع كمنظومة واحدة.",
-            support: "المحتوى والتصميم والتطوير ليست مراحل منفصلة؛ كل قرار فيها يؤثر على التجربة التي يراها ويستخدمها العميل."
+            id: "story",
+            kicker: "قصتنا",
+            title: "بدأت الفكرة من شغف بالتقنية والإبداع، وتطورت إلى طريقة عمل تجمعهما في مشروع واحد.",
+            support: "نؤمن أن الحضور الرقمي الجيد لا يعتمد على شكل جميل أو كود يعمل فقط؛ بل على فهم الفكرة، وتنظيم المحتوى، وتصميم تجربة واضحة، ثم تنفيذ تقني يمكن تطويره مع احتياج المشروع.",
+            body: Object.freeze([
+              "لذلك نبدأ من أهداف المشروع والمستخدمين وما يجب أن يحققه المنتج، ثم نرتب التصميم والتطوير والمحتوى حول هذا الهدف.",
+              "نعمل على المواقع والتطبيقات والمتاجر والأنظمة والهوية والبروفايلات والتسويق، ويمكن أن تعمل هذه المسارات منفردة أو كمنظومة متكاملة بحسب طبيعة المشروع."
+            ])
+          }),
+          Object.freeze({
+            id: "vision",
+            kicker: "رؤيتنا",
+            title: "أن نكون شريكًا رقميًا يساعد المشاريع في اليمن والخليج على بناء حضور أوضح وأكثر قابلية للتطور.",
+            support: "نطمح إلى تقديم تجربة تجمع وضوح الفكرة وجودة التصميم وتنظيم التقنية، بحيث يصبح التطور الرقمي خطوة مفهومة وقابلة للبناء عليها."
+          }),
+          Object.freeze({
+            id: "mission",
+            kicker: "رسالتنا",
+            title: "تحويل احتياج المشروع إلى تجربة رقمية واضحة ومترابطة.",
+            support: "نربط بين فهم المتطلبات والتصميم والتنفيذ والمراجعة، ونحدد النطاق والمخرجات بوضوح حتى يعرف العميل ما الذي يُبنى ولماذا."
+          }),
+          Object.freeze({
+            id: "principles",
+            kicker: "ما نؤمن به",
+            title: "مبادئ بسيطة تحافظ على وضوح المشروع من البداية.",
+            support: "نستخدم التصميم والتقنية كوسائل لخدمة الفكرة، ونفضّل القرارات المفهومة والمراحل القابلة للمراجعة على التعقيد غير الضروري.",
+            items: Object.freeze([
+              Object.freeze({title:"الفكرة أولًا",body:"نفهم الهدف والمستخدم قبل اختيار شكل الواجهة أو التقنية."}),
+              Object.freeze({title:"التصميم يشرح",body:"التصميم الجيد يجعل المحتوى أوضح ويقود المستخدم بدل أن يشتته."}),
+              Object.freeze({title:"التقنية للنمو",body:"نبني بنية منظمة يمكن صيانتها وتطويرها عندما يتوسع الاحتياج."}),
+              Object.freeze({title:"الوضوح يبني الثقة",body:"نوضح النطاق والمراحل والمخرجات ونراجعها قبل الانتقال للخطوة التالية."})
+            ])
           }),
           Object.freeze({
             id: "build",
             kicker: "ما نبنيه",
-            title: "من الحضور الرقمي إلى المنتج الذي يستخدمه العميل.",
-            support: "ننفذ مواقع وتطبيقات ومتاجر وأنظمة، ونبني الهوية والبروفايلات والمحتوى الذي يشرح المشروع ويكمل تجربته."
-          }),
-          Object.freeze({
-            id: "principles",
-            kicker: "مبادئ العمل",
-            title: "وضوح قبل الزخرفة، ونطاق قبل الإضافات.",
-            support: "نفضّل أن يكون لكل قرار سبب، ولكل عنصر وظيفة، ولكل مرحلة نتيجة يمكن مراجعتها بدل تضخيم المشروع بلا حاجة."
-          }),
-          Object.freeze({
-            id: "market",
-            kicker: "السوق",
-            title: "نفهم احتياج المشاريع في اليمن والخليج.",
-            support: "نكتب ونصمم ونبني بتجربة عربية واضحة، مع بنية ثنائية اللغة عندما يحتاج المشروع الوصول إلى جمهور أوسع."
+            title: "خدمات مترابطة لبناء حضور رقمي متكامل.",
+            support: "من المنتج الرقمي والأنظمة إلى الهوية والمحتوى والتسويق، نرتب المسارات التي يحتاجها المشروع ضمن تجربة واحدة متناسقة."
           }),
           Object.freeze({
             id: "final-cta",
-            kicker: "مشروعك التالي",
-            title: "إذا كانت الفكرة واضحة أو ما زالت تتشكل، نبدأ من نفس المكان: الفهم.",
-            support: "شاركنا ما لديك الآن وما تريد تغييره، ونرتب معك الطريق من هناك."
+            kicker: "ابدأ معنا",
+            title: "لديك فكرة أو مشروع قائم؟ نبدأ بفهم ما تحتاجه فعلًا.",
+            support: "شاركنا الهدف والوضع الحالي وما تريد الوصول إليه، ونرتب معك الخطوة التالية بصورة واضحة."
           })
         ]),
         seo: Object.freeze({
           title: "من نحن | وصل تك — Wasl Tech",
-          description: "تعرف على وصل تك وطريقة عملها في بناء المواقع والتطبيقات والمتاجر والأنظمة والهوية والحضور الرقمي للمشاريع في اليمن والخليج."
+          description: "تعرف على قصة وصل تك ورؤيتها ورسالتها ومبادئها في بناء المواقع والتطبيقات والمتاجر والأنظمة والهوية والحضور الرقمي في اليمن والخليج."
         })
       }),
       en: Object.freeze({
-        purpose: "Explain how Wasl Tech approaches a project as one connected system of idea, content, experience, and technology rather than treating each part in isolation.",
-        kicker: "About Wasl Tech",
-        title: "We do not just build an interface; we build how your project looks and works.",
-        support: "We bring design, development, and content together to turn an idea into a clear, organized digital presence that fits the project and its needs across Yemen and the Gulf.",
+        purpose: "Introduce Wasl Tech through its story, vision, mission, and working principles, then connect that direction to the services used to build a project's digital presence.",
+        kicker: "About us",
+        title: "We build your digital presence professionally.",
+        support: "At Wasl Tech, we bring software, design, content, and marketing together to create clear digital experiences that serve the project goal from idea to launch.",
         primaryCta: "Start your project",
         secondaryCta: "View our work",
         sections: Object.freeze([
           Object.freeze({
-            id: "positioning",
-            kicker: "Our approach",
-            title: "We see the project as one connected system.",
-            support: "Content, design, and development are not isolated stages. Each decision shapes the experience your customer sees and uses."
+            id: "story",
+            kicker: "Our story",
+            title: "It started with a shared interest in technology and creative work, and grew into a way of bringing both into one project.",
+            support: "A strong digital presence needs more than a polished interface or working code. It starts with understanding the idea, organizing the content, shaping a clear experience, and building technology that can evolve with the project.",
+            body: Object.freeze([
+              "We start with the project goals, its users, and what the product needs to achieve, then organize design, development, and content around that purpose.",
+              "Our work spans websites, apps, e-commerce, systems, identity, company profiles, and marketing, either as focused services or as one connected project."
+            ])
+          }),
+          Object.freeze({
+            id: "vision",
+            kicker: "Our vision",
+            title: "To be a digital partner that helps projects in Yemen and the Gulf build a clearer presence that can evolve over time.",
+            support: "We aim to connect clear thinking, thoughtful design, and organized technology so digital growth becomes a practical path that teams can build on."
+          }),
+          Object.freeze({
+            id: "mission",
+            kicker: "Our mission",
+            title: "Turn a real project need into a clear, connected digital experience.",
+            support: "We connect requirements, design, implementation, and review, while making scope and deliverables clear so the client understands what is being built and why."
+          }),
+          Object.freeze({
+            id: "principles",
+            kicker: "What we believe",
+            title: "Simple principles that keep the project clear from the start.",
+            support: "We use design and technology to serve the idea, and prefer understandable decisions and reviewable stages over unnecessary complexity.",
+            items: Object.freeze([
+              Object.freeze({title:"Idea first",body:"We understand the goal and the user before choosing the interface or technology."}),
+              Object.freeze({title:"Design explains",body:"Good design makes content clearer and guides the user instead of distracting them."}),
+              Object.freeze({title:"Technology supports growth",body:"We build organized foundations that can be maintained and extended as needs grow."}),
+              Object.freeze({title:"Clarity builds confidence",body:"We make scope, stages, and outputs clear and review them before moving forward."})
+            ])
           }),
           Object.freeze({
             id: "build",
             kicker: "What we build",
-            title: "From digital presence to products customers actually use.",
-            support: "We build websites, apps, stores, and systems, and create the identity, profiles, and content that explain the project and complete the experience."
-          }),
-          Object.freeze({
-            id: "principles",
-            kicker: "How we decide",
-            title: "Clarity before decoration. Scope before extra features.",
-            support: "We prefer every decision to have a reason, every element to have a role, and every stage to produce something that can be reviewed."
-          }),
-          Object.freeze({
-            id: "market",
-            kicker: "Our market",
-            title: "We understand projects in Yemen and the Gulf.",
-            support: "We write, design, and build with a clear Arabic-first experience, with bilingual foundations when the project needs to reach a wider audience."
+            title: "Connected services for a complete digital presence.",
+            support: "From digital products and systems to identity, content, and marketing, we organize the paths a project needs into one coherent experience."
           }),
           Object.freeze({
             id: "final-cta",
-            kicker: "Your next project",
-            title: "Whether the idea is clear or still taking shape, we start in the same place: understanding.",
-            support: "Share what you have today and what you want to change, and we will organize the path from there."
+            kicker: "Start with us",
+            title: "Have an idea or an existing project? We start by understanding what you actually need.",
+            support: "Share the goal, the current situation, and where you want to go, and we will organize the next step with you."
           })
         ]),
         seo: Object.freeze({
-          title: "About Wasl Tech | Digital Products, Systems & Brand Experiences",
-          description: "Learn how Wasl Tech combines design, development, and content to build websites, apps, e-commerce, systems, and digital brand experiences in Yemen and the Gulf."
+          title: "About Wasl Tech | Story, Vision & Digital Work",
+          description: "Learn about Wasl Tech, our story, vision, mission, and approach to websites, apps, e-commerce, systems, identity, and digital presence across Yemen and the Gulf."
         })
       })
     }
