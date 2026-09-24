@@ -24,6 +24,7 @@ for (const locale of ["ar","en"]) {
     const html = await readFile(path.join(DIST,file),"utf8");
 
     if (!html.includes(`<h1>${htmlText(copy.title)}</h1>`)) fail(file,"canonical service H1 missing");
+    if (!html.includes(service.image)) fail(file,`canonical service Hero image missing: ${service.image}`);
     if (!html.includes(htmlText(copy.seo.title))) fail(file,"service SEO title missing");
     if (!html.includes(htmlText(copy.seo.description))) fail(file,"service SEO description missing");
     if (!html.includes(`rel="canonical" href="https://www.wasl-tech.com${route}"`)) fail(file,"service canonical missing");

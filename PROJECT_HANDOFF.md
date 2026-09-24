@@ -5,6 +5,19 @@ Repository: `7eaur/wasltech-`
 Official/production branch: `main`  
 Active VNext branch: `rebuild/vnext-foundation-20260921`
 
+## 0A. Media integration update — 2026-09-24
+
+The approved service-media batch is now integrated rather than pending upload:
+- 8 source JPEGs preserved under `assets/services/source/`;
+- 8 optimized WebP files under `assets/services/`;
+- `src/data/services.js` owns the canonical runtime mapping;
+- Homepage cards, Services directory entries, and service-detail Heroes consume the same `service.image`;
+- Homepage Hero uses `assets/media/home-hero.webp`;
+- Homepage About + About page Hero use `assets/media/about-us.webp`;
+- original Home/About files are preserved under `assets/media/source/`.
+
+Do not manually deploy Vercel. Check the GitHub VNext verify run for the integration commit before calling the batch technically verified.
+
 ## 0. Immediate baton — 2026-09-24
 
 This is the exact resume point for the next conversation.

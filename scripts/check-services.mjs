@@ -43,6 +43,7 @@ for (const locale of ["ar","en"]) {
     const href = routes.service(service.slug,locale);
     if (!html.includes(htmlText(title))) fail(file,`service missing: ${title}`);
     if (!html.includes(`href="${href}"`)) fail(file,`service detail link missing: ${href}`);
+    if (!html.includes(service.image)) fail(file,`service image missing: ${service.image}`);
   }
 
   if ((html.match(/class="service-directory-row"/g) ?? []).length !== 8) {

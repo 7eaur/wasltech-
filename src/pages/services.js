@@ -53,6 +53,9 @@ function renderServiceRow(service, locale) {
   return `
     <article class="service-directory-row">
       <div class="service-directory-row__main">
+        <a class="service-directory-row__media" href="${routes.service(service.slug,locale)}" aria-label="${escapeHtml(copy.title)}">
+          <img src="${service.image}" alt="${escapeHtml(copy.title)}" width="1280" height="720" loading="lazy" decoding="async">
+        </a>
         <p class="service-directory-row__subtitle">${escapeHtml(copy.subtitle)}</p>
         <h3><a href="${routes.service(service.slug,locale)}">${escapeHtml(copy.title)}</a></h3>
       </div>

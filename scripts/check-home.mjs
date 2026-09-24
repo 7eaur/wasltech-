@@ -52,6 +52,12 @@ for (const locale of ["ar", "en"]) {
     const title = service.content[locale].title;
     if (!html.includes(htmlText(title))) fail(file, `service missing: ${title}`);
     if (!html.includes(service.image)) fail(file, `service image missing: ${service.image}`);
+    try {
+      const asset = await stat(path.join(DIST, service.image.replace(/^\//, "")));
+      if (!asset.isFile()) fail(file, `service asset is not a file: ${service.image}`);
+    } catch {
+      fail(file, `service asset missing from dist: ${service.image}`);
+    }
   }
 
   if ((html.match(/<article class="home-service-card">/g) ?? []).length !== services.length) {
@@ -77,7 +83,7 @@ for (const locale of ["ar", "en"]) {
     }
   }
 
-  for (const assetPath of ["assets/about_1.png", "assets/about_2.png"]) {
+  for (const assetPath of ["assets/media/home-hero.webp", "assets/media/about-us.webp"]) {
     try {
       const asset = await stat(path.join(DIST, assetPath));
       if (!asset.isFile()) fail(file, `Home editorial asset is not a file: ${assetPath}`);

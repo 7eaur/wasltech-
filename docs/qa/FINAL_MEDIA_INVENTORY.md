@@ -1,6 +1,6 @@
 # Wasl Tech VNext — Final Media Inventory
 
-Status: **PARTIAL MEDIA RECEIVED — SERVICE SET PREPARED, REPO INTEGRATION PENDING**
+Status: **PARTIAL MEDIA RECEIVED — SERVICE SET + HOME/ABOUT MEDIA INTEGRATED; OTHER EDITORIAL MEDIA PENDING**
 Phase: 13B — final media gate
 Branch: `rebuild/vnext-foundation-20260921`
 
@@ -8,25 +8,25 @@ This file is the exact media handoff contract for the final pre-cutover image st
 
 ## 2026-09-24 intake update — service set received
 
-Status for Section C has advanced from “waiting for media” to **user originals received and mapping approved**, but repository integration is still pending.
+Section C is now **integrated**: user originals are preserved, optimized WebP derivatives are committed, and the canonical service mapping is wired through the public surfaces.
 
 Locked service-image mapping and intended filenames:
 
 | Service slot | Slug | Supplied subject | Web derivative | Current repo status |
 |---|---|---|---|---|
-| SERVICE-01 | `web-development` | Wasl website on laptop | `web-development.webp` | **NOT YET UPLOADED** |
-| SERVICE-02 | `mobile-app-development` | Wasl mobile app / phone | `mobile-app-development.webp` | **NOT YET UPLOADED** |
-| SERVICE-03 | `ecommerce` | e-commerce storefront on laptop | `ecommerce.webp` | **NOT YET UPLOADED** |
-| SERVICE-04 | `custom-software` | source-code editor on laptop | `custom-software.webp` | **NOT YET UPLOADED** |
-| SERVICE-05 | `technical-solutions` | cloud/server infrastructure | `technical-solutions.webp` | **NOT YET UPLOADED** |
-| SERVICE-06 | `company-profiles` | printed profile/brochure | `company-profiles.webp` | **NOT YET UPLOADED** |
-| SERVICE-07 | `brand-design` | Wasl identity/stationery mockup | `brand-design.webp` | **NOT YET UPLOADED** |
-| SERVICE-08 | `digital-marketing` | analytics/dashboard screen | `digital-marketing.webp` | **NOT YET UPLOADED** |
+| SERVICE-01 | `web-development` | Wasl website on laptop | `web-development.webp` | **INTEGRATED — source JPEG + runtime WebP** |
+| SERVICE-02 | `mobile-app-development` | Wasl mobile app / phone | `mobile-app-development.webp` | **INTEGRATED — source JPEG + runtime WebP** |
+| SERVICE-03 | `ecommerce` | e-commerce storefront on laptop | `ecommerce.webp` | **INTEGRATED — source JPEG + runtime WebP** |
+| SERVICE-04 | `custom-software` | source-code editor on laptop | `custom-software.webp` | **INTEGRATED — source JPEG + runtime WebP** |
+| SERVICE-05 | `technical-solutions` | cloud/server infrastructure | `technical-solutions.webp` | **INTEGRATED — source JPEG + runtime WebP** |
+| SERVICE-06 | `company-profiles` | printed profile/brochure | `company-profiles.webp` | **INTEGRATED — source JPEG + runtime WebP** |
+| SERVICE-07 | `brand-design` | Wasl identity/stationery mockup | `brand-design.webp` | **INTEGRATED — source JPEG + runtime WebP** |
+| SERVICE-08 | `digital-marketing` | analytics/dashboard screen | `digital-marketing.webp` | **INTEGRATED — source JPEG + runtime WebP** |
 
 Prepared derivative specification:
 - WebP
 - `1280 × 720`
-- approximately `41–77 KB` per file
+- approximately `52–103 KB` per file
 - same canonical image should feed the service card/listing and service-detail Hero wherever the current architecture consumes `service.image`.
 
 The user's explicit storage requirement is:
@@ -39,16 +39,17 @@ Recommended paths:
 - derivatives: `assets/services/<service-slug>.webp`
 
 Current integration state:
-- originals: **not yet in GitHub**
-- derivatives: **not yet in GitHub**
-- `src/data/services.js`: **not yet updated**
+- originals: **8/8 in GitHub**
+- derivatives: **8/8 in GitHub**
+- `src/data/services.js`: **updated to canonical WebP paths**
+- Homepage / Services directory / service-detail Hero: **wired to the same service.image**
 - user mapping: **approved**
-- local optimization: **completed**
 - manual Vercel deployment: **deferred by user request**
+- technical verification: **GitHub VNext verify required after this integration commit**
 
-If the original attachments are not accessible in the next conversation, ask the user to re-upload the same eight source files. Do not regenerate or silently substitute media.
+The service originals no longer need to be re-requested; they are preserved in the repository.
 
-The remaining Home/page-Hero/article media slots in Sections A, B, and D remain pending unless separately supplied.
+Homepage Hero, Homepage About, and the About page Hero have also been supplied and integrated. Remaining page-Hero/article slots in Sections B and D remain pending unless separately supplied.
 
 ## Rules
 
@@ -71,8 +72,8 @@ The remaining Home/page-Hero/article media slots in Sections A, B, and D remain 
 
 | Slot | Role | Current temporary source | Preferred final source |
 |---|---|---|---|
-| HOME-01 | Homepage Hero | `/assets/about_1.png` | Strong horizontal team/work/digital-production image, 16:10 crop-safe |
-| HOME-02 | Homepage About supporting image | `/assets/about_2.png` | Team/work image, 4:3 or crop-safe horizontal |
+| HOME-01 | Homepage Hero | `/assets/media/home-hero.webp` **FINAL** | User-approved digital devices/interfaces composition; source: `assets/media/source/home-hero.jpeg` |
+| HOME-02 | Homepage About supporting image | `/assets/media/about-us.webp` **FINAL** | User-approved Wasl Tech workplace/identity image; source: `assets/media/source/about-us.jpeg` |
 
 Both assets are shared by Arabic and English.
 
@@ -84,7 +85,7 @@ Both assets are shared by Arabic and English.
 |---|---|---|---|
 | HERO-01 | Services directory | `/assets/gen/hero_portfolio.png` | Digital services / connected work |
 | HERO-02 | Portfolio | `/assets/gen/hero_portfolio.png` | Work / portfolio context |
-| HERO-03 | About | `/assets/about_2.png` | Team / Wasl Tech context |
+| HERO-03 | About | `/assets/media/about-us.webp` **FINAL** | User-approved Wasl Tech workplace/identity image |
 | HERO-04 | Process | `/assets/gen/hero_process.png` | Planning / process / workflow |
 | HERO-05 | Contact | `/assets/gen/hero_contact.png` | Communication / contact |
 | HERO-06 | Project Planner | `/assets/gen/hero_contact.png` | Project discussion / briefing |

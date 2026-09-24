@@ -7,6 +7,16 @@ Current live `main`: `a4ed507defe5e7831f3459e12752a89fe0d225fc`
 Active VNext branch: `rebuild/vnext-foundation-20260921`  
 Latest verified VNext implementation checkpoint: `aea64eb0f4339a610fa8f035b8650e12bdbbd8cf`
 
+## 2026-09-24 — Service + Home/About media integration
+
+- All 8 approved service originals are stored under `assets/services/source/<slug>.jpeg`.
+- All 8 runtime WebP derivatives are stored under `assets/services/<slug>.webp` and are the canonical `service.image` values.
+- The same canonical service image feeds Homepage service cards, the Services directory, and each service-detail Hero.
+- Homepage Hero uses `/assets/media/home-hero.webp`; source preserved at `assets/media/source/home-hero.jpeg`.
+- Homepage About and the About page Hero use `/assets/media/about-us.webp`; source preserved at `assets/media/source/about-us.jpeg`.
+- Build ownership copies runtime service/site media without shipping source originals.
+- Manual Vercel deployment remains deferred. GitHub `vnext:verify` must be checked on this implementation commit before the media batch is marked technically verified.
+
 ## 2026-09-24 — Current execution update
 
 This section is the newest execution truth and overrides stale historical “next phase” text below when there is a conflict.

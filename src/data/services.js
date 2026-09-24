@@ -44,7 +44,7 @@ const serviceRecords = [
     "id": "web",
     "slug": "web-development",
     "group": "digital-products",
-    "image": "/assets/works/project_1.jpg",
+    "image": "/assets/services/web-development.webp",
     "localeStatus": {
       "ar": "ready",
       "en": "ready"
@@ -296,7 +296,7 @@ const serviceRecords = [
     "id": "app",
     "slug": "mobile-app-development",
     "group": "digital-products",
-    "image": "/assets/works/project_5.jpg",
+    "image": "/assets/services/mobile-app-development.webp",
     "localeStatus": {
       "ar": "ready",
       "en": "ready"
@@ -548,7 +548,7 @@ const serviceRecords = [
     "id": "store",
     "slug": "ecommerce",
     "group": "digital-products",
-    "image": "/assets/works/project_10.jpg",
+    "image": "/assets/services/ecommerce.webp",
     "localeStatus": {
       "ar": "ready",
       "en": "ready"
@@ -800,7 +800,7 @@ const serviceRecords = [
     "id": "programming",
     "slug": "custom-software",
     "group": "systems-engineering",
-    "image": "/assets/works/project_4.jpg",
+    "image": "/assets/services/custom-software.webp",
     "localeStatus": {
       "ar": "ready",
       "en": "ready"
@@ -1052,7 +1052,7 @@ const serviceRecords = [
     "id": "tech",
     "slug": "technical-solutions",
     "group": "systems-engineering",
-    "image": "/assets/works/project_3.jpg",
+    "image": "/assets/services/technical-solutions.webp",
     "localeStatus": {
       "ar": "ready",
       "en": "ready"
@@ -1304,7 +1304,7 @@ const serviceRecords = [
     "id": "profiles",
     "slug": "company-profiles",
     "group": "brand-presence",
-    "image": "/assets/works/project_9.jpg",
+    "image": "/assets/services/company-profiles.webp",
     "localeStatus": {
       "ar": "ready",
       "en": "ready"
@@ -1556,7 +1556,7 @@ const serviceRecords = [
     "id": "design",
     "slug": "brand-design",
     "group": "brand-presence",
-    "image": "/assets/works/project_7.jpg",
+    "image": "/assets/services/brand-design.webp",
     "localeStatus": {
       "ar": "ready",
       "en": "ready"
@@ -1808,7 +1808,7 @@ const serviceRecords = [
     "id": "marketing",
     "slug": "digital-marketing",
     "group": "brand-presence",
-    "image": "/assets/works/project_12.jpg",
+    "image": "/assets/services/digital-marketing.webp",
     "localeStatus": {
       "ar": "ready",
       "en": "ready"

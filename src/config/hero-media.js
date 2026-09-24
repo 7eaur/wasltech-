@@ -1,7 +1,7 @@
 const PAGE_MEDIA = Object.freeze({
   services: Object.freeze({ src:"/assets/gen/hero_portfolio.png", temporary:true }),
   portfolio: Object.freeze({ src:"/assets/gen/hero_portfolio.png", temporary:true }),
-  about: Object.freeze({ src:"/assets/about_2.png", temporary:true }),
+  about: Object.freeze({ src:"/assets/media/about-us.webp", width:1536, height:864, temporary:false }),
   process: Object.freeze({ src:"/assets/gen/hero_process.png", temporary:true }),
   contact: Object.freeze({ src:"/assets/gen/hero_contact.png", temporary:true }),
   startProject: Object.freeze({ src:"/assets/gen/hero_contact.png", temporary:true }),
@@ -22,8 +22,8 @@ export function getPageHeroMedia(pageKey, locale = "ar") {
   if (!media) throw new Error(`Unknown page hero media key: ${pageKey}`);
   return Object.freeze({
     ...media,
-    width: 1600,
-    height: 1000,
+    width: media.width ?? 1600,
+    height: media.height ?? 1000,
     alt: ""
   });
 }
@@ -31,9 +31,9 @@ export function getPageHeroMedia(pageKey, locale = "ar") {
 export function getServiceHeroMedia(service, locale = "ar") {
   return Object.freeze({
     src: service.image,
-    width: 1600,
-    height: 1000,
-    temporary: true,
+    width: 1280,
+    height: 720,
+    temporary: false,
     alt: service.content[locale].title
   });
 }
@@ -68,4 +68,4 @@ export function getJobHeroMedia(job, locale = "ar") {
   });
 }
 
-export const temporaryHeroKeys = Object.freeze(Object.keys(PAGE_MEDIA));
+export const temporaryHeroKeys = Object.freeze(Object.keys(PAGE_MEDIA).filter((key) => PAGE_MEDIA[key].temporary));

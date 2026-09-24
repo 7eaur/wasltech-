@@ -102,9 +102,9 @@ function renderHero(content, locale) {
           </div>
         </div>
         <div class="home-hero__media">
-          <img src="/assets/about_1.png"
-            alt="${locale === "ar" ? "فريق يعمل على مشروع رقمي" : "A team working on a digital project"}"
-            width="1500" height="900" loading="eager" fetchpriority="high" decoding="async">
+          <img src="/assets/media/home-hero.webp"
+            alt="${locale === "ar" ? "واجهات رقمية تمثل خدمات المواقع والتطبيقات والحلول التقنية من وصل تك" : "Digital interfaces representing Wasl Tech websites, apps, and technical solutions"}"
+            width="1448" height="1086" loading="eager" fetchpriority="high" decoding="async">
         </div>
       </div>
     </section>
@@ -192,9 +192,9 @@ function renderAbout(content, locale) {
     <section class="section home-about" id="about">
       <div class="container home-about__grid">
         <div class="home-about__media">
-          <img src="/assets/about_2.png"
-            alt="${locale === "ar" ? "فريق وصل تك أثناء العمل" : "The Wasl Tech team at work"}"
-            width="1000" height="720" loading="lazy" decoding="async">
+          <img src="/assets/media/about-us.webp"
+            alt="${locale === "ar" ? "بيئة عمل وصل تك وهوية الشركة" : "Wasl Tech workplace and brand identity"}"
+            width="1536" height="864" loading="lazy" decoding="async">
         </div>
         <div class="home-about__copy">
           <p class="eyebrow">${escapeHtml(copy.kicker)}</p>

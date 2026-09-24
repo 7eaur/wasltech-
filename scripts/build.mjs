@@ -97,6 +97,21 @@ async function buildAssets() {
   for (const image of editorialImages) {
     await cp(path.join(ROOT, "assets/gen", image), path.join(DIST, "assets/gen", image));
   }
+  const siteMediaImages = ["home-hero.webp", "about-us.webp"];
+  await mkdir(path.join(DIST, "assets/media"), { recursive: true });
+  for (const image of siteMediaImages) {
+    await cp(path.join(ROOT, "assets/media", image), path.join(DIST, "assets/media", image));
+  }
+
+  const serviceImages = [...new Set(services.map((service) => service.image))];
+  for (const image of serviceImages) {
+    const relative = image.replace(/^\/+/, "");
+    const source = path.join(ROOT, relative);
+    const destination = path.join(DIST, relative);
+    await ensureDirectory(destination);
+    await cp(source, destination);
+  }
+
   const projectImages = [...new Set(projects.map((project) => project.image))];
   for (const image of projectImages) {
     const relative = image.replace(/^\/+/, "");
