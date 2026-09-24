@@ -27,9 +27,9 @@ The older `docs/qa/2026-09-24_footer-service-media-handoff.md` record is histori
 6. `docs/core/DESIGN_SYSTEM.md` — stable UX/UI/brand rules.
 7. `docs/core/ENGINEERING_ARCHITECTURE.md` — stable code architecture.
 8. `docs/core/CONTENT_IA.md` — information architecture and writing system.
-9. `docs/core/EXECUTION_PLAN.md` — phase sequence and acceptance goals.
-10. `docs/core/QA_RELEASE.md` — quality/release gates.
-11. Relevant `docs/research/*` only when external/reference evidence is needed.
+9. `docs/core/SEARCH_VISIBILITY.md` — canonical SEO, AI-search visibility, crawler, entity and measurement rules.\n10. `docs/core/EXECUTION_PLAN.md` — phase sequence and acceptance goals.
+11. `docs/core/QA_RELEASE.md` — quality/release gates.
+12. Relevant `docs/research/*` only when external/reference evidence is needed.
 
 Live code/runtime always override stale documentation.
 
@@ -43,7 +43,7 @@ Live code/runtime always override stale documentation.
 | Brand/business/service facts | `docs/core/PRODUCT.md` |
 | Visual/UX/design rules | `docs/core/DESIGN_SYSTEM.md` |
 | Repository/code architecture | `docs/core/ENGINEERING_ARCHITECTURE.md` |
-| Site map, page purpose, copywriting | `docs/core/CONTENT_IA.md` |
+| Site map, page purpose, copywriting | `docs/core/CONTENT_IA.md` |\n| SEO / AI search visibility / crawler policy / measurement | `docs/core/SEARCH_VISIBILITY.md` |
 | Phase plan / phase order | `docs/core/EXECUTION_PLAN.md` |
 | Performance, accessibility, SEO, visual/release gates | `docs/core/QA_RELEASE.md` |
 | Competitor/reference research | `docs/research/*` |
