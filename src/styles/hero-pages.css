@@ -259,14 +259,4 @@
   margin-top:.65rem;
 }
 
-/* Inner-page heroes are informational only. Primary actions remain on the Home hero and page CTAs. */
-.services-hero__actions,
-.service-detail-hero__actions,
-.contact-hero__actions,
-.secondary-hero__actions,
-.about-hero__actions,
-.process-hero__actions,
-.insights-hero__actions,
-.planner-hero__copy>.text-link{
-  display:none;
-}
+.planner-hero__copy>.text-link{display:none}
