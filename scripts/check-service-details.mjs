@@ -39,6 +39,11 @@ for (const locale of ["ar","en"]) {
     if (!html.includes(htmlText(copy.decision.problemNeed))) fail(file,"problem/need content missing");
     if (!html.includes(htmlText(copy.decision.scopeSummary))) fail(file,"scope summary missing");
 
+    for (const subservice of copy.subservices ?? []) {
+      if (!html.includes(htmlText(subservice.title))) fail(file,`subservice missing: ${subservice.title}`);
+      if (!html.includes(htmlText(subservice.description))) fail(file,`subservice description missing: ${subservice.id}`);
+    }
+
     for (const deliverable of copy.deliverables) {
       if (!html.includes(htmlText(deliverable.title))) fail(file,`deliverable missing: ${deliverable.title}`);
     }
