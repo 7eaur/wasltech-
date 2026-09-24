@@ -68,6 +68,8 @@ for (const entry of getIndexableEntries()) {
     continue;
   }
 
+  htmlByRoute.set(route, html);
+
   const title = decode(matchOne(html, /<title>([\s\S]*?)<\/title>/i));
   const description = decode(matchOne(html, /<meta\s+name="description"\s+content="([^"]*)"/i));
   registerUnique(seenTitles, title, route, "title");
