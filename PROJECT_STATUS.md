@@ -936,3 +936,50 @@ Current gate:
 VNext is **not production**.
 
 Do not merge/cut over or alter production routing until the final release phase.
+
+
+## 2026-09-25 — Production Motion & Performance Hardening
+
+This checkpoint supersedes the older production-separation text above for the current live VNext release.
+
+Production state:
+- VNext has been cut over to `main`.
+- Motion/performance PR: #39.
+- Verified motion/performance source head: `a788addffa95bacaff80791ada4b2ef105ed63d7`.
+- Merge commit: `8b461e5b361dc5f0d1885a697ce29f826aae0ce2`.
+- Production alias remains `https://wasltech.vercel.app`.
+
+Motion policy:
+- no animation library or runtime framework;
+- opacity/transform only;
+- one IntersectionObserver for below-fold reveals;
+- reveal setup deferred until page load + browser idle;
+- content remains readable before reveal;
+- optional reveal motion disabled for reduced-motion, Save-Data, <=4 GB device memory, <=4 logical CPUs, and 2G/slow-2G connections;
+- mobile sticky-header backdrop blur removed.
+
+Performance/media hardening:
+- heavyweight temporary PNG Hero/article assets removed from generated runtime output;
+- temporary public surfaces reuse approved lightweight WebP fallbacks until final imagery is supplied;
+- homepage social image uses the optimized Home Hero;
+- referenced runtime raster budget: <=180 KiB each;
+- CSS gzip budget: <=16 KiB;
+- all client JS gzip budget: <=8 KiB;
+- project image budget remains <=150 KiB each and <=1.2 MiB total.
+
+Latest verified measurements:
+- CSS gzip: 15,934 bytes;
+- all client JS gzip: 3,500 bytes;
+- referenced project images: 1,026,583 bytes total;
+- VNext verify: SUCCESS;
+- full browser matrix: SUCCESS;
+- indexable routes at 390/1440: 74 PASS;
+- degraded-runtime test: 4x CPU, 180 ms latency, 180 KiB/s down, 80 KiB/s up;
+- degraded DOMContentLoaded: 1,391 ms;
+- max startup long task: 189 ms;
+- interaction long task: 0 ms;
+- scroll long task: 0 ms.
+
+Remaining final media:
+- 8 unique final images are documented in `docs/qa/FINAL_MEDIA_INVENTORY.md`.
+- Existing Home, About, eight service images, and project/portfolio imagery must not be requested again.
