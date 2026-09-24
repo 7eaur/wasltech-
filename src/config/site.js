@@ -10,7 +10,7 @@ export const site = Object.freeze({
     phoneDisplay: "+967 775 377 979",
     phoneUri: "+967775377979",
     whatsapp: "https://wa.me/967775377979",
-    email: "wasltechp@gmail.com",
+    email: "info@wasl-tech.com",
     instagram: Object.freeze({
       handle: "@wasltech.yem",
       url: "https://www.instagram.com/wasltech.yem"
