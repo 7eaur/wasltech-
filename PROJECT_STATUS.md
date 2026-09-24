@@ -39,8 +39,11 @@ This is the newest execution truth for SEO / AI-search work.
 - External identity contract: `docs/core/EXTERNAL_ENTITY_PROFILE.md`
 
 ### Phase 9 preparation
+- Pre-publication implementation commit: `5f1cf8b733a17e14f3373957586523298ad6fb51`
+- Preview + Release verification: `36069649090` — **SUCCESS**
 - Webmaster plan: `docs/core/WEBMASTER_MEASUREMENT.md`
 - Production smoke command: `npm run vnext:check:production-search`
+- The production-domain smoke is intentionally not executed before domain cutover.
 - Search Console/Bing verification intentionally waits for canonical-domain publication and account authorization.
 
 ### Phase state

@@ -33,6 +33,8 @@ Use this section first for search-visibility work. It supersedes older SEO/searc
 Phases 5–8 are complete on the website side. Phase 8 passed Preview + Release verification in run `36069375128`.
 
 Phase 9 is pre-publication ready:
+- verified implementation commit: `5f1cf8b733a17e14f3373957586523298ad6fb51`
+- Preview + Release verification: `36069649090` — **SUCCESS**
 - `docs/core/WEBMASTER_MEASUREMENT.md`
 - `npm run vnext:check:production-search`
 
