@@ -93,6 +93,28 @@ Mandatory:
 
 SEO is a first-class product requirement, but do not create thin keyword pages or fabricate content to chase rankings.
 
+## 5B. Search + AI visibility rules
+
+Authority:
+`docs/core/SEARCH_VISIBILITY.md`
+
+Mandatory:
+- optimize for useful human outcomes first; search visibility follows real usefulness and proof;
+- Google/Bing/AI search must receive the same truthful public content as users;
+- never keyword-stuff, mass-generate thin pages, create doorway city/service pages, or manufacture "freshness";
+- every indexable page must have a unique purpose, crawlable HTML, useful internal links, canonical metadata and an intentional publication state;
+- Arabic and English pages must be localized for intent, not duplicated mechanically;
+- structured data must match visible verified content; it never substitutes for missing content;
+- preserve explicit access for `OAI-SearchBot` in production;
+- do not treat `GPTBot` access, `llms.txt`, FAQ schema, or any vendor-specific file as a ranking shortcut;
+- sitemap `lastmod` is allowed only when it reflects a real significant page update;
+- IndexNow submissions are for real add/update/delete events, not repeated spam submissions;
+- search/AI claims must be measured with Search Console, Bing Webmaster/AI Performance, analytics and actual crawl/index evidence where available;
+- no ranking, citation, traffic or lead guarantee may be stated without evidence.
+
+For search work, use:
+**Intent → Evidence → Page owner → Technical eligibility → Internal discovery → Entity clarity → Measurement → Iterate.**
+
 ## 6. Brand / design rules
 
 Authority:

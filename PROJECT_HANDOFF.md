@@ -1,5 +1,51 @@
 # Wasl Tech VNext — Conversation Handoff
 
+## 2026-09-25 — SEARCH VISIBILITY RESUME POINT
+
+Use this section first for SEO / AI-search continuation.
+
+### Exact source of truth
+- repository: `7eaur/wasltech-`
+- production baseline HEAD observed at phase start: `1ecc74ff77b4a1f536182e8d606a5860ce8d209f`
+- active branch: `seo/search-visibility-foundation-20260925-v2`
+- verified S1 implementation SHA: `982da1c51ddf7fd6dd958a386b2038718d27a357`
+- draft PR: `#36`
+- canonical search standard: `docs/core/SEARCH_VISIBILITY.md`
+- QA evidence: `docs/qa/2026-09-25_search-visibility-s1.md`
+
+### What is complete
+S0 baseline audit and S1 technical foundation are complete and verified. The release pipeline now guards 74 generated indexable routes for search eligibility, metadata, entity schema and internal discovery. OAI-SearchBot access, large-image preview directives and a stable Organization entity graph are implemented on the branch.
+
+### Verification
+- workflow run `36065213520`: **SUCCESS**
+- release check: **PASSED**
+- search visibility check: **PASSED**
+- indexable routes checked: **74**
+
+### Do not redo
+- do not recreate a new SEO architecture;
+- do not add `llms.txt` as a ranking shortcut;
+- do not mass-generate keyword/city pages;
+- do not add fake LocalBusiness address data;
+- do not duplicate service pages for minor keyword variants;
+- do not merge/publish S1 without the normal phase/release approval.
+
+### Exact next phase
+S2 — Webmaster, indexing and freshness.
+
+When S2 is explicitly started:
+1. re-fetch live `main` first;
+2. verify canonical domain/DNS/runtime and www/non-www/http redirects;
+3. inspect production `robots.txt` and `sitemap.xml`;
+4. inventory legacy indexed URLs and build a verified redirect map;
+5. verify Google Search Console ownership + sitemap/index state;
+6. verify Bing Webmaster Tools ownership + sitemap/index state;
+7. add/verify IndexNow only for real production URL changes;
+8. verify legitimate crawler access through CDN/WAF;
+9. capture baseline search/AI visibility metrics before content expansion.
+
+Do not begin S3 keyword/intent expansion until S2 gate is closed.
+
 ## 2026-09-24 — AUTHORITATIVE RESUME POINT
 
 Use this section first in a new conversation. It supersedes the older “Immediate baton” and historical pending-media instructions below.

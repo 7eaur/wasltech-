@@ -7,6 +7,12 @@ This file defines where project truth lives. It exists to prevent overlapping do
 
 ## Current handoff record
 
+For Search / AI visibility work, read first:
+- `PROJECT_STATUS.md` — 2026-09-25 Search Visibility baton
+- `PROJECT_HANDOFF.md` — 2026-09-25 Search Visibility resume point
+- `docs/core/SEARCH_VISIBILITY.md`
+- `docs/qa/2026-09-25_search-visibility-s1.md`
+
 For the current 2026-09-24 continuation, read:
 - `PROJECT_STATUS.md`
 - `PROJECT_HANDOFF.md`
@@ -29,7 +35,8 @@ The older `docs/qa/2026-09-24_footer-service-media-handoff.md` record is histori
 8. `docs/core/CONTENT_IA.md` — information architecture and writing system.
 9. `docs/core/EXECUTION_PLAN.md` — phase sequence and acceptance goals.
 10. `docs/core/QA_RELEASE.md` — quality/release gates.
-11. Relevant `docs/research/*` only when external/reference evidence is needed.
+11. `docs/core/SEARCH_VISIBILITY.md` — SEO, AI-search, entity, content-authority and measurement authority.
+12. Relevant `docs/research/*` only when external/reference evidence is needed.
 
 Live code/runtime always override stale documentation.
 
@@ -46,6 +53,7 @@ Live code/runtime always override stale documentation.
 | Site map, page purpose, copywriting | `docs/core/CONTENT_IA.md` |
 | Phase plan / phase order | `docs/core/EXECUTION_PLAN.md` |
 | Performance, accessibility, SEO, visual/release gates | `docs/core/QA_RELEASE.md` |
+| Search/AI visibility strategy, crawler policy, entity authority, content growth and measurement | `docs/core/SEARCH_VISIBILITY.md` |
 | Competitor/reference research | `docs/research/*` |
 | Dated QA evidence | `docs/qa/*` |
 
