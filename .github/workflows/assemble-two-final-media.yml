@@ -1,0 +1,38 @@
+name: Assemble two final media test assets
+
+on:
+  push:
+    branches:
+      - media/final-site-images-20261007
+    paths:
+      - "tmp/final-media-upload/READY"
+
+permissions:
+  contents: write
+
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble WebP files
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/media
+          cat tmp/final-media-upload/services-hero.webp.b64.part* | tr -d '\n\r' | base64 -d > assets/media/services-hero.webp
+          cat tmp/final-media-upload/portfolio-hero.webp.b64.part* | tr -d '\n\r' | base64 -d > assets/media/portfolio-hero.webp
+          test "$(wc -c < assets/media/services-hero.webp)" -eq 79764
+          test "$(wc -c < assets/media/portfolio-hero.webp)" -eq 155374
+          file assets/media/services-hero.webp
+          file assets/media/portfolio-hero.webp
+      - name: Commit assembled assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/media/services-hero.webp assets/media/portfolio-hero.webp
+          git rm -r tmp/final-media-upload
+          git commit -m "test(media): upload two final webp assets"
+          git push origin HEAD:media/final-site-images-20261007
