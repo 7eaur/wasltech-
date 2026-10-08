@@ -1,125 +1,281 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#14305F">
-<title>معاينة أنميشن شعار وصل تك | Wasl Tech</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#14305F">
+<title>مختبر حركة شعار وصل تك — خمس تصاميم مستقلة</title>
 <style>
-:root{--navy:#14305F;--teal:#0E8889;--muted:#66758a;--line:#e4e9ef;--ease:cubic-bezier(.2,.72,.2,1)}
-*{box-sizing:border-box}body{margin:0;background:#f7f9fa;color:var(--navy);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.7}
-button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
-.container{width:min(1090px,calc(100% - 32px));margin:auto}
-.bar{background:white;border-bottom:1px solid var(--line);padding:18px 0}
-.bar .container{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.eyebrow{font-size:11px;letter-spacing:.11em;font-weight:800;color:var(--teal)}.pill{border:1px solid #c6dcd9;border-radius:40px;color:#096B70;padding:4px 10px;font-size:11px}
-.intro{text-align:center;padding:55px 0 33px}.intro h1{font-size:clamp(28px,4vw,42px);margin:8px 0}.intro p{font-size:15px;color:var(--muted);max-width:680px;margin:auto}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding-bottom:24px}
-.card{background:white;border:1px solid var(--line);border-radius:16px;overflow:hidden}
-.card:first-child{border-color:#a4c4c1;box-shadow:0 12px 32px #14305f0a}
-.stage{height:216px;display:grid;place-items:center;position:relative;overflow:hidden;background:white}
-.stage[data-style=ink]{background:#fff}
-.stage[data-style=line]{background:#fff}
-.stage[data-style=quiet]{background:#fff}
-.logo{width:90%;max-width:330px;aspect-ratio:1130/360;position:relative}
-.logo img,.logo svg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.logo img{opacity:1}
-.stage.is-running .logo img{opacity:0}
-.stage.is-running .logo svg{opacity:1}
-.stage .logo svg{opacity:0}
-.stage[data-style=ink].is-running .logo img{animation:final-show .27s ease 1.42s both}
-.stage[data-style=line].is-running .logo img{animation:final-show .23s ease 1.05s both}
-.stage[data-style=quiet].is-running .logo img{animation:quiet-entry 1.2s var(--ease) both}
-.stage[data-style=quiet].is-running .logo svg{display:none}
-.stage[data-style=ink].is-running .trace-path{animation:stroke-trace 1.2s var(--ease) both}
-.stage[data-style=ink].is-running .trace-path:nth-child(2){animation-delay:.09s}
-.stage[data-style=ink].is-running .trace-path:nth-child(3){animation-delay:.25s}
-.stage[data-style=line].is-running .trace-path{animation:stroke-trace .94s var(--ease) both}
-.stage[data-style=line].is-running .trace-path:nth-child(2){animation-delay:.08s}
-.stage[data-style=line].is-running .trace-path:nth-child(3){animation-delay:.12s}
-@keyframes stroke-trace{from{stroke-dashoffset:var(--length);opacity:1}to{stroke-dashoffset:0;opacity:1}}
-@keyframes final-show{from{opacity:0}to{opacity:1}}
-@keyframes quiet-entry{from{opacity:0;clip-path:inset(0 48% 0 48%)}to{opacity:1;clip-path:inset(0)}}
-.details{padding:18px}.details h2{font-size:18px;line-height:1.45;margin:0 0 5px}
-.details p{color:var(--muted);font-size:12px;min-height:60px;margin:0 0 14px}
-.actions{display:flex;flex-wrap:wrap;gap:7px}
-.action{border:1px solid var(--line);border-radius:9px;background:white;color:var(--navy);padding:9px 11px;font-weight:700;font-size:12px}
-.action--primary{background:var(--navy);color:white;border-color:var(--navy)}
-.note{padding:20px 22px;margin:6px auto 36px;background:white;border:1px solid var(--line);border-right:3px solid var(--teal);border-radius:9px}
-.note strong{font-size:14px}.note p{font-size:13px;color:var(--muted);margin:3px 0 0}
-.modal[hidden]{display:none}
-.modal{position:fixed;inset:0;z-index:50;background:white;display:grid;place-items:center;opacity:1;transition:opacity .32s ease}
-.modal.is-exiting{opacity:0;pointer-events:none}
-.modal__inside{text-align:center;width:min(90vw,670px)}
-.modal .stage{height:220px}
-.modal .logo{width:100%;max-width:520px;margin:auto}
-.modal__exit{margin:20px auto 0;border:1px solid var(--line);background:white;color:var(--muted);font-size:13px;border-radius:8px;padding:7px 13px}
-.footer{text-align:center;font-size:12px;color:var(--muted);padding-bottom:20px}
-@media(max-width:850px){.grid{grid-template-columns:1fr;max-width:530px;margin:auto}.details p{min-height:0}.intro{padding-top:35px}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.stage .logo img,.stage.is-running .logo img{opacity:1!important}.stage svg{display:none!important}}
+:root{--navy:#14305F;--teal:#0E8889;--darkteal:#096B70;--ink:#193454;--muted:#65788A;--canvas:#F5F7F8;--border:#DAE3E7;--ease:cubic-bezier(.22,.78,.22,1)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;font-size:15px;line-height:1.75}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.container{width:min(1160px,calc(100% - 36px));margin-inline:auto}
+.topbar{background:#fff;border-bottom:1px solid var(--border)}
+.topbar .container{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:14px}
+.brand-name{display:flex;align-items:center;gap:12px;font-weight:750;font-size:14px}
+.brand-name img{width:114px;height:auto;display:block}
+.brand-divider{height:27px;width:1px;background:var(--border)}
+.tag{font-size:11px;font-weight:700;border:1px solid #BED4D0;background:#F3FAF9;color:var(--darkteal);padding:4px 10px;border-radius:30px}
+.intro{padding-block:46px 28px}
+.kicker{display:inline-block;font-size:11px;letter-spacing:.09em;color:var(--darkteal);font-weight:800}
+.intro h1{font-size:clamp(27px,4.4vw,42px);letter-spacing:-.035em;line-height:1.45;margin:7px 0 11px}
+.intro p{color:var(--muted);max-width:700px;font-size:14px;margin:0}
+.intro__meta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-block-start:18px}
+.meta-pill{padding:5px 10px;background:#fff;border:1px solid var(--border);border-radius:7px;font-size:11px;color:#526B7B}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-bottom:30px}
+.card{min-width:0;overflow:hidden;border-radius:16px;background:#fff;border:1px solid var(--border);box-shadow:0 3px 14px rgba(20,48,95,.025)}
+.card--recommended{border-color:#A1C5C5}
+.card__top{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:15px 20px;border-bottom:1px solid #EEF1F3}
+.card__number{font-size:12px;color:#73818F;font-weight:800;letter-spacing:.08em;direction:ltr}
+.card__badge{font-size:10px;padding:3px 9px;background:#EFF8F7;border:1px solid #C5DEDA;color:var(--darkteal);border-radius:20px}
+.stage{position:relative;min-height:230px;display:grid;place-items:center;overflow:hidden;background:#fff;isolation:isolate}
+.stage--dark{background:#14305F}
+.stage__watermark{position:absolute;inset-inline-end:18px;bottom:15px;color:#A3AFB9;font-size:9px;letter-spacing:.12em;font-weight:700;direction:ltr;opacity:.75}
+.stage--dark .stage__watermark{color:#C6DADE}
+.stage__canvas{width:90%;max-width:425px;position:relative;aspect-ratio:1130/360}
+.stage__canvas .logo-img,.stage__canvas .logo-svg{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+.stage__canvas .logo-svg{overflow:visible}
+.stage.is-vector .logo-img{opacity:0}
+.stage:not(.is-vector) .logo-img{opacity:1}
+.stage[data-motion="dark"] .logo-img{filter:brightness(0) invert(1)}
+.stage[data-motion="dark"].is-vector .logo-svg [fill="#14305F"]{fill:white}
+.stage[data-motion="dark"].is-vector .logo-svg [fill="url(#wt-primary-gradient)"]{fill:#A1E1D6}
+.stage[data-motion="dark"].is-vector .logo-svg path{stroke:none}
+.card__body{padding:19px 20px 18px}
+.card__body h2{font-size:18px;line-height:1.5;margin:0 0 7px;font-weight:750}
+.card__body p{margin:0;color:var(--muted);font-size:12.5px;min-height:44px}
+.card__actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:19px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#fff;border:1px solid #CED8DF;border-radius:9px;color:var(--navy);font-weight:750;font-size:12px;padding:9px 12px;min-height:40px}
+.btn--primary{background:var(--navy);border-color:var(--navy);color:white}
+.btn--primary:hover{background:#1D426F}
+.btn--secondary:hover{background:#F6F9FB}
+.card--wide{grid-column:1/-1}
+.card--wide .stage{min-height:260px}
+.card--wide .stage__canvas{max-width:490px}
+.reality{display:grid;grid-template-columns:1.3fr .7fr;gap:20px;padding:21px 24px;margin-bottom:34px;border-radius:13px;background:#fff;border:1px solid var(--border);border-right:3px solid var(--teal)}
+.reality strong{font-size:14px}
+.reality p{font-size:12px;color:var(--muted);margin:5px 0 0}
+.reality__detail{font-size:11px;color:var(--darkteal);align-self:center}
+footer{padding:13px 0 30px;color:#788896;font-size:11px;text-align:center}
+.is-playing .logo-svg{opacity:1}
+.is-playing[data-motion="sequence"] .symbol-navy{animation:wt-symbol .73s var(--ease) both}
+.is-playing[data-motion="sequence"] .symbol-teal{animation:wt-teal .72s var(--ease) .32s both}
+.is-playing[data-motion="sequence"] .wordmark{animation:wt-word .66s var(--ease) .58s both}
+@keyframes wt-symbol{from{opacity:0;transform:translateX(22px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes wt-teal{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+@keyframes wt-word{from{opacity:0;clip-path:inset(0 100% 0 0);transform:translateX(-11px)}to{opacity:1;clip-path:inset(0);transform:none}}
+.is-playing[data-motion="sweep"] .logo-svg{animation:wt-sweep 1.24s var(--ease) both}
+.is-playing[data-motion="sweep"] .sweep-edge{animation:wt-edge 1.24s var(--ease) both}
+.sweep-edge{position:absolute;inset-block:18%;width:2px;background:var(--teal);inset-inline-end:0;opacity:0}
+@keyframes wt-sweep{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0 0 0 0)}}
+@keyframes wt-edge{0%{opacity:0;inset-inline-end:0}14%{opacity:1}87%{opacity:1}100%{opacity:0;inset-inline-end:100%}}
+.is-playing[data-motion="converge"] .symbol-navy,.is-playing[data-motion="converge"] .symbol-teal{animation:wt-right .96s var(--ease) both}
+.is-playing[data-motion="converge"] .wordmark{animation:wt-left .96s var(--ease) both}
+@keyframes wt-right{from{opacity:0;transform:translateX(35px);filter:blur(2px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes wt-left{from{opacity:0;transform:translateX(-27px);filter:blur(2px)}to{opacity:1;transform:none;filter:blur(0)}}
+.stage[data-motion="outline"] .symbol-navy,.stage[data-motion="outline"] .symbol-teal{stroke:#0E8889;stroke-width:1.15;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.is-playing[data-motion="outline"] .symbol-navy,.is-playing[data-motion="outline"] .symbol-teal{animation:wt-outline 1.3s ease-in-out both}
+.is-playing[data-motion="outline"] .wordmark{animation:wt-word-soft .62s ease-out .9s both}
+@keyframes wt-outline{0%{fill-opacity:0;stroke-opacity:0}15%{fill-opacity:0;stroke-opacity:.9}63%{fill-opacity:.2;stroke-opacity:.7}100%{fill-opacity:1;stroke-opacity:0}}
+@keyframes wt-word-soft{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.is-playing[data-motion="quiet"] .logo-svg{animation:wt-quiet 1.12s var(--ease) both}
+.is-playing[data-motion="quiet"] .accent-line{animation:wt-rule 1.04s var(--ease) .15s both}
+.accent-line{position:absolute;bottom:1%;left:23%;right:23%;height:2px;background:var(--teal);transform:scaleX(0);opacity:0}
+@keyframes wt-quiet{from{opacity:0;transform:translateY(13px) scale(.975)}to{opacity:1;transform:none}}
+@keyframes wt-rule{0%{opacity:0;transform:scaleX(0)}25%{opacity:.9}80%{opacity:.9;transform:scaleX(1)}100%{opacity:0;transform:scaleX(1)}}
+.is-playing:not(.is-vector) .logo-img{animation:wt-fallback .75s ease-out both}
+@keyframes wt-fallback{from{opacity:0}to{opacity:1}}
+.demo[hidden]{display:none}
+.demo{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:#fff;overflow:auto}
+.demo__intro{position:absolute;inset:0;background:#fff;display:grid;place-items:center;z-index:2;pointer-events:none;animation:wt-overlay-out .48s ease-in-out 1.62s forwards}
+.demo__intro[data-motion="dark"]{background:var(--navy)}
+.demo__intro[data-motion="quiet"]{animation-delay:1.32s}
+.demo__intro[data-motion="sweep"]{animation-delay:1.34s}
+.demo__intro[data-motion="converge"]{animation-delay:1.33s}
+.demo__intro[data-motion="outline"]{animation-delay:1.65s}
+.demo__intro .stage{width:min(95vw,650px);height:270px}
+.demo__intro .stage__canvas{width:94%;max-width:550px}
+.demo__intro .stage__watermark{display:none}
+@keyframes wt-overlay-out{from{opacity:1;visibility:visible}to{opacity:0;visibility:hidden}}
+.demo__page{width:min(940px,calc(100% - 36px));margin:auto;padding:24px 0 34px}
+.demo__header{display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid var(--border);padding-bottom:18px}
+.demo__header img{width:126px}
+.demo__header span{color:var(--muted);font-size:12px}
+.demo__content{margin:60px auto 28px;max-width:560px;text-align:center}
+.demo__content h2{font-size:clamp(27px,5vw,43px);line-height:1.4;margin:12px 0}
+.demo__content p{color:var(--muted);font-size:14px}
+.demo__controls{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:26px}
+@media(max-width:780px){.grid{grid-template-columns:1fr}.card--wide{grid-column:auto}.reality{grid-template-columns:1fr}.intro{padding-block:34px 24px}.stage{min-height:205px}.card--wide .stage{min-height:220px}.topbar .container{flex-wrap:wrap}.brand-name img{width:100px}}
+@media(max-width:420px){.card__top,.card__body{padding-inline:15px}.stage{min-height:170px}.card__body p{min-height:0}.demo__content{margin-block:28px}}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+ .stage .logo-svg{opacity:1!important;clip-path:none!important;transform:none!important}
+ .stage .logo-svg path{opacity:1!important;clip-path:none!important;transform:none!important;filter:none!important;fill-opacity:1!important;stroke-opacity:0!important}
+ .stage:not(.is-vector) .logo-img{opacity:1!important}
+ .demo__intro{display:none!important}
+}
 </style>
 </head>
 <body>
-<header class="bar"><div class="container"><div><div class="eyebrow">BRAND MOTION · WASL TECH</div><strong>وصل تك | Wasl Tech</strong></div><span class="pill">نماذج تجريبية فقط</span></div></header>
+<header class="topbar"><div class="container">
+ <div class="brand-name"><img src="/assets/brand/wasl-tech-horizontal.svg" width="1130" height="360" alt="وصل تك"><span class="brand-divider" aria-hidden="true"></span><span>مختبر حركة الشعار</span></div>
+ <span class="tag">معاينة مستقلة · غير منشورة على الموقع</span>
+</div></header>
 <main>
-<section class="container intro"><div class="eyebrow">VECTOR LOGO ANIMATION</div><h1>حركة شعار وصل تك</h1><p>ثلاثة تصوّرات مأخوذة مباشرة من مسارات الشعار الرسمي المتجهي في مستودع المشروع. التصميم الأصلي محفوظ دون إعادة رسم أو تغيير في الألوان.</p></section>
-<section class="container grid" aria-label="نماذج حركة الشعار">
-<article class="card"><div class="stage" data-style="ink"><div class="logo"><img src="/assets/brand/wasl-tech-horizontal.svg" alt="شعار وصل تك" width="1130" height="360"></div></div><div class="details"><h2>01 — رسم المسارات</h2><p>حدود الشعار تُرسم مسارًا بعد آخر، ثم يظهر الشعار الحقيقي بألوانه المعتمدة. الأنسب لشاشة دخول قصيرة.</p><div class="actions"><button class="action action--primary" data-full="ink">معاينة شاشة كاملة</button><button class="action" data-repeat="ink">إعادة الحركة</button></div></div></article>
-<article class="card"><div class="stage" data-style="line"><div class="logo"><img src="/assets/brand/wasl-tech-horizontal.svg" alt="شعار وصل تك" width="1130" height="360"></div></div><div class="details"><h2>02 — خطوط سريعة</h2><p>رسم متسارع لحدود الأجزاء، يليه ظهور نهائي خفيف؛ نسخة أكثر اختصارًا.</p><div class="actions"><button class="action action--primary" data-full="line">معاينة شاشة كاملة</button><button class="action" data-repeat="line">إعادة الحركة</button></div></div></article>
-<article class="card"><div class="stage" data-style="quiet"><div class="logo"><img src="/assets/brand/wasl-tech-horizontal.svg" alt="شعار وصل تك" width="1130" height="360"></div></div><div class="details"><h2>03 — كشف هادئ</h2><p>ظهور متدرج من المنتصف دون خطوط إضافية، للخيار الأبسط والأخف.</p><div class="actions"><button class="action action--primary" data-full="quiet">معاينة شاشة كاملة</button><button class="action" data-repeat="quiet">إعادة الحركة</button></div></div></article>
-</section>
-<aside class="container note"><strong>التصميم غير مطبَّق على الموقع حتى الآن.</strong><p>هذا نموذج مراجعة بصري مستقل، لا يعطل التحميل ولا يضيف حزم أنميشن. نموذج الرسم يستخدم حدود المسارات الفعلية من SVG المعتمد. قبل دمجه مع الموقع سنضبط التوقيت والسلاسة وحالات الاتصال الضعيف وprefers-reduced-motion.</p></aside>
+ <div class="container intro">
+  <span class="kicker">WASL TECH / LOGO MOTION STUDY</span>
+  <h1>خمس هويات حركية، شعار واحد.</h1>
+  <p>صححنا طريقة التنفيذ: كل نموذج يستخدم <strong>ملف SVG الرسمي كاملًا</strong> — رمز وصل وكتابة Wasl Tech معًا. لا تُحذف أجزاء من الشعار ولا يُعاد رسم الحروف. اختر الإيقاع الذي يمثل شخصية وصل تك.</p>
+  <div class="intro__meta"><span class="meta-pill">الشعار الرسمي من المستودع</span><span class="meta-pill">5 اتجاهات مختلفة</span><span class="meta-pill">تجربة دخول إلى الموقع</span></div>
+ </div>
+ <section class="container grid" aria-label="خمسة اقتراحات لتحريك الشعار">
+  <article class="card card--recommended" data-card="sequence">
+   <div class="card__top"><span class="card__number">01 / FIVE</span><span class="card__badge">الاقتراح الموصى به</span></div>
+   <div class="stage" data-motion="sequence"><div class="stage__canvas"><img class="logo-img" src="/assets/brand/wasl-tech-horizontal.svg" width="1130" height="360" alt="شعار وصل تك — الرمز والاسم"></div><span class="stage__watermark">SEQUENTIAL ASSEMBLY</span></div>
+   <div class="card__body"><h2>تشكُّل الهوية</h2><p>يتشكل رمز وصل على خطوتين، ثم يظهر الاسم كاملًا. ترتيب متزن يبرز تفاصيل الرمز المعتمد.</p><div class="card__actions"><button class="btn btn--primary" data-preview="sequence">تجربة الدخول للموقع</button><button class="btn" data-replay="sequence">إعادة التشغيل</button></div></div>
+  </article>
+  <article class="card" data-card="sweep">
+   <div class="card__top"><span class="card__number">02 / FIVE</span><span class="card__badge">دقيق وسريع</span></div>
+   <div class="stage" data-motion="sweep"><div class="stage__canvas"><img class="logo-img" src="/assets/brand/wasl-tech-horizontal.svg" width="1130" height="360" alt="شعار وصل تك — الرمز والاسم"><span class="sweep-edge" aria-hidden="true"></span></div><span class="stage__watermark">SIGNATURE SWEEP</span></div>
+   <div class="card__body"><h2>مسار الوصل</h2><p>مسحة دقيقة تتحرك عبر الشعار من اليمين إلى اليسار، دون تشويه شكله أو نسبه.</p><div class="card__actions"><button class="btn btn--primary" data-preview="sweep">تجربة الدخول للموقع</button><button class="btn" data-replay="sweep">إعادة التشغيل</button></div></div>
+  </article>
+  <article class="card" data-card="converge">
+   <div class="card__top"><span class="card__number">03 / FIVE</span><span class="card__badge">حركة متقابلة</span></div>
+   <div class="stage" data-motion="converge"><div class="stage__canvas"><img class="logo-img" src="/assets/brand/wasl-tech-horizontal.svg" width="1130" height="360" alt="شعار وصل تك — الرمز والاسم"></div><span class="stage__watermark">CONVERGENCE</span></div>
+   <div class="card__body"><h2>نقطة التقاء</h2><p>يتحرك الرمز والاسم من اتجاهين متقابلين حتى يستقرا في مواضعهما الأصلية تمامًا.</p><div class="card__actions"><button class="btn btn--primary" data-preview="converge">تجربة الدخول للموقع</button><button class="btn" data-replay="converge">إعادة التشغيل</button></div></div>
+  </article>
+  <article class="card" data-card="outline">
+   <div class="card__top"><span class="card__number">04 / FIVE</span><span class="card__badge">إحساس هندسي</span></div>
+   <div class="stage" data-motion="outline"><div class="stage__canvas"><img class="logo-img" src="/assets/brand/wasl-tech-horizontal.svg" width="1130" height="360" alt="شعار وصل تك — الرمز والاسم"></div><span class="stage__watermark">FORM TO COLOUR</span></div>
+   <div class="card__body"><h2>من الحدود إلى الهوية</h2><p>تظهر حدود الرمز المتجهية بدقة، ثم تمتلئ بألوانها الأصلية وينضم الاسم.</p><div class="card__actions"><button class="btn btn--primary" data-preview="outline">تجربة الدخول للموقع</button><button class="btn" data-replay="outline">إعادة التشغيل</button></div></div>
+  </article>
+  <article class="card card--wide" data-card="quiet">
+   <div class="card__top"><span class="card__number">05 / FIVE</span><span class="card__badge">بسيط وفاخر</span></div>
+   <div class="stage" data-motion="quiet"><div class="stage__canvas"><img class="logo-img" src="/assets/brand/wasl-tech-horizontal.svg" width="1130" height="360" alt="شعار وصل تك — الرمز والاسم"><span class="accent-line" aria-hidden="true"></span></div><span class="stage__watermark">CALM PRESENCE</span></div>
+   <div class="card__body"><h2>حضور هادئ</h2><p>ظهور موحد وخفيف للشعار من موضع قريب، مع خط تركوازي رفيع يتلاشى بعد اكتمال الحركة.</p><div class="card__actions"><button class="btn btn--primary" data-preview="quiet">تجربة الدخول للموقع</button><button class="btn" data-replay="quiet">إعادة التشغيل</button></div></div>
+  </article>
+ </section>
+ <aside class="container reality"><div><strong>ما الذي تغير عن النماذج السابقة؟</strong><p>النموذج القديم نسخ مجموعة SVG تحتوي على الرمز، لكنه أغفل مسار كتابة اسم العلامة المستقل. النماذج الحالية تستنسخ ملف SVG بجميع عناصره من المصدر نفسه، وتُظهر الشعار الكامل بصورة صحيحة في كل حالة انتهاء للحركة.</p></div><span class="reality__detail">أي حركة على الموقع الرسمي لاحقًا ستكون اختيارية وغير حاجبة للتفاعل، ولن تؤخر ظهور المحتوى بسبب الشبكة.</span></aside>
 </main>
-<footer class="footer">© Wasl Tech · Identity-preserving prototype</footer>
-<div class="modal" role="dialog" aria-modal="true" aria-label="معاينة ملء الشاشة" hidden data-modal><div class="modal__inside"><div class="stage" data-style="ink" data-modal-stage><div class="logo"><img src="/assets/brand/wasl-tech-horizontal.svg" alt="وصل تك" width="1130" height="360"></div></div><button class="modal__exit" data-exit>إغلاق المعاينة</button></div></div>
+<footer>وصل تك · مختبر التصميم الحركي · لا تبعيات إضافية · لا مساس بنسخة الإنتاج</footer>
+<div class="demo" data-demo hidden role="dialog" aria-modal="true" aria-label="محاكاة دخول زائر لموقع وصل تك">
+ <div class="demo__page"><div class="demo__header"><img src="/assets/brand/wasl-tech-horizontal.svg" width="1130" height="360" alt="وصل تك"><span>الرئيسية &nbsp; · &nbsp; خدماتنا &nbsp; · &nbsp; أعمالنا</span></div><div class="demo__content"><span class="kicker">وصل تك | WASL TECH</span><h2>نبني حضورك الرقمي باحتراف</h2><p>من الفكرة إلى المنتج الرقمي، نساعدك على تحويل احتياجك إلى تجربة مفيدة وواضحة.</p><div class="demo__controls"><button class="btn btn--primary" data-demo-replay>إعادة عرض الحركة</button><button class="btn" data-demo-close>العودة إلى النماذج</button></div></div></div>
+ <div class="demo__intro" data-demo-intro><div class="stage" data-demo-stage data-motion="sequence"><div class="stage__canvas"><img class="logo-img" src="/assets/brand/wasl-tech-horizontal.svg" width="1130" height="360" alt="شعار وصل تك"><span class="sweep-edge" aria-hidden="true"></span><span class="accent-line" aria-hidden="true"></span></div></div></div>
+</div>
 <script>
 (() => {
- const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- const modal = document.querySelector('[data-modal]');
- const modalStage = document.querySelector('[data-modal-stage]');
- const close = document.querySelector('[data-exit]');
- const durations = {ink:1950,line:1530,quiet:1450};
- let endTimer,closeTimer,lastTrigger;
- const cloneVectors = async () => {
-  let text;
-  try {const response = await fetch('/assets/brand/wasl-tech-horizontal.svg',{cache:'force-cache'});if(!response.ok) return; text=await response.text();}catch{return;}
-  const original = new DOMParser().parseFromString(text,'image/svg+xml').documentElement;
-  if(original.localName!=='svg') return;
-  document.querySelectorAll('.stage .logo').forEach(host=>{
-   const vector = document.createElementNS('http://www.w3.org/2000/svg','svg');
-   vector.setAttribute('viewBox',original.getAttribute('viewBox')||'0 0 1130 360');
-   vector.setAttribute('aria-hidden','true');
-   const g = original.querySelector('g');
-   if(!g) return;
-   const cloned = g.cloneNode(true);
-   cloned.querySelectorAll('path').forEach((p,i)=>{
-    p.classList.add('trace-path');
-    p.setAttribute('fill','none');
-    p.setAttribute('stroke',i===2?'#14305F':'#0E8889');
-    p.setAttribute('stroke-width',i===2?'1.9':'2.4');
-    p.setAttribute('stroke-linejoin','round');
-    p.setAttribute('stroke-linecap','round');
-    p.setAttribute('vector-effect','non-scaling-stroke');
-   });
-   vector.appendChild(cloned);
-   host.appendChild(vector);
-   cloned.querySelectorAll('path').forEach(p=>{
-    try{
-     const length=Math.ceil(p.getTotalLength())+1;
-     p.style.setProperty('--length',length);
-     p.style.strokeDasharray=String(length);
-     p.style.strokeDashoffset=String(length);
-    }catch{}
-   });
+  const source = '/assets/brand/wasl-tech-horizontal.svg';
+  const stages = [...document.querySelectorAll('.stage')];
+  const demo = document.querySelector('[data-demo]');
+  const intro = document.querySelector('[data-demo-intro]');
+  const demoStage = document.querySelector('[data-demo-stage]');
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let lastTrigger = null;
+  let lastMotion = 'sequence';
+
+  // Keep the source SVG intact: it has TWO symbol paths inside <g> plus
+  // ONE independent wordmark path directly under <svg>.
+  const constructVector = (sourceSvg, stage, index) => {
+    const shell = stage.querySelector('.stage__canvas');
+    const svg = sourceSvg.cloneNode(true);
+    svg.classList.add('logo-svg');
+    svg.removeAttribute('role');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+    // Gradient references must be unique across the five animated copies.
+    const gradient = svg.querySelector('#wt-primary-gradient');
+    if (gradient) {
+      const uniqueId = 'wt-preview-gradient-' + index;
+      gradient.id = uniqueId;
+      svg.querySelectorAll('[fill]').forEach(node => {
+        if (node.getAttribute('fill') === 'url(#wt-primary-gradient)') {
+          node.setAttribute('fill', 'url(#' + uniqueId + ')');
+        }
+      });
+    }
+    const symbol = svg.querySelector('svg > g');
+    const text = svg.querySelector('svg > path');
+    const paths = symbol?.querySelectorAll('path');
+    if (!symbol || !text || !paths || paths.length !== 2) return false;
+    paths[0].classList.add('symbol-navy');
+    paths[1].classList.add('symbol-teal');
+    text.classList.add('wordmark');
+    shell.insertBefore(svg, shell.firstChild);
+    stage.classList.add('is-vector');
+    return true;
+  };
+  const replay = stage => {
+    if (!stage) return;
+    stage.classList.remove('is-playing');
+    if (reduceMotion.matches) return;
+    void stage.offsetWidth;
+    stage.classList.add('is-playing');
+  };
+  const install = async () => {
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 5000);
+      let response;
+      try { response = await fetch(source, {cache:'force-cache', signal:controller.signal}); }
+      finally { clearTimeout(timer); }
+      if (!response.ok) return;
+      const text = await response.text();
+      const xml = new DOMParser().parseFromString(text, 'image/svg+xml');
+      if (xml.querySelector('parsererror')) return;
+      const svg = xml.documentElement;
+      if (svg.localName !== 'svg') return;
+      stages.forEach((stage, idx) => constructVector(svg, stage, idx));
+    } catch { /* Native original <img> remains visible if fetch fails. */ }
+    document.querySelectorAll('.grid .stage').forEach(replay);
+  };
+  const open = (motion, trigger) => {
+    lastMotion = motion;
+    lastTrigger = trigger;
+    demo.hidden = false;
+    document.body.style.overflow = 'hidden';
+    intro.dataset.motion = motion;
+    demoStage.dataset.motion = motion;
+    // Must reset the parent exit animation, not just the logo.
+    intro.style.animation = 'none';
+    void intro.offsetWidth;
+    intro.style.animation = '';
+    replay(demoStage);
+    document.querySelector('[data-demo-close]').focus({preventScroll:true});
+  };
+  const close = () => {
+    if (demo.hidden) return;
+    demo.hidden = true;
+    document.body.style.overflow = '';
+    demoStage.classList.remove('is-playing');
+    lastTrigger?.focus({preventScroll:true});
+  };
+  document.querySelectorAll('[data-replay]').forEach(btn => btn.addEventListener('click', () => {
+    replay(document.querySelector('.grid [data-motion="'+btn.dataset.replay+'"]'));
+  }));
+  document.querySelectorAll('[data-preview]').forEach(btn => btn.addEventListener('click', () => {
+    open(btn.dataset.preview, btn);
+  }));
+  document.querySelector('[data-demo-replay]').addEventListener('click', () => open(lastMotion, lastTrigger));
+  document.querySelector('[data-demo-close]').addEventListener('click', close);
+  document.addEventListener('keydown', event => {
+    if (demo.hidden) return;
+    if (event.key === 'Escape') close();
+    if (event.key === 'Tab') {
+      const controls = [...demo.querySelectorAll('.demo__controls button')];
+      const i = controls.indexOf(document.activeElement);
+      if (event.shiftKey && i === 0) {event.preventDefault();controls.at(-1).focus();}
+      if (!event.shiftKey && i === controls.length - 1) {event.preventDefault();controls[0].focus();}
+    }
   });
-  if(!reduced) document.querySelectorAll('.grid .stage').forEach(replay);
- };
- const replay=(stage)=>{if(!stage||reduced)return;stage.classList.remove('is-running');void stage.offsetWidth;stage.classList.add('is-running')};
- const exit=()=>{clearTimeout(endTimer);clearTimeout(closeTimer);if(modal.hidden)return;modal.classList.add('is-exiting');closeTimer=setTimeout(()=>{modal.hidden=true;modal.classList.remove('is-exiting');modalStage.classList.remove('is-running');lastTrigger?.focus({preventScroll:true})},reduced?0:320)};
- document.querySelectorAll('[data-repeat]').forEach(b=>b.addEventListener('click',()=>replay(document.querySelector('.grid .stage[data-style="'+b.dataset.repeat+'"]'))));
- document.querySelectorAll('[data-full]').forEach(b=>b.addEventListener('click',()=>{lastTrigger=b;clearTimeout(endTimer);clearTimeout(closeTimer);modalStage.dataset.style=b.dataset.full;modal.hidden=false;modal.classList.remove('is-exiting');replay(modalStage);close.focus({preventScroll:true});endTimer=setTimeout(exit,reduced?900:durations[b.dataset.full]+350)}));
- close.addEventListener('click',exit);
- document.addEventListener('keydown',e=>{if(!modal.hidden&&e.key==='Escape')exit();else if(!modal.hidden&&e.key==='Tab'){e.preventDefault();close.focus()}});
- void cloneVectors();
+  reduceMotion.addEventListener?.('change', () => {
+    stages.forEach(stage => stage.classList.remove('is-playing'));
+  });
+  void install();
 })();
 </script>
 </body>
