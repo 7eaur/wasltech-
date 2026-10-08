@@ -203,8 +203,9 @@ await buildStyles();
 await buildAssets();
 await buildPages();
 
-// Experimental design review only: never ship this route in the production release.
-if (!isProductionBuild) {
+// Experimental design review only: Git-linked Vercel previews use the release build script.
+// Allow this route in Vercel's preview environment, never on production deployments.
+if (!isProductionBuild || process.env.VERCEL_ENV === "preview") {
   const preview = await readFile(path.join(ROOT, "prototypes/wasl-logo-motion.html"), "utf8");
   await writeOutput("__logo-motion/index.html", preview);
 }
