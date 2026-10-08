@@ -203,5 +203,12 @@ await buildStyles();
 await buildAssets();
 await buildPages();
 
+// Experimental design review only: never ship this route in the production release.
+if (!isProductionBuild) {
+  const preview = await readFile(path.join(ROOT, "prototypes/wasl-logo-motion.html"), "utf8");
+  await writeOutput("__logo-motion/index.html", preview);
+}
+
+
 console.log(`VNEXT BUILD: PASSED [${isProductionBuild ? "production" : "preview"}]`);
 console.log(`Output: ${path.relative(ROOT, DIST)}`);
