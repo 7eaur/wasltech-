@@ -59,8 +59,8 @@ for(const locale of ["ar","en"]){
   else if(!notFoundHtml.includes(`<h1 id="not-found-title">${htmlText(notFoundCopy.title)}</h1>`)) fail(notFoundPath,"404 heading missing");
   if(!notFoundHtml.includes('name="robots" content="noindex,follow"')) fail(notFoundPath,"404 must be noindex");
   if(!notFoundHtml.includes('src="/assets/brand/not-found-illustration.svg"')) fail(notFoundPath,"404 illustration missing");
-  if((notFoundHtml.match(/<img\\b/g)??[]).length!==1) fail(notFoundPath,"404 must contain exactly one image");
-  if((notFoundHtml.match(/<a\\b/g)??[]).length!==2) fail(notFoundPath,"404 must contain only skip link and home CTA");
+  if((notFoundHtml.match(/<img\b/g)??[]).length!==1) fail(notFoundPath,"404 must contain exactly one image");
+  if((notFoundHtml.match(/<a\b/g)??[]).length!==2) fail(notFoundPath,"404 must contain only skip link and home CTA");
   if(!notFoundHtml.includes(`href="${routes.home(locale)}"`)) fail(notFoundPath,"404 must link to localized homepage");
   if(notFoundHtml.includes('class="site-header"') || notFoundHtml.includes('class="site-footer"')) fail(notFoundPath,"404 must not render the regular site shell");
 
