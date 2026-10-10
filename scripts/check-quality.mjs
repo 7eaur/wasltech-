@@ -107,7 +107,8 @@ for (const file of htmlFiles) {
     fail(rel, `HTML gzip budget exceeded: ${pageGzip} > ${budgets.htmlGzipPerPage}`);
   }
 
-  if (!source.includes('src="/assets/js/motion.js" defer')) {
+  const isStandalone404 = rel === "404.html" || rel === "en/404.html";
+  if (!isStandalone404 && !source.includes('src="/assets/js/motion.js" defer')) {
     fail(rel, "progressive motion client missing");
   }
 
