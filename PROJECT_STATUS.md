@@ -1,5 +1,16 @@
 # Wasl Tech VNext — Current Project Status
 
+## 2026-10-10 — Final editorial media source refresh
+
+- Active integration branch: `integration/site-stabilization-20261010`.
+- All eight final user-supplied images are preserved as canonical JPEG sources under `assets/media/source/`.
+- Eight WebP runtime derivatives are connected to Services, Portfolio, Process, Contact/Project Planner, FAQ/Insights, and the three published articles.
+- Runtime files range from 39,230 to 93,794 bytes at `1536 × 961`; all stay below the 180 KiB media budget.
+- Media dimensions in `src/config/hero-media.js` and `src/data/articles.js` match the final files.
+- The checksum manifest and media-integrity guard now validate JPEG sources and WebP derivatives.
+- `node scripts/check-final-media.mjs`, `npm run vnext:verify`, and `npm run vnext:verify:release` pass for this batch.
+- `main`, SEO branches, and the logo-animation branch remain untouched by this batch.
+
 ## 2026-09-24 — AUTHORITATIVE CURRENT BATON
 
 This section is the current execution truth. It supersedes older historical checkpoint text below when there is any conflict.

@@ -1,5 +1,13 @@
 # Wasl Tech VNext — Conversation Handoff
 
+## 2026-10-10 — Latest media baton
+
+- Continue from `integration/site-stabilization-20261010`.
+- The final eight-image editorial batch is complete: exact JPEG sources are preserved, optimized WebP files are wired, and dimensions/checksums are synchronized.
+- Do not re-upload or remap these eight images unless the user requests a visual replacement.
+- Do not merge into `main` or production solely from this handoff; keep the existing release gate.
+- SEO and logo-animation branches are outside this batch and were not changed.
+
 ## 2026-09-24 — AUTHORITATIVE RESUME POINT
 
 Use this section first in a new conversation. It supersedes the older “Immediate baton” and historical pending-media instructions below.
