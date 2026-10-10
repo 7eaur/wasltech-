@@ -30,10 +30,35 @@ export function notFoundPage(locale = "ar") {
     </section>
   `;
 
+  // Vercel serves the root 404.html for unknown nested routes, including /en/*.
+  // Keep the real HTTP 404 response and localize the single visible message
+  // instead of rewriting missing English routes to a 200 response.
+  const englishFallback = locale === "ar" ? `
+    <script>
+      (() => {
+        if (!location.pathname.startsWith("/en/")) return;
+        const copy = ${JSON.stringify({
+          heading: record.content.en.title,
+          action: record.content.en.primaryCta,
+          pageTitle: record.content.en.seo.title,
+          skipLink: "Skip to main content"
+        }).replace(/</g, "\\u003c")};
+        document.documentElement.lang = "en";
+        document.documentElement.dir = "ltr";
+        document.title = copy.pageTitle;
+        document.getElementById("not-found-title").textContent = copy.heading;
+        const action = document.querySelector(".not-found-page .button");
+        action.textContent = copy.action;
+        action.href = "/en/";
+        document.querySelector(".skip-link").textContent = copy.skipLink;
+      })();
+    </script>
+  ` : "";
+
   return documentTemplate({
     title: content.seo.title,
     description: content.seo.description,
-    body,
+    body: body + englishFallback,
     locale,
     activePath: null,
     alternatePath: null,
