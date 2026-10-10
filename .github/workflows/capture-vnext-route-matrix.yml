@@ -275,6 +275,15 @@ jobs:
             }
 
             await page.goto(base + portfolioPath, { waitUntil: "domcontentloaded" });
+            await page.waitForFunction(() => document.querySelector("[data-portfolio-more-wrap]")?.hidden === false);
+            const visibleFirst = await page.locator("[data-project-card]:visible").count();
+            if (visibleFirst !== 6) throw new Error(`${locale}: Initial portfolio should expose six cards, got ${visibleFirst}`);
+            await page.locator("[data-portfolio-more]").click();
+            const visibleFull = await page.locator("[data-project-card]:visible").count();
+            if (visibleFull !== 14) throw new Error(`${locale}: Show-more should expose all 14 projects, got ${visibleFull}`);
+            if (await page.locator("[data-portfolio-more]").isVisible()) {
+              throw new Error(`${locale}: Show-more button remained visible after expansion.`);
+            }
             const filters = page.locator("[data-portfolio-filter]");
             if (await filters.count() < 2) throw new Error(`${locale}: Portfolio filters missing.`);
             await filters.nth(1).click();
@@ -445,6 +454,12 @@ jobs:
             const navigation = page.locator(".primary-nav--nojs a");
             if (!(await navigation.count()) || !(await navigation.first().isVisible())) {
               throw new Error(locale + ": no-JS mobile navigation unavailable");
+            }
+            await page.goto(base + prefix + "/portfolio/", { waitUntil: "domcontentloaded" });
+            const noJsCards = await page.locator("[data-project-card]:visible").count();
+            if (noJsCards !== 14) throw new Error(locale + ": portfolio must expose all work without JavaScript");
+            if (await page.locator("[data-portfolio-more]").isVisible()) {
+              throw new Error(locale + ": JS-only show-more must remain hidden without JS");
             }
             await page.goto(base + prefix + "/start-project/", { waitUntil: "domcontentloaded" });
             const controls = page.locator("[data-planner-controls]");
