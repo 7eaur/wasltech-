@@ -67,7 +67,8 @@ for(const locale of ["ar","en"]){
 
 for(const [file,locale] of [["404.html","ar"],["en/404.html","en"]]){
   const html=await readFile(path.join(DIST,file),"utf8");
-  if(!html.includes('class="editorial-hero-media')) fail(file,"404 hero media missing");
+  if(!html.includes('class="not-found-page__illustration"')) fail(file,"404 illustration missing");
+  if(html.includes('class="site-header"') || html.includes('class="site-footer"')) fail(file,"404 should not use shared page shell");
   if(!html.includes(`lang="${locale}"`)) fail(file,"404 locale mismatch");
 }
 

@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { gzipSync } from "node:zlib";
 
 import { projects } from "../src/data/projects.js";
+import { responsiveImageCandidates } from "../src/lib/responsive-image.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist");
@@ -13,9 +14,9 @@ const budgets = Object.freeze({
   cssGzip: 16 * 1024,
   jsGzipTotal: 8 * 1024,
   htmlGzipPerPage: 16 * 1024,
-  runtimeRasterEach: 180 * 1024,
-  projectImageEach: 150 * 1024,
-  projectImagesTotal: 1200 * 1024
+  runtimeRasterEach: 120 * 1024,
+  projectImageEach: 60 * 1024,
+  projectImagesTotal: 700 * 1024
 });
 
 function fail(scope, message) {
@@ -107,7 +108,8 @@ for (const file of htmlFiles) {
     fail(rel, `HTML gzip budget exceeded: ${pageGzip} > ${budgets.htmlGzipPerPage}`);
   }
 
-  if (!source.includes('src="/assets/js/motion.js" defer')) {
+  const isStandalone404 = rel === "404.html" || rel === "en/404.html";
+  if (!isStandalone404 && !source.includes('src="/assets/js/motion.js" defer')) {
     fail(rel, "progressive motion client missing");
   }
 
@@ -124,6 +126,28 @@ for (const file of htmlFiles) {
       const info = await stat(imagePath);
       if (info.size > budgets.runtimeRasterEach) {
         fail(src, `referenced runtime raster exceeds ${budgets.runtimeRasterEach} bytes: ${info.size}`);
+      }
+
+      const srcset = attr(tag, "srcset");
+      const sizes = attr(tag, "sizes");
+      if (!srcset || !sizes) {
+        fail(rel, `content image missing responsive srcset/sizes: ${src}`);
+      } else {
+        const candidateSources = srcset.split(",").map((candidate) => candidate.trim().split(/\s+/)[0]);
+        if (!candidateSources.includes(src)) {
+          fail(rel, `responsive srcset is missing its canonical source: ${src}`);
+        }
+        for (const candidateSrc of candidateSources) {
+          if (!/^\/assets\/.*\.(?:png|jpe?g|webp|avif)$/i.test(candidateSrc)) {
+            fail(rel, `invalid local responsive candidate: ${candidateSrc}`);
+            continue;
+          }
+          const candidatePath = path.join(DIST, candidateSrc.replace(/^\//, ""));
+          const candidateInfo = await stat(candidatePath);
+          if (candidateInfo.size > budgets.runtimeRasterEach) {
+            fail(candidateSrc, `responsive raster exceeds ${budgets.runtimeRasterEach} bytes: ${candidateInfo.size}`);
+          }
+        }
       }
     }
   }
@@ -159,7 +183,10 @@ for (const file of htmlFiles) {
 
 const worksDirectory = path.join(DIST, "assets/works");
 const workFiles = (await readdir(worksDirectory)).sort();
-const expectedWorkFiles = [...new Set(projects.map((project) => path.basename(project.image)))].sort();
+const expectedWorkFiles = [...new Set(projects.flatMap((project) =>
+  responsiveImageCandidates(project.image, project.imageDimensions.width)
+    .map((candidate) => path.basename(candidate.src))
+))].sort();
 
 if (JSON.stringify(workFiles) !== JSON.stringify(expectedWorkFiles)) {
   fail("assets/works", `generated work assets do not match referenced projects (expected ${expectedWorkFiles.length}, found ${workFiles.length})`);
