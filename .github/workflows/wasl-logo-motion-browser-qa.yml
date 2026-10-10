@@ -1,4 +1,4 @@
-name: Wasl Logo Motion Browser QA
+name: Wasl Two-Dot Morph Browser QA
 
 on:
   push:
@@ -9,103 +9,125 @@ permissions:
   contents: read
 
 jobs:
-  chrome-animation-check:
+  chromium-morph-check:
     runs-on: ubuntu-latest
-    timeout-minutes: 16
+    timeout-minutes: 18
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 24
 
-      - name: Build review gallery
+      - name: Build preview
         run: npm run vnext:build
 
-      - name: Serve gallery locally
+      - name: Start preview server
         run: |
           cd dist
-          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/wasl-motion-server.log 2>&1 &
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/wasl-morph-server.log 2>&1 &
           for i in {1..30}; do
             if curl -fsS http://127.0.0.1:4173/__logo-motion/ >/dev/null; then exit 0; fi
             sleep 1
           done
-          cat /tmp/wasl-motion-server.log
+          cat /tmp/wasl-morph-server.log
           exit 1
 
-      - name: Install isolated QA browser
+      - name: Install test Chromium
         working-directory: /tmp
         run: |
-          mkdir -p wasl-logo-motion-qa
-          cd wasl-logo-motion-qa
+          mkdir -p wasl-morph-qa
+          cd wasl-morph-qa
           npm init -y >/dev/null
           npm install playwright@1.55.0 >/dev/null
           npx playwright install --with-deps chromium
 
-      - name: Test 4 animations in real Chromium
+      - name: Verify dual-dot orbit, genuine morph, wordmark, loader and controls
         run: |
-          mkdir -p "$GITHUB_WORKSPACE/logo-motion-qa"
-          cat > /tmp/wasl-logo-motion-qa/check.mjs <<'EOF'
+          mkdir -p "$GITHUB_WORKSPACE/logo-morph-qa"
+          cat > /tmp/wasl-morph-qa/check.mjs <<'EOF'
           import { chromium } from "playwright";
-          const browser = await chromium.launch({ headless: true });
-          const modes = ["voltsuite","luckypaint","fiverr","google"];
-          let allPassed = true;
-          try {
-            for(const width of [390, 1366]){
-              const context=await browser.newContext({viewport:{width,height:850},reducedMotion:"no-preference"});
-              const page=await context.newPage();
-              const errors=[];
-              page.on("pageerror",e=>errors.push(String(e)));
-              page.on("console",msg=>{if(msg.type()==="error")errors.push("console: "+msg.text())});
-              await page.goto("http://127.0.0.1:4173/__logo-motion/",{waitUntil:"networkidle"});
-              await page.waitForTimeout(300);
-              const info=await page.evaluate(()=>{
-                return {
-                  cards:document.querySelectorAll(".grid .card").length,
-                  active:document.querySelectorAll(".grid .stage.has-vector").length,
-                  paths:[...document.querySelectorAll(".grid .stage")].map(x=>x.querySelectorAll("svg path[stroke]").length),
-                  overflow:document.documentElement.scrollWidth>window.innerWidth+1,
-                  svg:document.querySelector(".grid svg.animated-svg")?.getAttribute("viewBox")
-                };
-              });
-              if(info.cards!==4||info.active!==4||info.paths.some(n=>n<15)||info.overflow){
-                throw Error("bad gallery "+width+": "+JSON.stringify(info));
-              }
-              for(const mode of modes){
-                const stage=page.locator('.grid .stage[data-mode="'+mode+'"]');
-                await page.locator('[data-replay="'+mode+'"]').click();
-                await page.waitForTimeout(250);
-                const early=await stage.evaluate(node=>{
-                  const svg=node.querySelector("svg");
-                  const traces=[...svg.querySelectorAll('path[stroke]')];
-                  const nonzero=traces.filter(p=>Number.parseFloat(p.style.strokeDashoffset)>0);
-                  return {count:traces.length,nonzero:nonzero.length};
-                });
-                if(early.nonzero<5)throw Error("drawing does not animate "+mode+": "+JSON.stringify(early));
-                await page.locator('[data-open="'+mode+'"]').click();
-                await page.waitForTimeout(300);
-                const simulated=await page.evaluate(()=>({
-                  visible:!document.getElementById("preview-dialog").hidden,
-                  animated:document.getElementById("demo-stage").classList.contains("has-vector"),
-                  paths:document.querySelectorAll("#demo-stage svg path[stroke]").length
-                }));
-                if(!simulated.visible||!simulated.animated||simulated.paths<15)throw Error("demo failed "+mode+": "+JSON.stringify(simulated));
-                await page.keyboard.press("Escape");
-                if(!(await page.locator("#preview-dialog").evaluate(n=>n.hidden)))throw Error("Escape does not dismiss "+mode);
-              }
-              await page.screenshot({path:"logo-motion-qa/gallery-"+width+".png",fullPage:true,animations:"disabled"});
-              if(errors.length)throw Error("browser errors "+width+": "+errors.join(" | "));
-              console.log("PASS viewport",width,JSON.stringify(info));
-              await context.close();
+          const browser=await chromium.launch({headless:true});
+          const base="http://127.0.0.1:4173/__logo-motion/";
+          async function inspect(width){
+            const context=await browser.newContext({viewport:{width,height:860},reducedMotion:"no-preference"});
+            const page=await context.newPage();
+            const errors=[];
+            page.on("pageerror",e=>errors.push(String(e)));
+            page.on("console",m=>{if(m.type()==="error")errors.push(m.text())});
+            await page.goto(base,{waitUntil:"networkidle"});
+            const stage=page.locator("#main-stage");
+            const first=await stage.evaluate(node=>({
+              state:node.dataset.state,
+              circles:[...node.querySelectorAll(".motion-vector circle")].map(x=>({x:+x.getAttribute("cx"),y:+x.getAttribute("cy"),visible:x.style.opacity!=="0"})),
+              icon:node.querySelectorAll(".motion-vector > g path").length,
+              word:node.querySelectorAll(".wordmark-wrap path").length
+            }));
+            if(first.state!=="orbit"||first.circles.length!==2||!first.circles.every(x=>x.visible)||first.icon!==2||first.word!==1){
+              throw Error("two dots or original vectors missing "+width+": "+JSON.stringify(first));
             }
-          }catch(e){allPassed=false;console.error(String(e))}
-          finally{await browser.close()}
-          if(!allPassed)process.exit(1);
+            await page.waitForTimeout(350);
+            const moved=await stage.evaluate(node=>[...node.querySelectorAll(".motion-vector circle")].map(x=>+x.getAttribute("cx")));
+            if(Math.abs(moved[0]-first.circles[0].x)<1.0)throw Error("dots are not orbiting");
+            await page.locator("#slow").click();
+            await page.waitForTimeout(1630);
+            if(await stage.getAttribute("data-state")!=="orbit")throw Error("slow load must remain in orbit");
+            await page.locator("#trigger-ready").click();
+            await page.waitForFunction(()=>document.querySelector("#main-stage")?.dataset.state==="morph",{timeout:4500});
+            await page.waitForTimeout(270);
+            const intermediate=await stage.evaluate(node=>{
+              const paths=[...node.querySelector(".motion-vector > g").querySelectorAll(":scope > path")];
+              const master=document.querySelector("#logo-template").content.querySelector("svg > g");
+              const original=[...master.querySelectorAll(":scope > path")];
+              return {
+                dots:[...node.querySelectorAll(".motion-vector circle")].map(x=>x.style.opacity),
+                pathLength:paths.map(x=>x.getAttribute("d")?.length||0),
+                isInterpolating:paths.some((x,i)=>x.getAttribute("d")!==original[i].getAttribute("d")),
+                wordOpacity:node.querySelector(".wordmark-wrap").style.opacity
+              };
+            });
+            if(!intermediate.isInterpolating||intermediate.dots.some(x=>x!=="0"))throw Error("morph isn't genuine "+width+": "+JSON.stringify(intermediate));
+            await page.waitForFunction(()=>document.querySelector("#main-stage")?.dataset.state==="complete",{timeout:4800});
+            const finished=await stage.evaluate(node=>{
+              const paths=[...node.querySelector(".motion-vector > g").querySelectorAll(":scope > path")];
+              const original=[...document.querySelector("#logo-template").content.querySelectorAll("svg > g > path")];
+              const wrap=node.querySelector(".wordmark-wrap");
+              return {
+                matches:paths.every((x,i)=>x.getAttribute("d")===original[i].getAttribute("d")),
+                word:wrap.style.opacity,
+                dots:[...node.querySelectorAll(".motion-vector circle")].map(x=>x.style.opacity),
+                overflow:document.documentElement.scrollWidth>window.innerWidth+1
+              };
+            });
+            if(!finished.matches||finished.word!=="1"||finished.dots.some(x=>x!=="0")||finished.overflow){
+              throw Error("final logo not exact "+width+": "+JSON.stringify(finished));
+            }
+            await page.screenshot({path:"logo-morph-qa/final-"+width+".png",fullPage:true,animations:"disabled"});
+            await page.locator("#show-site").click();
+            await page.waitForFunction(()=>document.querySelector("#site-overlay")?.classList.contains("is-gone"),{timeout:6500});
+            await page.keyboard.press("Escape");
+            if(!(await page.locator("#site-preview").evaluate(el=>el.hidden)))throw Error("ESC failed");
+            await page.locator("#replay").click();
+            if(await stage.getAttribute("data-state")!=="orbit")throw Error("replay failed");
+            if(errors.length)throw Error("browser errors "+width+": "+errors.join(" | "));
+            console.log("PASS",width,JSON.stringify(finished));
+            await context.close();
+          }
+          try{
+            for(const width of [390,1366])await inspect(width);
+            const context=await browser.newContext({viewport:{width:390,height:800},reducedMotion:"reduce"});
+            const page=await context.newPage();
+            await page.goto(base,{waitUntil:"domcontentloaded"});
+            const s=await page.locator("#main-stage").getAttribute("data-state");
+            if(s!=="complete")throw Error("reduce motion not respected: "+s);
+            console.log("PASS reduced motion");
+            await context.close();
+          }finally{await browser.close()}
           EOF
-          node /tmp/wasl-logo-motion-qa/check.mjs
+          node /tmp/wasl-morph-qa/check.mjs
 
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: wasl-logo-four-motion-screenshots
-          path: logo-motion-qa/*.png
+          name: wasl-morph-loading-previews
+          path: logo-morph-qa/*.png
           retention-days: 7
