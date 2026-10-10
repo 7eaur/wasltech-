@@ -115,10 +115,16 @@ for (const locale of ["ar", "en"]) {
     lastIndex = index;
   }
 
+  if ((html.match(/<article class="home-why__item">/g) ?? []).length !== 6) fail(file,"6 strength cards required");
+  if ((html.match(/<article class="home-process__step">/g) ?? []).length !== 4) fail(file,"4 process steps required");
   if ((html.match(/<details class="home-faq__item">/g) ?? []).length !== 3) {
     fail(file, "Home must show exactly three decision-support FAQ items");
   }
 }
+
+const homeCss=await readFile(path.join(ROOT,"src/styles/home.css"),"utf8");
+if(!homeCss.includes(".home-process__steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))")) fail("home.css","4-column desktop process missing");
+if(!homeCss.includes(".home-why__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))")) fail("home.css","3-column desktop strengths missing");
 
 if (errors.length) {
   console.error("VNEXT HOME CHECK: FAILED");

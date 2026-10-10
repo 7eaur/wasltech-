@@ -239,6 +239,13 @@ checkContrastSet("light", lightVariables, [
   ["--color-text-inverse", "--color-bg-emphasis", 4.5]
 ]);
 
+// Approved supporting apricot uses a contrasting warm text role rather than small apricot text on white.
+checkContrastSet("warm-accent", lightVariables, [
+  ["--color-text-warm", "--color-surface-warm", 4.5],
+  ["--color-text-primary", "--color-surface-warm", 4.5],
+  ["--color-text-primary", "--color-accent-warm", 4.5]
+]);
+
 checkContrastSet("dark", darkVariables, [
   ["--color-text-primary", "--color-bg-canvas", 4.5],
   ["--color-text-secondary", "--color-bg-canvas", 4.5],
