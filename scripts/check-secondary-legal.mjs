@@ -59,6 +59,9 @@ for(const locale of ["ar","en"]){
   else if(!notFoundHtml.includes(`<h1 id="not-found-title">${htmlText(notFoundCopy.title)}</h1>`)) fail(notFoundPath,"404 heading missing");
   if(!notFoundHtml.includes('name="robots" content="noindex,follow"')) fail(notFoundPath,"404 must be noindex");
   if(!notFoundHtml.includes('src="/assets/brand/not-found-illustration.svg"')) fail(notFoundPath,"404 illustration missing");
+  if(locale==="ar" && !notFoundHtml.includes('location.pathname.startsWith("/en/")')) fail(notFoundPath,"root fallback must localize unknown English routes");
+  if(locale==="ar" && !notFoundHtml.includes('It looks like this page is no longer here.')) fail(notFoundPath,"root fallback missing English content");
+
   if((notFoundHtml.match(/<img\b/g)??[]).length!==1) fail(notFoundPath,"404 must contain exactly one image");
   if((notFoundHtml.match(/<a\b/g)??[]).length!==2) fail(notFoundPath,"404 must contain only skip link and home CTA");
   if(!notFoundHtml.includes(`href="${routes.home(locale)}"`)) fail(notFoundPath,"404 must link to localized homepage");
