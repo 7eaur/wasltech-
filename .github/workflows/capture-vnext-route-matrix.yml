@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - rebuild/vnext-foundation-20260921
+      - fix/independent-site-recovery-20261010
     paths:
       - ".github/workflows/capture-vnext-route-matrix.yml"
       - "src/pages/**"
@@ -103,7 +104,7 @@ jobs:
             ["terms", "/terms/", "/en/terms/", "/en/terms/", "/terms/"],
             ["not-found", "/404.html", "/en/404.html", "/en/", "/"]
           ];
-          const widths = [360, 390, 768, 1024, 1366, 1440];
+          const widths = [320, 360, 390, 768, 1024, 1366, 1440];
           const browser = await chromium.launch({ headless: true });
 
           async function inspect(path, width, locale, expectedSwitch) {
@@ -274,6 +275,15 @@ jobs:
             }
 
             await page.goto(base + portfolioPath, { waitUntil: "domcontentloaded" });
+            await page.waitForFunction(() => document.querySelector("[data-portfolio-more-wrap]")?.hidden === false);
+            const visibleFirst = await page.locator("[data-project-card]:visible").count();
+            if (visibleFirst !== 6) throw new Error(`${locale}: Initial portfolio should expose six cards, got ${visibleFirst}`);
+            await page.locator("[data-portfolio-more]").click();
+            const visibleFull = await page.locator("[data-project-card]:visible").count();
+            if (visibleFull !== 14) throw new Error(`${locale}: Show-more should expose all 14 projects, got ${visibleFull}`);
+            if (await page.locator("[data-portfolio-more]").isVisible()) {
+              throw new Error(`${locale}: Show-more button remained visible after expansion.`);
+            }
             const filters = page.locator("[data-portfolio-filter]");
             if (await filters.count() < 2) throw new Error(`${locale}: Portfolio filters missing.`);
             await filters.nth(1).click();
@@ -292,7 +302,7 @@ jobs:
 
             await page.goto(base + plannerPath, { waitUntil: "domcontentloaded" });
             const form = page.locator("[data-project-planner]");
-            await form.locator('button[type="submit"]').click();
+            await form.locator('[data-planner-submit]').click();
             const invalidStatus = (await page.locator("[data-planner-status]").textContent() || "").trim();
             if (!invalidStatus) throw new Error(`${locale}: Planner invalid state did not produce a status message.`);
 
@@ -306,7 +316,7 @@ jobs:
                 ? "وصف اختبار كافٍ للتحقق من مسار مراجعة المشروع."
                 : "A sufficient test description for verifying the project review flow."
             );
-            await form.locator('button[type="submit"]').click();
+            await form.locator('[data-planner-submit]').click();
 
             const review = page.locator("[data-planner-review]");
             if (await review.isHidden()) throw new Error(`${locale}: Planner review did not open after valid submission.`);
@@ -431,6 +441,44 @@ jobs:
             console.log(`VNEXT DEGRADED RUNTIME: PASSED (DOM ${domReadyMs}ms; startup ${maxStartupLongTask.toFixed(1)}ms; interaction ${maxInteractionLongTask.toFixed(1)}ms; scroll ${maxScrollLongTask.toFixed(1)}ms)`);
           }
 
+          async function verifyNoJsFallback(locale) {
+            const context = await browser.newContext({
+              viewport: { width: 390, height: 844 },
+              isMobile: true,
+              hasTouch: true,
+              javaScriptEnabled: false
+            });
+            const page = await context.newPage();
+            const prefix = locale === "en" ? "/en" : "";
+            await page.goto(base + (locale === "en" ? "/en/" : "/"), { waitUntil: "domcontentloaded" });
+            const navigation = page.locator(".primary-nav--nojs a");
+            if (!(await navigation.count()) || !(await navigation.first().isVisible())) {
+              throw new Error(locale + ": no-JS mobile navigation unavailable");
+            }
+            await page.goto(base + prefix + "/portfolio/", { waitUntil: "domcontentloaded" });
+            const noJsCards = await page.locator("[data-project-card]:visible").count();
+            if (noJsCards !== 14) throw new Error(locale + ": portfolio must expose all work without JavaScript");
+            if (await page.locator("[data-portfolio-more]").isVisible()) {
+              throw new Error(locale + ": JS-only show-more must remain hidden without JS");
+            }
+            await page.goto(base + prefix + "/start-project/", { waitUntil: "domcontentloaded" });
+            const controls = page.locator("[data-planner-controls]");
+            if (!(await controls.evaluate((fieldset) => fieldset.disabled === true))) throw new Error(locale + ": planner fieldset must have disabled property without JS");
+            if (!(await page.locator("[data-planner-needs-js]").isVisible())) {
+              throw new Error(locale + ": no-JS planner guidance hidden");
+            }
+            const submit = page.locator("[data-planner-submit]");
+            if (await submit.getAttribute("type") !== "button" || await submit.isEnabled()) {
+              throw new Error(locale + ": planner submit must be inert without JS");
+            }
+            await submit.evaluate((node) => node.click());
+            if (new URL(page.url()).search) throw new Error(locale + ": planner data appeared in URL without JS");
+            await context.close();
+            console.log("NO-JS PLANNER + NAV: PASSED (" + locale + ")");
+          }
+
+          await verifyNoJsFallback("ar");
+          await verifyNoJsFallback("en");
           await verifyDegradedRuntime();
           await verifyAllIndexableRoutes();
           await verifyInteractions("ar");

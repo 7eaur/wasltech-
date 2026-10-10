@@ -29,6 +29,9 @@ for(const locale of ["ar","en"]){
   if(!html.includes(htmlText(copy.seo.title))) fail(file,"Portfolio SEO title missing");
   if(!html.includes(htmlText(copy.seo.description))) fail(file,"Portfolio SEO description missing");
   if((html.match(/data-project-card/g)??[]).length!==projects.length) fail(file,"Portfolio must render all canonical projects");
+  if(!html.includes('data-portfolio-more-wrap hidden') || !html.includes('data-portfolio-more aria-controls="portfolio-project-grid"')) {
+    fail(file,"portfolio must provide JS-enhanced progressive disclosure with no-JS full content");
+  }
 
   for(const category of categories){
     if(!html.includes(`data-portfolio-filter="${category}"`)) fail(file,`filter missing: ${category}`);
@@ -52,7 +55,7 @@ try{
 }catch{ fail("assets/js/portfolio-filter.js","generated filter asset missing"); }
 
 const filterSource=await readFile(path.join(ROOT,"src/client/portfolio-filter.js"),"utf8");
-for(const contract of ["aria-pressed","dataset.category","hidden","data-portfolio-filter"]){
+for(const contract of ["aria-pressed","dataset.category","hidden","data-portfolio-filter","initialCount = 6","applyFilter(\"all\", false)","moreButton.addEventListener"]){
   if(!filterSource.includes(contract)) fail("src/client/portfolio-filter.js",`filter behavior missing: ${contract}`);
 }
 

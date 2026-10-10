@@ -60,8 +60,8 @@ function renderStory(project,locale) {
           <article class="project-story__item">
             <span>0${index+1}</span>
             <div>
-              <p class="eyebrow">${labels[key]}</p>
-              <h2>${escapeHtml(value)}</h2>
+              <h2>${escapeHtml(labels[key])}</h2>
+              <p>${escapeHtml(value)}</p>
             </div>
           </article>
         `).join("")}

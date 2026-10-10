@@ -46,20 +46,20 @@ const aboutValues = Object.freeze({
 
 const whyPoints = Object.freeze({
   ar: Object.freeze([
-    Object.freeze({ title: "تصميم احترافي", body: "تصميمات عصرية تركز على تجربة المستخدم وتعكس هوية علامتك." }),
-    Object.freeze({ title: "حلول مرنة", body: "حلول تقنية مرنة قابلة للتطوير تتناسب مع احتياجاتك." }),
-    Object.freeze({ title: "فريق متخصص", body: "فريق يعمل على تفاصيل المشروع باهتمام وجودة." }),
-    Object.freeze({ title: "دعم مستمر", body: "نستمر معك بعد الإطلاق وفق احتياج المشروع." }),
-    Object.freeze({ title: "وضوح في العمل", body: "تواصل واضح ومتابعة مفهومة خلال مراحل المشروع." }),
-    Object.freeze({ title: "اهتمام بالتفاصيل", body: "نهتم بالتفاصيل التي تصنع تجربة رقمية أفضل." })
+    Object.freeze({ title: "نبدأ من هدفك", body: "نحدد ما يحتاجه المشروع ومن سيستخدمه قبل اقتراح شكل الحل الرقمي." }),
+    Object.freeze({ title: "تجربة قبل المظهر", body: "نرتب رحلة الزائر والمحتوى، ثم نصمم واجهة تخدم الاستخدام الفعلي." }),
+    Object.freeze({ title: "نطاق مفهوم", body: "نوضح الصفحات والوظائف والأولويات المتفق عليها قبل التنفيذ." }),
+    Object.freeze({ title: "متجاوب من البداية", body: "نراجع عرض النصوص والعناصر على الهاتف والكمبيوتر ضمن نطاق المشروع." }),
+    Object.freeze({ title: "خطوات عمل واضحة", body: "نربط كل مرحلة بما سيتم تنفيذه وما يحتاجه العمل من مراجعة." }),
+    Object.freeze({ title: "تفاصيل تهم المستخدم", body: "نهتم بوضوح الروابط والقراءة والتفاعل، لا بمظهر الواجهة وحده." })
   ]),
   en: Object.freeze([
-    Object.freeze({ title: "Professional design", body: "Modern design focused on user experience and brand identity." }),
-    Object.freeze({ title: "Flexible solutions", body: "Scalable technical solutions shaped around your needs." }),
-    Object.freeze({ title: "Specialized team", body: "A team focused on project details and quality." }),
-    Object.freeze({ title: "Continued support", body: "Support continues after launch according to project needs." }),
-    Object.freeze({ title: "Clear workflow", body: "Clear communication and understandable follow-up during each stage." }),
-    Object.freeze({ title: "Attention to detail", body: "We care about the details that create a stronger digital experience." })
+    Object.freeze({ title: "Start with the goal", body: "We identify what the project needs and who will use it before suggesting a solution." }),
+    Object.freeze({ title: "Usability before decoration", body: "We organize the visitor journey and content before styling the interface." }),
+    Object.freeze({ title: "Understandable scope", body: "We clarify agreed pages, features, and priorities before development." }),
+    Object.freeze({ title: "Responsive from the outset", body: "We review layouts and text on mobile and desktop within the project scope." }),
+    Object.freeze({ title: "Clear project steps", body: "We connect each phase with its actual work and review needs." }),
+    Object.freeze({ title: "Details people use", body: "We care about navigation, readability, and interactions—not just appearance." })
   ])
 });
 
@@ -68,13 +68,13 @@ const processSteps = Object.freeze({
     Object.freeze({ icon: "discover", number: "01", title: "نستمع", body: "نستمع لاحتياجاتك وأهدافك لفهم رؤيتك بشكل أفضل." }),
     Object.freeze({ icon: "plan", number: "02", title: "نخطط", body: "نضع خطة واضحة تضمن ترتيب العمل والأولويات." }),
     Object.freeze({ icon: "build", number: "03", title: "نصمم ونطوّر", body: "نحوّل الخطة إلى تصميم وحل رقمي متكامل." }),
-    Object.freeze({ icon: "launch", number: "04", title: "نطلق وندعم", body: "نجهز المشروع للإطلاق ونستمر معك بعده." })
+    Object.freeze({ icon: "launch", number: "04", title: "نراجع ونطلق", body: "نختبر الوظائف والواجهات الأساسية ونجهز الإطلاق والتسليم وفق النطاق." })
   ]),
   en: Object.freeze([
     Object.freeze({ icon: "discover", number: "01", title: "Listen", body: "We listen to your needs and goals to understand your vision." }),
     Object.freeze({ icon: "plan", number: "02", title: "Plan", body: "We create a clear plan that organizes the work and priorities." }),
     Object.freeze({ icon: "build", number: "03", title: "Design & develop", body: "We turn the plan into a complete digital solution." }),
-    Object.freeze({ icon: "launch", number: "04", title: "Launch & support", body: "We prepare the project for launch and continue supporting it afterward." })
+    Object.freeze({ icon: "launch", number: "04", title: "Review & launch", body: "We check key interfaces and functions, then prepare launch and handover within scope." })
   ])
 });
 

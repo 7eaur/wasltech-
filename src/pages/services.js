@@ -45,7 +45,7 @@ function renderHero(content, locale) {
 function renderServiceRow(service, locale) {
   const copy = service.content[locale];
   const responsive = responsiveImageData(service.image,1280,IMAGE_SIZES.serviceDirectory);
-  const features = copy.deliverables.slice(0,4).map((item)=>`<li>${escapeHtml(item.title)}</li>`).join("");
+  const features = copy.deliverables.slice(0,3).map((item)=>`<li>${escapeHtml(item.title)}</li>`).join("");
   return `
     <article class="service-directory-row">
       <a class="service-directory-row__media" href="${routes.service(service.slug,locale)}" aria-label="${escapeHtml(copy.title)}">

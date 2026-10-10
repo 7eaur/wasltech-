@@ -56,7 +56,7 @@
 .media-card .eyebrow{margin-bottom:.35rem;font-size:var(--font-size-xs)}
 .media-card__title{margin:0 0 .4rem;font-size:clamp(1rem,.94rem + .18vw,1.14rem);line-height:1.42}
 .media-card__title a:hover{color:var(--color-text-accent)}
-.media-card__body{display:-webkit-box;margin:0 0 var(--space-3);color:var(--color-text-secondary);font-size:clamp(.84rem,.81rem + .1vw,.92rem);line-height:1.68;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.media-card__body{display:-webkit-box;margin:0 0 var(--space-3);color:var(--color-text-secondary);font-size:clamp(.9rem,.87rem + .1vw,.96rem);line-height:1.68;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
 .media-card__action{font-size:var(--font-size-sm)}
 .media-card--featured{grid-column:span 2;display:grid;grid-template-columns:minmax(0,1.16fr) minmax(0,.84fr);align-items:stretch}
 .media-card--featured .media-card__media{height:100%;aspect-ratio:auto}

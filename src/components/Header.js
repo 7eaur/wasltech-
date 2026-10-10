@@ -47,6 +47,7 @@ export function Header({ activePath = "/", locale = "ar", alternatePath = null }
         <button
           class="menu-toggle"
           type="button"
+          hidden
           aria-expanded="false"
           aria-controls="primary-navigation"
           aria-label="${labels.menuOpen}"
@@ -60,6 +61,7 @@ export function Header({ activePath = "/", locale = "ar", alternatePath = null }
         <nav class="primary-nav" id="primary-navigation" aria-label="${labels.nav}" data-primary-nav>
           <ul>${links}</ul>
         </nav>
+        <noscript><nav class="primary-nav--nojs" aria-label="${labels.nav}"><ul>${links}</ul></nav></noscript>
 
         <a class="language-switch" href="${switchHref}" hreflang="${locale === "ar" ? "en" : "ar"}">${labels.switchLabel}</a>
         ${ActionLink({

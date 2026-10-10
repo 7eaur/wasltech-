@@ -81,7 +81,7 @@
   background:var(--color-bg-soft);
   color:var(--color-text-accent);
   border-radius:999px;
-  font-size:.68rem;
+  font-size:.8rem;
   font-weight:var(--font-weight-bold);
 }
 :is(
@@ -258,10 +258,10 @@
 }
 .service-decision-panel span{
   margin-bottom:.3rem;
-  font-size:.65rem;
+  font-size:.76rem;
 }
 .service-decision-panel p{
-  font-size:.7rem;
+  font-size:.875rem;
   line-height:1.5;
 }
 .article-meta{

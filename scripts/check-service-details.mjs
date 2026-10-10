@@ -68,8 +68,9 @@ for (const locale of ["ar","en"]) {
       }
     }
 
-    if (/href="\/((en\/)?portfolio\/)[^"]+\/"/.test(html)) {
-      fail(file,"future project-detail link leaked before Phase 8");
+    for (const project of related.slice(0,3)) {
+      const detailHref = routes.project(project.slug,locale);
+      if (!html.includes(`href="${detailHref}"`)) fail(file,`related project detail link missing: ${project.id}`);
     }
 
     if (html.includes("VNext Foundation")) fail(file,"foundation placeholder leaked into service detail");

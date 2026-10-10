@@ -81,7 +81,8 @@ export function projectPlannerPage(locale="ar"){
         reviewTitle:"هذه هي التفاصيل التي سنجهزها للمحادثة.",
         reviewNote:"لم يتم إرسال أي بيانات. راجع الملخص، ثم افتح واتساب وأرسل الرسالة بنفسك.",
         open:"فتح واتساب بهذه التفاصيل",edit:"تعديل التفاصيل",
-        invalid:"راجع الحقول المطلوبة قبل تجهيز الرسالة."
+        invalid:"راجع الحقول المطلوبة قبل تجهيز الرسالة.",
+        noJs:"تحتاج أداة تجهيز الملخص إلى JavaScript. يمكنك التواصل معنا مباشرة دون إدخال بيانات هنا.",noJsLink:"التواصل المباشر"
       }
     : {
         service:"Closest need",stage:"Project stage",priority:"Priority",
@@ -93,7 +94,8 @@ export function projectPlannerPage(locale="ar"){
         reviewTitle:"These are the details we will prepare for the conversation.",
         reviewNote:"Nothing has been sent. Review the summary, then open WhatsApp and send the message yourself.",
         open:"Open WhatsApp with these details",edit:"Edit details",
-        invalid:"Review the required fields before preparing the message."
+        invalid:"Review the required fields before preparing the message.",
+        noJs:"This review tool needs JavaScript. Please contact us directly without entering your details here.",noJsLink:"Contact us directly"
       };
 
   const body=`
@@ -116,6 +118,8 @@ export function projectPlannerPage(locale="ar"){
           data-whatsapp-base="${site.contact.whatsapp}"
           data-invalid-message="${escapeHtml(labels.invalid)}"
           novalidate>
+          <p class="planner-form__no-js" data-planner-needs-js role="status">${escapeHtml(labels.noJs)} <a href="${routes.contact(locale)}">${escapeHtml(labels.noJsLink)}</a></p>
+          <fieldset class="planner-form__controls" data-planner-controls disabled>
 
           <section class="planner-step" data-planner-step="need">
             ${renderStepHeader(content,"need")}
@@ -154,9 +158,10 @@ export function projectPlannerPage(locale="ar"){
 
           <section class="planner-step planner-step--submit" data-planner-step="review">
             ${renderStepHeader(content,"review")}
-            <button class="button button--primary button--lg" type="submit">${escapeHtml(labels.submit)}</button>
+            <button class="button button--primary button--lg" type="button" data-planner-submit>${escapeHtml(labels.submit)}</button>
             <p class="planner-form__status" data-planner-status role="status" aria-live="polite" tabindex="-1"></p>
           </section>
+          </fieldset>
         </form>
 
         <aside class="planner-review" data-planner-review hidden tabindex="-1">
