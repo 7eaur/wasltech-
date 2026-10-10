@@ -70,8 +70,11 @@ export function portfolioPage(locale="ar") {
     <section class="section portfolio-browser" data-portfolio-browser>
       <div class="container">
         ${renderFilters(locale)}
-        <div class="portfolio-grid">
+        <div class="portfolio-grid" id="portfolio-project-grid">
           ${projects.map((project,index)=>renderProject(project,locale,index)).join("")}
+        </div>
+        <div class="portfolio-more" data-portfolio-more-wrap hidden>
+          <button class="button button--ghost" type="button" data-portfolio-more aria-controls="portfolio-project-grid">${locale === "ar" ? "عرض بقية الأعمال" : "Show more work"}</button>
         </div>
       </div>
     </section>

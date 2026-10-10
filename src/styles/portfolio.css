@@ -5,6 +5,9 @@
 .portfolio-filters button[aria-pressed="true"]{background:var(--color-brand-primary);border-color:var(--color-brand-primary);color:var(--color-text-inverse)}
 
 .portfolio-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(var(--space-5),2.4vw,var(--space-8))}
+.portfolio-grid [hidden],.portfolio-more[hidden]{display:none}
+.portfolio-more{display:flex;justify-content:center;margin-top:var(--space-8)}
+.portfolio-more button{min-width:12rem}
 
 
 @media(max-width:64rem){
@@ -15,6 +18,6 @@
 @media(max-width:43.75rem){
   .portfolio-grid{grid-template-columns:1fr;gap:var(--space-6)}
   .portfolio-filters{gap:var(--space-2);margin-bottom:var(--space-5)}
-  .portfolio-filters button{flex:1 1 calc(33.333% - var(--space-2));min-height:var(--control-height);padding:.35rem .55rem;font-size:.78rem}
+  .portfolio-filters button{flex:1 1 calc(33.333% - var(--space-2));min-height:var(--control-height);padding:.35rem .55rem;font-size:.875rem}
 }
 
