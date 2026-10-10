@@ -154,6 +154,7 @@ button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid var(--
     if(parts.length!==2)return null;
     const grad=svg.querySelector('#wt-primary-gradient');
     if(grad){const newId='wt-draw-gradient-'+id;grad.id=newId;svg.querySelectorAll('[fill]').forEach(e=>{if(e.getAttribute('fill')==='url(#wt-primary-gradient)')e.setAttribute('fill','url(#'+newId+')')})}
+    space.appendChild(svg);
     const defs=svg.querySelector('defs')||svg.insertBefore(create('defs'),svg.firstChild);
     // Exact official fills remain unmodified; we reveal them only after pen strokes.
     const icon=[];
@@ -184,7 +185,7 @@ button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid var(--
     const segments=[];
     for (let i=0;i<textPieces.length;i++){
       const d=textPieces[i];
-      const local=create('path',{d,fill:'none'});
+      const local=create('path',{d,fill:'none',visibility:'hidden'});
       svg.appendChild(local);
       const bbox=local.getBBox();
       local.remove();
@@ -209,7 +210,6 @@ button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid var(--
       }
       svg.appendChild(circles);
     }
-    space.appendChild(svg);
     let ok=true;
     try{
       for(const item of icon){item.length=Math.max(1,item.trace.getTotalLength());item.trace.style.strokeDasharray=String(item.length);item.trace.style.strokeDashoffset=String(item.length);item.trace.style.opacity='0'}
