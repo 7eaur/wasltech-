@@ -4,39 +4,43 @@ import { Script } from "node:vm";
 
 const root=process.cwd();
 const source=await readFile(resolve(root,"prototypes/wasl-logo-motion.html"),"utf8");
-const master=await readFile(resolve(root,"assets/brand/wasl-tech-horizontal.svg"),"utf8");
+const original=await readFile(resolve(root,"assets/brand/wasl-tech-horizontal.svg"),"utf8");
 const built=await readFile(resolve(root,"dist/__logo-motion/index.html"),"utf8");
-const modes=["voltsuite","luckypaint","fiverr","google"];
-const fail=(message)=>{throw new Error("WASL MOTION QA: "+message)};
+const fail=message=>{throw new Error("WASL DOT MORPH QA: "+message)};
 
-if(source!==built)fail("built preview differs from reviewed source");
-if(!source.includes('name="robots" content="noindex,nofollow"'))fail("internal preview must be noindex");
-if(!source.includes(master.replace(/^<\?xml[^>]*>\s*/,"")))fail("complete official SVG was not embedded unchanged");
-if((master.match(/<path\b/g)||[]).length!==3)fail("unexpected master SVG geometry");
-if(!source.includes('src="/assets/brand/wasl-tech-horizontal.svg"'))fail("accessible native original logo fallback missing");
-if((source.match(/<article class="card"/g)||[]).length!==4)fail("expected exactly four references");
-for(const mode of modes){
-  if(!source.includes('data-mode="'+mode+'"')||
-     !source.includes('data-open="'+mode+'"')||
-     !source.includes('data-replay="'+mode+'"'))fail("missing preview/replay controls for "+mode);
-}
-if(!source.includes("const glyphPaths=d=>") ||
-   !source.includes("trace.getTotalLength()") ||
-   !source.includes("getPointAtLength") ||
-   !source.includes("clipPathUnits:'userSpaceOnUse'") ||
-   !source.includes("clipBox(bbox,transformMatrix)") ||
-   !source.includes("Arabic upper lettering reads right-to-left"))fail("actual letter-by-letter vector drawing guard missing");
+if(source!==built)fail("build output and preview source differ");
+if(!source.includes('name="robots" content="noindex,nofollow"'))fail("preview must be noindex");
+if(!source.includes(original.replace(/^<\?xml[^>]*>\s*/,"")))fail("the original SVG is not embedded unchanged");
+if((original.match(/<path\b/g)||[]).length!==3)fail("unexpected source vector path count");
+if(!source.includes('src="/assets/brand/wasl-tech-horizontal.svg"'))fail("official SVG fallback missing");
+if(source.includes('<article class="card"'))fail("obsolete logo animation gallery leaked into preview");
+for(const fragment of [
+    'data-state="orbit"',
+    "function splitContours(pathD)",
+    "function renderSymbol(run,t)",
+    "function finishSymbol(run)",
+    "function updateOrbit(run,now)",
+    "function contourPoints(d,count,svg)",
+    "const blueDot=make('circle',{r:13,fill:'#14305F'",
+    "const greenDot=make('circle',{r:13,fill:'#0E8889'",
+    'id="replay"',
+    'id="slow"',
+    'id="trigger-ready"',
+    'id="show-site"',
+    'id="site-preview"',
+    'id="close-preview"',
+    'id="demo-again"',
+    "event.key==='Escape'",
+    'prefers-reduced-motion:reduce'
+]){if(!source.includes(fragment))fail("missing "+fragment)}
 for(const img of source.match(/<img\b[^>]*>/g)||[]){
-  if(!/\balt="[^"]*"/.test(img)||!/\bwidth="\d+"/.test(img)||!/\bheight="\d+"/.test(img))fail("image lacks alt or intrinsic dimensions");
+  if(!/\balt="[^"]*"/.test(img)||!/\bwidth="\d+"/.test(img)||!/\bheight="\d+"/.test(img))fail("image missing accessible alt / intrinsic dimensions");
 }
 for(const button of source.match(/<button\b[^>]*>/g)||[]){
-  if(!/\btype="button"/.test(button))fail("button lacks explicit type");
+  if(!/\btype="button"/.test(button))fail("button missing explicit type");
 }
-if(!source.includes("@media(prefers-reduced-motion:reduce)") ||
-   !source.includes("reduce.matches") ||
-   !source.includes("e.key==='Escape'"))fail("reduced motion or accessible dismissal missing");
-const embedded=[...source.matchAll(/<script>([\s\S]*?)<\/script>/g)];
-if(embedded.length!==1)fail("single controller script required");
-new Script(embedded[0][1],{filename:"logo-motion-preview.js"});
-if(!(await stat(resolve(root,"dist/__logo-motion/index.html"))).isFile())fail("preview route missing");
-console.log("WASL MOTION QA PASSED: 4 reference-inspired wordmark draw animations; exact original SVG; 3 base paths; preview and a11y contracts.");
+const scripts=[...source.matchAll(/<script>([\s\S]*?)<\/script>/g)];
+if(scripts.length!==1)fail("expected one inline controller");
+new Script(scripts[0][1],{filename:"wasl-two-dot-morph.js"});
+if(!(await stat(resolve(root,"dist/__logo-motion/index.html"))).isFile())fail("preview route not built");
+console.log("WASL DOT MORPH QA PASSED: original SVG, dual orbit, morph, actual wordmark, timeout-free controls.");
