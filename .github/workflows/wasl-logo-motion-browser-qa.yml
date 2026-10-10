@@ -1,0 +1,138 @@
+name: Wasl Constructive Logo Motion Browser QA
+
+on:
+  push:
+    branches:
+      - design/wasl-logo-motion-preview-20261009
+
+permissions:
+  contents: read
+
+jobs:
+  chromium-logo-construction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Build experimental preview
+        run: npm run vnext:build
+      - name: Start experimental preview server
+        run: |
+          cd dist
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/wasl-logo-server.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173/__logo-motion/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/wasl-logo-server.log
+          exit 1
+      - name: Install test browser
+        working-directory: /tmp
+        run: |
+          mkdir -p wasl-constructive-qa
+          cd wasl-constructive-qa
+          npm init -y >/dev/null
+          npm install playwright@1.55.0 >/dev/null
+          npx playwright install --with-deps chromium
+      - name: Exercise construction, text glyphs and modal on mobile and desktop
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/logo-motion-qa"
+          cat > /tmp/wasl-constructive-qa/check.mjs <<'EOF'
+          import { chromium } from "playwright";
+          const browser=await chromium.launch({headless:true});
+          const variants=["orbital","weave","bloom","calligraphy"];
+          async function verify(width){
+            const context=await browser.newContext({viewport:{width,height:850},reducedMotion:"no-preference"});
+            const page=await context.newPage();
+            const errors=[];
+            page.on("pageerror",e=>errors.push(String(e)));
+            page.on("console",m=>{if(m.type()==="error")errors.push(m.text())});
+            await page.goto("http://127.0.0.1:4173/__logo-motion/",{waitUntil:"networkidle"});
+            const initial=await page.evaluate(()=>({
+              cards:document.querySelectorAll(".cards .card").length,
+              vectors:document.querySelectorAll(".cards .stage .logo-animated").length,
+              phases:[...document.querySelectorAll(".cards .stage")].map(n=>n.dataset.phase),
+              balls:[...document.querySelectorAll(".cards .stage")].map(n=>n.querySelectorAll(".logo-animated circle").length),
+              fragments:[...document.querySelectorAll(".cards .stage")].map(n=>n.querySelectorAll(".logo-animated > path[transform]").length),
+              overflow:document.documentElement.scrollWidth>innerWidth+1
+            }));
+            if(initial.cards!==4||initial.vectors!==4||initial.balls.some(n=>n!==4)||
+               initial.fragments.some(n=>n<8)||initial.overflow)throw Error("bad setup "+width+": "+JSON.stringify(initial));
+            console.log("initial",width,JSON.stringify(initial));
+            for(const name of variants){
+              const stage=page.locator('.cards .stage[data-variant="'+name+'"]');
+              const slide=page.locator('[data-scrub="'+name+'"]');
+              await slide.fill("820");
+              const middle=await stage.evaluate(n=>{
+                const svg=n.querySelector(".logo-animated");
+                const symbol=svg.querySelector('svg > g');
+                const top=[...symbol.querySelectorAll(":scope > path")];
+                const master=document.querySelector("#logo-template").content.querySelector("svg");
+                const originals=[...master.querySelector("svg > g").querySelectorAll(":scope > path")];
+                const letters=[...svg.querySelectorAll(":scope > path[transform]")].filter(x=>x.getAttribute("opacity")==="1");
+                return {
+                  symbolMatches:top.every((p,i)=>p.getAttribute("d")===originals[i].getAttribute("d")),
+                  letters:letters.length,
+                  wordOpacity:svg.querySelector(":scope > path")?.getAttribute("opacity"),
+                  phase:n.dataset.phase
+                };
+              });
+              if(middle.letters<1||middle.phase!=="morph")throw Error("not forming independently "+name+": "+JSON.stringify(middle));
+              await slide.fill("1000");
+              const final=await stage.evaluate(n=>{
+                const svg=n.querySelector(".logo-animated");
+                const original=document.querySelector("#logo-template").content.querySelector("svg");
+                const symbol=[...svg.querySelector("svg > g").querySelectorAll(":scope > path")];
+                const originals=[...original.querySelector("svg > g").querySelectorAll(":scope > path")];
+                return {
+                  symbolMatches:symbol.every((p,i)=>p.getAttribute("d")===originals[i].getAttribute("d")),
+                  textOpacity:svg.querySelector(":scope > path")?.getAttribute("opacity"),
+                  balls:[...svg.querySelectorAll("circle")].map(x=>x.getAttribute("opacity")),
+                  phase:n.dataset.phase
+                };
+              });
+              if(!final.symbolMatches||final.textOpacity!=="1"||final.balls.some(x=>x!=="0")||final.phase!=="complete"){
+                throw Error("final master logo wrong "+name+": "+JSON.stringify(final));
+              }
+              await page.locator('[data-orbit="'+name+'"]').click();
+              await page.waitForTimeout(350);
+              if(await stage.getAttribute("data-phase")!=="orbit")throw Error("orbit hold failed "+name);
+              await page.locator('[data-finish="'+name+'"]').click();
+              await page.waitForFunction(name=>document.querySelector('.cards .stage[data-variant="'+name+'"]')?.dataset.phase==="complete",name,{timeout:6000});
+              await page.locator('[data-demo="'+name+'"]').click();
+              await page.waitForTimeout(300);
+              const modal=await page.evaluate(()=>({
+                open:!document.getElementById("preview-modal").hidden,
+                vector:document.querySelectorAll("#sim-stage .logo-animated").length,
+                balls:document.querySelectorAll("#sim-stage circle").length
+              }));
+              if(!modal.open||modal.vector!==1||modal.balls!==4)throw Error("preview modal failed "+name+": "+JSON.stringify(modal));
+              await page.keyboard.press("Escape");
+              if(!(await page.locator("#preview-modal").evaluate(n=>n.hidden)))throw Error("Escape cannot close modal "+name);
+            }
+            await page.screenshot({path:"logo-motion-qa/gallery-"+width+".png",fullPage:true,animations:"disabled"});
+            if(errors.length)throw Error("browser JS console/page errors: "+errors.join(" | "));
+            console.log("PASS",width);
+            await context.close();
+          }
+          try{
+            for(const width of [390,1366])await verify(width);
+            const ctx=await browser.newContext({reducedMotion:"reduce"});
+            const page=await ctx.newPage();
+            await page.goto("http://127.0.0.1:4173/__logo-motion/",{waitUntil:"domcontentloaded"});
+            const phases=await page.locator(".cards .stage").evaluateAll(nodes=>nodes.map(n=>n.dataset.phase));
+            if(phases.some(p=>p!=="complete"))throw Error("prefers-reduced-motion not respected: "+phases);
+            await ctx.close();
+            console.log("PASS accessibility reduce motion");
+          }finally{await browser.close()}
+          EOF
+          node /tmp/wasl-constructive-qa/check.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wasl-four-constructive-motion-screenshots
+          path: logo-motion-qa/*.png
+          retention-days: 7
