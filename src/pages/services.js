@@ -9,6 +9,7 @@ import { organizationSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
 import { HeroMedia } from "../components/HeroMedia.js";
 import { getPageHeroMedia } from "../config/hero-media.js";
+import { IMAGE_SIZES, responsiveImageData } from "../lib/responsive-image.js";
 
 const servicesPageRecord = pages.find((page) => page.id === "services");
 
@@ -43,11 +44,12 @@ function renderHero(content, locale) {
 
 function renderServiceRow(service, locale) {
   const copy = service.content[locale];
+  const responsive = responsiveImageData(service.image,1280,IMAGE_SIZES.serviceDirectory);
   const features = copy.deliverables.slice(0,3).map((item)=>`<li>${escapeHtml(item.title)}</li>`).join("");
   return `
     <article class="service-directory-row">
       <a class="service-directory-row__media" href="${routes.service(service.slug,locale)}" aria-label="${escapeHtml(copy.title)}">
-        <img src="${service.image}" alt="${escapeHtml(copy.title)}" width="1280" height="720" loading="lazy" decoding="async">
+        <img src="${service.image}" srcset="${escapeHtml(responsive.srcset)}" sizes="${escapeHtml(responsive.sizes)}" alt="${escapeHtml(copy.title)}" width="1280" height="720" loading="lazy" decoding="async">
       </a>
       <div class="service-directory-row__copy">
         <p class="service-directory-row__subtitle">${escapeHtml(copy.subtitle)}</p>

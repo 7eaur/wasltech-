@@ -27,6 +27,7 @@ import { services } from "../src/data/services.js";
 import { projects } from "../src/data/projects.js";
 import { articles } from "../src/data/articles.js";
 import { jobs } from "../src/data/jobs.js";
+import { responsiveImageCandidates } from "../src/lib/responsive-image.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, outputDirectoryName);
@@ -88,38 +89,33 @@ async function buildAssets() {
     recursive: true
   });
   const siteMediaImages = [
-    "home-hero.webp",
-    "about-us.webp",
-    "services-hero.webp",
-    "portfolio-hero.webp",
-    "process-hero.webp",
-    "contact-project-planner-hero.webp",
-    "faq-insights-hero.webp",
-    "article-website-or-web-system.webp",
-    "article-ecommerce-store-prep.webp",
-    "article-content-before-design.webp"
+    { src: "/assets/media/home-hero.webp", width: 1200 },
+    { src: "/assets/media/about-us.webp", width: 1280 },
+    { src: "/assets/media/services-hero.webp", width: 1536 },
+    { src: "/assets/media/portfolio-hero.webp", width: 1536 },
+    { src: "/assets/media/process-hero.webp", width: 1536 },
+    { src: "/assets/media/contact-project-planner-hero.webp", width: 1536 },
+    { src: "/assets/media/faq-insights-hero.webp", width: 1536 },
+    { src: "/assets/media/article-website-or-web-system.webp", width: 1536 },
+    { src: "/assets/media/article-ecommerce-store-prep.webp", width: 1536 },
+    { src: "/assets/media/article-content-before-design.webp", width: 1536 }
   ];
-  await mkdir(path.join(DIST, "assets/media"), { recursive: true });
-  for (const image of siteMediaImages) {
-    await cp(path.join(ROOT, "assets/media", image), path.join(DIST, "assets/media", image));
-  }
-
-  const serviceImages = [...new Set(services.map((service) => service.image))];
-  for (const image of serviceImages) {
-    const relative = image.replace(/^\/+/, "");
-    const source = path.join(ROOT, relative);
-    const destination = path.join(DIST, relative);
-    await ensureDirectory(destination);
-    await cp(source, destination);
-  }
-
-  const projectImages = [...new Set(projects.map((project) => project.image))];
-  for (const image of projectImages) {
-    const relative = image.replace(/^\/+/, "");
-    const source = path.join(ROOT, relative);
-    const destination = path.join(DIST, relative);
-    await ensureDirectory(destination);
-    await cp(source, destination);
+  const responsiveAssets = [
+    ...siteMediaImages,
+    ...services.map((service) => ({ src: service.image, width: 1280 })),
+    ...projects.map((project) => ({ src: project.image, width: project.imageDimensions.width }))
+  ];
+  const copiedAssets = new Set();
+  for (const asset of responsiveAssets) {
+    for (const candidate of responsiveImageCandidates(asset.src, asset.width)) {
+      if (copiedAssets.has(candidate.src)) continue;
+      const relative = candidate.src.replace(/^\/+/, "");
+      const source = path.join(ROOT, relative);
+      const destination = path.join(DIST, relative);
+      await ensureDirectory(destination);
+      await cp(source, destination);
+      copiedAssets.add(candidate.src);
+    }
   }
 
   const navigation = await readFile(path.join(ROOT, "src/client/navigation.js"), "utf8");

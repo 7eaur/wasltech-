@@ -10,6 +10,7 @@ import { SectionHeader } from "../components/SectionHeader.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema, websiteSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
+import { IMAGE_SIZES, responsiveImageData } from "../lib/responsive-image.js";
 import { icon } from "../components/icons.js";
 
 const homeRecord = pages.find((page) => page.id === "home");
@@ -82,6 +83,7 @@ function section(content, id) {
 }
 
 function renderHero(content, locale) {
+  const heroImage = responsiveImageData("/assets/media/home-hero.webp", 1200, IMAGE_SIZES.hero);
   const signals = heroSignals[locale].map((item) => `
     <div class="home-hero__signal">
       ${icon(item.icon, "home-hero__signal-icon")}
@@ -102,6 +104,8 @@ function renderHero(content, locale) {
         </div>
         <div class="home-hero__media">
           <img src="/assets/media/home-hero.webp"
+            srcset="${escapeHtml(heroImage.srcset)}"
+            sizes="${escapeHtml(heroImage.sizes)}"
             alt="${locale === "ar" ? "واجهات رقمية تمثل خدمات المواقع والتطبيقات والحلول التقنية من وصل تك" : "Digital interfaces representing Wasl Tech websites, apps, and technical solutions"}"
             width="1200" height="900" loading="eager" fetchpriority="high" decoding="async">
         </div>
@@ -176,6 +180,7 @@ function renderProjects(content, locale) {
 
 function renderAbout(content, locale) {
   const copy = section(content, "about");
+  const aboutImage = responsiveImageData("/assets/media/about-us.webp", 1280, IMAGE_SIZES.halfWidth);
   const values = aboutValues[locale].map((item) => `
     <div class="home-about__value">
       <strong>${escapeHtml(item.title)}</strong>
@@ -188,8 +193,10 @@ function renderAbout(content, locale) {
       <div class="container home-about__grid">
         <div class="home-about__media">
           <img src="/assets/media/about-us.webp"
+            srcset="${escapeHtml(aboutImage.srcset)}"
+            sizes="${escapeHtml(aboutImage.sizes)}"
             alt="${locale === "ar" ? "بيئة عمل وصل تك وهوية الشركة" : "Wasl Tech workplace and brand identity"}"
-            width="1536" height="864" loading="lazy" decoding="async">
+            width="1280" height="720" loading="lazy" decoding="async">
         </div>
         <div class="home-about__copy">
           <p class="eyebrow">${escapeHtml(copy.kicker)}</p>
