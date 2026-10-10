@@ -124,7 +124,7 @@ if (form && review && summary && whatsapp && edit && status && controls && submi
     review.hidden = false;
     status.textContent = copy.prepared;
     review.focus({ preventScroll: true });
-    review.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" });
+    review.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
   };
 
   submit.addEventListener("click", prepareReview);
@@ -133,7 +133,7 @@ if (form && review && summary && whatsapp && edit && status && controls && submi
   edit.addEventListener("click", () => {
     review.hidden = true;
     form.querySelector("select, input, textarea")?.focus();
-    form.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" });
+    form.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
   });
 
   // Activate only after submit handlers exist: the default HTML state cannot submit personal fields.
