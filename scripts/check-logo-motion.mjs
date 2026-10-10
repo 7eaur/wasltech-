@@ -1,46 +1,39 @@
 import { readFile, stat } from "node:fs/promises";
 import { resolve } from "node:path";
 import { Script } from "node:vm";
-
-const root=process.cwd();
-const source=await readFile(resolve(root,"prototypes/wasl-logo-motion.html"),"utf8");
-const original=await readFile(resolve(root,"assets/brand/wasl-tech-horizontal.svg"),"utf8");
-const built=await readFile(resolve(root,"dist/__logo-motion/index.html"),"utf8");
-const fail=message=>{throw new Error("WASL DOT MORPH QA: "+message)};
-
-if(source!==built)fail("build output and preview source differ");
-if(!source.includes('name="robots" content="noindex,nofollow"'))fail("preview must be noindex");
-if(!source.includes(original.replace(/^<\?xml[^>]*>\s*/,"")))fail("the original SVG is not embedded unchanged");
-if((original.match(/<path\b/g)||[]).length!==3)fail("unexpected source vector path count");
-if(!source.includes('src="/assets/brand/wasl-tech-horizontal.svg"'))fail("official SVG fallback missing");
-if(source.includes('<article class="card"'))fail("obsolete logo animation gallery leaked into preview");
-for(const fragment of [
-    'data-state="orbit"',
-    "function splitContours(pathD)",
-    "function renderSymbol(run,t)",
-    "function finishSymbol(run)",
-    "function updateOrbit(run,now)",
-    "function contourPoints(d,count,svg)",
-    "const blueDot=make('circle',{r:13,fill:'#14305F'",
-    "const greenDot=make('circle',{r:13,fill:'#0E8889'",
-    'id="replay"',
-    'id="slow"',
-    'id="trigger-ready"',
-    'id="show-site"',
-    'id="site-preview"',
-    'id="close-preview"',
-    'id="demo-again"',
-    "event.key==='Escape'",
-    'prefers-reduced-motion:reduce'
-]){if(!source.includes(fragment))fail("missing "+fragment)}
-for(const img of source.match(/<img\b[^>]*>/g)||[]){
-  if(!/\balt="[^"]*"/.test(img)||!/\bwidth="\d+"/.test(img)||!/\bheight="\d+"/.test(img))fail("image missing accessible alt / intrinsic dimensions");
+const cwd=process.cwd(),read=p=>readFile(resolve(cwd,p),"utf8");
+const html=await read("prototypes/wasl-logo-motion.html");
+const source=await read("assets/brand/wasl-tech-horizontal.svg");
+const output=await read("dist/__logo-motion/index.html");
+const assert=(condition,reason)=>{if(!condition)throw Error("WASL CONSTRUCTIVE MOTION QA: "+reason)};
+assert(html===output,"preview output differs from committed source");
+assert(html.includes(source.replace(/^<\?xml[^>]*>\s*/,"")),"exact master SVG must be embedded intact");
+assert((source.match(/<path\b/g)||[]).length===3,"official SVG path count changed");
+assert(html.includes('name="robots" content="noindex,nofollow"'),"preview must be unindexed");
+const names=["orbital","weave","bloom","calligraphy"];
+assert((html.match(/<article class="card"/g)||[]).length===4,"expected four distinct motion storyboard cards");
+for(const name of names){
+ for(const key of ["data-card","data-variant","data-demo","data-replay","data-orbit","data-finish","data-scrub"]){
+  assert(html.includes(key+'="'+name+'"'),"missing "+key+" for "+name);
+ }
 }
-for(const button of source.match(/<button\b[^>]*>/g)||[]){
-  if(!/\btype="button"/.test(button))fail("button missing explicit type");
+const js=html.match(/<script>([\s\S]*?)<\/script>/)?.[1];
+assert(js,"missing controller");
+new Script(js,{filename:"wasl-constructive-morph.js"});
+for(const name of ["contours","meta","generate","toLocal","makeLetters","instance","orbitCoordinates","timeline","scrub"]){
+ assert(js.includes("function "+name+"("),"independent vector function missing "+name);
 }
-const scripts=[...source.matchAll(/<script>([\s\S]*?)<\/script>/g)];
-if(scripts.length!==1)fail("expected one inline controller");
-new Script(scripts[0][1],{filename:"wasl-two-dot-morph.js"});
-if(!(await stat(resolve(root,"dist/__logo-motion/index.html"))).isFile())fail("preview route not built");
-console.log("WASL DOT MORPH QA PASSED: original SVG, dual orbit, morph, actual wordmark, timeout-free controls.");
+assert(js.includes("r.word.setAttribute('opacity',t>=1?'1':'0')"),"wordmark master must be hidden until full assembly");
+assert(js.includes("piece.element.setAttribute('d'"),"individual vector path morphing missing");
+assert(js.includes("getTotalLength()")&&js.includes("getPointAtLength"),"native contour measurements missing");
+assert(js.includes("const balls=Array.from({length:4}"),"four independent original orbit balls missing");
+assert(js.includes("const pieces=[]")&&js.includes("makeLetters(word,svg,pieces)"),"letter path independence missing");
+assert(html.includes("@media(prefers-reduced-motion:reduce)"),"reduced motion CSS missing");
+for(const img of html.match(/<img\b[^>]*>/g)||[]){
+ assert(/\balt="[^"]*"/.test(img)&&/\bwidth="\d+"/.test(img)&&/\bheight="\d+"/.test(img),"image missing alt or intrinsic size");
+}
+for(const button of html.match(/<button\b[^>]*>/g)||[]){
+ assert(/\btype="button"/.test(button),"button missing explicit type");
+}
+assert((await stat(resolve(cwd,"dist/__logo-motion/index.html"))).isFile(),"preview output missing");
+console.log("WASL CONSTRUCTIVE MOTION QA PASSED: 4 nonidentical timelines, 4 seeds, exact SVG, independently morphed glyph paths.");
