@@ -7,6 +7,9 @@
   --color-brand-accent:var(--wt-teal-500);
   --color-brand-accent-hover:var(--wt-teal-700);
   --color-brand-accent-soft:var(--wt-teal-50);
+  --color-accent-warm:var(--wt-apricot-500);
+  --color-surface-warm:var(--wt-apricot-50);
+  --color-text-warm:var(--wt-apricot-ink);
   --color-action-primary:var(--wt-teal-600);
   --color-action-primary-hover:var(--wt-teal-700);
 
