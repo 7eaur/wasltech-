@@ -52,6 +52,11 @@ for (const locale of ["ar","en"]) {
   }
 }
 
+const directoryStyles=await readFile(path.join(ROOT,"src/styles/services.css"),"utf8");
+const responsiveSizes=await readFile(path.join(ROOT,"src/lib/responsive-image.js"),"utf8");
+if(!directoryStyles.includes("grid-template-columns:7.5rem minmax(0,1fr)")) fail("services.css","mobile services must render compact media-led rows");
+if(!responsiveSizes.includes('serviceDirectory: "(max-width: 48rem) 7.5rem, 45vw"')) fail("responsive-image.js","mobile thumbnail sizes must reflect compact layout");
+
 if (errors.length) {
   console.error("VNEXT SERVICES CHECK: FAILED");
   for (const error of errors) console.error(`- ${error}`);
