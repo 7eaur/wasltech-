@@ -83,19 +83,19 @@
 
 @media(max-width:40rem){
   .grid--2,.grid--3,.grid--4{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-7) var(--space-5);padding-block:var(--space-8) var(--space-7)}
+  .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-5) var(--space-4);padding-block:var(--space-6)}
   .footer-brand{grid-column:1/-1}
   .footer-brand img{width:8.75rem;margin-bottom:var(--space-3)}
-  .footer-brand__description{max-width:100%;font-size:.78rem;line-height:1.75}
+  .footer-brand__description{max-width:100%;font-size:.875rem;line-height:1.7}
   .footer-social{margin-top:var(--space-4)}
   .footer-social__link{width:2.25rem;height:2.25rem}
   .site-footer h2{margin-bottom:var(--space-3);font-size:.875rem}
-  .footer-links{gap:.35rem;font-size:.75rem}
+  .footer-links{gap:.3rem;font-size:.875rem}
   .footer-contact{grid-column:1/-1}
   .footer-contact>h2{margin-bottom:var(--space-3)}
   .footer-contact__links{grid-template-columns:1fr;gap:0}
   .footer-contact__link{grid-template-columns:minmax(4.75rem,.55fr) minmax(0,1.45fr);gap:.6rem;padding:.3rem 0;background:transparent}
-  .footer-contact__name{font-size:.66rem}
-  .footer-contact__value{font-size:.72rem;white-space:normal}
+  .footer-contact__name{font-size:.8rem}
+  .footer-contact__value{font-size:.875rem;white-space:normal}
   .footer-bottom{align-items:flex-start;flex-direction:column;gap:.35rem;padding-block:var(--space-4);font-size:.6875rem}
 }
