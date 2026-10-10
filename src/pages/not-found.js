@@ -21,6 +21,7 @@ export function notFoundPage(locale = "ar") {
           height="320"
           alt=""
           loading="eager"
+          fetchpriority="high"
           decoding="async"
         >
         <h1 id="not-found-title">${escapeHtml(content.title)}</h1>
