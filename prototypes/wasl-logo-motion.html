@@ -217,11 +217,12 @@ button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid var(--
     }catch{ok=false}
     if(!ok){svg.remove();return null}
     stage.classList.add('has-vector');
-    const yMedian=segments.map(x=>x.box.y).sort((a,b)=>a-b)[Math.floor(segments.length/2)];
-    // Reveal top and lower wordmark rows independently, glyph by glyph, right-to-left.
+    const rowTops=segments.map(x=>x.box.y);
+    const rowThreshold=(Math.min(...rowTops)+Math.max(...rowTops))/2;
+    // Arabic upper lettering reads right-to-left, English lower lettering left-to-right.
     segments.sort((a,b)=>{
-      const ay=a.box.y>yMedian+15?1:0,by=b.box.y>yMedian+15?1:0;
-      return ay-by||(b.box.x-a.box.x);
+      const ar=a.box.y>rowThreshold?1:0,br=b.box.y>rowThreshold?1:0;
+      return ar-br||(ar===0?b.box.x-a.box.x:a.box.x-b.box.x);
     });
     return {id,mode,svg,icon,segments,dots,stage,raf:0,start:0};
   }
