@@ -106,8 +106,8 @@ function renderHero(content, locale) {
             width="1200" height="900" loading="eager" fetchpriority="high" decoding="async">
         </div>
         <div class="home-hero__actions">
-          ${ActionLink({ href: routes.startProject(locale), label: content.primaryCta, variant: "primary", size: "lg" })}
-          ${ActionLink({ href: routes.portfolio(locale), label: content.secondaryCta, variant: "ghost", size: "lg" })}
+          ${ActionLink({ href: routes.services(locale), label: content.primaryCta, variant: "primary", size: "lg" })}
+          ${ActionLink({ href: routes.contact(locale), label: content.secondaryCta, variant: "ghost", size: "lg" })}
         </div>
         <div class="home-hero__signals" aria-label="${locale === "ar" ? "مزايا العمل مع فريق وصل تك" : "Working with the Wasl Tech team"}">
           ${signals}

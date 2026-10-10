@@ -61,3 +61,45 @@
   .legal-content__item div>p:last-child{font-size:.9rem;line-height:1.78}
 }
 
+/* Standalone 404: exactly one visual, one message and one way home. */
+.not-found-page{
+  display:grid;
+  min-height:100svh;
+  min-height:100dvh;
+  place-items:center;
+  padding:clamp(2rem,7vh,5rem) var(--page-gutter);
+  background:var(--color-bg-raised);
+  text-align:center;
+}
+.not-found-page__content{
+  display:flex;
+  width:min(100%,36rem);
+  align-items:center;
+  flex-direction:column;
+  gap:clamp(1.25rem,3vw,1.75rem);
+}
+.not-found-page__illustration{
+  display:block;
+  width:min(100%,24rem);
+  height:auto;
+  aspect-ratio:3/2;
+  object-fit:contain;
+}
+.not-found-page h1{
+  max-width:30ch;
+  margin:0;
+  color:var(--color-text-brand);
+  font-size:clamp(1.5rem,4.4vw,2.25rem);
+  line-height:1.5;
+  text-wrap:balance;
+}
+.not-found-page .button{
+  min-width:11.5rem;
+  min-height:2.875rem;
+  justify-content:center;
+}
+@media(max-width:40rem){
+  .not-found-page__illustration{width:min(100%,19rem)}
+  .not-found-page__content{gap:1.25rem}
+  .not-found-page .button{width:min(100%,15rem)}
+}

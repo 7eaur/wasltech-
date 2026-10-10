@@ -51,6 +51,22 @@ for(const locale of ["ar","en"]){
     if(html.includes("VNext Foundation")) fail(file,`${id} placeholder leaked`);
   }
 
+
+  const notFoundPath=locale==="ar"?"404.html":"en/404.html";
+  const notFoundHtml=await readFile(path.join(DIST,notFoundPath),"utf8");
+  const notFoundCopy=pages.find((page)=>page.id==="notFound")?.content?.[locale];
+  if(!notFoundCopy) fail(notFoundPath,"localized 404 copy missing");
+  else if(!notFoundHtml.includes(`<h1 id="not-found-title">${htmlText(notFoundCopy.title)}</h1>`)) fail(notFoundPath,"404 heading missing");
+  if(!notFoundHtml.includes('name="robots" content="noindex,follow"')) fail(notFoundPath,"404 must be noindex");
+  if(!notFoundHtml.includes('src="/assets/brand/not-found-illustration.svg"')) fail(notFoundPath,"404 illustration missing");
+  if(locale==="ar" && !notFoundHtml.includes('location.pathname.startsWith("/en/")')) fail(notFoundPath,"root fallback must localize unknown English routes");
+  if(locale==="ar" && !notFoundHtml.includes('It looks like this page is no longer here.')) fail(notFoundPath,"root fallback missing English content");
+
+  if((notFoundHtml.match(/<img\b/g)??[]).length!==1) fail(notFoundPath,"404 must contain exactly one image");
+  if((notFoundHtml.match(/<a\b/g)??[]).length!==2) fail(notFoundPath,"404 must contain only skip link and home CTA");
+  if(!notFoundHtml.includes(`href="${routes.home(locale)}"`)) fail(notFoundPath,"404 must link to localized homepage");
+  if(notFoundHtml.includes('class="site-header"') || notFoundHtml.includes('class="site-footer"')) fail(notFoundPath,"404 must not render the regular site shell");
+
   const insightsFile=outputPath(routes.insights(locale));
   const insightsHtml=await readFile(path.join(DIST,insightsFile),"utf8");
   for(const article of articles.filter((item)=>item.publishedAt && item.localeStatus?.[locale]==="ready")){

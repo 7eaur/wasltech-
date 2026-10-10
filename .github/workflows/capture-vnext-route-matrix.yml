@@ -148,15 +148,23 @@ jobs:
             if (consoleErrors.length) throw new Error(`Console errors ${path}: ${consoleErrors.join(" | ")}`);
             if (failedLocalRequests.length) throw new Error(`Failed local requests ${path}: ${failedLocalRequests.join(" | ")}`);
 
-            const switchHref = await page.locator(".language-switch").getAttribute("href");
-            if (switchHref !== expectedSwitch) {
-              throw new Error(`Language switch mismatch ${path}: ${switchHref} !== ${expectedSwitch}`);
-            }
-
-            if (path.endsWith("/404.html") || path === "/404.html") {
-              const activeNavItems = await page.locator(".primary-nav [aria-current=\"page\"]").count();
-              if (activeNavItems !== 0) {
-                throw new Error(`404 must not mark primary navigation active: ${path}`);
+            const isNotFound = path.endsWith("/404.html");
+            if (isNotFound) {
+              // The branded 404 is deliberately standalone without site navigation.
+              if (await page.locator(".site-header, .site-footer, .language-switch").count()) {
+                throw new Error(`Standalone 404 leaked the global shell: ${path}`);
+              }
+              if (await page.locator(".not-found-page img").count() !== 1) {
+                throw new Error(`Standalone 404 must show exactly one illustration: ${path}`);
+              }
+              const homeHref = locale === "ar" ? "/" : "/en/";
+              if (await page.locator(".not-found-page .button").getAttribute("href") !== homeHref) {
+                throw new Error(`Standalone 404 must point to localized home: ${path}`);
+              }
+            } else {
+              const switchHref = await page.locator(".language-switch").getAttribute("href");
+              if (switchHref !== expectedSwitch) {
+                throw new Error(`Language switch mismatch ${path}: ${switchHref} !== ${expectedSwitch}`);
               }
             }
             await context.close();
