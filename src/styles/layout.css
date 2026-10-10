@@ -23,6 +23,7 @@
 .primary-nav{justify-self:center}
 .primary-nav ul{display:flex;align-items:center;gap:var(--space-5)}
 .menu-toggle{display:none}
+.primary-nav--nojs{display:none}
 .menu-toggle[hidden]{display:none!important}
 .language-switch{min-height:var(--control-height-sm);display:inline-flex;align-items:center;padding-inline:.75rem;color:var(--color-text-secondary);font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold);border-radius:var(--radius-control)}
 .language-switch:hover{background:var(--color-bg-soft);color:var(--color-text-brand)}
