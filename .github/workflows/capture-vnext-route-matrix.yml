@@ -104,7 +104,7 @@ jobs:
             ["terms", "/terms/", "/en/terms/", "/en/terms/", "/terms/"],
             ["not-found", "/404.html", "/en/404.html", "/en/", "/"]
           ];
-          const widths = [360, 390, 768, 1024, 1366, 1440];
+          const widths = [320, 360, 390, 768, 1024, 1366, 1440];
           const browser = await chromium.launch({ headless: true });
 
           async function inspect(path, width, locale, expectedSwitch) {
