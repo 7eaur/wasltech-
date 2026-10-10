@@ -82,7 +82,7 @@
 | WT-IA-27 | P1 QA | اختبارات مصادر وبناء لا تغطي كل رحلة إنتاج أو axe/zoom | scripts/check-*.mjs, workflows |
 | WT-IA-28 | P2 PERF RISK | اعتماد CSS موحد كبير وخطوط Google خارجية | src/templates/document.js, scripts/build.mjs |
 | WT-IA-29 | P2 PERF RISK | reveal يتأخر لما بعد load/idle، تجنب تراجع الرؤية | src/client/motion.js |
-| WT-IA-30 | P1 LIVE-UNVERIFIED | site.origin www بينما لا redirect مخصص ظاهر بين النطاقين | src/config/site.js, Vercel domains؛ WT-016 |
+| WT-IA-30 | **P1 LIVE-CONFIRMED / SEO TEAM OWNER** | **الدومين المنشور يوجّه www → apex برمز 308، بينما صفحات apex تُعلن canonical وog:url على www**؛ رابط canonical يعيد التوجيه عكسيًا ويحتاج توحيد النطاق الرئيسي؛ لا تَعتبر Verified domain دليلاً على صحة canonical | اختبار HTTP حقيقي بتاريخ 2026-10-11: `https://www.wasl-tech.com/` → 308 `https://wasl-tech.com/`؛ `https://wasl-tech.com/` → 200 canonical `https://www.wasl-tech.com/`؛ تكرر في `/services/web-development/`؛ المصدر `src/config/site.js` وVercel | تنسيق مالك PR SEO #36/#37 مع مسؤول Vercel لاختيار هوست رسمي واحد وتعديل التوجيه وcanonical وOG/sitemap وفقه، ثم `curl -I` وHTTP smoke لكلا اللغتين والصفحات؛ **لا تغيير من فرع الإصلاح المستقل** |
 | WT-IA-31 | P2 OWNERSHIP | أعمال SEO في PR #36/#37 مستقلة ولم تُدمج | مراجعة وعدم تعديل فروعها |
 | WT-IA-32 | P1 LIVE-UNVERIFIED | التحقق من استقبال البريد وعمل social links لا يكفي الكود | src/config/site.js, footer |
 | WT-IA-33 | P2 A11Y RISK | HeroMedia alt فارغ لجميع ترويسات داخلية (زخرفي فقط إذا لا معلومات) | src/config/hero-media.js |
@@ -186,3 +186,12 @@
 - **الحركة:** لم نقس FPS/INP؛ تحسين UX لا يشمل أنميشن الشعار المسلّم لفرع مستقل.
 - **النسخ التسويقية:** مقترحات للمراجعة ولا يجوز نشر ادعاء أو رقم دون دليل.
 - **الحالة:** جميع WT-IA-48..75 OPEN/PROPOSED في سجل التدقيق؛ لا commit إصلاح Runtime ولا Merge ولا Production في هذه الجولة.
+
+### تحديث إثبات حي بتاريخ 2026-10-11 — WT-IA-30
+
+أول مرة أصبح لدينا دليل على اتجاه التوجيه عبر الموقع الحقيقي:
+- `GET https://www.wasl-tech.com/` → **308** إلى `https://wasl-tech.com/`.
+- `GET https://wasl-tech.com/` → **200**، وداخل HTML `<link rel="canonical" href="https://www.wasl-tech.com/">` + `og:url` على www.
+- `/services/web-development/` يعيد نفس التناقض بين هوست إعادة التوجيه وcanonical.
+- **الأثر:** اختلاف هوست الاستجابة الرسمية عن canonical المعلن. هذا ليس دليلًا على خسارة تصنيف، لكنه خلل محركات بحث/نطاق يجب توحيده.
+- **الملكية:** PR SEO #36/#37 + إدارة دومين Vercel، لا تعديلات حية أو فروعهم دون تنسيق. `www` ظاهر كمفضل في كود SEO، لكن اختيار المضيف الرسمي وتغيير DNS/redirect يُراجع مع صاحب المشروع ومسؤول SEO. 
