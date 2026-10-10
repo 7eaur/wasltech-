@@ -382,35 +382,35 @@ const serviceRecords = [
         "deliverables": [
           {
             "title": "تحليل المستخدم والوظائف الأساسية",
-            "description": "بناء تدفقات وشاشات واضحة تراعي طبيعة المستخدم والمهام الأساسية داخل التطبيق."
+            "description": "تحديد فئات المستخدمين والمهام الأساسية التي يحتاج التطبيق إلى تنفيذها قبل تصميم الشاشات."
           },
           {
             "title": "تجربة استخدام ومسارات واضحة",
-            "description": "تنفيذ نسخة أندرويد وفق المتطلبات والوظائف المعتمدة للمشروع."
+            "description": "تنظيم الشاشات وتدفقات التنقل بما يجعل المهام اليومية داخل التطبيق مفهومة وسهلة."
           },
           {
             "title": "تطبيقات Android وiOS حسب النطاق",
-            "description": "تجهيز نسخة iOS عندما يتطلب نطاق المشروع دعم أجهزة Apple."
+            "description": "تطوير نسخ الأجهزة المستهدفة وفق المتطلبات المعتمدة ونطاق المشروع المتفق عليه."
           },
           {
             "title": "حسابات وصلاحيات وإشعارات",
-            "description": "ربط التطبيق بالموقع أو النظام أو الخدمات الخلفية لتبادل البيانات والعمليات."
+            "description": "إعداد التسجيل والدخول والصلاحيات والتنبيهات التي تتطلبها وظائف التطبيق عند الحاجة."
           },
           {
             "title": "ربط API والأنظمة الحالية",
-            "description": "تجهيز تدفقات التسجيل والدخول وإدارة الحسابات بما يناسب سيناريو الاستخدام."
+            "description": "ربط التطبيق بواجهات API أو الأنظمة الموجودة لتبادل البيانات وتنفيذ العمليات المتفق عليها."
           },
           {
             "title": "لوحة إدارة عند الحاجة",
-            "description": "إضافة التنبيهات المطلوبة للطلبات أو التحديثات أو الرسائل عندما تكون جزءًا من التجربة."
+            "description": "توفير واجهة لإدارة المستخدمين أو المحتوى أو العمليات عندما تكون ضمن نطاق المشروع."
           },
           {
             "title": "اختبار السيناريوهات والأداء",
-            "description": "واجهة لإدارة المحتوى والبيانات والعمليات التي يحتاجها فريق المشروع."
+            "description": "اختبار الاستخدام الأساسي والاستجابة والأخطاء على الأجهزة والإصدارات المستهدفة."
           },
           {
             "title": "تجهيز الإصدار للإطلاق",
-            "description": "مراجعة السيناريوهات الأساسية والأداء والسلوك على الأجهزة المستهدفة قبل تجهيز النسخة النهائية."
+            "description": "إعداد ملفات الإصدار ومتطلبات النشر والتسليم بحسب المتجر والحسابات المتاحة."
           }
         ],
         "process": [
@@ -529,35 +529,35 @@ const serviceRecords = [
         "deliverables": [
           {
             "title": "User and core feature analysis",
-            "description": "Clear flows and screens based on user needs and the core tasks inside the product."
+            "description": "Identifying the target users and essential tasks the app must support before designing screens."
           },
           {
             "title": "Clear user experience and flows",
-            "description": "Android implementation based on the approved requirements and feature scope."
+            "description": "Organizing screens and navigation flows so everyday tasks are easier to understand and complete."
           },
           {
             "title": "Android and iOS apps by scope",
-            "description": "An iOS version when supporting Apple devices is part of the project scope."
+            "description": "Building versions for the agreed platforms in line with the approved requirements and project scope."
           },
           {
             "title": "Accounts, permissions, and notifications",
-            "description": "Connecting the app to an existing website, system, or backend service for data and operations."
+            "description": "Configuring sign-in, roles, access, and product notifications where the approved features require them."
           },
           {
             "title": "API and existing-system integrations",
-            "description": "Registration, sign-in, and account management flows that fit the product scenario."
+            "description": "Connecting the app to agreed APIs or existing systems for data exchange and operations."
           },
           {
             "title": "Admin dashboard when needed",
-            "description": "Relevant notifications for orders, updates, messages, or other product events when needed."
+            "description": "Providing an interface for managing users, content, or workflows when it is part of the project scope."
           },
           {
             "title": "Scenario and performance testing",
-            "description": "An interface for the team to manage content, data, and operational workflows."
+            "description": "Checking core user journeys, responsiveness, and errors on targeted devices and OS versions."
           },
           {
             "title": "Release preparation",
-            "description": "Reviewing key scenarios, performance, and behavior on target devices before release."
+            "description": "Preparing release builds and publishing requirements for the available store accounts and scope."
           }
         ],
         "process": [
@@ -688,31 +688,31 @@ const serviceRecords = [
         "deliverables": [
           {
             "title": "هيكلة وتصنيف المنتجات",
-            "description": "تصميم يبرز المنتجات ويجعل التصفح والمقارنة والطلب واضحًا على الجوال والكمبيوتر."
+            "description": "تصنيف المنتجات والفئات والخصائص بطريقة تسهّل البحث والتنقل داخل المتجر."
           },
           {
             "title": "صفحات منتجات تقود إلى الشراء",
-            "description": "إضافة المنتجات وتحديث بياناتها وأسعارها وصورها من لوحة الإدارة."
+            "description": "عرض صور المنتج ومعلوماته وخياراته وسعره بوضوح مع خطوة شراء مفهومة."
           },
           {
             "title": "سلة وطلب وتأكيد واضح",
-            "description": "تقسيم المنتجات بطريقة تسهّل البحث والوصول بدل عرضها في قائمة واحدة."
+            "description": "إنشاء مسار واضح لمراجعة السلة وتأكيد الطلب والبيانات المطلوبة للإتمام."
           },
           {
             "title": "إدارة المنتجات والمخزون عند الحاجة",
-            "description": "تجربة مرتبة لإضافة المنتجات ومراجعة الطلب وإكمال بيانات الشراء."
+            "description": "إدارة تفاصيل المنتجات والأسعار والكميات من لوحة مناسبة لنطاق المتجر."
           },
           {
             "title": "الدفع والشحن وفق المزوّدات المتاحة",
-            "description": "متابعة الطلبات وحالاتها والبيانات المرتبطة بها من مكان واحد."
+            "description": "ربط خيارات الدفع والتوصيل المتاحة قانونيًا وتقنيًا بحسب السوق والمزوّدات المعتمدة."
           },
           {
             "title": "حسابات العملاء والتنبيهات عند الحاجة",
-            "description": "إضافة بوابات أو طرق الدفع المتاحة والمناسبة لسوق المشروع عند الحاجة."
+            "description": "تسجيل العملاء ومتابعة طلباتهم وتفعيل الإشعارات الضرورية وفق النطاق."
           },
           {
             "title": "تقارير وبيانات تساعد على قراءة أداء المتجر",
-            "description": "تهيئة خيارات التوصيل أو الربط المتاح بما يناسب آلية تشغيل المتجر."
+            "description": "عرض الطلبات وحالاتها والمؤشرات التشغيلية المتاحة لمساعدة الإدارة على المتابعة."
           }
         ],
         "process": [
@@ -831,31 +831,31 @@ const serviceRecords = [
         "deliverables": [
           {
             "title": "Product structure and categories",
-            "description": "A product-focused interface that makes browsing, comparison, and ordering clear across mobile and desktop."
+            "description": "Organizing products, categories, and attributes so customers can browse and find what they need."
           },
           {
             "title": "Product pages that guide toward purchase",
-            "description": "Adding and updating products, details, pricing, and imagery through the administration layer."
+            "description": "Presenting product photos, details, options, pricing, and a clear next purchase action."
           },
           {
             "title": "Clear cart, order, and confirmation flow",
-            "description": "Structuring products so customers can browse and find items without facing one long list."
+            "description": "Building a clear journey to review the cart, provide needed details, and confirm an order."
           },
           {
             "title": "Product and inventory management when needed",
-            "description": "A clear journey for adding products, reviewing the order, and completing purchase information."
+            "description": "Managing listings, pricing, and stock through an administration interface aligned with scope."
           },
           {
             "title": "Payment and shipping through available providers",
-            "description": "Tracking orders, statuses, and related customer information from one place."
+            "description": "Integrating supported payment and delivery options suitable for the market and agreed providers."
           },
           {
             "title": "Customer accounts and alerts when needed",
-            "description": "Integrating suitable available payment methods or gateways when needed."
+            "description": "Providing customer accounts, order tracking, and relevant notifications where required."
           },
           {
             "title": "Reporting and store performance data",
-            "description": "Configuring delivery options or supported integrations according to the store's operating model."
+            "description": "Showing orders, statuses, and available operational indicators for day-to-day oversight."
           }
         ],
         "process": [
@@ -1292,31 +1292,31 @@ const serviceRecords = [
         "deliverables": [
           {
             "title": "ربط الأنظمة والخدمات",
-            "description": "فهم الوضع الحالي وتحديد ما الذي يحتاج تحسينًا أو ربطًا أو أتمتة قبل اختيار الحل."
+            "description": "تبادل البيانات أو تنفيذ العمليات بين الأنظمة والخدمات عندما تتوفر وسائل ربط مناسبة."
           },
           {
             "title": "أتمتة العمليات المتكررة",
-            "description": "تنسيق تبادل البيانات والعمليات بين الأدوات أو المنصات عندما تسمح البنية بذلك."
+            "description": "تحويل الأعمال اليدوية القابلة للتكرار إلى تدفقات واضحة تقلل الحاجة للإدخال المتكرر."
           },
           {
             "title": "تنظيم تدفق البيانات",
-            "description": "تقليل الأعمال اليدوية المتكررة وتحويلها إلى تدفقات أو إجراءات أوضح."
+            "description": "تحديد مصادر البيانات وطريقة انتقالها والتحقق منها لتقليل التكرار والتشتت."
           },
           {
             "title": "لوحات متابعة",
-            "description": "ترتيب حركة البيانات بين المصادر والأنظمة لتقليل التكرار والتشتت."
+            "description": "تجميع حالات العمليات والمعلومات المهمة في واجهات تساعد الفريق على المتابعة."
           },
           {
             "title": "تكامل الويب والتطبيقات",
-            "description": "اختيار أو بناء أجزاء تقنية تخدم الحاجة الفعلية بدل إضافة طبقات غير ضرورية."
+            "description": "ربط واجهات المواقع والتطبيقات بالخدمات أو الأنظمة اللازمة لأداء الوظائف المطلوبة."
           },
           {
             "title": "تحسين البنية الحالية",
-            "description": "تقسيم التحسينات إلى مراحل تبدأ بالأكثر أثرًا ثم تتوسع حسب الحاجة."
+            "description": "مراجعة النظام القائم وتحديد التحسينات التي تعالج عيوب الاستخدام أو التكامل أو الأداء."
           },
           {
             "title": "حلول تدريجية تبدأ من عنق الزجاجة الحقيقي",
-            "description": "تجميع المعلومات التي يحتاجها الفريق في شاشة أو مسار أوضح للمتابعة."
+            "description": "تحديد المشكلة الأكثر تأثيرًا ثم تنفيذ تحسينات مرحلية قابلة للاختبار."
           }
         ],
         "process": [
@@ -1435,31 +1435,31 @@ const serviceRecords = [
         "deliverables": [
           {
             "title": "Connect systems and services",
-            "description": "Reviewing the current state to define what truly needs improvement, integration, or automation."
+            "description": "Exchanging data or coordinating tasks across systems and services where suitable APIs are available."
           },
           {
             "title": "Automate repetitive operations",
-            "description": "Coordinating data and operations between tools or platforms when the architecture allows it."
+            "description": "Turning suitable repetitive manual work into clearer automated or assisted flows."
           },
           {
             "title": "Organize data flow",
-            "description": "Reducing repetitive manual work through clearer automated or assisted flows."
+            "description": "Defining data sources, handoffs, and validation to reduce duplication and fragmented processes."
           },
           {
             "title": "Monitoring dashboards",
-            "description": "Improving how data moves between sources and systems to reduce duplication and fragmentation."
+            "description": "Bringing operational statuses and important information into useful monitoring views."
           },
           {
             "title": "Web and app integration",
-            "description": "Choosing or building focused components that solve the actual need without unnecessary layers."
+            "description": "Connecting websites and apps to the services or systems they depend on for agreed tasks."
           },
           {
             "title": "Improve existing architecture",
-            "description": "Organizing technical improvements into stages that start with the highest-impact work."
+            "description": "Reviewing current systems and targeting meaningful usability, integration, or performance improvements."
           },
           {
             "title": "Incremental solutions starting from the real bottleneck",
-            "description": "Bringing important operational information into clearer dashboards or workflows."
+            "description": "Finding the highest-impact constraint first, then implementing testable improvements in stages."
           }
         ],
         "process": [
@@ -1585,23 +1585,23 @@ const serviceRecords = [
         "deliverables": [
           {
             "title": "ترتيب الرسالة والمحتوى",
-            "description": "بداية تعطي القارئ فكرة واضحة عن الشركة قبل الدخول في التفاصيل."
+            "description": "تنظيم الأفكار والأقسام الرئيسية للملف بحيث يفهم القارئ نشاط الشركة من البداية."
           },
           {
             "title": "كتابة وتحرير المحتوى عند الحاجة",
-            "description": "صياغة وترتيب نبذة الشركة والرؤية والمعلومات الأساسية بصورة مختصرة ومفهومة."
+            "description": "صياغة نبذة الشركة والخدمات والمعلومات الأساسية بلغة واضحة وقابلة للمراجعة."
           },
           {
             "title": "هيكلة الخدمات والأعمال",
-            "description": "تقديم الخدمات بطريقة تساعد القارئ على فهم الفرق والقيمة بدل قائمة أسماء فقط."
+            "description": "تجميع الخدمات ونماذج الأعمال في أقسام مترابطة تسهل المقارنة والفهم."
           },
           {
             "title": "تصميم متوافق مع الهوية",
-            "description": "إبراز المشاريع أو النماذج المناسبة عندما تكون متاحة وتخدم الرسالة."
+            "description": "تطبيق الألوان والخطوط والأشكال البصرية المعتمدة على صفحات الملف."
           },
           {
             "title": "ملف جاهز للمشاركة والطباعة والعرض",
-            "description": "اختصار التكرار وترتيب النصوص والصور ضمن تسلسل مريح للقراءة."
+            "description": "تجهيز النسخة النهائية بالصيغ والأبعاد المتفق عليها للمشاركة أو الطباعة."
           }
         ],
         "process": [
@@ -1715,23 +1715,23 @@ const serviceRecords = [
         "deliverables": [
           {
             "title": "Organize message and content",
-            "description": "A clear first impression that introduces the company before the detailed sections begin."
+            "description": "Structuring the main ideas and sections so the company is easy to understand from the outset."
           },
           {
             "title": "Write and edit content when needed",
-            "description": "Writing and organizing the company overview, vision, and key information in a concise format."
+            "description": "Writing and refining the company overview, service descriptions, and key details for review."
           },
           {
             "title": "Structure services and work",
-            "description": "Presenting services in a way that explains value and distinction instead of listing names only."
+            "description": "Organizing services and selected work examples into coherent sections that are easy to scan."
           },
           {
             "title": "Design aligned with the identity",
-            "description": "Highlighting relevant projects or examples when they are available and support the story."
+            "description": "Applying the approved brand colors, typography, and visual language throughout the profile."
           },
           {
             "title": "File ready for sharing, print, and presentation",
-            "description": "Reducing repetition and arranging text and images into a comfortable reading flow."
+            "description": "Preparing the approved document in the agreed formats and dimensions for its intended uses."
           }
         ],
         "process": [
@@ -1862,27 +1862,27 @@ const serviceRecords = [
         "deliverables": [
           {
             "title": "استراتيجية واتجاه بصري",
-            "description": "بناء علامة بصرية قابلة للاستخدام وتناسب شخصية المشروع وسياق ظهوره."
+            "description": "فهم شخصية المشروع والجمهور وطريقة الاستخدام ثم تحديد اتجاه بصري ملائم."
           },
           {
             "title": "شعار ونظام ألوان وخطوط",
-            "description": "تحديد نظام لوني وتايبوغرافي يكوّن أساسًا متسقًا للهوية."
+            "description": "تصميم عناصر الهوية الأساسية ونظام الألوان والخطوط بحسب نطاق الاتفاق."
           },
           {
             "title": "قواعد استخدام الهوية",
-            "description": "تطبيق النظام البصري على المواد والقنوات التي يحتاجها المشروع فعليًا."
+            "description": "تحديد ضوابط المساحات والألوان والنسخ وحالات الاستخدام للحفاظ على الاتساق."
           },
           {
             "title": "تطبيقات رقمية ومطبوعة",
-            "description": "قوالب ومنشورات تحافظ على شخصية العلامة بدل الاعتماد على شكل مختلف في كل مرة."
+            "description": "تطبيق الهوية على الاستخدامات الرقمية والمطبوعة المتفق عليها مع العميل."
           },
           {
             "title": "قوالب جاهزة للاستخدام",
-            "description": "تصميم مواد حملات تحمل الرسالة والهوية بوضوح ضمن المساحات المطلوبة."
+            "description": "إنشاء قوالب قابلة لإعادة الاستخدام للمحتوى الذي يحتاجه المشروع."
           },
           {
             "title": "دليل هوية بحسب نطاق المشروع",
-            "description": "نظام قوالب يساعد الفريق على الحفاظ على الاتساق في الاستخدام اليومي."
+            "description": "تنظيم القواعد والأمثلة والملفات اللازمة للاستخدام الصحيح للهوية."
           }
         ],
         "process": [
@@ -2001,27 +2001,27 @@ const serviceRecords = [
         "deliverables": [
           {
             "title": "Visual strategy and direction",
-            "description": "A usable visual mark that fits the personality and context of the brand."
+            "description": "Understanding the brand, audience, and use cases before choosing a coherent visual direction."
           },
           {
             "title": "Logo, color, and typography system",
-            "description": "A visual foundation that defines how color and type work consistently across the identity."
+            "description": "Designing the agreed core mark, palette, and typography as a coherent identity foundation."
           },
           {
             "title": "Brand usage rules",
-            "description": "Applying the visual system to the materials and channels the project actually needs."
+            "description": "Documenting spacing, colors, logo variants, and usage cases that maintain consistency."
           },
           {
             "title": "Digital and print applications",
-            "description": "Templates and post systems that maintain brand character across recurring content."
+            "description": "Applying the identity to the agreed digital and printed brand materials."
           },
           {
             "title": "Ready-to-use templates",
-            "description": "Promotional materials that carry the message and identity clearly across required formats."
+            "description": "Creating reusable layouts for the recurring content the project actually needs."
           },
           {
             "title": "Brand guideline by project scope",
-            "description": "A template system that helps the team maintain consistency in day-to-day use."
+            "description": "Organizing usage guidance, examples, and files into a clear scope-appropriate brand guide."
           }
         ],
         "process": [
@@ -2152,31 +2152,31 @@ const serviceRecords = [
         "deliverables": [
           {
             "title": "استراتيجية الرسائل والمحتوى",
-            "description": "تحديد الموضوعات والمحاور والإيقاع المناسب للنشر بناءً على الخدمة والجمهور والهدف."
+            "description": "تحديد الجمهور والرسالة والمحاور التحريرية المناسبة للهدف والقنوات المستخدمة."
           },
           {
             "title": "كتابة المحتوى التسويقي",
-            "description": "صياغة منشورات ورسائل واضحة تتحدث بلغة العلامة وتوصل الفكرة بدون حشو."
+            "description": "صياغة نصوص واضحة تعرّف بالخدمة وتناسب لغة العلامة والجمهور."
           },
           {
             "title": "إدارة منصات التواصل",
-            "description": "تحويل الرسالة إلى محتوى بصري متسق مع الهوية ومناسب للمنصة."
+            "description": "تنظيم خطة النشر والجدولة والتفاعل والمتابعة حسب نطاق الخدمة المتفق عليه."
           },
           {
             "title": "تصميم المنشورات والإعلانات",
-            "description": "تنظيم النشر والجدولة والمتابعة وفق النطاق المتفق عليه."
+            "description": "إنتاج تصاميم مناسبة للمنصات والأحجام المختلفة ومتسقة مع الهوية."
           },
           {
             "title": "ريلز واستوريات تخدم الرسالة",
-            "description": "إعداد وإدارة الحملات عند الحاجة ضمن الهدف والميزانية والجمهور المحدد."
+            "description": "تجهيز أفكار ومقاطع قصيرة تعزز الرسالة بدل إنتاج فيديو بلا هدف محدد."
           },
           {
             "title": "حملات مدفوعة حسب الهدف والميزانية",
-            "description": "مراجعة المحتوى وطريقة تقديمه لزيادة وضوح الرسالة والوصول المناسب."
+            "description": "إعداد الحملات أو إدارتها بحسب المنصة والميزانية والجمهور المتفق عليه."
           },
           {
             "title": "قراءة المؤشرات وتحسين الخطة",
-            "description": "أفكار وصيغ قصيرة تخدم الرسالة بدل إنتاج فيديو لمجرد زيادة عدد المنشورات."
+            "description": "مراجعة بيانات الأداء المتاحة وتعديل المحتوى أو الاستهداف بناءً عليها."
           }
         ],
         "process": [
@@ -2295,31 +2295,31 @@ const serviceRecords = [
         "deliverables": [
           {
             "title": "Messaging and content strategy",
-            "description": "Defining content themes, topics, and publishing rhythm around the offer, audience, and objective."
+            "description": "Defining audience, message, topics, and channels based on the campaign objective."
           },
           {
             "title": "Marketing copywriting",
-            "description": "Clear posts and messages written in the voice of the brand without unnecessary filler."
+            "description": "Writing concise brand-aligned messages that explain the offer and suit the intended audience."
           },
           {
             "title": "Social media management",
-            "description": "Turning the message into visual content that fits the brand and the platform."
+            "description": "Planning publishing, scheduling, engagement, and follow-up within the agreed service scope."
           },
           {
             "title": "Post and ad design",
-            "description": "Organizing scheduling, publishing, and follow-up according to the agreed scope."
+            "description": "Producing platform-appropriate creative layouts consistent with the brand identity."
           },
           {
             "title": "Reels and stories that serve the message",
-            "description": "Planning and managing campaigns when needed, based on objective, budget, audience, and platform."
+            "description": "Planning and producing short formats that communicate a clear point rather than adding volume."
           },
           {
             "title": "Paid campaigns by goal and budget",
-            "description": "Reviewing how content is presented to make the message clearer and improve relevant reach."
+            "description": "Setting up or managing campaigns according to the agreed platform, audience, and budget."
           },
           {
             "title": "Review metrics and improve the plan",
-            "description": "Ideas and formats for reels and stories that serve the message instead of adding video for volume alone."
+            "description": "Reviewing available performance data and refining content or targeting accordingly."
           }
         ],
         "process": [
