@@ -380,7 +380,7 @@ button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus
     const begun=r.forcedAt===Infinity?r.config.orbit:Math.max(r.config.orbit,r.forcedAt-r.start);
     const rel=(e-begun)/r.config.form;
 
-    if(!r.birth){r.birth=true;r.orbitCoordinates=orbitCoordinates(r,begun)}
+    if(!r.birth){r.birth=true;if(!r.orbitCoordinates||r.orbitCoordinates.length!==4)r.orbitCoordinates=orbitCoordinates(r,begun)}
     timeline(r,rel);
     if(rel>=1){
       r.mode='done';r.raf=0;
