@@ -24,6 +24,10 @@
 
 .planner-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(18rem,.75fr);gap:clamp(var(--space-8),6vw,var(--space-16));align-items:start}
 .planner-form{border-top:var(--border-thin) solid var(--color-border-default)}
+.planner-form__controls{border:0;padding:0;margin:0;min-inline-size:0}
+.planner-form__no-js{padding:var(--space-5);background:var(--color-bg-soft);color:var(--color-text-secondary);border-inline-start:3px solid var(--color-brand-accent);line-height:1.75}
+.planner-form__no-js[hidden]{display:none}
+.planner-form__no-js a{color:var(--color-text-accent);text-decoration:underline;text-underline-offset:.2em}
 .planner-step{display:grid;grid-template-columns:minmax(0,.8fr) minmax(16rem,1.2fr);gap:clamp(var(--space-6),5vw,var(--space-12));padding-block:clamp(var(--space-6),4vw,var(--space-10));border-bottom:var(--border-thin) solid var(--color-border-default)}
 .planner-step__head h2{margin-bottom:var(--space-2);font-size:var(--font-size-xl)}
 .planner-step__head>p:last-child{color:var(--color-text-secondary);font-size:var(--font-size-sm)}
