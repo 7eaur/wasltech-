@@ -64,7 +64,7 @@ for(const locale of ["ar","en"]){
 }
 
 const client=await readFile(path.join(ROOT,"src/client/project-planner.js"),"utf8");
-for(const contract of ["checkValidity","reportValidity","encodeURIComponent","data-planner-summary","Nothing has been sent","لم يتم إرسال أي بيانات"]){
+for(const contract of ["checkValidity","reportValidity","encodeURIComponent","data-planner-summary","Nothing has been sent","لم يتم إرسال أي بيانات","controls.disabled = false","fallback.hidden = true","submit.addEventListener"]){
   if(!client.includes(contract)) fail("src/client/project-planner.js",`truthful planner behavior missing: ${contract}`);
 }
 for(const forbidden of ["fetch(","XMLHttpRequest","form.submit(","localStorage","sessionStorage"]){
