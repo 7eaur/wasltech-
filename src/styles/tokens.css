@@ -23,6 +23,11 @@
   --wt-teal-800:#07565B;
   --wt-teal-900:#064448;
 
+  /* Approved supporting accent: small, intentional warm details only. */
+  --wt-apricot-50:#FFF5EA;
+  --wt-apricot-500:#E6A36A;
+  --wt-apricot-ink:#8A4B1C;
+
   /* Cool neutrals */
   --wt-neutral-0:#FFFFFF;
   --wt-neutral-25:#FBFCFD;
