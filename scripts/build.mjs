@@ -87,7 +87,18 @@ async function buildAssets() {
   await cp(path.join(ROOT, "assets/brand"), path.join(DIST, "assets/brand"), {
     recursive: true
   });
-  const siteMediaImages = ["home-hero.webp", "about-us.webp"];
+  const siteMediaImages = [
+    "home-hero.webp",
+    "about-us.webp",
+    "services-hero.webp",
+    "portfolio-hero.webp",
+    "process-hero.webp",
+    "contact-project-planner-hero.webp",
+    "faq-insights-hero.webp",
+    "article-website-or-web-system.webp",
+    "article-ecommerce-store-prep.webp",
+    "article-content-before-design.webp"
+  ];
   await mkdir(path.join(DIST, "assets/media"), { recursive: true });
   for (const image of siteMediaImages) {
     await cp(path.join(ROOT, "assets/media", image), path.join(DIST, "assets/media", image));

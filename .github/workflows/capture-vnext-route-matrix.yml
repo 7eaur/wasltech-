@@ -96,6 +96,8 @@ jobs:
             ["faq", "/faq/", "/en/faq/", "/en/faq/", "/faq/"],
             ["insights", "/insights/", "/en/insights/", "/en/insights/", "/insights/"],
             ["article-website-or-system", "/insights/website-or-web-system/", "/en/insights/website-or-web-system/", "/en/insights/website-or-web-system/", "/insights/website-or-web-system/"],
+            ["article-ecommerce-readiness", "/insights/before-building-ecommerce-store/", "/en/insights/before-building-ecommerce-store/", "/en/insights/before-building-ecommerce-store/", "/insights/before-building-ecommerce-store/"],
+            ["article-content-before-design", "/insights/prepare-website-content-before-design/", "/en/insights/prepare-website-content-before-design/", "/en/insights/prepare-website-content-before-design/", "/insights/prepare-website-content-before-design/"],
             ["careers", "/careers/", "/en/careers/", "/en/careers/", "/careers/"],
             ["privacy", "/privacy/", "/en/privacy/", "/en/privacy/", "/privacy/"],
             ["terms", "/terms/", "/en/terms/", "/en/terms/", "/terms/"],

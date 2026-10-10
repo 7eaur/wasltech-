@@ -1,0 +1,43 @@
+name: Verify final media integrity
+
+on:
+  push:
+    branches:
+      - media/final-site-images-20261007
+      - integration/site-stabilization-20261010
+    paths:
+      - ".github/workflows/verify-final-media-sources.yml"
+      - "assets/media/**"
+      - "docs/qa/FINAL_MEDIA_CHECKSUMS.json"
+      - "scripts/check-final-media.mjs"
+      - "scripts/build.mjs"
+      - "src/config/hero-media.js"
+      - "src/data/articles.js"
+  pull_request:
+    paths:
+      - ".github/workflows/verify-final-media-sources.yml"
+      - "assets/media/**"
+      - "docs/qa/FINAL_MEDIA_CHECKSUMS.json"
+      - "scripts/check-final-media.mjs"
+      - "scripts/build.mjs"
+      - "src/config/hero-media.js"
+      - "src/data/articles.js"
+
+permissions:
+  contents: read
+
+jobs:
+  media-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Verify byte-perfect originals and optimized image references
+        run: node scripts/check-final-media.mjs
+      - name: Preview build and checks
+        run: npm run vnext:verify
+      - name: Release build and checks
+        run: npm run vnext:verify:release
