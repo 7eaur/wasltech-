@@ -160,7 +160,7 @@ button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus
   function makeLetters(word,svg,collection){
     const transform=word.getAttribute('transform')||'';
     const all=meta(word,svg).geom;
-    // Preserve the native even-odd fill by grouping outlines with their enclosed counters.
+
     const nodes=all.map((g,i)=>({...g,i,parent:-1}));
     for(let i=0;i<nodes.length;i++){
       let best=-1,bestArea=Infinity;
@@ -190,7 +190,7 @@ button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus
       const bbox=element.getBBox();
       letters.push({element,original:d,geom:data.geom,bbox,kind:'letter'});
     }
-    // The original wordmark stays invisible while every letter is physically assembled.
+
     word.setAttribute('opacity','0');
     collection.push(...letters);
     return letters;
@@ -211,7 +211,7 @@ button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus
         const angle=2*Math.PI*i/n;
         const fromX=origin[0]+Math.cos(angle)*16;
         const fromY=origin[1]+Math.sin(angle)*16;
-        // Real path morphing, never opacity-based reveal of a premade letter.
+
         const x=fromX+(pts[i][0]-fromX)*t;
         const y=fromY+(pts[i][1]-fromY)*t;
         parts.push((i?'L':'M')+x.toFixed(1)+','+y.toFixed(1));
@@ -249,14 +249,14 @@ button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus
         return part;
       });
       const letters=makeLetters(word,svg,pieces);
-      // Full final logo remains untouched as a geometrically exact master shape.
+
       const orbit=mk('g');
       const balls=Array.from({length:4},(_,i)=>{
         const dot=mk('circle',{cx:565,cy:180,r:15,fill:i===0||i===2?'#14305F':'#0E8889'});
         orbit.appendChild(dot);return dot;
       });
       svg.appendChild(orbit);
-      // We treat all glyphs as individually movable contours, with independent clocks.
+
       const invRoot=[[0,0],[0,0],[0,0],[0,0]];
       const rec={stage,svg,word,icons,letters,balls,orbit,config,variant,pieces,invRoot,
         start:0,raf:0,autoReady:true,forcedAt:Infinity,mode:'play',fraction:0,last:0,
@@ -304,7 +304,7 @@ button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus
     });
   }
   function timeline(r,p){
-    // The exact final parent geometry is kept in SVG coordinates, with no layer swap.
+
     const c=r.config,stage=r.stage,orb=c.orbit,form=c.form;
     const t=clip(p);
     r.fraction=t;
@@ -353,7 +353,7 @@ button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus
       piece.element.setAttribute('d',segment>=1?piece.original:generate(piece.geom,origin,eased));
       piece.element.setAttribute('opacity','1');
     }
-    // The four physical balls disappear only as their material becomes the SVG geometry.
+
     r.balls.forEach((ball,i)=>{
       const v=i<2?progress[i]:clip((t-c.letterStart)/(c.letterSpan*.7));
       const active=1-smooth(clip(v/.17));
@@ -361,7 +361,7 @@ button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus
       ball.setAttribute('r',String(Math.max(.01,15*(1-v*.8))));
     });
     r.word.setAttribute('opacity',t>=1?'1':'0');
-    // Glyph pieces replaced by mathematically identical original compound word path.
+
     if(t>=1){
       for(const piece of r.icons){piece.element.setAttribute('d',piece.original);piece.element.setAttribute('opacity','1')}
       r.letters.forEach(x=>x.element.setAttribute('opacity','0'));
@@ -379,7 +379,7 @@ button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus
     if(r.forcedAt!==Infinity&&at<r.forcedAt){setOrbit(r,e);return}
     const begun=r.forcedAt===Infinity?r.config.orbit:Math.max(r.config.orbit,r.forcedAt-r.start);
     const rel=(e-begun)/r.config.form;
-    // Freeze original seed coordinates exactly at the onset of construction.
+
     if(!r.birth){r.birth=true;r.orbitCoordinates=orbitCoordinates(r,begun)}
     timeline(r,rel);
     if(rel>=1){
@@ -412,7 +412,7 @@ button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus
     if(!rec)return;
     rec.mode='play';rec.birth=false;rec.autoReady=autoReady;rec.forcedAt=Infinity;
     rec.start=performance.now();rec.last=0;rec.orbitCoordinates=[];
-    // Reset each independent original contour before reassembly.
+
     rec.pieces.forEach(piece=>{piece.element.setAttribute('d',piece.original);piece.element.setAttribute('opacity','0')});
     rec.word.setAttribute('opacity','0');
     rec.balls.forEach(x=>{x.setAttribute('opacity','1');x.setAttribute('r','15')});
@@ -442,7 +442,7 @@ button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus
     const rec=instance(stage);
     if(!rec)return;
     items.set(stage.dataset.variant,rec);
-    // Each card has independently controllable paths and timeline.
+
     reset(rec,true);
   });
   document.querySelectorAll('[data-replay]').forEach(b=>b.addEventListener('click',()=>reset(items.get(b.dataset.replay),true)));
