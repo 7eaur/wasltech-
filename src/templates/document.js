@@ -34,7 +34,8 @@ export function documentTemplate({
   ogDescription = description,
   ogImage = null,
   ogType = "website",
-  structuredData = []
+  structuredData = [],
+  minimalShell = false
 }) {
   if (!title || !description || !body) {
     throw new Error("documentTemplate requires title, description and body.");
@@ -91,14 +92,13 @@ ${structuredDataTags}
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
   <link rel="icon" href="${site.brand.assets.favicon}">
   <link rel="stylesheet" href="/assets/css/site.css">
-  <script src="/assets/js/navigation.js" defer></script>
-  <script src="/assets/js/motion.js" defer></script>
+${minimalShell ? "" : `  <script src="/assets/js/navigation.js" defer></script>\n  <script src="/assets/js/motion.js" defer></script>`}
 </head>
 <body>
   <a class="skip-link" href="#main-content">${copy[locale].skip}</a>
-  ${Header({ activePath, locale, alternatePath })}
+  ${minimalShell ? "" : Header({ activePath, locale, alternatePath })}
   <main id="main-content">${body}</main>
-  ${Footer({ locale })}
+  ${minimalShell ? "" : Footer({ locale })}
 </body>
 </html>`;
 }
