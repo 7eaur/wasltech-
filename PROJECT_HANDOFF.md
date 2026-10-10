@@ -1,5 +1,20 @@
 # Wasl Tech VNext — Conversation Handoff
 
+## 2026-10-10 — CURRENT RESUME POINT (authoritative over 2026-09-24 baton)
+
+Repository: 7eaur/wasltech-; main audit SHA: 1cb5d939b58c1e03ff63fce5b27d476d116e7a90.  
+**Read first:** docs/qa/2026-10-10_site-stabilization-closure-register.md, then PROJECT_STATUS.md, AGENTS.md and docs/core/QA_RELEASE.md.  
+**Work branch for the plan:** plan/site-stabilization-closure-20261010. Implementation remains in bounded task branches until approved integration.
+
+VNext has **already been merged into main** (PR #35), unlike the old handoff below. Current READY production is Vercel commit c775391…; main is at 1cb5d939…. The domain assignment still requires evidence. The media task is incomplete at 2/8 final WebP, with ENOENT on process-hero.webp. Standalone 404 has its own unmerged design branch. Home Arabic/English CTA destinations conflict with labels. Documentation repair is Phase 0; remaining phases and closure criteria are tracked exclusively in the dated register.
+
+**No ownership overlap:** SEO/AI Search (PRs #36/#37) and logo animation (PR #41) are handled by other responsible teams; do not edit/merge those branches or absorb their backlog. Their delivery is a later separate integration.
+
+**Start with WT-001/002 then WT-003/004/005.** For each batch: fetch current heads, implement only within scope, run exact-SHA tests, log evidence, and ask for approval before production/DNS/merge. **Old September handoff below is historical context, not instructions.**
+
+---
+
+
 ## 2026-09-24 — AUTHORITATIVE RESUME POINT
 
 Use this section first in a new conversation. It supersedes the older “Immediate baton” and historical pending-media instructions below.
