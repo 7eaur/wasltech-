@@ -34,7 +34,8 @@ export function documentTemplate({
   ogDescription = description,
   ogImage = null,
   ogType = "website",
-  structuredData = []
+  structuredData = [],
+  minimalShell = false
 }) {
   if (!title || !description || !body) {
     throw new Error("documentTemplate requires title, description and body.");
@@ -96,9 +97,9 @@ ${structuredDataTags}
 </head>
 <body>
   <a class="skip-link" href="#main-content">${copy[locale].skip}</a>
-  ${Header({ activePath, locale, alternatePath })}
+  ${minimalShell ? "" : Header({ activePath, locale, alternatePath })}
   <main id="main-content">${body}</main>
-  ${Footer({ locale })}
+  ${minimalShell ? "" : Footer({ locale })}
 </body>
 </html>`;
 }
