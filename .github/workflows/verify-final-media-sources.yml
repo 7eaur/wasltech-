@@ -1,119 +1,43 @@
-name: Verify final media source matches
+name: Verify final media integrity
 
 on:
   push:
     branches:
       - media/final-site-images-20261007
+      - integration/site-stabilization-20261010
     paths:
       - ".github/workflows/verify-final-media-sources.yml"
+      - "assets/media/**"
+      - "docs/qa/FINAL_MEDIA_CHECKSUMS.json"
+      - "scripts/check-final-media.mjs"
+      - "scripts/build.mjs"
+      - "src/config/hero-media.js"
+      - "src/data/articles.js"
+  pull_request:
+    paths:
+      - ".github/workflows/verify-final-media-sources.yml"
+      - "assets/media/**"
+      - "docs/qa/FINAL_MEDIA_CHECKSUMS.json"
+      - "scripts/check-final-media.mjs"
+      - "scripts/build.mjs"
+      - "src/config/hero-media.js"
+      - "src/data/articles.js"
 
 permissions:
   contents: read
 
 jobs:
-  compare:
+  media-integrity:
     runs-on: ubuntu-latest
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
-      - name: Install Pillow
-        run: python -m pip install --quiet pillow
-      - name: Compare perceptual fingerprints
-        run: |
-          python - <<'PY'
-          from PIL import Image
-          from pathlib import Path
-
-          expected = {
-            "services-hero": {
-              "dhash": "ff47f7e7e44bebe7e9e7b0d773b6a936dc1b4a994b714da104b93fc1c8b5c9b1",
-              "ahash": "0ff718fb160f3037183f185f1807059b67ffe7c9e038e6b082f9c3f9ffffffff",
-            },
-            "portfolio-hero": {
-              "dhash": "1b041b14f361c346c38ee2cef2c6d2067b2649264da64c26e636e65af85be442",
-              "ahash": "01ff01ff09ff39ff38e7307e1ffe3f83bc03fc03fc02ff023f027fff3ff93fff",
-            },
-            "process-hero": {
-              "dhash": "dff8dff89ff98de89b65dac8ec658c738c63ac6cacc19653fc64ff87f81ff85e",
-              "ahash": "fffffffffffffffffdbc2fef3e117e107e207e367e607feb3f7f00011f010c02",
-            },
-            "contact-project-planner-hero": {
-              "dhash": "8795879183a4f9d4b924e91ca98ce9b0e1b00dc2a9c2a662b620e3183cc4dd81",
-              "ahash": "c000c0c071fc7ffc7dfc7dfefcfe7cfe7cfee660fc70fff81bf819880ee00ff0",
-            },
-            "faq-insights-hero": {
-              "dhash": "ef8fe78ffd8fcc0bc61bc5ccddcc9dcce5d8e449645a61fb65daedcece0ece06",
-              "ahash": "0083000307c37feb700b77ef64ee40ee3ffc37f8100b100bf00fffffffffffff",
-            },
-            "article-website-or-web-system": {
-              "dhash": "60286429642b65295d23cd2c693179253031e83133072b130a13e613c053066f",
-              "ahash": "3f803f803f809f803f807f803d808d80ff80ff80c180c181ff817fc0ff00fe00",
-            },
-            "article-ecommerce-store-prep": {
-              "dhash": "3cd85cd97c99cae9a601b726b544f144f144f74ca55da0b998ddf03bb199a4f9",
-              "ahash": "061f06ff060970003ff81ff0dff63cf43ff41ff451451001000d0fbf7fffffff",
-            },
-            "article-content-before-design": {
-              "dhash": "21da339c3a206a446b486bcc62ccd650d360662837243e3879329e60e0ccf480",
-              "ahash": "8000800e8ffe9ffe1ffe1ffe3ffe3ffe7fbefffe8ffe0ffe1f98cf3c387e1ffe",
-            },
-          }
-
-          candidates = [
-            Path("assets/gen/blog_brand.png"),
-            Path("assets/gen/blog_ecommerce.png"),
-            Path("assets/gen/blog_web.png"),
-            Path("assets/gen/hero_blog.png"),
-            Path("assets/gen/hero_contact.png"),
-            Path("assets/gen/hero_portfolio.png"),
-            Path("assets/gen/hero_process.png"),
-            Path("assets/gen/portfolio_app.png"),
-          ]
-
-          def dhash(path, hash_size=16):
-            im = Image.open(path).convert("L").resize((hash_size + 1, hash_size), Image.Resampling.LANCZOS)
-            px = list(im.getdata())
-            bits = []
-            stride = hash_size + 1
-            for y in range(hash_size):
-              row = px[y*stride:(y+1)*stride]
-              bits.extend(row[x+1] > row[x] for x in range(hash_size))
-            value = 0
-            for bit in bits:
-              value = (value << 1) | int(bit)
-            return f"{value:0{hash_size*hash_size//4}x}"
-
-          def ahash(path, size=16):
-            im = Image.open(path).convert("L").resize((size, size), Image.Resampling.LANCZOS)
-            px = list(im.getdata())
-            mean = sum(px) / len(px)
-            value = 0
-            for item in px:
-              value = (value << 1) | int(item > mean)
-            return f"{value:0{size*size//4}x}"
-
-          def hamming(a, b):
-            return (int(a, 16) ^ int(b, 16)).bit_count()
-
-          measured = {}
-          for path in candidates:
-            measured[path.name] = {
-              "dhash": dhash(path),
-              "ahash": ahash(path),
-              "size": Image.open(path).size,
-            }
-
-          print("CANDIDATES")
-          for name, record in measured.items():
-            print(name, record)
-
-          print("\nBEST MATCHES")
-          used = set()
-          for target, exp in expected.items():
-            ranked = []
-            for name, got in measured.items():
-              d = hamming(exp["dhash"], got["dhash"])
-              a = hamming(exp["ahash"], got["ahash"])
-              ranked.append((d + a, d, a, name))
-            ranked.sort()
-            print(target, "=>", ranked[:3])
-          PY
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Verify byte-perfect originals and optimized image references
+        run: node scripts/check-final-media.mjs
+      - name: Preview build and checks
+        run: npm run vnext:verify
+      - name: Release build and checks
+        run: npm run vnext:verify:release
