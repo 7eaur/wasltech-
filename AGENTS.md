@@ -4,15 +4,11 @@ Status: NON-NEGOTIABLE OPERATING RULES
 
 ## 1. Read before work
 
-For every new session:
-
-1. Fetch live `main`.
-2. Fetch the active branch from `PROJECT_STATUS.md`.
-3. Read `PROJECT_STATUS.md`.
-4. Read `PROJECT_HANDOFF.md`.
-5. Read `docs/README.md`.
-6. Read only the canonical core docs relevant to the task.
-7. Use old phase/QA docs only as historical evidence.
+1. Fetch live `main` and current task branch; check ongoing PRs and scope.
+2. Read `PROJECT_STATUS.md`, `PROJECT_HANDOFF.md`, `docs/README.md`, and the current site stabilization register.
+3. Read only relevant source files and canonical engineering/brand/release docs.
+4. Old VNext rebuilding and historical QA records are evidence, not instructions.
+5. Never interfere with independently owned SEO/AI Search or logo-animation branches.
 
 Do not rely on chat memory as the project source of truth.
 
@@ -30,15 +26,16 @@ Do not rely on chat memory as the project source of truth.
 When evidence is absent:
 `NOT VERIFIED` / `CONTENT REQUIRED`.
 
-## 3. VNext rebuild rule
+## 3. Current VNext stabilization rule
 
-VNext is a clean architecture rebuild.
+VNext was **already merged into `main`** in PR #35. We are fixing the current website, not restarting a pre-merge VNext rebuild.
 
-- Do not implement VNext by piling fixes onto legacy CSS/JS.
-- Legacy production stays intact until cutover.
-- Build new structure on the active VNext branch.
-- Migrate verified content/assets deliberately.
-- Remove superseded code when cutover is approved.
+- Preserve current adopted architecture, content, bilingual UX and brand design.
+- Fix root causes in canonical source owners; do not layer legacy CSS/JS patches.
+- The active phase sequence and defect ownership are in `docs/qa/2026-10-10_site-stabilization-closure-register.md`; prior rebuild plans are historical.
+- SEO/AI Search PRs #36/#37 on `seo/search-visibility-foundation-20260925*` and logo animation PR #41 on `design/wasl-logo-motion-preview-20261009` are handled by separate teams. **Do not write, merge, delete, or take over their work.**
+- Check conflicts in shared build and data files before integrating after owner handoff.
+- No changes to `main`, DNS, production or branches deletion without explicit approval.
 
 ## 4. No-patching rule
 
@@ -175,7 +172,7 @@ Authority:
 For each phase:
 **Understand → Architect → Implement → Run → Visual Review → Critique → Fix Root Cause → Verify → Document**
 
-Do not skip architecture/data phases to rush into visual polish.
+Use the active WT stabilization phase gates; the VNext rebuild phase sequence is historical.
 
 ## 11. Documentation discipline
 
