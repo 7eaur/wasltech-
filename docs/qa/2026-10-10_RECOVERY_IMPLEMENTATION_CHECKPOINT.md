@@ -1,5 +1,7 @@
 # وصل تك — سجل تنفيذ الإصلاحات على الفرع المستقل (2026-10-10)
 
+> **تحديث لاحق مهم:** هذا سجل المرحلة الأولى. حالة المرحلة الثانية والتحقق وآخر اكتشافات Production في [تقرير 2026-10-11](2026-10-11_RECOVERY_STAGE2_AND_REMAINING.md). لا تعتمد وصف «المتبقي 7 خدمات» أدناه بعد إصلاح 80 وصفًا في المرحلة الثانية.
+
 **الفرع:** `fix/independent-site-recovery-20261010`، انطلق من `integration/site-stabilization-20261010` SHA `971c7d3164bc66d0a1704ee82395ffca64f07138` (Draft PR45). لا تعديل على `main` أو Production ولا على فروع SEO #36/#37 وأنميشن الشعار #41.
 
 **المرجع:** خطة `docs/audit/2026-10-10_MASTER_EXECUTION_PLAN_AND_ACCEPTANCE.md` وسجل `docs/audit/2026-10-10_INDEPENDENT_DEFECT_REGISTER.md` على فرع `audit/independent-root-cause-register-20261010`. المعرفات 75 WT-IA و20 WT، وبعضها مكرر أو تحسينات لا Bugs مؤكدة. هذا الملف شهادة عن الشيفرة على فرع التنفيذ، لا عن Production.
