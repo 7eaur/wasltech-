@@ -91,35 +91,35 @@ const serviceRecords = [
         "deliverables": [
           {
             "title": "استراتيجية وهيكل المحتوى",
-            "description": "تصميم بصري منسجم مع هوية المشروع ويعطي المحتوى ترتيبًا واضحًا من أول شاشة."
+            "description": "تحديد هدف الموقع وأقسامه ورسائله الأساسية وترتيب المحتوى بما يساعد الزائر على الوصول للمعلومة."
           },
           {
             "title": "تجربة مستخدم ومسار تحويل واضح",
-            "description": "تنفيذ يكيّف الصفحات والعناصر مع أحجام الشاشات الأساسية دون كسر التجربة."
+            "description": "تصميم مسار واضح من فهم الخدمة إلى اتخاذ خطوة التواصل المناسبة دون خطوات مربكة."
           },
           {
             "title": "تصميم بصري مرتبط بالهوية",
-            "description": "ترتيب الرئيسية والخدمات ومن نحن والصفحات الأخرى حول رحلة الزائر وهدف الموقع."
+            "description": "تصميم واجهات وألوان وخطوط تتسق مع هوية المشروع وتمنح النصوص والصور تسلسلاً مريحًا."
           },
           {
             "title": "تطوير متجاوب للجوال والكمبيوتر",
-            "description": "نماذج بسيطة تجمع المعلومات المطلوبة وتوجهها إلى قناة التواصل المناسبة."
+            "description": "تنفيذ الصفحات والعناصر بما يتكيف مع الهاتف والتابلت والكمبيوتر ومراجعة المقاسات الأساسية."
           },
           {
             "title": "صفحات خدمات وأعمال وحالات استخدام",
-            "description": "تنقل واضح وأزرار وخطوات مفهومة تقلل التشتت وتساعد الزائر على الوصول لما يحتاجه."
+            "description": "تطوير الصفحات المتفق عليها مثل الرئيسية والخدمات والأعمال والتعريف بالمشروع بحسب نطاق التنفيذ."
           },
           {
             "title": "نماذج تواصل وربط بالقنوات المناسبة",
-            "description": "تنظيم الأصول وطريقة التحميل لتقليل الانتظار وتحسين تجربة التصفح."
+            "description": "إعداد وسائل ونماذج تواصل مناسبة وربطها بالقنوات المتفق عليها دون ادعاء إرسال تلقائي غير موجود."
           },
           {
             "title": "لوحة تحكم أو إدارة محتوى عند الحاجة",
-            "description": "تهيئة وربط الموقع بالنطاق والاستضافة وتجهيزه للعمل عند الإطلاق."
+            "description": "إضافة لوحة إدارة أو نظام محتوى عند الاتفاق على الحاجة إليه لتحديث الصفحات والنصوص والصور."
           },
           {
             "title": "تحسين الأداء وتجهيز الإطلاق",
-            "description": "لوحة تحكم أو نظام إدارة يتيح تحديث المحتوى بدون الرجوع إلى الكود في كل تعديل."
+            "description": "تحسين تحميل الصور والموارد، مراجعة أداء الصفحات، وتجهيز إعدادات الدومين والاستضافة للإطلاق."
           }
         ],
         "process": [
@@ -223,35 +223,35 @@ const serviceRecords = [
         "deliverables": [
           {
             "title": "Content strategy and structure",
-            "description": "A visual system aligned with the brand and a page hierarchy that makes the content easier to understand."
+            "description": "Defining the website goal, its pages, and key messages, then arranging content so visitors can find what matters."
           },
           {
             "title": "User experience and a clear conversion path",
-            "description": "Implementation that adapts layouts and components to key screen sizes without breaking the experience."
+            "description": "Planning a clear path from understanding a service to taking the next relevant contact action."
           },
           {
             "title": "Visual design aligned with the brand",
-            "description": "Structuring the homepage, services, about, and supporting pages around the visitor journey and business goal."
+            "description": "Designing typography, layouts, and visual elements that reflect the brand and make content easy to scan."
           },
           {
             "title": "Responsive desktop and mobile development",
-            "description": "Simple forms that collect the right information and route it to the appropriate contact channel."
+            "description": "Building and reviewing interfaces across mobile, tablet, and desktop screen sizes."
           },
           {
             "title": "Service, work, and use-case pages",
-            "description": "Clear navigation, actions, and interaction patterns that reduce friction and help visitors find what they need."
+            "description": "Creating the agreed homepage, service, project, and company pages according to the project scope."
           },
           {
             "title": "Contact forms and channel connections",
-            "description": "Asset and loading decisions that reduce unnecessary delay and improve browsing quality."
+            "description": "Preparing suitable contact tools and connecting them to agreed channels without promising unimplemented automatic sending."
           },
           {
             "title": "CMS or admin experience when needed",
-            "description": "Preparing the website for launch on the selected domain and hosting environment."
+            "description": "Adding a content-management experience where the agreed project scope calls for easy page and text updates."
           },
           {
             "title": "Performance optimization and launch preparation",
-            "description": "A management layer that lets the team update content without editing code for every change."
+            "description": "Optimizing assets, reviewing page performance, and preparing domain and hosting settings for launch."
           }
         ],
         "process": [
