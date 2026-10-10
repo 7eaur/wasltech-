@@ -11,7 +11,7 @@ The previous September handoff and historical “VNext not merged” state are *
 
 **Read order for the active stabilization program:**
 1. **docs/qa/2026-10-10_site-stabilization-closure-register.md** — sole owner of WT-001..WT-020 defect IDs, phase order, acceptance criteria, progress and exclusions.
-2. **PROJECT_STATUS.md** — current live state and checkpoint; the **2026-10-10 section at the top** overrides older notes.
+2. **PROJECT_STATUS.md** — current live state and checkpoint; the current-only file; history is in Git.
 3. **PROJECT_HANDOFF.md** — current continuation handoff; the **2026-10-10 section at the top** overrides older notes.
 4. **AGENTS.md** — operating/scope/verification rules.
 5. **docs/core/PRODUCT.md** and **docs/core/DESIGN_SYSTEM.md** — stable brand/UX directions.
@@ -23,6 +23,8 @@ The previous September handoff and historical “VNext not merged” state are *
 **Excluded from this stabilization team:** SEO/AI Search work under PRs #36/#37; logo animation work under PR #41. Their branches have separate owners and must not be touched, merged or deleted as part of site stabilization.
 
 The approved media and 404 branches should be integrated only after actual build/QA verification; no main merge, production change or DNS change without explicit authorization.
+
+Phase 0 evidence: `docs/qa/2026-10-10_phase-0_baseline-and-ownership.md` (verified on work branch only).
 
 ## Document ownership
 
@@ -42,7 +44,7 @@ The approved media and 404 branches should be integrated only after actual build
 
 ## Update protocol
 
-Do not repeat the same fact across many files.
+Do not repeat the same fact across many files. Historical STATUS/HANDOFF versions remain in Git history, not active documents.
 
 When a stable fact changes:
 - update its canonical owner;
