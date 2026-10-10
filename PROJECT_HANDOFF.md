@@ -1,5 +1,15 @@
 # Wasl Tech VNext — Conversation Handoff
 
+## 2026-10-10 — Responsive image performance baton
+
+- Continue from `integration/site-stabilization-20261010`; do not merge into `main` without explicit approval.
+- Runtime content imagery is now responsive: editorial/service media provides 480/768/1024 px WebP candidates and project media provides a 480 px candidate beside the 800 px canonical file.
+- Project runtime paths now use `assets/works/project_*.webp`; keep the original JPEG files as preserved source assets and do not add them to the release builder.
+- `src/lib/responsive-image.js` is the shared candidate and `sizes` contract used by Heroes, `MediaCard`, Home media, Services media, the release builder, and quality checks.
+- Preserve the loading policy: at most one eager/high-priority content image per page; all below-fold cards remain lazy with async decoding.
+- Current executable limits are 120 KiB per runtime raster, 60 KiB per project file, and 700 KiB for all released project candidates.
+- Local preview/release/integrity checks pass for this batch. A future image change must regenerate the appropriate candidates and pass the same checks.
+
 ## 2026-10-10 — Latest media baton
 
 - Continue from `integration/site-stabilization-20261010`.

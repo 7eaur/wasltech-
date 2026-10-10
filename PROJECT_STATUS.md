@@ -1,5 +1,16 @@
 # Wasl Tech VNext — Current Project Status
 
+## 2026-10-10 — Responsive image performance pass
+
+- Active integration branch: `integration/site-stabilization-20261010`; `main`, SEO work, and logo-animation work remain untouched.
+- Audited the release asset graph rather than bulk-editing unused archive files. Preserved JPEG originals remain in the repository and are excluded from the release output.
+- Converted all 14 project runtime images from JPEG to WebP. Their canonical payload fell from 1,026,583 to 427,420 bytes (**58.4% smaller**); 480 px card variants total 209,376 bytes.
+- Re-encoded the eight 1280 px service WebPs from their preserved sources. Their canonical payload fell from 525,266 to 373,434 bytes (**28.9% smaller**); 480 px variants total 103,330 bytes.
+- Added generated 480/768/1024 px WebP candidates for shared editorial and service imagery, plus 480 px candidates for 800 px project imagery.
+- Every public raster content image now emits intrinsic dimensions, `srcset`, and `sizes`; the one page Hero remains eager/high priority and below-fold media remains lazy/async.
+- The release builder copies only canonical runtime files and their declared responsive candidates. The quality gate now rejects a runtime raster above 120 KiB, a project asset above 60 KiB, a project set above 700 KiB, or any public raster missing responsive markup.
+- Local gates pass: `npm run vnext:verify`, `npm run vnext:verify:release`, `node scripts/check-final-media.mjs`, and `git diff --check`.
+
 ## 2026-10-10 — Final editorial media source refresh
 
 - Active integration branch: `integration/site-stabilization-20261010`.

@@ -1,5 +1,14 @@
 # Wasl Tech VNext — Final Media Inventory
 
+## 2026-10-10 — Responsive delivery derivatives
+
+- Canonical originals remain preserved and are not copied to the release output.
+- Shared editorial and service images have 480/768/1024 px WebP candidates; 800 px project images have 480 px WebP candidates.
+- All public raster `<img>` elements declare `srcset`, `sizes`, width, and height. Heroes keep the single eager/high-priority slot; card and supporting imagery stays lazy-loaded.
+- The 14 project canonical runtime files are now WebP and are 58.4% smaller in aggregate than the prior JPEG runtime set.
+- The eight service canonical runtime files are 28.9% smaller in aggregate than the prior WebP set.
+- `scripts/build.mjs` ships only referenced canonical files and candidates. `scripts/check-quality.mjs` verifies candidate presence, responsive markup, and the 120 KiB per-raster ceiling.
+
 ## 2026-10-10 — Final eight-image batch integrated
 
 The eight user-supplied JPEG files are now the canonical preserved sources. Optimized WebP derivatives are wired to every intended Arabic and English surface.
@@ -15,7 +24,7 @@ The eight user-supplied JPEG files are now the canonical preserved sources. Opti
 | Article — Before building an e-commerce store | `assets/media/article-ecommerce-store-prep.webp` | 51,588 bytes |
 | Article — Prepare website content before design | `assets/media/article-content-before-design.webp` | 61,874 bytes |
 
-All source and runtime assets are `1536 × 961`. The source JPEGs remain byte-identical to the supplied files. Runtime assets are below the 180 KiB media budget and are guarded by `scripts/check-final-media.mjs` plus the dedicated workflow.
+All source and canonical runtime assets are `1536 × 961`. The source JPEGs remain byte-identical to the supplied files. Runtime assets are below the 120 KiB raster budget and are guarded by `scripts/check-final-media.mjs` plus the dedicated workflow.
 
 Status: **COMPLETE ON `integration/site-stabilization-20261010`; production merge remains separately gated.**
 
@@ -94,7 +103,7 @@ Locked service-image mapping and intended filenames:
 Prepared derivative specification:
 - WebP
 - `1280 × 720`
-- approximately `52–103 KB` per file
+- approximately `38–70 KB` per canonical file, with smaller responsive candidates
 - same canonical image should feed the service card/listing and service-detail Hero wherever the current architecture consumes `service.image`.
 
 The user's explicit storage requirement is:
