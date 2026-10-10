@@ -2,5 +2,20 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run vnext:build:release",
   "outputDirectory": "dist-release",
-  "trailingSlash": true
+  "trailingSlash": true,
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/en(?:/.*)?",
+      "status": 404,
+      "dest": "/en/404.html"
+    },
+    {
+      "src": "/.*",
+      "status": 404,
+      "dest": "/404.html"
+    }
+  ]
 }

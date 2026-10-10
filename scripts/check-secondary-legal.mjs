@@ -59,8 +59,8 @@ for(const locale of ["ar","en"]){
   else if(!notFoundHtml.includes(`<h1 id="not-found-title">${htmlText(notFoundCopy.title)}</h1>`)) fail(notFoundPath,"404 heading missing");
   if(!notFoundHtml.includes('name="robots" content="noindex,follow"')) fail(notFoundPath,"404 must be noindex");
   if(!notFoundHtml.includes('src="/assets/brand/not-found-illustration.svg"')) fail(notFoundPath,"404 illustration missing");
-  if(locale==="ar" && !notFoundHtml.includes('location.pathname.startsWith("/en/")')) fail(notFoundPath,"root fallback must localize unknown English routes");
-  if(locale==="ar" && !notFoundHtml.includes('It looks like this page is no longer here.')) fail(notFoundPath,"root fallback missing English content");
+  if(notFoundHtml.includes('location.pathname.startsWith')) fail(notFoundPath,"404 must not localize via client JavaScript");
+  if(!notFoundHtml.includes(`lang="${locale}"`)) fail(notFoundPath,"404 language must match requested locale");
 
   if((notFoundHtml.match(/<img\b/g)??[]).length!==1) fail(notFoundPath,"404 must contain exactly one image");
   if((notFoundHtml.match(/<a\b/g)??[]).length!==2) fail(notFoundPath,"404 must contain only skip link and home CTA");
@@ -145,6 +145,12 @@ for(const required of [
 ]){
   if(!legalSource.includes(required)) fail("legal",`verified privacy statement missing: ${required}`);
 }
+
+const routing=JSON.parse(await readFile(path.join(ROOT,"vercel.json"),"utf8"));
+const routeList=routing.routes??[];
+if(routeList[0]?.handle!=="filesystem") fail("vercel.json","static routes must resolve before 404 catchalls");
+if(routeList[1]?.src!=="/en(?:/.*)?" || routeList[1]?.status!==404 || routeList[1]?.dest!=="/en/404.html") fail("vercel.json","English 404 must be a server-side 404");
+if(routeList[2]?.src!=="/.*" || routeList[2]?.status!==404 || routeList[2]?.dest!=="/404.html") fail("vercel.json","Arabic/default 404 must be a server-side 404");
 
 if(errors.length){
   console.error("VNEXT SECONDARY/LEGAL CHECK: FAILED");
