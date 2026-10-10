@@ -59,7 +59,7 @@ jobs:
             const first=await stage.evaluate(node=>({
               state:node.dataset.state,
               circles:[...node.querySelectorAll(".motion-vector circle")].map(x=>({x:+x.getAttribute("cx"),y:+x.getAttribute("cy"),visible:x.style.opacity!=="0"})),
-              icon:node.querySelectorAll(".motion-vector > g path").length,
+              icon:node.querySelectorAll(".motion-vector > g:not(.wordmark-wrap) > path").length,
               word:node.querySelectorAll(".wordmark-wrap path").length
             }));
             if(first.state!=="orbit"||first.circles.length!==2||!first.circles.every(x=>x.visible)||first.icon!==2||first.word!==1){
