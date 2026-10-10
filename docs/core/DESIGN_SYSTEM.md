@@ -70,6 +70,17 @@ Navy leads. Teal is a controlled accent.
 
 Base Teal is not used for small normal text on white because the darker Teal role provides stronger contrast.
 
+### Approved third accent — controlled warmth (2026-10-10)
+
+The owner approved a small supporting **Warm Apricot** accent `#E6A36A` and a quiet cream surface `#FFF5EA`. This is not a brand-logo recoloring or replacement for the original Navy/Teal identity.
+
+- Implement semantic roles `--color-accent-warm`, `--color-surface-warm` and `--color-text-warm` only; avoid scattering raw color codes in components.
+- Use selectively for process-step markers, a few value/deliverable cards, and intentional section surfaces; never recolor every CTA or icon.
+- `#E6A36A` has insufficient contrast as small regular text on white. Use warm ink `#8A4B1C` on light surfaces where a readable warm text role is needed; verify actual computed contrast.
+- Do not alter official logo SVGs, gradients, shadows, or add gratuitous visual effects.
+- Editorial copy pages require distinct layouts/cards where meaningful; color alone does not fix overlong prose.
+- The decision was recorded in `docs/audit/2026-10-10_APPROVED_WARM_ACCENT_COLOR.md` on the independent audit branch.
+
 ### Canonical palette
 
 The VNext token system preserves the existing published identity scales:
