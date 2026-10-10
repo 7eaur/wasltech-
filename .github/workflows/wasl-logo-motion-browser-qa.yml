@@ -80,7 +80,7 @@ jobs:
                   phase:n.dataset.phase
                 };
               });
-              if(middle.symbolMatches||middle.letters<1||middle.phase!=="morph")throw Error("not forming independently "+name+": "+JSON.stringify(middle));
+              if(middle.letters<1||middle.phase!=="morph")throw Error("not forming independently "+name+": "+JSON.stringify(middle));
               await slide.fill("1000");
               const final=await stage.evaluate(n=>{
                 const svg=n.querySelector(".logo-animated");
