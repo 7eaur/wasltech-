@@ -5,33 +5,24 @@ Repository: `7eaur/wasltech-`
 
 This file defines where project truth lives. It exists to prevent overlapping documentation, stale handoffs, and conflicting decisions.
 
-## Current handoff record
+## Current handoff — 2026-10-10 stabilization
 
-For the current 2026-09-24 continuation, read:
-- `PROJECT_STATUS.md`
-- `PROJECT_HANDOFF.md`
-- `docs/qa/2026-09-24_final-conversation-handoff.md`
-- `docs/qa/FINAL_MEDIA_INVENTORY.md`
+The previous September handoff and historical “VNext not merged” state are **superseded**. VNext was merged into main on 2026-09-24 (PR #35); the branch release facts must always be refreshed from live GitHub/Vercel.
 
-The authoritative resume point is the current baton at the top of `PROJECT_STATUS.md` / `PROJECT_HANDOFF.md` together with `docs/qa/2026-09-24_final-conversation-handoff.md`.
+**Read order for the active stabilization program:**
+1. **docs/qa/2026-10-10_site-stabilization-closure-register.md** — sole owner of WT-001..WT-020 defect IDs, phase order, acceptance criteria, progress and exclusions.
+2. **PROJECT_STATUS.md** — current live state and checkpoint; the **2026-10-10 section at the top** overrides older notes.
+3. **PROJECT_HANDOFF.md** — current continuation handoff; the **2026-10-10 section at the top** overrides older notes.
+4. **AGENTS.md** — operating/scope/verification rules.
+5. **docs/core/PRODUCT.md** and **docs/core/DESIGN_SYSTEM.md** — stable brand/UX directions.
+6. **docs/core/ENGINEERING_ARCHITECTURE.md** and **docs/core/CONTENT_IA.md** — stable implementation and content ownership.
+7. **docs/core/EXECUTION_PLAN.md** and **docs/core/QA_RELEASE.md** — phase background and release-quality standards.
+8. **docs/qa/FINAL_MEDIA_INVENTORY.md** — exact final media slot names, not the latest GitHub upload-state evidence.
+9. Relevant dated QA/research documents as historical evidence only.
 
-The older `docs/qa/2026-09-24_footer-service-media-handoff.md` record is historical evidence only. Its former “service media pending” instruction is superseded: all eight service originals and WebP derivatives are committed and wired through the canonical service data, and Home/About media are also integrated.
+**Excluded from this stabilization team:** SEO/AI Search work under PRs #36/#37; logo animation work under PR #41. Their branches have separate owners and must not be touched, merged or deleted as part of site stabilization.
 
-## Read order for every new conversation
-
-1. `PROJECT_STATUS.md` — current live state only.
-2. `PROJECT_HANDOFF.md` — exact execution baton / next action.
-3. `docs/qa/2026-09-24_final-conversation-handoff.md` — concise current-conversation baton when resuming this phase.
-4. `AGENTS.md` — non-negotiable operating rules.
-5. `docs/core/PRODUCT.md` — stable product/business truth.
-6. `docs/core/DESIGN_SYSTEM.md` — stable UX/UI/brand rules.
-7. `docs/core/ENGINEERING_ARCHITECTURE.md` — stable code architecture.
-8. `docs/core/CONTENT_IA.md` — information architecture and writing system.
-9. `docs/core/EXECUTION_PLAN.md` — phase sequence and acceptance goals.
-10. `docs/core/QA_RELEASE.md` — quality/release gates.
-11. Relevant `docs/research/*` only when external/reference evidence is needed.
-
-Live code/runtime always override stale documentation.
+The approved media and 404 branches should be integrated only after actual build/QA verification; no main merge, production change or DNS change without explicit authorization.
 
 ## Document ownership
 
