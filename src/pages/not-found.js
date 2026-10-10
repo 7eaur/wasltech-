@@ -3,8 +3,6 @@ import { pages } from "../data/pages.js";
 import { ActionLink } from "../components/ActionLink.js";
 import { documentTemplate } from "../templates/document.js";
 import { escapeHtml } from "../lib/html.js";
-import { HeroMedia } from "../components/HeroMedia.js";
-import { getPageHeroMedia } from "../config/hero-media.js";
 
 const record = pages.find((page) => page.id === "notFound");
 
@@ -14,18 +12,19 @@ export function notFoundPage(locale = "ar") {
   if (!content) throw new Error(`404 content missing for locale: ${locale}`);
 
   const body = `
-    <section class="secondary-hero not-found">
-      <div class="container secondary-hero__grid">
-        <div class="secondary-hero__copy">
-          <p class="eyebrow">${escapeHtml(content.kicker)}</p>
-          <h1>${escapeHtml(content.title)}</h1>
-          <p>${escapeHtml(content.support)}</p>
-          <div class="secondary-hero__actions">
-            ${ActionLink({href:routes.home(locale),label:content.primaryCta,variant:"primary",size:"lg"})}
-            ${ActionLink({href:routes.services(locale),label:content.secondaryCta,variant:"ghost",size:"lg"})}
-          </div>
-        </div>
-        ${HeroMedia({...getPageHeroMedia("notFound", locale), className:"secondary-hero__media"})}
+    <section class="not-found-page" aria-labelledby="not-found-title">
+      <div class="not-found-page__content">
+        <img
+          class="not-found-page__illustration"
+          src="/assets/brand/not-found-illustration.svg"
+          width="480"
+          height="320"
+          alt=""
+          loading="eager"
+          decoding="async"
+        >
+        <h1 id="not-found-title">${escapeHtml(content.title)}</h1>
+        ${ActionLink({href:routes.home(locale),label:content.primaryCta,variant:"primary",size:"lg"})}
       </div>
     </section>
   `;
@@ -36,9 +35,10 @@ export function notFoundPage(locale = "ar") {
     body,
     locale,
     activePath: null,
-    alternatePath: routes.home(locale === "ar" ? "en" : "ar"),
+    alternatePath: null,
     canonicalPath: null,
     alternatePaths: {},
-    robots: "noindex,follow"
+    robots: "noindex,follow",
+    minimalShell: true
   });
 }
