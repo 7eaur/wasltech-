@@ -60,6 +60,17 @@ for (const locale of ["ar", "en"]) {
     }
   }
 
+  // Match visible hero action labels to their actual destinations.
+  const heroActionsHtml = html.match(/<div class="home-hero__actions">([\\s\\S]*?)<\\/div>/)?.[1] ?? "";
+  for (const { href, label } of [
+    { href: routes.services(locale), label: content.primaryCta },
+    { href: routes.contact(locale), label: content.secondaryCta }
+  ]) {
+    if (!heroActionsHtml.includes(`href="${href}">${htmlText(label)}</a>`)) {
+      fail(file, `Hero CTA "${label}" must navigate to "${href}"`);
+    }
+  }
+
   if ((html.match(/<article class="media-card media-card--compact">/g) ?? []).length !== services.length) {
     fail(file, `Home must show exactly ${services.length} service cards`);
   }
