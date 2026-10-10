@@ -49,6 +49,10 @@ for(const locale of ["ar","en"]){
   if(!plannerHtml.includes("data-project-planner")) fail(plannerFile,"Planner form contract missing");
   if(!plannerHtml.includes("data-planner-review")) fail(plannerFile,"Planner review contract missing");
   if(plannerHtml.includes('method="post"') || plannerHtml.includes('action="/')) fail(plannerFile,"Planner must not pretend to submit to a backend");
+  // Verify that without JavaScript the user cannot submit sensitive data in a GET URL.
+  if(!plannerHtml.includes("data-planner-controls disabled")) fail(plannerFile,"no-JS fieldset must be disabled before hydration");
+  if(!plannerHtml.includes('type="button" data-planner-submit')) fail(plannerFile,"no-JS review control must not be submit");
+  if(!plannerHtml.includes("data-planner-needs-js")) fail(plannerFile,"no-JS contact alternative missing");
 
   for(const service of services){
     if(!plannerHtml.includes(`value="${service.id}"`)) fail(plannerFile,`service planner option missing: ${service.id}`);
