@@ -344,7 +344,7 @@ button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid var(--
     clearTimeout(demoTimer);
     const record=records.get(dialogStage);
     if(record)cancelAnimationFrame(record.raf);
-    dialog.hidden=true;
+    demo.hidden=true;
     cover.classList.remove('done');
     document.body.style.overflow='';
     lastTrigger?.focus({preventScroll:true});
@@ -355,7 +355,7 @@ button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid var(--
   document.getElementById('replay-demo').addEventListener('click',()=>startDemo(activeMode));
   document.getElementById('next-demo').addEventListener('click',()=>startDemo(modes[(modes.indexOf(activeMode)+1)%modes.length]));
   document.addEventListener('keydown',e=>{
-    if(dialog.hidden)return;
+    if(demo.hidden)return;
     if(e.key==='Escape'){e.preventDefault();closeDemo()}
     else if(e.key==='Tab'){
       const close=document.getElementById('close-demo'),replay=document.getElementById('replay-demo'),next=document.getElementById('next-demo');
