@@ -448,7 +448,7 @@ jobs:
             }
             await page.goto(base + prefix + "/start-project/", { waitUntil: "domcontentloaded" });
             const controls = page.locator("[data-planner-controls]");
-            if (!(await controls.isDisabled())) throw new Error(locale + ": planner controls must be disabled without JS");
+            if (!(await controls.evaluate((fieldset) => fieldset.disabled === true))) throw new Error(locale + ": planner fieldset must have disabled property without JS");
             if (!(await page.locator("[data-planner-needs-js]").isVisible())) {
               throw new Error(locale + ": no-JS planner guidance hidden");
             }
