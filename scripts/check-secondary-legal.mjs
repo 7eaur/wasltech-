@@ -33,6 +33,7 @@ for(const locale of ["ar","en"]){
   if((faqHtml.match(/class="faq-item"/g)??[]).length!==13) fail(faqFile,"FAQ page must render all 13 questions");
   if(!faqHtml.includes('"@type":"FAQPage"')) fail(faqFile,"FAQ structured data missing");
 
+  if(!faqHtml.includes('class="section-jump-nav"')) fail(faqFile,"FAQ category navigation missing");
   for(const group of faqGroups){
     if(!faqHtml.includes(`id="faq-${group.id}"`)) fail(faqFile,`FAQ group missing: ${group.id}`);
   }

@@ -50,6 +50,14 @@ export function faqPage(locale="ar"){
       </div>
     </section>
 
+    <nav class="section-jump-nav" aria-label="${locale === "ar" ? "الانتقال إلى فئات الأسئلة" : "Jump to FAQ categories"}">
+      <div class="container">
+        <ul>
+          ${faqGroups.map((group)=>`<li><a href="#faq-${group.id}">${escapeHtml(group.content[locale].title)}</a></li>`).join("")}
+        </ul>
+      </div>
+    </nav>
+
     <section class="section faq-directory">
       <div class="container">
         ${faqGroups.map((group,index)=>renderGroup(group,locale,index)).join("")}

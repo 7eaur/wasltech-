@@ -77,7 +77,7 @@ function renderSectionNav(service, locale) {
     { id: "service-faq", ar: "الأسئلة الشائعة", en: "FAQs" }
   ];
   return `
-    <nav class="service-jump-nav" aria-label="${locale === "ar" ? "تصفح أقسام الخدمة" : "Service page sections"}">
+    <nav class="section-jump-nav" aria-label="${locale === "ar" ? "تصفح أقسام الخدمة" : "Service page sections"}">
       <div class="container">
         <ul>${items.map((item) => `<li><a href="#${item.id}">${item[locale]}</a></li>`).join("")}</ul>
       </div>
