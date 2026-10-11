@@ -47,6 +47,8 @@ for (const locale of ["ar", "en"]) {
     if (count(html, /<footer\b/g) !== 1) fail(file, "expected exactly one shared footer");
     if (!html.includes("data-menu-toggle")) fail(file, "mobile menu toggle missing");
     if (!html.includes("data-primary-nav")) fail(file, "primary navigation contract missing");
+    if (!html.includes('class="mobile-nav-contact"') || !html.includes('class="mobile-nav-action"')) fail(file,"mobile contact and project entry missing");
+    if (!html.includes(`href="${routes.contact(locale)}"`) || !html.includes(`href="${routes.startProject(locale)}"`)) fail(file,"mobile contact/project route missing");
 
     const alternatePath = routes[routeKey](alternateLocale);
     if (!html.includes(`href="${alternatePath}" hreflang="${alternateLocale}"`)) {
