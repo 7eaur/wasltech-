@@ -48,6 +48,7 @@ for(const locale of ["ar","en"]){
       if(!html.includes(htmlText(copy.seo.title))) fail(file,`${id} SEO title missing`);
     }
     if(html.includes(">00<")) fail(file,`${id} must not expose a numeric empty-state counter`);
+    if(html.includes('class="secondary-hero__media"')) fail(file,"legal pages should use a text-first compact hero");
     if(html.includes("VNext Foundation")) fail(file,`${id} placeholder leaked`);
   }
 
