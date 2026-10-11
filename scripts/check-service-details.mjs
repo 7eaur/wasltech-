@@ -44,6 +44,13 @@ for (const locale of ["ar","en"]) {
       if (!html.includes(htmlText(subservice.description))) fail(file,`subservice description missing: ${subservice.id}`);
     }
 
+    for (const anchor of ["service-deliverables","service-process","service-faq"]) {
+      if (!html.includes(`id="${anchor}"`) || !html.includes(`href="#${anchor}"`)) fail(file,`service jump link missing: ${anchor}`);
+    }
+    if ((html.match(/class="service-deliverable__details"/g) ?? []).length !== copy.deliverables.length) {
+      fail(file,"deliverables must use native accessible disclosure");
+    }
+    if (!html.includes('class="service-deliverable__details" open')) fail(file,"first deliverable must provide an open example");
     for (const deliverable of copy.deliverables) {
       if (!html.includes(htmlText(deliverable.title))) fail(file,`deliverable missing: ${deliverable.title}`);
     }

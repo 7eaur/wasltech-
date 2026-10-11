@@ -42,6 +42,17 @@
 .service-deliverable>span{color:var(--color-text-warm);font-size:var(--font-size-md);font-weight:var(--font-weight-bold)}
 .service-deliverable h3{margin-bottom:var(--space-2);font-size:clamp(1.05rem,.98rem + .2vw,1.22rem)}
 .service-deliverable p{color:var(--color-text-secondary);font-size:var(--font-size-sm);line-height:1.72}
+.service-deliverable__details{min-width:0}
+.service-deliverable__details summary{display:flex;align-items:flex-start;gap:var(--space-3);cursor:pointer;list-style:none}
+.service-deliverable__details summary::-webkit-details-marker{display:none}
+.service-deliverable__details summary::after{content:"+";margin-inline-start:auto;color:var(--color-text-accent);font-size:var(--font-size-xl);line-height:1}
+.service-deliverable__details[open] summary::after{content:"−"}
+.service-deliverable__details summary h3{flex:1;min-width:0;margin:0}
+.service-deliverable__details p{margin-top:var(--space-3)}
+.service-jump-nav{border-block:var(--border-thin) solid var(--color-border-subtle);background:var(--color-bg-subtle)}
+.service-jump-nav ul{display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-5);padding-block:var(--space-3)}
+.service-jump-nav a{display:inline-flex;min-height:2.75rem;align-items:center;color:var(--color-text-brand);font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold);text-decoration:underline;text-decoration-color:var(--color-border-accent);text-underline-offset:.25rem}
+.service-jump-nav a:hover{color:var(--color-text-accent)}
 
 .service-proof__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-5)}
 .service-proof__more{display:flex;justify-content:flex-end;margin-top:var(--space-6)}
@@ -57,8 +68,7 @@
 .service-detail-faq__grid>div:first-child h2{max-width:15ch;font-size:var(--font-size-2xl)}
 .service-detail-faq__list{border-top:var(--border-thin) solid var(--color-border-default)}
 .service-detail-faq details{border-bottom:var(--border-thin) solid var(--color-border-default)}
-.service-detail-faq summary{position:relative;padding:var(--space-5) 2.5rem var(--space-5) 0;cursor:pointer;color:var(--color-text-brand);font-size:var(--font-size-md);font-weight:var(--font-weight-semibold);list-style:none}
-[dir="rtl"] .service-detail-faq summary{padding:var(--space-5) 0 var(--space-5) 2.5rem}
+.service-detail-faq summary{position:relative;padding-block:var(--space-5);padding-inline-end:2.5rem;cursor:pointer;color:var(--color-text-brand);font-size:var(--font-size-md);font-weight:var(--font-weight-semibold);list-style:none}
 .service-detail-faq summary::-webkit-details-marker{display:none}
 .service-detail-faq summary::after{content:"+";position:absolute;inset-inline-end:.25rem;top:50%;translate:0 -50%;color:var(--color-text-accent);font-size:1.5rem}
 .service-detail-faq details[open] summary::after{content:"−"}

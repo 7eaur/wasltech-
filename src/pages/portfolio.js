@@ -24,7 +24,7 @@ const categoryLabels = Object.freeze({
 function renderFilters(locale) {
   const filters=["all",...categoryOrder];
   return `
-    <div class="portfolio-filters" data-portfolio-filters hidden aria-label="${locale === "ar" ? "تصفية الأعمال" : "Filter work"}">
+    <div class="portfolio-filters" role="group" data-portfolio-filters hidden aria-label="${locale === "ar" ? "تصفية الأعمال" : "Filter work"}">
       ${filters.map((id,index)=>`
         <button type="button" data-portfolio-filter="${id}" aria-pressed="${index===0 ? "true" : "false"}">
           ${escapeHtml(categoryLabels[id][locale])}

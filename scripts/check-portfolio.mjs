@@ -33,6 +33,7 @@ for(const locale of ["ar","en"]){
     fail(file,"portfolio must provide JS-enhanced progressive disclosure with no-JS full content");
   }
 
+  if(!html.includes('class="portfolio-filters" role="group"')) fail(file,"portfolio filters need an accessible group label");
   for(const category of categories){
     if(!html.includes(`data-portfolio-filter="${category}"`)) fail(file,`filter missing: ${category}`);
   }

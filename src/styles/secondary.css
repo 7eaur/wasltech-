@@ -12,7 +12,7 @@
 .faq-group__header h2{font-size:var(--font-size-xl)}
 .faq-group__items{border-top:var(--border-thin) solid var(--color-border-default)}
 .faq-item{border-bottom:var(--border-thin) solid var(--color-border-default)}
-.faq-item summary{position:relative;padding:var(--space-5) 2.5rem var(--space-5) 0;cursor:pointer;color:var(--color-text-brand);font-size:var(--font-size-md);font-weight:var(--font-weight-semibold);list-style:none}
+.faq-item summary{position:relative;padding-block:var(--space-5);padding-inline-end:2.5rem;cursor:pointer;color:var(--color-text-brand);font-size:var(--font-size-md);font-weight:var(--font-weight-semibold);list-style:none}
 [dir="rtl"] .faq-item summary{padding:var(--space-5) 0 var(--space-5) 2.5rem}
 .faq-item summary::-webkit-details-marker{display:none}
 .faq-item summary::after{content:"+";position:absolute;inset-inline-end:.25rem;top:50%;translate:0 -50%;color:var(--color-text-accent);font-size:1.5rem}

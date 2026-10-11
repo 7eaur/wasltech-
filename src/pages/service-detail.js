@@ -66,6 +66,25 @@ function renderHero(service, locale) {
   `;
 }
 
+
+function renderSectionNav(service, locale) {
+  const items = [
+    { id: "service-deliverables", ar: "ما نقدمه", en: "Deliverables" },
+    { id: "service-process", ar: "طريقة العمل", en: "Process" },
+    ...(getProjectsByService(service.id).length
+      ? [{ id: "service-proof", ar: "أعمال مرتبطة", en: "Related work" }]
+      : []),
+    { id: "service-faq", ar: "الأسئلة الشائعة", en: "FAQs" }
+  ];
+  return `
+    <nav class="service-jump-nav" aria-label="${locale === "ar" ? "تصفح أقسام الخدمة" : "Service page sections"}">
+      <div class="container">
+        <ul>${items.map((item) => `<li><a href="#${item.id}">${item[locale]}</a></li>`).join("")}</ul>
+      </div>
+    </nav>
+  `;
+}
+
 function renderSignals(service, locale) {
   const cards = service.content[locale].heroCards;
   return `
@@ -133,7 +152,7 @@ function renderSubservices(service, locale) {
 function renderDeliverables(service, locale) {
   const items = service.content[locale].deliverables;
   return `
-    <section class="section section--subtle service-deliverables">
+    <section class="section section--subtle service-deliverables" id="service-deliverables">
       <div class="container">
         ${SectionHeader({
           kicker:locale === "ar" ? "ما الذي تحصل عليه" : "What you receive",
@@ -145,8 +164,11 @@ function renderDeliverables(service, locale) {
         <div class="service-deliverables__list">
           ${items.map((item,index)=>`
             <article class="service-deliverable">
-              <span>${String(index+1).padStart(2,"0")}</span>
-              <div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p></div>
+              <span aria-hidden="true">${String(index+1).padStart(2,"0")}</span>
+              <details class="service-deliverable__details"${index===0?' open':''}>
+                <summary><h3>${escapeHtml(item.title)}</h3></summary>
+                <p>${escapeHtml(item.description)}</p>
+              </details>
             </article>
           `).join("")}
         </div>
@@ -160,7 +182,7 @@ function renderProof(service, locale) {
   if (!projects.length) return "";
 
   return `
-    <section class="section service-proof">
+    <section class="section service-proof" id="service-proof">
       <div class="container">
         ${SectionHeader({
           kicker:locale === "ar" ? "أعمال مرتبطة" : "Related work",
@@ -192,7 +214,7 @@ function renderProof(service, locale) {
 function renderProcess(service, locale) {
   const items = service.content[locale].process;
   return `
-    <section class="section section--subtle service-process">
+    <section class="section section--subtle service-process" id="service-process">
       <div class="container">
         ${SectionHeader({
           kicker:locale === "ar" ? "طريقة التنفيذ" : "How it is delivered",
@@ -216,7 +238,7 @@ function renderProcess(service, locale) {
 function renderFaq(service, locale) {
   const items = service.content[locale].faq;
   return `
-    <section class="section service-detail-faq">
+    <section class="section service-detail-faq" id="service-faq">
       <div class="container service-detail-faq__grid">
         <div>
           <p class="eyebrow">${locale === "ar" ? "أسئلة قبل البدء" : "Questions before you start"}</p>
@@ -272,6 +294,7 @@ export function serviceDetailPage(service, locale="ar") {
   const body = [
     renderBreadcrumb(service,locale),
     renderHero(service,locale),
+    renderSectionNav(service,locale),
     renderSignals(service,locale),
     renderAudience(service,locale),
     renderSubservices(service,locale),
