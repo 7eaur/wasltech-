@@ -59,21 +59,6 @@ export function contactPage(locale="ar"){
 
 
 
-    <section class="section contact-direct">
-      <div class="container contact-direct__grid">
-        <div>
-          <p class="eyebrow">${escapeHtml(direct.kicker)}</p>
-          <h2>${escapeHtml(direct.title)}</h2>
-          <p>${escapeHtml(direct.support)}</p>
-        </div>
-        <div class="contact-channels">
-          ${renderChannel({label:locale==="ar"?"واتساب":"WhatsApp",value:site.contact.phoneDisplay,href:whatsappHref(locale),iconName:"whatsapp",external:true,valueDir:"ltr"})}
-          ${renderChannel({label:locale==="ar"?"البريد الإلكتروني":"Email",value:site.contact.email,href:`mailto:${site.contact.email}`,iconName:"mail",valueDir:"ltr"})}
-          ${renderChannel({label:locale==="ar"?"إنستغرام":"Instagram",value:site.contact.instagram.handle,href:site.contact.instagram.url,iconName:"instagram",external:true,valueDir:"ltr"})}
-        </div>
-      </div>
-    </section>
-
     <section class="section section--subtle contact-paths">
       <div class="container contact-paths__grid">
         <article>
@@ -90,6 +75,21 @@ export function contactPage(locale="ar"){
         </article>
       </div>
     </section>
+    <section class="section contact-direct">
+      <div class="container contact-direct__grid">
+        <div>
+          <p class="eyebrow">${escapeHtml(direct.kicker)}</p>
+          <h2>${escapeHtml(direct.title)}</h2>
+          <p>${escapeHtml(direct.support)}</p>
+        </div>
+        <div class="contact-channels">
+          ${renderChannel({label:locale==="ar"?"واتساب":"WhatsApp",value:site.contact.phoneDisplay,href:whatsappHref(locale),iconName:"whatsapp",external:true,valueDir:"ltr"})}
+          ${renderChannel({label:locale==="ar"?"البريد الإلكتروني":"Email",value:site.contact.email,href:`mailto:${site.contact.email}`,iconName:"mail",valueDir:"ltr"})}
+          ${renderChannel({label:locale==="ar"?"إنستغرام":"Instagram",value:site.contact.instagram.handle,href:site.contact.instagram.url,iconName:"instagram",external:true,valueDir:"ltr"})}
+        </div>
+      </div>
+    </section>
+
     <div class="container contact-service-explore">
       <p>${escapeHtml(context.support)} <a class="text-link" href="${routes.services(locale)}">${locale === "ar" ? "تصفح خدماتنا" : "Explore services"}</a></p>
     </div>
