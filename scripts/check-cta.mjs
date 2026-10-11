@@ -19,6 +19,16 @@ for(const file of [
   if(!source.includes("CallToAction")) fail(file,"closing CTA must use CallToAction");
 }
 
+// Inner-page hero actions are intentionally absent from rendered HTML and source.
+for(const file of ["services.js","service-detail.js","contact.js","process.js","faq.js","insights.js"]){
+  const source=await readFile(path.join(ROOT,"src/pages",file),"utf8");
+  if(/<div class="[^"]+-hero__actions"/.test(source)) fail(file,"obsolete hidden inner-hero actions still rendered");
+}
+for(const file of ["hero-pages.css","hero-responsive.css"]){
+  const source=await readFile(path.join(ROOT,"src/styles",file),"utf8");
+  if(source.includes(".services-hero__actions")) fail(file,"obsolete inner-hero action override remains");
+}
+
 const styles=await Promise.all([
   "components.css","home.css","about-process.css","services.css","service-detail.css",
   "portfolio.css","project-detail.css","contact-planner.css","insights-careers.css"
