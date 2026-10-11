@@ -1,1 +1,17 @@
 .git
+node_modules/
+dist/
+dist-release/
+.vercel/
+coverage/
+playwright-report/
+test-results/
+route-screenshots/
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
