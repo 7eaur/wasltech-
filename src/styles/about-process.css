@@ -8,7 +8,7 @@
 .process-phase__main h2{margin-bottom:var(--space-3);font-size:var(--font-size-xl)}
 .process-phase__main>p:last-child{max-width:44rem;color:var(--color-text-secondary)}
 .process-phase__outcome{padding:var(--space-4);background:var(--color-bg-canvas);border-inline-start:2px solid var(--color-accent-warm);border-radius:var(--radius-sm)}
-.process-phase__outcome span{display:block;margin-bottom:var(--space-2);color:var(--color-text-muted);font-size:var(--font-size-xs);font-weight:var(--font-weight-semibold)}
+.process-phase__outcome span{display:block;margin-bottom:var(--space-2);color:var(--color-text-muted);font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold)}
 .process-phase__outcome p{color:var(--color-text-primary);font-size:var(--font-size-sm)}
 
 .process-principle{padding-block:var(--space-8);background:var(--color-bg-canvas)}
