@@ -33,6 +33,7 @@ for(const locale of ["ar","en"]){
   for(const value of [site.contact.phoneDisplay,site.contact.email,site.contact.instagram.handle]){
     if(!contactHtml.includes(htmlText(value))) fail(contactFile,`verified contact channel missing: ${value}`);
   }
+  if(!contactHtml.includes('class="contact-service-explore"') || !contactHtml.includes('class="contact-paths__grid"')) fail(contactFile,"U2 contact guided paths missing");
   if(contactHtml.includes("data-project-planner")) fail(contactFile,"Project Planner form leaked into direct Contact page");
 
   const plannerCopy=plannerRecord?.content?.[locale];

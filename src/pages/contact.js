@@ -57,6 +57,8 @@ export function contactPage(locale="ar"){
       </div>
     </section>
 
+
+
     <section class="section contact-direct">
       <div class="container contact-direct__grid">
         <div>
@@ -75,19 +77,22 @@ export function contactPage(locale="ar"){
     <section class="section section--subtle contact-paths">
       <div class="container contact-paths__grid">
         <article>
+          <p class="eyebrow">${locale === "ar" ? "سؤال سريع" : "Quick question"}</p>
+          <h2>${locale === "ar" ? "تواصل معنا مباشرة" : "Talk to us directly"}</h2>
+          <p>${escapeHtml(direct.support)}</p>
+          <a class="text-link" href="${whatsappHref(locale)}" target="_blank" rel="noopener">${locale === "ar" ? "راسلنا على واتساب" : "Message us on WhatsApp"}</a>
+        </article>
+        <article>
           <p class="eyebrow">${escapeHtml(project.kicker)}</p>
           <h2>${escapeHtml(project.title)}</h2>
           <p>${escapeHtml(project.support)}</p>
-          <a class="text-link" href="${routes.startProject(locale)}">${locale==="ar"?"جهّز تفاصيل مشروعك":"Prepare your project details"}</a>
-        </article>
-        <article>
-          <p class="eyebrow">${escapeHtml(context.kicker)}</p>
-          <h2>${escapeHtml(context.title)}</h2>
-          <p>${escapeHtml(context.support)}</p>
-          <a class="text-link" href="${routes.services(locale)}">${locale==="ar"?"استكشف الخدمات أولًا":"Explore services first"}</a>
+          <a class="text-link" href="${routes.startProject(locale)}">${locale === "ar" ? "جهّز تفاصيل مشروعك" : "Prepare your project details"}</a>
         </article>
       </div>
     </section>
+    <div class="container contact-service-explore">
+      <p>${escapeHtml(context.support)} <a class="text-link" href="${routes.services(locale)}">${locale === "ar" ? "تصفح خدماتنا" : "Explore services"}</a></p>
+    </div>
 
     ${CallToAction({
       kicker:finalCta.kicker,

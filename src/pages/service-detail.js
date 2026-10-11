@@ -295,13 +295,9 @@ export function serviceDetailPage(service, locale="ar") {
     renderBreadcrumb(service,locale),
     renderHero(service,locale),
     renderSectionNav(service,locale),
-    renderSignals(service,locale),
-    renderAudience(service,locale),
-    renderSubservices(service,locale),
-    renderDeliverables(service,locale),
-    renderConstraints(service,locale),
-    renderProcess(service,locale),
-    renderProof(service,locale),
+    ...(service.id === "web"
+      ? [renderDeliverables(service,locale),renderProof(service,locale),renderSignals(service,locale),renderAudience(service,locale),renderSubservices(service,locale),renderConstraints(service,locale),renderProcess(service,locale)]
+      : [renderSignals(service,locale),renderAudience(service,locale),renderSubservices(service,locale),renderDeliverables(service,locale),renderConstraints(service,locale),renderProcess(service,locale),renderProof(service,locale)]),
     renderFaq(service,locale),
     renderFinalCta(service,locale)
   ].join("");

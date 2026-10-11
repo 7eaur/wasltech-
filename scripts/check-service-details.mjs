@@ -55,6 +55,7 @@ for (const locale of ["ar","en"]) {
       if (!html.includes(htmlText(deliverable.title))) fail(file,`deliverable missing: ${deliverable.title}`);
     }
 
+    if (service.id === "web" && html.indexOf('id="service-deliverables"') > html.indexOf('class="service-signals"')) fail(file,"U2 web prototype must show deliverables before support signals");
     for (const process of copy.process) {
       if (!html.includes(htmlText(process.title))) fail(file,`process step missing: ${process.title}`);
     }
