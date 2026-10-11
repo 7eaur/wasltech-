@@ -105,7 +105,6 @@ export function projectPlannerPage(locale="ar"){
           <h1>${escapeHtml(content.kicker)}</h1>
           <h2 class="inner-hero__subtitle">${escapeHtml(content.title)}</h2>
           <p>${escapeHtml(content.support)}</p>
-          <a class="text-link" href="${routes.contact(locale)}">${escapeHtml(content.secondaryCta)}</a>
         </div>
         ${HeroMedia({...getPageHeroMedia("startProject", locale), className:"planner-hero__media"})}
       </div>

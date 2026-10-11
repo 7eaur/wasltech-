@@ -96,6 +96,14 @@ for (const locale of ["ar","en"]) {
 const serviceCss=await readFile(path.join(ROOT,"src/styles/service-detail.css"),"utf8");
 if(!serviceCss.includes(".service-decision-panel{grid-template-columns:1fr}")) fail("service-detail.css","mobile decision summaries must stack for readable reflow");
 
+// Descriptions are real service content and must be visible at narrow widths too.
+for(const file of ["hero-pages.css","hero-responsive.css"]){
+  const source=await readFile(path.join(ROOT,"src/styles",file),"utf8");
+  for(const [,css] of source.matchAll(/\.service-detail-hero__description\s*\{([^}]*)\}/g)){
+    if(/(?:-webkit-line-clamp|\bline-clamp|\bmax-height|overflow\s*:\s*hidden|display\s*:\s*-webkit-box)/.test(css)) fail(file,"service Hero description must not be clipped");
+  }
+}
+
 if (errors.length) {
   console.error("VNEXT SERVICE DETAIL CHECK: FAILED");
   for (const error of errors) console.error(`- ${error}`);

@@ -131,9 +131,7 @@
     font-size:1rem;
   }
   .service-detail-hero__description{
-    display:block;
     font-size:.92rem;
-    overflow:visible;
   }
   :is(
     .services-hero__media,

@@ -16,7 +16,6 @@
 .contact-paths article>.text-link{align-self:start;min-height:var(--control-height);display:inline-flex;align-items:center;margin-top:auto;padding-inline:var(--space-4);border:var(--border-thin) solid var(--color-border-default);border-radius:var(--radius-control);color:var(--color-text-brand)}
 
 
-.planner-hero__copy .text-link{margin-top:var(--space-5)}
 
 .planner-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(18rem,.75fr);gap:clamp(var(--space-8),6vw,var(--space-16));align-items:start}
 .planner-form{border-top:var(--border-thin) solid var(--color-border-default)}
