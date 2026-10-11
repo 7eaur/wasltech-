@@ -39,8 +39,6 @@
 }
 @media(max-width:43.75rem){
   .secondary-hero h1{font-size:clamp(1.85rem,8vw,2.35rem)}
-  .secondary-hero__actions{display:grid;grid-template-columns:1fr}
-  .secondary-hero__actions .button{width:100%}
   .faq-directory>.container{gap:var(--space-8)}
   .faq-group{gap:var(--space-4);padding:var(--space-4)}
   .faq-group__header{grid-template-columns:2rem minmax(0,1fr)}

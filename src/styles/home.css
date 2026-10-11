@@ -45,8 +45,7 @@
 .home-faq__intro .section-header{margin-bottom:var(--space-5)}
 .home-faq__list{border-top:var(--border-thin) solid var(--color-border-default)}
 .home-faq__item{border-bottom:var(--border-thin) solid var(--color-border-default)}
-.home-faq__item summary{position:relative;padding:var(--space-5) 2.5rem var(--space-5) 0;cursor:pointer;color:var(--color-text-brand);font-size:var(--font-size-md);font-weight:var(--font-weight-semibold);list-style:none}
-[dir="rtl"] .home-faq__item summary{padding:var(--space-5) 0 var(--space-5) 2.5rem}
+.home-faq__item summary{position:relative;padding-block:var(--space-5);padding-inline-end:2.5rem;cursor:pointer;color:var(--color-text-brand);font-size:var(--font-size-md);font-weight:var(--font-weight-semibold);list-style:none}
 .home-faq__item summary::-webkit-details-marker{display:none}
 .home-faq__item summary::after{content:"+";position:absolute;inset-inline-end:.25rem;top:50%;translate:0 -50%;color:var(--color-text-accent);font-size:1.4rem;font-weight:var(--font-weight-regular)}
 .home-faq__item[open] summary::after{content:"−"}
@@ -90,11 +89,10 @@
   .home-about__media{aspect-ratio:16/9}
   .home-about__copy h2{font-size:1.7rem}
   .home-about__copy>p:not(.eyebrow){font-size:.9375rem;line-height:1.7}
-  .home-about__values{grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-block:var(--space-5)}
-  .home-about__value{padding-inline:var(--space-2);text-align:center;border-inline-start:0}
-  .home-about__value+ .home-about__value{border-inline-start:2px solid var(--color-border-accent)}
-  .home-about__value strong{font-size:.8rem;line-height:1.35}
-  .home-about__value span{display:none}
+  .home-about__values{grid-template-columns:1fr;gap:var(--space-3);margin-block:var(--space-5)}
+  .home-about__value{padding-inline-start:var(--space-4);text-align:start;border-inline-start:2px solid var(--color-border-accent)}
+  .home-about__value strong{font-size:.875rem;line-height:1.4}
+  .home-about__value span{display:block;font-size:.875rem;line-height:1.6}
   .home-why__grid{grid-template-columns:1fr;gap:var(--space-3)}
   .home-why__item{padding:var(--space-5)}
   .home-why__item h3{font-size:1rem}
@@ -118,10 +116,6 @@
   .home-section-action .text-link,.home-section-heading-row>.text-link{font-size:.8125rem}
 }
 
-@media(prefers-reduced-motion:reduce){
-}
-
 @media(max-width:23.75rem){
   .home-service-grid,.home-why__grid,.home-project-grid{gap:var(--space-2)}
-  .home-hero__signal small{display:none}
 }

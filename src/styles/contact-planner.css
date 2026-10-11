@@ -51,7 +51,7 @@
 .planner-review__actions .button{width:100%}
 
 @media(max-width:53.75rem){
-  .contact-hero__grid,.planner-hero__grid,.contact-direct__grid,.planner-layout{grid-template-columns:1fr}
+  .planner-hero__grid,.contact-direct__grid,.planner-layout{grid-template-columns:1fr}
   .planner-review{position:static}
 }
 @media(max-width:43.75rem){

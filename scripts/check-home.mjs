@@ -125,6 +125,14 @@ for (const locale of ["ar", "en"]) {
 const homeCss=await readFile(path.join(ROOT,"src/styles/home.css"),"utf8");
 if(!homeCss.includes(".home-process__steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))")) fail("home.css","4-column desktop process missing");
 if(!homeCss.includes(".home-why__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))")) fail("home.css","3-column desktop strengths missing");
+const heroResponsiveCss=await readFile(path.join(ROOT,"src/styles/hero-responsive.css"),"utf8");
+for(const [file,css] of [["home.css",homeCss],["hero-responsive.css",heroResponsiveCss]]){
+  for(const selector of [".home-about__value span",".home-hero__signal small"]){
+    const re=new RegExp(selector.replaceAll(".","\\.")+"\\s*\\{([^}]*)\\}","g");
+    for(const match of css.matchAll(re))if(/display\s*:\s*none/.test(match[1]))fail(file,"do not hide mobile supporting content: "+selector);
+  }
+}
+if(homeCss.includes('[dir="rtl"] .home-faq__item summary')) fail("home.css","native FAQ uses logical inline end, no RTL override");
 
 if (errors.length) {
   console.error("VNEXT HOME CHECK: FAILED");

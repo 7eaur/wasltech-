@@ -34,6 +34,8 @@ for(const locale of ["ar","en"]){
     if(!contactHtml.includes(htmlText(value))) fail(contactFile,`verified contact channel missing: ${value}`);
   }
   if(!contactHtml.includes('contact-service-explore') || !contactHtml.includes('contact-paths__grid')) fail(contactFile,"U2 contact guided paths missing");
+  if(!contactHtml.includes('page-intro--contact') || contactHtml.includes('contact-hero__media')) fail(contactFile,"Contact introductory copy must lead the visitor without decorative image");
+  if(contactHtml.indexOf('page-intro--contact') > contactHtml.indexOf('contact-paths__grid')) fail(contactFile,"guided decisions must follow Contact intro");
   const decisionAt=contactHtml.indexOf('contact-paths__grid');
   const channelsAt=contactHtml.indexOf('contact-direct__grid');
   if(decisionAt < 0 || channelsAt < 0 || decisionAt > channelsAt) fail(contactFile,"decision cards must precede secondary contact channels");

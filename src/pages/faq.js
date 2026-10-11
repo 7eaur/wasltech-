@@ -4,7 +4,7 @@ import { faqGroups, faqs } from "../data/faq.js";
 import { documentTemplate } from "../templates/document.js";
 import { faqPageSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
-import { HeroMedia } from "../components/HeroMedia.js";
+import { PageIntro } from "../components/PageIntro.js";
 import { getPageHeroMedia } from "../config/hero-media.js";
 
 const record=pages.find((page)=>page.id==="faq");
@@ -34,16 +34,7 @@ export function faqPage(locale="ar"){
   if(!content) throw new Error(`FAQ content missing for locale: ${locale}`);
 
   const body=`
-    <section class="secondary-hero">
-      <div class="container secondary-hero__grid">
-        <div class="secondary-hero__copy">
-          <h1>${escapeHtml(content.kicker)}</h1>
-          <h2 class="inner-hero__subtitle">${escapeHtml(content.title)}</h2>
-          <p>${escapeHtml(content.support)}</p>
-        </div>
-        ${HeroMedia({...getPageHeroMedia("faq", locale), className:"secondary-hero__media"})}
-      </div>
-    </section>
+    ${PageIntro({kicker:content.kicker,title:content.title,supporting:content.support,variant:"faq"})}
 
     <nav class="section-jump-nav" aria-label="${locale === "ar" ? "الانتقال إلى فئات الأسئلة" : "Jump to FAQ categories"}">
       <div class="container">

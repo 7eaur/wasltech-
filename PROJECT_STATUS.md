@@ -1,4 +1,9 @@
 # Wasl Tech VNext — Current Project Status
+## 2026-10-12 — UXR-04/06 functional-first hero and information reflow
+
+- Contact/FAQ now use text-first `PageIntro` and place decision cards/category navigation directly below, rather than loading a redundant large visual hero. Supplied images and OG references remain. Mobile Home supporting values no longer hidden at 320–390, with logical FAQ inline-end spacing.
+- Code and browser regression checks added. [Implementation QA](docs/qa/2026-10-12_UXR04_UXR06_FUNCTIONAL_INTROS_AND_REFLOW.md). **IMPLEMENTED / latest CI and visual review pending**, not Production-verified.
+
 
 ## 2026-10-12 — Semantic B2 and release overlap review
 

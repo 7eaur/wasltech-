@@ -6,7 +6,7 @@ import { documentTemplate } from "../templates/document.js";
 import { organizationSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
 import { icon } from "../components/icons.js";
-import { HeroMedia } from "../components/HeroMedia.js";
+import { PageIntro } from "../components/PageIntro.js";
 import { getPageHeroMedia } from "../config/hero-media.js";
 
 const record=pages.find((page)=>page.id==="contact");
@@ -41,16 +41,7 @@ export function contactPage(locale="ar"){
   const finalCta=section(content,"final-cta");
 
   const body=`
-    <section class="contact-hero">
-      <div class="container contact-hero__grid">
-        <div class="contact-hero__copy">
-          <h1>${escapeHtml(content.kicker)}</h1>
-          <h2 class="inner-hero__subtitle">${escapeHtml(content.title)}</h2>
-          <p>${escapeHtml(content.support)}</p>
-        </div>
-        ${HeroMedia({...getPageHeroMedia("contact", locale), className:"contact-hero__media"})}
-      </div>
-    </section>
+    ${PageIntro({kicker:content.kicker,title:content.title,supporting:content.support,variant:"contact"})}
 
 
 

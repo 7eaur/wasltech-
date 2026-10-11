@@ -59,6 +59,10 @@
 - **UXR-03/WT-IA-53/65:** تحديث 8 أوصاف AR/EN لتفريق مخرجات البرمجة/الهوية/التسويق عن أنواع الأعمال دون حذف أي تسليم أو وظيفة. [دليل B2](2026-10-12_SERVICE_DATA_SEMANTIC_B2.md). **IMPLEMENTED؛ قبول تجربة قراءة الزائر وCI الأخير مفتوح**.
 - **P6 / WT-IA-30، WT-001/002/013/014/017/020:** [مراجعة التداخل بين PR46/45 وفروع SEO/Logo](2026-10-12_RELEASE_BRANCH_COMPATIBILITY.md). **OPEN/BLOCKED** حتى مراجعة مالكي الفروع وقرار إطلاق مستقل. الملفات المشتركة لا تثبت تعارض دمج تلقائيًا.
 
+## UXR-04/06 source correction — 2026-10-12
+
+- Intent-specific text-led Contact/FAQ and no hidden Home descriptions in narrow mobile widths. New `PageIntro`, removed original obsolete hero CSS, AR/EN source and Chromium regression checks. [QA evidence](2026-10-12_UXR04_UXR06_FUNCTIONAL_INTROS_AND_REFLOW.md). **IMPLEMENTED / CI and visual review on new HEAD pending**; actual 200/400% zoom, VoiceOver/NVDA, field CWV remain OPEN.
+
 ## ترتيب التنفيذ التالي
 
 1. إثبات سلامة إزالة Hero-hidden overrides على SHA الحالي: Node24 verify + Chromium route matrix، ثم مراجعة Screenshots.

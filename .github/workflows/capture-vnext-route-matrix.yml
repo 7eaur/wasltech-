@@ -631,6 +631,37 @@ jobs:
             console.log("MOBILE CRITICAL TEXT LABEL SIZES: PASSED ("+locale+")");
           }
 
+          async function verifyTaskLedAndSupportingContent(locale){
+            for(const width of [320,360,390]){
+              const ctx=await browser.newContext({viewport:{width,height:844},locale:locale==="ar"?"ar-YE":"en-US"});
+              const page=await ctx.newPage();
+              await page.goto(base+(locale==="ar"?"/":"/en/"),{waitUntil:"domcontentloaded"});
+              for(const selector of [".home-hero__signal small",".home-about__value span"]){
+                const matches=page.locator(selector);
+                if(await matches.count()!==3)throw new Error(`${locale} ${width}: expected 3 values at ${selector}`);
+                for(let i=0;i<3;i++)if(!await matches.nth(i).isVisible())throw new Error(`${locale} ${width}: hidden content ${selector}[${i}]`);
+              }
+              if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw new Error(locale+width+": homepage horizontal overflow");
+              await ctx.close();
+            }
+            const ctx=await browser.newContext({viewport:{width:390,height:844},locale:locale==="ar"?"ar-YE":"en-US"});
+            const page=await ctx.newPage();
+            for(const [path,intro,next] of [["/contact/",".page-intro--contact",".contact-paths"],["/faq/",".page-intro--faq",".section-jump-nav"]]){
+              await page.goto(base+(locale==="ar"?path:"/en"+path),{waitUntil:"domcontentloaded"});
+              const state=await page.evaluate(([intro,next])=>{
+                const a=document.querySelector(intro),b=document.querySelector(next);
+                if(!a||!b)return null;
+                return {ordered:b.getBoundingClientRect().top>=a.getBoundingClientRect().bottom-2,heroImage:!!document.querySelector(".editorial-hero-media"),h1:a.querySelectorAll("h1").length};
+              },[intro,next]);
+              if(!state||!state.ordered||state.heroImage||state.h1!==1)throw new Error(locale+path+": task-led intro order/image regression");
+              if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw new Error(locale+path+": intro overflows");
+            }
+            await ctx.close();
+            console.log("TASK-LED CONTACT/FAQ AND VISIBLE HOME COPY: PASSED ("+locale+")");
+          }
+
+          await verifyTaskLedAndSupportingContent("ar");
+          await verifyTaskLedAndSupportingContent("en");
           await verifyCriticalLabelReadability("ar");
           await verifyCriticalLabelReadability("en");
           await verifyBalancedPortfolio("ar");

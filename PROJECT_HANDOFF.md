@@ -1,4 +1,8 @@
 # Wasl Tech VNext — Conversation Handoff
+## 2026-10-12 — UXR-04/06 current baton
+
+- New source correction: Contact and FAQ task-led PageIntro; mobile Home supporting content restored instead of hidden, dead Hero selectors removed. Read `docs/qa/2026-10-12_UXR04_UXR06_FUNCTIONAL_INTROS_AND_REFLOW.md`. Verify exact HEAD GitHub Actions/route matrix/Vercel and screenshots before acceptance, then continue UXR-08, computed contrast, zoom/accessibility and P6.
+
 
 ## 2026-10-12 — B2/P6 snapshot baton
 

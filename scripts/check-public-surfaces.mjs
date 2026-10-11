@@ -18,6 +18,7 @@ async function htmlFor(route){return readFile(path.join(DIST,outputPath(route)),
 
 const pageKeys=["services","portfolio","about","process","contact","startProject","faq","insights","careers","privacy","terms"];
 const legalPages=new Set(["privacy","terms"]);
+const textFirstPages=new Map([["contact","page-intro--contact"],["faq","page-intro--faq"]]);
 
 for(const locale of ["ar","en"]){
   const home=await htmlFor(routes.home(locale));
@@ -29,6 +30,9 @@ for(const locale of ["ar","en"]){
     if(legalPages.has(key)){
       if(!html.includes('class="secondary-hero secondary-hero--legal"')) fail(route,"text-first legal hero missing");
       if(html.includes('class="editorial-hero-media')) fail(route,"legal document must not use decorative hero media");
+    }else if(textFirstPages.has(key)){
+      if(!html.includes(`class="page-intro ${textFirstPages.get(key)}"`)) fail(route,"task-led text-first intro missing");
+      if(html.includes('class="editorial-hero-media')) fail(route,"task-led page should not render an unrelated Hero image");
     }else if(!html.includes('class="editorial-hero-media')){
       fail(route,"shared hero media missing");
     }
