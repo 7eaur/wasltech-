@@ -43,6 +43,5 @@
  .service-directory-row{grid-template-columns:6.5rem minmax(0,1fr)}
  .service-directory-row__media{min-height:10rem}
  .service-directory-row__copy{padding:var(--space-3)}
- .service-directory-row__subtitle{font-size:.75rem}
 }
 @media(prefers-reduced-motion:reduce){.service-directory-row:hover .service-directory-row__media img{transform:none}}
