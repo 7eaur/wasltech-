@@ -1,4 +1,8 @@
 # Wasl Tech VNext — Current Project Status
+## 2026-10-12 — UXR-12 contrast test setup correction
+
+- The first Chromium contrast run #38183339587 failed on the closed FAQ native disclosure: measured ratio 7.25:1, element intentionally hidden until expanded. Updated browser test to activate summary via keyboard before sampling. Real 4.5:1 threshold is unchanged. No runtime styles/content altered; rerun outcome pending. See `docs/qa/2026-10-12_UXR12_COMPUTED_CONTRAST_AND_PORTFOLIO_A11Y.md`.
+
 ## 2026-10-12 — UXR-12 computed contrast and Portfolio screen-reader context
 
 - Previous task-led Contact/FAQ and Home narrow reflow implementation `ea18821c` passed [VNext verify](https://github.com/7eaur/wasltech-/actions/runs/38182973138) and [route matrix](https://github.com/7eaur/wasltech-/actions/runs/38182973178). AR/EN 390/1440 screenshots inspected.

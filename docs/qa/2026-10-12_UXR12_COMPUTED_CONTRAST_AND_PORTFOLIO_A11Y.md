@@ -11,3 +11,7 @@ Portfolio category controls updated live status with a generic phrase that did n
 The existing Playwright route matrix asserts the active filter label is present in live status while remaining count-free. It also computes foreground/background contrast with `getComputedStyle` and ancestor transparency compositing for selected normal text on Home, Contact, FAQ and service detail at 390px for both locales, requiring >= 4.5:1. Source check `check-portfolio.mjs` guards the localized announcement contract.
 
 **IMPLEMENTED — verify on exact HEAD before calling preview accepted.** Sampling computed contrast is not a full WCAG 2.2 AA audit, physical-device zoom test, NVDA/VoiceOver session or field Core Web Vitals. Those remain release gates. No Production, DNS, main, SEO/Logo or branch merge.
+
+## 2026-10-12 — Browser test correction
+
+At [route matrix run #38183339587](https://github.com/7eaur/wasltech-/actions/runs/38183339587), the new contrast sample for `.faq-item p` returned **7.25:1** but the test failed because native `<details>` was correctly *closed* (zero visible client rects). This was not evidence of a contrast defect. The regression now **keyboard-focuses and presses Enter** on the first FAQ summary, checks it opened, and only then measures the visible answer and its computed colors. The threshold stays 4.5:1. Retain this failure and the rerun link; do not hide it by skipping hidden elements or lowering thresholds.

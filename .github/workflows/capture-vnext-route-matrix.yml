@@ -673,6 +673,14 @@ jobs:
             ];
             for(const [route,selectors] of paths){
               await page.goto(base+(locale==="ar"?route:"/en"+route),{waitUntil:"domcontentloaded"});
+              // Native disclosure answers are intentionally hidden until user activation.
+              // Open with the keyboard before sampling their visible foreground/background.
+              if(route==="/faq/"){
+                const summary=page.locator(".faq-item summary").first();
+                await summary.focus();
+                await page.keyboard.press("Enter");
+                if(!await page.locator(".faq-item").first().evaluate(el=>el.open))throw new Error(locale+": FAQ failed keyboard activation for contrast sample");
+              }
               for(const selector of selectors){
                 const evidence=await page.locator(selector).first().evaluate(el=>{
                   const rgba=str=>{

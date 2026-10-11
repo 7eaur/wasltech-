@@ -1,4 +1,8 @@
 # Wasl Tech VNext — Conversation Handoff
+## 2026-10-12 — UXR-12 test rerun baton
+
+- First computed-contrast browser run failed only because it sampled a closed FAQ `<details>` answer (contrast 7.25:1). Keyboard-expand it before sampling, without lowering 4.5:1; inspect exact newest route matrix and do not report PASS until it completes. No UI changes in this correction.
+
 ## 2026-10-12 — UXR-12 accessibility follow-up
 
 - Latest source adds active category to count-free Portfolio live status and browser-computed contrast checks on key AR/EN pages. Details: `docs/qa/2026-10-12_UXR12_COMPUTED_CONTRAST_AND_PORTFOLIO_A11Y.md`. Verify latest SHA CI/route matrix and preview. UXR-04/06 screenshot QA passed for previous commit. Next: field/per-device acceptance and genuine project case-study proof; no main/SEO/Logo/Production action.
