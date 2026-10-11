@@ -70,10 +70,10 @@ function renderHero(service, locale) {
 function renderSectionNav(service, locale) {
   const items = [
     { id: "service-deliverables", ar: "ما نقدمه", en: "Deliverables" },
-    { id: "service-process", ar: "طريقة العمل", en: "Process" },
     ...(getProjectsByService(service.id).length
       ? [{ id: "service-proof", ar: "أعمال مرتبطة", en: "Related work" }]
       : []),
+    { id: "service-process", ar: "طريقة العمل", en: "Process" },
     { id: "service-faq", ar: "الأسئلة الشائعة", en: "FAQs" }
   ];
   return `
@@ -295,9 +295,13 @@ export function serviceDetailPage(service, locale="ar") {
     renderBreadcrumb(service,locale),
     renderHero(service,locale),
     renderSectionNav(service,locale),
-    ...(service.id === "web"
-      ? [renderDeliverables(service,locale),renderProof(service,locale),renderSignals(service,locale),renderAudience(service,locale),renderSubservices(service,locale),renderConstraints(service,locale),renderProcess(service,locale)]
-      : [renderSignals(service,locale),renderAudience(service,locale),renderSubservices(service,locale),renderDeliverables(service,locale),renderConstraints(service,locale),renderProcess(service,locale),renderProof(service,locale)]),
+    renderDeliverables(service,locale),
+    renderProof(service,locale),
+    renderSignals(service,locale),
+    renderAudience(service,locale),
+    renderSubservices(service,locale),
+    renderConstraints(service,locale),
+    renderProcess(service,locale),
     renderFaq(service,locale),
     renderFinalCta(service,locale)
   ].join("");
