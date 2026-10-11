@@ -87,7 +87,9 @@
 }
 
 @media(max-width:43.75rem){
+  .service-decision-panel{grid-template-columns:1fr}
   .service-decision-panel>div{padding:var(--space-4)}
+  .service-decision-panel>div+div{border-inline-start:0;border-block-start:var(--border-thin) solid var(--color-border-default)}
   .service-decision-panel p{font-size:.88rem;line-height:1.62}
   .service-signals__grid,.service-subservices__grid,.service-deliverables__list,.service-proof__grid{grid-template-columns:1fr}
   .service-subservice{padding:var(--space-4) 0}
@@ -113,7 +115,5 @@
   .service-process__step p{grid-column:2;font-size:.88rem;line-height:1.65}
 }
 
-@media(prefers-reduced-motion:reduce){
-}
 
 

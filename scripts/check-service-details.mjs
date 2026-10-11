@@ -93,6 +93,9 @@ for (const locale of ["ar","en"]) {
   }
 }
 
+const serviceCss=await readFile(path.join(ROOT,"src/styles/service-detail.css"),"utf8");
+if(!serviceCss.includes(".service-decision-panel{grid-template-columns:1fr}")) fail("service-detail.css","mobile decision summaries must stack for readable reflow");
+
 if (errors.length) {
   console.error("VNEXT SERVICE DETAIL CHECK: FAILED");
   for (const error of errors) console.error(`- ${error}`);
