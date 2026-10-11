@@ -277,7 +277,7 @@ jobs:
             await page.goto(base + portfolioPath, { waitUntil: "domcontentloaded" });
             await page.waitForFunction(() => document.querySelector("[data-portfolio-more-wrap]")?.hidden === false);
             const visibleFirst = await page.locator("[data-project-card]:visible").count();
-            if (visibleFirst !== 6) throw new Error(`${locale}: Initial portfolio should expose six cards, got ${visibleFirst}`);
+            if (visibleFirst !== 5) throw new Error(`${locale}: Initial portfolio should expose five cards, got ${visibleFirst}`);
             await page.locator("[data-portfolio-more]").click();
             const visibleFull = await page.locator("[data-project-card]:visible").count();
             if (visibleFull !== 14) throw new Error(`${locale}: Show-more should expose all 14 projects, got ${visibleFull}`);
@@ -575,6 +575,39 @@ jobs:
             console.log("SERVICES BALANCED 3/2/3 GRID: PASSED ("+locale+")");
           }
 
+
+          async function verifyBalancedPortfolio(locale) {
+            for (const width of [320,390,768,1024,1200,1440]) {
+              const context=await browser.newContext({viewport:{width,height:840},locale:locale==="ar"?"ar-YE":"en-US"});
+              const page=await context.newPage();
+              await page.goto(base+(locale==="ar"?"/portfolio/":"/en/portfolio/"),{waitUntil:"domcontentloaded"});
+              await page.waitForFunction(()=>document.querySelector("[data-portfolio-more-wrap]")?.hidden===false);
+              const cards=page.locator("[data-project-card]:visible");
+              if(await cards.count()!==5)throw new Error(`Portfolio visible count @ ${width} ${locale}`);
+              const positions=await cards.evaluateAll(nodes=>nodes.map(n=>{
+                const r=n.getBoundingClientRect();
+                return {y:r.y,width:r.width};
+              }));
+              const eq=(a,b)=>Math.abs(a-b)<2;
+              if(width>=1025) {
+                if(!eq(positions[0].y,positions[1].y)||!eq(positions[2].y,positions[3].y)||!eq(positions[3].y,positions[4].y)||!(positions[2].y>positions[0].y)) {
+                  throw new Error(`Portfolio 3-column featured grid leaves orphan @ ${width} ${locale}`);
+                }
+              } else if(width>700){
+                if(!eq(positions[1].y,positions[2].y)||!eq(positions[3].y,positions[4].y)||!(positions[1].y>positions[0].y)||!(positions[3].y>positions[1].y)){
+                  throw new Error(`Portfolio 2-column featured grid leaves orphan @ ${width} ${locale}`);
+                }
+              } else {
+                if(!positions.every((p,i)=>!i||p.y>positions[i-1].y))throw new Error(`Portfolio single column not stacked @ ${width} ${locale}`);
+              }
+              if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw new Error(`Portfolio horizontal overflow @ ${width} ${locale}`);
+              await context.close();
+            }
+            console.log("PORTFOLIO BALANCED FEATURED GRID: PASSED ("+locale+")");
+          }
+
+          await verifyBalancedPortfolio("ar");
+          await verifyBalancedPortfolio("en");
           await verifyServicesCardRhythm("ar");
           await verifyServicesCardRhythm("en");
           await verifyReaderNavigation("ar");

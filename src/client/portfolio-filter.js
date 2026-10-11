@@ -7,7 +7,7 @@ const moreButton = document.querySelector("[data-portfolio-more]");
 if (browser && controls) {
   const buttons = [...controls.querySelectorAll("[data-portfolio-filter]")];
   const cards = [...browser.querySelectorAll("[data-project-card]")];
-  const initialCount = 6;
+  const initialCount = 5; // Featured spans two grid tracks; five cards fill two desktop rows.
   let expanded = false;
   let currentFilter = "all";
 
