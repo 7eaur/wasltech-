@@ -77,8 +77,8 @@
   .home-hero__signal{display:grid;min-width:0;justify-items:center;gap:.35rem;padding-inline:var(--space-2);text-align:center}
   .home-hero__signal-icon{margin:0;color:var(--color-text-accent)}
   .home-hero__signal+ .home-hero__signal{border-inline-start:var(--border-thin) solid var(--color-border-default)}
-  .home-hero__signal strong{font-size:.75rem;line-height:1.35}
-  .home-hero__signal small{font-size:.6875rem;line-height:1.4}
+  .home-hero__signal strong{font-size:.875rem;line-height:1.35}
+  .home-hero__signal small{font-size:.8125rem;line-height:1.4}
   .home-services,.home-work,.home-about,.home-why,.home-process,.home-faq{padding-block:var(--space-8)}
   .home-services .section-header,
   .home-why .section-header,

@@ -606,6 +606,33 @@ jobs:
             console.log("PORTFOLIO BALANCED FEATURED GRID: PASSED ("+locale+")");
           }
 
+
+          async function verifyCriticalLabelReadability(locale){
+            const ctx=await browser.newContext({viewport:{width:390,height:844},locale:locale==="ar"?"ar-YE":"en-US"});
+            const page=await ctx.newPage();
+            const cases=[
+              ["/",[".home-hero__signal strong",".home-hero__signal small",".footer-contact__name",".footer-contact__value"]],
+              ["/services/",[".service-directory-row__subtitle"]],
+              ["/services/web-development/",[".service-decision-panel span"]]
+            ];
+            for(const [path,selectors] of cases){
+              await page.goto(base+(locale==="ar"?path:"/en"+path),{waitUntil:"domcontentloaded"});
+              for(const selector of selectors){
+                const x=await page.locator(selector).first().evaluate(el=>({
+                  px:Number.parseFloat(getComputedStyle(el).fontSize),
+                  display:getComputedStyle(el).display
+                }));
+                const minimum=selector===".home-hero__signal small"?13:14;
+                if(x.display!=="none"&&x.px<minimum)throw new Error(`Critical small label ${selector} at ${x.px}px < ${minimum}px (${locale})`);
+              }
+              if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw new Error(`Label sizing created horizontal overflow ${locale} ${path}`);
+            }
+            await ctx.close();
+            console.log("MOBILE CRITICAL TEXT LABEL SIZES: PASSED ("+locale+")");
+          }
+
+          await verifyCriticalLabelReadability("ar");
+          await verifyCriticalLabelReadability("en");
           await verifyBalancedPortfolio("ar");
           await verifyBalancedPortfolio("en");
           await verifyServicesCardRhythm("ar");

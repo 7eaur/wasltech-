@@ -51,10 +51,10 @@
     align-self:start;
   }
   .home-hero__signal strong{
-    font-size:.76rem;
+    font-size:.875rem;
   }
   .home-hero__signal small{
-    font-size:.69rem;
+    font-size:.8125rem;
   }
 
   :is(
@@ -246,7 +246,7 @@
     font-size:1.9rem;
   }
   .home-hero__support{
-    font-size:.8rem;
+    font-size:.875rem;
   }
   .home-hero__signal small{
     display:none;

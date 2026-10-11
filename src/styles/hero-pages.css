@@ -222,29 +222,6 @@
   object-fit:cover;
   object-position:center;
 }
-.about-hero__visual{
-  display:grid;
-  gap:.75rem;
-}
-.about-hero__statement{
-  margin:0;
-  padding:.8rem;
-  background:var(--color-bg-soft);
-  border:var(--border-thin) solid var(--color-border-default);
-  border-radius:.75rem;
-}
-.about-hero__statement>span{
-  margin-bottom:.35rem;
-  font-size:.66rem;
-}
-.about-hero__statement>strong{
-  margin-bottom:.3rem;
-  font-size:.9rem;
-}
-.about-hero__statement p{
-  font-size:.72rem;
-  line-height:1.55;
-}
 .service-decision-panel{
   grid-template-columns:repeat(2,minmax(0,1fr));
   margin-top:.75rem;
@@ -258,7 +235,7 @@
 }
 .service-decision-panel span{
   margin-bottom:.3rem;
-  font-size:.76rem;
+  font-size:.875rem;
 }
 .service-decision-panel p{
   font-size:.875rem;
