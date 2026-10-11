@@ -1,5 +1,11 @@
 # Wasl Tech VNext — Current Project Status
 
+## 2026-10-12 — Semantic B2 and release overlap review
+
+- **UXR-03 B2:** 8 scoped description refinements across programming, design and marketing, in AR/EN, distinguish actual deliverables from overlapping service types without removing any substantive list item. Evidence: `docs/qa/2026-10-12_SERVICE_DATA_SEMANTIC_B2.md`; exact new commit CI pending. Remaining user scanning-task proof OPEN.
+- **P6 compatibility (review only):** `docs/qa/2026-10-12_RELEASE_BRANCH_COMPATIBILITY.md`. Recovery PR46 remains Draft to integration PR45; SEO PR37 overlaps 11 changed files, SEO PR36 overlaps 4, Logo PR41 overlaps 2; these are edit-overlap risks, not confirmed merge conflicts. External coordination and separate Production acceptance needed.
+
+
 ## 2026-10-12 — Independent recovery service copy B1
 
 - `UXR-03 / WT-IA-53/65`: removed four generic repeating `SectionHeader.supporting` paragraphs from the shared service detail template (AR/EN; all eight services). No canonical deliverables, decisions, subservices, audiences, constraints, work examples, process, FAQ or data records removed.

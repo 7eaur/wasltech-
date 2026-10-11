@@ -1,5 +1,11 @@
 # Wasl Tech VNext — Conversation Handoff
 
+## 2026-10-12 — B2/P6 snapshot baton
+
+- B2 semantic AR/EN field cleanup and release-branch overlap audit recorded in `docs/qa/2026-10-12_SERVICE_DATA_SEMANTIC_B2.md` and `docs/qa/2026-10-12_RELEASE_BRANCH_COMPATIBILITY.md`. Re-fetch live HEAD, exact SHA verify and route-matrix/preview before updating statuses.
+- Continue root-cause visual UX UXR-04/06/08 and empirical U4, then real evidence/SEO ownership and PR46→PR45 merge review. All production and cross-team branches are untouched.
+
+
 ## 2026-10-12 — UXR-03 B1 editorial continuation
 
 - After source-ownership cleanup, B1 removed four generic repeated headings' support paragraphs from `src/pages/service-detail.js`; full substantive copy remains in `src/data/services.js`, guarded for 16 routes. See `docs/qa/2026-10-12_SERVICE_DETAIL_EDITORIAL_DEDUP_B1.md`.

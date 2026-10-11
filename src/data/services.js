@@ -990,7 +990,7 @@ const serviceRecords = [
           },
           {
             "title": "لوحات تحكم",
-            "description": "واجهات لإدارة البيانات والعمليات والمتابعة بحسب أدوار المستخدمين."
+            "description": "واجهات بحسب أدوار المستخدمين لإجراء المهام المطلوبة ومراجعة البيانات من نقطة عمل واحدة."
           },
           {
             "title": "قواعد بيانات وصلاحيات",
@@ -1002,7 +1002,7 @@ const serviceRecords = [
           },
           {
             "title": "أتمتة العمليات",
-            "description": "تحويل الخطوات اليدوية المتكررة إلى تدفقات آلية عندما تكون قابلة لذلك."
+            "description": "تحديد مدخلات وخطوات ومخرجات المهام القابلة للأتمتة ضمن تدفق العمل المتفق عليه."
           },
           {
             "title": "تقارير ولوحات متابعة",
@@ -1137,7 +1137,7 @@ const serviceRecords = [
           },
           {
             "title": "Dashboards",
-            "description": "Interfaces for managing data, workflows, and monitoring according to user roles."
+            "description": "Role-aware screens for completing agreed tasks and reviewing the records each user needs."
           },
           {
             "title": "Databases and permissions",
@@ -1149,7 +1149,7 @@ const serviceRecords = [
           },
           {
             "title": "Process automation",
-            "description": "Turning repetitive manual steps into automated flows when the process is suitable for automation."
+            "description": "Defining the inputs, steps, and outcomes for eligible repeated tasks in the agreed workflow."
           },
           {
             "title": "Reports and monitoring dashboards",
@@ -1874,7 +1874,7 @@ const serviceRecords = [
           },
           {
             "title": "تطبيقات رقمية ومطبوعة",
-            "description": "تطبيق الهوية على الاستخدامات الرقمية والمطبوعة المتفق عليها مع العميل."
+            "description": "تجهيز ملفات تطبيق الهوية لكل مادة رقمية أو مطبوعة معتمدة ضمن نطاق المشروع."
           },
           {
             "title": "قوالب جاهزة للاستخدام",
@@ -2013,7 +2013,7 @@ const serviceRecords = [
           },
           {
             "title": "Digital and print applications",
-            "description": "Applying the identity to the agreed digital and printed brand materials."
+            "description": "Preparing identity application files for each approved digital or printed material within scope."
           },
           {
             "title": "Ready-to-use templates",
@@ -2160,7 +2160,7 @@ const serviceRecords = [
           },
           {
             "title": "إدارة منصات التواصل",
-            "description": "تنظيم خطة النشر والجدولة والتفاعل والمتابعة حسب نطاق الخدمة المتفق عليه."
+            "description": "تنظيم آلية النشر والجدولة والمتابعة على قنوات التواصل المتفق عليها ضمن النطاق."
           },
           {
             "title": "تصميم المنشورات والإعلانات",
@@ -2303,7 +2303,7 @@ const serviceRecords = [
           },
           {
             "title": "Social media management",
-            "description": "Planning publishing, scheduling, engagement, and follow-up within the agreed service scope."
+            "description": "Defining the publishing, scheduling, and follow-up workflow for the agreed social channels."
           },
           {
             "title": "Post and ad design",
