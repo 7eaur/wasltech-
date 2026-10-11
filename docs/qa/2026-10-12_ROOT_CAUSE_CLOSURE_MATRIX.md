@@ -63,6 +63,10 @@
 
 - Intent-specific text-led Contact/FAQ and no hidden Home descriptions in narrow mobile widths. New `PageIntro`, removed original obsolete hero CSS, AR/EN source and Chromium regression checks. [QA evidence](2026-10-12_UXR04_UXR06_FUNCTIONAL_INTROS_AND_REFLOW.md). **IMPLEMENTED / CI and visual review on new HEAD pending**; actual 200/400% zoom, VoiceOver/NVDA, field CWV remain OPEN.
 
+## UXR-12 — تباين محسوب وإعلان التصنيف
+
+- تحسين رسالة قارئ الشاشة في معرض الأعمال لتسمية الفلتر المستخدم دون أرقام عامة؛ إضافة فحص computed contrast Chromium لعينة Home/Contact/FAQ/Service بالعربية والإنجليزية عند 390px بنسبة 4.5:1. [تفاصيل القبول والحدود](2026-10-12_UXR12_COMPUTED_CONTRAST_AND_PORTFOLIO_A11Y.md). **IMPLEMENTED / latest SHA CI pending**؛ قارئ الشاشة الحقيقي والتكبير وfield CWV OPEN.
+
 ## ترتيب التنفيذ التالي
 
 1. إثبات سلامة إزالة Hero-hidden overrides على SHA الحالي: Node24 verify + Chromium route matrix، ثم مراجعة Screenshots.

@@ -1,4 +1,9 @@
 # Wasl Tech VNext — Current Project Status
+## 2026-10-12 — UXR-12 computed contrast and Portfolio screen-reader context
+
+- Previous task-led Contact/FAQ and Home narrow reflow implementation `ea18821c` passed [VNext verify](https://github.com/7eaur/wasltech-/actions/runs/38182973138) and [route matrix](https://github.com/7eaur/wasltech-/actions/runs/38182973178). AR/EN 390/1440 screenshots inspected.
+- Latest candidate adds count-free Portfolio active-filter live context and computed text contrast (selected UI, AR/EN 390px), [test details](docs/qa/2026-10-12_UXR12_COMPUTED_CONTRAST_AND_PORTFOLIO_A11Y.md). **IMPLEMENTED; exact HEAD CI pending.** Physical zoom, screen readers and field performance OPEN.
+
 ## 2026-10-12 — UXR-04/06 functional-first hero and information reflow
 
 - Contact/FAQ now use text-first `PageIntro` and place decision cards/category navigation directly below, rather than loading a redundant large visual hero. Supplied images and OG references remain. Mobile Home supporting values no longer hidden at 320–390, with logical FAQ inline-end spacing.

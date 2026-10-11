@@ -30,7 +30,8 @@ if (browser && controls) {
     if (announce && status) {
       status.textContent = "";
       requestAnimationFrame(() => {
-        status.textContent = status.dataset.message || "Results updated.";
+        const activeLabel = buttons.find((button) => button.dataset.portfolioFilter === currentFilter)?.textContent?.trim() || "";
+        status.textContent = [status.dataset.message || "Results updated.", activeLabel].filter(Boolean).join(" ");
       });
     }
   };

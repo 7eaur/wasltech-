@@ -56,7 +56,7 @@ try{
 }catch{ fail("assets/js/portfolio-filter.js","generated filter asset missing"); }
 
 const filterSource=await readFile(path.join(ROOT,"src/client/portfolio-filter.js"),"utf8");
-for(const contract of ["aria-pressed","dataset.category","hidden","data-portfolio-filter","initialCount = 5","applyFilter(\"all\", false)","moreButton.addEventListener"]){
+for(const contract of ["aria-pressed","dataset.category","hidden","data-portfolio-filter","initialCount = 5","applyFilter(\"all\", false)","moreButton.addEventListener","activeLabel","status.dataset.message"]){
   if(!filterSource.includes(contract)) fail("src/client/portfolio-filter.js",`filter behavior missing: ${contract}`);
 }
 

@@ -1,4 +1,8 @@
 # Wasl Tech VNext — Conversation Handoff
+## 2026-10-12 — UXR-12 accessibility follow-up
+
+- Latest source adds active category to count-free Portfolio live status and browser-computed contrast checks on key AR/EN pages. Details: `docs/qa/2026-10-12_UXR12_COMPUTED_CONTRAST_AND_PORTFOLIO_A11Y.md`. Verify latest SHA CI/route matrix and preview. UXR-04/06 screenshot QA passed for previous commit. Next: field/per-device acceptance and genuine project case-study proof; no main/SEO/Logo/Production action.
+
 ## 2026-10-12 — UXR-04/06 current baton
 
 - New source correction: Contact and FAQ task-led PageIntro; mobile Home supporting content restored instead of hidden, dead Hero selectors removed. Read `docs/qa/2026-10-12_UXR04_UXR06_FUNCTIONAL_INTROS_AND_REFLOW.md`. Verify exact HEAD GitHub Actions/route matrix/Vercel and screenshots before acceptance, then continue UXR-08, computed contrast, zoom/accessibility and P6.

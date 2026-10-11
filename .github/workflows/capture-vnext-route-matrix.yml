@@ -299,6 +299,8 @@ jobs:
             if (/\d/.test(filterStatus)) {
               throw new Error(`${locale}: Portfolio filter status must be count-free: ${filterStatus}`);
             }
+            const selectedLabel = (await filters.nth(1).textContent() || "").trim();
+            if (!filterStatus.includes(selectedLabel)) throw new Error(`${locale}: Portfolio status must name active category: ${filterStatus}`);
 
             await page.goto(base + plannerPath, { waitUntil: "domcontentloaded" });
             const form = page.locator("[data-project-planner]");
@@ -660,6 +662,44 @@ jobs:
             console.log("TASK-LED CONTACT/FAQ AND VISIBLE HOME COPY: PASSED ("+locale+")");
           }
 
+          async function verifyComputedTextContrast(locale){
+            const ctx=await browser.newContext({viewport:{width:390,height:844},locale:locale==="ar"?"ar-YE":"en-US"});
+            const page=await ctx.newPage();
+            const paths=[
+              ["/",[".home-hero__signal strong",".home-hero__signal small",".home-about__value span",".footer-contact__name",".footer-contact__value"]],
+              ["/contact/",[".page-intro__content>p",".contact-paths article>p:not(.eyebrow)",".contact-channel span"]],
+              ["/faq/",[".page-intro__content>p",".faq-item summary",".faq-item p"]],
+              ["/services/web-development/",[".service-decision-panel span",".service-deliverable__details[open] p"]]
+            ];
+            for(const [route,selectors] of paths){
+              await page.goto(base+(locale==="ar"?route:"/en"+route),{waitUntil:"domcontentloaded"});
+              for(const selector of selectors){
+                const evidence=await page.locator(selector).first().evaluate(el=>{
+                  const rgba=str=>{
+                    const nums=str.match(/[0-9]*\.?[0-9]+/g)?.map(Number)||[];
+                    return nums.length>=3?[nums[0],nums[1],nums[2],nums.length>3?nums[3]:1]:[0,0,0,0];
+                  };
+                  const blend=(back,over)=>over.slice(0,3).map((v,i)=>v*over[3]+back[i]*(1-over[3]));
+                  let current=el;const layers=[];
+                  while(current){layers.push(rgba(getComputedStyle(current).backgroundColor));current=current.parentElement}
+                  const background=layers.reverse().reduce(blend,[255,255,255]);
+                  const foreground=blend(background,rgba(getComputedStyle(el).color));
+                  const light=color=>{
+                    const rgb=color.map(x=>x/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4);
+                    return .2126*rgb[0]+.7152*rgb[1]+.0722*rgb[2];
+                  };
+                  const l1=light(background),l2=light(foreground);
+                  return {ratio:(Math.max(l1,l2)+.05)/(Math.min(l1,l2)+.05),visible:el.getClientRects().length>0};
+                });
+                if(!evidence.visible||evidence.ratio<4.5)throw new Error(`${locale} ${route} ${selector}: contrast ${evidence.ratio.toFixed(2)} < 4.5 or hidden`);
+              }
+            }
+            await ctx.close();
+            console.log("COMPUTED TEXT CONTRAST >= 4.5 ON SELECTED UI: PASSED ("+locale+")");
+          }
+
+          await verifyComputedTextContrast("ar");
+          await verifyComputedTextContrast("en");
           await verifyTaskLedAndSupportingContent("ar");
           await verifyTaskLedAndSupportingContent("en");
           await verifyCriticalLabelReadability("ar");
