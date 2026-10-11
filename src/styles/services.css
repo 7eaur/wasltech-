@@ -24,7 +24,6 @@
 @media(min-width:48.0625rem) and (max-width:64rem){
  .service-directory-list--three>.service-directory-row:last-child{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
  .service-directory-list--three>.service-directory-row:last-child .service-directory-row__media{height:100%;aspect-ratio:auto}
- .service-directory-list--three>.service-directory-row:last-child .service-directory-row__media img{height:100%}
 }
 @media(max-width:48rem){
  .service-directory-list{grid-template-columns:1fr;gap:var(--space-3)}
