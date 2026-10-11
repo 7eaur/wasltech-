@@ -121,6 +121,16 @@ async function buildAssets() {
   await writeOutput("assets/js/project-planner.js", projectPlanner);
 }
 
+async function buildMotionPrototype() {
+  if (process.env.VERCEL_ENV === "production") return;
+
+  await cp(
+    path.join(ROOT, "prototypes/wasl-logo-motion-v2"),
+    path.join(DIST, "__logo-motion"),
+    { recursive: true }
+  );
+}
+
 async function buildPages() {
   for (const locale of ["ar", "en"]) {
     await writeOutput(outputPath(routes.home(locale)), homePage(locale));
@@ -188,6 +198,7 @@ await mkdir(DIST, { recursive: true });
 
 await buildStyles();
 await buildAssets();
+await buildMotionPrototype();
 await buildPages();
 
 console.log(`VNEXT BUILD: PASSED [${isProductionBuild ? "production" : "preview"}]`);
