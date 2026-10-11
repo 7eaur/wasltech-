@@ -1,5 +1,15 @@
 # Wasl Tech VNext — Conversation Handoff
 
+## 2026-10-12 — Updated handoff for independent recovery branch
+
+- Before following older 2026-09 instructions, inspect live GitHub HEAD of `fix/independent-site-recovery-20261010` and Draft PR #46 against `integration/site-stabilization-20261010`.
+- Canonical outstanding work/acceptance matrix: `docs/qa/2026-10-12_ROOT_CAUSE_CLOSURE_MATRIX.md`; do not claim all WT/WT-IA/UXR tickets CLOSED from CI alone.
+- Most recent root-cause correction removes hidden inner-page Hero CTA DOM and matching CSS patches. Re-run VNext verify and browser route matrix at final source SHA before merge.
+- Existing AR/EN responsive service/customer-journey work is on the branch; external case-study evidence, real-device accessibility, field performance, contact receipt, SEO/domain reconciliation and cross-branch merge are unresolved release gates.
+- Production remains unchanged. Do not auto-merge PR46/45, modify SEO or loader branches, change DNS, or deploy to official site without coordinated authorization.
+- Below is prior historical handoff; superseded wherever it conflicts.
+
+
 ## 2026-10-10 — Responsive image performance baton
 
 - Continue from `integration/site-stabilization-20261010`; do not merge into `main` without explicit approval.

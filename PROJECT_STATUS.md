@@ -1,5 +1,16 @@
 # Wasl Tech VNext — Current Project Status
 
+## 2026-10-12 — Latest independent recovery UX closure checkpoint
+
+- Live recovery branch: `fix/independent-site-recovery-20261010`; latest implementation and QA evidence must be read from its GitHub HEAD, not older historical VNext baton entries below.
+- Current actionable closure matrix: [`docs/qa/2026-10-12_ROOT_CAUSE_CLOSURE_MATRIX.md`](docs/qa/2026-10-12_ROOT_CAUSE_CLOSURE_MATRIX.md); reconciles P0–P6, WT-IA-01..75, WT-001..020, and UXR-01..12 and explicitly distinguishes code vs Preview vs Production acceptance.
+- Root-cause UX cleanup: removed hidden inner-page Hero ActionLinks from 6 page sources, removed overriding CSS declarations, added regression guard in `scripts/check-cta.mjs`. Existing final page CTAs and contextual navigation paths remain.
+- Verified build/quality evidence on implementation commit `e5d8ff82b17b321df29928b11e95787bee75479b`: VNext verify SUCCESS; the current visual route matrix must be checked independently on its exact tested SHA.
+- P6 remains **BLOCKED**: SEO/domain canonical (WT-IA-30), real project case-study proof, real-device zoom/screen-reader and field Web Vitals, account-level contact receipt check, final PR46→PR45 merge review, production cutover approval.
+- Do not change `main`, Production, DNS, SEO #36/#37 or Logo #41 as part of isolated UX work.
+- Older 2026-09 and earlier 2026-10 status entries are historical snapshots and must not override this checkpoint.
+
+
 ## 2026-10-10 — Responsive image performance pass
 
 - Active integration branch: `integration/site-stabilization-20261010`; `main`, SEO work, and logo-animation work remain untouched.
