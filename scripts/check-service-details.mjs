@@ -44,6 +44,14 @@ for (const locale of ["ar","en"]) {
       if (!html.includes(htmlText(subservice.description))) fail(file,`subservice description missing: ${subservice.id}`);
     }
 
+    const deliverablesAt = html.indexOf('id="service-deliverables"');
+    const proofAt = html.indexOf('id="service-proof"');
+    const processAt = html.indexOf('id="service-process"');
+    const signalAt = html.indexOf('class="service-signals"');
+    if (deliverablesAt < 0 || signalAt < 0 || deliverablesAt > signalAt) fail(file,"all services must show outcomes before supporting claims");
+    if (proofAt >= 0 && (proofAt < deliverablesAt || proofAt > signalAt)) fail(file,"related work must follow outcomes and precede support");
+    if (processAt < signalAt) fail(file,"service process must follow supporting context");
+
     for (const anchor of ["service-deliverables","service-process","service-faq"]) {
       if (!html.includes(`id="${anchor}"`) || !html.includes(`href="#${anchor}"`)) fail(file,`service jump link missing: ${anchor}`);
     }

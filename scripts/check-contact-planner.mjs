@@ -34,6 +34,10 @@ for(const locale of ["ar","en"]){
     if(!contactHtml.includes(htmlText(value))) fail(contactFile,`verified contact channel missing: ${value}`);
   }
   if(!contactHtml.includes('contact-service-explore') || !contactHtml.includes('contact-paths__grid')) fail(contactFile,"U2 contact guided paths missing");
+  const decisionAt=contactHtml.indexOf('contact-paths__grid');
+  const channelsAt=contactHtml.indexOf('contact-direct__grid');
+  if(decisionAt < 0 || channelsAt < 0 || decisionAt > channelsAt) fail(contactFile,"decision cards must precede secondary contact channels");
+  if(!contactHtml.includes('target="_blank" rel="noopener"')) fail(contactFile,"external WhatsApp link must be safe");
   if(contactHtml.includes("data-project-planner")) fail(contactFile,"Project Planner form leaked into direct Contact page");
 
   const plannerCopy=plannerRecord?.content?.[locale];
