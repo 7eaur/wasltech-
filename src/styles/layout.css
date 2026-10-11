@@ -98,7 +98,6 @@
   .footer-contact>h2{margin-bottom:var(--space-3)}
   .footer-contact__links{grid-template-columns:1fr;gap:0}
   .footer-contact__link{grid-template-columns:minmax(4.75rem,.55fr) minmax(0,1.45fr);gap:.6rem;padding:.3rem 0;background:transparent}
-  .footer-contact__name{font-size:.8rem}
   .footer-contact__value{font-size:.875rem;white-space:normal}
   .footer-bottom{align-items:flex-start;flex-direction:column;gap:.35rem;padding-block:var(--space-4);font-size:.8125rem}
 }
