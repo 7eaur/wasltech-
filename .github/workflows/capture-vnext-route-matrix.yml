@@ -477,6 +477,68 @@ jobs:
             console.log("NO-JS PLANNER + NAV: PASSED (" + locale + ")");
           }
 
+
+          // Accessible keyboard-first navigation and native disclosures: Arabic/English
+          // at 320px (the CSS viewport equivalent of 1280px at 400% reflow).
+          async function verifyReaderNavigation(locale) {
+            const path = locale === "ar" ? "/services/web-development/" : "/en/services/web-development/";
+            const ctx = await browser.newContext({
+              viewport: { width: 320, height: 780 },
+              locale: locale === "ar" ? "ar-YE" : "en-US",
+              reducedMotion: "reduce"
+            });
+            const p = await ctx.newPage();
+            await p.goto(base + path, { waitUntil: "domcontentloaded" });
+            const navLinks = p.locator(".service-jump-nav a");
+            if (await navLinks.count() < 3) throw new Error(locale + ": missing service section navigation");
+            const jump = navLinks.first();
+            await jump.focus();
+            await p.keyboard.press("Enter");
+            if (!new URL(p.url()).hash || new URL(p.url()).hash !== "#service-deliverables") {
+              throw new Error(locale + ": keyboard anchor did not navigate to deliverables");
+            }
+            const sections = p.locator(".service-deliverable__details");
+            if (await sections.count() < 2) throw new Error(locale + ": deliverables not disclosed natively");
+            if (!(await sections.first().evaluate(e => e.open)) || (await sections.nth(1).evaluate(e => e.open))) {
+              throw new Error(locale + ": unexpected initial disclosure state");
+            }
+            const summary = sections.nth(1).locator("summary");
+            await summary.focus();
+            await p.keyboard.press("Enter");
+            if (!(await sections.nth(1).evaluate(e => e.open))) throw new Error(locale + ": Enter did not open details");
+            await p.keyboard.press("Enter");
+            if (await sections.nth(1).evaluate(e => e.open)) throw new Error(locale + ": Enter did not close details");
+            const overflow = await p.evaluate(() => document.documentElement.scrollWidth > innerWidth);
+            if (overflow) throw new Error(locale + ": 320px reader reflow has horizontal overflow");
+            await p.goto(base + (locale === "ar" ? "/faq/" : "/en/faq/"), { waitUntil: "domcontentloaded" });
+            const faqSummary = p.locator(".faq-item summary").first();
+            await faqSummary.focus();
+            await p.keyboard.press("Enter");
+            const faqOpened = await faqSummary.evaluate(e => e.parentElement.open);
+            if (!faqOpened) throw new Error(locale + ": FAQ native summary keyboard activation failed");
+            const faqStyle = await faqSummary.evaluate(e => {
+              const s = getComputedStyle(e); return {
+                logicalEnd: Number.parseFloat(s.paddingInlineEnd),
+                side: document.documentElement.dir
+              };
+            });
+            if (faqStyle.logicalEnd < 25) throw new Error(locale + ": FAQ text overlaps toggle mark");
+            await p.goto(base + (locale === "ar" ? "/" : "/en/"), { waitUntil: "domcontentloaded" });
+            await p.locator(".skip-link").focus();
+            await p.keyboard.press("Enter");
+            const skip = await p.evaluate(() => ({
+              hash: location.hash,
+              focusedMain: document.activeElement?.id === "main-content"
+            }));
+            if (skip.hash !== "#main-content" || !skip.focusedMain) {
+              throw new Error(locale + ": keyboard skip-to-main failed");
+            }
+            await ctx.close();
+            console.log("KEYBOARD SERVICE DISCLOSURE + FAQ + SKIP LINK: PASSED (" + locale + ")");
+          }
+
+          await verifyReaderNavigation("ar");
+          await verifyReaderNavigation("en");
           await verifyNoJsFallback("ar");
           await verifyNoJsFallback("en");
           await verifyDegradedRuntime();

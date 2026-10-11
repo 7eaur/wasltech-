@@ -97,7 +97,7 @@ ${minimalShell ? "" : `  <script src="/assets/js/navigation.js" defer></script>\
 <body>
   <a class="skip-link" href="#main-content">${copy[locale].skip}</a>
   ${minimalShell ? "" : Header({ activePath, locale, alternatePath })}
-  <main id="main-content">${body}</main>
+  <main id="main-content" tabindex="-1">${body}</main>
   ${minimalShell ? "" : Footer({ locale })}
 </body>
 </html>`;
