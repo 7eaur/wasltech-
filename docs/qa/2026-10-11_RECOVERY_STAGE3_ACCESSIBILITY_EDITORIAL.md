@@ -18,7 +18,7 @@
 | WT-IA-58 — المقالة | تحويل المقدمة السابقة في Sidebar منفصل إلى بداية متصلة داخل عمود قراءة بعرض أقصاه 52rem، مع accent بسيط ثم العناوين والفقرات. | قراءة طبيعية مثل مقال، لا نص منفصل على حافة الشاشة. | `scripts/check-secondary-legal.mjs` + visual screenshots AR/EN |
 | WT-IA-67/16 — الهاتف | جعل عمود متطلبات/تفاصيل الوظائف واحدًا في المقاسات الضيقة، بدلاً من نص مقسم على عمودين عند 390px، وضبط حجم النص. | تقليل التكسّر وضيق القراءة. | `vnext:verify` + matrix 320..1440 |
 | WT-IA-74 — keyboard / labels | إعطاء landmark `main` `tabindex="-1"` لتفعيل Skip to Main Content فعلًا، إضافة `role="group"` لفلاتر المشاريع. اختبارات انتقال Enter إلى روابط الخدمة، فتح/إغلاق Details/FAQ، وعمل Skip Link بالعربية والإنجليزية عند 320px. | لا تقتصر الوصولية على الشكل والصور. | Playwright matrix + static contract |
-| WT-IA-38/28 — CSS | إزالة 18 rule قديم من Hero CSS بعدما أثبت المصدر أن المالك الحالي هو `hero-pages.css` و`hero-responsive.css`. **لم نرفع حد CSS gzip**. | التخلص من قواعد تتغلب عليها طبقات أخرى وحماية أداء النقل. | GitHub Node24 quality budget |
+| WT-IA-38/28 — CSS | إزالة 22 rule قديم من Hero CSS بعدما أثبت المصدر أن المالك الحالي هو `hero-pages.css` و`hero-responsive.css`. **لم نرفع حد CSS gzip**. | التخلص من قواعد تتغلب عليها طبقات أخرى وحماية أداء النقل. | GitHub Node24 quality budget |
 | WT-IA-24 — نظافة المستودع | تحسين `.gitignore` لحظر `node_modules` و`dist` ونتائج الاختبارات و`.env` والأسرار المحلية والمجلدات المؤقتة، دون حذف ملفات فعلية. | حماية المصدر من إضافة build أو secrets بالخطأ. | Git diff على فرع التنفيذ |
 
 ## 2. الاختبارات والأدلة المربوطة بالكود
