@@ -152,6 +152,15 @@ if(routeList[0]?.handle!=="filesystem") fail("vercel.json","static routes must r
 if(routeList[1]?.src!=="/en(?:/.*)?" || routeList[1]?.status!==404 || routeList[1]?.dest!=="/en/404.html") fail("vercel.json","English 404 must be a server-side 404");
 if(routeList[2]?.src!=="/.*" || routeList[2]?.status!==404 || routeList[2]?.dest!=="/404.html") fail("vercel.json","Arabic/default 404 must be a server-side 404");
 
+
+const articleCss=await readFile(path.join(ROOT,"src/styles/insights-careers.css"),"utf8");
+if(!articleCss.includes(".article-content__layout{display:grid;grid-template-columns:minmax(0,52rem)")) {
+  fail("article","intro and body must be in a single readable editorial column");
+}
+const faqCss=await readFile(path.join(ROOT,"src/styles/secondary.css"),"utf8");
+if(!faqCss.includes("padding-inline-end:2.5rem") || !faqCss.includes(".faq-group{display:grid")) {
+  fail("faq","logical RTL/LTR disclosure space and grouped layout are required");
+}
 if(errors.length){
   console.error("VNEXT SECONDARY/LEGAL CHECK: FAILED");
   for(const error of errors) console.error(`- ${error}`);
