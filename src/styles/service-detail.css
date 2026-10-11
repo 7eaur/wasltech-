@@ -102,7 +102,6 @@
 
   .service-deliverable h3{font-size:1rem}
   .service-deliverable p{font-size:.88rem;line-height:1.65}
-  .service-proof__grid{gap:var(--space-4)}
 
 
   .service-process__steps{grid-template-columns:1fr}
