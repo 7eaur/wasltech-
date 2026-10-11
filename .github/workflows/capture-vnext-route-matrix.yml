@@ -489,7 +489,7 @@ jobs:
             });
             const p = await ctx.newPage();
             await p.goto(base + path, { waitUntil: "domcontentloaded" });
-            const navLinks = p.locator(".service-jump-nav a");
+            const navLinks = p.locator(".section-jump-nav a");
             if (await navLinks.count() < 3) throw new Error(locale + ": missing service section navigation");
             const jump = navLinks.first();
             await jump.focus();
