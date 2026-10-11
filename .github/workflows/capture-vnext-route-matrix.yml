@@ -537,6 +537,46 @@ jobs:
             console.log("KEYBOARD SERVICE DISCLOSURE + FAQ + SKIP LINK: PASSED (" + locale + ")");
           }
 
+
+          async function verifyServicesCardRhythm(locale) {
+            const widths=[320,390,768,900,1024,1200,1440];
+            for(const width of widths){
+              const context=await browser.newContext({viewport:{width,height:850},locale:locale==="ar"?"ar-YE":"en-US"});
+              const page=await context.newPage();
+              await page.goto(base+(locale==="ar"?"/services/":"/en/services/"),{waitUntil:"domcontentloaded"});
+              const families=await page.locator(".service-family").evaluateAll(sections=>sections.map(section=>{
+                const grid=section.querySelector(".service-directory-list");
+                const cards=[...grid.children].map(card=>{
+                  const rect=card.getBoundingClientRect();
+                  return {x:rect.x,y:rect.y,width:rect.width};
+                });
+                const r=grid.getBoundingClientRect();
+                return {id:section.id,rows:cards,count:cards.length,gridWidth:r.width,three:grid.classList.contains("service-directory-list--three")};
+              }));
+              if(families.length!==3) throw new Error("Services families should be three "+locale);
+              for(const f of families){
+                const expectThree=f.count===3;
+                if(f.three!==expectThree)throw new Error(`Services modifier mismatch ${f.id} @ ${width} ${locale}`);
+                const approx=(a,b)=>Math.abs(a-b)<2;
+                if(width<=768){
+                  if(!f.rows.every(c=>approx(c.width,f.gridWidth)))throw new Error(`Services cards not full-width at mobile ${f.id} ${width} ${locale}`);
+                }else if(expectThree&&width>=1025){
+                  if(!f.rows.every(c=>approx(c.y,f.rows[0].y)))throw new Error(`Services orphan at desktop ${f.id} ${width} ${locale}`);
+                }else if(expectThree){
+                  if(!approx(f.rows[0].y,f.rows[1].y)||!(f.rows[2].y>f.rows[0].y)||!approx(f.rows[2].width,f.gridWidth)){
+                    throw new Error(`Services third card not balanced at tablet ${f.id} ${width} ${locale}`);
+                  }
+                }
+              }
+              const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
+              if(overflow)throw new Error(`Services horizontal overflow ${width} ${locale}`);
+              await context.close();
+            }
+            console.log("SERVICES BALANCED 3/2/3 GRID: PASSED ("+locale+")");
+          }
+
+          await verifyServicesCardRhythm("ar");
+          await verifyServicesCardRhythm("en");
           await verifyReaderNavigation("ar");
           await verifyReaderNavigation("en");
           await verifyNoJsFallback("ar");

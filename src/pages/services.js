@@ -78,7 +78,7 @@ function renderFamily(group, content, locale) {
             })}
           </div>
         </div>
-        <div class="service-directory-list">
+        <div class="service-directory-list${services.length === 3 ? " service-directory-list--three" : ""}">
           ${services.map((service)=>renderServiceRow(service,locale)).join("")}
         </div>
       </div>
