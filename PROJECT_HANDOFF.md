@@ -1,5 +1,12 @@
 # Wasl Tech VNext — Conversation Handoff
 
+## 2026-10-12 — Root source ownership baton (newest)
+
+- Confirm live HEAD of `fix/independent-site-recovery-20261010` and status of route matrix / Vercel for every code change. A1 source fix `5b11b7613e88e43e4e71250fbe2bdb99368bfc65` removes hidden Planner Hero link and service mobile description clipping; regression tests cover both. See `docs/qa/2026-10-12_RECOVERY_ROOT_CSS_A1.md`.
+- `scripts/check-source-ownership.mjs` guards build-owned styles/clients. Only VNext build inputs are verified; root legacy CSS/JS/HTML and `.htaccess` are **retained** until production ownership is evidenced and cutover approved. Continue dependency inventory (WT-IA-25/38) before proposing deletion.
+- Next functional priority: UXR-03 duplicate meanings in AR/EN service data and page structure, then visual/accessibility/performance release work. No auto merge/Production/DNS/SEO/Logo changes.
+
+
 ## 2026-10-12 — Updated handoff for independent recovery branch
 
 - Before following older 2026-09 instructions, inspect live GitHub HEAD of `fix/independent-site-recovery-20261010` and Draft PR #46 against `integration/site-stabilization-20261010`.

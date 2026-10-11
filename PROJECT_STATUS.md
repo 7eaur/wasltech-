@@ -1,5 +1,12 @@
 # Wasl Tech VNext — Current Project Status
 
+## 2026-10-12 — Independent recovery A1 and ownership inventory
+
+- Branch `fix/independent-site-recovery-20261010`, Draft PR #46; A1 source fix: `5b11b7613e88e43e4e71250fbe2bdb99368bfc65`. GitHub Actions VNext verify on the source-fix SHA succeeded for push and PR (runs 38181793065 and 38181796013); Vercel Preview status reported success; browser route matrix remained under inspection when this note was authored.
+- Dependency ownership safeguard: `scripts/check-source-ownership.mjs` classifies build-owned CSS, preview-only showcase CSS, the comment-only `hero-system.css` marker and browser clients; it is wired into the standard structural verifier. It prevents silent accumulation of unowned new VNext styles, without deleting legacy production files.
+- See `docs/qa/2026-10-12_RECOVERY_ROOT_CSS_A1.md` and `docs/qa/2026-10-12_ROOT_CAUSE_CLOSURE_MATRIX.md`. This is CI-confirmed source correction, **not** Production/real-device acceptance. Remaining UXR-03, visual and P6 gates are OPEN.
+
+
 ## 2026-10-12 — Latest independent recovery UX closure checkpoint
 
 - Live recovery branch: `fix/independent-site-recovery-20261010`; latest implementation and QA evidence must be read from its GitHub HEAD, not older historical VNext baton entries below.

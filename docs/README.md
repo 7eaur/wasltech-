@@ -7,13 +7,7 @@ This file defines where project truth lives. It exists to prevent overlapping do
 
 ## Current handoff record
 
-For the current 2026-09-24 continuation, read:
-- `PROJECT_STATUS.md`
-- `PROJECT_HANDOFF.md`
-- `docs/qa/2026-09-24_final-conversation-handoff.md`
-- `docs/qa/FINAL_MEDIA_INVENTORY.md`
-
-The authoritative resume point is the current baton at the top of `PROJECT_STATUS.md` / `PROJECT_HANDOFF.md` together with `docs/qa/2026-09-24_final-conversation-handoff.md`.
+For independent recovery work as of 2026-10-12, read the newest sections of `PROJECT_STATUS.md` and `PROJECT_HANDOFF.md` first, followed by `docs/qa/2026-10-12_NEW_CONVERSATION_ROOT_CAUSE_HANDOFF.md`, `docs/qa/2026-10-12_ROOT_CAUSE_CLOSURE_MATRIX.md` and `docs/qa/2026-10-12_RECOVERY_ROOT_CSS_A1.md`. The former September 2026 baton remains historical evidence only. Media ownership: `docs/qa/FINAL_MEDIA_INVENTORY.md`.
 
 The older `docs/qa/2026-09-24_footer-service-media-handoff.md` record is historical evidence only. Its former “service media pending” instruction is superseded: all eight service originals and WebP derivatives are committed and wired through the canonical service data, and Home/About media are also integrated.
 
@@ -21,7 +15,7 @@ The older `docs/qa/2026-09-24_footer-service-media-handoff.md` record is histori
 
 1. `PROJECT_STATUS.md` — current live state only.
 2. `PROJECT_HANDOFF.md` — exact execution baton / next action.
-3. `docs/qa/2026-09-24_final-conversation-handoff.md` — concise current-conversation baton when resuming this phase.
+3. `docs/qa/2026-10-12_NEW_CONVERSATION_ROOT_CAUSE_HANDOFF.md` and `docs/qa/2026-10-12_ROOT_CAUSE_CLOSURE_MATRIX.md` — live recovery baton.
 4. `AGENTS.md` — non-negotiable operating rules.
 5. `docs/core/PRODUCT.md` — stable product/business truth.
 6. `docs/core/DESIGN_SYSTEM.md` — stable UX/UI/brand rules.
