@@ -1,7 +1,6 @@
 import { routes } from "../config/routes.js";
 import { site } from "../config/site.js";
 import { pages } from "../data/pages.js";
-import { ActionLink } from "../components/ActionLink.js";
 import { CallToAction } from "../components/CallToAction.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema } from "../seo/structured-data.js";
@@ -48,10 +47,6 @@ export function contactPage(locale="ar"){
           <h1>${escapeHtml(content.kicker)}</h1>
           <h2 class="inner-hero__subtitle">${escapeHtml(content.title)}</h2>
           <p>${escapeHtml(content.support)}</p>
-          <div class="contact-hero__actions">
-            ${ActionLink({href:whatsappHref(locale),label:content.primaryCta,variant:"primary",size:"lg"})}
-            ${ActionLink({href:routes.startProject(locale),label:content.secondaryCta,variant:"ghost",size:"lg"})}
-          </div>
         </div>
         ${HeroMedia({...getPageHeroMedia("contact", locale), className:"contact-hero__media"})}
       </div>

@@ -1,7 +1,6 @@
 import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
 import { serviceGroups, getServicesByGroup } from "../data/services.js";
-import { ActionLink } from "../components/ActionLink.js";
 import { CallToAction } from "../components/CallToAction.js";
 import { SectionHeader } from "../components/SectionHeader.js";
 import { documentTemplate } from "../templates/document.js";
@@ -31,10 +30,6 @@ function renderHero(content, locale) {
           <h1>${escapeHtml(content.kicker)}</h1>
           <h2 class="inner-hero__subtitle">${escapeHtml(content.title)}</h2>
           <p>${escapeHtml(content.support)}</p>
-          <div class="services-hero__actions">
-            ${ActionLink({ href:"#service-families", label:content.primaryCta, variant:"primary", size:"lg" })}
-            ${ActionLink({ href:routes.startProject(locale), label:content.secondaryCta, variant:"ghost", size:"lg" })}
-          </div>
         </div>
         ${HeroMedia({...getPageHeroMedia("services", locale), className:"services-hero__media"})}
       </div>

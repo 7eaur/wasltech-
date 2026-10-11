@@ -136,29 +136,6 @@
     overflow:visible;
   }
   :is(
-    .services-hero__actions,
-    .service-detail-hero__actions,
-    .contact-hero__actions,
-    .secondary-hero__actions,
-    .about-hero__actions,
-    .process-hero__actions,
-    .insights-hero__actions
-  ){
-    display:flex;
-    flex-wrap:wrap;
-  }
-  :is(
-    .services-hero__actions,
-    .service-detail-hero__actions,
-    .contact-hero__actions,
-    .secondary-hero__actions,
-    .about-hero__actions,
-    .process-hero__actions,
-    .insights-hero__actions
-  ) .button{
-    width:auto;
-  }
-  :is(
     .services-hero__media,
     .service-detail-hero__media,
     .portfolio-hero__media,
@@ -269,5 +246,4 @@
   }
 }
 
-/* Inner-page heroes never carry action buttons. */
-.services-hero__actions,.service-detail-hero__actions,.contact-hero__actions,.secondary-hero__actions,.about-hero__actions,.process-hero__actions,.insights-hero__actions{display:none}
+

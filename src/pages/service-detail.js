@@ -1,7 +1,6 @@
 import { routes } from "../config/routes.js";
 import { serviceGroups } from "../data/services.js";
 import { getProjectsByService } from "../data/projects.js";
-import { ActionLink } from "../components/ActionLink.js";
 import { CallToAction } from "../components/CallToAction.js";
 import { MediaCard } from "../components/MediaCard.js";
 import { SectionHeader } from "../components/SectionHeader.js";
@@ -43,10 +42,6 @@ function renderHero(service, locale) {
           <h1>${escapeHtml(copy.title)}</h1>
           <h2 class="service-detail-hero__subtitle inner-hero__subtitle">${escapeHtml(copy.subtitle)}</h2>
           <p class="service-detail-hero__description">${escapeHtml(copy.description)}</p>
-          <div class="service-detail-hero__actions">
-            ${ActionLink({ href:routes.startProject(locale), label:copy.cta.label, variant:"primary", size:"lg" })}
-            ${ActionLink({ href:routes.services(locale), label:locale === "ar" ? "العودة للخدمات" : "Back to services", variant:"ghost", size:"lg" })}
-          </div>
         </div>
         ${HeroMedia({...getServiceHeroMedia(service, locale), className:"service-detail-hero__media"})}
       </div>

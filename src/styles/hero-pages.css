@@ -157,32 +157,6 @@
   border:0;
 }
 :is(
-  .services-hero__actions,
-  .service-detail-hero__actions,
-  .contact-hero__actions,
-  .secondary-hero__actions,
-  .about-hero__actions,
-  .process-hero__actions,
-  .insights-hero__actions
-){
-  display:grid;
-  grid-template-columns:1fr;
-  gap:.5rem;
-  margin-top:.7rem;
-}
-:is(
-  .services-hero__actions,
-  .service-detail-hero__actions,
-  .contact-hero__actions,
-  .secondary-hero__actions,
-  .about-hero__actions,
-  .process-hero__actions,
-  .insights-hero__actions
-) .button{
-  width:100%;
-  min-height:2.75rem;
-}
-:is(
   .services-hero__media,
   .service-detail-hero__media,
   .portfolio-hero__media,

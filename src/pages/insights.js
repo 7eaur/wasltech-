@@ -1,7 +1,6 @@
 import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
 import { getPublishedArticles } from "../data/articles.js";
-import { ActionLink } from "../components/ActionLink.js";
 import { CallToAction } from "../components/CallToAction.js";
 import { MediaCard } from "../components/MediaCard.js";
 import { HeroMedia } from "../components/HeroMedia.js";
@@ -45,10 +44,6 @@ export function insightsPage(locale="ar"){
           <p class="eyebrow">${escapeHtml(content.kicker)}</p>
           <h1>${escapeHtml(content.title)}</h1>
           <p>${escapeHtml(content.support)}</p>
-          <div class="insights-hero__actions">
-            ${ActionLink({href:routes.services(locale),label:content.primaryCta,variant:"primary",size:"lg"})}
-            ${ActionLink({href:routes.portfolio(locale),label:content.secondaryCta,variant:"ghost",size:"lg"})}
-          </div>
         </div>
         ${HeroMedia({...getPageHeroMedia("insights",locale),className:"insights-hero__media"})}
       </div>

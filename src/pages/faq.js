@@ -1,7 +1,6 @@
 import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
 import { faqGroups, faqs } from "../data/faq.js";
-import { ActionLink } from "../components/ActionLink.js";
 import { documentTemplate } from "../templates/document.js";
 import { faqPageSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
@@ -41,10 +40,6 @@ export function faqPage(locale="ar"){
           <h1>${escapeHtml(content.kicker)}</h1>
           <h2 class="inner-hero__subtitle">${escapeHtml(content.title)}</h2>
           <p>${escapeHtml(content.support)}</p>
-          <div class="secondary-hero__actions">
-            ${ActionLink({href:routes.startProject(locale),label:content.primaryCta,variant:"primary",size:"lg"})}
-            ${ActionLink({href:routes.contact(locale),label:content.secondaryCta,variant:"ghost",size:"lg"})}
-          </div>
         </div>
         ${HeroMedia({...getPageHeroMedia("faq", locale), className:"secondary-hero__media"})}
       </div>
