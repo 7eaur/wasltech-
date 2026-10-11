@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#f4f7f8">
+  <title>وصل تك — مختبر بناء الشعار الحركي V2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="وصل تك — الصفحة الرئيسية">
+      <img src="/assets/brand/wasl-tech-horizontal.svg" alt="وصل تك" width="1130" height="360">
+    </a>
+    <span class="build-state">MOTION STUDY / V2</span>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="kicker">WASL TECH · CONSTRUCTIVE BRAND MOTION</p>
+      <h1>أربع نقاط تبني الشعار، لا تكشفه جاهزًا.</h1>
+      <p class="lead">المقترح الرئيسي مبني على معنى «الوصل»: أربع نقاط تتصل، تتوزع على أربع مهام، ثم تتحول فعليًا إلى رمز وصل، الاسم العربي، والاسم الإنجليزي.</p>
+    </section>
+
+    <section class="lab" aria-labelledby="lab-title">
+      <div class="lab-copy">
+        <span class="number">01</span>
+        <div>
+          <p class="eyebrow">الاتجاه الموصى به</p>
+          <h2 id="lab-title">نقطة الوصل</h2>
+          <p>حركة واحدة ذات قصة واضحة: اتصال، توزيع، بناء، ثم استقرار. كل مسار في الرمز وكل مجموعة حرفية تُبنى بصورة مستقلة من مصدر SVG الرسمي.</p>
+        </div>
+      </div>
+
+      <div class="stage-shell" data-theme="light">
+        <div class="stage" id="motion-stage" aria-label="معاينة متحركة لشعار وصل تك">
+          <div class="stage-grid" aria-hidden="true"></div>
+          <div class="motion-mount" id="motion-mount"></div>
+          <div class="phase" id="phase-label" aria-live="polite">الاتصال</div>
+        </div>
+
+        <div class="controls">
+          <button class="button button-primary" id="replay" type="button">إعادة التشغيل</button>
+          <button class="button" id="pause" type="button">إيقاف مؤقت</button>
+          <button class="button" id="fullscreen" type="button">تجربة شاشة الدخول</button>
+          <button class="button" id="theme" type="button">خلفية داكنة</button>
+          <label class="timeline">
+            <span>الخط الزمني</span>
+            <input id="scrubber" type="range" min="0" max="1000" value="0" aria-label="التحكم في تقدم حركة الشعار">
+            <output id="time-output">0.0s</output>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="breakdown" aria-label="مراحل بناء الحركة">
+      <article><b>01</b><h3>اتصال</h3><p>أربع نقاط تظهر من نبضة واحدة وتبني علاقة بصرية قصيرة.</p></article>
+      <article><b>02</b><h3>توزيع</h3><p>كل نقطة تتجه إلى مهمتها بدل الدوران الزخرفي المتكرر.</p></article>
+      <article><b>03</b><h3>بناء</h3><p>المسارات الأصلية والحروف تتشكل تدريجيًا من نقاطها.</p></article>
+      <article><b>04</b><h3>استقرار</h3><p>تعود هندسة الشعار إلى الأصل بنسبة مطابقة كاملة.</p></article>
+    </section>
+
+    <aside class="decision">
+      <strong>لماذا هذا الاتجاه؟</strong>
+      <p>لأنه يربط الحركة بمعنى العلامة نفسها، يظل واضحًا على الهاتف، ولا يعتمد على مؤثرات جاهزة أو ظهور الشعار كصورة ثابتة.</p>
+    </aside>
+  </main>
+
+  <dialog id="intro-dialog" aria-label="تجربة شاشة دخول موقع وصل تك">
+    <button class="dialog-close" id="dialog-close" type="button" aria-label="إغلاق">إغلاق</button>
+    <div class="dialog-stage" id="dialog-mount"></div>
+    <p>نبني حضورك الرقمي باحتراف</p>
+  </dialog>
+
+  <script src="/assets/js/motion.js" defer></script>
+  <script type="module" src="./motion.js"></script>
+</body>
+</html>
