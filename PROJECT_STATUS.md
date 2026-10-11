@@ -1,5 +1,11 @@
 # Wasl Tech VNext — Current Project Status
 
+## 2026-10-12 — Independent recovery service copy B1
+
+- `UXR-03 / WT-IA-53/65`: removed four generic repeating `SectionHeader.supporting` paragraphs from the shared service detail template (AR/EN; all eight services). No canonical deliverables, decisions, subservices, audiences, constraints, work examples, process, FAQ or data records removed.
+- Added preservation checks to `scripts/check-service-details.mjs`. Evidence: `docs/qa/2026-10-12_SERVICE_DETAIL_EDITORIAL_DEDUP_B1.md`; status **IMPLEMENTED, new-SHA CI + human reading review pending**. Semantic overlap within `src/data/services.js` remains open for B2.
+
+
 ## 2026-10-12 — Independent recovery A1 and ownership inventory
 
 - Branch `fix/independent-site-recovery-20261010`, Draft PR #46; A1 source fix: `5b11b7613e88e43e4e71250fbe2bdb99368bfc65`. GitHub Actions VNext verify on the source-fix SHA succeeded for push and PR (runs 38181793065 and 38181796013); Vercel Preview status reported success; browser route matrix remained under inspection when this note was authored.

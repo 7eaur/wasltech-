@@ -1,5 +1,11 @@
 # Wasl Tech VNext — Conversation Handoff
 
+## 2026-10-12 — UXR-03 B1 editorial continuation
+
+- After source-ownership cleanup, B1 removed four generic repeated headings' support paragraphs from `src/pages/service-detail.js`; full substantive copy remains in `src/data/services.js`, guarded for 16 routes. See `docs/qa/2026-10-12_SERVICE_DETAIL_EDITORIAL_DEDUP_B1.md`.
+- Verify the latest VNext CI/route matrix and screenshot/reading behavior at the actual SHA. Continue B2 semantic data-level duplication, service by service AR/EN, then UXR-04/06/08 and remaining U4/P6 gates. Never claim UXR-03 fully closed solely from shorter HTML.
+
+
 ## 2026-10-12 — Root source ownership baton (newest)
 
 - Confirm live HEAD of `fix/independent-site-recovery-20261010` and status of route matrix / Vercel for every code change. A1 source fix `5b11b7613e88e43e4e71250fbe2bdb99368bfc65` removes hidden Planner Hero link and service mobile description clipping; regression tests cover both. See `docs/qa/2026-10-12_RECOVERY_ROOT_CSS_A1.md`.

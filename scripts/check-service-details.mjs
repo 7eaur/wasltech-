@@ -39,6 +39,20 @@ for (const locale of ["ar","en"]) {
     if (!html.includes(htmlText(copy.decision.problemNeed))) fail(file,"problem/need content missing");
     if (!html.includes(htmlText(copy.decision.scopeSummary))) fail(file,"scope summary missing");
 
+    // Keep every substantive field when removing repeated template copy (UXR-03).
+    for (const item of copy.heroCards) {
+      if (!html.includes(htmlText(item.title)) || !html.includes(htmlText(item.description))) fail(file,`service signal missing: ${item.title}`);
+    }
+    for (const audience of copy.audiences) {
+      if (!html.includes(htmlText(audience))) fail(file,`service audience missing: ${audience}`);
+    }
+    for (const constraint of copy.constraints) {
+      if (!html.includes(htmlText(constraint))) fail(file,`scope constraint missing: ${constraint}`);
+    }
+    for (const deliverable of copy.deliverables) {
+      if (!html.includes(htmlText(deliverable.description))) fail(file,`deliverable description missing: ${deliverable.title}`);
+    }
+
     for (const subservice of copy.subservices ?? []) {
       if (!html.includes(htmlText(subservice.title))) fail(file,`subservice missing: ${subservice.title}`);
       if (!html.includes(htmlText(subservice.description))) fail(file,`subservice description missing: ${subservice.id}`);
@@ -91,6 +105,20 @@ for (const locale of ["ar","en"]) {
 
     if (html.includes("VNext Foundation")) fail(file,"foundation placeholder leaked into service detail");
   }
+}
+
+const source=await readFile(path.join(ROOT,"src/pages/service-detail.js"),"utf8");
+for (const duplicate of [
+  "هذه الأنواع جزء من الخدمة الرئيسية وتُحدد تفاصيلها حسب احتياج المشروع.",
+  "يتم تحديد التفاصيل النهائية حسب احتياج المشروع ونطاق العمل.",
+  "استكشف كيف تُترجم هذه الخدمة داخل مشاريع ومتطلبات مختلفة.",
+  "خطوات واضحة من فهم الاحتياج إلى التنفيذ والتسليم.",
+  "These are service types within the main offering, with details defined according to each project.",
+  "The exact deliverables depend on your project scope, but these are the elements that may be included in the service.",
+  "See how this service takes shape across different projects and needs.",
+  "Clear steps from understanding the need to execution and delivery."
+]){
+  if (source.includes(duplicate)) fail("service-detail.js","duplicated generic supporting text returned: "+duplicate);
 }
 
 const serviceCss=await readFile(path.join(ROOT,"src/styles/service-detail.css"),"utf8");

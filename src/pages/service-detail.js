@@ -126,10 +126,7 @@ function renderSubservices(service, locale) {
       <div class="container">
         ${SectionHeader({
           kicker:locale === "ar" ? "خدمات ضمن هذه الخدمة" : "Services within this area",
-          title:locale === "ar" ? "ما الذي يمكننا تنفيذه ضمن هذه الخدمة؟" : "What can we deliver within this service?",
-          supporting:locale === "ar"
-            ? "هذه الأنواع جزء من الخدمة الرئيسية وتُحدد تفاصيلها حسب احتياج المشروع."
-            : "These are service types within the main offering, with details defined according to each project."
+          title:locale === "ar" ? "ما الذي يمكننا تنفيذه ضمن هذه الخدمة؟" : "What can we deliver within this service?"
         })}
         <div class="service-subservices__grid">
           ${items.map((item)=>`
@@ -151,10 +148,7 @@ function renderDeliverables(service, locale) {
       <div class="container">
         ${SectionHeader({
           kicker:locale === "ar" ? "ما الذي تحصل عليه" : "What you receive",
-          title:locale === "ar" ? "ما الذي نقدمه ضمن هذه الخدمة؟" : "What do we provide within this service?",
-          supporting:locale === "ar"
-            ? "يتم تحديد التفاصيل النهائية حسب احتياج المشروع ونطاق العمل."
-            : "The exact deliverables depend on your project scope, but these are the elements that may be included in the service."
+          title:locale === "ar" ? "ما الذي نقدمه ضمن هذه الخدمة؟" : "What do we provide within this service?"
         })}
         <div class="service-deliverables__list">
           ${items.map((item,index)=>`
@@ -181,8 +175,7 @@ function renderProof(service, locale) {
       <div class="container">
         ${SectionHeader({
           kicker:locale === "ar" ? "أعمال مرتبطة" : "Related work",
-          title:locale === "ar" ? "نماذج من أعمال مرتبطة بالخدمة" : "Related work examples",
-          supporting:locale === "ar" ? "استكشف كيف تُترجم هذه الخدمة داخل مشاريع ومتطلبات مختلفة." : "See how this service takes shape across different projects and needs."
+          title:locale === "ar" ? "نماذج من أعمال مرتبطة بالخدمة" : "Related work examples"
         })}
         <div class="service-proof__grid">
           ${projects.map((project)=>MediaCard({
@@ -213,8 +206,7 @@ function renderProcess(service, locale) {
       <div class="container">
         ${SectionHeader({
           kicker:locale === "ar" ? "طريقة التنفيذ" : "How it is delivered",
-          title:locale === "ar" ? "كيف ننفذ الخدمة؟" : "How do we deliver the service?",
-          supporting:locale === "ar" ? "خطوات واضحة من فهم الاحتياج إلى التنفيذ والتسليم." : "Clear steps from understanding the need to execution and delivery."
+          title:locale === "ar" ? "كيف ننفذ الخدمة؟" : "How do we deliver the service?"
         })}
         <div class="service-process__steps">
           ${items.map((item,index)=>`

@@ -50,6 +50,10 @@
 - **WT-IA-02/09/38:** Commit [`5b11b761`](https://github.com/7eaur/wasltech-/commit/5b11b7613e88e43e4e71250fbe2bdb99368bfc65) يزيل رابط Planner Hero المخفي وقص وصف الخدمة على الجوال من المالك الأساسي، مع اختبارات منع التكرار. اختبارات VNext verify ناجحة على الـSHA ذاته: [Push run 38181793065](https://github.com/7eaur/wasltech-/actions/runs/38181793065) و[PR run 38181796013](https://github.com/7eaur/wasltech-/actions/runs/38181796013). **CI VERIFIED؛ Visual/production pending**.
 - **WT-IA-25/38، WT-015/020:** حارس ملكية مصدر البناء `scripts/check-source-ownership.mjs` يربط 4 ملفات عميل وكل CSS مدرج بالبناء، ويميز Showcase وملف marker التعليقي. Root-level legacy HTML/CSS/JS و`.htaccess` خارج بناء VNext لكن لا تُحذف قبل إثبات استخدامها في Production أو قطع الخدمة رسميًا. الحالة **PARTIAL**.
 
+## تحديث B1 — تخفيف التكرار التحريري (2026-10-12)
+
+- **UXR-03 / WT-IA-53/65:** أُزيلت أربع مقدمات عامة متكررة من **مالك القالب** المشترك لكل خدمة (AR/EN)، دون تغيير المخرجات أو قيود العمل أو أمثلة المشاريع أو الأسئلة. توسعت اختبارات حفظ البيانات. المرجع [B1](2026-10-12_SERVICE_DETAIL_EDITORIAL_DEDUP_B1.md). الحالة **IMPLEMENTED / CI+Visual on new SHA pending**. B2 الخاص بتكرار المعنى في سجلات الخدمات الفعلية لم يغلق.
+
 ## ترتيب التنفيذ التالي
 
 1. إثبات سلامة إزالة Hero-hidden overrides على SHA الحالي: Node24 verify + Chromium route matrix، ثم مراجعة Screenshots.
