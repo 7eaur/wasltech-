@@ -15,3 +15,7 @@ The existing Playwright route matrix asserts the active filter label is present 
 ## 2026-10-12 — Browser test correction
 
 At [route matrix run #38183339587](https://github.com/7eaur/wasltech-/actions/runs/38183339587), the new contrast sample for `.faq-item p` returned **7.25:1** but the test failed because native `<details>` was correctly *closed* (zero visible client rects). This was not evidence of a contrast defect. The regression now **keyboard-focuses and presses Enter** on the first FAQ summary, checks it opened, and only then measures the visible answer and its computed colors. The threshold stays 4.5:1. Retain this failure and the rerun link; do not hide it by skipping hidden elements or lowering thresholds.
+
+## Verification after test correction
+
+Chromium route matrix [38183610738](https://github.com/7eaur/wasltech-/actions/runs/38183610738) passed after the keyboard-open correction on `6dc1e353`; subsequent runtime `00651e8c` also passed [38187340370](https://github.com/7eaur/wasltech-/actions/runs/38187340370). The original false positive and unchanged >=4.5 contrast requirement remain documented above. **VERIFIED_PREVIEW for selected DOM contrast samples**, not WCAG/real NVDA/VoiceOver acceptance.

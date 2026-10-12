@@ -67,6 +67,13 @@
 
 - تحسين رسالة قارئ الشاشة في معرض الأعمال لتسمية الفلتر المستخدم دون أرقام عامة؛ إضافة فحص computed contrast Chromium لعينة Home/Contact/FAQ/Service بالعربية والإنجليزية عند 390px بنسبة 4.5:1. [تفاصيل القبول والحدود](2026-10-12_UXR12_COMPUTED_CONTRAST_AND_PORTFOLIO_A11Y.md). **IMPLEMENTED / latest SHA CI pending**؛ قارئ الشاشة الحقيقي والتكبير وfield CWV OPEN.
 
+## Update C3 — خفض ازدحام خيارات الخدمات وملكية JavaScript
+
+- `00651e8c`: خيارات الخدمات الطويلة (4–5 أنواع) تستخدم `<details>` الأصلي، عناوين جميع الخيارات ظاهرة، مثال أول مفتوح، القصير يظهر كاملًا. 16 مسار AR/EN محفوظًا، no generic content deleted; `scripts/check-service-details.mjs` + [VNext success #38187340392](https://github.com/7eaur/wasltech-/actions/runs/38187340392) + [Chromium route matrix success #38187340370](https://github.com/7eaur/wasltech-/actions/runs/38187340370). **VERIFIED_PREVIEW لأصل الكود فقط**؛ تقييم زمن قراءة الزائر/لقطات App التفصيلية مفتوح.
+- `af46af71`: فحص مالك واحد لكل سكربت مرتبط بمسار الصفحة أو قالبها؛ VNext verify [#38187398707](https://github.com/7eaur/wasltech-/actions/runs/38187398707) و[#38187401848](https://github.com/7eaur/wasltech-/actions/runs/38187401848) PASS. لم تُحذف ملفات Production legacy، تظل مراجعة ملكيتها الحقيقية **OPEN**.
+- امتداد لاحق للاختبار فقط: no-JS `<details>` لخمسة خيارات على App AR/EN وإضافة صور App للمصفوفة، على SHA منفصل; إثبات آخر CI مطلوب بعد تغييره.
+- **لا تختزل UXR-03 أو WT-IA-25/38 إلى CLOSED**: هناك قبول قراءة بشري واعتماد Cutover خارجي.
+
 ## ترتيب التنفيذ التالي
 
 1. إثبات سلامة إزالة Hero-hidden overrides على SHA الحالي: Node24 verify + Chromium route matrix، ثم مراجعة Screenshots.

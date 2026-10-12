@@ -88,6 +88,7 @@ jobs:
             ["home", "/", "/en/", "/en/", "/"],
             ["services", "/services/", "/en/services/", "/en/services/", "/services/"],
             ["service-web", "/services/web-development/", "/en/services/web-development/", "/en/services/web-development/", "/services/web-development/"],
+            ["service-app", "/services/mobile-app-development/", "/en/services/mobile-app-development/", "/en/services/mobile-app-development/", "/services/mobile-app-development/"],
             ["portfolio", "/portfolio/", "/en/portfolio/", "/en/portfolio/", "/portfolio/"],
             ["project-wasl", "/portfolio/wasl-freelance-platform/", "/en/portfolio/wasl-freelance-platform/", "/en/portfolio/wasl-freelance-platform/", "/portfolio/wasl-freelance-platform/"],
             ["about", "/about/", "/en/about/", "/en/about/", "/about/"],
@@ -463,6 +464,17 @@ jobs:
             if (await page.locator("[data-portfolio-more]").isVisible()) {
               throw new Error(locale + ": JS-only show-more must remain hidden without JS");
             }
+            await page.goto(base + prefix + "/services/mobile-app-development/", { waitUntil: "domcontentloaded" });
+            const noJsOptions = page.locator(".service-subservice__details");
+            if (await noJsOptions.count() !== 5 || !(await noJsOptions.first().evaluate(el=>el.open))) {
+              throw new Error(locale + ": all five service types and open example must render without JS");
+            }
+            const optionSummary = noJsOptions.nth(1).locator("summary");
+            await optionSummary.focus();
+            await page.keyboard.press("Enter");
+            if (!(await noJsOptions.nth(1).evaluate(el=>el.open))) {
+              throw new Error(locale + ": native service option must open with keyboard and JS disabled");
+            }
             await page.goto(base + prefix + "/start-project/", { waitUntil: "domcontentloaded" });
             const controls = page.locator("[data-planner-controls]");
             if (!(await controls.evaluate((fieldset) => fieldset.disabled === true))) throw new Error(locale + ": planner fieldset must have disabled property without JS");
@@ -476,7 +488,7 @@ jobs:
             await submit.evaluate((node) => node.click());
             if (new URL(page.url()).search) throw new Error(locale + ": planner data appeared in URL without JS");
             await context.close();
-            console.log("NO-JS PLANNER + NAV: PASSED (" + locale + ")");
+            console.log("NO-JS SERVICE OPTIONS + PLANNER + NAV: PASSED (" + locale + ")");
           }
 
 

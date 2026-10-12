@@ -17,3 +17,7 @@ Long bilingual service detail pages showed every optional subservice description
 `scripts/check-service-details.mjs` now checks all 16 service routes, semantic preservation and long/short disclosure output. The Chromium route matrix checks the five app options in Arabic/English at 320px, open initial example, keyboard toggling and horizontal reflow.
 
 **IMPLEMENTED, awaiting exact-SHA CI and human review**. Do not equate viewport reflow with an actual 400% browser zoom, user study, real-device screen-reader verification or Production acceptance. This is isolated to the recovery branch, with no merge or changes to SEO/Logo/DNS.
+
+## Automated checkpoint
+
+Implementation SHA `00651e8ccd0260ab4817a8dc1a2de943860dcc2c` passed GitHub Actions VNext verify (push `38187340392`, PR `38187342809`) and the bilingual Chromium route matrix `38187340370`. The owner-graph-only follow-up `af46af71` passed VNext verify (push `38187398707`, PR `38187401848`). A newer QA-only browser workflow adds app-specific screenshots and disabled-JavaScript keyboard checks; its pass/fail is not implied by earlier runs. **Code is verified in CI and browser simulation; the owner visual acceptance and production gates remain open.**
