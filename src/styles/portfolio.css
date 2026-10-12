@@ -13,8 +13,6 @@
 @media(max-width:64rem){
   .portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-@media(max-width:53.75rem){
-}
 @media(max-width:43.75rem){
   .portfolio-grid{grid-template-columns:1fr;gap:var(--space-6)}
   .portfolio-filters{gap:var(--space-2);margin-bottom:var(--space-5)}

@@ -53,6 +53,13 @@ for (const locale of ["ar","en"]) {
       if (!html.includes(htmlText(deliverable.description))) fail(file,`deliverable description missing: ${deliverable.title}`);
     }
 
+    const subserviceDisclosureCount=(html.match(/class="service-disclosure service-subservice__details"/g)??[]).length;
+    if((copy.subservices?.length ?? 0)>3){
+      if(subserviceDisclosureCount!==copy.subservices.length) fail(file,"long service options need native, JS-free disclosures");
+      if(!html.includes('class="service-disclosure service-subservice__details" open')) fail(file,"first service option must show a visible explanation");
+    }else if(subserviceDisclosureCount!==0){
+      fail(file,"short service option lists should remain fully readable without disclosure");
+    }
     for (const subservice of copy.subservices ?? []) {
       if (!html.includes(htmlText(subservice.title))) fail(file,`subservice missing: ${subservice.title}`);
       if (!html.includes(htmlText(subservice.description))) fail(file,`subservice description missing: ${subservice.id}`);
@@ -69,10 +76,10 @@ for (const locale of ["ar","en"]) {
     for (const anchor of ["service-deliverables","service-process","service-faq"]) {
       if (!html.includes(`id="${anchor}"`) || !html.includes(`href="#${anchor}"`)) fail(file,`service jump link missing: ${anchor}`);
     }
-    if ((html.match(/class="service-deliverable__details"/g) ?? []).length !== copy.deliverables.length) {
+    if ((html.match(/class="service-disclosure service-deliverable__details"/g) ?? []).length !== copy.deliverables.length) {
       fail(file,"deliverables must use native accessible disclosure");
     }
-    if (!html.includes('class="service-deliverable__details" open')) fail(file,"first deliverable must provide an open example");
+    if (!html.includes('class="service-disclosure service-deliverable__details" open')) fail(file,"first deliverable must provide an open example");
     for (const deliverable of copy.deliverables) {
       if (!html.includes(htmlText(deliverable.title))) fail(file,`deliverable missing: ${deliverable.title}`);
     }

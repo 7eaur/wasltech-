@@ -512,6 +512,21 @@ jobs:
             if (await sections.nth(1).evaluate(e => e.open)) throw new Error(locale + ": Enter did not close details");
             const overflow = await p.evaluate(() => document.documentElement.scrollWidth > innerWidth);
             if (overflow) throw new Error(locale + ": 320px reader reflow has horizontal overflow");
+            // Long service-type lists retain every title, with explanations in native
+            // keyboard-operable disclosures. No JavaScript is needed to open them.
+            await p.goto(base + (locale === "ar" ? "/services/mobile-app-development/" : "/en/services/mobile-app-development/"), { waitUntil: "domcontentloaded" });
+            const subservices = p.locator(".service-subservice__details");
+            if (await subservices.count() !== 5) throw new Error(locale + ": five mobile app service types must remain discoverable");
+            if (!(await subservices.first().evaluate(e => e.open)) || (await subservices.nth(1).evaluate(e => e.open))) {
+              throw new Error(locale + ": initial subservice disclosure state incorrect");
+            }
+            const secondSubserviceSummary = subservices.nth(1).locator("summary");
+            await secondSubserviceSummary.focus();
+            await p.keyboard.press("Enter");
+            if (!(await subservices.nth(1).evaluate(e => e.open))) throw new Error(locale + ": Enter failed to reveal subservice details");
+            if (await p.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error(locale + ": opened subservice causes narrow overflow");
+            await p.keyboard.press("Enter");
+            if (await subservices.nth(1).evaluate(e => e.open)) throw new Error(locale + ": Enter failed to close subservice details");
             await p.goto(base + (locale === "ar" ? "/faq/" : "/en/faq/"), { waitUntil: "domcontentloaded" });
             const faqSummary = p.locator(".faq-item summary").first();
             await faqSummary.focus();

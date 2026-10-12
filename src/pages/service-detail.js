@@ -129,10 +129,17 @@ function renderSubservices(service, locale) {
           title:locale === "ar" ? "ما الذي يمكننا تنفيذه ضمن هذه الخدمة؟" : "What can we deliver within this service?"
         })}
         <div class="service-subservices__grid">
-          ${items.map((item)=>`
+          ${items.map((item,index)=>`
             <article class="service-subservice">
-              <h3>${escapeHtml(item.title)}</h3>
-              <p>${escapeHtml(item.description)}</p>
+              ${items.length > 3 ? `
+                <details class="service-disclosure service-subservice__details"${index===0 ? " open" : ""}>
+                  <summary><h3>${escapeHtml(item.title)}</h3></summary>
+                  <p>${escapeHtml(item.description)}</p>
+                </details>
+              ` : `
+                <h3>${escapeHtml(item.title)}</h3>
+                <p>${escapeHtml(item.description)}</p>
+              `}
             </article>
           `).join("")}
         </div>
@@ -154,7 +161,7 @@ function renderDeliverables(service, locale) {
           ${items.map((item,index)=>`
             <article class="service-deliverable">
               <span aria-hidden="true">${String(index+1).padStart(2,"0")}</span>
-              <details class="service-deliverable__details"${index===0?' open':''}>
+              <details class="service-disclosure service-deliverable__details"${index===0?' open':''}>
                 <summary><h3>${escapeHtml(item.title)}</h3></summary>
                 <p>${escapeHtml(item.description)}</p>
               </details>
