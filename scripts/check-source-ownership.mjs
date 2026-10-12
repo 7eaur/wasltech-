@@ -37,8 +37,34 @@ for(const file of clients){
   if(!build.includes(`"${src}"`)) fail(file,"client module missing from release build");
   if(!build.includes(`"${dest}"`)) fail(file,"client release output missing");
 }
-for(const js of ["navigation.js","motion.js"]){
-  if(!template.includes(`/assets/js/${js}`)) fail(js,"shared document shell client missing");
+// Attribute every public script tag to exactly one VNext component/page owner.
+// A module copied by build but never loaded (or accidentally loaded twice) is not
+// considered owned. Preserve root-level legacy code for a separate production cutover.
+const clientOwners = new Map([
+  ["navigation.js","src/templates/document.js"],
+  ["motion.js","src/templates/document.js"],
+  ["portfolio-filter.js","src/pages/portfolio.js"],
+  ["project-planner.js","src/pages/project-planner.js"]
+]);
+const ownedModules = [
+  "src/templates/document.js",
+  ...(await readdir(path.join(root,"src/pages")))
+    .filter((name)=>name.endsWith(".js")).map((name)=>`src/pages/${name}`)
+];
+const ownerSources = await Promise.all(ownedModules.map(async (module)=>({
+  module,
+  content: module==="src/templates/document.js" ? template : await read(module)
+})));
+for (const [client, expectedOwner] of clientOwners) {
+  if (!clients.includes(client)) fail(client,"public JS referenced but its build source is missing");
+  const scriptTag = `<script src="/assets/js/${client}" defer></script>`;
+  const owners=ownerSources.filter((entry)=>entry.content.includes(scriptTag)).map((entry)=>entry.module);
+  if(owners.length!==1 || owners[0]!==expectedOwner){
+    fail(client,`expected exactly one script owner (${expectedOwner}); found: ${owners.join(", ")||"none"}`);
+  }
+}
+for (const client of clients) {
+  if (!clientOwners.has(client)) fail(client,"new public client needs an explicit script owner");
 }
 if(!template.includes("/assets/css/site.css")) fail("document.js","canonical stylesheet URL missing");
 if(vercel.buildCommand!=="npm run vnext:build:release"||vercel.outputDirectory!=="dist-release") fail("vercel.json","VNext release output owner changed");
