@@ -3,4 +3,3 @@
 .analytics-consent h2,.analytics-consent p{margin:0}
 .analytics-consent p{color:var(--color-muted)}
 .analytics-consent__actions{display:flex;flex-wrap:wrap;gap:var(--space-2);align-items:center}
-.footer-legal__button{border:0;padding:0;background:none;color:inherit;font:inherit;cursor:pointer;text-decoration:underline}
