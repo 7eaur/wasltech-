@@ -505,6 +505,8 @@ export const pages = Object.freeze([
       "src/pages/contact.js",
       "src/pages/project-planner.js",
       "src/client/project-planner.js",
+      "src/client/analytics.js",
+      "src/components/AnalyticsConsent.js",
       "src/templates/document.js",
       "src/config/site.js"
     ],
@@ -526,14 +528,14 @@ export const pages = Object.freeze([
           Object.freeze({
             id: "external",
             kicker: "القنوات الخارجية",
-            title: "واتساب والبريد وإنستغرام وGoogle Fonts خدمات خارجية عن الموقع.",
-            support: "عند تحميل الصفحة يطلب المتصفح ملفات الخط من Google Fonts. وعندما تختار فتح واتساب أو البريد أو إنستغرام تنتقل إلى خدمة خارجية. قد تعالج هذه الخدمات بيانات تقنية أو معلومات تشاركها معها وفق إعداداتها وسياساتها الخاصة."
+            title: "واتساب والبريد وإنستغرام وGoogle Fonts وGoogle Analytics 4 خدمات خارجية عن الموقع.",
+            support: "عند تحميل الصفحة يطلب المتصفح ملفات الخط من Google Fonts. وعندما تختار فتح واتساب أو البريد أو إنستغرام تنتقل إلى خدمة خارجية. ولا يتم تحميل Google Analytics 4 إلا بعد اختيارك السماح بالتحليلات. قد تعالج هذه الخدمات بيانات تقنية أو معلومات تشاركها معها وفق إعداداتها وسياساتها الخاصة."
           }),
           Object.freeze({
             id: "tracking",
             kicker: "التحليلات والكوكيز",
-            title: "لا يضيف الموقع حاليًا أدوات تحليلات أو ملفات تعريف ارتباط للتتبع.",
-            support: "إذا تغير ذلك مستقبلًا، يجب تحديث هذه الصفحة قبل الاعتماد على السلوك الجديد. قد تعالج البنية المستضيفة أو الخدمات الخارجية بيانات تقنية لازمة لتشغيل خدماتها وفق سياساتها."
+            title: "التحليلات اختيارية ولا تعمل إلا بعد موافقتك.",
+            support: "يستخدم الموقع Google Analytics 4 فقط بعد اختيار السماح بالتحليلات. نحفظ قرار الموافقة محليًا في المتصفح حتى لا نكرر السؤال، ولا نرسل الاسم أو رقم الهاتف أو الشركة أو رابط المشروع أو تفاصيل مخطط المشروع إلى Analytics. يمكنك تغيير قرارك لاحقًا من إعدادات التحليلات في تذييل الموقع."
           }),
           Object.freeze({
             id: "contact",
@@ -564,14 +566,14 @@ export const pages = Object.freeze([
           Object.freeze({
             id: "external",
             kicker: "External channels",
-            title: "WhatsApp, email, Instagram, and Google Fonts operate outside this website.",
-            support: "When the page loads, the browser requests font resources from Google Fonts. When you choose WhatsApp, email, or Instagram, you move to an external service. These services may process technical data or information you share with them under their own settings and policies."
+            title: "WhatsApp, email, Instagram, Google Fonts, and Google Analytics 4 operate outside this website.",
+            support: "When the page loads, the browser requests font resources from Google Fonts. When you choose WhatsApp, email, or Instagram, you move to an external service. Google Analytics 4 is loaded only after you choose to allow analytics. These services may process technical data or information you share with them under their own settings and policies."
           }),
           Object.freeze({
             id: "tracking",
             kicker: "Analytics and cookies",
-            title: "The current site adds no analytics tools or tracking cookies.",
-            support: "If that changes in the future, this page should be updated before the new behavior is relied on. Hosting infrastructure or external services may process technical data required to operate their services under their own policies."
+            title: "Analytics are optional and run only after your consent.",
+            support: "The site uses Google Analytics 4 only after you choose to allow analytics. Your consent choice is stored locally in the browser so the site does not ask again, and the project planner does not send your name, phone number, company, project URL, or free-text details to Analytics. You can change your choice later from Analytics settings in the footer."
           }),
           Object.freeze({
             id: "contact",
