@@ -3,6 +3,7 @@ import { site } from "../config/site.js";
 import { pages } from "../data/pages.js";
 import { services } from "../data/services.js";
 import { documentTemplate } from "../templates/document.js";
+import { breadcrumbSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
 import { HeroMedia } from "../components/HeroMedia.js";
 import { getPageHeroMedia } from "../config/hero-media.js";
@@ -188,6 +189,10 @@ export function projectPlannerPage(locale="ar"){
     alternatePath:routes.startProject(locale==="ar"?"en":"ar"),
     canonicalPath:routes.startProject(locale),
     alternatePaths:Object.freeze({ar:routes.startProject("ar"),en:routes.startProject("en")}),
-    ogImage:getPageHeroMedia("startProject",locale).src
+    ogImage:getPageHeroMedia("startProject",locale).src,
+    structuredData:[breadcrumbSchema([
+      {name:locale==="ar"?"الرئيسية":"Home",path:routes.home(locale)},
+      {name:content.kicker,path:routes.startProject(locale)}
+    ])]
   });
 }
