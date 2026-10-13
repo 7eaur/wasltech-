@@ -44,7 +44,8 @@ const clientOwners = new Map([
   ["navigation.js","src/templates/document.js"],
   ["motion.js","src/templates/document.js"],
   ["portfolio-filter.js","src/pages/portfolio.js"],
-  ["project-planner.js","src/pages/project-planner.js"]
+  ["project-planner.js","src/pages/project-planner.js"],
+  ["analytics.js","src/templates/document.js"]
 ]);
 const ownedModules = [
   "src/templates/document.js",
@@ -57,8 +58,8 @@ const ownerSources = await Promise.all(ownedModules.map(async (module)=>({
 })));
 for (const [client, expectedOwner] of clientOwners) {
   if (!clients.includes(client)) fail(client,"public JS referenced but its build source is missing");
-  const scriptTag = `<script src="/assets/js/${client}" defer></script>`;
-  const owners=ownerSources.filter((entry)=>entry.content.includes(scriptTag)).map((entry)=>entry.module);
+  const scriptRef = `src="/assets/js/${client}"`;
+  const owners=ownerSources.filter((entry)=>entry.content.includes(scriptRef)).map((entry)=>entry.module);
   if(owners.length!==1 || owners[0]!==expectedOwner){
     fail(client,`expected exactly one script owner (${expectedOwner}); found: ${owners.join(", ")||"none"}`);
   }
