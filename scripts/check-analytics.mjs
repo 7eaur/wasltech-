@@ -16,9 +16,11 @@ const measurementId = site.analytics?.measurementId;
 if (!/^G-[A-Z0-9]+$/.test(measurementId || "")) fail("GA4 measurement ID is missing or invalid");
 
 const home = await readFile(path.join(RELEASE, "index.html"), "utf8");
-const privacy = await readFile(path.join(RELEASE, "privacy", "index.html"), "utf8");
+const privacyAr = await readFile(path.join(RELEASE, "privacy", "index.html"), "utf8");
+const privacyEn = await readFile(path.join(RELEASE, "en", "privacy", "index.html"), "utf8");
 const analytics = await readFile(path.join(RELEASE, "assets/js/analytics.js"), "utf8");
 const planner = await readFile(path.join(ROOT, "src/client/project-planner.js"), "utf8");
+const documentSource = await readFile(path.join(ROOT, "src/templates/document.js"), "utf8");
 
 for (const required of [
   `data-analytics-measurement-id="${measurementId}"`,
@@ -26,6 +28,10 @@ for (const required of [
   "/assets/js/analytics.js"
 ]) {
   if (!home.includes(required)) fail(`production home missing analytics contract: ${required}`);
+}
+
+if (!documentSource.includes("isProductionBuild && !minimalShell")) {
+  fail("analytics must be restricted to the production shell");
 }
 
 for (const required of [
@@ -41,23 +47,23 @@ for (const required of [
   if (!analytics.includes(required)) fail(`analytics runtime missing: ${required}`);
 }
 
-for (const required of [
-  "Google Analytics 4",
-  "موافقتك",
-  "your consent"
-]) {
-  if (!privacy.includes(required)) fail(`privacy disclosure missing: ${required}`);
+for (const required of ["Google Analytics 4", "موافقتك"]) {
+  if (!privacyAr.includes(required)) fail(`Arabic privacy disclosure missing: ${required}`);
+}
+for (const required of ["Google Analytics 4", "your consent"]) {
+  if (!privacyEn.includes(required)) fail(`English privacy disclosure missing: ${required}`);
 }
 
-for (const forbidden of [
-  "data.name",
-  "data.phone",
-  "data.company",
-  "data.details"
-]) {
-  if (planner.includes(`waslTrack?.(`) && planner.includes(forbidden)) {
-    fail(`planner analytics must not send personal/project free-text data: ${forbidden}`);
-  }
+const trackCalls = [...planner.matchAll(/window\.waslTrack\?\.\([\s\S]*?\n\s*\}\);/g)]
+  .map((match) => match[0])
+  .join("\n");
+
+for (const required of ["planner_review_ready", "planner_whatsapp_click", "page_path", "locale"]) {
+  if (!trackCalls.includes(required)) fail(`planner conversion tracking missing: ${required}`);
+}
+
+if (/\bdata\./.test(trackCalls) || /\b(name|phone|company|details|url)\s*:/.test(trackCalls)) {
+  fail("planner analytics must not send personal or free-text project fields");
 }
 
 if (errors.length) {
