@@ -144,10 +144,10 @@ const legalSource=await readFile(path.join(ROOT,"src/data/pages.js"),"utf8");
 for(const required of [
   "does not automatically send",
   "لا يقوم الموقع بإرسالها تلقائيًا",
-  "no analytics tools or tracking cookies",
-  "لا يضيف الموقع حاليًا أدوات تحليلات أو ملفات تعريف ارتباط للتتبع",
-  "Google Fonts operate outside this website",
-  "Google Fonts خدمات خارجية عن الموقع"
+  "Analytics are optional and run only after your consent.",
+  "التحليلات اختيارية ولا تعمل إلا بعد موافقتك.",
+  "Google Fonts, and Google Analytics 4 operate outside this website",
+  "Google Fonts وGoogle Analytics 4 خدمات خارجية عن الموقع"
 ]){
   if(!legalSource.includes(required)) fail("legal",`verified privacy statement missing: ${required}`);
 }
