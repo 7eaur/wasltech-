@@ -149,8 +149,8 @@ export const articles = Object.freeze([
           }
         ],
         seo: {
-          title: "Website or Web System? How to Choose the Right Fit | Wasl Tech",
-          description: "Learn the practical difference between a website and a web system, and when a project needs content pages versus accounts, permissions, data, and operational workflows."
+          title: "Website or Web System? Choose the Right Fit | Wasl Tech",
+          description: "Compare a website and web system, and learn when a project needs content pages versus accounts, permissions, data, and operational workflows."
         }
       }
     }
@@ -266,7 +266,7 @@ export const articles = Object.freeze([
           }
         ],
         seo: {
-          title: "Before Building an E-commerce Store: What to Decide First | Wasl Tech",
+          title: "Before Building an E-commerce Store | Wasl Tech",
           description: "A practical guide to defining the selling model, catalog, inventory, payments, shipping, and order states before e-commerce design and development starts."
         }
       }
@@ -361,8 +361,8 @@ export const articles = Object.freeze([
           }
         ],
         seo: {
-          title: "How to Prepare Website Content Before Design Starts | Wasl Tech",
-          description: "Practical steps for organizing the project message, page goals, facts, and imagery before website design starts so the experience is clearer and more consistent."
+          title: "Prepare Website Content Before Design | Wasl Tech",
+          description: "Practical steps to organize the project message, page goals, facts, and imagery before website design so the experience stays clear and consistent."
         }
       }
     }
@@ -454,7 +454,7 @@ export const articles = Object.freeze([
           }
         ],
         seo: {
-          title: "Before Mobile App Development: What Should You Prepare? | Wasl Tech",
+          title: "Before Mobile App Development | Wasl Tech",
           description: "A practical guide to defining users, the core journey, data, integrations, and first-release scope before mobile app design and development begins."
         }
       }
@@ -640,8 +640,8 @@ export const articles = Object.freeze([
           }
         ],
         seo: {
-          title: "Before Brand Identity Design: What Should You Prepare? | Wasl Tech",
-          description: "A practical guide to preparing a brand identity brief covering the project, audience, personality, applications, and references before logo and visual-system design."
+          title: "Prepare a Brand Identity Brief | Wasl Tech",
+          description: "Prepare a brand identity brief covering the project, audience, personality, applications, and references before logo and visual-system design."
         }
       }
     }
@@ -733,7 +733,7 @@ export const articles = Object.freeze([
           }
         ],
         seo: {
-          title: "Business Profile Content Checklist: What Should It Include? | Wasl Tech",
+          title: "Business Profile Content Checklist | Wasl Tech",
           description: "A practical checklist for profile content: introduction, services, work, capabilities, key information, and contact details before presentation design starts."
         }
       }
@@ -827,7 +827,7 @@ export const articles = Object.freeze([
         ],
         seo: {
           title: "How to Build a Digital Marketing & Content Plan | Wasl Tech",
-          description: "A practical guide to building a content and digital marketing plan from goals, audience, messaging, pillars, channels, and performance signals instead of random publishing."
+          description: "Build a content and digital marketing plan from goals, audience, messaging, pillars, channels, and performance signals instead of random publishing."
         }
       }
     }

@@ -2,6 +2,7 @@ import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
 import { CallToAction } from "../components/CallToAction.js";
 import { documentTemplate } from "../templates/document.js";
+import { breadcrumbSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
 import { HeroMedia } from "../components/HeroMedia.js";
 import { getPageHeroMedia } from "../config/hero-media.js";
@@ -93,6 +94,10 @@ export function processPage(locale="ar"){
     alternatePath:routes.process(locale==="ar"?"en":"ar"),
     canonicalPath:routes.process(locale),
     alternatePaths:Object.freeze({ar:routes.process("ar"),en:routes.process("en")}),
-    ogImage:getPageHeroMedia("process",locale).src
+    ogImage:getPageHeroMedia("process",locale).src,
+    structuredData:[breadcrumbSchema([
+      {name:locale==="ar"?"الرئيسية":"Home",path:routes.home(locale)},
+      {name:content.kicker,path:routes.process(locale)}
+    ])]
   });
 }

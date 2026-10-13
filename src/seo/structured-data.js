@@ -120,7 +120,8 @@ export function articleSchema({
       "@type": "Organization",
       "@id": organizationEntityId,
       name: author || site.brand.name[locale],
-      url: site.origin
+      url: site.origin,
+      logo: absoluteUrl(site.brand.assets.logo)
     }),
     publisher: organizationReference(),
     isPartOf: websiteReference(),
