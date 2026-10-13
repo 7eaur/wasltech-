@@ -62,7 +62,7 @@ export const pages = Object.freeze([
           Object.freeze({id:"faq",kicker:"الأسئلة الشائعة",title:"إجابات تساعدك قبل أن تبدأ",support:"أهم الأسئلة حول الخدمات، التنفيذ، وما الذي تحتاجه للبدء معنا."}),
           Object.freeze({id:"final-cta",kicker:"ابدأ مشروعك",title:"لا تعرف من أين تبدأ؟",support:"راسلنا بفكرة مشروعك، وسنساعدك على اختيار الحل المناسب حسب احتياجك وميزانيتك."})
         ]),
-        seo: Object.freeze({title:"وصل تك | نبني منتجاتك وحلولك وحضورك الرقمي",description:"نحوّل أفكار واحتياجات الشركات والمشاريع في اليمن والخليج إلى مواقع وتطبيقات ومتاجر وأنظمة وهوية وحضور رقمي جاهز للعمل."})
+        seo: Object.freeze({title:"وصل تك | شركة حلول رقمية وتقنية في اليمن والخليج",description:"وصل تك شركة حلول رقمية وتقنية تساعد الشركات والمشاريع في اليمن والخليج على بناء المواقع والتطبيقات والمتاجر والأنظمة والهوية والتسويق الرقمي."})
       }),
       en: Object.freeze({
         purpose: "Position Wasl Tech as a partner that turns real business needs into usable, evolvable digital products, systems, and brand presence.",
