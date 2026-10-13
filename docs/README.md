@@ -1,4 +1,8 @@
 # Wasl Tech VNext — Documentation Map
+## Current release handoff — 2026-10-13
+
+Start with [`qa/2026-10-13_INTEGRATION_MERGE_VERIFICATION.md`](qa/2026-10-13_INTEGRATION_MERGE_VERIFICATION.md), then `PROJECT_STATUS.md` and `PROJECT_HANDOFF.md`. PR #46 is merged into integration and PR #45 is released to `main`/Production. Recovery-only records below remain historical evidence. SEO and logo branches stayed outside this release scope.
+
 ## مرجع العمل الحالي — 2026-10-13
 
 **ابدأ من [تقرير الفرع الشامل والمهام المتبقية R01–R10](qa/2026-10-13_BRANCH_RECOVERY_FINAL_HANDOFF.md)**؛ يحتوي نطاق الفرع، ما اكتمل، سجلات CI/Preview HTTP، إجراءات قبول كل بند، المسؤول/الاعتمادية، خريطة PRs والخطوة القادمة. هذا المستند هو مرجع QA التفصيلي الوحيد، وليس ملف Status بديلًا. لا تتبع تعليمات «صور ناقصة» أو «CI pending» من محاضر قديمة دون مراجعة الأحدث.

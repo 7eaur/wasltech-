@@ -1,4 +1,14 @@
 # Wasl Tech VNext — Conversation Handoff
+## 2026-10-13 — Resume from verified Production release
+
+- Verified integration source: `integration/site-stabilization-20261010` at `2458c380c192cc263cb57376646bf12fab493f3a`.
+- PR #46 is merged into integration and PR #45 is merged into `main` at `43c7de6176defacf3f0c6da70ba239fe67a74b4e`.
+- Exact-SHA local Preview/Release checks, GitHub VNext verify, final-media integrity, Chromium route matrix, Vercel READY, AR/EN 200, localized 404, CSS delivery and response headers all passed.
+- Production deployment `dpl_CvzRn4pJ6zXJ2MVFgsMigNxgnZNy` is READY on the exact `main` merge SHA; official-domain post-release HTTP smoke passed.
+- Read [`docs/qa/2026-10-13_INTEGRATION_MERGE_VERIFICATION.md`](docs/qa/2026-10-13_INTEGRATION_MERGE_VERIFICATION.md) before taking any release action.
+- Do not touch or merge SEO #36/#37 or logo work as part of this release stream.
+- Keep physical-device/screen-reader, field CWV, actual contact receipt and genuine case-study proof listed as external evidence rather than fabricating closure.
+
 ## 2026-10-13 — فرع الإصلاح: مرجع شامل للحالة والمتبقي (الحالي)
 
 - المرجع التفصيلي الواحد للحالة، المنجز، البواقي وأولوية/مالك/دليل قبول كل بند R01–R10: [`docs/qa/2026-10-13_BRANCH_RECOVERY_FINAL_HANDOFF.md`](docs/qa/2026-10-13_BRANCH_RECOVERY_FINAL_HANDOFF.md). **اقرأ أول قسم «الحالة الحالية المعتمدة»؛ ما بعد «الأدلة التاريخية» مجرد سجل سابق.**
