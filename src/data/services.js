@@ -1788,7 +1788,7 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "company profile design",
           "searchIntent": "commercial",
-          "title": "Professional Profile & Business Presentation Design | Wasl Tech",
+          "title": "Professional Business Profile Design | Wasl Tech",
           "description": "Professional profile design that brings the story, services, work, and brand identity into a clear presentation for digital sharing and print.",
           "ogTitle": "A Company Profile That Explains the Business Clearly | Wasl Tech",
           "ogDescription": "We organize the company story, content, and identity into a profile that is easy to read and ready for digital or print use."
