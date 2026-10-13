@@ -169,7 +169,7 @@ export function Footer({ locale = "ar" } = {}) {
           <nav class="footer-legal" aria-label="${locale === "ar" ? "روابط قانونية" : "Legal links"}">
             <a href="${routes.privacy(locale)}">${escapeHtml(labels.privacy)}</a>
             <a href="${routes.terms(locale)}">${escapeHtml(labels.terms)}</a>
-            <a href="${routes.privacy(locale)}#analytics-settings" data-analytics-settings>${escapeHtml(labels.analyticsSettings)}</a>
+            <a href="${routes.privacy(locale)}" data-analytics-settings>${escapeHtml(labels.analyticsSettings)}</a>
             <a href="${site.origin}" target="_blank" rel="noopener"><bdi dir="ltr">${escapeHtml(site.contact.domain)}</bdi></a>
           </nav>
         </div>
