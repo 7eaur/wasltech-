@@ -1,4 +1,5 @@
 import { escapeHtml } from "../lib/html.js";
+import { IMAGE_SIZES, responsiveImageData } from "../lib/responsive-image.js";
 
 const headingLevels=new Set([2,3]);
 
@@ -40,7 +41,9 @@ export function MediaCard({
   const width=Number(image.width ?? 1280);
   const height=Number(image.height ?? 720);
   const alt=image.alt ?? title;
-  const imageMarkup=`<img src="${escapeHtml(image.src)}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async" width="${width}" height="${height}">`;
+  const sizes=image.sizes ?? (compact ? IMAGE_SIZES.compactCard : featured ? IMAGE_SIZES.featuredCard : IMAGE_SIZES.card);
+  const responsive=responsiveImageData(image.src,width,sizes);
+  const imageMarkup=`<img src="${escapeHtml(image.src)}" srcset="${escapeHtml(responsive.srcset)}" sizes="${escapeHtml(responsive.sizes)}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async" width="${width}" height="${height}">`;
   const media=href
     ? `<a class="media-card__media" href="${escapeHtml(href)}" aria-label="${escapeHtml(title)}">${imageMarkup}</a>`
     : `<figure class="media-card__media">${imageMarkup}</figure>`;

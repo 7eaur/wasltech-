@@ -1,0 +1,90 @@
+[
+  {
+    "slug": "article-content-before-design",
+    "source": "assets/media/source/article-content-before-design.jpeg",
+    "runtime": "assets/media/article-content-before-design.webp",
+    "width": 1536,
+    "height": 961,
+    "sourceSize": 311228,
+    "webpSize": 61874,
+    "sourceSha256": "fbc05364978c30d30235b2a4fa2a79f38932d0dc1e6b22684a367bea052f4501",
+    "webpSha256": "716e936fd876fc67d67abf1777acf17e5a33569eab3e3016cf1a328f82320c56"
+  },
+  {
+    "slug": "article-ecommerce-store-prep",
+    "source": "assets/media/source/article-ecommerce-store-prep.jpeg",
+    "runtime": "assets/media/article-ecommerce-store-prep.webp",
+    "width": 1536,
+    "height": 961,
+    "sourceSize": 286136,
+    "webpSize": 51588,
+    "sourceSha256": "77b5f491cb22e75c62f91af07e2d415c41e8557b4baaf2a1e0b69ead132c8ae0",
+    "webpSha256": "f6cb093af9520224d7ce540435fd7d0019c2fcd360183d186fc8dc9dc482a3ec"
+  },
+  {
+    "slug": "article-website-or-web-system",
+    "source": "assets/media/source/article-website-or-web-system.jpeg",
+    "runtime": "assets/media/article-website-or-web-system.webp",
+    "width": 1536,
+    "height": 961,
+    "sourceSize": 311632,
+    "webpSize": 63308,
+    "sourceSha256": "5831bb893129f5a8409df4f2f5bf788443b2a06482d68f9b53a1771458a8062f",
+    "webpSha256": "14d0c67b44ff09633e4f44cfcf04e39b8d200a667fbb387b6941ab73903cd13c"
+  },
+  {
+    "slug": "contact-project-planner-hero",
+    "source": "assets/media/source/contact-project-planner-hero.jpeg",
+    "runtime": "assets/media/contact-project-planner-hero.webp",
+    "width": 1536,
+    "height": 961,
+    "sourceSize": 269660,
+    "webpSize": 49640,
+    "sourceSha256": "da3223f1bae93e1da208fd7cf3f9b151b4accc9ed0f908ae9f8c145fa00dc5a1",
+    "webpSha256": "0c4cb32193b96331b084dcb1778d04accc1768a867dcbf107e1f878205ad6e09"
+  },
+  {
+    "slug": "faq-insights-hero",
+    "source": "assets/media/source/faq-insights-hero.jpeg",
+    "runtime": "assets/media/faq-insights-hero.webp",
+    "width": 1536,
+    "height": 961,
+    "sourceSize": 256969,
+    "webpSize": 39230,
+    "sourceSha256": "f3782c1a996050a97c19434f2ae0ed61787e93f555ef8da33757447e57d0c252",
+    "webpSha256": "4591874595e6602386c67cc2d96b1d40462127edbdfa3329de2482c66e0b82cb"
+  },
+  {
+    "slug": "portfolio-hero",
+    "source": "assets/media/source/portfolio-hero.jpeg",
+    "runtime": "assets/media/portfolio-hero.webp",
+    "width": 1536,
+    "height": 961,
+    "sourceSize": 423205,
+    "webpSize": 93794,
+    "sourceSha256": "ab3905e8e4102a281a8e53ab19f359c8dceb3051779624c528480458e7a72b88",
+    "webpSha256": "e7a6e4c6de2f409ca067bb4e8ffdb2247750954b67d985d6d5979c58341479e4"
+  },
+  {
+    "slug": "process-hero",
+    "source": "assets/media/source/process-hero.jpeg",
+    "runtime": "assets/media/process-hero.webp",
+    "width": 1536,
+    "height": 961,
+    "sourceSize": 307922,
+    "webpSize": 66130,
+    "sourceSha256": "e89c6cd4d13691c41bc0ff7a8979959415c06a50a51e506b3446a3c775ef70ea",
+    "webpSha256": "3659286d53ec3111ef420c90ab9722b076768ad9356248e564841076c319e2a3"
+  },
+  {
+    "slug": "services-hero",
+    "source": "assets/media/source/services-hero.jpeg",
+    "runtime": "assets/media/services-hero.webp",
+    "width": 1536,
+    "height": 961,
+    "sourceSize": 281003,
+    "webpSize": 53234,
+    "sourceSha256": "2c296e6483c7d2446abffa93302efb6ae4e982577b0fb87cbbf062d8dc0dfb73",
+    "webpSha256": "7c95918058bb6fed55e10b408fa7aac1e5109a5f2121988994dc26ed62d4ad2f"
+  }
+]

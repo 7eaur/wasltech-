@@ -60,6 +60,17 @@ for (const locale of ["ar", "en"]) {
     }
   }
 
+  // Match visible hero action labels to their actual destinations.
+  const heroActionsHtml = html.split('<div class="home-hero__actions">')[1]?.split("</div>")[0] ?? "";
+  for (const { href, label } of [
+    { href: routes.services(locale), label: content.primaryCta },
+    { href: routes.contact(locale), label: content.secondaryCta }
+  ]) {
+    if (!heroActionsHtml.includes(`href="${href}">${htmlText(label)}</a>`)) {
+      fail(file, `Hero CTA "${label}" must navigate to "${href}"`);
+    }
+  }
+
   if ((html.match(/<article class="media-card media-card--compact">/g) ?? []).length !== services.length) {
     fail(file, `Home must show exactly ${services.length} service cards`);
   }
@@ -104,10 +115,24 @@ for (const locale of ["ar", "en"]) {
     lastIndex = index;
   }
 
+  if ((html.match(/<article class="home-why__item">/g) ?? []).length !== 6) fail(file,"6 strength cards required");
+  if ((html.match(/<article class="home-process__step">/g) ?? []).length !== 4) fail(file,"4 process steps required");
   if ((html.match(/<details class="home-faq__item">/g) ?? []).length !== 3) {
     fail(file, "Home must show exactly three decision-support FAQ items");
   }
 }
+
+const homeCss=await readFile(path.join(ROOT,"src/styles/home.css"),"utf8");
+if(!homeCss.includes(".home-process__steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))")) fail("home.css","4-column desktop process missing");
+if(!homeCss.includes(".home-why__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))")) fail("home.css","3-column desktop strengths missing");
+const heroResponsiveCss=await readFile(path.join(ROOT,"src/styles/hero-responsive.css"),"utf8");
+for(const [file,css] of [["home.css",homeCss],["hero-responsive.css",heroResponsiveCss]]){
+  for(const selector of [".home-about__value span",".home-hero__signal small"]){
+    const re=new RegExp(selector.replaceAll(".","\\.")+"\\s*\\{([^}]*)\\}","g");
+    for(const match of css.matchAll(re))if(/display\s*:\s*none/.test(match[1]))fail(file,"do not hide mobile supporting content: "+selector);
+  }
+}
+if(homeCss.includes('[dir="rtl"] .home-faq__item summary')) fail("home.css","native FAQ uses logical inline end, no RTL override");
 
 if (errors.length) {
   console.error("VNEXT HOME CHECK: FAILED");

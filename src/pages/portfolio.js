@@ -24,7 +24,7 @@ const categoryLabels = Object.freeze({
 function renderFilters(locale) {
   const filters=["all",...categoryOrder];
   return `
-    <div class="portfolio-filters" data-portfolio-filters hidden aria-label="${locale === "ar" ? "تصفية الأعمال" : "Filter work"}">
+    <div class="portfolio-filters" role="group" data-portfolio-filters hidden aria-label="${locale === "ar" ? "تصفية الأعمال" : "Filter work"}">
       ${filters.map((id,index)=>`
         <button type="button" data-portfolio-filter="${id}" aria-pressed="${index===0 ? "true" : "false"}">
           ${escapeHtml(categoryLabels[id][locale])}
@@ -70,8 +70,11 @@ export function portfolioPage(locale="ar") {
     <section class="section portfolio-browser" data-portfolio-browser>
       <div class="container">
         ${renderFilters(locale)}
-        <div class="portfolio-grid">
+        <div class="portfolio-grid" id="portfolio-project-grid">
           ${projects.map((project,index)=>renderProject(project,locale,index)).join("")}
+        </div>
+        <div class="portfolio-more" data-portfolio-more-wrap hidden>
+          <button class="button button--ghost" type="button" data-portfolio-more aria-controls="portfolio-project-grid">${locale === "ar" ? "عرض بقية الأعمال" : "Show more work"}</button>
         </div>
       </div>
     </section>

@@ -34,6 +34,7 @@ export function Header({ activePath = "/", locale = "ar", alternatePath = null }
     return `<li><a class="nav-link${active ? " is-active" : ""}" href="${item.href}"${active ? ' aria-current="page"' : ""}>${escapeHtml(item.label)}</a></li>`;
   }).join("");
 
+  const mobileLinks = `<li class="mobile-nav-contact"><a class="nav-link" href="${routes.contact(locale)}">${locale === "ar" ? "تواصل معنا" : "Contact us"}</a></li><li class="mobile-nav-action"><a class="nav-link" href="${routes.startProject(locale)}">${escapeHtml(labels.cta)}</a></li>`;
   const homeHref = routes.home(locale);
   const switchHref = alternatePath ?? routes.home(locale === "ar" ? "en" : "ar");
 
@@ -47,6 +48,7 @@ export function Header({ activePath = "/", locale = "ar", alternatePath = null }
         <button
           class="menu-toggle"
           type="button"
+          hidden
           aria-expanded="false"
           aria-controls="primary-navigation"
           aria-label="${labels.menuOpen}"
@@ -58,8 +60,9 @@ export function Header({ activePath = "/", locale = "ar", alternatePath = null }
         </button>
 
         <nav class="primary-nav" id="primary-navigation" aria-label="${labels.nav}" data-primary-nav>
-          <ul>${links}</ul>
+          <ul>${links}${mobileLinks}</ul>
         </nav>
+        <noscript><nav class="primary-nav--nojs" aria-label="${labels.nav}"><ul>${links}${mobileLinks}</ul></nav></noscript>
 
         <a class="language-switch" href="${switchHref}" hreflang="${locale === "ar" ? "en" : "ar"}">${labels.switchLabel}</a>
         ${ActionLink({

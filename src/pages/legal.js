@@ -2,7 +2,6 @@ import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
 import { documentTemplate } from "../templates/document.js";
 import { escapeHtml } from "../lib/html.js";
-import { HeroMedia } from "../components/HeroMedia.js";
 import { getPageHeroMedia } from "../config/hero-media.js";
 
 function legalDocument(id,locale){
@@ -19,7 +18,6 @@ function legalDocument(id,locale){
           <h1>${escapeHtml(content.title)}</h1>
           <p>${escapeHtml(content.support)}</p>
         </div>
-        ${HeroMedia({...getPageHeroMedia(id, locale), className:"secondary-hero__media"})}
       </div>
     </section>
 

@@ -1,13 +1,12 @@
 import { routes } from "../config/routes.js";
 import { site } from "../config/site.js";
 import { pages } from "../data/pages.js";
-import { ActionLink } from "../components/ActionLink.js";
 import { CallToAction } from "../components/CallToAction.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
 import { icon } from "../components/icons.js";
-import { HeroMedia } from "../components/HeroMedia.js";
+import { PageIntro } from "../components/PageIntro.js";
 import { getPageHeroMedia } from "../config/hero-media.js";
 
 const record=pages.find((page)=>page.id==="contact");
@@ -42,21 +41,26 @@ export function contactPage(locale="ar"){
   const finalCta=section(content,"final-cta");
 
   const body=`
-    <section class="contact-hero">
-      <div class="container contact-hero__grid">
-        <div class="contact-hero__copy">
-          <h1>${escapeHtml(content.kicker)}</h1>
-          <h2 class="inner-hero__subtitle">${escapeHtml(content.title)}</h2>
-          <p>${escapeHtml(content.support)}</p>
-          <div class="contact-hero__actions">
-            ${ActionLink({href:whatsappHref(locale),label:content.primaryCta,variant:"primary",size:"lg"})}
-            ${ActionLink({href:routes.startProject(locale),label:content.secondaryCta,variant:"ghost",size:"lg"})}
-          </div>
-        </div>
-        ${HeroMedia({...getPageHeroMedia("contact", locale), className:"contact-hero__media"})}
+    ${PageIntro({kicker:content.kicker,title:content.title,supporting:content.support,variant:"contact"})}
+
+
+
+    <section class="section section--subtle contact-paths">
+      <div class="container contact-paths__grid">
+        <article>
+          <p class="eyebrow">${locale === "ar" ? "سؤال سريع" : "Quick question"}</p>
+          <h2>${locale === "ar" ? "تواصل معنا مباشرة" : "Talk to us directly"}</h2>
+          <p>${escapeHtml(direct.support)}</p>
+          <a class="text-link" href="${whatsappHref(locale)}" target="_blank" rel="noopener">${locale === "ar" ? "راسلنا على واتساب" : "Message us on WhatsApp"}</a>
+        </article>
+        <article>
+          <p class="eyebrow">${escapeHtml(project.kicker)}</p>
+          <h2>${escapeHtml(project.title)}</h2>
+          <p>${escapeHtml(project.support)}</p>
+          <a class="text-link" href="${routes.startProject(locale)}">${locale === "ar" ? "جهّز تفاصيل مشروعك" : "Prepare your project details"}</a>
+        </article>
       </div>
     </section>
-
     <section class="section contact-direct">
       <div class="container contact-direct__grid">
         <div>
@@ -72,22 +76,9 @@ export function contactPage(locale="ar"){
       </div>
     </section>
 
-    <section class="section section--subtle contact-paths">
-      <div class="container contact-paths__grid">
-        <article>
-          <p class="eyebrow">${escapeHtml(project.kicker)}</p>
-          <h2>${escapeHtml(project.title)}</h2>
-          <p>${escapeHtml(project.support)}</p>
-          <a class="text-link" href="${routes.startProject(locale)}">${locale==="ar"?"جهّز تفاصيل مشروعك":"Prepare your project details"}</a>
-        </article>
-        <article>
-          <p class="eyebrow">${escapeHtml(context.kicker)}</p>
-          <h2>${escapeHtml(context.title)}</h2>
-          <p>${escapeHtml(context.support)}</p>
-          <a class="text-link" href="${routes.services(locale)}">${locale==="ar"?"استكشف الخدمات أولًا":"Explore services first"}</a>
-        </article>
-      </div>
-    </section>
+    <div class="container contact-service-explore">
+      <p>${escapeHtml(context.support)} <a class="text-link" href="${routes.services(locale)}">${locale === "ar" ? "تصفح خدماتنا" : "Explore services"}</a></p>
+    </div>
 
     ${CallToAction({
       kicker:finalCta.kicker,

@@ -13,7 +13,7 @@ const projectRecords = [
     "legacyId": 1,
     "slug": "suwarikum-platform",
     "category": "web",
-    "image": "/assets/works/project_1.jpg",
+    "image": "/assets/works/project_1.webp",
     "serviceIds": [
       "web"
     ],
@@ -74,7 +74,7 @@ const projectRecords = [
     "legacyId": 2,
     "slug": "wasl-freelance-platform",
     "category": "web",
-    "image": "/assets/works/project_2.jpg",
+    "image": "/assets/works/project_2.webp",
     "serviceIds": [
       "web"
     ],
@@ -135,7 +135,7 @@ const projectRecords = [
     "legacyId": 3,
     "slug": "mikrotik-dashboard",
     "category": "web",
-    "image": "/assets/works/project_3.jpg",
+    "image": "/assets/works/project_3.webp",
     "serviceIds": [
       "programming"
     ],
@@ -196,7 +196,7 @@ const projectRecords = [
     "legacyId": 4,
     "slug": "cms-dashboard",
     "category": "web",
-    "image": "/assets/works/project_4.jpg",
+    "image": "/assets/works/project_4.webp",
     "serviceIds": [
       "programming"
     ],
@@ -257,7 +257,7 @@ const projectRecords = [
     "legacyId": 5,
     "slug": "tech-zone",
     "category": "app",
-    "image": "/assets/works/project_5.jpg",
+    "image": "/assets/works/project_5.webp",
     "serviceIds": [
       "app"
     ],
@@ -318,7 +318,7 @@ const projectRecords = [
     "legacyId": 6,
     "slug": "aroma-cafe",
     "category": "app",
-    "image": "/assets/works/project_6.jpg",
+    "image": "/assets/works/project_6.webp",
     "serviceIds": [
       "app"
     ],
@@ -379,7 +379,7 @@ const projectRecords = [
     "legacyId": 7,
     "slug": "albenaa-almotqin",
     "category": "web",
-    "image": "/assets/works/project_13.jpg",
+    "image": "/assets/works/project_13.webp",
     "serviceIds": [
       "web"
     ],
@@ -440,7 +440,7 @@ const projectRecords = [
     "legacyId": 8,
     "slug": "elite-electronics",
     "category": "store",
-    "image": "/assets/works/project_10.jpg",
+    "image": "/assets/works/project_10.webp",
     "serviceIds": [
       "store"
     ],
@@ -501,7 +501,7 @@ const projectRecords = [
     "legacyId": 9,
     "slug": "almalaki-brand-identity",
     "category": "brand",
-    "image": "/assets/works/project_7.jpg",
+    "image": "/assets/works/project_7.webp",
     "serviceIds": [
       "design"
     ],
@@ -562,7 +562,7 @@ const projectRecords = [
     "legacyId": 10,
     "slug": "milano-brand-identity",
     "category": "brand",
-    "image": "/assets/works/project_9.jpg",
+    "image": "/assets/works/project_9.webp",
     "serviceIds": [
       "design"
     ],
@@ -623,7 +623,7 @@ const projectRecords = [
     "legacyId": 11,
     "slug": "fakhri-marketing-campaign",
     "category": "marketing",
-    "image": "/assets/works/project_12.jpg",
+    "image": "/assets/works/project_12.webp",
     "serviceIds": [
       "marketing"
     ],
@@ -684,7 +684,7 @@ const projectRecords = [
     "legacyId": 12,
     "slug": "fakhri-perfumes-store",
     "category": "store",
-    "image": "/assets/works/project_8.jpg",
+    "image": "/assets/works/project_8.webp",
     "serviceIds": [
       "store"
     ],
@@ -745,7 +745,7 @@ const projectRecords = [
     "legacyId": 13,
     "slug": "kiddy-clothing-store",
     "category": "store",
-    "image": "/assets/works/project_14.jpg",
+    "image": "/assets/works/project_14.webp",
     "serviceIds": [
       "store"
     ],
@@ -806,7 +806,7 @@ const projectRecords = [
     "legacyId": 14,
     "slug": "alhobari-law-office",
     "category": "web",
-    "image": "/assets/works/project_11.jpg",
+    "image": "/assets/works/project_11.webp",
     "serviceIds": [
       "web"
     ],

@@ -1,6 +1,41 @@
 # Wasl Tech VNext — Final Media Inventory
 
-## 2026-09-25 — Performance-safe fallback + remaining final images
+## 2026-10-13 — Current authoritative media gate for the recovery branch
+
+- **No missing service/hero/article batch to request:** the eight final editorial images, eight official service source JPEGs and responsive WebPs, Home/About assets and all 14 published portfolio images already exist and are owned by the VNext build graph. The old `Remaining final media to request` section below is **dated 2026-09-25, historical and fulfilled**; do not request or regenerate those eight images.
+- Build + release responsive image source checks on the tested `9c9cdb73` SHA passed ([VNext #38338784632](https://github.com/7eaur/wasltech-/actions/runs/38338784632)); 390/1440 browser matrix [#38338784657](https://github.com/7eaur/wasltech-/actions/runs/38338784657) passed. Source originals remain outside release runtime.
+- **Distinct evidence blocker:** image assets for 14 Portfolio cards are not equivalent to authenticated **screenshots from a real case study, client consent, verified outcomes or production reference**. This is UXR-07 and WT-IA-12/57/72, still **NEEDS EXTERNAL EVIDENCE**; do not conflate with final marketing image delivery.
+- These statements describe the **recovery branch Preview**, not production. No source, binary or marketing image replacement performed by this 2026-10-13 status update.
+
+## 2026-10-10 — Responsive delivery derivatives
+
+- Canonical originals remain preserved and are not copied to the release output.
+- Shared editorial and service images have 480/768/1024 px WebP candidates; 800 px project images have 480 px WebP candidates.
+- All public raster `<img>` elements declare `srcset`, `sizes`, width, and height. Heroes keep the single eager/high-priority slot; card and supporting imagery stays lazy-loaded.
+- The 14 project canonical runtime files are now WebP and are 58.4% smaller in aggregate than the prior JPEG runtime set.
+- The eight service canonical runtime files are 28.9% smaller in aggregate than the prior WebP set.
+- `scripts/build.mjs` ships only referenced canonical files and candidates. `scripts/check-quality.mjs` verifies candidate presence, responsive markup, and the 120 KiB per-raster ceiling.
+
+## 2026-10-10 — Final eight-image batch integrated
+
+The eight user-supplied JPEG files are now the canonical preserved sources. Optimized WebP derivatives are wired to every intended Arabic and English surface.
+
+| Final use | Runtime asset | WebP size |
+|---|---|---:|
+| Services directory Hero | `assets/media/services-hero.webp` | 53,234 bytes |
+| Portfolio directory Hero | `assets/media/portfolio-hero.webp` | 93,794 bytes |
+| Process / How we work Hero | `assets/media/process-hero.webp` | 66,130 bytes |
+| Contact + Project Planner Hero | `assets/media/contact-project-planner-hero.webp` | 49,640 bytes |
+| FAQ + Insights Hero | `assets/media/faq-insights-hero.webp` | 39,230 bytes |
+| Article — Website or web system? | `assets/media/article-website-or-web-system.webp` | 63,308 bytes |
+| Article — Before building an e-commerce store | `assets/media/article-ecommerce-store-prep.webp` | 51,588 bytes |
+| Article — Prepare website content before design | `assets/media/article-content-before-design.webp` | 61,874 bytes |
+
+All source and canonical runtime assets are `1536 × 961`. The source JPEGs remain byte-identical to the supplied files. Runtime assets are below the 120 KiB raster budget and are guarded by `scripts/check-final-media.mjs` plus the dedicated workflow.
+
+Status: **COMPLETE ON `integration/site-stabilization-20261010`; production merge remains separately gated.**
+
+## 2026-09-25 — Performance-safe fallback + remaining final images (historical)
 
 The current release no longer depends on the multi-megabyte temporary PNG Hero/article assets at runtime. Until final user imagery is supplied, the affected surfaces intentionally reuse existing optimized WebP media already approved in the project.
 
@@ -75,7 +110,7 @@ Locked service-image mapping and intended filenames:
 Prepared derivative specification:
 - WebP
 - `1280 × 720`
-- approximately `52–103 KB` per file
+- approximately `38–70 KB` per canonical file, with smaller responsive candidates
 - same canonical image should feed the service card/listing and service-detail Hero wherever the current architecture consumes `service.image`.
 
 The user's explicit storage requirement is:

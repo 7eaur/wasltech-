@@ -4,8 +4,11 @@ const summary = document.querySelector("[data-planner-summary]");
 const whatsapp = document.querySelector("[data-planner-whatsapp]");
 const edit = document.querySelector("[data-planner-edit]");
 const status = document.querySelector("[data-planner-status]");
+const controls = document.querySelector("[data-planner-controls]");
+const submit = document.querySelector("[data-planner-submit]");
+const fallback = document.querySelector("[data-planner-needs-js]");
 
-if (form && review && summary && whatsapp && edit && status) {
+if (form && review && summary && whatsapp && edit && status && controls && submit && fallback) {
   const locale = form.dataset.locale === "en" ? "en" : "ar";
   const base = form.dataset.whatsappBase;
 
@@ -103,8 +106,7 @@ if (form && review && summary && whatsapp && edit && status) {
   form.addEventListener("input", hideReview);
   form.addEventListener("change", hideReview);
 
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
+  const prepareReview = () => {
 
     if (!form.checkValidity()) {
       form.reportValidity();
@@ -122,12 +124,19 @@ if (form && review && summary && whatsapp && edit && status) {
     review.hidden = false;
     status.textContent = copy.prepared;
     review.focus({ preventScroll: true });
-    review.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
+    review.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+  };
+
+  submit.addEventListener("click", prepareReview);
+  form.addEventListener("submit", (event) => { event.preventDefault(); prepareReview(); });
 
   edit.addEventListener("click", () => {
     review.hidden = true;
     form.querySelector("select, input, textarea")?.focus();
-    form.scrollIntoView({ behavior: "smooth", block: "start" });
+    form.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
   });
+
+  // Activate only after submit handlers exist: the default HTML state cannot submit personal fields.
+  controls.disabled = false;
+  fallback.hidden = true;
 }

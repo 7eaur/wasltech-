@@ -36,6 +36,10 @@ for(const locale of ["ar","en"]){
     if(html.includes('class="project-primary-media"')) fail(file,"duplicate legacy primary project media section must not remain");
     if(!html.includes(project.image)) fail(file,"project hero image missing");
 
+    if((html.match(/class="project-story__item"/g)??[]).length!==3) fail(file,"project case study must render three editorial panels");
+    for(const heading of locale==="ar"?["المشروع","السياق","ما نفذناه"]:["The project","Context","What we built"]){
+      if(!html.includes(`<h2>${heading}</h2>`)) fail(file,`project story heading missing: ${heading}`);
+    }
     for(const value of [copy.caseStudy.overview,copy.caseStudy.context,copy.caseStudy.contribution]){
       if(!html.includes(htmlText(value))) fail(file,"case-study story content missing");
     }

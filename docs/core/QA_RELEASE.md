@@ -92,6 +92,8 @@ Build review:
 - no unused large library;
 - explicit image dimensions;
 - correct responsive formats;
+- local raster content images declare valid `srcset` and `sizes` candidates;
+- each released raster stays within the executable 120 KiB ceiling;
 - LCP image eager/fetch priority when justified;
 - below-fold images lazy;
 - avoid duplicate fonts;

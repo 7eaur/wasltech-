@@ -1,7 +1,6 @@
 import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
 import { serviceGroups, getServicesByGroup } from "../data/services.js";
-import { ActionLink } from "../components/ActionLink.js";
 import { CallToAction } from "../components/CallToAction.js";
 import { SectionHeader } from "../components/SectionHeader.js";
 import { documentTemplate } from "../templates/document.js";
@@ -9,6 +8,7 @@ import { organizationSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
 import { HeroMedia } from "../components/HeroMedia.js";
 import { getPageHeroMedia } from "../config/hero-media.js";
+import { IMAGE_SIZES, responsiveImageData } from "../lib/responsive-image.js";
 
 const servicesPageRecord = pages.find((page) => page.id === "services");
 
@@ -30,10 +30,6 @@ function renderHero(content, locale) {
           <h1>${escapeHtml(content.kicker)}</h1>
           <h2 class="inner-hero__subtitle">${escapeHtml(content.title)}</h2>
           <p>${escapeHtml(content.support)}</p>
-          <div class="services-hero__actions">
-            ${ActionLink({ href:"#service-families", label:content.primaryCta, variant:"primary", size:"lg" })}
-            ${ActionLink({ href:routes.startProject(locale), label:content.secondaryCta, variant:"ghost", size:"lg" })}
-          </div>
         </div>
         ${HeroMedia({...getPageHeroMedia("services", locale), className:"services-hero__media"})}
       </div>
@@ -43,11 +39,12 @@ function renderHero(content, locale) {
 
 function renderServiceRow(service, locale) {
   const copy = service.content[locale];
-  const features = copy.deliverables.slice(0,4).map((item)=>`<li>${escapeHtml(item.title)}</li>`).join("");
+  const responsive = responsiveImageData(service.image,1280,IMAGE_SIZES.serviceDirectory);
+  const features = copy.deliverables.slice(0,3).map((item)=>`<li>${escapeHtml(item.title)}</li>`).join("");
   return `
     <article class="service-directory-row">
       <a class="service-directory-row__media" href="${routes.service(service.slug,locale)}" aria-label="${escapeHtml(copy.title)}">
-        <img src="${service.image}" alt="${escapeHtml(copy.title)}" width="1280" height="720" loading="lazy" decoding="async">
+        <img src="${service.image}" srcset="${escapeHtml(responsive.srcset)}" sizes="${escapeHtml(responsive.sizes)}" alt="${escapeHtml(copy.title)}" width="1280" height="720" loading="lazy" decoding="async">
       </a>
       <div class="service-directory-row__copy">
         <p class="service-directory-row__subtitle">${escapeHtml(copy.subtitle)}</p>
@@ -76,7 +73,7 @@ function renderFamily(group, content, locale) {
             })}
           </div>
         </div>
-        <div class="service-directory-list">
+        <div class="service-directory-list${services.length === 3 ? " service-directory-list--three" : ""}">
           ${services.map((service)=>renderServiceRow(service,locale)).join("")}
         </div>
       </div>

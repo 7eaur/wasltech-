@@ -56,7 +56,7 @@
 .media-card .eyebrow{margin-bottom:.35rem;font-size:var(--font-size-xs)}
 .media-card__title{margin:0 0 .4rem;font-size:clamp(1rem,.94rem + .18vw,1.14rem);line-height:1.42}
 .media-card__title a:hover{color:var(--color-text-accent)}
-.media-card__body{display:-webkit-box;margin:0 0 var(--space-3);color:var(--color-text-secondary);font-size:clamp(.84rem,.81rem + .1vw,.92rem);line-height:1.68;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.media-card__body{display:-webkit-box;margin:0 0 var(--space-3);color:var(--color-text-secondary);font-size:clamp(.9rem,.87rem + .1vw,.96rem);line-height:1.68;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
 .media-card__action{font-size:var(--font-size-sm)}
 .media-card--featured{grid-column:span 2;display:grid;grid-template-columns:minmax(0,1.16fr) minmax(0,.84fr);align-items:stretch}
 .media-card--featured .media-card__media{height:100%;aspect-ratio:auto}
@@ -102,3 +102,10 @@
   .button:hover,.card--interactive:hover{transform:none}
   .media-card:hover .media-card__media img{transform:none}
 }
+
+/* Task-led page introductions: a question and clear next action precede artwork. */
+.page-intro{padding-block:clamp(var(--space-7),4vw,var(--space-10)) var(--space-5)}
+.page-intro__content{max-width:52rem}
+.page-intro h1{margin:0 0 var(--space-2);color:var(--color-text-brand);font-size:clamp(1.85rem,3vw,2.65rem);line-height:1.24}
+.page-intro .inner-hero__subtitle{max-width:48rem;margin:0 0 var(--space-3);font-size:clamp(1.125rem,1rem + .5vw,1.5rem)}
+.page-intro__content>p{max-width:45rem;margin:0;color:var(--color-text-secondary);font-size:clamp(.9375rem,.9rem + .15vw,1rem);line-height:1.75}

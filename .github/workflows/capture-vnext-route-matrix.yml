@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - rebuild/vnext-foundation-20260921
+      - fix/independent-site-recovery-20261010
     paths:
       - ".github/workflows/capture-vnext-route-matrix.yml"
       - "src/pages/**"
@@ -73,7 +74,7 @@ jobs:
           mkdir -p wasltech-vnext-matrix
           cd wasltech-vnext-matrix
           npm init -y >/dev/null 2>&1
-          npm install playwright@1.55.0 >/dev/null
+          npm install playwright@1.55.0 axe-core@4.10.3 >/dev/null
           npx playwright install --with-deps chromium
 
       - name: Verify responsive matrix and capture route families
@@ -81,12 +82,14 @@ jobs:
           mkdir -p "$GITHUB_WORKSPACE/route-screenshots"
           cat > /tmp/wasltech-vnext-matrix/matrix.mjs <<'EOF'
           import { chromium } from "playwright";
+          import { writeFileSync } from "node:fs";
 
           const base = "http://127.0.0.1:4173";
           const routeFamilies = [
             ["home", "/", "/en/", "/en/", "/"],
             ["services", "/services/", "/en/services/", "/en/services/", "/services/"],
             ["service-web", "/services/web-development/", "/en/services/web-development/", "/en/services/web-development/", "/services/web-development/"],
+            ["service-app", "/services/mobile-app-development/", "/en/services/mobile-app-development/", "/en/services/mobile-app-development/", "/services/mobile-app-development/"],
             ["portfolio", "/portfolio/", "/en/portfolio/", "/en/portfolio/", "/portfolio/"],
             ["project-wasl", "/portfolio/wasl-freelance-platform/", "/en/portfolio/wasl-freelance-platform/", "/en/portfolio/wasl-freelance-platform/", "/portfolio/wasl-freelance-platform/"],
             ["about", "/about/", "/en/about/", "/en/about/", "/about/"],
@@ -96,12 +99,14 @@ jobs:
             ["faq", "/faq/", "/en/faq/", "/en/faq/", "/faq/"],
             ["insights", "/insights/", "/en/insights/", "/en/insights/", "/insights/"],
             ["article-website-or-system", "/insights/website-or-web-system/", "/en/insights/website-or-web-system/", "/en/insights/website-or-web-system/", "/insights/website-or-web-system/"],
+            ["article-ecommerce-readiness", "/insights/before-building-ecommerce-store/", "/en/insights/before-building-ecommerce-store/", "/en/insights/before-building-ecommerce-store/", "/insights/before-building-ecommerce-store/"],
+            ["article-content-before-design", "/insights/prepare-website-content-before-design/", "/en/insights/prepare-website-content-before-design/", "/en/insights/prepare-website-content-before-design/", "/insights/prepare-website-content-before-design/"],
             ["careers", "/careers/", "/en/careers/", "/en/careers/", "/careers/"],
             ["privacy", "/privacy/", "/en/privacy/", "/en/privacy/", "/privacy/"],
             ["terms", "/terms/", "/en/terms/", "/en/terms/", "/terms/"],
             ["not-found", "/404.html", "/en/404.html", "/en/", "/"]
           ];
-          const widths = [360, 390, 768, 1024, 1366, 1440];
+          const widths = [320, 360, 390, 768, 1024, 1366, 1440];
           const browser = await chromium.launch({ headless: true });
 
           async function inspect(path, width, locale, expectedSwitch) {
@@ -148,15 +153,23 @@ jobs:
             if (consoleErrors.length) throw new Error(`Console errors ${path}: ${consoleErrors.join(" | ")}`);
             if (failedLocalRequests.length) throw new Error(`Failed local requests ${path}: ${failedLocalRequests.join(" | ")}`);
 
-            const switchHref = await page.locator(".language-switch").getAttribute("href");
-            if (switchHref !== expectedSwitch) {
-              throw new Error(`Language switch mismatch ${path}: ${switchHref} !== ${expectedSwitch}`);
-            }
-
-            if (path.endsWith("/404.html") || path === "/404.html") {
-              const activeNavItems = await page.locator(".primary-nav [aria-current=\"page\"]").count();
-              if (activeNavItems !== 0) {
-                throw new Error(`404 must not mark primary navigation active: ${path}`);
+            const isNotFound = path.endsWith("/404.html");
+            if (isNotFound) {
+              // The branded 404 is deliberately standalone without site navigation.
+              if (await page.locator(".site-header, .site-footer, .language-switch").count()) {
+                throw new Error(`Standalone 404 leaked the global shell: ${path}`);
+              }
+              if (await page.locator(".not-found-page img").count() !== 1) {
+                throw new Error(`Standalone 404 must show exactly one illustration: ${path}`);
+              }
+              const homeHref = locale === "ar" ? "/" : "/en/";
+              if (await page.locator(".not-found-page .button").getAttribute("href") !== homeHref) {
+                throw new Error(`Standalone 404 must point to localized home: ${path}`);
+              }
+            } else {
+              const switchHref = await page.locator(".language-switch").getAttribute("href");
+              if (switchHref !== expectedSwitch) {
+                throw new Error(`Language switch mismatch ${path}: ${switchHref} !== ${expectedSwitch}`);
               }
             }
             await context.close();
@@ -264,6 +277,15 @@ jobs:
             }
 
             await page.goto(base + portfolioPath, { waitUntil: "domcontentloaded" });
+            await page.waitForFunction(() => document.querySelector("[data-portfolio-more-wrap]")?.hidden === false);
+            const visibleFirst = await page.locator("[data-project-card]:visible").count();
+            if (visibleFirst !== 5) throw new Error(`${locale}: Initial portfolio should expose five cards, got ${visibleFirst}`);
+            await page.locator("[data-portfolio-more]").click();
+            const visibleFull = await page.locator("[data-project-card]:visible").count();
+            if (visibleFull !== 14) throw new Error(`${locale}: Show-more should expose all 14 projects, got ${visibleFull}`);
+            if (await page.locator("[data-portfolio-more]").isVisible()) {
+              throw new Error(`${locale}: Show-more button remained visible after expansion.`);
+            }
             const filters = page.locator("[data-portfolio-filter]");
             if (await filters.count() < 2) throw new Error(`${locale}: Portfolio filters missing.`);
             await filters.nth(1).click();
@@ -279,10 +301,12 @@ jobs:
             if (/\d/.test(filterStatus)) {
               throw new Error(`${locale}: Portfolio filter status must be count-free: ${filterStatus}`);
             }
+            const selectedLabel = (await filters.nth(1).textContent() || "").trim();
+            if (!filterStatus.includes(selectedLabel)) throw new Error(`${locale}: Portfolio status must name active category: ${filterStatus}`);
 
             await page.goto(base + plannerPath, { waitUntil: "domcontentloaded" });
             const form = page.locator("[data-project-planner]");
-            await form.locator('button[type="submit"]').click();
+            await form.locator('[data-planner-submit]').click();
             const invalidStatus = (await page.locator("[data-planner-status]").textContent() || "").trim();
             if (!invalidStatus) throw new Error(`${locale}: Planner invalid state did not produce a status message.`);
 
@@ -296,7 +320,7 @@ jobs:
                 ? "وصف اختبار كافٍ للتحقق من مسار مراجعة المشروع."
                 : "A sufficient test description for verifying the project review flow."
             );
-            await form.locator('button[type="submit"]').click();
+            await form.locator('[data-planner-submit]').click();
 
             const review = page.locator("[data-planner-review]");
             if (await review.isHidden()) throw new Error(`${locale}: Planner review did not open after valid submission.`);
@@ -342,6 +366,17 @@ jobs:
               Object.defineProperty(navigator, "deviceMemory", { configurable: true, get: () => 2 });
               Object.defineProperty(navigator, "hardwareConcurrency", { configurable: true, get: () => 2 });
               window.__waslLongTasks = [];
+              window.__waslLabVitals = { lcpMs: null, cls: 0 };
+              try {
+                new PerformanceObserver((list) => {
+                  for(const entry of list.getEntries())window.__waslLabVitals.lcpMs=entry.startTime;
+                }).observe({type:"largest-contentful-paint",buffered:true});
+              } catch {}
+              try {
+                new PerformanceObserver((list) => {
+                  for(const entry of list.getEntries())if(!entry.hadRecentInput)window.__waslLabVitals.cls+=entry.value;
+                }).observe({type:"layout-shift",buffered:true});
+              } catch {}
               try {
                 const observer = new PerformanceObserver((list) => {
                   for (const entry of list.getEntries()) window.__waslLongTasks.push(entry.duration);
@@ -382,6 +417,7 @@ jobs:
               motionEnabled: document.documentElement.classList.contains("motion-enabled"),
               motionTargets: document.querySelectorAll(".motion-reveal").length,
               longTasks: window.__waslLongTasks ?? [],
+              labVitals: window.__waslLabVitals ?? null,
               overlyTransparentVisible: [...document.querySelectorAll(".motion-reveal")].filter((node) => {
                 const rect = node.getBoundingClientRect();
                 const opacity = Number.parseFloat(getComputedStyle(node).opacity);
@@ -404,6 +440,11 @@ jobs:
             if (metrics.motionTargets) throw new Error(`Degraded low-power runtime created motion targets: ${metrics.motionTargets}`);
             if (metrics.overlyTransparentVisible) throw new Error(`Visible motion targets became too transparent: ${metrics.overlyTransparentVisible}`);
 
+            writeFileSync("/home/runner/work/wasltech-/wasltech-/route-screenshots/lab-diagnostics.json",JSON.stringify({
+              test:"local static build, 390px, synthetic 180ms latency + 4x CPU + throughput limits",
+              interpretation:"single synthetic trace; NOT CrUX, RUM, field p75 or proof of CWV acceptance",
+              measured:{domReadyMs,maxStartupLongTask,maxInteractionLongTask,maxScrollLongTask,lcpMs:metrics.labVitals?.lcpMs??null,cls:metrics.labVitals?.cls??null}
+            },null,2));
             await context.close();
 
             const reducedContext = await browser.newContext({
@@ -421,6 +462,371 @@ jobs:
             console.log(`VNEXT DEGRADED RUNTIME: PASSED (DOM ${domReadyMs}ms; startup ${maxStartupLongTask.toFixed(1)}ms; interaction ${maxInteractionLongTask.toFixed(1)}ms; scroll ${maxScrollLongTask.toFixed(1)}ms)`);
           }
 
+          async function verifyNoJsFallback(locale) {
+            const context = await browser.newContext({
+              viewport: { width: 390, height: 844 },
+              isMobile: true,
+              hasTouch: true,
+              javaScriptEnabled: false
+            });
+            const page = await context.newPage();
+            const prefix = locale === "en" ? "/en" : "";
+            await page.goto(base + (locale === "en" ? "/en/" : "/"), { waitUntil: "domcontentloaded" });
+            const navigation = page.locator(".primary-nav--nojs a");
+            if (!(await navigation.count()) || !(await navigation.first().isVisible())) {
+              throw new Error(locale + ": no-JS mobile navigation unavailable");
+            }
+            await page.goto(base + prefix + "/portfolio/", { waitUntil: "domcontentloaded" });
+            const noJsCards = await page.locator("[data-project-card]:visible").count();
+            if (noJsCards !== 14) throw new Error(locale + ": portfolio must expose all work without JavaScript");
+            if (await page.locator("[data-portfolio-more]").isVisible()) {
+              throw new Error(locale + ": JS-only show-more must remain hidden without JS");
+            }
+            await page.goto(base + prefix + "/services/mobile-app-development/", { waitUntil: "domcontentloaded" });
+            const noJsOptions = page.locator(".service-subservice__details");
+            if (await noJsOptions.count() !== 5 || !(await noJsOptions.first().evaluate(el=>el.open))) {
+              throw new Error(locale + ": all five service types and open example must render without JS");
+            }
+            const optionSummary = noJsOptions.nth(1).locator("summary");
+            await optionSummary.focus();
+            await page.keyboard.press("Enter");
+            if (!(await noJsOptions.nth(1).evaluate(el=>el.open))) {
+              throw new Error(locale + ": native service option must open with keyboard and JS disabled");
+            }
+            await page.goto(base + prefix + "/start-project/", { waitUntil: "domcontentloaded" });
+            const controls = page.locator("[data-planner-controls]");
+            if (!(await controls.evaluate((fieldset) => fieldset.disabled === true))) throw new Error(locale + ": planner fieldset must have disabled property without JS");
+            if (!(await page.locator("[data-planner-needs-js]").isVisible())) {
+              throw new Error(locale + ": no-JS planner guidance hidden");
+            }
+            const submit = page.locator("[data-planner-submit]");
+            if (await submit.getAttribute("type") !== "button" || await submit.isEnabled()) {
+              throw new Error(locale + ": planner submit must be inert without JS");
+            }
+            await submit.evaluate((node) => node.click());
+            if (new URL(page.url()).search) throw new Error(locale + ": planner data appeared in URL without JS");
+            await context.close();
+            console.log("NO-JS SERVICE OPTIONS + PLANNER + NAV: PASSED (" + locale + ")");
+          }
+
+
+          // Accessible keyboard-first navigation and native disclosures: Arabic/English
+          // at 320px (the CSS viewport equivalent of 1280px at 400% reflow).
+          async function verifyReaderNavigation(locale) {
+            const path = locale === "ar" ? "/services/web-development/" : "/en/services/web-development/";
+            const ctx = await browser.newContext({
+              viewport: { width: 320, height: 780 },
+              locale: locale === "ar" ? "ar-YE" : "en-US",
+              reducedMotion: "reduce"
+            });
+            const p = await ctx.newPage();
+            await p.goto(base + path, { waitUntil: "domcontentloaded" });
+            const navLinks = p.locator(".section-jump-nav a");
+            if (await navLinks.count() < 3) throw new Error(locale + ": missing service section navigation");
+            const jump = navLinks.first();
+            await jump.focus();
+            await p.keyboard.press("Enter");
+            if (!new URL(p.url()).hash || new URL(p.url()).hash !== "#service-deliverables") {
+              throw new Error(locale + ": keyboard anchor did not navigate to deliverables");
+            }
+            const sections = p.locator(".service-deliverable__details");
+            if (await sections.count() < 2) throw new Error(locale + ": deliverables not disclosed natively");
+            if (!(await sections.first().evaluate(e => e.open)) || (await sections.nth(1).evaluate(e => e.open))) {
+              throw new Error(locale + ": unexpected initial disclosure state");
+            }
+            const summary = sections.nth(1).locator("summary");
+            await summary.focus();
+            await p.keyboard.press("Enter");
+            if (!(await sections.nth(1).evaluate(e => e.open))) throw new Error(locale + ": Enter did not open details");
+            await p.keyboard.press("Enter");
+            if (await sections.nth(1).evaluate(e => e.open)) throw new Error(locale + ": Enter did not close details");
+            const overflow = await p.evaluate(() => document.documentElement.scrollWidth > innerWidth);
+            if (overflow) throw new Error(locale + ": 320px reader reflow has horizontal overflow");
+            // Long service-type lists retain every title, with explanations in native
+            // keyboard-operable disclosures. No JavaScript is needed to open them.
+            await p.goto(base + (locale === "ar" ? "/services/mobile-app-development/" : "/en/services/mobile-app-development/"), { waitUntil: "domcontentloaded" });
+            const subservices = p.locator(".service-subservice__details");
+            if (await subservices.count() !== 5) throw new Error(locale + ": five mobile app service types must remain discoverable");
+            if (!(await subservices.first().evaluate(e => e.open)) || (await subservices.nth(1).evaluate(e => e.open))) {
+              throw new Error(locale + ": initial subservice disclosure state incorrect");
+            }
+            const secondSubserviceSummary = subservices.nth(1).locator("summary");
+            await secondSubserviceSummary.focus();
+            await p.keyboard.press("Enter");
+            if (!(await subservices.nth(1).evaluate(e => e.open))) throw new Error(locale + ": Enter failed to reveal subservice details");
+            if (await p.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error(locale + ": opened subservice causes narrow overflow");
+            await p.keyboard.press("Enter");
+            if (await subservices.nth(1).evaluate(e => e.open)) throw new Error(locale + ": Enter failed to close subservice details");
+            await p.goto(base + (locale === "ar" ? "/faq/" : "/en/faq/"), { waitUntil: "domcontentloaded" });
+            const faqSummary = p.locator(".faq-item summary").first();
+            await faqSummary.focus();
+            await p.keyboard.press("Enter");
+            const faqOpened = await faqSummary.evaluate(e => e.parentElement.open);
+            if (!faqOpened) throw new Error(locale + ": FAQ native summary keyboard activation failed");
+            const faqStyle = await faqSummary.evaluate(e => {
+              const s = getComputedStyle(e); return {
+                logicalEnd: Number.parseFloat(s.paddingInlineEnd),
+                side: document.documentElement.dir
+              };
+            });
+            if (faqStyle.logicalEnd < 25) throw new Error(locale + ": FAQ text overlaps toggle mark");
+            await p.goto(base + (locale === "ar" ? "/" : "/en/"), { waitUntil: "domcontentloaded" });
+            await p.locator(".skip-link").focus();
+            await p.keyboard.press("Enter");
+            const skip = await p.evaluate(() => ({
+              hash: location.hash,
+              focusedMain: document.activeElement?.id === "main-content"
+            }));
+            if (skip.hash !== "#main-content" || !skip.focusedMain) {
+              throw new Error(locale + ": keyboard skip-to-main failed");
+            }
+            await ctx.close();
+            console.log("KEYBOARD SERVICE DISCLOSURE + FAQ + SKIP LINK: PASSED (" + locale + ")");
+          }
+
+
+          async function verifyServicesCardRhythm(locale) {
+            const widths=[320,390,768,900,1024,1200,1440];
+            for(const width of widths){
+              const context=await browser.newContext({viewport:{width,height:850},locale:locale==="ar"?"ar-YE":"en-US"});
+              const page=await context.newPage();
+              await page.goto(base+(locale==="ar"?"/services/":"/en/services/"),{waitUntil:"domcontentloaded"});
+              const families=await page.locator(".service-family").evaluateAll(sections=>sections.map(section=>{
+                const grid=section.querySelector(".service-directory-list");
+                const cards=[...grid.children].map(card=>{
+                  const rect=card.getBoundingClientRect();
+                  return {x:rect.x,y:rect.y,width:rect.width};
+                });
+                const r=grid.getBoundingClientRect();
+                return {id:section.id,rows:cards,count:cards.length,gridWidth:r.width,three:grid.classList.contains("service-directory-list--three")};
+              }));
+              if(families.length!==3) throw new Error("Services families should be three "+locale);
+              for(const f of families){
+                const expectThree=f.count===3;
+                if(f.three!==expectThree)throw new Error(`Services modifier mismatch ${f.id} @ ${width} ${locale}`);
+                const approx=(a,b)=>Math.abs(a-b)<2;
+                if(width<=768){
+                  if(!f.rows.every(c=>approx(c.width,f.gridWidth)))throw new Error(`Services cards not full-width at mobile ${f.id} ${width} ${locale}`);
+                }else if(expectThree&&width>=1025){
+                  if(!f.rows.every(c=>approx(c.y,f.rows[0].y)))throw new Error(`Services orphan at desktop ${f.id} ${width} ${locale}`);
+                }else if(expectThree){
+                  if(!approx(f.rows[0].y,f.rows[1].y)||!(f.rows[2].y>f.rows[0].y)||!approx(f.rows[2].width,f.gridWidth)){
+                    throw new Error(`Services third card not balanced at tablet ${f.id} ${width} ${locale}`);
+                  }
+                }
+              }
+              const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
+              if(overflow)throw new Error(`Services horizontal overflow ${width} ${locale}`);
+              await context.close();
+            }
+            console.log("SERVICES BALANCED 3/2/3 GRID: PASSED ("+locale+")");
+          }
+
+
+          async function verifyBalancedPortfolio(locale) {
+            for (const width of [320,390,768,1024,1200,1440]) {
+              const context=await browser.newContext({viewport:{width,height:840},locale:locale==="ar"?"ar-YE":"en-US"});
+              const page=await context.newPage();
+              await page.goto(base+(locale==="ar"?"/portfolio/":"/en/portfolio/"),{waitUntil:"domcontentloaded"});
+              await page.waitForFunction(()=>document.querySelector("[data-portfolio-more-wrap]")?.hidden===false);
+              const cards=page.locator("[data-project-card]:visible");
+              if(await cards.count()!==5)throw new Error(`Portfolio visible count @ ${width} ${locale}`);
+              const positions=await cards.evaluateAll(nodes=>nodes.map(n=>{
+                const r=n.getBoundingClientRect();
+                return {y:r.y,width:r.width};
+              }));
+              const eq=(a,b)=>Math.abs(a-b)<2;
+              if(width>=1025) {
+                if(!eq(positions[0].y,positions[1].y)||!eq(positions[2].y,positions[3].y)||!eq(positions[3].y,positions[4].y)||!(positions[2].y>positions[0].y)) {
+                  throw new Error(`Portfolio 3-column featured grid leaves orphan @ ${width} ${locale}`);
+                }
+              } else if(width>700){
+                if(!eq(positions[1].y,positions[2].y)||!eq(positions[3].y,positions[4].y)||!(positions[1].y>positions[0].y)||!(positions[3].y>positions[1].y)){
+                  throw new Error(`Portfolio 2-column featured grid leaves orphan @ ${width} ${locale}`);
+                }
+              } else {
+                if(!positions.every((p,i)=>!i||p.y>positions[i-1].y))throw new Error(`Portfolio single column not stacked @ ${width} ${locale}`);
+              }
+              if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw new Error(`Portfolio horizontal overflow @ ${width} ${locale}`);
+              await context.close();
+            }
+            console.log("PORTFOLIO BALANCED FEATURED GRID: PASSED ("+locale+")");
+          }
+
+
+          async function verifyCriticalLabelReadability(locale){
+            const ctx=await browser.newContext({viewport:{width:390,height:844},locale:locale==="ar"?"ar-YE":"en-US"});
+            const page=await ctx.newPage();
+            const cases=[
+              ["/",[".home-hero__signal strong",".home-hero__signal small",".footer-contact__name",".footer-contact__value"]],
+              ["/services/",[".service-directory-row__subtitle"]],
+              ["/services/web-development/",[".service-decision-panel span"]]
+            ];
+            for(const [path,selectors] of cases){
+              await page.goto(base+(locale==="ar"?path:"/en"+path),{waitUntil:"domcontentloaded"});
+              for(const selector of selectors){
+                const x=await page.locator(selector).first().evaluate(el=>({
+                  px:Number.parseFloat(getComputedStyle(el).fontSize),
+                  display:getComputedStyle(el).display
+                }));
+                const minimum=selector===".home-hero__signal small"?13:14;
+                if(x.display!=="none"&&x.px<minimum)throw new Error(`Critical small label ${selector} at ${x.px}px < ${minimum}px (${locale})`);
+              }
+              if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw new Error(`Label sizing created horizontal overflow ${locale} ${path}`);
+            }
+            await ctx.close();
+            console.log("MOBILE CRITICAL TEXT LABEL SIZES: PASSED ("+locale+")");
+          }
+
+          async function verifyTaskLedAndSupportingContent(locale){
+            for(const width of [320,360,390]){
+              const ctx=await browser.newContext({viewport:{width,height:844},locale:locale==="ar"?"ar-YE":"en-US"});
+              const page=await ctx.newPage();
+              await page.goto(base+(locale==="ar"?"/":"/en/"),{waitUntil:"domcontentloaded"});
+              for(const selector of [".home-hero__signal small",".home-about__value span"]){
+                const matches=page.locator(selector);
+                if(await matches.count()!==3)throw new Error(`${locale} ${width}: expected 3 values at ${selector}`);
+                for(let i=0;i<3;i++)if(!await matches.nth(i).isVisible())throw new Error(`${locale} ${width}: hidden content ${selector}[${i}]`);
+              }
+              if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw new Error(locale+width+": homepage horizontal overflow");
+              await ctx.close();
+            }
+            const ctx=await browser.newContext({viewport:{width:390,height:844},locale:locale==="ar"?"ar-YE":"en-US"});
+            const page=await ctx.newPage();
+            for(const [path,intro,next] of [["/contact/",".page-intro--contact",".contact-paths"],["/faq/",".page-intro--faq",".section-jump-nav"]]){
+              await page.goto(base+(locale==="ar"?path:"/en"+path),{waitUntil:"domcontentloaded"});
+              const state=await page.evaluate(([intro,next])=>{
+                const a=document.querySelector(intro),b=document.querySelector(next);
+                if(!a||!b)return null;
+                return {ordered:b.getBoundingClientRect().top>=a.getBoundingClientRect().bottom-2,heroImage:!!document.querySelector(".editorial-hero-media"),h1:a.querySelectorAll("h1").length};
+              },[intro,next]);
+              if(!state||!state.ordered||state.heroImage||state.h1!==1)throw new Error(locale+path+": task-led intro order/image regression");
+              if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw new Error(locale+path+": intro overflows");
+            }
+            await ctx.close();
+            console.log("TASK-LED CONTACT/FAQ AND VISIBLE HOME COPY: PASSED ("+locale+")");
+          }
+
+          async function verifyComputedTextContrast(locale){
+            const ctx=await browser.newContext({viewport:{width:390,height:844},locale:locale==="ar"?"ar-YE":"en-US"});
+            const page=await ctx.newPage();
+            const paths=[
+              ["/",[".home-hero__signal strong",".home-hero__signal small",".home-about__value span",".footer-contact__name",".footer-contact__value"]],
+              ["/contact/",[".page-intro__content>p",".contact-paths article>p:not(.eyebrow)",".contact-channel span"]],
+              ["/faq/",[".page-intro__content>p",".faq-item summary",".faq-item p"]],
+              ["/services/web-development/",[".service-decision-panel span",".service-deliverable__details[open] p"]]
+            ];
+            for(const [route,selectors] of paths){
+              await page.goto(base+(locale==="ar"?route:"/en"+route),{waitUntil:"domcontentloaded"});
+              // Native disclosure answers are intentionally hidden until user activation.
+              // Open with the keyboard before sampling their visible foreground/background.
+              if(route==="/faq/"){
+                const summary=page.locator(".faq-item summary").first();
+                await summary.focus();
+                await page.keyboard.press("Enter");
+                if(!await page.locator(".faq-item").first().evaluate(el=>el.open))throw new Error(locale+": FAQ failed keyboard activation for contrast sample");
+              }
+              for(const selector of selectors){
+                const evidence=await page.locator(selector).first().evaluate(el=>{
+                  const rgba=str=>{
+                    const nums=str.match(/[0-9]*\.?[0-9]+/g)?.map(Number)||[];
+                    return nums.length>=3?[nums[0],nums[1],nums[2],nums.length>3?nums[3]:1]:[0,0,0,0];
+                  };
+                  const blend=(back,over)=>over.slice(0,3).map((v,i)=>v*over[3]+back[i]*(1-over[3]));
+                  let current=el;const layers=[];
+                  while(current){layers.push(rgba(getComputedStyle(current).backgroundColor));current=current.parentElement}
+                  const background=layers.reverse().reduce(blend,[255,255,255]);
+                  const foreground=blend(background,rgba(getComputedStyle(el).color));
+                  const light=color=>{
+                    const rgb=color.map(x=>x/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4);
+                    return .2126*rgb[0]+.7152*rgb[1]+.0722*rgb[2];
+                  };
+                  const l1=light(background),l2=light(foreground);
+                  return {ratio:(Math.max(l1,l2)+.05)/(Math.min(l1,l2)+.05),visible:el.getClientRects().length>0};
+                });
+                if(!evidence.visible||evidence.ratio<4.5)throw new Error(`${locale} ${route} ${selector}: contrast ${evidence.ratio.toFixed(2)} < 4.5 or hidden`);
+              }
+            }
+            await ctx.close();
+            console.log("COMPUTED TEXT CONTRAST >= 4.5 ON SELECTED UI: PASSED ("+locale+")");
+          }
+
+          // WCAG-oriented automated audit (CI browser simulation, not manual AT certification).
+          async function verifyAutomatedAccessibility(locale) {
+            const cases=["/","/services/","/services/mobile-app-development/","/portfolio/","/contact/","/start-project/","/faq/","/privacy/"];
+            const issues=[];
+            const ctx=await browser.newContext({viewport:{width:390,height:844},locale:locale==="ar"?"ar-YE":"en-US",reducedMotion:"reduce"});
+            const page=await ctx.newPage();
+            for(const route of cases) {
+              const path=locale==="ar"?route:(route==="/"?"/en/":"/en"+route);
+              await page.goto(base+path,{waitUntil:"domcontentloaded"});
+              await page.addScriptTag({path:"/tmp/wasltech-vnext-matrix/node_modules/axe-core/axe.min.js"});
+              const report=await page.evaluate(async()=>await window.axe.run(document,{
+                runOnly:{type:"tag",values:["wcag2a","wcag2aa","wcag21a","wcag21aa","wcag22aa"]},
+                resultTypes:["violations"]
+              }));
+              for(const issue of report.violations){
+                issues.push({locale,path,id:issue.id,impact:issue.impact,description:issue.description,
+                  nodes:issue.nodes.slice(0,6).map(n=>({target:n.target,failureSummary:n.failureSummary}))});
+              }
+            }
+            await ctx.close();
+            console.log("AUTOMATED A11Y AUDIT "+locale+": "+issues.length+" findings (inspect generated JSON; CI blocks serious/critical).");
+            return issues;
+          }
+
+          // Effective CSS viewport equivalence for 1280px desktop at 200% and 400%.
+          // This tests narrow reflow but is NOT real browser zoom or VoiceOver/NVDA.
+          async function verifyZoomEquivalentReflow(locale) {
+            const paths=["/","/services/","/services/mobile-app-development/","/contact/","/start-project/","/faq/"];
+            for(const [zoom,viewport] of [[200,640],[400,320]]) {
+              const ctx=await browser.newContext({viewport:{width:viewport,height:800},locale:locale==="ar"?"ar-YE":"en-US",reducedMotion:"reduce"});
+              const page=await ctx.newPage();
+              for(const route of paths){
+                const path=locale==="ar"?route:(route==="/"?"/en/":"/en"+route);
+                await page.goto(base+path,{waitUntil:"domcontentloaded"});
+                const state=await page.evaluate(()=>({
+                  viewport:document.documentElement.clientWidth,
+                  scroll:document.documentElement.scrollWidth,
+                  heading:!!document.querySelector("h1")?.getClientRects().length,
+                  font:getComputedStyle(document.body).fontFamily
+                }));
+                if(state.scroll>state.viewport+2||!state.heading||!state.font.includes("IBM Plex")) {
+                  throw new Error(`${locale} ${path} reflow-equivalent ${zoom}%: ${JSON.stringify(state)}`);
+                }
+              }
+              await ctx.close();
+            }
+            console.log("EFFECTIVE REFLOW WIDTHS 640/320 (1280 at 200/400%): PASS "+locale+"; NOT ACTUAL BROWSER ZOOM");
+          }
+
+          const axeFindings=[
+            ...await verifyAutomatedAccessibility("ar"),
+            ...await verifyAutomatedAccessibility("en")
+          ];
+          writeFileSync("/home/runner/work/wasltech-/wasltech-/route-screenshots/accessibility-audit.json", JSON.stringify({
+            audit:"axe-core 4.10.3 automated WCAG A/AA tags, mobile 390px",
+            limitations:"Not manual WCAG AA, physical zoom, screen readers or field data",
+            findings:axeFindings
+          },null,2));
+          for(const locale of ["ar","en"])await verifyZoomEquivalentReflow(locale);
+          const highImpact=axeFindings.filter(issue=>["serious","critical"].includes(issue.impact));
+          if(highImpact.length)throw new Error("Axe found serious/critical issues: "+
+            highImpact.map(i=>i.locale+" "+i.path+" "+i.id+" ("+i.nodes.map(n=>n.target.join(" ")).join("; ")+")").join(" | "));
+          await verifyComputedTextContrast("ar");
+          await verifyComputedTextContrast("en");
+          await verifyTaskLedAndSupportingContent("ar");
+          await verifyTaskLedAndSupportingContent("en");
+          await verifyCriticalLabelReadability("ar");
+          await verifyCriticalLabelReadability("en");
+          await verifyBalancedPortfolio("ar");
+          await verifyBalancedPortfolio("en");
+          await verifyServicesCardRhythm("ar");
+          await verifyServicesCardRhythm("en");
+          await verifyReaderNavigation("ar");
+          await verifyReaderNavigation("en");
+          await verifyNoJsFallback("ar");
+          await verifyNoJsFallback("en");
           await verifyDegradedRuntime();
           await verifyAllIndexableRoutes();
           await verifyInteractions("ar");
@@ -431,6 +837,7 @@ jobs:
           node /tmp/wasltech-vnext-matrix/matrix.mjs
 
       - name: Upload route screenshots
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: wasltech-vnext-route-matrix-screenshots

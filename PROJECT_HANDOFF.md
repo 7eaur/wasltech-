@@ -1,4 +1,96 @@
 # Wasl Tech VNext — Conversation Handoff
+## 2026-10-13 — فرع الإصلاح: مرجع شامل للحالة والمتبقي (الحالي)
+
+- المرجع التفصيلي الواحد للحالة، المنجز، البواقي وأولوية/مالك/دليل قبول كل بند R01–R10: [`docs/qa/2026-10-13_BRANCH_RECOVERY_FINAL_HANDOFF.md`](docs/qa/2026-10-13_BRANCH_RECOVERY_FINAL_HANDOFF.md). **اقرأ أول قسم «الحالة الحالية المعتمدة»؛ ما بعد «الأدلة التاريخية» مجرد سجل سابق.**
+- Snapshot قبل توثيق هذه الدفعة: `df7690f2e745b0575a1057926f59081273c7e848`، PR [#46 Draft](https://github.com/7eaur/wasltech-/pull/46) → `integration/site-stabilization-20261010` (لا merge). GitHub Node24 VNext [push #38436026753](https://github.com/7eaur/wasltech-/actions/runs/38436026753) و[PR #38436035428](https://github.com/7eaur/wasltech-/actions/runs/38436035428) **PASS**؛ Preview [READY](https://wasltech-k2ew1c6l9-wasl15.vercel.app/)، رؤوس حماية الأربعة و200/404 مُثبتة بالـHTTP. مصفوفة Chromium على كود `9c9cdb73` [#38338784657](https://github.com/7eaur/wasltech-/actions/runs/38338784657) PASS، ليست اختبار Matrix جديدًا للإعداد اللاحق.
+- **الإنجاز:** 8 خدمات/14 مشروع بلغتين، Browser/source QA، no-JS Planner/Nav، إصلاح Hero/CSS، تنظيم القراءة/FAQ، WebP responsive، فحص axe على عينة AR/EN، تجربة LCP/CLS مخبرية، إصلاح رؤوس الحماية التشغيلية. **المتبقي:** R01 visual UAT، R02 real reading UX، R03 devices/zoom/screen readers، R04 field performance، R05 actual contact receipt، R06 documented case study، R07 Legacy cutover audit، R08 cross-branch SEO/Logo/Integration، R09 owner production approval، R10 production smoke؛ راجع الجدول التفصيلي بدل تكراره.
+- ملفات التشغيل القديمة تُحفظ حتى Cutover، ولا تدخل في «أشياء زائدة احذفها الآن». الصور النهائية الثمان **موجودة**؛ المطلوب الحقيقي مختلف وهو أدلة دراسة حالة. PR46 يبقى Draft، ولا تغيير `main`، DNS، SEO #36/#37 أو Loader #41.
+
+## 2026-10-13 — Preview HTTP headers now VERIFIED (root-cause recovery continuation)
+
+- **Real defect discovered through HTTP, not by CI:** on prior Preview `9c9cdb73` (and `9ac6ca02`), top-level `vercel.json.headers` existed but **four declared security headers were missing from actual responses**. This happened with the explicit legacy `routes` routing graph for localized 404s.
+- **Fixed on recovery branch only**: `5c79956c` relocates the exact four header values to a catch-all `routes[0]` with `continue:true` before `handle:filesystem`; `6aef6002` updates the 404 regression test for this valid new route graph. Header owner and terminal bilingual 404 fallbacks are guarded by source tests.
+- **Live verified** on Preview `https://wasltech-847go1o5z-wasl15.vercel.app/`: AR and EN pages return 200; unknown Arabic/English paths return **404**, with correct localized HTML and `x-robots-tag:noindex`; `/assets/css/site.css` returns **200 text/css**. **All four** `x-content-type-options:nosniff`, `referrer-policy:strict-origin-when-cross-origin`, `permissions-policy:camera=(), microphone=(), geolocation=()`, `x-frame-options:SAMEORIGIN` are present on tested HTML/404/CSS responses. Subsequent exact `6aef6002` Preview `https://wasltech-fx9wod2f4-wasl15.vercel.app/` also returned **200 + all four headers**.
+- Node24 VNext verify on exact `6aef6002`: [push #38435559796](https://github.com/7eaur/wasltech-/actions/runs/38435559796) and [PR #38435567455](https://github.com/7eaur/wasltech-/actions/runs/38435567455) **SUCCESS**. Initial intermediate `5c79956c` verify failed because an older test assumed the filesystem route was always first; this *test expectation* was corrected without changing the safe deployed runtime configuration. Maintain failure evidence.
+- **WT-IA-26: VERIFIED_PREVIEW (HTTP)**, *not verified on Production*. PR46 stays Draft → integration. No change to `main`, Production/DNS or SEO/Logo branches. Remaining real-device/field tests, genuine case-study proof, contact receipt, and release consent retain their OPEN/BLOCKED states.
+
+## 2026-10-13 — Recovery branch scope implementation checkpoint (latest)
+
+- Repository: `7eaur/wasltech-`. **ONLY** working branch `fix/independent-site-recovery-20261010`; Draft PR [#46](https://github.com/7eaur/wasltech-/pull/46) → `integration/site-stabilization-20261010` (Draft #45 → main). **No merge/Production/DNS/SEO #36/#37/Logo #41 action**. Latest tested implementation SHA: `9c9cdb73db69e743e0eda5be1037c8e1886f10e1`.
+- **Branch-only code fixes completed:** native bilingual service-type disclosures C3; single JS client owner graph; redundant FAQ integration question `product-3` removed while Homepage maps to `product-2` (12 distinct FAQ records + 3 Home questions); 24px English/Arabic footer link targets; safe Vercel static-site headers; browser axe/reflow and synthetic LCP/CLS diagnostics. No 8-service or 14-project catalog assets were deleted.
+- **GitHub Actions on exact implementation SHA:** [VNext verify #38338784632](https://github.com/7eaur/wasltech-/actions/runs/38338784632), [PR verify #38338789292](https://github.com/7eaur/wasltech-/actions/runs/38338789292), [Chromium matrix #38338784657](https://github.com/7eaur/wasltech-/actions/runs/38338784657): **SUCCESS**. Vercel branch **Preview READY** `https://wasltech-jkvs0roe3-wasl15.vercel.app/`. The new screenshot/diagnostic [artifact #11786181079](https://github.com/7eaur/wasltech-/actions/runs/38338784657) has 76 PNGs + axe/lab JSON and expires 2026-10-16.
+- **Automated a11y:** axe-core 4.10.3 ran on 8 representative routes × 2 languages at 390px: **0 reported violations** after fixing the initial serious English-footer target-size finding. Existing sampled computed foreground/background contrast >= 4.5:1. Equivalent narrow reflow at 640/320px passed for 6 route families per locale (not physical 200/400% zoom or NVDA/VoiceOver).
+- **Single synthetic lab sample, NOT Field CWV:** DOM 1197ms, LCP 1476ms, CLS 0.0313, startup max long task 232ms, scroll max 58ms (local static server, 390px, 180ms RTT emulation, 4x CPU). **No real INP field p75/CrUX data or Production evidence**.
+- **Canonical completion/gate map:** [2026-10-13_BRANCH_RECOVERY_FINAL_HANDOFF.md](docs/qa/2026-10-13_BRANCH_RECOVERY_FINAL_HANDOFF.md). QA-only docs commit may advance branch HEAD; code validation belongs to exact SHA above. Pending only human/external release acceptance, real-device/field tests, authentic case-study evidence, recipient contact receipt, legacy-Production-dependency approval, cross-branch integration/SEO/domain and production go/no-go. Source-reviewed CI is not owner UAT.
+
+## 2026-10-12 — Independent recovery C3 / JS owner graph (latest checked implementation)
+
+- Working branch: `fix/independent-site-recovery-20261010`; PR #46 remains Draft to integration, **never main**. Implementation HEAD **`af46af71c9bfe4065d5a9e54d0cf0a98d1a9e371`** before this QA-only workflow/docs commit.
+- **UXR-03 C3** (`00651e8ccd0260ab4817a8dc1a2de943860dcc2c`): long (4–5 item) service-type lists now retain visible headings, the first open example and keyboard/no-JS native description toggles; two-option web service stays fully expanded. Shared one CSS disclosure owner. [Bilingual Node24 VNext verification successful](https://github.com/7eaur/wasltech-/actions/runs/38187340392), [Chromium 320–1440 route matrix successful](https://github.com/7eaur/wasltech-/actions/runs/38187340370). [C3 notes](docs/qa/2026-10-12_UXR03_SERVICE_DISCLOSURE_C3.md).
+- **WT-IA-25/38** (`af46af71`): strengthened dependency ownership test: each public JS module must have one declared page/shell owner; exact commit VNext verify push/PR runs [38187398707](https://github.com/7eaur/wasltech-/actions/runs/38187398707), [38187401848](https://github.com/7eaur/wasltech-/actions/runs/38187401848) **successful**. Vercel Preview commit status **success**. No root production legacy deleted.
+- **UXR-12:** computed 4.5:1 sampled AR/EN contrast, Portfolio filter live context and FAQ native open-before-sample are **matrix-verified** by the successful C3 run (superseding historical "CI pending" entries below). These are selective Chromium checks, not full WCAG or real devices.
+- Manually inspected representative AR/EN 390px Contact/FAQ and AR mobile Home/Services/Service-web/Portfolio plus desktop top-fold baseline screenshots from previous matrix `38183610738`; **not** a proof of full new app disclosure appearance. This follow-up workflow expands screenshots to include app details and validates native toggles when JS is disabled.
+- **Branch-only outstanding:** owner final visual/UAT and service reading task, real 200/400% browser zoom and screen readers on devices, field CWV and cold networks, real project images/evidence, real contact receipt, legacy Production dependency confirmation. SEO canonical/domain and PR45/main/logo integration are **outside this branch scope**, blocked pending respective owners/approval; no merge/deploy/DNS changes.
+
+## 2026-10-12 — UXR-12 test rerun baton
+
+- First computed-contrast browser run failed only because it sampled a closed FAQ `<details>` answer (contrast 7.25:1). Keyboard-expand it before sampling, without lowering 4.5:1; inspect exact newest route matrix and do not report PASS until it completes. No UI changes in this correction.
+
+## 2026-10-12 — UXR-12 accessibility follow-up
+
+- Latest source adds active category to count-free Portfolio live status and browser-computed contrast checks on key AR/EN pages. Details: `docs/qa/2026-10-12_UXR12_COMPUTED_CONTRAST_AND_PORTFOLIO_A11Y.md`. Verify latest SHA CI/route matrix and preview. UXR-04/06 screenshot QA passed for previous commit. Next: field/per-device acceptance and genuine project case-study proof; no main/SEO/Logo/Production action.
+
+## 2026-10-12 — UXR-04/06 current baton
+
+- New source correction: Contact and FAQ task-led PageIntro; mobile Home supporting content restored instead of hidden, dead Hero selectors removed. Read `docs/qa/2026-10-12_UXR04_UXR06_FUNCTIONAL_INTROS_AND_REFLOW.md`. Verify exact HEAD GitHub Actions/route matrix/Vercel and screenshots before acceptance, then continue UXR-08, computed contrast, zoom/accessibility and P6.
+
+
+## 2026-10-12 — B2/P6 snapshot baton
+
+- B2 semantic AR/EN field cleanup and release-branch overlap audit recorded in `docs/qa/2026-10-12_SERVICE_DATA_SEMANTIC_B2.md` and `docs/qa/2026-10-12_RELEASE_BRANCH_COMPATIBILITY.md`. Re-fetch live HEAD, exact SHA verify and route-matrix/preview before updating statuses.
+- Continue root-cause visual UX UXR-04/06/08 and empirical U4, then real evidence/SEO ownership and PR46→PR45 merge review. All production and cross-team branches are untouched.
+
+
+## 2026-10-12 — UXR-03 B1 editorial continuation
+
+- After source-ownership cleanup, B1 removed four generic repeated headings' support paragraphs from `src/pages/service-detail.js`; full substantive copy remains in `src/data/services.js`, guarded for 16 routes. See `docs/qa/2026-10-12_SERVICE_DETAIL_EDITORIAL_DEDUP_B1.md`.
+- Verify the latest VNext CI/route matrix and screenshot/reading behavior at the actual SHA. Continue B2 semantic data-level duplication, service by service AR/EN, then UXR-04/06/08 and remaining U4/P6 gates. Never claim UXR-03 fully closed solely from shorter HTML.
+
+
+## 2026-10-12 — Root source ownership baton (newest)
+
+- Confirm live HEAD of `fix/independent-site-recovery-20261010` and status of route matrix / Vercel for every code change. A1 source fix `5b11b7613e88e43e4e71250fbe2bdb99368bfc65` removes hidden Planner Hero link and service mobile description clipping; regression tests cover both. See `docs/qa/2026-10-12_RECOVERY_ROOT_CSS_A1.md`.
+- `scripts/check-source-ownership.mjs` guards build-owned styles/clients. Only VNext build inputs are verified; root legacy CSS/JS/HTML and `.htaccess` are **retained** until production ownership is evidenced and cutover approved. Continue dependency inventory (WT-IA-25/38) before proposing deletion.
+- Next functional priority: UXR-03 duplicate meanings in AR/EN service data and page structure, then visual/accessibility/performance release work. No auto merge/Production/DNS/SEO/Logo changes.
+
+
+## 2026-10-12 — Updated handoff for independent recovery branch
+
+- Before following older 2026-09 instructions, inspect live GitHub HEAD of `fix/independent-site-recovery-20261010` and Draft PR #46 against `integration/site-stabilization-20261010`.
+- Canonical outstanding work/acceptance matrix: `docs/qa/2026-10-12_ROOT_CAUSE_CLOSURE_MATRIX.md`; do not claim all WT/WT-IA/UXR tickets CLOSED from CI alone.
+- Most recent root-cause correction removes hidden inner-page Hero CTA DOM and matching CSS patches. Re-run VNext verify and browser route matrix at final source SHA before merge.
+- Existing AR/EN responsive service/customer-journey work is on the branch; external case-study evidence, real-device accessibility, field performance, contact receipt, SEO/domain reconciliation and cross-branch merge are unresolved release gates.
+- Production remains unchanged. Do not auto-merge PR46/45, modify SEO or loader branches, change DNS, or deploy to official site without coordinated authorization.
+- Below is prior historical handoff; superseded wherever it conflicts.
+
+
+## 2026-10-10 — Responsive image performance baton
+
+- Continue from `integration/site-stabilization-20261010`; do not merge into `main` without explicit approval.
+- Runtime content imagery is now responsive: editorial/service media provides 480/768/1024 px WebP candidates and project media provides a 480 px candidate beside the 800 px canonical file.
+- Project runtime paths now use `assets/works/project_*.webp`; keep the original JPEG files as preserved source assets and do not add them to the release builder.
+- `src/lib/responsive-image.js` is the shared candidate and `sizes` contract used by Heroes, `MediaCard`, Home media, Services media, the release builder, and quality checks.
+- Preserve the loading policy: at most one eager/high-priority content image per page; all below-fold cards remain lazy with async decoding.
+- Current executable limits are 120 KiB per runtime raster, 60 KiB per project file, and 700 KiB for all released project candidates.
+- Local preview/release/integrity checks pass for this batch. A future image change must regenerate the appropriate candidates and pass the same checks.
+
+## 2026-10-10 — Latest media baton
+
+- Continue from `integration/site-stabilization-20261010`.
+- The final eight-image editorial batch is complete: exact JPEG sources are preserved, optimized WebP files are wired, and dimensions/checksums are synchronized.
+- Do not re-upload or remap these eight images unless the user requests a visual replacement.
+- Do not merge into `main` or production solely from this handoff; keep the existing release gate.
+- SEO and logo-animation branches are outside this batch and were not changed.
 
 ## 2026-09-24 — AUTHORITATIVE RESUME POINT
 
