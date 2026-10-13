@@ -8,6 +8,14 @@
 **معاينة التطبيق المتحقق منها:** `https://wasltech-jkvs0roe3-wasl15.vercel.app/`، حالة Vercel **READY**.  
 **الفرق بين الحالات:** `IMPLEMENTED` ≠ `VERIFIED_PREVIEW` ≠ `VERIFIED_PRODUCTION` ≠ `CLOSED`.
 
+## 2026-10-13 — Live Preview HTTP mismatch found and remediated in branch
+
+The previous checkpoint marked headers **CONFIG VERIFIED** only. Read-only Vercel Preview HTTP inspection on `https://wasltech-jkvs0roe3-wasl15.vercel.app/` and a localized unknown route observed that the actual responses **did not include** `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` or `X-Frame-Options` although these existed in top-level `headers` in `vercel.json`. The localized unknown route correctly returned 404. This is a **real runtime/config mismatch**, not a source-check pass.
+
+**Root cause:** the release uses explicit legacy Vercel `routes` with `handle: "filesystem"` for localized 404s. Under that routing mode, attach the shared headers as a `src: "/(.*)"`, `headers: {...}`, `continue: true` **route before** the filesystem handler. Remove ineffective top-level headers and have `check-source-ownership.mjs` assert the ordering and preserve both 404 fallbacks. Source: Vercel official project configuration docs (2026). No Production/DNS/SEO/Logo change.
+
+**Verification rule:** Re-fetch the *new deployment* HTML, AR/EN 404 and a static asset, confirm HTTP status (200 or 404) and **all four actual response headers**. Only then mark `VERIFIED_PREVIEW`. Code CI success alone is insufficient. If live headers still absent, keep issue OPEN and investigate project-level config instead of asserting success.
+
 ## 1. ما أُنجز ضمن هذا الفرع
 
 | الدفعة | التنفيذ والسبب الجذري | الدليل وحالة قبول المصدر |

@@ -68,14 +68,27 @@ for (const client of clients) {
 }
 if(!template.includes("/assets/css/site.css")) fail("document.js","canonical stylesheet URL missing");
 if(vercel.buildCommand!=="npm run vnext:build:release"||vercel.outputDirectory!=="dist-release") fail("vercel.json","VNext release output owner changed");
-const headerEntries=vercel.headers?.find((entry)=>entry.source==="/(.*)")?.headers??[];
+// Vercel legacy routes API controls routing for the bilingual custom 404s.
+// Its first continuing route must own headers. Top-level headers did not reach
+// Preview HTTP responses alongside this explicit routes configuration.
+const [headerRoute,filesystemRoute,...fallbackRoutes]=vercel.routes??[];
+if(headerRoute?.src!=="/(.*)" || headerRoute?.continue!==true || headerRoute?.dest || headerRoute?.status){
+  fail("vercel.json","response headers must be in a continuing catch-all route before filesystem");
+}
+if(filesystemRoute?.handle!=="filesystem")fail("vercel.json","filesystem must follow the continuing headers route");
+if(vercel.headers?.length)fail("vercel.json","top-level headers may be ignored with custom routes; keep a single route owner");
 for(const [key,value] of Object.entries({
   "X-Content-Type-Options":"nosniff",
   "Referrer-Policy":"strict-origin-when-cross-origin",
   "Permissions-Policy":"camera=(), microphone=(), geolocation=()",
   "X-Frame-Options":"SAMEORIGIN"
 })){
-  if(!headerEntries.some((entry)=>entry.key===key && entry.value===value))fail("vercel.json","expected safe static-site response header: "+key);
+  if(headerRoute?.headers?.[key]!==value)fail("vercel.json","expected route-applied static response header: "+key);
+}
+if(fallbackRoutes.length!==2
+  || fallbackRoutes[0].src!=="/en(?:/.*)?" || fallbackRoutes[0].status!==404 || fallbackRoutes[0].dest!=="/en/404.html"
+  || fallbackRoutes[1].src!=="/.*" || fallbackRoutes[1].status!==404 || fallbackRoutes[1].dest!=="/404.html"){
+  fail("vercel.json","localized HTTP 404 routes must stay after filesystem unchanged");
 }
 
 if(!build.includes('await rm(DIST, { recursive: true, force: true })')) fail("build.mjs","deterministic output cleaning removed");
