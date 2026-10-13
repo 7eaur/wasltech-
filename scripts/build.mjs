@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { routes } from "../src/config/routes.js";
 import { renderPreviewRobots, renderProductionRobots, renderSitemap } from "../src/seo/crawl.js";
 import { isProductionBuild, outputDirectoryName } from "../src/config/release.js";
+import { indexNow } from "../src/config/indexnow.js";
 import { getIndexableEntries } from "../src/seo/indexable-routes.js";
 import { designSystemShowcase } from "../src/pages/design-system.js";
 import { homePage } from "../src/pages/home.js";
@@ -187,6 +188,7 @@ async function buildPages() {
   await writeOutput("robots.txt", isProductionBuild ? renderProductionRobots() : renderPreviewRobots());
   if (isProductionBuild) {
     await writeOutput("sitemap.xml", renderSitemap(getIndexableEntries()));
+    await writeOutput(indexNow.fileName, indexNow.key);
   }
 }
 
