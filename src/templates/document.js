@@ -94,7 +94,7 @@ ${structuredDataTags}
   <link rel="icon" href="${site.brand.assets.favicon}">
   <link rel="stylesheet" href="/assets/css/site.css">
 ${minimalShell ? "" : `  <script src="/assets/js/navigation.js" defer></script>\n  <script src="/assets/js/motion.js" defer></script>`}
-${isProductionBuild && !minimalShell ? `  <script src="/assets/js/analytics.js" defer data-analytics-measurement-id="${escapeHtml(site.analytics.measurementId)}" data-analytics-storage-key="${escapeHtml(site.analytics.consentStorageKey)}"></script>` : ""}
+${isProductionBuild && !minimalShell ? `  <script src="/assets/js/analytics.js" defer data-analytics-measurement-id="${escapeHtml(site.analytics.measurementId)}" data-analytics-host="${escapeHtml(site.analytics.canonicalHost)}" data-analytics-storage-key="${escapeHtml(site.analytics.consentStorageKey)}"></script>` : ""}
 </head>
 <body>
   <a class="skip-link" href="#main-content">${copy[locale].skip}</a>
