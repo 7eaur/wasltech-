@@ -366,6 +366,17 @@ jobs:
               Object.defineProperty(navigator, "deviceMemory", { configurable: true, get: () => 2 });
               Object.defineProperty(navigator, "hardwareConcurrency", { configurable: true, get: () => 2 });
               window.__waslLongTasks = [];
+              window.__waslLabVitals = { lcpMs: null, cls: 0 };
+              try {
+                new PerformanceObserver((list) => {
+                  for(const entry of list.getEntries())window.__waslLabVitals.lcpMs=entry.startTime;
+                }).observe({type:"largest-contentful-paint",buffered:true});
+              } catch {}
+              try {
+                new PerformanceObserver((list) => {
+                  for(const entry of list.getEntries())if(!entry.hadRecentInput)window.__waslLabVitals.cls+=entry.value;
+                }).observe({type:"layout-shift",buffered:true});
+              } catch {}
               try {
                 const observer = new PerformanceObserver((list) => {
                   for (const entry of list.getEntries()) window.__waslLongTasks.push(entry.duration);
@@ -406,6 +417,7 @@ jobs:
               motionEnabled: document.documentElement.classList.contains("motion-enabled"),
               motionTargets: document.querySelectorAll(".motion-reveal").length,
               longTasks: window.__waslLongTasks ?? [],
+              labVitals: window.__waslLabVitals ?? null,
               overlyTransparentVisible: [...document.querySelectorAll(".motion-reveal")].filter((node) => {
                 const rect = node.getBoundingClientRect();
                 const opacity = Number.parseFloat(getComputedStyle(node).opacity);
@@ -428,6 +440,11 @@ jobs:
             if (metrics.motionTargets) throw new Error(`Degraded low-power runtime created motion targets: ${metrics.motionTargets}`);
             if (metrics.overlyTransparentVisible) throw new Error(`Visible motion targets became too transparent: ${metrics.overlyTransparentVisible}`);
 
+            writeFileSync("/home/runner/work/wasltech-/wasltech-/route-screenshots/lab-diagnostics.json",JSON.stringify({
+              test:"local static build, 390px, synthetic 180ms latency + 4x CPU + throughput limits",
+              interpretation:"single synthetic trace; NOT CrUX, RUM, field p75 or proof of CWV acceptance",
+              measured:{domReadyMs,maxStartupLongTask,maxInteractionLongTask,maxScrollLongTask,lcpMs:metrics.labVitals?.lcpMs??null,cls:metrics.labVitals?.cls??null}
+            },null,2));
             await context.close();
 
             const reducedContext = await browser.newContext({

@@ -68,6 +68,16 @@ for (const client of clients) {
 }
 if(!template.includes("/assets/css/site.css")) fail("document.js","canonical stylesheet URL missing");
 if(vercel.buildCommand!=="npm run vnext:build:release"||vercel.outputDirectory!=="dist-release") fail("vercel.json","VNext release output owner changed");
+const headerEntries=vercel.headers?.find((entry)=>entry.source==="/(.*)")?.headers??[];
+for(const [key,value] of Object.entries({
+  "X-Content-Type-Options":"nosniff",
+  "Referrer-Policy":"strict-origin-when-cross-origin",
+  "Permissions-Policy":"camera=(), microphone=(), geolocation=()",
+  "X-Frame-Options":"SAMEORIGIN"
+})){
+  if(!headerEntries.some((entry)=>entry.key===key && entry.value===value))fail("vercel.json","expected safe static-site response header: "+key);
+}
+
 if(!build.includes('await rm(DIST, { recursive: true, force: true })')) fail("build.mjs","deterministic output cleaning removed");
 if(!packageJson.scripts["vnext:check:structure"]?.includes("check-source-ownership.mjs")) fail("package.json","dependency ownership guard not wired into verification");
 
