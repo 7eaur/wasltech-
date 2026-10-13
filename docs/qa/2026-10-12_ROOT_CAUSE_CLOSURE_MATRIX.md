@@ -83,6 +83,13 @@
 - **UXR-03/04/06/08; screen scanning:** 76 AR/EN 390/1440 full page screenshots were captured and representative Home/Services/FAQ/Contact/App screenshots manually sampled. No fabricated study completion: genuine reading-task UAT, true zoom, Safari/iPhone and NVDA/VoiceOver **OPEN**.
 - **P6 release and business evidence remain BLOCKED** on owner/account/assets and independent SEO/dns/branch teams; PR #46 Draft unchanged. See [unified latest gate table](2026-10-13_BRANCH_RECOVERY_FINAL_HANDOFF.md).
 
+## 2026-10-13 — WT-IA-26 HTTP security headers verified on branch Preview
+
+- **Before**: source-only `headers` entry in `vercel.json` did **not** produce the four expected response headers on actual Vercel Preview HTTP. `9c9cdb73` was therefore only CONFIG VERIFIED.
+- **After**: `5c79956c` puts security headers on a first continuing legacy `routes` entry, preceding filesystem and bilingual terminal 404 fallbacks. `6aef6002` updates the existing 404 source test to that exact ordering; new Node24 VNext CI [#38435559796](https://github.com/7eaur/wasltech-/actions/runs/38435559796) and [#38435567455](https://github.com/7eaur/wasltech-/actions/runs/38435567455) PASS. The first post-fix CI failure was obsolete hard-coded route indices, corrected rather than bypassed.
+- **Actual Preview HTTP** (Oct 13): AR/EN root pages **200**, AR/EN unknown routes **404** localized, site.css **200 text/css**. `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, `X-Frame-Options` all present for tested routes, and Preview `X-Robots-Tag:noindex` retained. Exact `6aef6002` Preview also observed to have the four headers.
+- **State: VERIFIED_PREVIEW (HTTP evidence)**; Production remains BLOCKED. No Production deployment, DNS or other owners' branch edits.
+
 ## ترتيب التنفيذ التالي
 
 1. إثبات سلامة إزالة Hero-hidden overrides على SHA الحالي: Node24 verify + Chromium route matrix، ثم مراجعة Screenshots.

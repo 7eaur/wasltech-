@@ -16,6 +16,13 @@ The previous checkpoint marked headers **CONFIG VERIFIED** only. Read-only Verce
 
 **Verification rule:** Re-fetch the *new deployment* HTML, AR/EN 404 and a static asset, confirm HTTP status (200 or 404) and **all four actual response headers**. Only then mark `VERIFIED_PREVIEW`. Code CI success alone is insufficient. If live headers still absent, keep issue OPEN and investigate project-level config instead of asserting success.
 
+### Root-cause correction verification — exact deployment and observed headers
+
+- `5c79956c`: first safe configuration commit, Vercel Preview `https://wasltech-847go1o5z-wasl15.vercel.app/` READY. HTTP requests confirmed four declared headers on Arabic/English document responses and on the static CSS asset; unknown paths responded **404** with localized AR/EN document and the same headers. `X-Robots-Tag: noindex` stays on Preview/404.
+- `6aef6002`: updated a *test* in `scripts/check-secondary-legal.mjs` that had hard-coded old `routes` indexes; terminal 404 + header-first filesystem behavior now jointly asserted. Verified [GitHub push #38435559796](https://github.com/7eaur/wasltech-/actions/runs/38435559796) and [PR #38435567455](https://github.com/7eaur/wasltech-/actions/runs/38435567455) **SUCCESS**, Vercel Preview `https://wasltech-fx9wod2f4-wasl15.vercel.app/` READY with HTML **200** + four response headers confirmed.
+- Intermediate [5c799 VNext verify #38435349144](https://github.com/7eaur/wasltech-/actions/runs/38435349144) **FAILED on stale test assumptions**, not on deployment response; retained for audit, fixed by `6aef6002`.
+- Change status from `CONFIG VERIFIED / HTTP OPEN` to **`VERIFIED_PREVIEW HTTP`**. Still **not Production verified**, do not change release/dns/seo/logo ownership.
+
 ## 1. ما أُنجز ضمن هذا الفرع
 
 | الدفعة | التنفيذ والسبب الجذري | الدليل وحالة قبول المصدر |
@@ -29,7 +36,7 @@ The previous checkpoint marked headers **CONFIG VERIFIED** only. Read-only Verce
 | P5 — وسائط | صور 8 خدمات + 8 تحريري + Home/About + 14 عمل، WebP وsrcset/sizes وقيود الحجم، الأصول الأصلية محفوظة | media + release quality tests PASS؛ **دليل Case Study مستقل ومفقود** |
 | P5 — وصولية | بعد كشف axe `target-size` على روابط Footer الإنجليزية (8 صفحات)، أصلح المالك الواحد في `layout.css`، ومعه `check-shell.mjs`؛ إعلان فلتر Portfolio باسم الفئة، قياسات تباين عيّنة | axe 8 route families × 2 locales: **0 violations** في أحدث run؛ ليست شهادة WCAG |
 | P5 — أداء وبيئة | Emulated 320–1440، فحص no-JS/keyboard/reduced-motion/CPU 4x ونتائج LCP/CLS محلية، browser reflow ما يعادل 200/400% على عرض مرجعي 1280 | PASS للمحاكاة؛ real zoom/field CrUX/INP **OPEN** |
-| P5 — رؤوس الحماية | رؤوس `nosniff`, `Referrer-Policy`, `Permissions-Policy`, `X-Frame-Options` من مالك `vercel.json` مع حارس بناء | CONFIG VERIFIED؛ HTTP header smoke خارجي OPEN |
+| P5 — رؤوس الحماية | أُصلح ترتيب `routes` بعد اكتشاف غياب رؤوس الحماية عن HTTP الحقيقي؛ ذات الأربع قيم + 404 AR/EN محفوظة | **VERIFIED_PREVIEW HTTP** على نسختي `5c799`/`6aef`، Production مفتوح |
 | P6 — Release | تدقيق GitHub PR overlap، توثيق كل التبعيات دون تجاوز صلاحيات الفروع | **BLOCKED/OWNER REVIEW**؛ لا Production إطلاقًا |
 
 ## 2. نتائج تشغيل محددة لا تُنسب إلى إنتاج حقيقي
@@ -69,7 +76,7 @@ The previous checkpoint marked headers **CONFIG VERIFIED** only. Read-only Verce
 | WT-IA-27/74 + UXR-12 | **تكبير Browser حقيقي 200% و400%، NVDA/VoiceOver، Safari على iPhone وChrome/Android**، اختبار tab order ومجالات تلامس يدويًا | جهاز حقيقي/مراجع وصولية؛ CI Chromium المعادل ليس بديلًا |
 | WT-IA-28/75 + WT-010/011/012 | field Core Web Vitals **LCP p75 / INP p75 / CLS p75**، cold cache وslow network على المستخدمين المستهدفين | RUM/CrUX بعد الإطلاق أو جلسة اختبار جهاز وشبكة موثقة |
 | WT-IA-32 | نجاح **استلام** رسالة واتساب والبريد وصحة حساب Instagram بالفعل، لا مجرد صحة الرابط | مالك أرقام وحسابات التواصل |
-| WT-IA-26 | فحص HTTP headers الفعلية من نسخة Preview ثم Production | مالك النشر؛ المصدر مضبوط وPreview READY |
+| WT-IA-26 | فحص HTTP headers الفعلية من نسخة **Production** فقط (Preview مثبتة) | **Preview VERIFIED 2026-10-13**؛ Production pending cutover permission |
 | WT-IA-25/38 + WT-015/020 | مسح ملفات legacy وحذف/أرشفة ما ثبت عدم استخدامه فعليًا في Production | مالك الإصدار بعد Cutover؛ إبقاؤها الآن حماية للموقع الحالي |
 | WT-IA-30 | اختيار وتوحيد WWW vs apex redirect مع canonical/hreflang/OG/sitemap، وفحص HTTP بعد الدمج | مسؤول SEO/domain؛ **ليس عمل فرع recovery** |
 | P6 | نتيجة Merge Preview تشمل #45/#46 وSEO/Logo/الأصول، اعتماد العميل/UAT، إذن صريح بالدمج والنشر، Production SHA/HTTP smoke | مالك release/فروع PR الأخرى |

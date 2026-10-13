@@ -1,4 +1,12 @@
 # Wasl Tech VNext — Current Project Status
+## 2026-10-13 — Preview HTTP headers now VERIFIED (root-cause recovery continuation)
+
+- **Real defect discovered through HTTP, not by CI:** on prior Preview `9c9cdb73` (and `9ac6ca02`), top-level `vercel.json.headers` existed but **four declared security headers were missing from actual responses**. This happened with the explicit legacy `routes` routing graph for localized 404s.
+- **Fixed on recovery branch only**: `5c79956c` relocates the exact four header values to a catch-all `routes[0]` with `continue:true` before `handle:filesystem`; `6aef6002` updates the 404 regression test for this valid new route graph. Header owner and terminal bilingual 404 fallbacks are guarded by source tests.
+- **Live verified** on Preview `https://wasltech-847go1o5z-wasl15.vercel.app/`: AR and EN pages return 200; unknown Arabic/English paths return **404**, with correct localized HTML and `x-robots-tag:noindex`; `/assets/css/site.css` returns **200 text/css**. **All four** `x-content-type-options:nosniff`, `referrer-policy:strict-origin-when-cross-origin`, `permissions-policy:camera=(), microphone=(), geolocation=()`, `x-frame-options:SAMEORIGIN` are present on tested HTML/404/CSS responses. Subsequent exact `6aef6002` Preview `https://wasltech-fx9wod2f4-wasl15.vercel.app/` also returned **200 + all four headers**.
+- Node24 VNext verify on exact `6aef6002`: [push #38435559796](https://github.com/7eaur/wasltech-/actions/runs/38435559796) and [PR #38435567455](https://github.com/7eaur/wasltech-/actions/runs/38435567455) **SUCCESS**. Initial intermediate `5c79956c` verify failed because an older test assumed the filesystem route was always first; this *test expectation* was corrected without changing the safe deployed runtime configuration. Maintain failure evidence.
+- **WT-IA-26: VERIFIED_PREVIEW (HTTP)**, *not verified on Production*. PR46 stays Draft → integration. No change to `main`, Production/DNS or SEO/Logo branches. Remaining real-device/field tests, genuine case-study proof, contact receipt, and release consent retain their OPEN/BLOCKED states.
+
 ## 2026-10-13 — Recovery branch scope implementation checkpoint (latest)
 
 - Repository: `7eaur/wasltech-`. **ONLY** working branch `fix/independent-site-recovery-20261010`; Draft PR [#46](https://github.com/7eaur/wasltech-/pull/46) → `integration/site-stabilization-20261010` (Draft #45 → main). **No merge/Production/DNS/SEO #36/#37/Logo #41 action**. Latest tested implementation SHA: `9c9cdb73db69e743e0eda5be1037c8e1886f10e1`.
