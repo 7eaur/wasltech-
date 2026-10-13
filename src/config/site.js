@@ -25,6 +25,11 @@ export const site = Object.freeze({
       social.tiktok
     ])
   }),
+  analytics: Object.freeze({
+    provider: "Google Analytics 4",
+    measurementId: "G-WVH08BTS6C",
+    consentStorageKey: "wasl_analytics_consent"
+  }),
   contact: Object.freeze({
     phoneDisplay: "+967 775 377 979",
     phoneUri: "+967775377979",
