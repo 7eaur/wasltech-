@@ -17,12 +17,12 @@ Move Wasl Tech from primarily branded discovery to non-branded commercial discov
 
 | Search family | Primary landing page | Primary intent | Supporting terms |
 | --- | --- | --- | --- |
-| Wasl Tech / شركة وصل تك / شركة تقنية | / | Brand + broad commercial | وصل تك، Wasl Tech، شركة حلول رقمية، شركة تقنية، اليمن، الخليج |
-| تصميم مواقع / شركة تصميم مواقع | /services/web-development/ | Commercial | تصميم موقع، تطوير مواقع، برمجة مواقع، مواقع شركات، تصميم مواقع اليمن |
+| Wasl Tech / وصل تك / حلول تقنية | / | Brand + broad commercial | وصل تك، Wasl Tech، حلول رقمية وتقنية، حلول تقنية، اليمن، الخليج |
+| تصميم مواقع / تصميم مواقع احترافية | /services/web-development/ | Commercial | تصميم موقع، تطوير مواقع، برمجة مواقع، مواقع شركات، تصميم مواقع اليمن |
 | برمجة تطبيقات | /services/mobile-app-development/ | Commercial | تطوير تطبيقات، تصميم تطبيقات، Android، iOS، تطبيق جوال |
 | متجر إلكتروني | /services/ecommerce/ | Commercial | تصميم متجر إلكتروني، برمجة متجر، إنشاء متجر إلكتروني |
 | برمجة أنظمة | /services/custom-software/ | Commercial | أنظمة مخصصة، لوحات تحكم، API، قواعد بيانات، أتمتة |
-| حلول تقنية | /services/technical-solutions/ | Commercial / problem-led | شركة تقنية، حلول رقمية، ربط أنظمة، تكاملات، أتمتة |
+| حلول تقنية | /services/technical-solutions/ | Commercial / problem-led | حلول تقنية، حلول رقمية، ربط أنظمة، تكاملات، أتمتة |
 | بروفايل شركة | /services/company-profiles/ | Commercial | تصميم بروفايل شركات، ملف تعريفي شركة، Company Profile |
 | هوية بصرية | /services/brand-design/ | Commercial | تصميم هوية، تصميم شعار، هوية تجارية |
 | تسويق رقمي | /services/digital-marketing/ | Commercial | تسويق إلكتروني، إدارة محتوى، إدارة حسابات، حملات رقمية |
@@ -40,15 +40,15 @@ Move Wasl Tech from primarily branded discovery to non-branded commercial discov
 Own broad company/entity intent:
 - وصل تك
 - Wasl Tech
-- شركة حلول رقمية
-- شركة تقنية
+- حلول رقمية وتقنية
+- حلول تقنية
 - اليمن والخليج
 
 ### Web development
 Own:
 - تصميم مواقع
 - تصميم مواقع إلكترونية
-- شركة تصميم مواقع
+- تصميم مواقع احترافية
 - تطوير مواقع
 - برمجة مواقع
 - تصميم مواقع للشركات
