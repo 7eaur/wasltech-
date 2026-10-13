@@ -6,6 +6,8 @@ Working branch: `perf/site-audit-hardening-20261013`
 
 Base reconciled from live `main`: `14cdd1de7a6c2112cd053e9c7be1561be38e40d7`
 
+Review branch head: `3ff0c86311043b00ea96be6d3d7322ed483ecaaf` — Draft PR [#58](https://github.com/7eaur/wasltech-/pull/58)
+
 Scope exclusion: no work was performed on SEO/search-engine branches, DNS, Search Console, Bing or logo-motion branches.
 
 ## 1. Evidence inspected
@@ -51,6 +53,8 @@ The laboratory report predates the final `14cdd1d` content merge by a few hours.
 | QA-02 | P1 | AVIF or local-font regressions could pass the old quality gate. | Added file-signature, size, pairing, preload and no-external-font checks. | CLOSED_LOCAL |
 | PRIV-01 | P1 | Privacy copy said the browser requested fonts from Google after fonts became local. | Updated the bilingual external-channel disclosure and added a regression check that rejects the obsolete Google Fonts statement. | CLOSED_LOCAL |
 | DOC-01 | P1 | Status/handoff still named an obsolete Production SHA after newer releases. | Reconciled current Production SHA/deployment and made this audit the active non-SEO baton. | CLOSED_LOCAL |
+| REL-01 | P0 gate | The branch needed exact-SHA remote build and deployment evidence. | GitHub VNext verify [#38483010731](https://github.com/7eaur/wasltech-/actions/runs/38483010731), media integrity [#38483010980](https://github.com/7eaur/wasltech-/actions/runs/38483010980), and Chromium matrix [#38483010739](https://github.com/7eaur/wasltech-/actions/runs/38483010739) succeeded on `3ff0c86`; Vercel Preview `dpl_EnrLco3oH4kcFVypvTPEBCjDYkYF` is READY on the same SHA. | CLOSED_REMOTE |
+| VIS-01 | P0 gate | The optimized output needed responsive AR/EN verification. | The exact-SHA matrix passed all 84 indexable routes at 320, 360, 390, 768, 1024, 1366 and 1440px; 76 AR/EN screenshots were generated and the mobile/desktop contact sheets plus representative full-resolution Home/Process captures were manually inspected without a confirmed crop, wrap or overflow regression. | CLOSED_REMOTE |
 
 ### Payload evidence
 
@@ -68,9 +72,7 @@ These are the remaining real gaps. They must not be marked closed from source re
 
 | ID | Priority | Gap / risk | Required closure evidence | State |
 |---|---:|---|---|---|
-| REL-01 | P0 gate | The branch is local and has no exact-SHA GitHub/Vercel Preview evidence yet. | Push the branch, obtain successful VNext/media/matrix workflows and a READY Preview on the exact SHA. | OPEN |
-| VIS-01 | P0 gate | AVIF delivery, local fonts, minified CSS and revised copy are not visually reviewed on the exact branch at all six canonical viewports. | Inspect the generated Chromium matrix at 360, 390, 768, 1024, 1366 and 1440, AR/EN representative routes; fix any crop/wrap/overflow regression. | OPEN |
-| PERF-05 | P1 | The optimized branch has no new PageSpeed result; the current 82/3.6s mobile values are from Production before this branch. | Run mobile/desktop PageSpeed against the exact Preview, then Production after approval; require LCP ≤2.5s or document the next bottleneck. | OPEN |
+| PERF-05 | P1 | The protected Preview cannot be submitted directly to public PageSpeed, so the current 82/3.6s mobile values remain the latest public baseline. Exact-SHA local throttled diagnostics improved to LCP 1,504ms and CLS 0, but are not field data or a substitute for Lighthouse/PageSpeed. | Run mobile/desktop PageSpeed against Production after approved release; require LCP ≤2.5s or document the next bottleneck. | BLOCKED_UNTIL_RELEASE |
 | PERF-06 | P1 | There is still no CrUX/field CWV dataset. | Accumulate real traffic and review p75 LCP/INP/CLS in Search Console/CrUX when available. | BLOCKED_EXTERNAL |
 | CONTACT-01 | P1 | Code truthfully opens WhatsApp but actual receipt on the business account is not evidenced. | Send one owner-approved test message from the Planner and confirm receipt/content on the real business account. | BLOCKED_OWNER |
 | PROOF-01 | P1 | Portfolio pages describe work, but verified case-study outcomes/evidence are still limited. | Provide authentic project screenshots, role/scope and approved outcome evidence; never invent metrics. | BLOCKED_CONTENT |
@@ -79,6 +81,7 @@ These are the remaining real gaps. They must not be marked closed from source re
 | PERF-07 | P2 | PageSpeed estimated roughly 12KiB unused shared CSS on the Homepage. | Re-measure after PERF-01/02/03; split route CSS only if render delay remains material. Avoid per-page duplication. | DEFERRED_MEASURE_FIRST |
 | ANALYTICS-01 | P2 | GA4 loads with denied storage, but the conversion path has no approved explicit events. | After privacy approval, define minimal events for Planner start/review and outbound WhatsApp clicks without sending form values or message contents. | BLOCKED_APPROVAL |
 | OPS-01 | P2 | Exact GitHub Actions workflow runs were not returned for current Production merge SHA; only Vercel success was visible through the connector. | Confirm the exact main SHA VNext/matrix runs in GitHub, or rerun before the next release. | OPEN |
+| OPS-02 | P3 | Vercel build succeeds but npm 11 warns that inherited config `cache-dir` is unknown and will stop working in the next npm major. The project has no matching repo file or Vercel project environment variable. | Treat as runner/platform configuration; recheck after a Vercel/npm image update and escalate only if install caching or builds regress. | MONITOR_EXTERNAL |
 | LEGACY-01 | P3 | Legacy root files and preserved sources remain in the repository. They are excluded from VNext release and are not a current speed defect. | Produce an ownership inventory and remove only after a separate approved cleanup; never delete preserved originals as “performance work.” | DEFERRED |
 
 ## 5. UPDATE CARD decisions
@@ -107,12 +110,22 @@ Rejected for Wasl Tech:
 - 84 indexable Release routes checked.
 - Search visibility, AI-answer readiness and entity consistency checks all pass after merging current `main`.
 
-## 7. Next execution order
+## 7. Exact-SHA remote verification
 
-1. Commit the audit/workflow/cache batch.
-2. Push the branch after explicit repository-upload authorization.
-3. Wait for exact-SHA CI, media integrity and route matrix.
-4. Inspect AR/EN screenshots and accessibility results.
-5. Inspect Vercel Preview headers, font caching, AVIF `currentSrc`, console and critical routes.
-6. Re-run PageSpeed on the exact Preview.
-7. Fix only confirmed regressions, then prepare a reviewable PR. Do not merge or release without owner approval.
+- Remote head `3ff0c86311043b00ea96be6d3d7322ed483ecaaf`; Draft PR [#58](https://github.com/7eaur/wasltech-/pull/58).
+- Vercel Preview `dpl_EnrLco3oH4kcFVypvTPEBCjDYkYF` — READY on that exact SHA; build completed successfully.
+- Preview AR/EN HTML, local WOFF2, responsive AVIF and minified CSS returned HTTP `200` through authenticated Vercel fetches.
+- GitHub VNext verify, final-media integrity and Chromium route matrix all succeeded.
+- Matrix diagnostics at 390px with synthetic 180ms latency, throughput limits and 4x CPU: DOM ready 1,496ms, LCP 1,504ms, CLS 0, max startup long task 119ms, max interaction/scroll long task 0ms.
+- axe-core 4.10.3 mobile WCAG A/AA automated audit reported zero findings. Physical zoom and assistive-technology checks remain A11Y-03.
+- Screenshot artifact `11858647318` contains 76 AR/EN desktop/mobile PNGs plus the axe and lab JSON reports; it expires 2026-10-16.
+
+## 8. Next execution order
+
+1. Keep PR #58 in Draft until owner review and the remaining P1/P2 decisions are triaged.
+2. Perform A11Y-03 on physical devices and assistive technologies.
+3. Confirm CONTACT-01 with an owner-approved real WhatsApp receipt test.
+4. Supply authentic material for PROOF-01; do not invent outcomes or metrics.
+5. Decide SEC-01 and ANALYTICS-01 as separate scoped work, then verify their privacy/runtime effects.
+6. After explicit merge/release approval, rerun public PageSpeed and close PERF-05 from the official domain.
+7. Do not merge or publish Production without owner approval.

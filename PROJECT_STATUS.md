@@ -6,8 +6,9 @@
 - Active non-SEO branch: `perf/site-audit-hardening-20261013`, reconciled cleanly with current `main`. No SEO/search-engine, DNS, Search Console, Bing or logo-motion branch was edited.
 - Implemented locally: self-hosted IBM Plex fonts, localized font preload, AVIF + WebP responsive picture delivery for 100 active raster candidates, build-time CSS minification, font caching, contrast/link-purpose corrections, sharper bilingual Homepage conversion copy and stronger performance/asset regression checks.
 - Local evidence passes: `npm run vnext:verify`, `npm run vnext:verify:release`, `node scripts/check-final-media.mjs`, `git diff --check`; 86 Preview HTML files and 84 indexable Release routes are covered. Preview CSS gzip is 15,209 bytes, JS gzip 4,330 bytes, and the AVIF set is 23.5% smaller than its equivalent WebP set.
+- Draft PR [#58](https://github.com/7eaur/wasltech-/pull/58) is open on exact remote SHA `3ff0c86311043b00ea96be6d3d7322ed483ecaaf`. GitHub VNext verify, media integrity and the Chromium AR/EN route matrix succeeded; Vercel Preview `dpl_EnrLco3oH4kcFVypvTPEBCjDYkYF` is READY on the same SHA. The matrix covered 84 indexable routes at seven widths, produced 76 screenshots, returned zero automated axe findings, and measured synthetic mobile LCP 1,504ms / CLS 0.
 - Full finding/closure/open register: [`docs/qa/2026-10-14_PERFORMANCE_UX_CONTENT_AUDIT.md`](docs/qa/2026-10-14_PERFORMANCE_UX_CONTENT_AUDIT.md).
-- Remaining gates: remote branch push, exact-SHA GitHub/Vercel Preview, full AR/EN visual matrix, Preview PageSpeed, real-device accessibility, field CWV, real contact receipt and authentic case-study evidence. No merge or Production release is authorized by this status entry.
+- Remaining gates: public post-release PageSpeed, real-device accessibility, field CWV, real contact receipt, authentic case-study evidence, CSP design and privacy approval for conversion events. No merge or Production release is authorized by this status entry.
 
 ## 2026-10-13 — SEO/Main reconciliation in progress
 

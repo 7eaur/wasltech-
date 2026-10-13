@@ -5,7 +5,7 @@
 - Resume only from `perf/site-audit-hardening-20261013` after fetching live `main`; current reconciled Production base is `14cdd1de7a6c2112cd053e9c7be1561be38e40d7`.
 - Read [`docs/qa/2026-10-14_PERFORMANCE_UX_CONTENT_AUDIT.md`](docs/qa/2026-10-14_PERFORMANCE_UX_CONTENT_AUDIT.md) first. Its open register supersedes older generic performance lists for this branch.
 - Current local implementation includes local IBM Plex fonts, AVIF/WebP `<picture>` delivery, minified runtime CSS, font cache policy, Lighthouse accessibility fixes, conversion-copy corrections and CI guards for `perf/**`.
-- Local Preview/Release/search/AI/entity/media gates pass. The next action is remote branch push, then exact-SHA CI + Vercel Preview + six-width AR/EN screenshot/axe review + Preview PageSpeed.
+- Local Preview/Release/search/AI/entity/media gates pass. Draft PR [#58](https://github.com/7eaur/wasltech-/pull/58) is open on remote SHA `3ff0c86311043b00ea96be6d3d7322ed483ecaaf`; exact-SHA VNext/media/Chromium workflows pass and Vercel Preview `dpl_EnrLco3oH4kcFVypvTPEBCjDYkYF` is READY. The seven-width, 84-route AR/EN matrix and 76 captures passed with zero automated axe findings; synthetic mobile LCP was 1,504ms and CLS 0. Public PageSpeed must be repeated after an approved Production release because the Preview is protected.
 - Do not merge or deploy to Production without owner approval. Do not modify SEO/search-engine branches, DNS, Search Console, Bing or logo-motion work from this branch.
 
 ## 2026-10-13 — SEO/Main reconciliation handoff
