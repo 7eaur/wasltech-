@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 import { absoluteUrl } from "../src/config/seo.js";
 import { getIndexableEntries } from "../src/seo/indexable-routes.js";
+import { indexNow } from "../src/config/indexnow.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist-release");
@@ -37,6 +38,10 @@ if (robots.includes("Disallow: /")) {
 }
 
 const sitemap = await readFile(path.join(DIST, "sitemap.xml"), "utf8");
+const indexNowKeyFile = await readFile(path.join(DIST, indexNow.fileName), "utf8");
+if (indexNowKeyFile.trim() !== indexNow.key) {
+  fail(indexNow.fileName, "IndexNow verification file must contain the configured key only");
+}
 const urlCount = (sitemap.match(/<url>/g) ?? []).length;
 if (urlCount !== entries.length) {
   fail("sitemap.xml", `expected ${entries.length} URL entries, found ${urlCount}`);
