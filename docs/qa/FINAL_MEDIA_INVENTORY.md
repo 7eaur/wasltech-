@@ -1,5 +1,12 @@
 # Wasl Tech VNext — Final Media Inventory
 
+## 2026-10-13 — Current authoritative media gate for the recovery branch
+
+- **No missing service/hero/article batch to request:** the eight final editorial images, eight official service source JPEGs and responsive WebPs, Home/About assets and all 14 published portfolio images already exist and are owned by the VNext build graph. The old `Remaining final media to request` section below is **dated 2026-09-25, historical and fulfilled**; do not request or regenerate those eight images.
+- Build + release responsive image source checks on the tested `9c9cdb73` SHA passed ([VNext #38338784632](https://github.com/7eaur/wasltech-/actions/runs/38338784632)); 390/1440 browser matrix [#38338784657](https://github.com/7eaur/wasltech-/actions/runs/38338784657) passed. Source originals remain outside release runtime.
+- **Distinct evidence blocker:** image assets for 14 Portfolio cards are not equivalent to authenticated **screenshots from a real case study, client consent, verified outcomes or production reference**. This is UXR-07 and WT-IA-12/57/72, still **NEEDS EXTERNAL EVIDENCE**; do not conflate with final marketing image delivery.
+- These statements describe the **recovery branch Preview**, not production. No source, binary or marketing image replacement performed by this 2026-10-13 status update.
+
 ## 2026-10-10 — Responsive delivery derivatives
 
 - Canonical originals remain preserved and are not copied to the release output.

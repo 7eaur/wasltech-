@@ -5,7 +5,7 @@ export const IMAGE_SIZES = Object.freeze({
   card: "(max-width: 43.75rem) calc(100vw - 2rem), (max-width: 64rem) calc(50vw - 2rem), 33vw",
   featuredCard: "(max-width: 53.75rem) calc(100vw - 2rem), 40vw",
   compactCard: "(max-width: 48rem) calc(50vw - 1.5rem), (max-width: 64rem) calc(50vw - 2rem), 25vw",
-  serviceDirectory: "(max-width: 48rem) calc(100vw - 2rem), 45vw",
+  serviceDirectory: "(max-width: 48rem) 7.5rem, 45vw",
   halfWidth: "(max-width: 48rem) calc(100vw - 2rem), 50vw"
 });
 

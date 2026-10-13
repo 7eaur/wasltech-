@@ -16,7 +16,8 @@ function fail(scope,message){errors.push(`${scope}: ${message}`);}
 function outputPath(route){return route==="/"?"index.html":path.join(route.replace(/^\//,""),"index.html");}
 function htmlText(value=""){return String(value).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");}
 
-if(faqs.length!==13) fail("faq","expected 13 canonical FAQ items");
+if(faqs.length!==12) fail("faq","expected 12 non-duplicative canonical FAQ items");
+if(faqs.some(item=>item.id==="product-3")) fail("faq","duplicated integration question must not return");
 if(faqGroups.length!==4) fail("faq","expected 4 canonical FAQ groups");
 
 for(const locale of ["ar","en"]){
@@ -30,9 +31,13 @@ for(const locale of ["ar","en"]){
     if(!faqHtml.includes(`<h2 class="inner-hero__subtitle">${htmlText(faqCopy.title)}</h2>`)) fail(faqFile,"FAQ subtitle missing");
     if(!faqHtml.includes(htmlText(faqCopy.seo.title))) fail(faqFile,"FAQ SEO title missing");
   }
-  if((faqHtml.match(/class="faq-item"/g)??[]).length!==13) fail(faqFile,"FAQ page must render all 13 questions");
+  if((faqHtml.match(/class="faq-item"/g)??[]).length!==faqs.length) fail(faqFile,"FAQ page must render every canonical question");
+  for(const item of faqs)if(!faqHtml.includes(htmlText(item.content[locale].question)))fail(faqFile,"FAQ missing: "+item.id);
   if(!faqHtml.includes('"@type":"FAQPage"')) fail(faqFile,"FAQ structured data missing");
 
+  if(!faqHtml.includes('class="page-intro page-intro--faq"') || faqHtml.includes('secondary-hero__media')) fail(faqFile,"FAQ must start with text-first help intro");
+  if(!faqHtml.includes('class="section-jump-nav"')) fail(faqFile,"FAQ category navigation missing");
+  if(faqHtml.indexOf('page-intro--faq') > faqHtml.indexOf('class="section-jump-nav"')) fail(faqFile,"FAQ categories must follow intro");
   for(const group of faqGroups){
     if(!faqHtml.includes(`id="faq-${group.id}"`)) fail(faqFile,`FAQ group missing: ${group.id}`);
   }
@@ -48,6 +53,7 @@ for(const locale of ["ar","en"]){
       if(!html.includes(htmlText(copy.seo.title))) fail(file,`${id} SEO title missing`);
     }
     if(html.includes(">00<")) fail(file,`${id} must not expose a numeric empty-state counter`);
+    if(html.includes('class="secondary-hero__media"')) fail(file,"legal pages should use a text-first compact hero");
     if(html.includes("VNext Foundation")) fail(file,`${id} placeholder leaked`);
   }
 
@@ -59,8 +65,8 @@ for(const locale of ["ar","en"]){
   else if(!notFoundHtml.includes(`<h1 id="not-found-title">${htmlText(notFoundCopy.title)}</h1>`)) fail(notFoundPath,"404 heading missing");
   if(!notFoundHtml.includes('name="robots" content="noindex,follow"')) fail(notFoundPath,"404 must be noindex");
   if(!notFoundHtml.includes('src="/assets/brand/not-found-illustration.svg"')) fail(notFoundPath,"404 illustration missing");
-  if(locale==="ar" && !notFoundHtml.includes('location.pathname.startsWith("/en/")')) fail(notFoundPath,"root fallback must localize unknown English routes");
-  if(locale==="ar" && !notFoundHtml.includes('It looks like this page is no longer here.')) fail(notFoundPath,"root fallback missing English content");
+  if(notFoundHtml.includes('location.pathname.startsWith')) fail(notFoundPath,"404 must not localize via client JavaScript");
+  if(!notFoundHtml.includes(`lang="${locale}"`)) fail(notFoundPath,"404 language must match requested locale");
 
   if((notFoundHtml.match(/<img\b/g)??[]).length!==1) fail(notFoundPath,"404 must contain exactly one image");
   if((notFoundHtml.match(/<a\b/g)??[]).length!==2) fail(notFoundPath,"404 must contain only skip link and home CTA");
@@ -146,6 +152,24 @@ for(const required of [
   if(!legalSource.includes(required)) fail("legal",`verified privacy statement missing: ${required}`);
 }
 
+const routing=JSON.parse(await readFile(path.join(ROOT,"vercel.json"),"utf8"));
+const routeList=routing.routes??[];
+// Continuing security-header route is evaluated before filesystem; 404 fallbacks
+// must remain terminal and localized after the filesystem handler.
+if(routeList[0]?.src!=="/(.*)" || routeList[0]?.continue!==true || !routeList[0]?.headers) fail("vercel.json","the first rule must attach headers and continue to filesystem");
+if(routeList[1]?.handle!=="filesystem") fail("vercel.json","static routes must resolve before 404 catchalls");
+if(routeList[2]?.src!=="/en(?:/.*)?" || routeList[2]?.status!==404 || routeList[2]?.dest!=="/en/404.html" || routeList[2]?.continue) fail("vercel.json","English 404 must be a terminal server-side 404");
+if(routeList[3]?.src!=="/.*" || routeList[3]?.status!==404 || routeList[3]?.dest!=="/404.html" || routeList[3]?.continue) fail("vercel.json","Arabic/default 404 must be a terminal server-side 404");
+
+
+const articleCss=await readFile(path.join(ROOT,"src/styles/insights-careers.css"),"utf8");
+if(!articleCss.includes(".article-content__layout{display:grid;grid-template-columns:minmax(0,52rem)")) {
+  fail("article","intro and body must be in a single readable editorial column");
+}
+const faqCss=await readFile(path.join(ROOT,"src/styles/secondary.css"),"utf8");
+if(!faqCss.includes("padding-inline-end:2.5rem") || !faqCss.includes(".faq-group{display:grid")) {
+  fail("faq","logical RTL/LTR disclosure space and grouped layout are required");
+}
 if(errors.length){
   console.error("VNEXT SECONDARY/LEGAL CHECK: FAILED");
   for(const error of errors) console.error(`- ${error}`);

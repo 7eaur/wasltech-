@@ -1,7 +1,6 @@
 import { routes } from "../config/routes.js";
 import { serviceGroups } from "../data/services.js";
 import { getProjectsByService } from "../data/projects.js";
-import { ActionLink } from "../components/ActionLink.js";
 import { CallToAction } from "../components/CallToAction.js";
 import { MediaCard } from "../components/MediaCard.js";
 import { SectionHeader } from "../components/SectionHeader.js";
@@ -43,10 +42,6 @@ function renderHero(service, locale) {
           <h1>${escapeHtml(copy.title)}</h1>
           <h2 class="service-detail-hero__subtitle inner-hero__subtitle">${escapeHtml(copy.subtitle)}</h2>
           <p class="service-detail-hero__description">${escapeHtml(copy.description)}</p>
-          <div class="service-detail-hero__actions">
-            ${ActionLink({ href:routes.startProject(locale), label:copy.cta.label, variant:"primary", size:"lg" })}
-            ${ActionLink({ href:routes.services(locale), label:locale === "ar" ? "العودة للخدمات" : "Back to services", variant:"ghost", size:"lg" })}
-          </div>
         </div>
         ${HeroMedia({...getServiceHeroMedia(service, locale), className:"service-detail-hero__media"})}
       </div>
@@ -63,6 +58,25 @@ function renderHero(service, locale) {
         </aside>
       </div>
     </section>
+  `;
+}
+
+
+function renderSectionNav(service, locale) {
+  const items = [
+    { id: "service-deliverables", ar: "ما نقدمه", en: "Deliverables" },
+    ...(getProjectsByService(service.id).length
+      ? [{ id: "service-proof", ar: "أعمال مرتبطة", en: "Related work" }]
+      : []),
+    { id: "service-process", ar: "طريقة العمل", en: "Process" },
+    { id: "service-faq", ar: "الأسئلة الشائعة", en: "FAQs" }
+  ];
+  return `
+    <nav class="section-jump-nav" aria-label="${locale === "ar" ? "تصفح أقسام الخدمة" : "Service page sections"}">
+      <div class="container">
+        <ul>${items.map((item) => `<li><a href="#${item.id}">${item[locale]}</a></li>`).join("")}</ul>
+      </div>
+    </nav>
   `;
 }
 
@@ -112,16 +126,20 @@ function renderSubservices(service, locale) {
       <div class="container">
         ${SectionHeader({
           kicker:locale === "ar" ? "خدمات ضمن هذه الخدمة" : "Services within this area",
-          title:locale === "ar" ? "ما الذي يمكننا تنفيذه ضمن هذه الخدمة؟" : "What can we deliver within this service?",
-          supporting:locale === "ar"
-            ? "هذه الأنواع جزء من الخدمة الرئيسية وتُحدد تفاصيلها حسب احتياج المشروع."
-            : "These are service types within the main offering, with details defined according to each project."
+          title:locale === "ar" ? "ما الذي يمكننا تنفيذه ضمن هذه الخدمة؟" : "What can we deliver within this service?"
         })}
         <div class="service-subservices__grid">
-          ${items.map((item)=>`
+          ${items.map((item,index)=>`
             <article class="service-subservice">
-              <h3>${escapeHtml(item.title)}</h3>
-              <p>${escapeHtml(item.description)}</p>
+              ${items.length > 3 ? `
+                <details class="service-disclosure service-subservice__details"${index===0 ? " open" : ""}>
+                  <summary><h3>${escapeHtml(item.title)}</h3></summary>
+                  <p>${escapeHtml(item.description)}</p>
+                </details>
+              ` : `
+                <h3>${escapeHtml(item.title)}</h3>
+                <p>${escapeHtml(item.description)}</p>
+              `}
             </article>
           `).join("")}
         </div>
@@ -133,20 +151,20 @@ function renderSubservices(service, locale) {
 function renderDeliverables(service, locale) {
   const items = service.content[locale].deliverables;
   return `
-    <section class="section section--subtle service-deliverables">
+    <section class="section section--subtle service-deliverables" id="service-deliverables">
       <div class="container">
         ${SectionHeader({
           kicker:locale === "ar" ? "ما الذي تحصل عليه" : "What you receive",
-          title:locale === "ar" ? "ما الذي نقدمه ضمن هذه الخدمة؟" : "What do we provide within this service?",
-          supporting:locale === "ar"
-            ? "يتم تحديد التفاصيل النهائية حسب احتياج المشروع ونطاق العمل."
-            : "The exact deliverables depend on your project scope, but these are the elements that may be included in the service."
+          title:locale === "ar" ? "ما الذي نقدمه ضمن هذه الخدمة؟" : "What do we provide within this service?"
         })}
         <div class="service-deliverables__list">
           ${items.map((item,index)=>`
             <article class="service-deliverable">
-              <span>${String(index+1).padStart(2,"0")}</span>
-              <div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p></div>
+              <span aria-hidden="true">${String(index+1).padStart(2,"0")}</span>
+              <details class="service-disclosure service-deliverable__details"${index===0?' open':''}>
+                <summary><h3>${escapeHtml(item.title)}</h3></summary>
+                <p>${escapeHtml(item.description)}</p>
+              </details>
             </article>
           `).join("")}
         </div>
@@ -160,15 +178,15 @@ function renderProof(service, locale) {
   if (!projects.length) return "";
 
   return `
-    <section class="section service-proof">
+    <section class="section service-proof" id="service-proof">
       <div class="container">
         ${SectionHeader({
           kicker:locale === "ar" ? "أعمال مرتبطة" : "Related work",
-          title:locale === "ar" ? "نماذج من أعمال مرتبطة بالخدمة" : "Related work examples",
-          supporting:locale === "ar" ? "استكشف كيف تُترجم هذه الخدمة داخل مشاريع ومتطلبات مختلفة." : "See how this service takes shape across different projects and needs."
+          title:locale === "ar" ? "نماذج من أعمال مرتبطة بالخدمة" : "Related work examples"
         })}
         <div class="service-proof__grid">
           ${projects.map((project)=>MediaCard({
+            href:routes.project(project.slug,locale),
             image:{
               src:project.image,
               alt:project.content[locale].title,
@@ -191,12 +209,11 @@ function renderProof(service, locale) {
 function renderProcess(service, locale) {
   const items = service.content[locale].process;
   return `
-    <section class="section section--subtle service-process">
+    <section class="section section--subtle service-process" id="service-process">
       <div class="container">
         ${SectionHeader({
           kicker:locale === "ar" ? "طريقة التنفيذ" : "How it is delivered",
-          title:locale === "ar" ? "كيف ننفذ الخدمة؟" : "How do we deliver the service?",
-          supporting:locale === "ar" ? "خطوات واضحة من فهم الاحتياج إلى التنفيذ والتسليم." : "Clear steps from understanding the need to execution and delivery."
+          title:locale === "ar" ? "كيف ننفذ الخدمة؟" : "How do we deliver the service?"
         })}
         <div class="service-process__steps">
           ${items.map((item,index)=>`
@@ -215,7 +232,7 @@ function renderProcess(service, locale) {
 function renderFaq(service, locale) {
   const items = service.content[locale].faq;
   return `
-    <section class="section service-detail-faq">
+    <section class="section service-detail-faq" id="service-faq">
       <div class="container service-detail-faq__grid">
         <div>
           <p class="eyebrow">${locale === "ar" ? "أسئلة قبل البدء" : "Questions before you start"}</p>
@@ -271,13 +288,14 @@ export function serviceDetailPage(service, locale="ar") {
   const body = [
     renderBreadcrumb(service,locale),
     renderHero(service,locale),
+    renderSectionNav(service,locale),
+    renderDeliverables(service,locale),
+    renderProof(service,locale),
     renderSignals(service,locale),
     renderAudience(service,locale),
     renderSubservices(service,locale),
-    renderDeliverables(service,locale),
     renderConstraints(service,locale),
     renderProcess(service,locale),
-    renderProof(service,locale),
     renderFaq(service,locale),
     renderFinalCta(service,locale)
   ].join("");

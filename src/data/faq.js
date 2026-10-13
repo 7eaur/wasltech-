@@ -125,23 +125,6 @@ export const faqGroups = Object.freeze([
         }
       },
       {
-        "id": "product-3",
-        "localeStatus": {
-          "ar": "ready",
-          "en": "ready"
-        },
-        "content": {
-          "ar": {
-            "question": "هل يمكن ربط الموقع أو التطبيق بنظام موجود عندي؟",
-            "answer": "نعم إذا كانت البنية تسمح بذلك. نراجع النظام الحالي ووسائل الربط المتاحة، ثم نحدد طريقة التكامل المناسبة."
-          },
-          "en": {
-            "question": "Can the website or app connect to a system I already use?",
-            "answer": "Yes, when the current architecture supports it. We review the existing system and available integration methods, then define the right connection approach."
-          }
-        }
-      },
-      {
         "id": "product-4",
         "localeStatus": {
           "ar": "ready",

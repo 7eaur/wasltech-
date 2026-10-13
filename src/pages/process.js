@@ -1,6 +1,5 @@
 import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
-import { ActionLink } from "../components/ActionLink.js";
 import { CallToAction } from "../components/CallToAction.js";
 import { documentTemplate } from "../templates/document.js";
 import { escapeHtml } from "../lib/html.js";
@@ -21,10 +20,6 @@ function renderHero(content,locale){
           <h2 class="inner-hero__subtitle">${escapeHtml(content.title)}</h2>
           <div class="process-hero__support">
             <p>${escapeHtml(content.support)}</p>
-            <div class="process-hero__actions">
-              ${ActionLink({href:routes.startProject(locale),label:content.primaryCta,variant:"primary",size:"lg"})}
-              ${ActionLink({href:routes.portfolio(locale),label:content.secondaryCta,variant:"ghost",size:"lg"})}
-            </div>
           </div>
         </div>
         ${HeroMedia({...getPageHeroMedia("process", locale), className:"process-hero__media"})}

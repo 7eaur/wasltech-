@@ -4,7 +4,6 @@
   .service-detail-hero,
   .portfolio-hero,
   .project-detail-hero,
-  .contact-hero,
   .planner-hero,
   .secondary-hero,
   .about-hero,
@@ -21,7 +20,6 @@
   .service-detail-hero__grid,
   .portfolio-hero__grid,
   .project-detail-hero__grid,
-  .contact-hero__grid,
   .planner-hero__grid,
   .secondary-hero__grid,
   .about-hero__grid,
@@ -45,7 +43,6 @@
   .services-hero__copy,
   .service-detail-hero__copy,
   .project-detail-hero__copy,
-  .contact-hero__copy,
   .planner-hero__copy,
   .secondary-hero__copy,
   .process-hero__copy,
@@ -64,7 +61,6 @@
   .service-detail-hero,
   .portfolio-hero,
   .project-detail-hero,
-  .contact-hero,
   .planner-hero,
   .secondary-hero,
   .about-hero,
@@ -81,7 +77,7 @@
   background:var(--color-bg-soft);
   color:var(--color-text-accent);
   border-radius:999px;
-  font-size:.68rem;
+  font-size:.8rem;
   font-weight:var(--font-weight-bold);
 }
 :is(
@@ -89,7 +85,6 @@
   .service-detail-hero,
   .portfolio-hero,
   .project-detail-hero,
-  .contact-hero,
   .planner-hero,
   .secondary-hero,
   .about-hero,
@@ -114,7 +109,6 @@
   letter-spacing:0;
 }
 .services-hero__copy>p:not(.eyebrow),
-.contact-hero__copy>p:not(.eyebrow),
 .planner-hero__copy>p:not(.eyebrow),
 .secondary-hero__copy>p:not(.eyebrow),
 .insights-hero__copy>p:not(.eyebrow),
@@ -139,15 +133,11 @@
   line-height:1.42;
 }
 .service-detail-hero__description{
-  display:-webkit-box;
   max-width:36rem;
   margin:.35rem 0 0;
   color:var(--color-text-secondary);
   font-size:.88rem;
   line-height:1.68;
-  -webkit-box-orient:vertical;
-  -webkit-line-clamp:3;
-  overflow:hidden;
 }
 .process-hero__support,
 .project-detail-hero__summary{
@@ -157,39 +147,11 @@
   border:0;
 }
 :is(
-  .services-hero__actions,
-  .service-detail-hero__actions,
-  .contact-hero__actions,
-  .secondary-hero__actions,
-  .about-hero__actions,
-  .process-hero__actions,
-  .insights-hero__actions
-){
-  display:grid;
-  grid-template-columns:1fr;
-  gap:.5rem;
-  margin-top:.7rem;
-}
-:is(
-  .services-hero__actions,
-  .service-detail-hero__actions,
-  .contact-hero__actions,
-  .secondary-hero__actions,
-  .about-hero__actions,
-  .process-hero__actions,
-  .insights-hero__actions
-) .button{
-  width:100%;
-  min-height:2.75rem;
-}
-:is(
   .services-hero__media,
   .service-detail-hero__media,
   .portfolio-hero__media,
   .project-detail-hero__media,
-  .contact-hero__media,
   .planner-hero__media,
-  .secondary-hero__media,
   .about-hero__media,
   .process-hero__media,
   .insights-hero__media,
@@ -208,9 +170,7 @@
   .service-detail-hero__media,
   .portfolio-hero__media,
   .project-detail-hero__media,
-  .contact-hero__media,
   .planner-hero__media,
-  .secondary-hero__media,
   .about-hero__media,
   .process-hero__media,
   .insights-hero__media,
@@ -221,29 +181,6 @@
   height:100%;
   object-fit:cover;
   object-position:center;
-}
-.about-hero__visual{
-  display:grid;
-  gap:.75rem;
-}
-.about-hero__statement{
-  margin:0;
-  padding:.8rem;
-  background:var(--color-bg-soft);
-  border:var(--border-thin) solid var(--color-border-default);
-  border-radius:.75rem;
-}
-.about-hero__statement>span{
-  margin-bottom:.35rem;
-  font-size:.66rem;
-}
-.about-hero__statement>strong{
-  margin-bottom:.3rem;
-  font-size:.9rem;
-}
-.about-hero__statement p{
-  font-size:.72rem;
-  line-height:1.55;
 }
 .service-decision-panel{
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -258,16 +195,15 @@
 }
 .service-decision-panel span{
   margin-bottom:.3rem;
-  font-size:.65rem;
+  font-size:.875rem;
 }
 .service-decision-panel p{
-  font-size:.7rem;
+  font-size:.875rem;
   line-height:1.5;
 }
 .article-meta{
   margin-top:.65rem;
 }
 
-.planner-hero__copy>.text-link{display:none}
 
 @media(max-width:43.75rem){.inner-hero__subtitle,.service-detail-hero__subtitle{font-size:clamp(1.05rem,4.8vw,1.32rem);line-height:1.45}}

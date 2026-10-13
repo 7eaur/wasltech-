@@ -6,8 +6,10 @@ Official repository for the public **وصل تك | Wasl Tech** website.
 
 A clean VNext rebuild is being developed without patching the legacy production implementation.
 
-Active rebuild branch:
-`rebuild/vnext-foundation-20260921`
+Current independent recovery / quality branch:
+`fix/independent-site-recovery-20261010` (Draft PR #46 into `integration/site-stabilization-20261010`)
+
+VNext foundation history: `rebuild/vnext-foundation-20260921`.
 
 Production remains on the existing implementation until the VNext cutover gates pass.
 

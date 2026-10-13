@@ -51,4 +51,5 @@ if (toggle && nav && header) {
   desktopQuery.addEventListener?.("change", handleDesktopChange);
 
   setOpenState(false);
+  toggle.hidden = false;
 }

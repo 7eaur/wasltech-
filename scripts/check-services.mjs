@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 import { routes } from "../src/config/routes.js";
 import { pages } from "../src/data/pages.js";
-import { serviceGroups, services } from "../src/data/services.js";
+import { serviceGroups, services, getServicesByGroup } from "../src/data/services.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist");
@@ -34,6 +34,14 @@ for (const locale of ["ar","en"]) {
   if (html.includes("VNext Foundation")) fail(file,"foundation placeholder leaked into Services");
 
   for (const group of serviceGroups) {
+    const count=getServicesByGroup(group.id).length;
+    const section=html.match(new RegExp(`<section class="service-family" id="${group.id}">([\\s\\S]*?)</section>`))?.[1] ?? "";
+    if (!section.includes(`class="service-directory-list${count===3?" service-directory-list--three":""}"`)) {
+      fail(file,`service group grid modifier incorrect for ${group.id}, count=${count}`);
+    }
+    if ((section.match(/class="service-directory-row"/g)??[]).length !== count) {
+      fail(file,`service group card count mismatch: ${group.id}`);
+    }
     if (!html.includes(`id="${group.id}"`)) {
       fail(file,`service family section missing: ${group.id}`);
     }
@@ -51,6 +59,14 @@ for (const locale of ["ar","en"]) {
     fail(file,"Services directory must render exactly eight services");
   }
 }
+
+const directoryStyles=await readFile(path.join(ROOT,"src/styles/services.css"),"utf8");
+const responsiveSizes=await readFile(path.join(ROOT,"src/lib/responsive-image.js"),"utf8");
+if(!directoryStyles.includes("service-directory-list--three{grid-template-columns:repeat(3,minmax(0,1fr))") || !directoryStyles.includes("grid-column:1/-1;display:grid")) {
+  fail("services.css","balanced three-card grid must be full-width at desktop and last row at tablet");
+}
+if(!directoryStyles.includes("grid-template-columns:7.5rem minmax(0,1fr)")) fail("services.css","mobile services must render compact media-led rows");
+if(!responsiveSizes.includes('serviceDirectory: "(max-width: 48rem) 7.5rem, 45vw"')) fail("responsive-image.js","mobile thumbnail sizes must reflect compact layout");
 
 if (errors.length) {
   console.error("VNEXT SERVICES CHECK: FAILED");

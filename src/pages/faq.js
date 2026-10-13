@@ -1,11 +1,10 @@
 import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
 import { faqGroups, faqs } from "../data/faq.js";
-import { ActionLink } from "../components/ActionLink.js";
 import { documentTemplate } from "../templates/document.js";
 import { faqPageSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
-import { HeroMedia } from "../components/HeroMedia.js";
+import { PageIntro } from "../components/PageIntro.js";
 import { getPageHeroMedia } from "../config/hero-media.js";
 
 const record=pages.find((page)=>page.id==="faq");
@@ -35,20 +34,15 @@ export function faqPage(locale="ar"){
   if(!content) throw new Error(`FAQ content missing for locale: ${locale}`);
 
   const body=`
-    <section class="secondary-hero">
-      <div class="container secondary-hero__grid">
-        <div class="secondary-hero__copy">
-          <h1>${escapeHtml(content.kicker)}</h1>
-          <h2 class="inner-hero__subtitle">${escapeHtml(content.title)}</h2>
-          <p>${escapeHtml(content.support)}</p>
-          <div class="secondary-hero__actions">
-            ${ActionLink({href:routes.startProject(locale),label:content.primaryCta,variant:"primary",size:"lg"})}
-            ${ActionLink({href:routes.contact(locale),label:content.secondaryCta,variant:"ghost",size:"lg"})}
-          </div>
-        </div>
-        ${HeroMedia({...getPageHeroMedia("faq", locale), className:"secondary-hero__media"})}
+    ${PageIntro({kicker:content.kicker,title:content.title,supporting:content.support,variant:"faq"})}
+
+    <nav class="section-jump-nav" aria-label="${locale === "ar" ? "الانتقال إلى فئات الأسئلة" : "Jump to FAQ categories"}">
+      <div class="container">
+        <ul>
+          ${faqGroups.map((group)=>`<li><a href="#faq-${group.id}">${escapeHtml(group.content[locale].title)}</a></li>`).join("")}
+        </ul>
       </div>
-    </section>
+    </nav>
 
     <section class="section faq-directory">
       <div class="container">

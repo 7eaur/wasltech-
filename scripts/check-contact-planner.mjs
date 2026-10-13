@@ -33,6 +33,13 @@ for(const locale of ["ar","en"]){
   for(const value of [site.contact.phoneDisplay,site.contact.email,site.contact.instagram.handle]){
     if(!contactHtml.includes(htmlText(value))) fail(contactFile,`verified contact channel missing: ${value}`);
   }
+  if(!contactHtml.includes('contact-service-explore') || !contactHtml.includes('contact-paths__grid')) fail(contactFile,"U2 contact guided paths missing");
+  if(!contactHtml.includes('page-intro--contact') || contactHtml.includes('contact-hero__media')) fail(contactFile,"Contact introductory copy must lead the visitor without decorative image");
+  if(contactHtml.indexOf('page-intro--contact') > contactHtml.indexOf('contact-paths__grid')) fail(contactFile,"guided decisions must follow Contact intro");
+  const decisionAt=contactHtml.indexOf('contact-paths__grid');
+  const channelsAt=contactHtml.indexOf('contact-direct__grid');
+  if(decisionAt < 0 || channelsAt < 0 || decisionAt > channelsAt) fail(contactFile,"decision cards must precede secondary contact channels");
+  if(!contactHtml.includes('target="_blank" rel="noopener"')) fail(contactFile,"external WhatsApp link must be safe");
   if(contactHtml.includes("data-project-planner")) fail(contactFile,"Project Planner form leaked into direct Contact page");
 
   const plannerCopy=plannerRecord?.content?.[locale];
@@ -49,6 +56,10 @@ for(const locale of ["ar","en"]){
   if(!plannerHtml.includes("data-project-planner")) fail(plannerFile,"Planner form contract missing");
   if(!plannerHtml.includes("data-planner-review")) fail(plannerFile,"Planner review contract missing");
   if(plannerHtml.includes('method="post"') || plannerHtml.includes('action="/')) fail(plannerFile,"Planner must not pretend to submit to a backend");
+  // Verify that without JavaScript the user cannot submit sensitive data in a GET URL.
+  if(!plannerHtml.includes("data-planner-controls disabled")) fail(plannerFile,"no-JS fieldset must be disabled before hydration");
+  if(!plannerHtml.includes('type="button" data-planner-submit')) fail(plannerFile,"no-JS review control must not be submit");
+  if(!plannerHtml.includes("data-planner-needs-js")) fail(plannerFile,"no-JS contact alternative missing");
 
   for(const service of services){
     if(!plannerHtml.includes(`value="${service.id}"`)) fail(plannerFile,`service planner option missing: ${service.id}`);
@@ -64,7 +75,7 @@ for(const locale of ["ar","en"]){
 }
 
 const client=await readFile(path.join(ROOT,"src/client/project-planner.js"),"utf8");
-for(const contract of ["checkValidity","reportValidity","encodeURIComponent","data-planner-summary","Nothing has been sent","لم يتم إرسال أي بيانات"]){
+for(const contract of ["checkValidity","reportValidity","encodeURIComponent","data-planner-summary","Nothing has been sent","لم يتم إرسال أي بيانات","controls.disabled = false","fallback.hidden = true","submit.addEventListener"]){
   if(!client.includes(contract)) fail("src/client/project-planner.js",`truthful planner behavior missing: ${contract}`);
 }
 for(const forbidden of ["fetch(","XMLHttpRequest","form.submit(","localStorage","sessionStorage"]){
