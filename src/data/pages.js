@@ -80,7 +80,7 @@ export const pages = Object.freeze([
           Object.freeze({id:"faq",kicker:"FAQ",title:"Answers that help before you start",support:"Common questions about services, execution, and what you need to begin."}),
           Object.freeze({id:"final-cta",kicker:"Start your project",title:"Not sure where to start?",support:"Tell us about your project idea and we will help you choose the right solution for your needs and budget."})
         ]),
-        seo: Object.freeze({title:"Wasl Tech | Digital Products, Systems & Brand Presence",description:"Wasl Tech turns business ideas and needs across Yemen and the Gulf into websites, apps, e-commerce, systems, identities, and practical digital experiences."})
+        seo: Object.freeze({title:"Wasl Tech | Digital & Technical Solutions in Yemen & Gulf",description:"Wasl Tech helps projects across Yemen and the Gulf build websites, apps, e-commerce, custom systems, brand identity, and practical digital experiences."})
       })
     }
   }),
@@ -128,7 +128,7 @@ export const pages = Object.freeze([
           Object.freeze({id:"build",kicker:"Our services",title:"What we build",support:"Websites and apps, e-commerce, brand identity, company profiles, content and marketing, and custom technical solutions."}),
           Object.freeze({id:"final-cta",kicker:"Start with us",title:"Have an idea that deserves to be seen?",support:"Share your idea and we will help turn it into a professional digital presence that fits your project."})
         ]),
-        seo:Object.freeze({title:"About Wasl Tech | Strategy, Design & Digital Products",description:"Meet Wasl Tech, a digital solutions team connecting strategy, design, software, identity, and marketing around real project needs."})
+        seo:Object.freeze({title:"About Wasl Tech | Digital Solutions Team",description:"Meet the Wasl Tech team and how we connect planning, design, software, identity, and marketing around real project needs."})
       })
     }
   }),
@@ -159,7 +159,7 @@ export const pages = Object.freeze([
           Object.freeze({id:"brand-presence",kicker:"Brand & marketing",title:"A clear, consistent presence for your brand",support:"Brand identity, company profiles, content, and digital marketing that help the brand look professional and reach its audience."}),
           Object.freeze({id:"unsure",kicker:"We can help you choose",title:"Not sure where to start?",support:"Tell us about your project idea and we will help you choose the right solution for your needs and budget."})
         ]),
-        seo:Object.freeze({title:"Wasl Tech Services | Websites, Apps, Systems & Brand",description:"Wasl Tech services for websites, apps, e-commerce, systems, technical solutions, identity, company profiles, and marketing—starting from the project need."})
+        seo:Object.freeze({title:"Digital Services | Websites, Apps, E-commerce & Systems | Wasl Tech",description:"Explore Wasl Tech services for websites, mobile apps, e-commerce, custom systems, technical solutions, brand identity, profiles, and digital marketing."})
       })
     }
   }),
@@ -169,7 +169,7 @@ export const pages = Object.freeze([
     evidenceSources:["content:b87872d12adcc836018fe61a7ef1556f04aa5b86:إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md","src/data/projects.js"],
     content:{
       ar:Object.freeze({purpose:"عرض نماذج من أعمال وصل تك في الخدمات الرقمية المختلفة.",kicker:"أعمالنا",title:"نماذج من أعمالنا",support:"استكشف مجموعة من المشاريع التي نفذناها في المواقع والتطبيقات والمتاجر والأنظمة والهوية والتسويق.",primaryCta:"استكشف الأعمال",secondaryCta:"ناقش مشروعك معنا",sections:Object.freeze([Object.freeze({id:"evidence",kicker:"أعمال متنوعة",title:"مشاريع في مجالات رقمية مختلفة",support:"نماذج توضّح نوع الحلول والتجارب التي نبنيها."}),Object.freeze({id:"case-studies",kicker:"تفاصيل المشاريع",title:"تعرّف على كل مشروع",support:"داخل كل مشروع نعرض فكرته وما تم تنفيذه بصورة واضحة ومباشرة."}),Object.freeze({id:"final-cta",kicker:"لديك مشروع؟",title:"خلّنا نبنيه معك",support:"شاركنا فكرتك أو احتياجك، ونرتب معك الخطوة المناسبة للبدء."})]),seo:Object.freeze({title:"أعمال وصل تك | مواقع وتطبيقات ومتاجر وأنظمة وهوية",description:"استكشف نماذج من أعمال وصل تك في المواقع والتطبيقات والمتاجر والأنظمة والهوية والتسويق، مع تفاصيل تساعدك على فهم نوع التنفيذ."})}),
-      en:Object.freeze({purpose:"Show selected Wasl Tech work across digital services.",kicker:"Our work",title:"Selected projects",support:"Explore projects across websites, apps, e-commerce, systems, identity, and digital marketing.",primaryCta:"Explore our work",secondaryCta:"Discuss your project",sections:Object.freeze([Object.freeze({id:"evidence",kicker:"Different projects",title:"Work across different digital needs",support:"Examples of the solutions and experiences we build."}),Object.freeze({id:"case-studies",kicker:"Project details",title:"Explore each project",support:"Each project presents the idea and what was delivered in a clear, direct way."}),Object.freeze({id:"final-cta",kicker:"Have a project?",title:"Let us build it with you",support:"Share your idea or need and we will help organize the right starting point."})]),seo:Object.freeze({title:"Wasl Tech Work | Projects & Case Studies",description:"Selected Wasl Tech work across websites, apps, e-commerce, systems, identity, and digital marketing."})})
+      en:Object.freeze({purpose:"Show selected Wasl Tech work across digital services.",kicker:"Our work",title:"Selected projects",support:"Explore projects across websites, apps, e-commerce, systems, identity, and digital marketing.",primaryCta:"Explore our work",secondaryCta:"Discuss your project",sections:Object.freeze([Object.freeze({id:"evidence",kicker:"Different projects",title:"Work across different digital needs",support:"Examples of the solutions and experiences we build."}),Object.freeze({id:"case-studies",kicker:"Project details",title:"Explore each project",support:"Each project presents the idea and what was delivered in a clear, direct way."}),Object.freeze({id:"final-cta",kicker:"Have a project?",title:"Let us build it with you",support:"Share your idea or need and we will help organize the right starting point."})]),seo:Object.freeze({title:"Wasl Tech Work | Websites, Apps, E-commerce & Brand",description:"Explore selected Wasl Tech work across websites, mobile apps, e-commerce, systems, brand identity, and digital marketing."})})
     }
   }),
   page({
@@ -196,7 +196,7 @@ export const pages = Object.freeze([
         Object.freeze({id:"launch-grow",kicker:"04 — Launch & support",title:"We launch the project and stay with you",support:"We prepare the project for launch and provide support and improvements according to the project's needs after release.",outcome:"An organized launch and a clear path after release."}),
         Object.freeze({id:"principle",kicker:"During the work",title:"Clear communication at every stage",support:"We keep you informed about what is complete and what needs review or a decision before the next step."}),
         Object.freeze({id:"final-cta",kicker:"Start your project",title:"Ready to start?",support:"Share your idea or current need and we will organize the next step with you."})
-      ]),seo:Object.freeze({title:"How We Work | Wasl Tech",description:"Wasl Tech's process from understanding the problem and defining scope through design, build, testing, launch, and post-launch options."})})
+      ]),seo:Object.freeze({title:"Digital Project Process | Wasl Tech",description:"See how Wasl Tech moves from goal and scope to design, development, testing, launch, and practical post-launch options."})})
     }
   }),
   page({
@@ -215,7 +215,7 @@ export const pages = Object.freeze([
         Object.freeze({id:"project",kicker:"Have a project?",title:"Share your project details",support:"Use the project form to organize the idea and essential requirements before contacting us."}),
         Object.freeze({id:"context",kicker:"Not sure which service?",title:"We will help you choose",support:"Describe your idea or need and we will guide you to the most suitable service or path."}),
         Object.freeze({id:"final-cta",kicker:"Start now",title:"Start the conversation",support:"Message us and we will discuss your idea, needs, and the right next step."})
-      ]),seo:Object.freeze({title:"Contact Wasl Tech | Start From Your Project Goal",description:"Contact Wasl Tech through WhatsApp or the project planner and start from the problem or outcome you want to build or improve."})})
+      ]),seo:Object.freeze({title:"Contact Wasl Tech | Start Your Digital Project",description:"Contact Wasl Tech through WhatsApp or the project planner to discuss a website, app, e-commerce store, custom system, brand, or digital presence."})})
     }
   }),
   page({
@@ -236,7 +236,7 @@ export const pages = Object.freeze([
         Object.freeze({id:"priority",kicker:"03 — Priority",title:"What needs to succeed first?",support:"We organize the priority so the project does not become an open wish list."}),
         Object.freeze({id:"context",kicker:"04 — Context",title:"Who is the user, what exists, and what matters most?",support:"Share what you know now; technical terminology is not required."}),
         Object.freeze({id:"review",kicker:"05 — Review",title:"Review the picture before opening WhatsApp.",support:"Your details stay in the browser until you choose to open the conversation and send them."})
-      ]),seo:Object.freeze({title:"Plan Your Project | Wasl Tech",description:"Organize the project goal, current state, priority, and context before opening a WhatsApp conversation with Wasl Tech."})})
+      ]),seo:Object.freeze({title:"Plan Your Digital Project | Wasl Tech",description:"Organize your digital project goal, current state, priorities, and key requirements before starting the implementation discussion."})})
     }
   }),
   page({
@@ -327,8 +327,8 @@ export const pages = Object.freeze([
           })
         ]),
         seo: Object.freeze({
-          title: "Frequently Asked Questions | Wasl Tech",
-          description: "Answers to common questions about Wasl Tech services, project stages, websites, apps, e-commerce, branding, integrations, and how projects are delivered."
+          title: "Website, App, E-commerce & System FAQs | Wasl Tech",
+          description: "Practical answers about websites, apps, e-commerce, systems, branding, integrations, project scope, and how digital work is delivered."
         })
       })
     }
@@ -411,8 +411,8 @@ export const pages = Object.freeze([
           })
         ]),
         seo: Object.freeze({
-          title: "Insights | Wasl Tech",
-          description: "Practical Wasl Tech guides on planning websites, apps, e-commerce, systems, brand identity, digital presence, and clearer pre-build decisions."
+          title: "Website, App & E-commerce Guides | Wasl Tech",
+          description: "Practical guides on planning websites, apps, e-commerce, systems, brand identity, content, and digital work before implementation."
         })
       })
     }
