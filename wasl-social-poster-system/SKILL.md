@@ -139,6 +139,16 @@ Use a clear CTA for paid ads, service offers, idea-to-reality posts, evaluations
 
 Avoid repeating generic “تواصل معنا” when a more useful action is available.
 
+## Hook–visual alignment gate (Wasl Tech V2)
+
+For Wasl Tech campaigns, follow [HOOK_VISUAL_ALIGNMENT_AR.md](HOOK_VISUAL_ALIGNMENT_AR.md) **before production**. A hook and its visual are a single creative unit, not a headline pasted over generic imagery.
+
+- Fix audience, objective, core message, and desired behavior first. Explore multiple genuine creative angles, then shortlist at least three **paired** concepts (headline + cover/first-frame composition).
+- Any hook referring to visible evidence ("which description?", "this button") must show that evidence **on the same cover/first frame**. Do not hide the needed context until the next slide or the caption.
+- Evaluate each pair at mobile-feed/thumbnail size: context recognizable, one dominant focal point, image adds meaning, no tiny text or deceptive proof.
+- The carousel must deliver the hook's promise through reveal/explanation/application. An awareness post need not have an in-artwork CTA; conversion posts need one specific step.
+- Keep original logo and exact Arabic text under controlled composition. Distinguish mock/example assets from documented customer work.
+
 ## Production workflow
 
 1. Write the one-sentence job of the asset: audience + desired action.
