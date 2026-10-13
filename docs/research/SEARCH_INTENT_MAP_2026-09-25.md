@@ -1,6 +1,6 @@
 # Wasl Tech — Search Intent & Topic Ownership Map
 
-> **2026-10-13 reconciliation note:** The intent ownership model remains valid. Production currently has 3 genuinely published articles. Four additional decision-support articles from the old SEO draft are carried into the reconciliation branch as **unpublished staged content** until an actual publication release is approved; do not backdate them to 2026-09-25.
+> **2026-10-13 reconciliation note:** The intent ownership model remains valid. Production currently has 3 genuinely published articles. Four additional decision-support articles from the old SEO draft remain historical candidate content in PR #37 and are **not** part of the active runtime collection. Reintroduce them only after fresh editorial review and use the real publication date of the approved release; do not backdate them to 2026-09-25.
 
 
 Date: 2026-09-25  

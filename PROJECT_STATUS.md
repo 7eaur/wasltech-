@@ -7,7 +7,7 @@
 - Active clean branch: `seo/search-visibility-reconciled-20261013`, created from current Production `main`.
 - October UX/media/security/404/Planner/accessibility work is preserved. Only still-valid Search/AI/Entity/measurement changes are carried forward.
 - Production already has both `wasl-tech.com` and `www.wasl-tech.com` verified on Vercel; source canonical remains `https://www.wasl-tech.com`. Apex→www redirect is still a release gate.
-- The four article records that existed only in the old Draft SEO branch are staged as unpublished content; do not backdate them.
+- The four article records that existed only in the old Draft SEO branch are not carried into the active runtime article collection; they remain historical candidate content in PR #37 until a real publication decision/date exists.
 - Canonical reconciliation evidence: `docs/qa/2026-10-13_SEO_MAIN_RECONCILIATION.md`.
 - No merge to `main`, Production cutover, DNS change, Search Console submission or Bing submission is authorized by this branch work alone.
 

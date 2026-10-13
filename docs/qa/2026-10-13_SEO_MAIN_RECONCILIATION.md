@@ -48,7 +48,7 @@ This branch therefore starts from current `main` and carries forward only still-
 
 Production currently has three genuinely published articles.
 
-The four additional articles that existed only inside the old Draft SEO branch are staged in this reconciliation branch with no public publication date. They must receive a real publication date only when an approved release actually publishes them. Do not backdate them to 2026-09-25.
+The four additional articles that existed only inside the old Draft SEO branch are **not** carried into the active runtime article collection, because the current data contract requires every article record to be genuinely published. Their copy remains available in historical PR #37 as candidate material only. Reintroduce them only after fresh editorial review and assign the real publication date of the approved release; do not backdate them to 2026-09-25.
 
 ## Remaining external / release gates
 
