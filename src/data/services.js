@@ -308,8 +308,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "website design and development",
           "searchIntent": "commercial",
-          "title": "Website Design & Development | Wasl Tech",
-          "description": "Responsive website design and development that brings content, brand identity, user experience, and performance together around your business goals.",
+          "title": "Website Design & Development in Yemen & Gulf | Wasl Tech",
+          "description": "Responsive website design and development for projects across Yemen and the Gulf, with clear content, strong performance, and a practical conversion path.",
           "ogTitle": "Websites Built Around Your Business Goal | Wasl Tech",
           "ogDescription": "From content structure to design, development, and launch, we build clear websites that serve both the business and its visitors."
         }
@@ -614,8 +614,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "mobile app development",
           "searchIntent": "commercial",
-          "title": "Mobile App Development for Android & iOS | Wasl Tech",
-          "description": "Mobile app design and development built around user journeys, with accounts, notifications, APIs, and admin tools where the project needs them.",
+          "title": "Android & iOS Mobile App Development | Wasl Tech",
+          "description": "Mobile app design and development for Android and iOS, with clear user journeys, accounts, notifications, APIs, admin tools, and project-specific integrations.",
           "ogTitle": "Mobile Apps That Are Easier to Use | Wasl Tech",
           "ogDescription": "We turn app ideas into clear user journeys that connect the right features, data, and integrations."
         }
@@ -912,8 +912,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "e-commerce design and development",
           "searchIntent": "commercial",
-          "title": "E-commerce Design & Development | Wasl Tech",
-          "description": "E-commerce experiences that organize products, cart, orders, payments, delivery, and administration into a clear buying journey.",
+          "title": "E-commerce Design & Development in Yemen & Gulf | Wasl Tech",
+          "description": "E-commerce design and development that organizes products, cart, orders, payments, delivery, inventory, and administration into a clear buying journey.",
           "ogTitle": "E-commerce Built Around the Buying Journey | Wasl Tech",
           "ogDescription": "We connect product browsing, cart, ordering, payment, and delivery around the way your business operates."
         }
@@ -1218,8 +1218,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "custom software development",
           "searchIntent": "commercial",
-          "title": "Custom Software & Systems Development | Wasl Tech",
-          "description": "Custom systems, dashboards, APIs, databases, roles, and automation built around the way your business actually operates.",
+          "title": "Custom Software, Systems & Dashboards | Wasl Tech",
+          "description": "Custom software, systems, dashboards, APIs, databases, roles, and automation built around the project workflow and day-to-day operating needs.",
           "ogTitle": "Custom Software Built Around Your Workflow | Wasl Tech",
           "ogDescription": "When ready-made tools are not enough, we build the logic, data, permissions, and integrations your workflow needs."
         }
@@ -1516,8 +1516,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "technical solutions and system integration",
           "searchIntent": "commercial",
-          "title": "Technical Solutions, Integration & Automation | Wasl Tech",
-          "description": "Technical solutions built around the actual problem, including system integration, workflow automation, data organization, and targeted improvements.",
+          "title": "Technical Solutions, Integrations & Automation | Wasl Tech",
+          "description": "Technical solutions for system integrations, workflow automation, data organization, and service connections, shaped around the actual project problem.",
           "ogTitle": "Technical Solutions That Start With the Problem | Wasl Tech",
           "ogDescription": "We review the current setup and decide whether integration, automation, improvement, or focused development is the right path."
         }
@@ -1788,8 +1788,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "company profile design",
           "searchIntent": "commercial",
-          "title": "Company Profile Design | Wasl Tech",
-          "description": "Company profile design that brings the company story, services, work, and brand identity into a clear document for digital sharing and print.",
+          "title": "Professional Profile & Business Presentation Design | Wasl Tech",
+          "description": "Professional profile design that brings the story, services, work, and brand identity into a clear presentation for digital sharing and print.",
           "ogTitle": "A Company Profile That Explains the Business Clearly | Wasl Tech",
           "ogDescription": "We organize the company story, content, and identity into a profile that is easy to read and ready for digital or print use."
         }
@@ -2078,8 +2078,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "brand identity design",
           "searchIntent": "commercial",
-          "title": "Brand Identity & Logo Design | Wasl Tech",
-          "description": "Brand identity design covering logo, colors, typography, templates, and applications as one consistent visual system.",
+          "title": "Brand Identity, Logo & Visual System Design | Wasl Tech",
+          "description": "Brand identity design covering logo, color, typography, templates, and applications as one consistent visual system across touchpoints.",
           "ogTitle": "Brand Identity Built as a Usable System | Wasl Tech",
           "ogDescription": "We connect logo, visual language, and reusable applications into a brand system that stays consistent across touchpoints."
         }
@@ -2376,8 +2376,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "digital marketing and content management",
           "searchIntent": "commercial",
-          "title": "Digital Marketing & Content Management | Wasl Tech",
-          "description": "Content planning, writing, design, management, and digital campaigns that help your business communicate with more clarity and consistency.",
+          "title": "Digital Marketing, Content & Campaigns | Wasl Tech",
+          "description": "Content planning, writing, design, channel management, and digital campaigns built around a clearer message, consistent presence, and measurable signals.",
           "ogTitle": "Content and Marketing With a Clearer Message | Wasl Tech",
           "ogDescription": "We organize messaging, planning, design, and publishing around what your audience needs to understand about the business."
         }
