@@ -1,5 +1,6 @@
 const script = document.querySelector("script[data-analytics-measurement-id]");
 const measurementId = script?.dataset.analyticsMeasurementId || "";
+const canonicalHost = script?.dataset.analyticsHost || "";
 const storageKey = script?.dataset.analyticsStorageKey || "wasl_analytics_consent";
 const consentPanel = document.querySelector("[data-analytics-consent]");
 const acceptButton = document.querySelector("[data-analytics-accept]");
@@ -9,7 +10,13 @@ const settingsButtons = document.querySelectorAll("[data-analytics-settings]");
 const CONSENT_GRANTED = "granted";
 const CONSENT_DENIED = "denied";
 
+const analyticsEnabled = Boolean(measurementId && canonicalHost && window.location.hostname === canonicalHost);
 let analyticsLoaded = false;
+
+if (!analyticsEnabled) {
+  consentPanel?.remove();
+  for (const button of settingsButtons) button.hidden = true;
+}
 
 function readConsent() {
   try {
@@ -42,7 +49,7 @@ function setConsent(value) {
 }
 
 function loadAnalytics() {
-  if (analyticsLoaded || !measurementId) return;
+  if (!analyticsEnabled || analyticsLoaded) return;
 
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || gtag;
@@ -108,7 +115,7 @@ function denyConsent() {
 }
 
 window.waslTrack = (eventName, params = {}) => {
-  if (readConsent() !== CONSENT_GRANTED) return;
+  if (!analyticsEnabled || readConsent() !== CONSENT_GRANTED) return;
   loadAnalytics();
   window.gtag?.("event", eventName, params);
 };
@@ -125,7 +132,7 @@ for (const button of settingsButtons) {
 
 document.addEventListener("click", (event) => {
   const link = event.target.closest("a[href]");
-  if (!link || readConsent() !== CONSENT_GRANTED) return;
+  if (!analyticsEnabled || !link || readConsent() !== CONSENT_GRANTED) return;
 
   const rawHref = link.getAttribute("href") || "";
   let eventName = "";
@@ -161,7 +168,7 @@ document.addEventListener("click", (event) => {
   });
 });
 
-const storedConsent = readConsent();
+const storedConsent = analyticsEnabled ? readConsent() : CONSENT_DENIED;
 if (storedConsent === CONSENT_GRANTED) {
   loadAnalytics();
 } else if (storedConsent !== CONSENT_DENIED) {
