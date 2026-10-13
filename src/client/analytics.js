@@ -87,17 +87,11 @@ function expireAnalyticsCookies() {
 }
 
 function showConsent() {
-  if (!consentPanel) return;
-  consentPanel.hidden = false;
-  requestAnimationFrame(() => consentPanel.classList.add("is-visible"));
+  if (consentPanel) consentPanel.hidden = false;
 }
 
 function hideConsent() {
-  if (!consentPanel) return;
-  consentPanel.classList.remove("is-visible");
-  window.setTimeout(() => {
-    consentPanel.hidden = true;
-  }, 220);
+  if (consentPanel) consentPanel.hidden = true;
 }
 
 function grantConsent() {
