@@ -15,6 +15,8 @@ const copy = Object.freeze({
     website: "الموقع الإلكتروني",
     social: "شبكات التواصل",
     copyright: "جميع الحقوق محفوظة.",
+    privacy: "سياسة الخصوصية",
+    terms: "الشروط والأحكام",
     exploreLinks: Object.freeze([
       Object.freeze({ label: "الخدمات", route: "services" }),
       Object.freeze({ label: "الأعمال", route: "portfolio" }),
@@ -47,6 +49,8 @@ const copy = Object.freeze({
     website: "Website",
     social: "Social media",
     copyright: "All rights reserved.",
+    privacy: "Privacy",
+    terms: "Terms",
     exploreLinks: Object.freeze([
       Object.freeze({ label: "Services", route: "services" }),
       Object.freeze({ label: "Work", route: "portfolio" }),
@@ -160,7 +164,11 @@ export function Footer({ locale = "ar" } = {}) {
 
         <div class="footer-bottom">
           <p>© ${year} ${escapeHtml(site.brand.name[locale])} — ${escapeHtml(labels.copyright)}</p>
-          <a href="${site.origin}" target="_blank" rel="noopener"><bdi dir="ltr">${escapeHtml(site.contact.domain)}</bdi></a>
+          <nav class="footer-legal" aria-label="${locale === "ar" ? "روابط قانونية" : "Legal links"}">
+            <a href="${routes.privacy(locale)}">${escapeHtml(labels.privacy)}</a>
+            <a href="${routes.terms(locale)}">${escapeHtml(labels.terms)}</a>
+            <a href="${site.origin}" target="_blank" rel="noopener"><bdi dir="ltr">${escapeHtml(site.contact.domain)}</bdi></a>
+          </nav>
         </div>
       </div>
     </footer>

@@ -1,4 +1,16 @@
 # Wasl Tech VNext — Conversation Handoff
+
+## 2026-10-13 — SEO/Main reconciliation handoff
+
+For search work, start with `docs/qa/2026-10-13_SEO_MAIN_RECONCILIATION.md`.
+
+- Production `main`: `abbbe9e9e51533a4a8c9d75104f86805f8870bad`.
+- Clean SEO branch: `seo/search-visibility-reconciled-20261013`.
+- Do not resume work from historical PR #37 directly.
+- Preserve all October site-stabilization changes; use old SEO work only as reviewed input.
+- After branch CI/Preview verification, remaining external gates are canonical apex→www redirect, real-domain production search smoke, Google Search Console authorization/verification/sitemap, Bing authorization/import/sitemap and the first real search baseline.
+- Never merge or alter Production/DNS without explicit owner approval.
+
 ## 2026-10-13 — Resume from verified Production release
 
 - Verified integration source: `integration/site-stabilization-20261010` at `2458c380c192cc263cb57376646bf12fab493f3a`.

@@ -1,4 +1,16 @@
 # Wasl Tech VNext — Documentation Map
+
+## Search visibility authorities — 2026-10-13
+
+For SEO / AI-search work, read these after the current release handoff:
+- `core/SEARCH_VISIBILITY.md` — canonical search and AI-discovery policy.
+- `core/EXTERNAL_ENTITY_PROFILE.md` — canonical Wasl Tech entity/profile contract.
+- `core/WEBMASTER_MEASUREMENT.md` — Search Console, Bing and post-launch measurement plan.
+- `research/SEARCH_INTENT_MAP_2026-09-25.md` — intent ownership map, with the 2026-10-13 reconciliation note.
+- `qa/2026-10-13_SEO_MAIN_RECONCILIATION.md` — current reconciliation evidence and remaining gates.
+
+The older SEO branch/PR #37 is historical input only. Do not merge it directly into current `main`.
+
 ## Current release handoff — 2026-10-13
 
 Start with [`qa/2026-10-13_INTEGRATION_MERGE_VERIFICATION.md`](qa/2026-10-13_INTEGRATION_MERGE_VERIFICATION.md), then `PROJECT_STATUS.md` and `PROJECT_HANDOFF.md`. PR #46 is merged into integration and PR #45 is released to `main`/Production. Recovery-only records below remain historical evidence. SEO and logo branches stayed outside this release scope.

@@ -1,4 +1,16 @@
 # Wasl Tech VNext — Current Project Status
+
+## 2026-10-13 — SEO/Main reconciliation in progress
+
+- Current Production `main` remains `abbbe9e9e51533a4a8c9d75104f86805f8870bad`; this SEO work does **not** change Production.
+- Historical SEO PR #37 is superseded for implementation: it is 48 commits ahead / 163 behind current `main` and must not be merged directly.
+- Active clean branch: `seo/search-visibility-reconciled-20261013`, created from current Production `main`.
+- October UX/media/security/404/Planner/accessibility work is preserved. Only still-valid Search/AI/Entity/measurement changes are carried forward.
+- Production already has both `wasl-tech.com` and `www.wasl-tech.com` verified on Vercel; source canonical remains `https://www.wasl-tech.com`. Apex→www redirect is still a release gate.
+- The four article records that existed only in the old Draft SEO branch are staged as unpublished content; do not backdate them.
+- Canonical reconciliation evidence: `docs/qa/2026-10-13_SEO_MAIN_RECONCILIATION.md`.
+- No merge to `main`, Production cutover, DNS change, Search Console submission or Bing submission is authorized by this branch work alone.
+
 ## 2026-10-13 — Verified integration released to Production
 
 - PR [#46](https://github.com/7eaur/wasltech-/pull/46) was reviewed, marked ready, and merged into `integration/site-stabilization-20261010` at merge SHA `2458c380c192cc263cb57376646bf12fab493f3a`.
