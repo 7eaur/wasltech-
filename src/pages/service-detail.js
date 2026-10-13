@@ -4,6 +4,7 @@ import { getProjectsByService } from "../data/projects.js";
 import { CallToAction } from "../components/CallToAction.js";
 import { MediaCard } from "../components/MediaCard.js";
 import { SectionHeader } from "../components/SectionHeader.js";
+import { ServiceGuidance } from "../components/ServiceGuidance.js";
 import { documentTemplate } from "../templates/document.js";
 import { breadcrumbSchema, faqPageSchema, serviceSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
@@ -296,6 +297,7 @@ export function serviceDetailPage(service, locale="ar") {
     renderSubservices(service,locale),
     renderConstraints(service,locale),
     renderProcess(service,locale),
+    ServiceGuidance({service,locale}),
     renderFaq(service,locale),
     renderFinalCta(service,locale)
   ].join("");

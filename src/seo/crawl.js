@@ -5,7 +5,7 @@ export function renderPreviewRobots() {
 }
 
 export function renderProductionRobots() {
-  return `User-agent: *\nAllow: /\nSitemap: ${absoluteUrl("/sitemap.xml")}\n`;
+  return `User-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: *\nAllow: /\nSitemap: ${absoluteUrl("/sitemap.xml")}\n`;
 }
 
 export function renderSitemap(entries = []) {

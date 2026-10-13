@@ -13,8 +13,9 @@
     "vnext:check": "npm run vnext:check:structure && npm run vnext:check:data",
     "vnext:verify": "npm run vnext:build && npm run vnext:check",
     "vnext:build:release": "node scripts/build-release.mjs",
-    "vnext:check:release": "node scripts/check-release.mjs",
+    "vnext:check:release": "node scripts/check-release.mjs && node scripts/check-search-visibility.mjs && node scripts/check-ai-readiness.mjs && node scripts/check-entity-consistency.mjs",
     "vnext:verify:release": "npm run vnext:build:release && npm run vnext:check:release",
-    "vnext:check:quality": "node scripts/check-quality.mjs"
+    "vnext:check:quality": "node scripts/check-quality.mjs",
+    "vnext:check:production-search": "node scripts/check-production-search.mjs"
   }
 }
