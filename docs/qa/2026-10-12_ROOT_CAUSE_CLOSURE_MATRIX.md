@@ -74,6 +74,15 @@
 - امتداد لاحق للاختبار فقط: no-JS `<details>` لخمسة خيارات على App AR/EN وإضافة صور App للمصفوفة، على SHA منفصل; إثبات آخر CI مطلوب بعد تغييره.
 - **لا تختزل UXR-03 أو WT-IA-25/38 إلى CLOSED**: هناك قبول قراءة بشري واعتماد Cutover خارجي.
 
+## 2026-10-13 — verified branch-level delta, current owner gates
+
+- **WT-IA-19/20; FAQ canonical duplication:** `b7b17cc6` removes semantically identical product-3 (AR/EN), keeps existing product-2 featured on Home, checks 12 FAQ items in four groups and preserved JSON-LD. GitHub Actions VNext PASS, [Chromium #38338401184 PASS](https://github.com/7eaur/wasltech-/actions/runs/38338401184). **VERIFIED_PREVIEW** for code, owner editorial acceptance still possible.
+- **WT-IA-67/68/74; real accessibility defect:** baseline [axe #38338005768 FAILED](https://github.com/7eaur/wasltech-/actions/runs/38338005768) with `target-size` English footer (eight affected routes); fixed in layout source `b7b17cc6`, no new override. axe 8 routes × AR/EN reports **0 violations** on [new #38338784657](https://github.com/7eaur/wasltech-/actions/runs/38338784657). **VERIFIED_PREVIEW automated sample**, not WCAG certification.
+- **WT-IA-26; static response policy:** `9c9cdb73` sets default `nosniff`, referrer, permissions and SAMEORIGIN framing under `vercel.json`, guarded by `check-source-ownership`; [VNext #38338784632 PASS](https://github.com/7eaur/wasltech-/actions/runs/38338784632), Vercel Preview READY. **CONFIG VERIFIED**, actual headers via public HTTP still **OPEN**; CSP requires separate analysis.
+- **WT-IA-28/75; synthetic lab:** tested `9c9cdb73` [Chromium matrix #38338784657](https://github.com/7eaur/wasltech-/actions/runs/38338784657); LCP 1476ms and CLS 0.0313 under ONE simulated 390px + throttled local run, and long tasks recorded; all screenshots and 2 JSON artifacts uploaded. **LAB CHECK PASSED**, field LCP/INP/CLS and real devices still OPEN.
+- **UXR-03/04/06/08; screen scanning:** 76 AR/EN 390/1440 full page screenshots were captured and representative Home/Services/FAQ/Contact/App screenshots manually sampled. No fabricated study completion: genuine reading-task UAT, true zoom, Safari/iPhone and NVDA/VoiceOver **OPEN**.
+- **P6 release and business evidence remain BLOCKED** on owner/account/assets and independent SEO/dns/branch teams; PR #46 Draft unchanged. See [unified latest gate table](2026-10-13_BRANCH_RECOVERY_FINAL_HANDOFF.md).
+
 ## ترتيب التنفيذ التالي
 
 1. إثبات سلامة إزالة Hero-hidden overrides على SHA الحالي: Node24 verify + Chromium route matrix، ثم مراجعة Screenshots.

@@ -7,6 +7,9 @@ This file defines where project truth lives. It exists to prevent overlapping do
 
 ## Current handoff record
 
+**2026-10-13 canonical:** Read [branch completion and external acceptance gates](qa/2026-10-13_BRANCH_RECOVERY_FINAL_HANDOFF.md) first, then latest `PROJECT_STATUS.md`, `PROJECT_HANDOFF.md`, `docs/qa/2026-10-12_ROOT_CAUSE_CLOSURE_MATRIX.md` and evidence details `docs/qa/2026-10-13_FAQ_DEDUP_AND_FOOTER_A11Y.md`, `docs/qa/2026-10-13_RESPONSE_HEADERS_AND_LAB_DIAGNOSTICS.md`. Everything below referring to unfinished October 12 CI is historical unless consistent with the actual tested SHA.
+
+
 For independent recovery work as of 2026-10-12, read the newest sections of `PROJECT_STATUS.md` and `PROJECT_HANDOFF.md` first, followed by `docs/qa/2026-10-12_NEW_CONVERSATION_ROOT_CAUSE_HANDOFF.md`, `docs/qa/2026-10-12_ROOT_CAUSE_CLOSURE_MATRIX.md` and `docs/qa/2026-10-12_RECOVERY_ROOT_CSS_A1.md`. The former September 2026 baton remains historical evidence only. Media ownership: `docs/qa/FINAL_MEDIA_INVENTORY.md`.
 
 The older `docs/qa/2026-09-24_footer-service-media-handoff.md` record is historical evidence only. Its former “service media pending” instruction is superseded: all eight service originals and WebP derivatives are committed and wired through the canonical service data, and Home/About media are also integrated.

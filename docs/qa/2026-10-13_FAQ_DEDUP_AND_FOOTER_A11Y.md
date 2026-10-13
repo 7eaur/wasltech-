@@ -19,3 +19,7 @@
 - The baseline finding above is confirmed; the **updated code is IMPLEMENTED**, until exact new-SHA VNext + browser matrix pass do **not** mark it VERIFIED_PREVIEW.
 - Automated axe does not certify WCAG 2.2 AA, real physical target ergonomics, zoom in Safari, VoiceOver/NVDA or all locale routes. Real device/field acceptance remains **OPEN**.
 - Keep GitHub Actions screenshot and axe JSON artifact as expiring QA evidence, not as permanent production proof.
+
+## Verified 2026-10-13
+
+- `b7b17cc6` code passed VNext [#38338401266](https://github.com/7eaur/wasltech-/actions/runs/38338401266) and Chromium [#38338401184](https://github.com/7eaur/wasltech-/actions/runs/38338401184). Follow-up `9c9cdb73db69e743e0eda5be1037c8e1886f10e1` also passed [#38338784657](https://github.com/7eaur/wasltech-/actions/runs/38338784657) with **0 axe-core WCAG A/AA automated findings in 8 representative routes × AR/EN**; do not equate this with accessibility certification or physical screen-reader acceptance.
