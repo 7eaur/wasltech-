@@ -118,7 +118,9 @@ acceptButton?.addEventListener("click", grantConsent);
 rejectButton?.addEventListener("click", denyConsent);
 
 for (const button of settingsButtons) {
-  button.addEventListener("click", () => {
+  button.addEventListener("click", (event) => {
+    if (!analyticsEnabled) return;
+    event.preventDefault();
     showConsent();
     acceptButton?.focus({ preventScroll: true });
   });
