@@ -1,6 +1,6 @@
 # Wasl Tech — Webmaster & Search Measurement Plan
 
-> **2026-10-13 live-state note:** `wasl-tech.com` and `www.wasl-tech.com` are verified on Vercel and Production is READY. Canonical source remains `https://www.wasl-tech.com`. Apex→www redirect is still an explicit release gate; Search Console and Bing authorization/verification remain external actions, and Day-0 search baseline has not been recorded yet.
+> **2026-10-13 live-state note:** `wasl-tech.com` and `www.wasl-tech.com` are verified on Vercel and Production is READY. Canonical source is now `https://wasl-tech.com`. `www`→apex redirect is the explicit host-normalization release gate; Search Console and Bing authorization/verification remain external actions, and Day-0 search baseline has not been recorded yet.
 
 
 Date: 2026-09-25  
@@ -20,9 +20,9 @@ Do not add GA4, advertising pixels, session recording, or other client tracking 
 When the new Wasl Tech release is approved:
 
 1. deploy the exact approved SHA to Production;
-2. connect `www.wasl-tech.com` to that Production deployment;
-3. make HTTPS `www.wasl-tech.com` the canonical public host;
-4. redirect apex `wasl-tech.com` to `https://www.wasl-tech.com/`;
+2. keep `wasl-tech.com` connected to that Production deployment;
+3. make HTTPS `wasl-tech.com` the canonical public host;
+4. redirect `www.wasl-tech.com` to `https://wasl-tech.com/`;
 5. ensure HTTP redirects to HTTPS;
 6. run `npm run vnext:check:production-search`;
 7. verify robots/sitemap/canonical/hreflang on the real domain;
@@ -41,7 +41,7 @@ Reason:
 a Domain property covers protocol and subdomain variants, so it can show whether non-www or other variants are leaking search signals.
 
 After verification:
-- submit `https://www.wasl-tech.com/sitemap.xml`;
+- submit `https://wasl-tech.com/sitemap.xml`;
 - inspect the Homepage and representative service/article URLs;
 - confirm canonical selection;
 - review Page indexing;

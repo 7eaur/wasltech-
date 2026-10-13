@@ -70,24 +70,22 @@ for(const sample of samples){
 }
 
 const canonicalHost=new URL(site.origin).hostname;
-if(canonicalHost.startsWith("www.")){
-  const apexHost=canonicalHost.slice(4);
-  const apexUrl=`https://${apexHost}/`;
-  try{
-    const response=await fetch(apexUrl,{redirect:"manual",headers:{"user-agent":"WaslTech-Search-Release-Check/1.0"}});
-    if(![301,302,307,308].includes(response.status)) fail("apex-redirect",`expected redirect from ${apexUrl}, got ${response.status}`);
-    const location=response.headers.get("location");
-    if(location){
-      const target=new URL(location,apexUrl);
-      if(target.hostname!==canonicalHost || target.protocol!=="https:") {
-        fail("apex-redirect",`redirect target must be canonical HTTPS host, got ${target.href}`);
-      }
-    } else {
-      fail("apex-redirect","redirect Location header missing");
+const alternateHost=canonicalHost.startsWith("www.") ? canonicalHost.slice(4) : `www.${canonicalHost}`;
+const alternateUrl=`https://${alternateHost}/`;
+try{
+  const response=await fetch(alternateUrl,{redirect:"manual",headers:{"user-agent":"WaslTech-Search-Release-Check/1.0"}});
+  if(![301,302,307,308].includes(response.status)) fail("canonical-host-redirect",`expected redirect from ${alternateUrl}, got ${response.status}`);
+  const location=response.headers.get("location");
+  if(location){
+    const target=new URL(location,alternateUrl);
+    if(target.hostname!==canonicalHost || target.protocol!=="https:") {
+      fail("canonical-host-redirect",`redirect target must be canonical HTTPS host, got ${target.href}`);
     }
-  }catch(error){
-    fail("apex-redirect",`request failed: ${error.message}`);
+  } else {
+    fail("canonical-host-redirect","redirect Location header missing");
   }
+}catch(error){
+  fail("canonical-host-redirect",`request failed: ${error.message}`);
 }
 
 const httpCanonical=site.origin.replace(/^https:/,"http:");

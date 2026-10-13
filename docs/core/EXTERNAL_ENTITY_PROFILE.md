@@ -1,6 +1,6 @@
 # Wasl Tech — External Entity Profile Contract
 
-> **2026-10-13 reconciliation note:** The canonical domain is now live on Vercel and the website source still uses `https://www.wasl-tech.com`. Keep the canonical identity below. Facebook remains excluded from `sameAs` until its real canonical profile URL is verified.
+> **2026-10-13 reconciliation note:** The canonical domain is live on Vercel and the approved canonical source is `https://wasl-tech.com`; `www` is the redirect-only alternate host. Keep the canonical identity below. Facebook remains excluded from `sameAs` until its real canonical profile URL is verified.
 
 
 Date: 2026-09-25  
@@ -25,7 +25,7 @@ Wasl Tech must therefore make its own entity unambiguous through a consistent co
 - Display name: **وصل تك | Wasl Tech**
 - English name: **Wasl Tech**
 - Arabic name: **وصل تك**
-- Canonical website: **https://www.wasl-tech.com**
+- Canonical website: **https://wasl-tech.com**
 - Market: **Yemen + Gulf**
 - Slogan: **نبني حضورك الرقمي باحتراف**
 - English slogan: **We build your digital presence professionally**

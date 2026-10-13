@@ -5,7 +5,7 @@
 
 Status: CANONICAL / NON-NEGOTIABLE  
 Scope: Google, Bing, AI-assisted search and answer engines  
-Applies to: Arabic and English public surfaces of `www.wasl-tech.com`
+Applies to: Arabic and English public surfaces of `wasl-tech.com` (canonical apex host)
 
 ## 1. Objective
 
@@ -84,7 +84,7 @@ Required:
 The primary entity is:
 - Arabic: وصل تك
 - English: Wasl Tech
-- Canonical website: https://www.wasl-tech.com
+- Canonical website: https://wasl-tech.com
 - Market: Yemen + Gulf
 - Canonical contact data comes only from `src/config/site.js`.
 
@@ -331,7 +331,7 @@ Current priority:
 1. reconcile the latest `main` into the SEO branch;
 2. preserve all verified search/entity/content gates;
 3. wait for explicit production approval;
-4. complete real-domain smoke + Search Console + Bing Webmaster after `www.wasl-tech.com` is live;
+4. complete real-domain smoke + Search Console + Bing Webmaster after `wasl-tech.com` is live;
 5. begin Phase 10 only from real query/index/citation evidence.
 
 Do not mass-produce SEO pages or articles. Do not treat pre-publication previews as the final search state.

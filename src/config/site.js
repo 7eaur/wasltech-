@@ -10,7 +10,7 @@ const social = Object.freeze({
 });
 
 export const site = Object.freeze({
-  origin: "https://www.wasl-tech.com",
+  origin: "https://wasl-tech.com",
   brand,
   locale: locales[defaultLocale],
   market: Object.freeze({ ar: "اليمن + الخليج", en: "Yemen + Gulf" }),
@@ -35,6 +35,6 @@ export const site = Object.freeze({
       url: social.instagram
     }),
     social,
-    domain: "www.wasl-tech.com"
+    domain: "wasl-tech.com"
   })
 });

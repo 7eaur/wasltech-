@@ -16,8 +16,8 @@ This branch therefore starts from current `main` and carries forward only still-
 
 - Vercel Production is READY.
 - `wasl-tech.com` and `www.wasl-tech.com` are both verified project domains.
-- Source canonical origin remains `https://www.wasl-tech.com`.
-- Both custom domains currently point directly at Production; apex→www redirect remains an explicit SEO release gate.
+- Approved canonical origin is now `https://wasl-tech.com`.
+- Both custom domains currently point directly at Production; `www.wasl-tech.com`→`wasl-tech.com` redirect remains an explicit SEO release gate.
 - PR #45 and PR #46 are merged; their October runtime changes are the base.
 - SEO PR #37 remains Draft/unmerged and is superseded for future implementation by this reconciliation branch.
 - Logo-motion PR #41 remains outside this scope.
@@ -55,7 +55,7 @@ The four additional articles that existed only inside the old Draft SEO branch a
 1. CI on the reconciled branch must pass Preview + Release + Search + AI + Entity checks.
 2. Draft PR route matrix must pass on current October code.
 3. Preview must be inspected for service guidance blocks, article relations, footer legal links and generated robots/sitemap/schema.
-4. Configure one canonical host behavior: `https://wasl-tech.com/*` → `https://www.wasl-tech.com/*`.
+4. Configure one canonical host behavior: `https://www.wasl-tech.com/*` → `https://wasl-tech.com/*`.
 5. Run `npm run vnext:check:production-search` only after the canonical redirect is live on the real domain.
 6. Authorize/verify Google Search Console Domain Property and submit the sitemap.
 7. Authorize/import/verify Bing Webmaster and the sitemap.
