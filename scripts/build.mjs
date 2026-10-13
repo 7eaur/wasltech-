@@ -54,7 +54,8 @@ const cssSources = [
   "src/styles/hero-pages.css",
   "src/styles/hero-responsive.css",
   "src/styles/text-flow.css",
-  "src/styles/motion.css"
+  "src/styles/motion.css",
+  "src/styles/analytics.css"
 ];
 
 
@@ -126,6 +127,8 @@ async function buildAssets() {
   await writeOutput("assets/js/portfolio-filter.js", portfolioFilter);
   const projectPlanner = await readFile(path.join(ROOT, "src/client/project-planner.js"), "utf8");
   await writeOutput("assets/js/project-planner.js", projectPlanner);
+  const analytics = await readFile(path.join(ROOT, "src/client/analytics.js"), "utf8");
+  await writeOutput("assets/js/analytics.js", analytics);
 }
 
 async function buildPages() {
