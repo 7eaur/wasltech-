@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { routes } from "../src/config/routes.js";
+import { site } from "../src/config/site.js";
 import { services } from "../src/data/services.js";
 import { getProjectsByService } from "../src/data/projects.js";
 
@@ -27,8 +28,8 @@ for (const locale of ["ar","en"]) {
     if (!html.includes(service.image)) fail(file,`canonical service Hero image missing: ${service.image}`);
     if (!html.includes(htmlText(copy.seo.title))) fail(file,"service SEO title missing");
     if (!html.includes(htmlText(copy.seo.description))) fail(file,"service SEO description missing");
-    if (!html.includes(`rel="canonical" href="https://www.wasl-tech.com${route}"`)) fail(file,"service canonical missing");
-    if (!html.includes(`hreflang="${alternateLocale}" href="https://www.wasl-tech.com${routes.service(service.slug,alternateLocale)}"`)) {
+    if (!html.includes(`rel="canonical" href="${site.origin}${route}"`)) fail(file,"service canonical missing");
+    if (!html.includes(`hreflang="${alternateLocale}" href="${site.origin}${routes.service(service.slug,alternateLocale)}"`)) {
       fail(file,"service alternate hreflang missing");
     }
 
