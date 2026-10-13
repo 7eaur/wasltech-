@@ -29,13 +29,13 @@ export function AnalyticsConsent({ locale = "ar" } = {}) {
           <p id="analytics-consent-copy">${escapeHtml(labels.body)}</p>
         </div>
         <div class="analytics-consent__actions">
-          <button class="analytics-consent__button analytics-consent__button--primary" type="button" data-analytics-accept>
+          <button class="button button--primary button--sm" type="button" data-analytics-accept>
             ${escapeHtml(labels.accept)}
           </button>
-          <button class="analytics-consent__button" type="button" data-analytics-reject>
+          <button class="button button--ghost button--sm" type="button" data-analytics-reject>
             ${escapeHtml(labels.reject)}
           </button>
-          <a class="analytics-consent__privacy" href="${routes.privacy(locale)}">${escapeHtml(labels.privacy)}</a>
+          <a class="text-link analytics-consent__privacy" href="${routes.privacy(locale)}">${escapeHtml(labels.privacy)}</a>
         </div>
       </div>
     </section>
