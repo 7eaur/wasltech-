@@ -6,7 +6,7 @@ Working branch: `perf/site-audit-hardening-20261013`
 
 Base reconciled from live `main`: `14cdd1de7a6c2112cd053e9c7be1561be38e40d7`
 
-Review branch head: `3ff0c86311043b00ea96be6d3d7322ed483ecaaf` — Draft PR [#58](https://github.com/7eaur/wasltech-/pull/58)
+Verified implementation SHA: `3ff0c86311043b00ea96be6d3d7322ed483ecaaf` — Draft PR [#58](https://github.com/7eaur/wasltech-/pull/58)
 
 Scope exclusion: no work was performed on SEO/search-engine branches, DNS, Search Console, Bing or logo-motion branches.
 
@@ -112,7 +112,7 @@ Rejected for Wasl Tech:
 
 ## 7. Exact-SHA remote verification
 
-- Remote head `3ff0c86311043b00ea96be6d3d7322ed483ecaaf`; Draft PR [#58](https://github.com/7eaur/wasltech-/pull/58).
+- Verified implementation SHA `3ff0c86311043b00ea96be6d3d7322ed483ecaaf`; Draft PR [#58](https://github.com/7eaur/wasltech-/pull/58). Later documentation-only commits do not change the verified runtime tree.
 - Vercel Preview `dpl_EnrLco3oH4kcFVypvTPEBCjDYkYF` — READY on that exact SHA; build completed successfully.
 - Preview AR/EN HTML, local WOFF2, responsive AVIF and minified CSS returned HTTP `200` through authenticated Vercel fetches.
 - GitHub VNext verify, final-media integrity and Chromium route matrix all succeeded.
