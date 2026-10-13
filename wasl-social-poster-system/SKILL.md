@@ -99,6 +99,10 @@ For every hook, supply:
 - One short supporting line, usually 3–6 words.
 - CTA only when the post's role requires conversion.
 
+## Approved Wasl Tech visual design reference
+
+For Wasl Tech poster production, also follow **[POSTER_DESIGN_SKILL_AR.md](POSTER_DESIGN_SKILL_AR.md)**, approved 2026-10-14 based on the user's latest five reference posts and the four-slide educational carousel. It specifies hierarchy, logo placement, mobile readability, restrained visual devices, carousel storytelling, correct Arabic, and the distinction between previews and publish-ready artwork. In case of a conflict, preserve the fixed campaign goal and original brand assets; do not mechanically clone the reference composition.
+
 ## Visual design system
 
 Do not use one rigid layout for every post. Create 4–6 related templates with the same visual language:
