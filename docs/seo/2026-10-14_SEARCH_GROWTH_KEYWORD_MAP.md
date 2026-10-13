@@ -68,3 +68,32 @@ Track:
 - Position movement: >20 -> 11-20 -> 4-10 -> 1-3.
 - CTR for pages already ranking in the top 10.
 - Indexation/canonical stability before larger content changes.
+
+
+## Full-site implementation status — 2026-10-14
+
+Completed in branch `seo/full-site-search-growth-20261014`:
+
+- Homepage positioning updated to "حلول رقمية وتقنية" without describing Wasl Tech as a company.
+- General pages refined: About, Services, Portfolio, Process, Contact, Project Planner, FAQ, and Insights.
+- All eight Arabic and English service pages aligned to distinct commercial search intent.
+- Existing three articles refined for clearer search intent.
+- Five new practical guides added for mobile apps, custom systems/technical solutions, brand identity, profiles, and digital marketing.
+- Every service now has at least one published related guide.
+- Service pages automatically surface related guides through the existing `ServiceGuidance` component.
+- Article pages automatically link back to their related service paths.
+- No city doorway pages or duplicate service landing pages were introduced.
+- Public-facing Wasl Tech positioning avoids the word "شركة"; generic client/service terminology remains only where it describes the client's context or the service itself.
+
+### Published guide coverage
+
+| Service family | Supporting guide |
+| --- | --- |
+| Websites | Website vs web system; prepare website content |
+| Mobile apps | What to prepare before mobile app development |
+| E-commerce | Decisions before building an e-commerce store |
+| Custom software | When a custom system is justified |
+| Technical solutions | When a custom system is justified |
+| Profiles | Profile content checklist |
+| Brand identity | Brand identity brief preparation |
+| Digital marketing | Goal-led content and marketing plan |
