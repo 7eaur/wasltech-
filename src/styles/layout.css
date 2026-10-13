@@ -39,6 +39,7 @@
 .footer-social__icon{width:1.05rem;height:1.05rem}
 .site-footer h2{margin-bottom:var(--space-4);color:var(--color-text-inverse);font-size:var(--font-size-base)}
 .footer-links{display:grid;gap:var(--space-2);color:var(--wt-neutral-300);font-size:var(--font-size-sm)}
+.footer-links a{display:inline-flex;align-items:center;min-height:1.5rem}
 .footer-links a:hover{color:var(--wt-neutral-0)}
 .footer-contact address{font-style:normal}
 .footer-contact__links{display:grid;gap:.15rem}

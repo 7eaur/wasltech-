@@ -16,7 +16,8 @@ function fail(scope,message){errors.push(`${scope}: ${message}`);}
 function outputPath(route){return route==="/"?"index.html":path.join(route.replace(/^\//,""),"index.html");}
 function htmlText(value=""){return String(value).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");}
 
-if(faqs.length!==13) fail("faq","expected 13 canonical FAQ items");
+if(faqs.length!==12) fail("faq","expected 12 non-duplicative canonical FAQ items");
+if(faqs.some(item=>item.id==="product-3")) fail("faq","duplicated integration question must not return");
 if(faqGroups.length!==4) fail("faq","expected 4 canonical FAQ groups");
 
 for(const locale of ["ar","en"]){
@@ -30,7 +31,8 @@ for(const locale of ["ar","en"]){
     if(!faqHtml.includes(`<h2 class="inner-hero__subtitle">${htmlText(faqCopy.title)}</h2>`)) fail(faqFile,"FAQ subtitle missing");
     if(!faqHtml.includes(htmlText(faqCopy.seo.title))) fail(faqFile,"FAQ SEO title missing");
   }
-  if((faqHtml.match(/class="faq-item"/g)??[]).length!==13) fail(faqFile,"FAQ page must render all 13 questions");
+  if((faqHtml.match(/class="faq-item"/g)??[]).length!==faqs.length) fail(faqFile,"FAQ page must render every canonical question");
+  for(const item of faqs)if(!faqHtml.includes(htmlText(item.content[locale].question)))fail(faqFile,"FAQ missing: "+item.id);
   if(!faqHtml.includes('"@type":"FAQPage"')) fail(faqFile,"FAQ structured data missing");
 
   if(!faqHtml.includes('class="page-intro page-intro--faq"') || faqHtml.includes('secondary-hero__media')) fail(faqFile,"FAQ must start with text-first help intro");

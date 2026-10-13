@@ -104,6 +104,11 @@ for (const locale of ["ar", "en"]) {
   }
 }
 
+const layoutCss=await readFile(path.join(ROOT,"src/styles/layout.css"),"utf8");
+if(!layoutCss.includes(".footer-links a{display:inline-flex;align-items:center;min-height:1.5rem}")) {
+  fail("src/styles/layout.css","footer link targets must be at least 24px tall in English and Arabic");
+}
+
 const navigationClient = await readFile(path.join(ROOT, "src/client/navigation.js"), "utf8");
 for (const contract of [
   'setAttribute("aria-label"',
