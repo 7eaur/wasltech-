@@ -28,6 +28,7 @@ export const site = Object.freeze({
   analytics: Object.freeze({
     provider: "Google Analytics 4",
     measurementId: "G-WVH08BTS6C",
+    canonicalHost: "wasl-tech.com",
     consentStorageKey: "wasl_analytics_consent"
   }),
   contact: Object.freeze({
