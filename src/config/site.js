@@ -25,6 +25,10 @@ export const site = Object.freeze({
       social.tiktok
     ])
   }),
+  analytics: Object.freeze({
+    measurementId: "G-WVH08BTS6C",
+    host: "wasl-tech.com"
+  }),
   contact: Object.freeze({
     phoneDisplay: "+967 775 377 979",
     phoneUri: "+967775377979",
