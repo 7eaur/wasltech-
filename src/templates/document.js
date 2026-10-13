@@ -3,7 +3,8 @@ import { locales } from "../config/locales.js";
 import { buildOpenGraph, buildSeoLinks } from "../config/seo.js";
 import { serializeStructuredData } from "../seo/structured-data.js";
 import { Header } from "../components/Header.js";
-import { publicRobots } from "../config/release.js";
+import { AnalyticsConsent } from "../components/AnalyticsConsent.js";
+import { isProductionBuild, publicRobots } from "../config/release.js";
 import { Footer } from "../components/Footer.js";
 import { escapeHtml } from "../lib/html.js";
 
@@ -93,12 +94,14 @@ ${structuredDataTags}
   <link rel="icon" href="${site.brand.assets.favicon}">
   <link rel="stylesheet" href="/assets/css/site.css">
 ${minimalShell ? "" : `  <script src="/assets/js/navigation.js" defer></script>\n  <script src="/assets/js/motion.js" defer></script>`}
+${isProductionBuild && !minimalShell ? `  <script src="/assets/js/analytics.js" defer data-analytics-measurement-id="${escapeHtml(site.analytics.measurementId)}" data-analytics-storage-key="${escapeHtml(site.analytics.consentStorageKey)}"></script>` : ""}
 </head>
 <body>
   <a class="skip-link" href="#main-content">${copy[locale].skip}</a>
   ${minimalShell ? "" : Header({ activePath, locale, alternatePath })}
   <main id="main-content" tabindex="-1">${body}</main>
   ${minimalShell ? "" : Footer({ locale })}
+  ${isProductionBuild && !minimalShell ? AnalyticsConsent({ locale }) : ""}
 </body>
 </html>`;
 }
