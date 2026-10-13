@@ -123,12 +123,23 @@ if (form && review && summary && whatsapp && edit && status && controls && submi
 
     review.hidden = false;
     status.textContent = copy.prepared;
+    window.waslTrack?.("planner_review_ready", {
+      page_path: window.location.pathname,
+      locale
+    });
     review.focus({ preventScroll: true });
     review.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
   };
 
   submit.addEventListener("click", prepareReview);
   form.addEventListener("submit", (event) => { event.preventDefault(); prepareReview(); });
+
+  whatsapp.addEventListener("click", () => {
+    window.waslTrack?.("planner_whatsapp_click", {
+      page_path: window.location.pathname,
+      locale
+    });
+  });
 
   edit.addEventListener("click", () => {
     review.hidden = true;
