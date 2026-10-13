@@ -10,7 +10,7 @@ import { SectionHeader } from "../components/SectionHeader.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema, websiteSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
-import { IMAGE_SIZES, responsiveImageData } from "../lib/responsive-image.js";
+import { IMAGE_SIZES, responsivePictureData } from "../lib/responsive-image.js";
 import { icon } from "../components/icons.js";
 
 const homeRecord = pages.find((page) => page.id === "home");
@@ -20,14 +20,14 @@ const featuredFaqIds = Object.freeze(["start-1", "workflow-1", "product-2"]);
 
 const heroSignals = Object.freeze({
   ar: Object.freeze([
-    Object.freeze({ icon: "connected", title: "فريق متخصص", body: "خبرة في تصميم وتطوير الحلول الرقمية" }),
-    Object.freeze({ icon: "checklist", title: "جودة واحترافية", body: "نهتم بالتفاصيل وجودة التنفيذ" }),
-    Object.freeze({ icon: "message", title: "دعم مستمر", body: "نستمر معك من البداية وما بعد الإطلاق" })
+    Object.freeze({ icon: "connected", title: "نبدأ من هدفك", body: "نفهم المشكلة والنتيجة المطلوبة قبل اقتراح الحل" }),
+    Object.freeze({ icon: "checklist", title: "نطاق واضح", body: "نرتب الصفحات والوظائف والأولويات قبل التنفيذ" }),
+    Object.freeze({ icon: "message", title: "دعم بعد الإطلاق", body: "نبقى معك للتسليم والتشغيل والتحسين ضمن النطاق" })
   ]),
   en: Object.freeze([
-    Object.freeze({ icon: "connected", title: "Specialized team", body: "Experience in digital design and development" }),
-    Object.freeze({ icon: "checklist", title: "Quality & professionalism", body: "Attention to detail and execution quality" }),
-    Object.freeze({ icon: "message", title: "Continued support", body: "Support from the start and after launch" })
+    Object.freeze({ icon: "connected", title: "We start with your goal", body: "We understand the problem and outcome before suggesting a solution" }),
+    Object.freeze({ icon: "checklist", title: "Clear scope", body: "We organize pages, features, and priorities before implementation" }),
+    Object.freeze({ icon: "message", title: "Support after launch", body: "We help with handover, operation, and in-scope improvements" })
   ])
 });
 
@@ -83,7 +83,7 @@ function section(content, id) {
 }
 
 function renderHero(content, locale) {
-  const heroImage = responsiveImageData("/assets/media/home-hero.webp", 1200, IMAGE_SIZES.hero);
+  const heroImage = responsivePictureData("/assets/media/home-hero.webp", 1200, IMAGE_SIZES.hero);
   const signals = heroSignals[locale].map((item) => `
     <div class="home-hero__signal">
       ${icon(item.icon, "home-hero__signal-icon")}
@@ -103,15 +103,18 @@ function renderHero(content, locale) {
           <p class="home-hero__support">${escapeHtml(content.support)}</p>
         </div>
         <div class="home-hero__media">
-          <img src="/assets/media/home-hero.webp"
-            srcset="${escapeHtml(heroImage.srcset)}"
-            sizes="${escapeHtml(heroImage.sizes)}"
-            alt="${locale === "ar" ? "واجهات رقمية تمثل خدمات المواقع والتطبيقات والحلول التقنية من وصل تك" : "Digital interfaces representing Wasl Tech websites, apps, and technical solutions"}"
-            width="1200" height="900" loading="eager" fetchpriority="high" decoding="async">
+          <picture>
+            <source type="image/avif" srcset="${escapeHtml(heroImage.avif.srcset)}" sizes="${escapeHtml(heroImage.avif.sizes)}">
+            <img src="/assets/media/home-hero.webp"
+              srcset="${escapeHtml(heroImage.fallback.srcset)}"
+              sizes="${escapeHtml(heroImage.fallback.sizes)}"
+              alt="${locale === "ar" ? "واجهات رقمية تمثل خدمات المواقع والتطبيقات والحلول التقنية من وصل تك" : "Digital interfaces representing Wasl Tech websites, apps, and technical solutions"}"
+              width="1200" height="900" loading="eager" fetchpriority="high" decoding="async">
+          </picture>
         </div>
         <div class="home-hero__actions">
-          ${ActionLink({ href: routes.services(locale), label: content.primaryCta, variant: "primary", size: "lg" })}
-          ${ActionLink({ href: routes.contact(locale), label: content.secondaryCta, variant: "ghost", size: "lg" })}
+          ${ActionLink({ href: routes.startProject(locale), label: content.primaryCta, variant: "primary", size: "lg" })}
+          ${ActionLink({ href: routes.portfolio(locale), label: content.secondaryCta, variant: "ghost", size: "lg" })}
         </div>
         <div class="home-hero__signals" aria-label="${locale === "ar" ? "مزايا العمل مع فريق وصل تك" : "Working with the Wasl Tech team"}">
           ${signals}
@@ -180,7 +183,7 @@ function renderProjects(content, locale) {
 
 function renderAbout(content, locale) {
   const copy = section(content, "about");
-  const aboutImage = responsiveImageData("/assets/media/about-us.webp", 1280, IMAGE_SIZES.halfWidth);
+  const aboutImage = responsivePictureData("/assets/media/about-us.webp", 1280, IMAGE_SIZES.halfWidth);
   const values = aboutValues[locale].map((item) => `
     <div class="home-about__value">
       <strong>${escapeHtml(item.title)}</strong>
@@ -192,11 +195,14 @@ function renderAbout(content, locale) {
     <section class="section home-about" id="about">
       <div class="container home-about__grid">
         <div class="home-about__media">
-          <img src="/assets/media/about-us.webp"
-            srcset="${escapeHtml(aboutImage.srcset)}"
-            sizes="${escapeHtml(aboutImage.sizes)}"
-            alt="${locale === "ar" ? "بيئة عمل وصل تك وهوية الشركة" : "Wasl Tech workplace and brand identity"}"
-            width="1280" height="720" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/avif" srcset="${escapeHtml(aboutImage.avif.srcset)}" sizes="${escapeHtml(aboutImage.avif.sizes)}">
+            <img src="/assets/media/about-us.webp"
+              srcset="${escapeHtml(aboutImage.fallback.srcset)}"
+              sizes="${escapeHtml(aboutImage.fallback.sizes)}"
+              alt="${locale === "ar" ? "بيئة عمل وصل تك وهوية الشركة" : "Wasl Tech workplace and brand identity"}"
+              width="1280" height="720" loading="lazy" decoding="async">
+          </picture>
         </div>
         <div class="home-about__copy">
           <p class="eyebrow">${escapeHtml(copy.kicker)}</p>

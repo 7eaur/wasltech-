@@ -1,5 +1,13 @@
 # Wasl Tech VNext — Conversation Handoff
 
+## 2026-10-14 — Performance/UX/content audit baton
+
+- Resume only from `perf/site-audit-hardening-20261013` after fetching live `main`; current reconciled Production base is `14cdd1de7a6c2112cd053e9c7be1561be38e40d7`.
+- Read [`docs/qa/2026-10-14_PERFORMANCE_UX_CONTENT_AUDIT.md`](docs/qa/2026-10-14_PERFORMANCE_UX_CONTENT_AUDIT.md) first. Its open register supersedes older generic performance lists for this branch.
+- Current local implementation includes local IBM Plex fonts, AVIF/WebP `<picture>` delivery, minified runtime CSS, font cache policy, Lighthouse accessibility fixes, conversion-copy corrections and CI guards for `perf/**`.
+- Local Preview/Release/search/AI/entity/media gates pass. The next action is remote branch push, then exact-SHA CI + Vercel Preview + six-width AR/EN screenshot/axe review + Preview PageSpeed.
+- Do not merge or deploy to Production without owner approval. Do not modify SEO/search-engine branches, DNS, Search Console, Bing or logo-motion work from this branch.
+
 ## 2026-10-13 — SEO/Main reconciliation handoff
 
 For search work, start with `docs/qa/2026-10-13_SEO_MAIN_RECONCILIATION.md`.

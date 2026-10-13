@@ -3,6 +3,8 @@ name: Verify final media integrity
 on:
   push:
     branches:
+      - main
+      - "perf/**"
       - media/final-site-images-20261007
       - integration/site-stabilization-20261010
     paths:

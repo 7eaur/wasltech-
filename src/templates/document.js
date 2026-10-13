@@ -43,6 +43,9 @@ export function documentTemplate({
 
   const localeConfig = locales[locale];
   if (!localeConfig) throw new Error(`Unsupported document locale: ${locale}`);
+  const preloadedFont = locale === "ar"
+    ? "/assets/fonts/ibm-plex-sans-arabic-400.woff2"
+    : "/assets/fonts/ibm-plex-sans-latin-400-700.woff2";
 
   const seoLinks = buildSeoLinks({ canonicalPath, alternates: alternatePaths });
   const openGraph = buildOpenGraph({
@@ -87,9 +90,7 @@ ${nameMetaTag("twitter:title", openGraph.title)}
 ${nameMetaTag("twitter:description", openGraph.description)}
 ${nameMetaTag("twitter:image", openGraph.image)}
 ${structuredDataTags}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+  <link rel="preload" href="${preloadedFont}" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="${site.brand.assets.favicon}">
   <link rel="stylesheet" href="/assets/css/site.css">
 ${minimalShell ? "" : `  <script src="/assets/js/navigation.js" defer></script>\n  <script src="/assets/js/motion.js" defer></script>`}

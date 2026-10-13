@@ -1,5 +1,14 @@
 # Wasl Tech VNext — Current Project Status
 
+## 2026-10-14 — Performance/UX/content hardening active
+
+- Current live GitHub/Production `main` is `14cdd1de7a6c2112cd053e9c7be1561be38e40d7`, not the older `abbbe9e` snapshot recorded below. Vercel deployment `dpl_B78dqVSJ9c23YHYjKeFeD4QPdFxZ` is READY on that exact SHA; no runtime error clusters were reported over seven days.
+- Active non-SEO branch: `perf/site-audit-hardening-20261013`, reconciled cleanly with current `main`. No SEO/search-engine, DNS, Search Console, Bing or logo-motion branch was edited.
+- Implemented locally: self-hosted IBM Plex fonts, localized font preload, AVIF + WebP responsive picture delivery for 100 active raster candidates, build-time CSS minification, font caching, contrast/link-purpose corrections, sharper bilingual Homepage conversion copy and stronger performance/asset regression checks.
+- Local evidence passes: `npm run vnext:verify`, `npm run vnext:verify:release`, `node scripts/check-final-media.mjs`, `git diff --check`; 86 Preview HTML files and 84 indexable Release routes are covered. Preview CSS gzip is 15,209 bytes, JS gzip 4,330 bytes, and the AVIF set is 23.5% smaller than its equivalent WebP set.
+- Full finding/closure/open register: [`docs/qa/2026-10-14_PERFORMANCE_UX_CONTENT_AUDIT.md`](docs/qa/2026-10-14_PERFORMANCE_UX_CONTENT_AUDIT.md).
+- Remaining gates: remote branch push, exact-SHA GitHub/Vercel Preview, full AR/EN visual matrix, Preview PageSpeed, real-device accessibility, field CWV, real contact receipt and authentic case-study evidence. No merge or Production release is authorized by this status entry.
+
 ## 2026-10-13 — SEO/Main reconciliation in progress
 
 - Current Production `main` remains `abbbe9e9e51533a4a8c9d75104f86805f8870bad`; this SEO work does **not** change Production.

@@ -71,7 +71,11 @@ if(vercel.buildCommand!=="npm run vnext:build:release"||vercel.outputDirectory!=
 // Vercel legacy routes API controls routing for the bilingual custom 404s.
 // Its first continuing route must own headers. Top-level headers did not reach
 // Preview HTTP responses alongside this explicit routes configuration.
-const [headerRoute,filesystemRoute,...fallbackRoutes]=vercel.routes??[];
+const [fontCacheRoute,headerRoute,filesystemRoute,...fallbackRoutes]=vercel.routes??[];
+if(fontCacheRoute?.src!=="/assets/fonts/(.*)" || fontCacheRoute?.continue!==true
+  || fontCacheRoute?.headers?.["Cache-Control"]!=="public, max-age=31536000, immutable"){
+  fail("vercel.json","versioned local fonts must keep a long-lived immutable browser cache");
+}
 if(headerRoute?.src!=="/(.*)" || headerRoute?.continue!==true || headerRoute?.dest || headerRoute?.status){
   fail("vercel.json","response headers must be in a continuing catch-all route before filesystem");
 }

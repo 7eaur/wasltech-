@@ -1,5 +1,9 @@
 # Wasl Tech VNext — Documentation Map
 
+## Active performance/UX audit — 2026-10-14
+
+For the current non-SEO hardening branch, start with [`qa/2026-10-14_PERFORMANCE_UX_CONTENT_AUDIT.md`](qa/2026-10-14_PERFORMANCE_UX_CONTENT_AUDIT.md), then the newest sections of `PROJECT_STATUS.md` and `PROJECT_HANDOFF.md`. This audit records what is locally closed, what still requires Preview/device/owner evidence, and which UPDATE CARD ideas were deliberately rejected. It does not authorize SEO, DNS, merge or Production actions.
+
 ## Search visibility authorities — 2026-10-13
 
 For SEO / AI-search work, read these after the current release handoff:

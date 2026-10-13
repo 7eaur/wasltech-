@@ -50,9 +50,9 @@ export const pages = Object.freeze([
         purpose: "تقديم وصل تك كفريق حلول رقمية وتقنية يساعد المشاريع والعلامات التجارية على بناء حضور رقمي احترافي.",
         kicker: "وصل تك",
         title: "نبني حضورك الرقمي باحتراف",
-        support: "في وصل تك، نساعد المشاريع والعلامات التجارية على بناء حضور رقمي متكامل يجمع بين التصميم، البرمجة، التسويق، والهوية الرقمية.",
-        primaryCta: "اكتشف خدماتنا",
-        secondaryCta: "تواصل معنا",
+        support: "نصمم ونطوّر مواقع وتطبيقات ومتاجر وأنظمة رقمية تخدم هدف مشروعك، من التخطيط وتجربة المستخدم حتى الإطلاق والدعم.",
+        primaryCta: "خطّط مشروعك",
+        secondaryCta: "شاهد أعمالنا",
         sections: Object.freeze([
           Object.freeze({id:"services",kicker:"خدماتنا",title:"حلول رقمية متكاملة لنمو مشروعك",support:"نقدم خدمات رقمية تساعد المشاريع على بناء حضور واضح، متناسق، واحترافي، من الفكرة حتى الإطلاق."}),
           Object.freeze({id:"work",kicker:"أعمالنا",title:"نماذج من أعمالنا",support:"نماذج من المشاريع التي نفذناها في المواقع والتطبيقات والمتاجر والهوية والحلول الرقمية."}),
@@ -68,9 +68,9 @@ export const pages = Object.freeze([
         purpose: "Position Wasl Tech as a partner that turns real business needs into usable, evolvable digital products, systems, and brand presence.",
         kicker: "Wasl Tech",
         title: "We build your digital presence professionally",
-        support: "At Wasl Tech, we help projects and brands build an integrated digital presence through design, development, marketing, and digital identity.",
-        primaryCta: "Explore our services",
-        secondaryCta: "Contact us",
+        support: "We design and build websites, apps, stores, and business systems around your goal—from planning and user experience to launch and support.",
+        primaryCta: "Plan your project",
+        secondaryCta: "See our work",
         sections: Object.freeze([
           Object.freeze({id:"services",kicker:"Our services",title:"Integrated digital solutions for your project's growth",support:"We provide digital services that help projects build a clear, consistent, and professional presence from idea to launch."}),
           Object.freeze({id:"work",kicker:"Our work",title:"Selected work",support:"A selection of projects across websites, apps, e-commerce, identity, and digital solutions."}),
@@ -526,8 +526,8 @@ export const pages = Object.freeze([
           Object.freeze({
             id: "external",
             kicker: "القنوات الخارجية",
-            title: "واتساب والبريد وإنستغرام وGoogle Fonts خدمات خارجية عن الموقع.",
-            support: "عند تحميل الصفحة يطلب المتصفح ملفات الخط من Google Fonts. وعندما تختار فتح واتساب أو البريد أو إنستغرام تنتقل إلى خدمة خارجية. قد تعالج هذه الخدمات بيانات تقنية أو معلومات تشاركها معها وفق إعداداتها وسياساتها الخاصة."
+            title: "واتساب والبريد وإنستغرام خدمات خارجية عن الموقع.",
+            support: "تُحمّل ملفات الخط المستخدمة في الواجهة من نطاق الموقع نفسه. وعندما تختار فتح واتساب أو البريد أو إنستغرام تنتقل إلى خدمة خارجية قد تعالج بيانات تقنية أو معلومات تشاركها معها وفق إعداداتها وسياساتها الخاصة."
           }),
           Object.freeze({
             id: "tracking",
@@ -564,8 +564,8 @@ export const pages = Object.freeze([
           Object.freeze({
             id: "external",
             kicker: "External channels",
-            title: "WhatsApp, email, Instagram, and Google Fonts operate outside this website.",
-            support: "When the page loads, the browser requests font resources from Google Fonts. When you choose WhatsApp, email, or Instagram, you move to an external service. These services may process technical data or information you share with them under their own settings and policies."
+            title: "WhatsApp, email, and Instagram operate outside this website.",
+            support: "Interface font files are loaded from this website's own domain. When you choose WhatsApp, email, or Instagram, you move to an external service that may process technical data or information you share under its own settings and policies."
           }),
           Object.freeze({
             id: "tracking",

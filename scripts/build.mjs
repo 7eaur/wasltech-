@@ -34,6 +34,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, outputDirectoryName);
 
 const cssSources = [
+  "src/styles/fonts.css",
   "src/styles/tokens.css",
   "src/styles/brand.css",
   "src/styles/typography.css",
@@ -80,13 +81,21 @@ async function buildStyles() {
   const sources = isProductionBuild ? cssSources : [...cssSources, "src/styles/showcase.css"];
   for (const source of sources) {
     const content = await readFile(path.join(ROOT, source), "utf8");
-    blocks.push(`/* ${source} */\n${content.trim()}\n`);
+    blocks.push(content.trim());
   }
-  await writeOutput("assets/css/site.css", blocks.join("\n"));
+  const minified = blocks.join("\n")
+    .replace(/\/\*[\s\S]*?\*\//g, "")
+    .replace(/\s+/g, " ")
+    .replace(/\s*([{}:;,>])\s*/g, "$1")
+    .trim();
+  await writeOutput("assets/css/site.css", minified);
 }
 
 async function buildAssets() {
   await cp(path.join(ROOT, "assets/brand"), path.join(DIST, "assets/brand"), {
+    recursive: true
+  });
+  await cp(path.join(ROOT, "assets/fonts"), path.join(DIST, "assets/fonts"), {
     recursive: true
   });
   const siteMediaImages = [
@@ -108,7 +117,11 @@ async function buildAssets() {
   ];
   const copiedAssets = new Set();
   for (const asset of responsiveAssets) {
-    for (const candidate of responsiveImageCandidates(asset.src, asset.width)) {
+    const candidates = [
+      ...responsiveImageCandidates(asset.src, asset.width, "webp"),
+      ...responsiveImageCandidates(asset.src, asset.width, "avif")
+    ];
+    for (const candidate of candidates) {
       if (copiedAssets.has(candidate.src)) continue;
       const relative = candidate.src.replace(/^\/+/, "");
       const source = path.join(ROOT, relative);
