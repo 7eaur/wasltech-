@@ -20,11 +20,14 @@ function localizedAlt(locale, ar, en) {
 export function getPageHeroMedia(pageKey, locale = "ar") {
   const media = PAGE_MEDIA[pageKey];
   if (!media) throw new Error(`Unknown page hero media key: ${pageKey}`);
+  const alt = pageKey === "services"
+    ? localizedAlt(locale, "حلول وخدمات رقمية من وصل تك", "Digital services and solutions from Wasl Tech")
+    : "";
   return Object.freeze({
     ...media,
     width: media.width ?? 1600,
     height: media.height ?? 1000,
-    alt: ""
+    alt
   });
 }
 
