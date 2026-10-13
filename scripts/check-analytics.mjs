@@ -24,6 +24,7 @@ const documentSource = await readFile(path.join(ROOT, "src/templates/document.js
 
 for (const required of [
   `data-analytics-measurement-id="${measurementId}"`,
+  `data-analytics-host="${site.analytics.canonicalHost}"`,
   "data-analytics-consent",
   "/assets/js/analytics.js"
 ]) {
@@ -42,7 +43,8 @@ for (const required of [
   "data-analytics-accept",
   "data-analytics-reject",
   "localStorage",
-  "googletagmanager.com/gtag/js"
+  "googletagmanager.com/gtag/js",
+  "window.location.hostname === canonicalHost"
 ]) {
   if (!analytics.includes(required)) fail(`analytics runtime missing: ${required}`);
 }
@@ -73,4 +75,4 @@ if (errors.length) {
 }
 
 console.log("VNEXT ANALYTICS CHECK: PASSED");
-console.log(`GA4 ${measurementId} is production-only, consent-gated and excludes planner PII/free text.`);
+console.log(`GA4 ${measurementId} is canonical-host-only, consent-gated and excludes planner PII/free text.`);
