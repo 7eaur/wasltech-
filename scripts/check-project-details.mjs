@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { routes } from "../src/config/routes.js";
+import { site } from "../src/config/site.js";
 import { projects, getProjectsByCategory } from "../src/data/projects.js";
 import { getServiceById } from "../src/data/services.js";
 
@@ -26,7 +27,7 @@ for(const locale of ["ar","en"]){
     if(!html.includes(`<h1>${htmlText(copy.title)}</h1>`)) fail(file,"project H1 missing");
     if(!html.includes(htmlText(copy.seo.title))) fail(file,"project SEO title missing");
     if(!html.includes(htmlText(copy.seo.description))) fail(file,"project SEO description missing");
-    if(!html.includes(`hreflang="${alternateLocale}" href="https://www.wasl-tech.com${routes.project(project.slug,alternateLocale)}"`)) fail(file,"project alternate hreflang missing");
+    if(!html.includes(`hreflang="${alternateLocale}" href="${site.origin}${routes.project(project.slug,alternateLocale)}"`)) fail(file,"project alternate hreflang missing");
 
     for(const schemaType of ['"@type":"CreativeWork"','"@type":"BreadcrumbList"']){
       if(!html.includes(schemaType)) fail(file,`structured data missing: ${schemaType}`);
