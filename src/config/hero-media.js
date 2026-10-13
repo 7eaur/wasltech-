@@ -17,12 +17,26 @@ function localizedAlt(locale, ar, en) {
   return locale === "ar" ? ar : en;
 }
 
+const PAGE_MEDIA_ALT = Object.freeze({
+  services: Object.freeze({ ar:"حلول وخدمات رقمية من وصل تك", en:"Digital services and solutions from Wasl Tech" }),
+  portfolio: Object.freeze({ ar:"نماذج من أعمال وصل تك الرقمية", en:"Selected digital work by Wasl Tech" }),
+  about: Object.freeze({ ar:"فريق وصل تك وحلول رقمية وتقنية", en:"Wasl Tech team and digital solutions" }),
+  process: Object.freeze({ ar:"مراحل تنفيذ مشروع رقمي من التخطيط إلى الإطلاق", en:"Digital project stages from planning to launch" }),
+  contact: Object.freeze({ ar:"التواصل مع وصل تك لبدء مشروع رقمي", en:"Contact Wasl Tech to start a digital project" }),
+  startProject: Object.freeze({ ar:"تخطيط مشروع رقمي قبل بدء التنفيذ", en:"Planning a digital project before implementation" }),
+  faq: Object.freeze({ ar:"أسئلة شائعة حول الخدمات والمشاريع الرقمية", en:"Frequently asked questions about digital services and projects" }),
+  insights: Object.freeze({ ar:"مقالات وأدلة حول المواقع والتطبيقات والحلول الرقمية", en:"Guides about websites, apps, and digital solutions" }),
+  careers: Object.freeze({ ar:"بيئة العمل مع فريق وصل تك", en:"Working with the Wasl Tech team" }),
+  privacy: Object.freeze({ ar:"حماية وخصوصية البيانات في الموقع", en:"Website data privacy and protection" }),
+  terms: Object.freeze({ ar:"شروط استخدام موقع وصل تك", en:"Wasl Tech website terms" }),
+  notFound: Object.freeze({ ar:"واجهة رقمية من وصل تك", en:"A digital interface by Wasl Tech" })
+});
+
 export function getPageHeroMedia(pageKey, locale = "ar") {
   const media = PAGE_MEDIA[pageKey];
   if (!media) throw new Error(`Unknown page hero media key: ${pageKey}`);
-  const alt = pageKey === "services"
-    ? localizedAlt(locale, "حلول وخدمات رقمية من وصل تك", "Digital services and solutions from Wasl Tech")
-    : "";
+  const altCopy = PAGE_MEDIA_ALT[pageKey];
+  const alt = altCopy ? localizedAlt(locale, altCopy.ar, altCopy.en) : "";
   return Object.freeze({
     ...media,
     width: media.width ?? 1600,
