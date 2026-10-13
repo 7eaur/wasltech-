@@ -17,12 +17,12 @@ Move Wasl Tech from primarily branded discovery to non-branded commercial discov
 
 | Search family | Primary landing page | Primary intent | Supporting terms |
 | --- | --- | --- | --- |
-| Wasl Tech / شركة وصل تك / شركة تقنية | / | Brand + broad commercial | وصل تك، Wasl Tech، شركة حلول رقمية، شركة تقنية، اليمن، الخليج |
-| تصميم مواقع / شركة تصميم مواقع | /services/web-development/ | Commercial | تصميم موقع، تطوير مواقع، برمجة مواقع، مواقع شركات، تصميم مواقع اليمن |
+| Wasl Tech / وصل تك / حلول تقنية | / | Brand + broad commercial | وصل تك، Wasl Tech، حلول رقمية وتقنية، حلول تقنية، اليمن، الخليج |
+| تصميم مواقع / تصميم مواقع احترافية | /services/web-development/ | Commercial | تصميم موقع، تطوير مواقع، برمجة مواقع، مواقع شركات، تصميم مواقع اليمن |
 | برمجة تطبيقات | /services/mobile-app-development/ | Commercial | تطوير تطبيقات، تصميم تطبيقات، Android، iOS، تطبيق جوال |
 | متجر إلكتروني | /services/ecommerce/ | Commercial | تصميم متجر إلكتروني، برمجة متجر، إنشاء متجر إلكتروني |
 | برمجة أنظمة | /services/custom-software/ | Commercial | أنظمة مخصصة، لوحات تحكم، API، قواعد بيانات، أتمتة |
-| حلول تقنية | /services/technical-solutions/ | Commercial / problem-led | شركة تقنية، حلول رقمية، ربط أنظمة، تكاملات، أتمتة |
+| حلول تقنية | /services/technical-solutions/ | Commercial / problem-led | حلول تقنية، حلول رقمية، ربط أنظمة، تكاملات، أتمتة |
 | بروفايل شركة | /services/company-profiles/ | Commercial | تصميم بروفايل شركات، ملف تعريفي شركة، Company Profile |
 | هوية بصرية | /services/brand-design/ | Commercial | تصميم هوية، تصميم شعار، هوية تجارية |
 | تسويق رقمي | /services/digital-marketing/ | Commercial | تسويق إلكتروني، إدارة محتوى، إدارة حسابات، حملات رقمية |
@@ -40,15 +40,15 @@ Move Wasl Tech from primarily branded discovery to non-branded commercial discov
 Own broad company/entity intent:
 - وصل تك
 - Wasl Tech
-- شركة حلول رقمية
-- شركة تقنية
+- حلول رقمية وتقنية
+- حلول تقنية
 - اليمن والخليج
 
 ### Web development
 Own:
 - تصميم مواقع
 - تصميم مواقع إلكترونية
-- شركة تصميم مواقع
+- تصميم مواقع احترافية
 - تطوير مواقع
 - برمجة مواقع
 - تصميم مواقع للشركات
@@ -68,3 +68,32 @@ Track:
 - Position movement: >20 -> 11-20 -> 4-10 -> 1-3.
 - CTR for pages already ranking in the top 10.
 - Indexation/canonical stability before larger content changes.
+
+
+## Full-site implementation status — 2026-10-14
+
+Completed in branch `seo/full-site-search-growth-20261014`:
+
+- Homepage positioning updated to "حلول رقمية وتقنية" without describing Wasl Tech as a company.
+- General pages refined: About, Services, Portfolio, Process, Contact, Project Planner, FAQ, and Insights.
+- All eight Arabic and English service pages aligned to distinct commercial search intent.
+- Existing three articles refined for clearer search intent.
+- Five new practical guides added for mobile apps, custom systems/technical solutions, brand identity, profiles, and digital marketing.
+- Every service now has at least one published related guide.
+- Service pages automatically surface related guides through the existing `ServiceGuidance` component.
+- Article pages automatically link back to their related service paths.
+- No city doorway pages or duplicate service landing pages were introduced.
+- Public-facing Wasl Tech positioning avoids the word "شركة"; generic client/service terminology remains only where it describes the client's context or the service itself.
+
+### Published guide coverage
+
+| Service family | Supporting guide |
+| --- | --- |
+| Websites | Website vs web system; prepare website content |
+| Mobile apps | What to prepare before mobile app development |
+| E-commerce | Decisions before building an e-commerce store |
+| Custom software | When a custom system is justified |
+| Technical solutions | When a custom system is justified |
+| Profiles | Profile content checklist |
+| Brand identity | Brand identity brief preparation |
+| Digital marketing | Goal-led content and marketing plan |
