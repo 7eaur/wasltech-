@@ -532,8 +532,8 @@ export const pages = Object.freeze([
           Object.freeze({
             id: "tracking",
             kicker: "التحليلات والكوكيز",
-            title: "لا يضيف الموقع حاليًا أدوات تحليلات أو ملفات تعريف ارتباط للتتبع.",
-            support: "إذا تغير ذلك مستقبلًا، يجب تحديث هذه الصفحة قبل الاعتماد على السلوك الجديد. قد تعالج البنية المستضيفة أو الخدمات الخارجية بيانات تقنية لازمة لتشغيل خدماتها وفق سياساتها."
+            title: "يستخدم الموقع قياسًا أساسيًا للزيارات عبر Google Analytics 4.",
+            support: "يعمل القياس بإعدادات تمنع تخزين ملفات تعريف الارتباط الخاصة بالتحليلات والإعلانات، ولا يرسل الموقع بيانات مخطط المشروع أو محتوى الرسائل إلى Analytics."
           }),
           Object.freeze({
             id: "contact",
@@ -570,8 +570,8 @@ export const pages = Object.freeze([
           Object.freeze({
             id: "tracking",
             kicker: "Analytics and cookies",
-            title: "The current site adds no analytics tools or tracking cookies.",
-            support: "If that changes in the future, this page should be updated before the new behavior is relied on. Hosting infrastructure or external services may process technical data required to operate their services under their own policies."
+            title: "The site uses basic traffic measurement through Google Analytics 4.",
+            support: "Analytics and advertising storage are disabled, and the site does not send project-planner fields or message content to Analytics."
           }),
           Object.freeze({
             id: "contact",
