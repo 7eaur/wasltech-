@@ -1,4 +1,15 @@
 # Wasl Tech VNext — Current Project Status
+## 2026-10-13 — Verified integration released to Production
+
+- PR [#46](https://github.com/7eaur/wasltech-/pull/46) was reviewed, marked ready, and merged into `integration/site-stabilization-20261010` at merge SHA `2458c380c192cc263cb57376646bf12fab493f3a`.
+- PR [#45](https://github.com/7eaur/wasltech-/pull/45) was then merged into `main` at `43c7de6176defacf3f0c6da70ba239fe67a74b4e`.
+- The merge result passes local `npm run vnext:verify`, `npm run vnext:verify:release`, GitHub VNext verify [#38441618751](https://github.com/7eaur/wasltech-/actions/runs/38441618751), final-media integrity [#38441619031](https://github.com/7eaur/wasltech-/actions/runs/38441619031), and Chromium route matrix [#38441618748](https://github.com/7eaur/wasltech-/actions/runs/38441618748).
+- Exact integration Preview `https://wasltech-oztdhsve0-wasl15.vercel.app/` is READY. Live authenticated HTTP checks returned AR/EN `200`, localized AR/EN unknown-route `404`, CSS `200`, and all four expected protection headers.
+- Visual evidence artifact `11836411339` contains the exact merge-SHA route matrix. Representative AR/EN 390/1440 screenshots were reviewed; no new blocking layout defect was confirmed.
+- Vercel Production deployment `dpl_CvzRn4pJ6zXJ2MVFgsMigNxgnZNy` is READY on the exact `main` merge SHA. Post-release checks on the official domain returned AR/EN and critical public routes `200`, localized AR/EN unknown-route `404`, and CSS `200`.
+- SEO PRs/branches and logo-motion work remain untouched and were not part of this release.
+- Current merge evidence and remaining post-release/external gates: [`docs/qa/2026-10-13_INTEGRATION_MERGE_VERIFICATION.md`](docs/qa/2026-10-13_INTEGRATION_MERGE_VERIFICATION.md).
+
 ## 2026-10-13 — فرع الإصلاح: مرجع شامل للحالة والمتبقي (الحالي)
 
 - المرجع التفصيلي الواحد للحالة، المنجز، البواقي وأولوية/مالك/دليل قبول كل بند R01–R10: [`docs/qa/2026-10-13_BRANCH_RECOVERY_FINAL_HANDOFF.md`](docs/qa/2026-10-13_BRANCH_RECOVERY_FINAL_HANDOFF.md). **اقرأ أول قسم «الحالة الحالية المعتمدة»؛ ما بعد «الأدلة التاريخية» مجرد سجل سابق.**
