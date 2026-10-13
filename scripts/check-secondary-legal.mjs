@@ -144,8 +144,8 @@ const legalSource=await readFile(path.join(ROOT,"src/data/pages.js"),"utf8");
 for(const required of [
   "does not automatically send",
   "لا يقوم الموقع بإرسالها تلقائيًا",
-  "no analytics tools or tracking cookies",
-  "لا يضيف الموقع حاليًا أدوات تحليلات أو ملفات تعريف ارتباط للتتبع",
+  "The site uses basic traffic measurement through Google Analytics 4.",
+  "يستخدم الموقع قياسًا أساسيًا للزيارات عبر Google Analytics 4.",
   "Google Fonts operate outside this website",
   "Google Fonts خدمات خارجية عن الموقع"
 ]){
