@@ -1,4 +1,11 @@
 # Wasl Tech VNext — Current Project Status
+## 2026-10-13 — فرع الإصلاح: مرجع شامل للحالة والمتبقي (الحالي)
+
+- المرجع التفصيلي الواحد للحالة، المنجز، البواقي وأولوية/مالك/دليل قبول كل بند R01–R10: [`docs/qa/2026-10-13_BRANCH_RECOVERY_FINAL_HANDOFF.md`](docs/qa/2026-10-13_BRANCH_RECOVERY_FINAL_HANDOFF.md). **اقرأ أول قسم «الحالة الحالية المعتمدة»؛ ما بعد «الأدلة التاريخية» مجرد سجل سابق.**
+- Snapshot قبل توثيق هذه الدفعة: `df7690f2e745b0575a1057926f59081273c7e848`، PR [#46 Draft](https://github.com/7eaur/wasltech-/pull/46) → `integration/site-stabilization-20261010` (لا merge). GitHub Node24 VNext [push #38436026753](https://github.com/7eaur/wasltech-/actions/runs/38436026753) و[PR #38436035428](https://github.com/7eaur/wasltech-/actions/runs/38436035428) **PASS**؛ Preview [READY](https://wasltech-k2ew1c6l9-wasl15.vercel.app/)، رؤوس حماية الأربعة و200/404 مُثبتة بالـHTTP. مصفوفة Chromium على كود `9c9cdb73` [#38338784657](https://github.com/7eaur/wasltech-/actions/runs/38338784657) PASS، ليست اختبار Matrix جديدًا للإعداد اللاحق.
+- **الإنجاز:** 8 خدمات/14 مشروع بلغتين، Browser/source QA، no-JS Planner/Nav، إصلاح Hero/CSS، تنظيم القراءة/FAQ، WebP responsive، فحص axe على عينة AR/EN، تجربة LCP/CLS مخبرية، إصلاح رؤوس الحماية التشغيلية. **المتبقي:** R01 visual UAT، R02 real reading UX، R03 devices/zoom/screen readers، R04 field performance، R05 actual contact receipt، R06 documented case study، R07 Legacy cutover audit، R08 cross-branch SEO/Logo/Integration، R09 owner production approval، R10 production smoke؛ راجع الجدول التفصيلي بدل تكراره.
+- ملفات التشغيل القديمة تُحفظ حتى Cutover، ولا تدخل في «أشياء زائدة احذفها الآن». الصور النهائية الثمان **موجودة**؛ المطلوب الحقيقي مختلف وهو أدلة دراسة حالة. PR46 يبقى Draft، ولا تغيير `main`، DNS، SEO #36/#37 أو Loader #41.
+
 ## 2026-10-13 — Preview HTTP headers now VERIFIED (root-cause recovery continuation)
 
 - **Real defect discovered through HTTP, not by CI:** on prior Preview `9c9cdb73` (and `9ac6ca02`), top-level `vercel.json.headers` existed but **four declared security headers were missing from actual responses**. This happened with the explicit legacy `routes` routing graph for localized 404s.

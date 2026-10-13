@@ -1,4 +1,11 @@
 # وصل تك — رؤوس حماية ثابتة ومقاييس أداء مخبرية
+## تصحيح 2026-10-13 — HTTP حقيقي: رؤوس الحماية وصلت الآن
+
+- **الاكتشاف:** على Preview القديم `9c9cdb73` كانت الرؤوس في أعلى `vercel.json` لكن **غائبة من HTTP الفعلي** بسبب العمل مع Legacy `routes`.
+- **الإصلاح الجذري:** `5c79956c` نقل الرؤوس الأربع إلى `routes[0]` مع `continue:true` قبل `filesystem`، و`6aef6002` صحح اختبار ترتيب 404 اللغوي؛ على نفس الإصلاح تمت مراجعة `scripts/check-source-ownership.mjs`.
+- **دليل مباشر:** معاينة `https://wasltech-847go1o5z-wasl15.vercel.app/` أعادت الصفحات AR/EN **200**، والمسارات غير المعروفة **404** بلغتها مع `noindex`، وCSS **200**؛ رؤوس `nosniff`، `Referrer-Policy`، `Permissions-Policy`، `X-Frame-Options` كلها ظهرت. نسخة `6aef6002` ثم `df7690f2` أكدت الرؤوس أيضًا. GitHub VNext [#38436026753](https://github.com/7eaur/wasltech-/actions/runs/38436026753) و[#38436035428](https://github.com/7eaur/wasltech-/actions/runs/38436035428) ناجحة على `df7690f2`.
+- **الحالة الآن `VERIFIED_PREVIEW_HTTP`، لا `VERIFIED_PRODUCTION`.** الفقرة التاريخية أدناه التي تقول «HTTP probing لم ينفذ» تتحدث عن Snapshot أقدم ولا تمثل أحدث حالة. تفاصيل القبول والمتبقي [هنا](2026-10-13_BRANCH_RECOVERY_FINAL_HANDOFF.md).
+
 
 **التاريخ:** 2026-10-13 | **الفرع:** `fix/independent-site-recovery-20261010` | PR #46 فقط.
 

@@ -1,4 +1,8 @@
 # Wasl Tech VNext — Documentation Map
+## مرجع العمل الحالي — 2026-10-13
+
+**ابدأ من [تقرير الفرع الشامل والمهام المتبقية R01–R10](qa/2026-10-13_BRANCH_RECOVERY_FINAL_HANDOFF.md)**؛ يحتوي نطاق الفرع، ما اكتمل، سجلات CI/Preview HTTP، إجراءات قبول كل بند، المسؤول/الاعتمادية، خريطة PRs والخطوة القادمة. هذا المستند هو مرجع QA التفصيلي الوحيد، وليس ملف Status بديلًا. لا تتبع تعليمات «صور ناقصة» أو «CI pending» من محاضر قديمة دون مراجعة الأحدث.
+
 
 Status: CANONICAL DOCUMENTATION INDEX  
 Repository: `7eaur/wasltech-`

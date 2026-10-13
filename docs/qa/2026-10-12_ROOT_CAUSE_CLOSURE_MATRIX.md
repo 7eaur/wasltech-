@@ -1,4 +1,6 @@
 # وصل تك — مصفوفة الإغلاق الجذري المتسلسل (2026-10-12)
+> **تحديث حاكم 2026-10-13:** الحالة التنفيذية الدقيقة والبوابات المتبقية لكل مهمة في [تقرير الفرع الشامل — R01–R10](2026-10-13_BRANCH_RECOVERY_FINAL_HANDOFF.md). الجداول أدناه توثق **التسلسل الزمني للأسباب** وفيها `OPEN/CI pending` من لحظات سابقة؛ لا تُقرأ كحالة الفرع النهائية. `WT-IA-26` أصبح **VERIFIED_PREVIEW_HTTP** بعد `5c79956c`/`6aef6002` واختبارات `df7690f2` الناجحة، بينما قبول Production منفصل ومفتوح.
+
 
 > **Source of Truth للتنفيذ:** فرع `fix/independent-site-recovery-20261010`، ويجب مراجعة GitHub HEAD ونتائج CI الحالية. لا تستبدل الخطة الأصلية، بل تربطها بتنفيذ قابل للإثبات.
 > **مرجع جميع المعرفات:** `docs/audit/2026-10-10_MASTER_EXECUTION_PLAN_AND_ACCEPTANCE.md` و`docs/audit/2026-10-10_INDEPENDENT_DEFECT_REGISTER.md` على فرع `audit/independent-root-cause-register-20261010`. يحتوي السجل 75 معرف WT-IA و20 WT، بينها تداخل؛ ليست 95 عيبًا مستقلًا. 
