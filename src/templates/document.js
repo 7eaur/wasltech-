@@ -93,6 +93,7 @@ ${structuredDataTags}
   <link rel="icon" href="${site.brand.assets.favicon}">
   <link rel="stylesheet" href="/assets/css/site.css">
 ${minimalShell ? "" : `  <script src="/assets/js/navigation.js" defer></script>\n  <script src="/assets/js/motion.js" defer></script>`}
+${minimalShell ? "" : `  <script>\n    if (location.hostname === "${escapeHtml(site.analytics.host)}") {\n      window.dataLayer = window.dataLayer || [];\n      window.gtag = function(){ window.dataLayer.push(arguments); };\n      window.gtag("consent", "default", { analytics_storage: "denied", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied" });\n      window.gtag("js", new Date());\n      window.gtag("config", "${escapeHtml(site.analytics.measurementId)}", { allow_google_signals: false, allow_ad_personalization_signals: false });\n      const analyticsScript = document.createElement("script");\n      analyticsScript.async = true;\n      analyticsScript.src = "https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(site.analytics.measurementId)}";\n      document.head.append(analyticsScript);\n    }\n  </script>`}
 </head>
 <body>
   <a class="skip-link" href="#main-content">${copy[locale].skip}</a>
