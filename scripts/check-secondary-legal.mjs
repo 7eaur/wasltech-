@@ -154,9 +154,12 @@ for(const required of [
 
 const routing=JSON.parse(await readFile(path.join(ROOT,"vercel.json"),"utf8"));
 const routeList=routing.routes??[];
-if(routeList[0]?.handle!=="filesystem") fail("vercel.json","static routes must resolve before 404 catchalls");
-if(routeList[1]?.src!=="/en(?:/.*)?" || routeList[1]?.status!==404 || routeList[1]?.dest!=="/en/404.html") fail("vercel.json","English 404 must be a server-side 404");
-if(routeList[2]?.src!=="/.*" || routeList[2]?.status!==404 || routeList[2]?.dest!=="/404.html") fail("vercel.json","Arabic/default 404 must be a server-side 404");
+// Continuing security-header route is evaluated before filesystem; 404 fallbacks
+// must remain terminal and localized after the filesystem handler.
+if(routeList[0]?.src!=="/(.*)" || routeList[0]?.continue!==true || !routeList[0]?.headers) fail("vercel.json","the first rule must attach headers and continue to filesystem");
+if(routeList[1]?.handle!=="filesystem") fail("vercel.json","static routes must resolve before 404 catchalls");
+if(routeList[2]?.src!=="/en(?:/.*)?" || routeList[2]?.status!==404 || routeList[2]?.dest!=="/en/404.html" || routeList[2]?.continue) fail("vercel.json","English 404 must be a terminal server-side 404");
+if(routeList[3]?.src!=="/.*" || routeList[3]?.status!==404 || routeList[3]?.dest!=="/404.html" || routeList[3]?.continue) fail("vercel.json","Arabic/default 404 must be a terminal server-side 404");
 
 
 const articleCss=await readFile(path.join(ROOT,"src/styles/insights-careers.css"),"utf8");
