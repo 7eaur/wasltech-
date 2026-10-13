@@ -1,10 +1,10 @@
 import { routes } from "../config/routes.js";
 import { serviceGroups } from "../data/services.js";
 import { getProjectsByService } from "../data/projects.js";
-import { getPublishedArticlesByService } from "../data/articles.js";
 import { CallToAction } from "../components/CallToAction.js";
 import { MediaCard } from "../components/MediaCard.js";
 import { SectionHeader } from "../components/SectionHeader.js";
+import { ServiceGuidance } from "../components/ServiceGuidance.js";
 import { documentTemplate } from "../templates/document.js";
 import { breadcrumbSchema, faqPageSchema, serviceSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
@@ -207,34 +207,6 @@ function renderProof(service, locale) {
   `;
 }
 
-function renderArticles(service, locale) {
-  const items = getPublishedArticlesByService(service.id, locale).slice(0, 3);
-  if (!items.length) return "";
-
-  return `
-    <section class="section section--subtle service-articles" id="service-guidance">
-      <div class="container">
-        ${SectionHeader({
-          kicker:locale === "ar" ? "أدلة مرتبطة" : "Related guidance",
-          title:locale === "ar" ? "محتوى يساعدك على اتخاذ القرار قبل التنفيذ" : "Guidance to help you decide before implementation",
-          supporting:locale === "ar"
-            ? "مقالات عملية مرتبطة بهذه الخدمة تساعدك على ترتيب النطاق والأسئلة قبل بدء المشروع."
-            : "Practical articles related to this service that help clarify scope and key questions before you start."
-        })}
-        <div class="service-articles__list">
-          ${items.map((article)=>`
-            <a class="service-article-link" href="${routes.article(article.slug,locale)}">
-              <span>${escapeHtml(article.content[locale].categoryLabel)}</span>
-              <strong>${escapeHtml(article.content[locale].title)}</strong>
-              <p>${escapeHtml(article.content[locale].summary)}</p>
-            </a>
-          `).join("")}
-        </div>
-      </div>
-    </section>
-  `;
-}
-
 function renderProcess(service, locale) {
   const items = service.content[locale].process;
   return `
@@ -325,7 +297,7 @@ export function serviceDetailPage(service, locale="ar") {
     renderSubservices(service,locale),
     renderConstraints(service,locale),
     renderProcess(service,locale),
-    renderArticles(service,locale),
+    ServiceGuidance({service,locale}),
     renderFaq(service,locale),
     renderFinalCta(service,locale)
   ].join("");
