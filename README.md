@@ -1,43 +1,42 @@
-# Wasl Tech Website — VNext
+# Wasl Tech Website
 
-Official repository for the public **وصل تك | Wasl Tech** website.
+المستودع الرسمي لموقع **وصل تك | Wasl Tech** ثنائي اللغة.
 
-## Current rebuild
+## التقنية
 
-A clean VNext rebuild is being developed without patching the legacy production implementation.
+- مولد صفحات ثابتة بـ Node.js وJavaScript.
+- المصدر التنفيذي داخل `src/`.
+- الأصول النهائية داخل `assets/`.
+- بناء المعاينة في `dist/` وبناء الإنتاج في `dist-release/`، وكلاهما غير متتبع في Git.
+- النشر على Vercel من `npm run vnext:build:release`.
 
-Current independent recovery / quality branch:
-`fix/independent-site-recovery-20261010` (Draft PR #46 into `integration/site-stabilization-20261010`)
+## التشغيل والتحقق
 
-VNext foundation history: `rebuild/vnext-foundation-20260921`.
+```bash
+npm run vnext:verify
+npm run vnext:verify:release
+node scripts/check-final-media.mjs
+```
 
-Production remains on the existing implementation until the VNext cutover gates pass.
+## هيكل المستودع
 
-## Start here
+- `src/pages/` الصفحات.
+- `src/components/` المكونات المشتركة.
+- `src/data/` المحتوى المنظم.
+- `src/styles/` CSS مشترك وحزم خاصة بعائلات الصفحات.
+- `src/client/` JavaScript خفيف للمتصفح.
+- `scripts/` البناء وفحوص الجودة.
+- `docs/core/` قواعد المنتج والهندسة والتصميم والجودة.
+- `docs/qa/` أدلة التحقق الحالية فقط.
+- `wasl-social-poster-system/` نظام المنشورات التسويقي؛ مستقل عن Runtime الموقع.
 
-Every new contributor/conversation must read:
+## مرجع الحالة
+
+ابدأ بالترتيب التالي:
 
 1. `PROJECT_STATUS.md`
 2. `PROJECT_HANDOFF.md`
 3. `AGENTS.md`
 4. `docs/README.md`
 
-Then follow the canonical core documents linked there.
-
-## Core principle
-
-Build the simplest maintainable static architecture that produces a fast, crawlable, accessible, elegant Wasl Tech site.
-
-Do not patch legacy CSS/JS to create VNext.
-Do not copy competitor branding/layouts.
-Do not discard the approved Wasl identity, IBM Plex typography, UPDATE CARD-derived craft rules, or verified product features.
-
-## Source of truth
-
-Live code/runtime and verified repository data override stale documentation.
-
-Missing business facts are marked:
-- `NOT VERIFIED`
-- `CONTENT REQUIRED`
-
-Never invent facts for presentation.
+التاريخ القديم متاح في Git ولا يُحتفظ بنسخ تشغيلية مكررة داخل الجذر.

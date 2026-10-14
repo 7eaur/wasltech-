@@ -119,6 +119,7 @@ export function servicesDirectoryPage(locale="ar") {
       en:routes.services("en")
     }),
     ogImage:getPageHeroMedia("services",locale).src,
+    styleBundles:["services"],
     structuredData:[organizationSchema()]
   });
 }

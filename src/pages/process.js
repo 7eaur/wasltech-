@@ -95,6 +95,7 @@ export function processPage(locale="ar"){
     canonicalPath:routes.process(locale),
     alternatePaths:Object.freeze({ar:routes.process("ar"),en:routes.process("en")}),
     ogImage:getPageHeroMedia("process",locale).src,
+    styleBundles:["process"],
     structuredData:[breadcrumbSchema([
       {name:locale==="ar"?"الرئيسية":"Home",path:routes.home(locale)},
       {name:content.kicker,path:routes.process(locale)}

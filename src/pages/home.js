@@ -330,6 +330,7 @@ export function homePage(locale = "ar") {
       en: routes.home("en")
     }),
     ogImage: "/assets/media/home-hero.webp",
+    styleBundles: ["home"],
     structuredData: [organizationSchema(), websiteSchema(locale)]
   });
 }

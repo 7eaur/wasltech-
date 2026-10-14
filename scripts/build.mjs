@@ -42,23 +42,22 @@ const cssSources = [
   "src/styles/layout.css",
   "src/styles/components.css",
   "src/styles/media.css",
-  "src/styles/home.css",
-  "src/styles/services.css",
-  "src/styles/service-detail.css",
-  "src/styles/portfolio.css",
-  "src/styles/project-detail.css",
-  "src/styles/about-process.css",
-  "src/styles/about-page.css",
-  "src/styles/contact-planner.css",
-  "src/styles/secondary.css",
-  "src/styles/insights-careers.css",
-  "src/styles/hero-home.css",
-  "src/styles/hero-pages.css",
-  "src/styles/hero-responsive.css",
   "src/styles/text-flow.css",
   "src/styles/motion.css"
 ];
 
+const pageCssBundles = Object.freeze({
+  home: ["src/styles/hero-home.css", "src/styles/home.css"],
+  services: ["src/styles/hero-pages.css", "src/styles/hero-responsive.css", "src/styles/services.css"],
+  "service-detail": ["src/styles/hero-pages.css", "src/styles/hero-responsive.css", "src/styles/service-detail.css"],
+  portfolio: ["src/styles/hero-pages.css", "src/styles/hero-responsive.css", "src/styles/portfolio.css"],
+  "project-detail": ["src/styles/hero-pages.css", "src/styles/hero-responsive.css", "src/styles/project-detail.css"],
+  about: ["src/styles/hero-pages.css", "src/styles/hero-responsive.css", "src/styles/about-page.css"],
+  process: ["src/styles/hero-pages.css", "src/styles/hero-responsive.css", "src/styles/about-process.css"],
+  "contact-planner": ["src/styles/hero-pages.css", "src/styles/hero-responsive.css", "src/styles/contact-planner.css"],
+  secondary: ["src/styles/hero-pages.css", "src/styles/hero-responsive.css", "src/styles/secondary.css"],
+  "insights-careers": ["src/styles/hero-pages.css", "src/styles/hero-responsive.css", "src/styles/insights-careers.css"]
+});
 
 
 async function ensureDirectory(filePath) {
@@ -76,19 +75,29 @@ function outputPath(route) {
   return path.join(route.replace(/^\//, ""), "index.html");
 }
 
-async function buildStyles() {
-  const blocks = [];
-  const sources = isProductionBuild ? cssSources : [...cssSources, "src/styles/showcase.css"];
-  for (const source of sources) {
-    const content = await readFile(path.join(ROOT, source), "utf8");
-    blocks.push(content.trim());
-  }
-  const minified = blocks.join("\n")
+function minifyCss(blocks) {
+  return blocks.join("\n")
     .replace(/\/\*[\s\S]*?\*\//g, "")
     .replace(/\s+/g, " ")
     .replace(/\s*([{}:;,>])\s*/g, "$1")
     .trim();
-  await writeOutput("assets/css/site.css", minified);
+}
+
+async function buildCssBundle(output, sources) {
+  const blocks = [];
+  for (const source of sources) {
+    const content = await readFile(path.join(ROOT, source), "utf8");
+    blocks.push(content.trim());
+  }
+  await writeOutput(`assets/css/${output}.css`, minifyCss(blocks));
+}
+
+async function buildStyles() {
+  await buildCssBundle("site", cssSources);
+  for (const [name, sources] of Object.entries(pageCssBundles)) {
+    await buildCssBundle(name, sources);
+  }
+  if (!isProductionBuild) await buildCssBundle("showcase", ["src/styles/showcase.css"]);
 }
 
 async function buildAssets() {
@@ -136,6 +145,8 @@ async function buildAssets() {
   await writeOutput("assets/js/navigation.js", navigation);
   const motion = await readFile(path.join(ROOT, "src/client/motion.js"), "utf8");
   await writeOutput("assets/js/motion.js", motion);
+  const analytics = await readFile(path.join(ROOT, "src/client/analytics.js"), "utf8");
+  await writeOutput("assets/js/analytics.js", analytics);
   const portfolioFilter = await readFile(path.join(ROOT, "src/client/portfolio-filter.js"), "utf8");
   await writeOutput("assets/js/portfolio-filter.js", portfolioFilter);
   const projectPlanner = await readFile(path.join(ROOT, "src/client/project-planner.js"), "utf8");

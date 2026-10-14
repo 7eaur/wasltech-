@@ -132,6 +132,7 @@ export function aboutPage(locale="ar"){
     canonicalPath:routes.about(locale),
     alternatePaths:Object.freeze({ar:routes.about("ar"),en:routes.about("en")}),
     ogImage:getPageHeroMedia("about",locale).src,
+    styleBundles:["about"],
     structuredData:[organizationSchema()]
   });
 }

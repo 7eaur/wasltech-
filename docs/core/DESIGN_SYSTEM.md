@@ -79,7 +79,7 @@ The owner approved a small supporting **Warm Apricot** accent `#E6A36A` and a qu
 - `#E6A36A` has insufficient contrast as small regular text on white. Use warm ink `#8A4B1C` on light surfaces where a readable warm text role is needed; verify actual computed contrast.
 - Do not alter official logo SVGs, gradients, shadows, or add gratuitous visual effects.
 - Editorial copy pages require distinct layouts/cards where meaningful; color alone does not fix overlong prose.
-- The decision was recorded in `docs/audit/2026-10-10_APPROVED_WARM_ACCENT_COLOR.md` on the independent audit branch.
+- The original approval record remains available in Git history; the semantic tokens in this document are the current authority.
 
 ### Canonical palette
 

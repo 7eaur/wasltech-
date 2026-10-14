@@ -35,6 +35,7 @@ export function documentTemplate({
   ogImage = null,
   ogType = "website",
   structuredData = [],
+  styleBundles = [],
   minimalShell = false
 }) {
   if (!title || !description || !body) {
@@ -65,6 +66,12 @@ export function documentTemplate({
     .filter(Boolean)
     .map((item) => `  <script type="application/ld+json">${serializeStructuredData(item)}</script>`)
     .join("\n");
+  const pageStyleTags = styleBundles
+    .map((bundle) => {
+      if (!/^[a-z0-9-]+$/.test(bundle)) throw new Error(`Invalid style bundle: ${bundle}`);
+      return `  <link rel="stylesheet" href="/assets/css/${bundle}.css">`;
+    })
+    .join("\n");
 
   return `<!doctype html>
 <html lang="${localeConfig.lang}" dir="${localeConfig.dir}">
@@ -93,8 +100,9 @@ ${structuredDataTags}
   <link rel="preload" href="${preloadedFont}" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="${site.brand.assets.favicon}">
   <link rel="stylesheet" href="/assets/css/site.css">
+${pageStyleTags}
 ${minimalShell ? "" : `  <script src="/assets/js/navigation.js" defer></script>\n  <script src="/assets/js/motion.js" defer></script>`}
-${minimalShell ? "" : `  <script>\n    if (location.hostname === "${escapeHtml(site.analytics.host)}") {\n      window.dataLayer = window.dataLayer || [];\n      window.gtag = function(){ window.dataLayer.push(arguments); };\n      window.gtag("consent", "default", { analytics_storage: "denied", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied" });\n      window.gtag("js", new Date());\n      window.gtag("config", "${escapeHtml(site.analytics.measurementId)}", { allow_google_signals: false, allow_ad_personalization_signals: false });\n      const analyticsScript = document.createElement("script");\n      analyticsScript.async = true;\n      analyticsScript.src = "https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(site.analytics.measurementId)}";\n      document.head.append(analyticsScript);\n    }\n  </script>`}
+${minimalShell ? "" : `  <script src="/assets/js/analytics.js" data-analytics-host="${escapeHtml(site.analytics.host)}" data-measurement-id="${escapeHtml(site.analytics.measurementId)}" defer></script>`}
 </head>
 <body>
   <a class="skip-link" href="#main-content">${copy[locale].skip}</a>

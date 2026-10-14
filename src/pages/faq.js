@@ -61,6 +61,7 @@ export function faqPage(locale="ar"){
     canonicalPath:routes.faq(locale),
     alternatePaths:Object.freeze({ar:routes.faq("ar"),en:routes.faq("en")}),
     ogImage:getPageHeroMedia("faq",locale).src,
+    styleBundles:["secondary"],
     structuredData:[faqPageSchema(faqs.map((item)=>item.content[locale]))]
   });
 }

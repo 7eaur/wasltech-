@@ -54,10 +54,10 @@ Never trust an old status statement over live code or a current failing check.
 6. docs/core/CONTENT_IA.md
 7. docs/core/EXECUTION_PLAN.md
 8. docs/core/QA_RELEASE.md
-9. docs/qa/FINAL_AUDIT_CONTINUOUS_LOG.md
+9. docs/qa/2026-10-14_PERFORMANCE_UX_CONTENT_AUDIT.md
 10. this protocol file
 
-The next worker must read the shared log before doing anything else.
+The next worker must read the active issue register before doing anything else.
 
 ---
 
@@ -649,10 +649,9 @@ Neither worker may repeat a completed checkpoint unless:
 
 ---
 
-## 8. Shared log format
+## 8. Audit evidence format
 
-Every pass appends ONE entry to:
-`docs/qa/FINAL_AUDIT_CONTINUOUS_LOG.md`
+Record only meaningful new evidence in the active dated QA report. Do not recreate an append-only chronological log.
 
 Required fields:
 

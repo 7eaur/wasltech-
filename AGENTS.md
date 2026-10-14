@@ -12,7 +12,7 @@ For every new session:
 4. Read `PROJECT_HANDOFF.md`.
 5. Read `docs/README.md`.
 6. Read only the canonical core docs relevant to the task.
-7. Use old phase/QA docs only as historical evidence.
+7. Old phase/QA records live in Git history; do not restore them as active instructions.
 
 Do not rely on chat memory as the project source of truth.
 

@@ -8,8 +8,6 @@ on:
       - "seo/**"
       - "perf/**"
       - fix/independent-site-recovery-20261010
-    paths-ignore:
-      - "docs/qa/FINAL_AUDIT_CONTINUOUS_LOG.md"
   pull_request:
     paths:
       - "src/**"

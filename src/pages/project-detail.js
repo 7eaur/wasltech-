@@ -193,6 +193,7 @@ export function projectDetailPage(project,locale="ar") {
     ogDescription:copy.seo.description,
     ogImage:project.image,
     ogType:"article",
+    styleBundles:["project-detail"],
     structuredData:[
       creativeWorkSchema({locale,name:copy.title,description:copy.summary,path,image:project.image}),
       breadcrumbSchema([

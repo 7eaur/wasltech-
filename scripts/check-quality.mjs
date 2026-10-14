@@ -77,18 +77,17 @@ function resolveColor(name, variables, seen = new Set()) {
   return ref ? resolveColor(ref, variables, seen) : null;
 }
 
-const css = await readFile(path.join(DIST, "assets/css/site.css"));
-const cssGzip = gzipSize(css);
-if (cssGzip > budgets.cssGzip) {
-  fail("site.css", `gzip budget exceeded: ${cssGzip} > ${budgets.cssGzip}`);
+const cssDirectory = path.join(DIST, "assets/css");
+const cssFiles = (await readdir(cssDirectory)).filter((file) => file.endsWith(".css")).sort();
+const cssGzipByHref = new Map();
+let maxPageCssGzip = 0;
+for (const file of cssFiles) {
+  const bytes = gzipSize(await readFile(path.join(cssDirectory, file)));
+  cssGzipByHref.set(`/assets/css/${file}`, bytes);
+  if (bytes > budgets.cssGzip) fail(file, `single CSS bundle gzip budget exceeded: ${bytes} > ${budgets.cssGzip}`);
 }
 
-const jsFiles = [
-  "assets/js/navigation.js",
-  "assets/js/motion.js",
-  "assets/js/portfolio-filter.js",
-  "assets/js/project-planner.js"
-];
+const jsFiles = ["assets/js/navigation.js", "assets/js/motion.js", "assets/js/analytics.js", "assets/js/portfolio-filter.js", "assets/js/project-planner.js"];
 let jsGzipTotal = 0;
 for (const file of jsFiles) {
   const source = await readFile(path.join(DIST, file));
@@ -109,11 +108,20 @@ for (const file of htmlFiles) {
   if (pageGzip > budgets.htmlGzipPerPage) {
     fail(rel, `HTML gzip budget exceeded: ${pageGzip} > ${budgets.htmlGzipPerPage}`);
   }
+  const stylesheetHrefs = [...source.matchAll(/<link rel="stylesheet" href="([^"]+\.css)">/g)].map((match) => match[1]);
+  if (stylesheetHrefs[0] !== "/assets/css/site.css" || stylesheetHrefs.length !== 2) {
+    fail(rel, `expected shared CSS plus exactly one route bundle; found ${stylesheetHrefs.join(", ") || "none"}`);
+  }
+  const cssGzip = stylesheetHrefs.reduce((total, href) => total + (cssGzipByHref.get(href) ?? 0), 0);
+  maxPageCssGzip = Math.max(maxPageCssGzip, cssGzip);
+  if (cssGzip > budgets.cssGzip) fail(rel, `combined CSS gzip budget exceeded: ${cssGzip} > ${budgets.cssGzip}`);
 
   const isStandalone404 = rel === "404.html" || rel === "en/404.html";
   if (!isStandalone404 && !source.includes('src="/assets/js/motion.js" defer')) {
     fail(rel, "progressive motion client missing");
   }
+  if (!isStandalone404 && !source.includes('src="/assets/js/analytics.js" data-analytics-host="wasl-tech.com" data-measurement-id="G-WVH08BTS6C" defer')) fail(rel, "owned deferred analytics client missing");
+  if ([...source.matchAll(/<script(?![^>]*\bsrc=)(?![^>]*type="application\/ld\+json")[^>]*>/gi)].length) fail(rel, "executable inline script is forbidden; use an owned deferred client");
 
   const images = source.match(/<img\b[^>]*>/gi) ?? [];
   const avifSources = source.match(/<source\b[^>]*type="image\/avif"[^>]*>/gi) ?? [];
@@ -333,4 +341,4 @@ if (errors.length) {
 }
 
 console.log("VNEXT QUALITY CHECK: PASSED");
-console.log(`CSS gzip: ${cssGzip} bytes | JS gzip: ${jsGzipTotal} bytes | project WebP: ${projectImageBytes.webp} bytes | project AVIF: ${projectImageBytes.avif} bytes`);
+console.log(`Max page CSS gzip: ${maxPageCssGzip} bytes | JS gzip: ${jsGzipTotal} bytes | project WebP: ${projectImageBytes.webp} bytes | project AVIF: ${projectImageBytes.avif} bytes`);

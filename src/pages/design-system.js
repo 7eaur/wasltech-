@@ -153,6 +153,7 @@ export function designSystemShowcase(locale = "ar") {
     alternatePath: alternate,
     canonicalPath: null,
     alternatePaths: {},
+    styleBundles: ["showcase"],
     robots: "noindex,nofollow"
   });
 }

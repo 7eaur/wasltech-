@@ -190,6 +190,7 @@ export function projectPlannerPage(locale="ar"){
     canonicalPath:routes.startProject(locale),
     alternatePaths:Object.freeze({ar:routes.startProject("ar"),en:routes.startProject("en")}),
     ogImage:getPageHeroMedia("startProject",locale).src,
+    styleBundles:["contact-planner"],
     structuredData:[breadcrumbSchema([
       {name:locale==="ar"?"الرئيسية":"Home",path:routes.home(locale)},
       {name:content.kicker,path:routes.startProject(locale)}

@@ -79,6 +79,7 @@ export function careersPage(locale="ar"){
     alternatePath:routes.careers(locale==="ar"?"en":"ar"),
     canonicalPath:routes.careers(locale),
     alternatePaths:Object.freeze({ar:routes.careers("ar"),en:routes.careers("en")}),
-    ogImage:getPageHeroMedia("careers",locale).src
+    ogImage:getPageHeroMedia("careers",locale).src,
+    styleBundles:["insights-careers"]
   });
 }
