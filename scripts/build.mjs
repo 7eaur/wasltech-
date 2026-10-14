@@ -47,16 +47,16 @@ const cssSources = [
 ];
 
 const pageCssBundles = Object.freeze({
-  home: ["src/styles/hero-home.css", "src/styles/home.css"],
-  services: ["src/styles/hero-pages.css", "src/styles/hero-responsive.css", "src/styles/services.css"],
-  "service-detail": ["src/styles/hero-pages.css", "src/styles/hero-responsive.css", "src/styles/service-detail.css"],
-  portfolio: ["src/styles/hero-pages.css", "src/styles/hero-responsive.css", "src/styles/portfolio.css"],
-  "project-detail": ["src/styles/hero-pages.css", "src/styles/hero-responsive.css", "src/styles/project-detail.css"],
-  about: ["src/styles/hero-pages.css", "src/styles/hero-responsive.css", "src/styles/about-page.css"],
-  process: ["src/styles/hero-pages.css", "src/styles/hero-responsive.css", "src/styles/about-process.css"],
-  "contact-planner": ["src/styles/hero-pages.css", "src/styles/hero-responsive.css", "src/styles/contact-planner.css"],
-  secondary: ["src/styles/hero-pages.css", "src/styles/hero-responsive.css", "src/styles/secondary.css"],
-  "insights-careers": ["src/styles/hero-pages.css", "src/styles/hero-responsive.css", "src/styles/insights-careers.css"]
+  home: ["src/styles/home.css", "src/styles/hero-home.css"],
+  services: ["src/styles/services.css", "src/styles/hero-pages.css", "src/styles/hero-responsive.css"],
+  "service-detail": ["src/styles/service-detail.css", "src/styles/hero-pages.css", "src/styles/hero-responsive.css"],
+  portfolio: ["src/styles/portfolio.css", "src/styles/hero-pages.css", "src/styles/hero-responsive.css"],
+  "project-detail": ["src/styles/project-detail.css", "src/styles/hero-pages.css", "src/styles/hero-responsive.css"],
+  about: ["src/styles/about-page.css", "src/styles/hero-pages.css", "src/styles/hero-responsive.css"],
+  process: ["src/styles/about-process.css", "src/styles/hero-pages.css", "src/styles/hero-responsive.css"],
+  "contact-planner": ["src/styles/contact-planner.css", "src/styles/hero-pages.css", "src/styles/hero-responsive.css"],
+  secondary: ["src/styles/secondary.css", "src/styles/hero-pages.css", "src/styles/hero-responsive.css"],
+  "insights-careers": ["src/styles/insights-careers.css", "src/styles/hero-pages.css", "src/styles/hero-responsive.css"]
 });
 
 

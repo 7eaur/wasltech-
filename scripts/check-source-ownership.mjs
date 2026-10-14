@@ -69,6 +69,22 @@ for(const name of onDisk){
 for(const bundle of ["home","services","service-detail","portfolio","project-detail","about","process","contact-planner","secondary","insights-careers"]){
   if(!build.includes(`${bundle}:`) && !build.includes(`"${bundle}":`)) fail("build.mjs",`page CSS bundle missing: ${bundle}`);
 }
+for(const [bundle,pageStyle,refinement] of [
+  ["home","home.css","hero-home.css"],
+  ["services","services.css","hero-pages.css"],
+  ["service-detail","service-detail.css","hero-pages.css"],
+  ["portfolio","portfolio.css","hero-pages.css"],
+  ["project-detail","project-detail.css","hero-pages.css"],
+  ["about","about-page.css","hero-pages.css"],
+  ["process","about-process.css","hero-pages.css"],
+  ["contact-planner","contact-planner.css","hero-pages.css"],
+  ["secondary","secondary.css","hero-pages.css"],
+  ["insights-careers","insights-careers.css","hero-pages.css"]
+]){
+  const bundlePattern=new RegExp(`(?:"${bundle}"|${bundle}): \\[([^\\]]+)\\]`);
+  const sources=bundlePattern.exec(build)?.[1]??"";
+  if(!sources.includes(pageStyle)||!sources.includes(refinement)||sources.indexOf(pageStyle)>sources.indexOf(refinement)) fail("build.mjs",`CSS refinement ownership/order invalid in ${bundle}: ${pageStyle} must precede ${refinement}`);
+}
 
 const clients=(await readdir(path.join(root,"src/client"))).filter(x=>x.endsWith(".js"));
 for(const file of clients){
