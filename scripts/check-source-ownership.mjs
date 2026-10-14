@@ -12,6 +12,10 @@ const build=await read("scripts/build.mjs");
 const packageJson=JSON.parse(await read("package.json"));
 const vercel=JSON.parse(await read("vercel.json"));
 const template=await read("src/templates/document.js");
+const sharedComponents=await read("src/styles/components.css");
+const serviceDetailStyles=await read("src/styles/service-detail.css");
+if(!sharedComponents.includes(".section-jump-nav a{")) fail("components.css","shared FAQ/service jump navigation styles missing");
+if(serviceDetailStyles.includes(".section-jump-nav")) fail("service-detail.css","shared jump navigation must not be owned by one route bundle");
 
 // These paths belonged to the retired pre-VNext runtime or one-off generation
 // output. Keeping the list executable prevents a future merge from silently
