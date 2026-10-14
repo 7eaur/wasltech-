@@ -6,7 +6,7 @@ Working branch: `perf/site-audit-hardening-20261013`
 
 Base reconciled from live `main`: `14cdd1de7a6c2112cd053e9c7be1561be38e40d7`
 
-Verified implementation SHA: `3ff0c86311043b00ea96be6d3d7322ed483ecaaf` — Draft PR [#58](https://github.com/7eaur/wasltech-/pull/58)
+Verified implementation SHA: `64c0e842c6b51a02367fbbfc5f34960f96740b55` — Draft PR [#58](https://github.com/7eaur/wasltech-/pull/58)
 
 Scope exclusion: no work was performed on SEO/search-engine branches, DNS, Search Console, Bing or logo-motion branches.
 
@@ -54,10 +54,12 @@ The laboratory report predates the final `14cdd1d` content merge by a few hours.
 | PRIV-01 | P1 | Privacy copy said the browser requested fonts from Google after fonts became local. | Updated the bilingual external-channel disclosure and added a regression check that rejects the obsolete Google Fonts statement. | CLOSED_LOCAL |
 | DOC-01 | P1 | Status/handoff still named an obsolete Production SHA after newer releases. | Reconciled current Production SHA/deployment and made this audit the active non-SEO baton. | CLOSED_LOCAL |
 | DOC-02 | P2 | The working tree contained dozens of superseded phase reports and competing handoffs after their decisions had already been integrated. | Kept the canonical core documents and current evidence, removed the stale working copies, and retained their recoverable history in Git. | CLOSED_LOCAL |
-| PERF-07 | P2 | Every page loaded the full cross-site stylesheet; PageSpeed estimated roughly 12KiB unused CSS on the Homepage. | Split CSS into one shared bundle plus exactly one route-family bundle. The maximum per-page transfer fell from 14,676 to 10,033 gzip bytes (31.6%) without duplicating page implementations. | CLOSED_LOCAL |
+| PERF-07 | P2 | Every page loaded the full cross-site stylesheet; PageSpeed estimated roughly 12KiB unused CSS on the Homepage. | Split CSS into one shared bundle plus exactly one route-family bundle. The maximum per-page transfer fell from 14,676 to 10,030 gzip bytes (31.7%) without duplicating page implementations. | CLOSED_REMOTE |
 | LEGACY-01 | P3 | Pre-VNext root HTML/CSS/JS, generated media, Font Awesome files and obsolete image copies remained alongside the active build. | Removed only paths proved outside the VNext build graph, preserved final source media and the requested marketing system, and added an executable guard that rejects restoration of retired runtime paths. | CLOSED_LOCAL |
 | BRANCH-01 | P2 | Two stale Draft PRs represented already-integrated recovery work. | Closed Draft PRs #42 and #43 after verifying that their relevant implementation was superseded by the released integration line. | CLOSED_REMOTE |
 | SEC-02 | P2 | The GA bootstrap was executable inline code duplicated into every non-404 page, complicating CSP and adding repeated HTML. | Moved it into one local deferred client, kept production-host gating and denied-by-default storage, and added checks rejecting executable inline scripts other than declarative JSON-LD. | CLOSED_LOCAL |
+| QA-03 | P1 | The first route-split matrix exposed lost FAQ target sizing, then an inverted route/refinement cascade exposed 12.16px service decision labels. | Moved the shared jump-navigation rules to `components.css`, restored the original approved cascade order in every route bundle, and added ownership/order assertions. The final matrix reports zero axe findings and passes critical label sizing in both locales. | CLOSED_REMOTE |
+| REL-02 | P0 gate | The cleanup/CSS-split batch required new exact-SHA evidence after repository removal and cascade corrections. | On `64c0e842`, GitHub VNext verify [#38533129350](https://github.com/7eaur/wasltech-/actions/runs/38533129350), media integrity [#38533129335](https://github.com/7eaur/wasltech-/actions/runs/38533129335) and Chromium matrix [#38533129396](https://github.com/7eaur/wasltech-/actions/runs/38533129396) succeeded; Vercel Preview `dpl_FREkoDgjhGeqYYUgaWNxNV4obsgX` is READY on the same SHA. | CLOSED_REMOTE |
 | REL-01 | P0 gate | The branch needed exact-SHA remote build and deployment evidence. | GitHub VNext verify [#38483010731](https://github.com/7eaur/wasltech-/actions/runs/38483010731), media integrity [#38483010980](https://github.com/7eaur/wasltech-/actions/runs/38483010980), and Chromium matrix [#38483010739](https://github.com/7eaur/wasltech-/actions/runs/38483010739) succeeded on `3ff0c86`; Vercel Preview `dpl_EnrLco3oH4kcFVypvTPEBCjDYkYF` is READY on the same SHA. | CLOSED_REMOTE |
 | VIS-01 | P0 gate | The optimized output needed responsive AR/EN verification. | The exact-SHA matrix passed all 84 indexable routes at 320, 360, 390, 768, 1024, 1366 and 1440px; 76 AR/EN screenshots were generated and the mobile/desktop contact sheets plus representative full-resolution Home/Process captures were manually inspected without a confirmed crop, wrap or overflow regression. | CLOSED_REMOTE |
 
@@ -86,7 +88,7 @@ These are the remaining real gaps. They must not be marked closed from source re
 | ANALYTICS-01 | P2 | GA4 loads with denied storage, but the conversion path has no approved explicit events. | After privacy approval, define minimal events for Planner start/review and outbound WhatsApp clicks without sending form values or message contents. | BLOCKED_APPROVAL |
 | OPS-01 | P2 | Exact GitHub Actions workflow runs were not returned for current Production merge SHA; only Vercel success was visible through the connector. | Confirm the exact main SHA VNext/matrix runs in GitHub, or rerun before the next release. | OPEN |
 | OPS-02 | P3 | Vercel build succeeds but npm 11 warns that inherited config `cache-dir` is unknown and will stop working in the next npm major. The project has no matching repo file or Vercel project environment variable. | Treat as runner/platform configuration; recheck after a Vercel/npm image update and escalate only if install caching or builds regress. | MONITOR_EXTERNAL |
-| BRANCH-02 | P2 | Obsolete remote branches still exist after their PRs were merged, closed or superseded. SEO/search-engine, logo-motion, current technical and marketing-system branches are explicitly excluded. | Delete only the reviewed obsolete list through authenticated GitHub access, then refetch and prove the protected branches remain. | OPEN_ACCESS |
+| BRANCH-02 | P2 | Forty-eight obsolete remote branches still exist after their PRs were merged, closed or superseded. The preserved set is `main`, current technical, `vnext`, every `seo/**` and both `design/wasl-logo-motion-*` branches. | GitHub's connected API has no branch-delete operation and browser authentication was not completed. Delete only the reviewed set after authenticated access, then refetch and prove all 15 protected branches remain. | BLOCKED_AUTH |
 
 ## 5. UPDATE CARD decisions
 
@@ -116,21 +118,20 @@ Rejected for Wasl Tech:
 
 ## 7. Exact-SHA remote verification
 
-- Verified implementation SHA `3ff0c86311043b00ea96be6d3d7322ed483ecaaf`; Draft PR [#58](https://github.com/7eaur/wasltech-/pull/58). Later documentation-only commits do not change the verified runtime tree.
-- Vercel Preview `dpl_EnrLco3oH4kcFVypvTPEBCjDYkYF` — READY on that exact SHA; build completed successfully.
-- Preview AR/EN HTML, local WOFF2, responsive AVIF and minified CSS returned HTTP `200` through authenticated Vercel fetches.
-- GitHub VNext verify, final-media integrity and Chromium route matrix all succeeded.
-- Matrix diagnostics at 390px with synthetic 180ms latency, throughput limits and 4x CPU: DOM ready 1,496ms, LCP 1,504ms, CLS 0, max startup long task 119ms, max interaction/scroll long task 0ms.
-- axe-core 4.10.3 mobile WCAG A/AA automated audit reported zero findings. Physical zoom and assistive-technology checks remain A11Y-03.
-- Screenshot artifact `11858647318` contains 76 AR/EN desktop/mobile PNGs plus the axe and lab JSON reports; it expires 2026-10-16.
+- Verified implementation SHA `64c0e842c6b51a02367fbbfc5f34960f96740b55`; Draft PR [#58](https://github.com/7eaur/wasltech-/pull/58).
+- Vercel Preview `dpl_FREkoDgjhGeqYYUgaWNxNV4obsgX` — READY on that exact SHA.
+- GitHub VNext verify, final-media integrity and Chromium route matrix all succeeded on the exact SHA.
+- The matrix passed all 84 indexable routes at 390px and 1440px plus the seven-width route-family captures, keyboard/no-JS/degraded-runtime checks and bilingual layout contracts.
+- Current constrained diagnostics: DOM ready 1,054ms, startup long task 132ms, interaction long task 0ms and scroll long task 61ms. The earlier LCP trace remains a synthetic baseline, not field CWV.
+- axe-core 4.10.3 mobile WCAG A/AA automated audit reported zero findings in Arabic and English. Physical zoom and assistive-technology checks remain A11Y-03.
+- Screenshot artifact `11878718807` contains 76 AR/EN desktop/mobile PNGs plus accessibility and lab evidence; it expires after the workflow's three-day retention.
 
 ## 8. Next execution order
 
-1. Commit and upload the cleanup/CSS-split batch to Draft PR #58, then require exact-SHA VNext/media/Chromium and Vercel Preview evidence.
-2. Delete only the reviewed obsolete remote branches when authenticated branch-delete access is available; preserve SEO/search-engine, logo-motion, current technical and marketing-system branches.
-3. Perform A11Y-03 on physical devices and assistive technologies.
-4. Confirm CONTACT-01 with an owner-approved real WhatsApp receipt test.
-5. Supply authentic material for PROOF-01; do not invent outcomes or metrics.
-6. Scope SEC-01 separately; ANALYTICS-01 remains outside this technical cleanup pending privacy approval.
-7. After explicit merge/release approval, rerun public PageSpeed and close PERF-05 from the official domain.
-8. Do not merge or publish Production without owner approval.
+1. Delete only the 48 reviewed obsolete remote branches when authenticated branch-delete access is available; preserve the documented 15-branch set.
+2. Perform A11Y-03 on physical devices and assistive technologies.
+3. Confirm CONTACT-01 with an owner-approved real WhatsApp receipt test.
+4. Supply authentic material for PROOF-01; do not invent outcomes or metrics.
+5. Scope SEC-01 separately; ANALYTICS-01 remains outside this technical cleanup pending privacy approval.
+6. After explicit merge/release approval, rerun public PageSpeed and close PERF-05 from the official domain.
+7. Do not merge or publish Production without owner approval.

@@ -21,24 +21,24 @@ Updated: 2026-10-14 (Asia/Aden)
 - Removed non-runtime legacy root HTML/CSS/JS, temporary/generated legacy assets and stale duplicated QA records.
 - Preserved final source media, active optimized media and `wasl-social-poster-system/`.
 - Closed superseded Draft PRs #42 and #43; their relevant implementation is already represented by the released integration line.
+- Restored the approved CSS cascade after route splitting and moved FAQ/service jump navigation to its real shared owner.
 
 ## Current performance evidence
 
 - Previous Production PageSpeed baseline: mobile 82, LCP 3.6s, TBT 0ms, CLS 0; desktop 99, LCP 0.8s.
-- Exact implementation matrix on SHA `3ff0c86`: 84 indexable routes, seven widths, 76 screenshots, zero automated axe findings.
+- Exact implementation matrix on SHA `64c0e84`: 84 indexable routes, seven widths, 76 screenshots, zero automated axe findings.
 - Synthetic constrained mobile trace: LCP 1,504ms, CLS 0, no interaction/scroll long tasks.
 - AVIF set is 23.5% smaller than the equivalent WebP set.
-- Route CSS split reduced the maximum page CSS transfer from 14,676 to 10,033 gzip bytes (31.6%); all owned browser JS is 4,784 gzip bytes.
+- Route CSS split reduced the maximum page CSS transfer from 14,676 to 10,030 gzip bytes (31.7%); all owned browser JS is 4,784 gzip bytes.
 
 ## Open technical gates
 
-1. Verify the new cleanup/CSS-split SHA through GitHub Actions and Vercel Preview.
-2. Run public PageSpeed after an explicitly approved Production release.
-3. Complete physical-device 200%/400% zoom and screen-reader checks.
-4. Confirm one owner-approved Planner-to-WhatsApp receipt test.
-5. Add only authentic case-study proof supplied or approved by the owner.
-6. Validate CSP in report-only/Preview before enforcement; privacy-safe conversion events remain a separate approval.
-7. Review field CWV when sufficient CrUX traffic exists.
-8. Delete obsolete remote branches after exact branch-list approval/access.
+1. Run public PageSpeed after an explicitly approved Production release.
+2. Complete physical-device 200%/400% zoom and screen-reader checks.
+3. Confirm one owner-approved Planner-to-WhatsApp receipt test.
+4. Add only authentic case-study proof supplied or approved by the owner.
+5. Validate CSP in report-only/Preview before enforcement; privacy-safe conversion events remain a separate approval.
+6. Review field CWV when sufficient CrUX traffic exists.
+7. Delete the 48 reviewed obsolete remote branches when authenticated browser access is available.
 
 Canonical issue register: `docs/qa/2026-10-14_PERFORMANCE_UX_CONTENT_AUDIT.md`.

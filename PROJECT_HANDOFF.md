@@ -17,7 +17,7 @@ Updated: 2026-10-14 (Asia/Aden)
 - The active CSS architecture is shared `site.css` plus exactly one page-family bundle.
 - Executable analytics now lives in the deferred local `src/client/analytics.js`; only JSON-LD remains inline.
 - `npm run vnext:verify`, `npm run vnext:verify:release` and `node scripts/check-final-media.mjs` must all pass before upload.
-- After upload, require GitHub VNext/media/Chromium success and a READY Vercel Preview on the exact implementation SHA.
+- Exact implementation SHA `64c0e842` passed GitHub VNext/media/Chromium and has a READY Vercel Preview.
 
 ## Remaining owner/external acceptance
 
@@ -26,5 +26,6 @@ Updated: 2026-10-14 (Asia/Aden)
 - Authentic portfolio evidence.
 - Production PageSpeed and field CWV after release approval.
 - CSP enforcement validation and analytics-event privacy approval.
+- Remote deletion of 48 reviewed obsolete branches; browser authentication was not completed. Preserve `main`, the active technical branch, `vnext`, every `seo/**` branch and both `design/wasl-logo-motion-*` branches.
 
 Historical implementation records remain available in Git history. Do not recreate long chronological status files in the repository.
