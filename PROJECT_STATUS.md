@@ -1,5 +1,15 @@
 # Wasl Tech VNext — Current Project Status
 
+## 2026-10-15 — Himma + Update Card portfolio additions (PR #60)
+
+- Portfolio branch: `content/portfolio-himma-update-card-20261015` from live `main`; [PR #60](https://github.com/7eaur/wasltech-/pull/60).
+- Added two bilingual project records with localized SEO and case-study copy: `project-15` (Himma learning platform), `project-16` (Update Card digital services).
+- Four owner-provided optimized AVIF assets (800px + 480px), 63,778 bytes combined; both appear in Portfolio/detail pages and Home selected work.
+- Updated canonical responsive-image helper for AVIF alongside WebP; the Home selected-work QA now reads the component's canonical featured IDs.
+- Portfolio screenshot workflow dynamically validates record counts and captures both new case-study routes. Also corrected undersized mobile hero labels found by matrix QA.
+- **CI VNext verify:** Preview and Release PASSED on `f7e189c6040f2cb97b821153555c27d0af0b093d` ([Actions run](https://github.com/7eaur/wasltech-/actions/runs/38783113641)). Vercel Preview on the same SHA is READY.
+- **Visual QA:** [Route matrix run](https://github.com/7eaur/wasltech-/actions/runs/38783113721) was running when this entry was prepared; do not claim matrix acceptance before reading its actual conclusion. Main/Production remain unchanged pending merge and production verification.
+
 ## 2026-10-15 — Mobile section craft and decision-path refinement
 
 - Active branch: `design/mobile-section-craft-20261015`, created from current `main`; no Production, DNS, or deployment cutover action is included.
