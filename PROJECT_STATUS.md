@@ -1,5 +1,15 @@
 # Wasl Tech VNext — Current Project Status
 
+## 2026-10-15 — Mobile section craft and decision-path refinement
+
+- Active branch: `design/mobile-section-craft-20261015`, created from current `main`; no Production, DNS, or deployment cutover action is included.
+- Owner follow-up: Home services stay as a two-column mobile grid with visible descriptions, while selected-work cards use compact horizontal rows on mobile. Desktop layouts remain unchanged.
+- Homepage primary decision path is now **Start a Project → Explore Services**. The language switch moves inside the mobile menu so the compact header keeps only the logo and menu control.
+- Shared `FeatureList` and `ProcessSteps` components now own the repeated Why/Principles and Process patterns across Home, About, and all service-detail pages.
+- Mobile Why/Principles sections use a connected editorial list instead of a repetitive card wall. Home and service process steps use one readable vertical journey with clear markers and contained copy.
+- Homepage service cards become full-width media rows below 640px, keep the useful summary visible, and use one full-card link target. Hero trust signals become readable stacked rows on mobile.
+- Dead VNext utility rules were removed while preserving the executable CSS budget. Local Preview/Release verification passed; Playwright review at 360, 390, and 1440 confirmed no horizontal overflow across representative Arabic/English Home, About, Process, and service-detail routes. Physical-device acceptance remains required before release.
+
 ## 2026-10-13 — SEO/Main reconciliation in progress
 
 - Current Production `main` remains `abbbe9e9e51533a4a8c9d75104f86805f8870bad`; this SEO work does **not** change Production.

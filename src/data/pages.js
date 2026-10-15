@@ -51,8 +51,8 @@ export const pages = Object.freeze([
         kicker: "وصل تك",
         title: "نبني حضورك الرقمي باحتراف",
         support: "في وصل تك، نساعد المشاريع والعلامات التجارية على بناء حضور رقمي متكامل يجمع بين التصميم، البرمجة، التسويق، والهوية الرقمية.",
-        primaryCta: "اكتشف خدماتنا",
-        secondaryCta: "تواصل معنا",
+        primaryCta: "ابدأ مشروعك",
+        secondaryCta: "استكشف خدماتنا",
         sections: Object.freeze([
           Object.freeze({id:"services",kicker:"خدماتنا",title:"حلول رقمية متكاملة لنمو مشروعك",support:"نقدم خدمات رقمية تساعد المشاريع على بناء حضور واضح، متناسق، واحترافي، من الفكرة حتى الإطلاق."}),
           Object.freeze({id:"work",kicker:"أعمالنا",title:"نماذج من أعمالنا",support:"نماذج من المشاريع التي نفذناها في المواقع والتطبيقات والمتاجر والهوية والحلول الرقمية."}),
@@ -69,8 +69,8 @@ export const pages = Object.freeze([
         kicker: "Wasl Tech",
         title: "We build your digital presence professionally",
         support: "At Wasl Tech, we help projects and brands build an integrated digital presence through design, development, marketing, and digital identity.",
-        primaryCta: "Explore our services",
-        secondaryCta: "Contact us",
+        primaryCta: "Start your project",
+        secondaryCta: "Explore our services",
         sections: Object.freeze([
           Object.freeze({id:"services",kicker:"Our services",title:"Integrated digital solutions for your project's growth",support:"We provide digital services that help projects build a clear, consistent, and professional presence from idea to launch."}),
           Object.freeze({id:"work",kicker:"Our work",title:"Selected work",support:"A selection of projects across websites, apps, e-commerce, identity, and digital solutions."}),

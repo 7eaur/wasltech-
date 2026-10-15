@@ -63,8 +63,8 @@ for (const locale of ["ar", "en"]) {
   // Match visible hero action labels to their actual destinations.
   const heroActionsHtml = html.split('<div class="home-hero__actions">')[1]?.split("</div>")[0] ?? "";
   for (const { href, label } of [
-    { href: routes.services(locale), label: content.primaryCta },
-    { href: routes.contact(locale), label: content.secondaryCta }
+    { href: routes.startProject(locale), label: content.primaryCta },
+    { href: routes.services(locale), label: content.secondaryCta }
   ]) {
     if (!heroActionsHtml.includes(`href="${href}">${htmlText(label)}</a>`)) {
       fail(file, `Hero CTA "${label}" must navigate to "${href}"`);
@@ -115,16 +115,18 @@ for (const locale of ["ar", "en"]) {
     lastIndex = index;
   }
 
-  if ((html.match(/<article class="home-why__item">/g) ?? []).length !== 6) fail(file,"6 strength cards required");
-  if ((html.match(/<article class="home-process__step">/g) ?? []).length !== 4) fail(file,"4 process steps required");
+  if ((html.match(/<article class="feature-list__item">/g) ?? []).length < 6) fail(file,"6 strength items required");
+  if ((html.match(/<li class="process-steps__item">/g) ?? []).length !== 4) fail(file,"4 process steps required");
   if ((html.match(/<details class="home-faq__item">/g) ?? []).length !== 3) {
     fail(file, "Home must show exactly three decision-support FAQ items");
   }
 }
 
 const homeCss=await readFile(path.join(ROOT,"src/styles/home.css"),"utf8");
-if(!homeCss.includes(".home-process__steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))")) fail("home.css","4-column desktop process missing");
-if(!homeCss.includes(".home-why__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))")) fail("home.css","3-column desktop strengths missing");
+if(!homeCss.includes(".home-process__steps{--process-columns:4}")) fail("home.css","4-column desktop process missing");
+if(!homeCss.includes(".home-why__grid{grid-template-columns:repeat(3,minmax(0,1fr))")) fail("home.css","3-column desktop strengths missing");
+if(!homeCss.includes(".home-service-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3)}")) fail("home.css","mobile services must stay in a visible two-column grid");
+if(!homeCss.includes(".home-project-grid .media-card{display:grid;grid-template-columns:7rem minmax(0,1fr)")) fail("home.css","mobile work cards must use the compact horizontal layout");
 const heroResponsiveCss=await readFile(path.join(ROOT,"src/styles/hero-responsive.css"),"utf8");
 for(const [file,css] of [["home.css",homeCss],["hero-responsive.css",heroResponsiveCss]]){
   for(const selector of [".home-about__value span",".home-hero__signal small"]){

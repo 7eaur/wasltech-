@@ -4,6 +4,7 @@ import { getProjectsByService } from "../data/projects.js";
 import { CallToAction } from "../components/CallToAction.js";
 import { MediaCard } from "../components/MediaCard.js";
 import { SectionHeader } from "../components/SectionHeader.js";
+import { ProcessSteps } from "../components/ProcessSteps.js";
 import { ServiceGuidance } from "../components/ServiceGuidance.js";
 import { documentTemplate } from "../templates/document.js";
 import { breadcrumbSchema, faqPageSchema, serviceSchema } from "../seo/structured-data.js";
@@ -216,15 +217,7 @@ function renderProcess(service, locale) {
           kicker:locale === "ar" ? "طريقة التنفيذ" : "How it is delivered",
           title:locale === "ar" ? "كيف ننفذ الخدمة؟" : "How do we deliver the service?"
         })}
-        <div class="service-process__steps">
-          ${items.map((item,index)=>`
-            <article class="service-process__step">
-              <span>0${index+1}</span>
-              <h3>${escapeHtml(item.title)}</h3>
-              <p>${escapeHtml(item.description)}</p>
-            </article>
-          `).join("")}
-        </div>
+        ${ProcessSteps({ items, className: "service-process__steps" })}
       </div>
     </section>
   `;

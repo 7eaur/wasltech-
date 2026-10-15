@@ -34,9 +34,9 @@ export function Header({ activePath = "/", locale = "ar", alternatePath = null }
     return `<li><a class="nav-link${active ? " is-active" : ""}" href="${item.href}"${active ? ' aria-current="page"' : ""}>${escapeHtml(item.label)}</a></li>`;
   }).join("");
 
-  const mobileLinks = `<li class="mobile-nav-contact"><a class="nav-link" href="${routes.contact(locale)}">${locale === "ar" ? "تواصل معنا" : "Contact us"}</a></li><li class="mobile-nav-action"><a class="nav-link" href="${routes.startProject(locale)}">${escapeHtml(labels.cta)}</a></li>`;
   const homeHref = routes.home(locale);
   const switchHref = alternatePath ?? routes.home(locale === "ar" ? "en" : "ar");
+  const mobileLinks = `<li class="mobile-nav-contact"><a class="nav-link" href="${routes.contact(locale)}">${locale === "ar" ? "تواصل معنا" : "Contact us"}</a></li><li class="mobile-nav-language"><a class="nav-link" href="${switchHref}" hreflang="${locale === "ar" ? "en" : "ar"}">${labels.switchLabel}</a></li><li class="mobile-nav-action"><a class="nav-link" href="${routes.startProject(locale)}">${escapeHtml(labels.cta)}</a></li>`;
 
   return `
     <header class="site-header" data-site-header>
@@ -64,7 +64,7 @@ export function Header({ activePath = "/", locale = "ar", alternatePath = null }
         </nav>
         <noscript><nav class="primary-nav--nojs" aria-label="${labels.nav}"><ul>${links}${mobileLinks}</ul></nav></noscript>
 
-        <a class="language-switch" href="${switchHref}" hreflang="${locale === "ar" ? "en" : "ar"}">${labels.switchLabel}</a>
+        <a class="language-switch language-switch--desktop" href="${switchHref}" hreflang="${locale === "ar" ? "en" : "ar"}">${labels.switchLabel}</a>
         ${ActionLink({
           href: routes.startProject(locale),
           label: labels.cta,

@@ -19,9 +19,8 @@ if (canAnimate) {
     ".media-card",
     ".service-subservice",
     ".service-deliverable",
-    ".service-process__step",
-    ".home-process__step",
-    ".home-why__item",
+    ".process-steps__item",
+    ".feature-list__item",
     ".article-body__section"
   ];
 

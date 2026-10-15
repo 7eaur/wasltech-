@@ -50,12 +50,7 @@
 .service-proof__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-5)}
 .service-proof__more{display:flex;justify-content:flex-end;margin-top:var(--space-6)}
 
-.service-process__steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:var(--border-thin) solid var(--color-border-default);border-bottom:var(--border-thin) solid var(--color-border-default)}
-.service-process__step{padding:var(--space-5);border-inline-end:var(--border-thin) solid var(--color-border-default)}
-.service-process__step:last-child{border-inline-end:0}
-.service-process__step>span{display:block;margin-bottom:var(--space-4);color:var(--color-text-accent);font-size:var(--font-size-xs);font-weight:var(--font-weight-bold)}
-.service-process__step h3{margin-bottom:var(--space-2);font-size:var(--font-size-lg)}
-.service-process__step p{color:var(--color-text-secondary);font-size:var(--font-size-sm)}
+.service-process__steps{--process-columns:4}
 
 .service-detail-faq__grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(var(--space-8),7vw,var(--space-20));align-items:start}
 .service-detail-faq__grid>div:first-child h2{max-width:15ch;font-size:var(--font-size-2xl)}
@@ -77,9 +72,6 @@
 
 @media(max-width:64rem){
   .service-proof__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .service-process__steps{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .service-process__step:nth-child(2){border-inline-end:0}
-  .service-process__step:nth-child(-n+2){border-bottom:var(--border-thin) solid var(--color-border-default)}
 }
 
 @media(max-width:53.75rem){
@@ -103,12 +95,6 @@
   .service-deliverable h3{font-size:1rem}
   .service-deliverable p{font-size:.88rem;line-height:1.65}
 
-
-  .service-process__steps{grid-template-columns:1fr}
-  .service-process__step{display:grid;grid-template-columns:2rem minmax(0,1fr);gap:var(--space-3);padding:var(--space-4) 0;border-inline-end:0;border-bottom:var(--border-thin) solid var(--color-border-default)}
-  .service-process__step>span{margin:0;font-size:.78rem}
-  .service-process__step h3{margin:0;font-size:1rem;line-height:1.4}
-  .service-process__step p{grid-column:2;font-size:.88rem;line-height:1.65}
 }
 
 

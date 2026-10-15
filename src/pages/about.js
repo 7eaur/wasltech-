@@ -7,6 +7,7 @@ import { organizationSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
 import { HeroMedia } from "../components/HeroMedia.js";
 import { getPageHeroMedia } from "../config/hero-media.js";
+import { FeatureList } from "../components/FeatureList.js";
 
 const record=pages.find((page)=>page.id==="about");
 function section(content,id){return content.sections.find((item)=>item.id===id);}
@@ -72,14 +73,7 @@ function renderPrinciples(content){
           <h2>${escapeHtml(principles.title)}</h2>
           <p>${escapeHtml(principles.support)}</p>
         </div>
-        <div class="about-values__list">
-          ${principles.items.map((item,index)=>`
-            <article>
-              <span>0${index+1}</span>
-              <div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.body)}</p></div>
-            </article>
-          `).join("")}
-        </div>
+        ${FeatureList({ items: principles.items, className: "about-values__list" })}
       </div>
     </section>
   `;

@@ -7,6 +7,8 @@ import { ActionLink } from "../components/ActionLink.js";
 import { CallToAction } from "../components/CallToAction.js";
 import { MediaCard } from "../components/MediaCard.js";
 import { SectionHeader } from "../components/SectionHeader.js";
+import { FeatureList } from "../components/FeatureList.js";
+import { ProcessSteps } from "../components/ProcessSteps.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema, websiteSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
@@ -110,8 +112,8 @@ function renderHero(content, locale) {
             width="1200" height="900" loading="eager" fetchpriority="high" decoding="async">
         </div>
         <div class="home-hero__actions">
-          ${ActionLink({ href: routes.services(locale), label: content.primaryCta, variant: "primary", size: "lg" })}
-          ${ActionLink({ href: routes.contact(locale), label: content.secondaryCta, variant: "ghost", size: "lg" })}
+          ${ActionLink({ href: routes.startProject(locale), label: content.primaryCta, variant: "primary", size: "lg" })}
+          ${ActionLink({ href: routes.services(locale), label: content.secondaryCta, variant: "ghost", size: "lg" })}
         </div>
         <div class="home-hero__signals" aria-label="${locale === "ar" ? "مزايا العمل مع فريق وصل تك" : "Working with the Wasl Tech team"}">
           ${signals}
@@ -212,18 +214,12 @@ function renderAbout(content, locale) {
 
 function renderWhy(content, locale) {
   const copy = section(content, "approach");
-  const points = whyPoints[locale].map((point) => `
-    <article class="home-why__item">
-      <h3>${escapeHtml(point.title)}</h3>
-      <p>${escapeHtml(point.body)}</p>
-    </article>
-  `).join("");
 
   return `
     <section class="section section--subtle home-why" id="approach">
       <div class="container">
         ${SectionHeader({ kicker: copy.kicker, title: copy.title, supporting: copy.support })}
-        <div class="home-why__grid">${points}</div>
+        ${FeatureList({ items: whyPoints[locale], className: "home-why__grid" })}
       </div>
     </section>
   `;
@@ -231,22 +227,12 @@ function renderWhy(content, locale) {
 
 function renderProcess(content, locale) {
   const copy = section(content, "process");
-  const steps = processSteps[locale].map((step) => `
-    <article class="home-process__step">
-      <div class="home-process__step-head">
-        ${icon(step.icon, "home-process__icon")}
-        <span>${step.number}</span>
-      </div>
-      <h3>${escapeHtml(step.title)}</h3>
-      <p>${escapeHtml(step.body)}</p>
-    </article>
-  `).join("");
 
   return `
     <section class="section home-process" id="process">
       <div class="container">
         ${SectionHeader({ kicker: copy.kicker, title: copy.title, supporting: copy.support })}
-        <div class="home-process__steps">${steps}</div>
+        ${ProcessSteps({ items: processSteps[locale], className: "home-process__steps" })}
         <div class="home-section-action">
           <a class="text-link" href="${routes.process(locale)}">${locale === "ar" ? "تعرّف على طريقة العمل" : "See how we work"}</a>
         </div>
