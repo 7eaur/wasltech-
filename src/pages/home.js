@@ -17,7 +17,7 @@ import { icon } from "../components/icons.js";
 
 const homeRecord = pages.find((page) => page.id === "home");
 
-const featuredProjectIds = Object.freeze(["project-15", "project-16", "project-02"]);
+export const featuredProjectIds = Object.freeze(["project-15", "project-16", "project-02"]);
 const featuredFaqIds = Object.freeze(["start-1", "workflow-1", "product-2"]);
 
 const heroSignals = Object.freeze({
