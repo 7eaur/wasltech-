@@ -125,6 +125,8 @@ for (const locale of ["ar", "en"]) {
 const homeCss=await readFile(path.join(ROOT,"src/styles/home.css"),"utf8");
 if(!homeCss.includes(".home-process__steps{--process-columns:4}")) fail("home.css","4-column desktop process missing");
 if(!homeCss.includes(".home-why__grid{grid-template-columns:repeat(3,minmax(0,1fr))")) fail("home.css","3-column desktop strengths missing");
+if(!homeCss.includes(".home-service-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3)}")) fail("home.css","mobile services must stay in a visible two-column grid");
+if(!homeCss.includes(".home-project-grid .media-card{display:grid;grid-template-columns:7rem minmax(0,1fr)")) fail("home.css","mobile work cards must use the compact horizontal layout");
 const heroResponsiveCss=await readFile(path.join(ROOT,"src/styles/hero-responsive.css"),"utf8");
 for(const [file,css] of [["home.css",homeCss],["hero-responsive.css",heroResponsiveCss]]){
   for(const selector of [".home-about__value span",".home-hero__signal small"]){

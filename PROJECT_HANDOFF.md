@@ -3,6 +3,7 @@
 ## 2026-10-15 — Resume mobile section craft review
 
 - Work branch: `design/mobile-section-craft-20261015`, based on current `main`.
+- Latest owner refinement: at mobile widths, Home services are two per row with visible summaries; selected work is presented as horizontal media rows. Do not revert these two layouts into each other.
 - Scope is visual hierarchy and mobile presentation only: shared feature/process patterns, mobile services presentation, Home CTA order, mobile language-switch placement, stacked Hero signals, and full-card media links.
 - Owners: `FeatureList`, `ProcessSteps`, `MediaCard`, shared component CSS, Home/About/service-detail composition, and Header layout. Do not reintroduce page-specific copies of these patterns.
 - Local `npm run vnext:verify` and `npm run vnext:verify:release` pass. Playwright visual/reflow review passed at 360, 390, and 1440 on representative Arabic/English routes; no Production merge or cutover is authorized.

@@ -10,7 +10,8 @@ Improve Wasl Tech's mobile presentation without replacing its identity or copyin
 - `ProcessSteps` owns Home and service-detail process sequences.
 - Mobile feature lists use a compact connected reading path instead of stacked boxed cards.
 - Mobile process sequences use numbered markers, a light connector, and contained copy blocks.
-- Homepage service cards switch to a readable single-column media row below 640px and retain their summaries.
+- Homepage services stay in a two-column grid with visible summaries, while selected-work cards use compact horizontal media rows below 640px.
+- Owner follow-up rechecked at 360px and 390px: two equal service columns, visible two-line summaries, horizontal selected-work rows, and no horizontal overflow.
 - Media cards have one semantic title link whose hit area covers the full card.
 - Homepage primary action starts a project; service exploration is secondary.
 - The language switch is inside the mobile menu, while desktop behavior stays unchanged.

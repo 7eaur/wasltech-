@@ -3,6 +3,7 @@
 ## 2026-10-15 — Mobile section craft and decision-path refinement
 
 - Active branch: `design/mobile-section-craft-20261015`, created from current `main`; no Production, DNS, or deployment cutover action is included.
+- Owner follow-up: Home services stay as a two-column mobile grid with visible descriptions, while selected-work cards use compact horizontal rows on mobile. Desktop layouts remain unchanged.
 - Homepage primary decision path is now **Start a Project → Explore Services**. The language switch moves inside the mobile menu so the compact header keeps only the logo and menu control.
 - Shared `FeatureList` and `ProcessSteps` components now own the repeated Why/Principles and Process patterns across Home, About, and all service-detail pages.
 - Mobile Why/Principles sections use a connected editorial list instead of a repetitive card wall. Home and service process steps use one readable vertical journey with clear markers and contained copy.
