@@ -83,8 +83,11 @@ jobs:
           cat > /tmp/wasltech-vnext-matrix/matrix.mjs <<'EOF'
           import { chromium } from "playwright";
           import { writeFileSync } from "node:fs";
+          import { pathToFileURL } from "node:url";
 
           const base = "http://127.0.0.1:4173";
+          const { projects: canonicalProjects } = await import(pathToFileURL(`${process.env.GITHUB_WORKSPACE}/src/data/projects.js`).href);
+          const expectedProjectCount = canonicalProjects.length;
           const routeFamilies = [
             ["home", "/", "/en/", "/en/", "/"],
             ["services", "/services/", "/en/services/", "/en/services/", "/services/"],
@@ -92,6 +95,8 @@ jobs:
             ["service-app", "/services/mobile-app-development/", "/en/services/mobile-app-development/", "/en/services/mobile-app-development/", "/services/mobile-app-development/"],
             ["portfolio", "/portfolio/", "/en/portfolio/", "/en/portfolio/", "/portfolio/"],
             ["project-wasl", "/portfolio/wasl-freelance-platform/", "/en/portfolio/wasl-freelance-platform/", "/en/portfolio/wasl-freelance-platform/", "/portfolio/wasl-freelance-platform/"],
+            ["project-himma", "/portfolio/himma-learning-platform/", "/en/portfolio/himma-learning-platform/", "/en/portfolio/himma-learning-platform/", "/portfolio/himma-learning-platform/"],
+            ["project-update-card", "/portfolio/update-card-digital-services/", "/en/portfolio/update-card-digital-services/", "/en/portfolio/update-card-digital-services/", "/portfolio/update-card-digital-services/"],
             ["about", "/about/", "/en/about/", "/en/about/", "/about/"],
             ["process", "/process/", "/en/process/", "/en/process/", "/process/"],
             ["contact", "/contact/", "/en/contact/", "/en/contact/", "/contact/"],
@@ -282,7 +287,7 @@ jobs:
             if (visibleFirst !== 5) throw new Error(`${locale}: Initial portfolio should expose five cards, got ${visibleFirst}`);
             await page.locator("[data-portfolio-more]").click();
             const visibleFull = await page.locator("[data-project-card]:visible").count();
-            if (visibleFull !== 14) throw new Error(`${locale}: Show-more should expose all 14 projects, got ${visibleFull}`);
+            if (visibleFull !== expectedProjectCount) throw new Error(`${locale}: Show-more should expose all ${expectedProjectCount} projects, got ${visibleFull}`);
             if (await page.locator("[data-portfolio-more]").isVisible()) {
               throw new Error(`${locale}: Show-more button remained visible after expansion.`);
             }
@@ -478,7 +483,7 @@ jobs:
             }
             await page.goto(base + prefix + "/portfolio/", { waitUntil: "domcontentloaded" });
             const noJsCards = await page.locator("[data-project-card]:visible").count();
-            if (noJsCards !== 14) throw new Error(locale + ": portfolio must expose all work without JavaScript");
+            if (noJsCards !== expectedProjectCount) throw new Error(locale + ": portfolio must expose all work without JavaScript");
             if (await page.locator("[data-portfolio-more]").isVisible()) {
               throw new Error(locale + ": JS-only show-more must remain hidden without JS");
             }
