@@ -44,7 +44,7 @@ export const pages = Object.freeze([
     state: CONTENT_STATE.READY,
     reviewed: true,
     fieldState: {purpose:CONTENT_STATE.READY,arabicCore:CONTENT_STATE.READY,sections:CONTENT_STATE.READY,cta:CONTENT_STATE.READY,seo:CONTENT_STATE.READY,businessFacts:CONTENT_STATE.READY,english:CONTENT_STATE.READY},
-    evidenceSources: ["content:b87872d12adcc836018fe61a7ef1556f04aa5b86:إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md","docs/core/PRODUCT.md"],
+    evidenceSources: ["content:b87872d12adcc836018fe61a7ef1556f04aa5b86","src/config/site.js"],
     content: {
       ar: Object.freeze({
         purpose: "تقديم وصل تك كفريق حلول رقمية وتقنية يساعد المشاريع والعلامات التجارية على بناء حضور رقمي احترافي.",
@@ -347,7 +347,7 @@ export const pages = Object.freeze([
       businessFacts: CONTENT_STATE.READY,
       english: CONTENT_STATE.READY
     },
-    evidenceSources: ["main:blog.html", "src/data/articles.js", "docs/core/CONTENT_IA.md"],
+    evidenceSources: ["src/data/articles.js", "src/config/routes.js"],
     content: {
       ar: Object.freeze({
         purpose: "تقديم محتوى عملي يساعد أصحاب المشاريع على فهم الخيارات واتخاذ قرارات أفضل قبل وأثناء التنفيذ.",
@@ -431,7 +431,7 @@ export const pages = Object.freeze([
       businessFacts: CONTENT_STATE.READY,
       english: CONTENT_STATE.READY
     },
-    evidenceSources: ["src/data/jobs.js", "docs/core/CONTENT_IA.md"],
+    evidenceSources: ["src/data/jobs.js", "src/config/routes.js"],
     content: {
       ar: Object.freeze({
         purpose: "عرض فرص العمل الفعلية عندما تكون هناك وظائف مفتوحة، مع إبقاء الصفحة واضحة وصريحة عند عدم وجود فرص.",
@@ -526,8 +526,8 @@ export const pages = Object.freeze([
           Object.freeze({
             id: "external",
             kicker: "القنوات الخارجية",
-            title: "واتساب والبريد وإنستغرام وGoogle Fonts خدمات خارجية عن الموقع.",
-            support: "عند تحميل الصفحة يطلب المتصفح ملفات الخط من Google Fonts. وعندما تختار فتح واتساب أو البريد أو إنستغرام تنتقل إلى خدمة خارجية. قد تعالج هذه الخدمات بيانات تقنية أو معلومات تشاركها معها وفق إعداداتها وسياساتها الخاصة."
+            title: "واتساب والبريد وإنستغرام خدمات خارجية عن الموقع.",
+            support: "تُحمّل ملفات الخط المستخدمة في الواجهة من نطاق الموقع نفسه. وعندما تختار فتح واتساب أو البريد أو إنستغرام تنتقل إلى خدمة خارجية قد تعالج بيانات تقنية أو معلومات تشاركها معها وفق إعداداتها وسياساتها الخاصة."
           }),
           Object.freeze({
             id: "tracking",
@@ -564,8 +564,8 @@ export const pages = Object.freeze([
           Object.freeze({
             id: "external",
             kicker: "External channels",
-            title: "WhatsApp, email, Instagram, and Google Fonts operate outside this website.",
-            support: "When the page loads, the browser requests font resources from Google Fonts. When you choose WhatsApp, email, or Instagram, you move to an external service. These services may process technical data or information you share with them under their own settings and policies."
+            title: "WhatsApp, email, and Instagram operate outside this website.",
+            support: "Interface font files are loaded from this website's own domain. When you choose WhatsApp, email, or Instagram, you move to an external service that may process technical data or information you share under its own settings and policies."
           }),
           Object.freeze({
             id: "tracking",

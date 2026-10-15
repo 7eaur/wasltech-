@@ -1,43 +1,36 @@
-# Wasl Tech Website — VNext
+# Wasl Tech Website
 
-Official repository for the public **وصل تك | Wasl Tech** website.
+المستودع الرسمي للنسخة النهائية من موقع **وصل تك | Wasl Tech** ثنائي اللغة.
 
-## Current rebuild
+- الموقع: <https://wasl-tech.com>
+- المصدر التنفيذي: `src/`
+- الأصول النهائية: `assets/`
+- البناء والفحوص: `scripts/`
+- النشر: Vercel من فرع `main` فقط
 
-A clean VNext rebuild is being developed without patching the legacy production implementation.
+## التشغيل والتحقق
 
-Current independent recovery / quality branch:
-`fix/independent-site-recovery-20261010` (Draft PR #46 into `integration/site-stabilization-20261010`)
+يتطلب المشروع Node.js 24:
 
-VNext foundation history: `rebuild/vnext-foundation-20260921`.
+```bash
+npm run vnext:verify
+npm run vnext:verify:release
+node scripts/check-final-media.mjs
+```
 
-Production remains on the existing implementation until the VNext cutover gates pass.
+ينتج بناء المعاينة في `dist/` وبناء الإنتاج في `dist-release/`، ولا يُتتبّع أي منهما في Git.
 
-## Start here
+## الهيكل
 
-Every new contributor/conversation must read:
+- `src/pages/`: مولدات الصفحات العربية والإنجليزية.
+- `src/components/`: المكونات المشتركة.
+- `src/data/`: محتوى الخدمات والأعمال والمقالات.
+- `src/styles/`: الأنماط المشتركة وحزم عائلات الصفحات.
+- `src/client/`: JavaScript المتصفح الخفيف.
+- `assets/`: الصور والخطوط والهوية المستخدمة في Runtime.
+- `scripts/`: البناء وفحوص الجودة والأداء وسلامة الوسائط.
+- `wasl-social-poster-system/`: نظام منشورات مستقل عن Runtime الموقع.
 
-1. `PROJECT_STATUS.md`
-2. `PROJECT_HANDOFF.md`
-3. `AGENTS.md`
-4. `docs/README.md`
+## حالة المستودع
 
-Then follow the canonical core documents linked there.
-
-## Core principle
-
-Build the simplest maintainable static architecture that produces a fast, crawlable, accessible, elegant Wasl Tech site.
-
-Do not patch legacy CSS/JS to create VNext.
-Do not copy competitor branding/layouts.
-Do not discard the approved Wasl identity, IBM Plex typography, UPDATE CARD-derived craft rules, or verified product features.
-
-## Source of truth
-
-Live code/runtime and verified repository data override stale documentation.
-
-Missing business facts are marked:
-- `NOT VERIFIED`
-- `CONTENT REQUIRED`
-
-Never invent facts for presentation.
+`main` هو النسخة الوحيدة المعتمدة. أزيلت وثائق المراحل والملفات القديمة بعد تثبيت النسخة النهائية، وسُجل إغلاق الفروع في [`BRANCH_CLOSURE.md`](BRANCH_CLOSURE.md).

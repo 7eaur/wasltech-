@@ -34,6 +34,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, outputDirectoryName);
 
 const cssSources = [
+  "src/styles/fonts.css",
   "src/styles/tokens.css",
   "src/styles/brand.css",
   "src/styles/typography.css",
@@ -41,23 +42,22 @@ const cssSources = [
   "src/styles/layout.css",
   "src/styles/components.css",
   "src/styles/media.css",
-  "src/styles/home.css",
-  "src/styles/services.css",
-  "src/styles/service-detail.css",
-  "src/styles/portfolio.css",
-  "src/styles/project-detail.css",
-  "src/styles/about-process.css",
-  "src/styles/about-page.css",
-  "src/styles/contact-planner.css",
-  "src/styles/secondary.css",
-  "src/styles/insights-careers.css",
-  "src/styles/hero-home.css",
-  "src/styles/hero-pages.css",
-  "src/styles/hero-responsive.css",
   "src/styles/text-flow.css",
   "src/styles/motion.css"
 ];
 
+const pageCssBundles = Object.freeze({
+  home: ["src/styles/home.css", "src/styles/hero-home.css"],
+  services: ["src/styles/services.css", "src/styles/hero-pages.css", "src/styles/hero-responsive.css"],
+  "service-detail": ["src/styles/service-detail.css", "src/styles/hero-pages.css", "src/styles/hero-responsive.css"],
+  portfolio: ["src/styles/portfolio.css", "src/styles/hero-pages.css", "src/styles/hero-responsive.css"],
+  "project-detail": ["src/styles/project-detail.css", "src/styles/hero-pages.css", "src/styles/hero-responsive.css"],
+  about: ["src/styles/about-page.css", "src/styles/hero-pages.css", "src/styles/hero-responsive.css"],
+  process: ["src/styles/about-process.css", "src/styles/hero-pages.css", "src/styles/hero-responsive.css"],
+  "contact-planner": ["src/styles/contact-planner.css", "src/styles/hero-pages.css", "src/styles/hero-responsive.css"],
+  secondary: ["src/styles/secondary.css", "src/styles/hero-pages.css", "src/styles/hero-responsive.css"],
+  "insights-careers": ["src/styles/insights-careers.css", "src/styles/hero-pages.css", "src/styles/hero-responsive.css"]
+});
 
 
 async function ensureDirectory(filePath) {
@@ -75,18 +75,36 @@ function outputPath(route) {
   return path.join(route.replace(/^\//, ""), "index.html");
 }
 
-async function buildStyles() {
+function minifyCss(blocks) {
+  return blocks.join("\n")
+    .replace(/\/\*[\s\S]*?\*\//g, "")
+    .replace(/\s+/g, " ")
+    .replace(/\s*([{}:;,>])\s*/g, "$1")
+    .trim();
+}
+
+async function buildCssBundle(output, sources) {
   const blocks = [];
-  const sources = isProductionBuild ? cssSources : [...cssSources, "src/styles/showcase.css"];
   for (const source of sources) {
     const content = await readFile(path.join(ROOT, source), "utf8");
-    blocks.push(`/* ${source} */\n${content.trim()}\n`);
+    blocks.push(content.trim());
   }
-  await writeOutput("assets/css/site.css", blocks.join("\n"));
+  await writeOutput(`assets/css/${output}.css`, minifyCss(blocks));
+}
+
+async function buildStyles() {
+  await buildCssBundle("site", cssSources);
+  for (const [name, sources] of Object.entries(pageCssBundles)) {
+    await buildCssBundle(name, sources);
+  }
+  if (!isProductionBuild) await buildCssBundle("showcase", ["src/styles/showcase.css"]);
 }
 
 async function buildAssets() {
   await cp(path.join(ROOT, "assets/brand"), path.join(DIST, "assets/brand"), {
+    recursive: true
+  });
+  await cp(path.join(ROOT, "assets/fonts"), path.join(DIST, "assets/fonts"), {
     recursive: true
   });
   const siteMediaImages = [
@@ -108,7 +126,11 @@ async function buildAssets() {
   ];
   const copiedAssets = new Set();
   for (const asset of responsiveAssets) {
-    for (const candidate of responsiveImageCandidates(asset.src, asset.width)) {
+    const candidates = [
+      ...responsiveImageCandidates(asset.src, asset.width, "webp"),
+      ...responsiveImageCandidates(asset.src, asset.width, "avif")
+    ];
+    for (const candidate of candidates) {
       if (copiedAssets.has(candidate.src)) continue;
       const relative = candidate.src.replace(/^\/+/, "");
       const source = path.join(ROOT, relative);
@@ -123,6 +145,8 @@ async function buildAssets() {
   await writeOutput("assets/js/navigation.js", navigation);
   const motion = await readFile(path.join(ROOT, "src/client/motion.js"), "utf8");
   await writeOutput("assets/js/motion.js", motion);
+  const analytics = await readFile(path.join(ROOT, "src/client/analytics.js"), "utf8");
+  await writeOutput("assets/js/analytics.js", analytics);
   const portfolioFilter = await readFile(path.join(ROOT, "src/client/portfolio-filter.js"), "utf8");
   await writeOutput("assets/js/portfolio-filter.js", portfolioFilter);
   const projectPlanner = await readFile(path.join(ROOT, "src/client/project-planner.js"), "utf8");

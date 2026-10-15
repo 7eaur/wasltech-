@@ -98,6 +98,7 @@ export function portfolioPage(locale="ar") {
     canonicalPath:routes.portfolio(locale),
     alternatePaths:Object.freeze({ar:routes.portfolio("ar"),en:routes.portfolio("en")}),
     ogImage:getPageHeroMedia("portfolio",locale).src,
+    styleBundles:["portfolio"],
     structuredData:[organizationSchema()]
   });
 }

@@ -40,6 +40,7 @@ export function notFoundPage(locale = "ar") {
     canonicalPath: null,
     alternatePaths: {},
     robots: "noindex,follow",
+    styleBundles: ["secondary"],
     minimalShell: true
   });
 }

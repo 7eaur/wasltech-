@@ -76,6 +76,7 @@ export function insightsPage(locale="ar"){
     canonicalPath:routes.insights(locale),
     alternatePaths:Object.freeze({ar:routes.insights("ar"),en:routes.insights("en")}),
     ogImage:getPageHeroMedia("insights",locale).src,
+    styleBundles:["insights-careers"],
     structuredData:[organizationSchema()]
   });
 }

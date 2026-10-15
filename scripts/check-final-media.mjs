@@ -3,7 +3,7 @@ import { createHash } from "node:crypto";
 import path from "node:path";
 
 const issues = [];
-const manifest = JSON.parse(await readFile(new URL("../docs/qa/FINAL_MEDIA_CHECKSUMS.json", import.meta.url), "utf8"));
+const manifest = JSON.parse(await readFile(new URL("./data/final-media-checksums.json", import.meta.url), "utf8"));
 const base = process.cwd();
 const heroMapping = await readFile(path.join(base, "src/config/hero-media.js"), "utf8");
 const articles = await readFile(path.join(base, "src/data/articles.js"), "utf8");

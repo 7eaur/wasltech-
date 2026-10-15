@@ -98,6 +98,7 @@ export function contactPage(locale="ar"){
     canonicalPath:routes.contact(locale),
     alternatePaths:Object.freeze({ar:routes.contact("ar"),en:routes.contact("en")}),
     ogImage:getPageHeroMedia("contact",locale).src,
+    styleBundles:["contact-planner"],
     structuredData:[organizationSchema()]
   });
 }

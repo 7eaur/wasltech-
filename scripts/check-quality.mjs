@@ -15,6 +15,8 @@ const budgets = Object.freeze({
   jsGzipTotal: 8 * 1024,
   htmlGzipPerPage: 16 * 1024,
   runtimeRasterEach: 120 * 1024,
+  avifRasterEach: 80 * 1024,
+  fontEach: 50 * 1024,
   projectImageEach: 60 * 1024,
   projectImagesTotal: 700 * 1024
 });
@@ -75,18 +77,17 @@ function resolveColor(name, variables, seen = new Set()) {
   return ref ? resolveColor(ref, variables, seen) : null;
 }
 
-const css = await readFile(path.join(DIST, "assets/css/site.css"));
-const cssGzip = gzipSize(css);
-if (cssGzip > budgets.cssGzip) {
-  fail("site.css", `gzip budget exceeded: ${cssGzip} > ${budgets.cssGzip}`);
+const cssDirectory = path.join(DIST, "assets/css");
+const cssFiles = (await readdir(cssDirectory)).filter((file) => file.endsWith(".css")).sort();
+const cssGzipByHref = new Map();
+let maxPageCssGzip = 0;
+for (const file of cssFiles) {
+  const bytes = gzipSize(await readFile(path.join(cssDirectory, file)));
+  cssGzipByHref.set(`/assets/css/${file}`, bytes);
+  if (bytes > budgets.cssGzip) fail(file, `single CSS bundle gzip budget exceeded: ${bytes} > ${budgets.cssGzip}`);
 }
 
-const jsFiles = [
-  "assets/js/navigation.js",
-  "assets/js/motion.js",
-  "assets/js/portfolio-filter.js",
-  "assets/js/project-planner.js"
-];
+const jsFiles = ["assets/js/navigation.js", "assets/js/motion.js", "assets/js/analytics.js", "assets/js/portfolio-filter.js", "assets/js/project-planner.js"];
 let jsGzipTotal = 0;
 for (const file of jsFiles) {
   const source = await readFile(path.join(DIST, file));
@@ -107,13 +108,23 @@ for (const file of htmlFiles) {
   if (pageGzip > budgets.htmlGzipPerPage) {
     fail(rel, `HTML gzip budget exceeded: ${pageGzip} > ${budgets.htmlGzipPerPage}`);
   }
+  const stylesheetHrefs = [...source.matchAll(/<link rel="stylesheet" href="([^"]+\.css)">/g)].map((match) => match[1]);
+  if (stylesheetHrefs[0] !== "/assets/css/site.css" || stylesheetHrefs.length !== 2) {
+    fail(rel, `expected shared CSS plus exactly one route bundle; found ${stylesheetHrefs.join(", ") || "none"}`);
+  }
+  const cssGzip = stylesheetHrefs.reduce((total, href) => total + (cssGzipByHref.get(href) ?? 0), 0);
+  maxPageCssGzip = Math.max(maxPageCssGzip, cssGzip);
+  if (cssGzip > budgets.cssGzip) fail(rel, `combined CSS gzip budget exceeded: ${cssGzip} > ${budgets.cssGzip}`);
 
   const isStandalone404 = rel === "404.html" || rel === "en/404.html";
   if (!isStandalone404 && !source.includes('src="/assets/js/motion.js" defer')) {
     fail(rel, "progressive motion client missing");
   }
+  if (!isStandalone404 && !source.includes('src="/assets/js/analytics.js" data-analytics-host="wasl-tech.com" data-measurement-id="G-WVH08BTS6C" defer')) fail(rel, "owned deferred analytics client missing");
+  if ([...source.matchAll(/<script(?![^>]*\bsrc=)(?![^>]*type="application\/ld\+json")[^>]*>/gi)].length) fail(rel, "executable inline script is forbidden; use an owned deferred client");
 
   const images = source.match(/<img\b[^>]*>/gi) ?? [];
+  const avifSources = source.match(/<source\b[^>]*type="image\/avif"[^>]*>/gi) ?? [];
   for (const tag of images) {
     const src = attr(tag, "src") ?? "unknown";
     if (attr(tag, "alt") === null) fail(rel, `image missing alt: ${src}`);
@@ -149,6 +160,27 @@ for (const file of htmlFiles) {
           }
         }
       }
+
+      if (src.endsWith(".webp")) {
+        const intrinsicWidth = Number(attr(tag, "width"));
+        const expectedAvif = responsiveImageCandidates(src, intrinsicWidth, "avif");
+        const avifSource = avifSources.find((candidate) => {
+          const candidateSrcset = attr(candidate, "srcset") ?? "";
+          return expectedAvif.every((image) => candidateSrcset.includes(`${image.src} ${image.width}w`));
+        });
+        if (!avifSource || attr(avifSource, "sizes") !== sizes) {
+          fail(rel, `content image missing matching AVIF picture source: ${src}`);
+        }
+        for (const candidate of expectedAvif) {
+          const candidatePath = path.join(DIST, candidate.src.replace(/^\//, ""));
+          const candidateInfo = await stat(candidatePath);
+          if (candidateInfo.size > budgets.avifRasterEach) {
+            fail(candidate.src, `AVIF raster exceeds ${budgets.avifRasterEach} bytes: ${candidateInfo.size}`);
+          }
+          const signature = (await readFile(candidatePath)).subarray(4, 12).toString("ascii");
+          if (signature !== "ftypavif") fail(candidate.src, "invalid AVIF file signature");
+        }
+      }
     }
   }
 
@@ -173,18 +205,36 @@ for (const file of htmlFiles) {
 
   if (/tabindex="[1-9][0-9]*"/.test(source)) fail(rel, "positive tabindex is forbidden");
 
-  if (!source.includes("fonts.googleapis.com/css2?") || !source.includes("display=swap")) {
-    fail(rel, "font stylesheet must use Google Fonts display=swap");
+  if (source.includes("fonts.googleapis.com") || source.includes("fonts.gstatic.com")) {
+    fail(rel, "external font request is forbidden");
   }
-  if (!source.includes('rel="preconnect" href="https://fonts.gstatic.com" crossorigin')) {
-    fail(rel, "font origin preconnect missing");
+  const expectedFont = source.includes('<html lang="ar"')
+    ? "/assets/fonts/ibm-plex-sans-arabic-400.woff2"
+    : "/assets/fonts/ibm-plex-sans-latin-400-700.woff2";
+  if (!source.includes(`<link rel="preload" href="${expectedFont}" as="font" type="font/woff2" crossorigin>`)) {
+    fail(rel, `localized font preload missing: ${expectedFont}`);
   }
+}
+
+const fontFiles = [
+  "ibm-plex-sans-arabic-400.woff2",
+  "ibm-plex-sans-arabic-500.woff2",
+  "ibm-plex-sans-arabic-600.woff2",
+  "ibm-plex-sans-arabic-700.woff2",
+  "ibm-plex-sans-latin-400-700.woff2"
+];
+for (const file of fontFiles) {
+  const fontPath = path.join(DIST, "assets/fonts", file);
+  const info = await stat(fontPath);
+  if (info.size > budgets.fontEach) fail(`assets/fonts/${file}`, `font exceeds ${budgets.fontEach} bytes`);
+  const signature = (await readFile(fontPath)).subarray(0, 4).toString("ascii");
+  if (signature !== "wOF2") fail(`assets/fonts/${file}`, "invalid WOFF2 file signature");
 }
 
 const worksDirectory = path.join(DIST, "assets/works");
 const workFiles = (await readdir(worksDirectory)).sort();
 const expectedWorkFiles = [...new Set(projects.flatMap((project) =>
-  responsiveImageCandidates(project.image, project.imageDimensions.width)
+  ["webp", "avif"].flatMap((format) => responsiveImageCandidates(project.image, project.imageDimensions.width, format))
     .map((candidate) => path.basename(candidate.src))
 ))].sort();
 
@@ -192,16 +242,19 @@ if (JSON.stringify(workFiles) !== JSON.stringify(expectedWorkFiles)) {
   fail("assets/works", `generated work assets do not match referenced projects (expected ${expectedWorkFiles.length}, found ${workFiles.length})`);
 }
 
-let projectImageBytes = 0;
+const projectImageBytes = { webp: 0, avif: 0 };
 for (const file of workFiles) {
   const info = await stat(path.join(worksDirectory, file));
-  projectImageBytes += info.size;
+  const format = path.extname(file).slice(1);
+  projectImageBytes[format] += info.size;
   if (info.size > budgets.projectImageEach) {
     fail(`assets/works/${file}`, `project image exceeds ${budgets.projectImageEach} bytes`);
   }
 }
-if (projectImageBytes > budgets.projectImagesTotal) {
-  fail("assets/works", `total project-image budget exceeded: ${projectImageBytes} > ${budgets.projectImagesTotal}`);
+for (const [format, bytes] of Object.entries(projectImageBytes)) {
+  if (bytes > budgets.projectImagesTotal) {
+    fail("assets/works", `total ${format} project-image budget exceeded: ${bytes} > ${budgets.projectImagesTotal}`);
+  }
 }
 
 const portfolioCss = await readFile(path.join(ROOT, "src/styles/portfolio.css"), "utf8");
@@ -288,4 +341,4 @@ if (errors.length) {
 }
 
 console.log("VNEXT QUALITY CHECK: PASSED");
-console.log(`CSS gzip: ${cssGzip} bytes | JS gzip: ${jsGzipTotal} bytes | project images: ${projectImageBytes} bytes`);
+console.log(`Max page CSS gzip: ${maxPageCssGzip} bytes | JS gzip: ${jsGzipTotal} bytes | project WebP: ${projectImageBytes.webp} bytes | project AVIF: ${projectImageBytes.avif} bytes`);

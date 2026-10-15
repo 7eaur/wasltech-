@@ -9,12 +9,19 @@ export const IMAGE_SIZES = Object.freeze({
   halfWidth: "(max-width: 48rem) calc(100vw - 2rem), 50vw"
 });
 
-export function imageVariantPath(src, width) {
-  if (!src || !/\.(webp|avif)$/i.test(src)) return null;
-  return src.replace(/\.(webp|avif)$/i, (_, ext) => `-${width}.${ext.toLowerCase()}`);
+export function imageFormatPath(src, format) {
+  if (!src || !/\.(webp|avif)$/i.test(src)) return src;
+  const resolvedFormat=format ?? src.match(/\.(webp|avif)$/i)?.[1]?.toLowerCase();
+  return src.replace(/\.(webp|avif)$/i, `.${resolvedFormat}`);
 }
 
-export function responsiveImageCandidates(src, intrinsicWidth) {
+export function imageVariantPath(src, width, format) {
+  if (!src || !/\.(webp|avif)$/i.test(src)) return null;
+  const resolvedFormat=format ?? src.match(/\.(webp|avif)$/i)?.[1]?.toLowerCase();
+  return src.replace(/\.(webp|avif)$/i, `-${width}.${resolvedFormat}`);
+}
+
+export function responsiveImageCandidates(src, intrinsicWidth, format) {
   const width = Number(intrinsicWidth);
   if (!src || !/\.(webp|avif)$/i.test(src) || !Number.isFinite(width) || width <= 0) {
     return Object.freeze([{ src, width }]);
@@ -23,17 +30,27 @@ export function responsiveImageCandidates(src, intrinsicWidth) {
   const variants = DEFAULT_VARIANT_WIDTHS
     .filter((candidateWidth) => candidateWidth + 160 <= width)
     .map((candidateWidth) => Object.freeze({
-      src: imageVariantPath(src, candidateWidth),
+      src: imageVariantPath(src, candidateWidth, format),
       width: candidateWidth
     }));
 
-  return Object.freeze([...variants, Object.freeze({ src, width })]);
+  return Object.freeze([
+    ...variants,
+    Object.freeze({ src: imageFormatPath(src, format), width })
+  ]);
 }
 
-export function responsiveImageData(src, intrinsicWidth, sizes) {
-  const candidates = responsiveImageCandidates(src, intrinsicWidth);
+export function responsiveImageData(src, intrinsicWidth, sizes, format) {
+  const candidates = responsiveImageCandidates(src, intrinsicWidth, format);
   return Object.freeze({
     srcset: candidates.map((candidate) => `${candidate.src} ${candidate.width}w`).join(", "),
     sizes
+  });
+}
+
+export function responsivePictureData(src, intrinsicWidth, sizes) {
+  return Object.freeze({
+    avif: responsiveImageData(src, intrinsicWidth, sizes, "avif"),
+    fallback: responsiveImageData(src, intrinsicWidth, sizes, "webp")
   });
 }
