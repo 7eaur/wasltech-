@@ -2,10 +2,10 @@
 
 ## 2026-10-15 — Portfolio additions (PR #60)
 
-- Pending review branch: `content/portfolio-himma-update-card-20261015`; current work is adding Himma and Update Card to canonical bilingual projects and Home selected work.
+- **COMPLETE:** PR #60 merged from `content/portfolio-himma-update-card-20261015` to `main` at `70c660a98b1e5c7839071c87ebe62a2b2c4149ab`; both bilingual projects live in Portfolio and Home selected work.
 - Source files: `src/data/projects.js`, `src/pages/home.js`, `src/lib/responsive-image.js`, `assets/works/{himma,update-card}{,-480}.avif`, `scripts/check-home.mjs`, `src/styles/hero-responsive.css`, `.github/workflows/capture-vnext-route-matrix.yml`.
-- Preview/Release static checks passed. Ensure the [visual QA run](https://github.com/7eaur/wasltech-/actions/runs/38783113721) succeeds, verify actual Preview pages at smartphone/desktop sizes, then merge PR #60 if accepted and check the exact main SHA/Production smoke.
-- Do not treat earlier matrix failure for small labels as currently fixed until the subsequent run completes. Preserve existing project data, service presentation, and identity; no DNS changes.
+- Preview/Release checks passed; [visual QA](https://github.com/7eaur/wasltech-/actions/runs/38783439909) PASSED. Production Vercel exact-SHA deployment READY, actual live pages/assets returned HTTP 200.
+- Earlier small-label visual failure is superseded by the passing run. No DNS/brand changes. No outstanding portfolio release blockers; continue separate site work from live main.
 
 ## 2026-10-15 — Resume mobile section craft review
 
