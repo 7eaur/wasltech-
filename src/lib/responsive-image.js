@@ -10,13 +10,13 @@ export const IMAGE_SIZES = Object.freeze({
 });
 
 export function imageVariantPath(src, width) {
-  if (!src?.endsWith(".webp")) return null;
-  return src.replace(/\.webp$/i, `-${width}.webp`);
+  if (!src || !/\.(webp|avif)$/i.test(src)) return null;
+  return src.replace(/\.(webp|avif)$/i, (_, ext) => `-${width}.${ext.toLowerCase()}`);
 }
 
 export function responsiveImageCandidates(src, intrinsicWidth) {
   const width = Number(intrinsicWidth);
-  if (!src?.endsWith(".webp") || !Number.isFinite(width) || width <= 0) {
+  if (!src || !/\.(webp|avif)$/i.test(src) || !Number.isFinite(width) || width <= 0) {
     return Object.freeze([{ src, width }]);
   }
 

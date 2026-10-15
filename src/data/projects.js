@@ -9,6 +9,168 @@ import { CONTENT_STATE, createFieldState, projectFieldKeys } from "./content-con
 
 const projectRecords = [
   {
+    "id": "project-15",
+    "slug": "himma-learning-platform",
+    "category": "app",
+    "image": "/assets/works/himma.avif",
+    "serviceIds": [
+      "web",
+      "app",
+      "programming"
+    ],
+    "localeStatus": {
+      "ar": "ready",
+      "en": "ready"
+    },
+    "content": {
+      "ar": {
+        "title": "منصة هِمّة التعليمية",
+        "categoryLabel": "تطبيقات تعليمية",
+        "summary": "بيئة تعلم تفاعلية لتطوير مهارات القراءة والكتابة، تجمع تقييم مستوى الطالب والأنشطة التعليمية والمتابعة في تجربة واحدة.",
+        "highlights": [
+          "تقييم قبلي لتحديد المستوى",
+          "أنشطة للقراءة والكتابة",
+          "لوحة لإدارة الطلاب ومتابعة التقدم"
+        ],
+        "caseStudy": {
+          "overview": "منصة تعليمية عربية تقدّم للطالب مسارًا منظمًا للتعلم والتدريب على مهارات القراءة والكتابة، مع أدوات للإدارة والمتابعة.",
+          "context": "تختلف احتياجات الطلاب ومستوياتهم؛ لذلك يحتاج المسار التعليمي إلى تقييم أولي وأنشطة واضحة ومتدرجة ووسيلة لمتابعة تقدم كل طالب.",
+          "contribution": "تطوير واجهات تجربة الطالب والتعلم التفاعلي وربطها بلوحة إدارة لمتابعة الطلاب والأنشطة.",
+          "scope": [
+            "التقييم القبلي ومسار الطالب",
+            "أنشطة القراءة والكتابة والتدريبات",
+            "لوحة إدارة الطلاب والمتابعة"
+          ],
+          "deliveredOutputs": [
+            "واجهة تعلم تفاعلية للطالب",
+            "مسار مهارات وأنشطة تعليمية",
+            "لوحة إدارة لمتابعة الطلاب"
+          ]
+        },
+        "seo": {
+          "title": "منصة هِمّة التعليمية | أعمال وصل تك",
+          "description": "منصة تعليمية تفاعلية لتطوير القراءة والكتابة تجمع التقييم القبلي والأنشطة ومسار تعلم الطالب ولوحة المتابعة."
+        }
+      },
+      "en": {
+        "title": "Himma Learning Platform",
+        "categoryLabel": "Educational apps",
+        "summary": "An interactive learning environment for reading and writing skills, bringing together student assessment, learning activities, and progress tracking.",
+        "highlights": [
+          "Initial student-level assessment",
+          "Reading and writing activities",
+          "Student management and progress tracking"
+        ],
+        "caseStudy": {
+          "overview": "An Arabic learning platform with a structured path for students to practice reading and writing skills, supported by management and tracking tools.",
+          "context": "Students have different learning needs and skill levels, calling for initial assessment, guided activities, and a clear way to follow individual progress.",
+          "contribution": "Developed the student learning interface and interactive practice experience alongside an administration interface for following students and activities.",
+          "scope": [
+            "Initial assessment and student journey",
+            "Reading and writing learning activities",
+            "Student management and progress tracking"
+          ],
+          "deliveredOutputs": [
+            "Interactive student learning interface",
+            "Structured skills and activities",
+            "Student administration interface"
+          ]
+        },
+        "seo": {
+          "title": "Himma Learning Platform | Wasl Tech Work",
+          "description": "An interactive reading and writing learning platform with initial assessment, activities, student journeys, and progress tracking."
+        }
+      }
+    },
+    "links": {
+      "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن تطوير منصة تعليمية مشابهة لهِمّة."
+    },
+    "evidenceSources": [
+      "Owner-provided Himma showcase image (2026-10-15)",
+      "main:/assets/works/himma.avif"
+    ]
+  },
+  {
+    "id": "project-16",
+    "slug": "update-card-digital-services",
+    "category": "web",
+    "image": "/assets/works/update-card.avif",
+    "serviceIds": [
+      "web"
+    ],
+    "localeStatus": {
+      "ar": "ready",
+      "en": "ready"
+    },
+    "content": {
+      "ar": {
+        "title": "أبديت كارد للخدمات الرقمية",
+        "categoryLabel": "مواقع",
+        "summary": "موقع لخدمات الشحن والبطاقات والاشتراكات الرقمية في اليمن، يعرض فئات الخدمات بوضوح ويسهّل استكشافها والتواصل بشأنها.",
+        "highlights": [
+          "عرض خدمات الشحن والاشتراكات",
+          "تنظيم الخدمات حسب الفئات",
+          "واجهة متجاوبة للهاتف والكمبيوتر"
+        ],
+        "caseStudy": {
+          "overview": "موقع لخدمات رقمية متنوعة، ينظم عرض البطاقات والاشتراكات وخدمات الشحن ضمن واجهة عربية سهلة التصفح.",
+          "context": "تعدد أنواع الخدمات الرقمية يحتاج إلى تصنيف واضح ومسار يساعد الزائر على معرفة الخدمة المناسبة والوصول للتواصل.",
+          "contribution": "تصميم وتطوير واجهة الموقع وصفحات عرض الخدمات بما يناسب التصفح على الهاتف والكمبيوتر.",
+          "scope": [
+            "تنظيم أقسام وخدمات الشحن الرقمي",
+            "واجهة عرض للخدمات والفئات",
+            "تجربة متجاوبة ومسار تواصل واضح"
+          ],
+          "deliveredOutputs": [
+            "موقع لخدمات الشحن والبطاقات الرقمية",
+            "عرض منظم لفئات الخدمات",
+            "واجهات مناسبة للجوال والكمبيوتر"
+          ]
+        },
+        "seo": {
+          "title": "أبديت كارد للخدمات الرقمية | أعمال وصل تك",
+          "description": "موقع أبديت كارد للشحن الرقمي والبطاقات والاشتراكات الإلكترونية في اليمن، بواجهة عربية متجاوبة وتصنيفات واضحة."
+        }
+      },
+      "en": {
+        "title": "Update Card Digital Services",
+        "categoryLabel": "Websites",
+        "summary": "A website for digital top-ups, cards, and subscriptions in Yemen, with clearly organized service categories and accessible contact paths.",
+        "highlights": [
+          "Top-up and subscription services",
+          "Organized service categories",
+          "Responsive desktop and mobile experience"
+        ],
+        "caseStudy": {
+          "overview": "A digital services website that brings top-up, card, and subscription offerings together in an easy-to-browse Arabic interface.",
+          "context": "A diverse range of digital products requires clear categories and a simple way for visitors to find services and get in touch.",
+          "contribution": "Designed and developed the website interface and service presentation pages for desktop and mobile browsing.",
+          "scope": [
+            "Digital service category structure",
+            "Service browsing and presentation",
+            "Responsive layout and clear contact path"
+          ],
+          "deliveredOutputs": [
+            "Digital top-up and cards website",
+            "Organized service categories",
+            "Mobile and desktop interfaces"
+          ]
+        },
+        "seo": {
+          "title": "Update Card Digital Services | Wasl Tech Work",
+          "description": "The Update Card website for digital top-ups, cards, and subscriptions in Yemen, with responsive layouts and clear service categories."
+        }
+      }
+    },
+    "links": {
+      "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن موقع خدمات رقمية مشابه لأبديت كارد."
+    },
+    "evidenceSources": [
+      "Owner-provided Update Card showcase image (2026-10-15)",
+      "main:/assets/works/update-card.avif"
+    ]
+  },
+  {
     "id": "project-01",
     "legacyId": 1,
     "slug": "suwarikum-platform",
@@ -878,7 +1040,9 @@ const PROJECT_IMAGE_DIMENSIONS = Object.freeze({
   "project-11": Object.freeze({ width: 800, height: 533 }),
   "project-12": Object.freeze({ width: 800, height: 533 }),
   "project-13": Object.freeze({ width: 800, height: 640 }),
-  "project-14": Object.freeze({ width: 800, height: 533 })
+  "project-14": Object.freeze({ width: 800, height: 533 }),
+  "project-15": Object.freeze({ width: 800, height: 600 }),
+  "project-16": Object.freeze({ width: 800, height: 533 })
 });
 
 const PROJECT_PLATFORM_TYPES = Object.freeze({
@@ -895,7 +1059,9 @@ const PROJECT_PLATFORM_TYPES = Object.freeze({
   "project-11": Object.freeze({ ar: "حملة تسويق رقمي", en: "Digital marketing campaign" }),
   "project-12": Object.freeze({ ar: "متجر إلكتروني", en: "E-commerce store" }),
   "project-13": Object.freeze({ ar: "متجر إلكتروني", en: "E-commerce store" }),
-  "project-14": Object.freeze({ ar: "موقع شركة", en: "Company website" })
+  "project-14": Object.freeze({ ar: "موقع شركة", en: "Company website" }),
+  "project-15": Object.freeze({ ar: "منصة تعليمية وتطبيق", en: "Learning platform & app" }),
+  "project-16": Object.freeze({ ar: "موقع خدمات رقمية", en: "Digital services website" })
 });
 
 function phase2bProjectRecord(project) {
@@ -916,7 +1082,7 @@ function phase2bProjectRecord(project) {
       seo: CONTENT_STATE.READY,
       english: CONTENT_STATE.READY
     }),
-    evidenceSources: Object.freeze([
+    evidenceSources: Object.freeze(project.evidenceSources ?? [
       "main:js/portfolio.js",
       `main:${project.image}`
     ])

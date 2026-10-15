@@ -6,6 +6,7 @@ import { routes } from "../src/config/routes.js";
 import { pages } from "../src/data/pages.js";
 import { services } from "../src/data/services.js";
 import { getProjectById } from "../src/data/projects.js";
+import { featuredProjectIds } from "../src/pages/home.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist");
@@ -31,7 +32,8 @@ function outputPath(route) {
 const home = pages.find((page) => page.id === "home");
 if (!home) fail("home", "canonical Home page record missing");
 
-const featuredIds = ["project-02", "project-06", "project-09"];
+const featuredIds = featuredProjectIds;
+if (featuredIds.length !== 3) fail("home", "Home must feature exactly three canonical projects");
 
 for (const locale of ["ar", "en"]) {
   const content = home?.content?.[locale];
