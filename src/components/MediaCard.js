@@ -44,9 +44,7 @@ export function MediaCard({
   const sizes=image.sizes ?? (compact ? IMAGE_SIZES.compactCard : featured ? IMAGE_SIZES.featuredCard : IMAGE_SIZES.card);
   const responsive=responsiveImageData(image.src,width,sizes);
   const imageMarkup=`<img src="${escapeHtml(image.src)}" srcset="${escapeHtml(responsive.srcset)}" sizes="${escapeHtml(responsive.sizes)}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async" width="${width}" height="${height}">`;
-  const media=href
-    ? `<a class="media-card__media" href="${escapeHtml(href)}" aria-label="${escapeHtml(title)}">${imageMarkup}</a>`
-    : `<figure class="media-card__media">${imageMarkup}</figure>`;
+  const media=`<div class="media-card__media">${imageMarkup}</div>`;
   const titleMarkup=href
     ? `<a href="${escapeHtml(href)}">${escapeHtml(title)}</a>`
     : escapeHtml(title);
@@ -58,7 +56,7 @@ export function MediaCard({
         ${kicker ? `<p class="eyebrow">${escapeHtml(kicker)}</p>` : ""}
         <${heading} class="media-card__title">${titleMarkup}</${heading}>
         ${body ? `<p class="media-card__body">${escapeHtml(body)}</p>` : ""}
-        ${actionLabel ? `<a class="text-link media-card__action" href="${escapeHtml(href)}">${escapeHtml(actionLabel)}</a>` : ""}
+        ${actionLabel ? `<span class="text-link media-card__action" aria-hidden="true">${escapeHtml(actionLabel)}</span>` : ""}
       </div>
     </article>
   `;
