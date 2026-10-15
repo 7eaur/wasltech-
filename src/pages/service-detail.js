@@ -310,6 +310,7 @@ export function serviceDetailPage(service, locale="ar") {
     ogTitle:copy.seo.ogTitle,
     ogDescription:copy.seo.ogDescription,
     ogImage:getServiceHeroMedia(service,locale).src,
+    styleBundles:["service-detail"],
     structuredData:[
       serviceSchema({locale,name:copy.title,description:copy.description,path}),
       breadcrumbSchema([

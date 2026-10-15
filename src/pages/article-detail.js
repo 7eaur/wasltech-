@@ -138,6 +138,7 @@ export function articleDetailPage(article,locale="ar"){
     ogDescription:copy.seo.description,
     ogImage:media.src,
     ogType:"article",
+    styleBundles:["insights-careers"],
     structuredData:[
       articleSchema({
         locale,

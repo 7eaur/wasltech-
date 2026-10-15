@@ -3,12 +3,14 @@ name: Verify final media integrity
 on:
   push:
     branches:
+      - main
+      - "perf/**"
       - media/final-site-images-20261007
       - integration/site-stabilization-20261010
     paths:
       - ".github/workflows/verify-final-media-sources.yml"
       - "assets/media/**"
-      - "docs/qa/FINAL_MEDIA_CHECKSUMS.json"
+      - "scripts/data/final-media-checksums.json"
       - "scripts/check-final-media.mjs"
       - "scripts/build.mjs"
       - "src/config/hero-media.js"
@@ -17,7 +19,7 @@ on:
     paths:
       - ".github/workflows/verify-final-media-sources.yml"
       - "assets/media/**"
-      - "docs/qa/FINAL_MEDIA_CHECKSUMS.json"
+      - "scripts/data/final-media-checksums.json"
       - "scripts/check-final-media.mjs"
       - "scripts/build.mjs"
       - "src/config/hero-media.js"

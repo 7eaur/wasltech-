@@ -6,18 +6,15 @@ on:
       - rebuild/vnext-foundation-20260921
       - main
       - "seo/**"
+      - "perf/**"
       - fix/independent-site-recovery-20261010
-    paths-ignore:
-      - "docs/qa/FINAL_AUDIT_CONTINUOUS_LOG.md"
   pull_request:
     paths:
       - "src/**"
       - "scripts/**"
       - "package.json"
-      - "docs/core/**"
-      - "PROJECT_STATUS.md"
-      - "PROJECT_HANDOFF.md"
-      - "AGENTS.md"
+      - "README.md"
+      - "BRANCH_CLOSURE.md"
 
 permissions:
   contents: read

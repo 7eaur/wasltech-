@@ -12,7 +12,7 @@ const projectRecords = [
     "id": "project-15",
     "slug": "himma-learning-platform",
     "category": "app",
-    "image": "/assets/works/himma.avif",
+    "image": "/assets/works/himma.webp",
     "serviceIds": [
       "web",
       "app",
@@ -87,14 +87,14 @@ const projectRecords = [
     },
     "evidenceSources": [
       "Owner-provided Himma showcase image (2026-10-15)",
-      "main:/assets/works/himma.avif"
+      "main:/assets/works/himma.webp"
     ]
   },
   {
     "id": "project-16",
     "slug": "update-card-digital-services",
     "category": "web",
-    "image": "/assets/works/update-card.avif",
+    "image": "/assets/works/update-card.webp",
     "serviceIds": [
       "web"
     ],
@@ -167,7 +167,7 @@ const projectRecords = [
     },
     "evidenceSources": [
       "Owner-provided Update Card showcase image (2026-10-15)",
-      "main:/assets/works/update-card.avif"
+      "main:/assets/works/update-card.webp"
     ]
   },
   {

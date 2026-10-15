@@ -5,6 +5,13 @@
   "trailingSlash": true,
   "routes": [
     {
+      "src": "/assets/fonts/(.*)",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      },
+      "continue": true
+    },
+    {
       "src": "/(.*)",
       "headers": {
         "X-Content-Type-Options": "nosniff",

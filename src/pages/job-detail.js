@@ -82,6 +82,7 @@ export function jobDetailPage(job,locale="ar"){
     ogTitle:copy.seo.title,
     ogDescription:copy.seo.description,
     ogImage:media.src,
+    styleBundles:["insights-careers"],
     structuredData:[
       jobPostingSchema({
         locale,

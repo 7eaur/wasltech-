@@ -35,6 +35,7 @@ export function documentTemplate({
   ogImage = null,
   ogType = "website",
   structuredData = [],
+  styleBundles = [],
   minimalShell = false
 }) {
   if (!title || !description || !body) {
@@ -43,6 +44,9 @@ export function documentTemplate({
 
   const localeConfig = locales[locale];
   if (!localeConfig) throw new Error(`Unsupported document locale: ${locale}`);
+  const preloadedFont = locale === "ar"
+    ? "/assets/fonts/ibm-plex-sans-arabic-400.woff2"
+    : "/assets/fonts/ibm-plex-sans-latin-400-700.woff2";
 
   const seoLinks = buildSeoLinks({ canonicalPath, alternates: alternatePaths });
   const openGraph = buildOpenGraph({
@@ -61,6 +65,12 @@ export function documentTemplate({
   const structuredDataTags = structuredData
     .filter(Boolean)
     .map((item) => `  <script type="application/ld+json">${serializeStructuredData(item)}</script>`)
+    .join("\n");
+  const pageStyleTags = styleBundles
+    .map((bundle) => {
+      if (!/^[a-z0-9-]+$/.test(bundle)) throw new Error(`Invalid style bundle: ${bundle}`);
+      return `  <link rel="stylesheet" href="/assets/css/${bundle}.css">`;
+    })
     .join("\n");
 
   return `<!doctype html>
@@ -87,13 +97,12 @@ ${nameMetaTag("twitter:title", openGraph.title)}
 ${nameMetaTag("twitter:description", openGraph.description)}
 ${nameMetaTag("twitter:image", openGraph.image)}
 ${structuredDataTags}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+  <link rel="preload" href="${preloadedFont}" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="${site.brand.assets.favicon}">
   <link rel="stylesheet" href="/assets/css/site.css">
+${pageStyleTags}
 ${minimalShell ? "" : `  <script src="/assets/js/navigation.js" defer></script>\n  <script src="/assets/js/motion.js" defer></script>`}
-${minimalShell ? "" : `  <script>\n    if (location.hostname === "${escapeHtml(site.analytics.host)}") {\n      window.dataLayer = window.dataLayer || [];\n      window.gtag = function(){ window.dataLayer.push(arguments); };\n      window.gtag("consent", "default", { analytics_storage: "denied", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied" });\n      window.gtag("js", new Date());\n      window.gtag("config", "${escapeHtml(site.analytics.measurementId)}", { allow_google_signals: false, allow_ad_personalization_signals: false });\n      const analyticsScript = document.createElement("script");\n      analyticsScript.async = true;\n      analyticsScript.src = "https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(site.analytics.measurementId)}";\n      document.head.append(analyticsScript);\n    }\n  </script>`}
+${minimalShell ? "" : `  <script src="/assets/js/analytics.js" data-analytics-host="${escapeHtml(site.analytics.host)}" data-measurement-id="${escapeHtml(site.analytics.measurementId)}" defer></script>`}
 </head>
 <body>
   <a class="skip-link" href="#main-content">${copy[locale].skip}</a>
