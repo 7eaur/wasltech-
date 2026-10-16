@@ -58,7 +58,14 @@ for(const route of ["/","/en/"]){
 }
 
 if(site.entity.sameAs.includes(site.contact.social.facebook)){
-  fail("site.entity.sameAs","Facebook share URL must not be used as an entity identity URL; replace it only when a canonical Facebook profile URL is verified");
+  const facebookUrl=new URL(site.contact.social.facebook);
+  const canonicalPagePath=new RegExp("^/[A-Za-z0-9._-]+/?$").test(facebookUrl.pathname);
+  if(!["facebook.com","www.facebook.com"].includes(facebookUrl.hostname)
+    || !canonicalPagePath
+    || facebookUrl.search
+    || facebookUrl.hash){
+    fail("site.entity.sameAs","Facebook identity must be a canonical profile/page URL (no share link or tracking parameters)");
+  }
 }
 
 if(errors.length){
