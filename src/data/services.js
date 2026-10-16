@@ -176,8 +176,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "تصميم وتطوير مواقع إلكترونية",
           "searchIntent": "commercial",
-          "title": "تصميم وتطوير مواقع إلكترونية في اليمن والخليج | وصل تك",
-          "description": "تصميم وتطوير مواقع إلكترونية للمشاريع والأعمال في اليمن والخليج، بواجهة متجاوبة ومحتوى واضح وأداء سريع وتجربة استخدام تساعد الزائر على الوصول والتواصل.",
+          "title": "تصميم مواقع إلكترونية للشركات وتطوير الويب | وصل تك",
+          "description": "تصميم وتطوير مواقع الشركات وصفحات الهبوط ومعارض الأعمال في اليمن والخليج، بتصميم متجاوب وتنظيم المحتوى وتجربة مستخدم واضحة.",
           "ogTitle": "مواقع إلكترونية مبنية حول هدف مشروعك | وصل تك",
           "ogDescription": "من هيكلة المحتوى إلى التصميم والتطوير والإطلاق، نبني موقعًا واضحًا يخدم مشروعك وزواره."
         }
@@ -308,8 +308,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "website design and development",
           "searchIntent": "commercial",
-          "title": "Website Design & Development in Yemen & Gulf | Wasl Tech",
-          "description": "Responsive website design and development for projects across Yemen and the Gulf, with clear content, strong performance, and a practical conversion path.",
+          "title": "Business Website Design & Web Development | Wasl Tech",
+          "description": "Responsive business websites, landing pages and portfolios with organized content, usability and web development for Yemen and the Gulf.",
           "ogTitle": "Websites Built Around Your Business Goal | Wasl Tech",
           "ogDescription": "From content structure to design, development, and launch, we build clear websites that serve both the business and its visitors."
         }
@@ -467,8 +467,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "برمجة وتطوير تطبيقات الجوال",
           "searchIntent": "commercial",
-          "title": "برمجة وتطوير تطبيقات الجوال Android وiOS | وصل تك",
-          "description": "برمجة وتطوير تطبيقات جوال Android وiOS بتجربة استخدام واضحة، مع الحسابات والإشعارات وواجهات API ولوحة الإدارة والتكاملات حسب احتياج المشروع.",
+          "title": "برمجة تطبيقات الجوال Android وiOS | وصل تك",
+          "description": "تصميم وبرمجة تطبيقات أندرويد وآيفون ومتعددة المنصات للحجوزات والخدمات والأعمال مع API والحسابات ولوحات الإدارة حسب المشروع.",
           "ogTitle": "تطبيقات جوال أسهل في الاستخدام | وصل تك",
           "ogDescription": "نحوّل فكرة التطبيق إلى تجربة واضحة تبدأ من المستخدم وتربط الوظائف والتكاملات ضمن مسار واحد."
         }
@@ -614,8 +614,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "mobile app development",
           "searchIntent": "commercial",
-          "title": "Android & iOS Mobile App Development | Wasl Tech",
-          "description": "Mobile app design and development for Android and iOS, with clear user journeys, accounts, notifications, APIs, admin tools, and project-specific integrations.",
+          "title": "Android, iOS & Cross-Platform App Development | Wasl Tech",
+          "description": "Mobile app development for Android, iOS and cross-platform products: booking, business apps, user accounts, API integrations and administration.",
           "ogTitle": "Mobile Apps That Are Easier to Use | Wasl Tech",
           "ogDescription": "We turn app ideas into clear user journeys that connect the right features, data, and integrations."
         }
@@ -769,8 +769,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "تصميم وتطوير متجر إلكتروني",
           "searchIntent": "commercial",
-          "title": "تصميم وتطوير متاجر إلكترونية في اليمن والخليج | وصل تك",
-          "description": "تصميم وتطوير متاجر إلكترونية تنظّم المنتجات والسلة والطلبات والدفع والشحن ضمن تجربة شراء واضحة ولوحة إدارة عملية قابلة للتوسع.",
+          "title": "تصميم متاجر إلكترونية وتطوير متجر احترافي | وصل تك",
+          "description": "إنشاء متجر إلكتروني وتطوير تجربة التسوق مع إدارة المنتجات والسلة والطلبات وتكاملات الدفع والشحن وفق احتياج المتجر في اليمن والخليج.",
           "ogTitle": "متجر إلكتروني يرتب رحلة الشراء | وصل تك",
           "ogDescription": "نبني تجربة من التصفح إلى الطلب مع إدارة المنتجات والمدفوعات والتوصيل حسب آلية متجرك."
         }
@@ -912,8 +912,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "e-commerce design and development",
           "searchIntent": "commercial",
-          "title": "E-commerce Design & Development in Yemen & Gulf | Wasl Tech",
-          "description": "E-commerce design and development that organizes products, cart, orders, payments, delivery, inventory, and administration into a clear buying journey.",
+          "title": "Online Store Design & E-commerce Development | Wasl Tech",
+          "description": "Build an online store with product catalogs, cart, checkout, order management and payment or delivery integrations suited to your business.",
           "ogTitle": "E-commerce Built Around the Buying Journey | Wasl Tech",
           "ogDescription": "We connect product browsing, cart, ordering, payment, and delivery around the way your business operates."
         }
@@ -1071,8 +1071,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "برمجة أنظمة ولوحات تحكم مخصصة",
           "searchIntent": "commercial",
-          "title": "برمجة أنظمة ولوحات تحكم مخصصة | وصل تك",
-          "description": "برمجة أنظمة مخصصة ولوحات تحكم وواجهات API وقواعد بيانات وصلاحيات وأتمتة مبنية حول إجراءات مشروعك وطريقة تشغيله.",
+          "title": "برمجة أنظمة مخصصة ولوحات تحكم للشركات | وصل تك",
+          "description": "تطوير أنظمة إدارة وبرامج أعمال مخصصة ولوحات تحكم، مع قواعد البيانات والصلاحيات وواجهات API وأتمتة الإجراءات حسب سير العمل.",
           "ogTitle": "برمجة مخصصة لطريقة عملك | وصل تك",
           "ogDescription": "عندما لا يكفي الحل الجاهز، نبني نظامًا حول التدفقات والبيانات والصلاحيات التي يحتاجها مشروعك."
         }
@@ -1218,8 +1218,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "custom software development",
           "searchIntent": "commercial",
-          "title": "Custom Software, Systems & Dashboards | Wasl Tech",
-          "description": "Custom software, systems, dashboards, APIs, databases, roles, and automation built around the project workflow and day-to-day operating needs.",
+          "title": "Custom Software, Business Systems & Dashboards | Wasl Tech",
+          "description": "Custom software and business dashboards using databases, user roles, APIs, integrations and workflow automation built around team operations.",
           "ogTitle": "Custom Software Built Around Your Workflow | Wasl Tech",
           "ogDescription": "When ready-made tools are not enough, we build the logic, data, permissions, and integrations your workflow needs."
         }
@@ -1373,8 +1373,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "حلول تقنية وربط وأتمتة الأنظمة",
           "searchIntent": "commercial",
-          "title": "حلول تقنية وربط وأتمتة الأنظمة | وصل تك",
-          "description": "حلول تقنية لربط الأنظمة وأتمتة العمليات وتنظيم البيانات والتكامل بين الخدمات، تبدأ من المشكلة الفعلية وتبني المسار المناسب للمشروع.",
+          "title": "حلول تقنية وربط الأنظمة وأتمتة الأعمال | وصل تك",
+          "description": "حلول تقنية لتكامل الأنظمة وربط الخدمات السحابية وأتمتة العمليات وتحسين البرامج القائمة؛ نبدأ بفهم المشكلة قبل اختيار التقنية.",
           "ogTitle": "حل تقني يبدأ من المشكلة | وصل تك",
           "ogDescription": "نحلل الوضع الحالي ثم نحدد إن كان الأنسب ربطًا أو أتمتة أو تطويرًا أو تحسينًا للنظام الموجود."
         }
@@ -1516,8 +1516,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "technical solutions and system integration",
           "searchIntent": "commercial",
-          "title": "Technical Solutions, Integrations & Automation | Wasl Tech",
-          "description": "Technical solutions for system integrations, workflow automation, data organization, and service connections, shaped around the actual project problem.",
+          "title": "System Integration, Automation & IT Solutions | Wasl Tech",
+          "description": "Technical solutions for system integration, cloud services, workflow automation and improving existing systems based on your business needs.",
           "ogTitle": "Technical Solutions That Start With the Problem | Wasl Tech",
           "ogDescription": "We review the current setup and decide whether integration, automation, improvement, or focused development is the right path."
         }
@@ -1658,8 +1658,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "تصميم بروفايل شركة",
           "searchIntent": "commercial",
-          "title": "تصميم بروفايل وملف تعريفي احترافي | وصل تك",
-          "description": "تصميم بروفايل وملف تعريفي يجمع المحتوى والخدمات والأعمال والهوية في عرض واضح مناسب للمشاركة الرقمية والطباعة.",
+          "title": "تصميم بروفايل شركة وملف تعريفي احترافي | وصل تك",
+          "description": "تصميم بروفايلات الشركات والمؤسسات وملفات الخدمات والعروض التقديمية مع تنظيم النبذة والأعمال والهوية للمشاركة الرقمية والطباعة.",
           "ogTitle": "بروفايل يشرح شركتك بوضوح | وصل تك",
           "ogDescription": "نرتب قصة الشركة ومحتواها وهويتها في بروفايل سهل القراءة وجاهز للاستخدام الرقمي أو المطبوع."
         }
@@ -1788,8 +1788,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "company profile design",
           "searchIntent": "commercial",
-          "title": "Professional Business Profile Design | Wasl Tech",
-          "description": "Professional profile design that brings the story, services, work, and brand identity into a clear presentation for digital sharing and print.",
+          "title": "Company Profile & Corporate Presentation Design | Wasl Tech",
+          "description": "Company profiles, organization profiles and corporate presentations with organized services, work and brand identity for digital and print.",
           "ogTitle": "A Company Profile That Explains the Business Clearly | Wasl Tech",
           "ogDescription": "We organize the company story, content, and identity into a profile that is easy to read and ready for digital or print use."
         }
@@ -1939,8 +1939,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "تصميم هوية بصرية",
           "searchIntent": "commercial",
-          "title": "تصميم هوية بصرية وشعار وعناصر العلامة | وصل تك",
-          "description": "تصميم هوية بصرية تشمل الشعار والألوان والخطوط والقوالب والتطبيقات ضمن نظام متناسق يسهل استخدامه عبر نقاط التواصل المختلفة.",
+          "title": "تصميم هوية بصرية وشعار احترافي للشركات | وصل تك",
+          "description": "تصميم شعار وهوية بصرية متكاملة تتضمن الألوان والخطوط وقوالب التواصل والمطبوعات وتطبيقات الهوية في نظام بصري متناسق.",
           "ogTitle": "هوية بصرية تعمل كنظام واحد | وصل تك",
           "ogDescription": "نبني الشعار والعناصر البصرية والقوالب داخل نظام واضح يساعد علامتك على الظهور بصورة متسقة."
         }
@@ -2078,8 +2078,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "brand identity design",
           "searchIntent": "commercial",
-          "title": "Brand Identity, Logo & Visual System Design | Wasl Tech",
-          "description": "Brand identity design covering logo, color, typography, templates, and applications as one consistent visual system across touchpoints.",
+          "title": "Logo & Brand Identity Design for Businesses | Wasl Tech",
+          "description": "Logo and brand identity design covering color, typography, social media templates, print materials and consistent visual applications.",
           "ogTitle": "Brand Identity Built as a Usable System | Wasl Tech",
           "ogDescription": "We connect logo, visual language, and reusable applications into a brand system that stays consistent across touchpoints."
         }
@@ -2233,8 +2233,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "تسويق رقمي وإدارة محتوى",
           "searchIntent": "commercial",
-          "title": "التسويق الرقمي وإدارة المحتوى والحملات | وصل تك",
-          "description": "تخطيط وكتابة وتصميم وإدارة محتوى وحملات رقمية تساعد مشروعك على الوصول برسالة أوضح، حضور متناسق، وقرارات مبنية على مؤشرات الأداء.",
+          "title": "خدمات التسويق الرقمي وإدارة حسابات التواصل | وصل تك",
+          "description": "التسويق الرقمي وإدارة حسابات التواصل وصناعة المحتوى والحملات الإعلانية بخطة ورسائل تلائم جمهور المشروع ومؤشرات أداء واضحة.",
           "ogTitle": "محتوى وتسويق برسالة أوضح | وصل تك",
           "ogDescription": "نرتب الرسائل والخطة والتصميم والنشر حول ما يحتاج جمهورك أن يفهمه عن مشروعك."
         }
@@ -2376,8 +2376,8 @@ const serviceRecords = [
         "seo": {
           "primaryTopic": "digital marketing and content management",
           "searchIntent": "commercial",
-          "title": "Digital Marketing, Content & Campaigns | Wasl Tech",
-          "description": "Content planning, writing, design, channel management, and digital campaigns built around a clearer message, consistent presence, and measurable signals.",
+          "title": "Digital Marketing, Social Media & Content | Wasl Tech",
+          "description": "Digital marketing services for social media management, content creation, campaigns and marketing plans built around audience needs.",
           "ogTitle": "Content and Marketing With a Clearer Message | Wasl Tech",
           "ogDescription": "We organize messaging, planning, design, and publishing around what your audience needs to understand about the business."
         }
