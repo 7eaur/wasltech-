@@ -27,7 +27,7 @@ function renderBreadcrumb(project,locale) {
 function renderHero(project,locale) {
   const copy=project.content[locale];
   return `
-    <section class="project-detail-hero">
+    <section class="project-detail-hero project-detail-hero--${escapeHtml(project.category)}">
       <div class="container project-detail-hero__grid">
         <div class="project-detail-hero__copy">
           <p class="eyebrow">${escapeHtml(project.platformType[locale])}</p>
