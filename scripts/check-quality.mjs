@@ -9,7 +9,6 @@ import { responsiveImageCandidates } from "../src/lib/responsive-image.js";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist");
 const errors = [];
-
 const budgets = Object.freeze({
   cssGzip: 20 * 1024, // sitewide design ceiling; retain a 16 KiB optimization target
   cssGzipTarget: 16 * 1024,
