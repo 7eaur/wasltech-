@@ -59,7 +59,7 @@ for(const route of ["/","/en/"]){
 
 if(site.entity.sameAs.includes(site.contact.social.facebook)){
   const facebookUrl=new URL(site.contact.social.facebook);
-  const canonicalPagePath=/^\\/[A-Za-z0-9._-]+\\/?$/.test(facebookUrl.pathname);
+  const canonicalPagePath=new RegExp("^/[A-Za-z0-9._-]+/?$").test(facebookUrl.pathname);
   if(!["facebook.com","www.facebook.com"].includes(facebookUrl.hostname)
     || !canonicalPagePath
     || facebookUrl.search
