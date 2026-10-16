@@ -133,6 +133,7 @@ function renderSubservices(service, locale) {
         <div class="service-subservices__grid">
           ${items.map((item,index)=>`
             <article class="service-subservice">
+              <span class="service-subservice__index" aria-hidden="true">${String(index + 1).padStart(2,"0")}</span>
               ${items.length > 3 ? `
                 <details class="service-disclosure service-subservice__details"${index===0 ? " open" : ""}>
                   <summary><h3>${escapeHtml(item.title)}</h3></summary>
