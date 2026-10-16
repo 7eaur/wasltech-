@@ -131,6 +131,10 @@ for (const duplicate of [
 }
 
 const serviceCss=await readFile(path.join(ROOT,"src/styles/service-detail.css"),"utf8");
+const serviceGuidance=await readFile(path.join(ROOT,"src/components/ServiceGuidance.js"),"utf8");
+if(!serviceGuidance.includes('class="container service-guidance__grid"') || serviceGuidance.includes("article-related__grid")) fail("ServiceGuidance.js","service guidance must not depend on unloaded article page styles");
+if(!serviceCss.includes(".service-guidance__grid{display:grid") || !serviceCss.includes(".service-guidance__links a{display:grid")) fail("service-detail.css","service guidance layout and linked article cards need local route styles");
+
 if(!serviceCss.includes(".service-decision-panel{grid-template-columns:1fr}")) fail("service-detail.css","mobile decision summaries must stack for readable reflow");
 
 // Descriptions are real service content and must be visible at narrow widths too.
