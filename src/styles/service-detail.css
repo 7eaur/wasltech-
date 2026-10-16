@@ -18,15 +18,19 @@
 .service-signal h2{margin-bottom:var(--space-2);font-size:clamp(1.08rem,1rem + .2vw,1.25rem)}
 .service-signal p{color:var(--color-text-secondary);font-size:var(--font-size-sm);line-height:1.72}
 
-.service-audience__grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(var(--space-6),4vw,var(--space-12));align-items:start}
-.service-audience h2{max-width:24ch;font-size:var(--font-size-2xl)}
-.service-audience__list{display:flex;flex-wrap:wrap;gap:var(--space-2)}
-.service-audience__list li{padding:.55rem .8rem;background:var(--color-bg-soft);border:var(--border-thin) solid var(--color-border-subtle);border-radius:var(--radius-full);color:var(--color-text-secondary);font-size:var(--font-size-sm);font-weight:var(--font-weight-medium)}
+.service-audience{padding-block:clamp(var(--space-6),3.5vw,var(--space-10))}
+.service-audience__grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(var(--space-5),4vw,var(--space-10));align-items:center}
+.service-audience h2{max-width:27ch;font-size:clamp(1.45rem,1.2rem + .85vw,2rem);line-height:1.4}
+.service-audience__list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3)}
+.service-audience__list li{display:flex;align-items:center;min-width:0;min-height:3rem;gap:var(--space-2);padding:var(--space-3) var(--space-4);background:var(--color-bg-subtle);border:var(--border-thin) solid var(--color-border-default);border-radius:var(--radius-control);color:var(--color-text-primary);font-size:var(--font-size-sm);font-weight:var(--font-weight-medium);line-height:1.55}
+.service-audience__list li::before{content:"";width:.45rem;height:.45rem;flex:0 0 auto;border-radius:var(--radius-full);background:var(--color-brand-accent)}
 
 .service-subservices__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:var(--border-thin) solid var(--color-border-default)}
-.service-subservice{padding:var(--space-6);border-bottom:var(--border-thin) solid var(--color-border-default)}
+.service-subservice{display:grid;grid-template-columns:2.25rem minmax(0,1fr);gap:var(--space-3);align-items:start;min-width:0;padding:var(--space-5);border-bottom:var(--border-thin) solid var(--color-border-default)}
+.service-subservice__index{display:grid;place-items:center;width:2rem;height:2rem;border-radius:var(--radius-sm);background:var(--color-brand-accent-soft);color:var(--color-text-accent);font-size:var(--font-size-xs);font-weight:var(--font-weight-bold)}
+.service-subservice__details{min-width:0}
 .service-subservice:nth-child(odd){border-inline-end:var(--border-thin) solid var(--color-border-default)}
-.service-subservice h3{margin-bottom:var(--space-2);font-size:clamp(1.05rem,.98rem + .22vw,1.25rem)}
+.service-subservice h3{margin-bottom:var(--space-2);font-size:clamp(1.05rem,.98rem + .22vw,1.25rem);line-height:1.4}
 .service-subservice p{max-width:44rem;color:var(--color-text-secondary);font-size:var(--font-size-sm);line-height:1.72}
 
 .service-deliverables__list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
@@ -81,7 +85,9 @@
   .service-decision-panel>div+div{border-inline:0;border-top:1px solid var(--color-border-default)}
   .service-signals__grid,.service-subservices__grid,.service-deliverables__list,.service-proof__grid{grid-template-columns:1fr}
   .service-proof__grid[data-count]{grid-template-columns:1fr;max-width:none}
-  .service-subservice{padding:var(--space-4) 0}
+  .service-audience__list{gap:var(--space-2)}
+  .service-audience__list li{min-height:3.2rem;padding:var(--space-3);font-size:.875rem}
+  .service-subservice{grid-template-columns:2rem minmax(0,1fr);gap:var(--space-3);padding:var(--space-4) 0}
   .service-subservice:nth-child(odd){border-inline-end:0}
   .service-subservice h3{font-size:1rem}
   .service-signal{grid-template-columns:2rem minmax(0,1fr);gap:var(--space-3);padding:var(--space-4) 0}
@@ -97,3 +103,8 @@
 
 
 
+
+@media(max-width:23.75rem){
+  .service-audience__list{grid-template-columns:1fr}
+  .service-audience__list li{min-height:2.75rem}
+}
