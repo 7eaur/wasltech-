@@ -343,9 +343,8 @@ if (errors.length) {
   process.exit(1);
 }
 
-if (cssOverTarget.length) {
-  console.warn(`CSS optimization target ${budgets.cssGzipTarget} bytes exceeded on ${cssOverTarget.length} pages (hard ceiling ${budgets.cssGzip} bytes).`);
-  for (const item of cssOverTarget.slice(0, 15)) console.warn(`- ${item}`);
-}
+if (cssOverTarget.length) console.warn(
+  `CSS target ${budgets.cssGzipTarget} bytes exceeded on ${cssOverTarget.length} pages; ceiling ${budgets.cssGzip} bytes.\n${cssOverTarget.slice(0, 15).join("\n")}`
+);
 console.log("VNEXT QUALITY CHECK: PASSED");
 console.log(`Max page CSS gzip: ${maxPageCssGzip} bytes | JS gzip: ${jsGzipTotal} bytes | project WebP: ${projectImageBytes.webp} bytes | project AVIF: ${projectImageBytes.avif} bytes`);
