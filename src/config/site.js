@@ -2,7 +2,7 @@ import { brand } from "./brand.js";
 import { defaultLocale, locales } from "./locales.js";
 
 const social = Object.freeze({
-  facebook: "https://www.facebook.com/share/1DtjBgZgad/?mibextid=qi2Omg",
+  facebook: "https://www.facebook.com/waslltech",
   x: "https://x.com/50lxt",
   instagram: "https://www.instagram.com/wasltech.yem",
   telegram: "https://t.me/wasltechyem",
@@ -19,6 +19,7 @@ export const site = Object.freeze({
     description: "Wasl Tech (وصل تك) is a digital solutions team serving projects in Yemen and the Gulf through wasl-tech.com, with website, mobile app, e-commerce, custom software, technical solutions, company profile, brand identity, and digital marketing services.",
     disambiguatingDescription: "Wasl Tech (وصل تك) at wasl-tech.com — digital products, systems, brand, and marketing services for projects in Yemen and the Gulf.",
     sameAs: Object.freeze([
+      social.facebook,
       social.x,
       social.instagram,
       social.telegram,
