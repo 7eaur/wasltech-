@@ -186,7 +186,7 @@ function renderProof(service, locale) {
           kicker:locale === "ar" ? "أعمال مرتبطة" : "Related work",
           title:locale === "ar" ? "نماذج من أعمال مرتبطة بالخدمة" : "Related work examples"
         })}
-        <div class="service-proof__grid">
+        <div class="service-proof__grid" data-count="${projects.length}">
           ${projects.map((project)=>MediaCard({
             href:routes.project(project.slug,locale),
             image:{
