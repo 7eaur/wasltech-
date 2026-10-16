@@ -80,6 +80,7 @@
   .service-decision-panel>div{padding:var(--space-4)}
   .service-decision-panel>div+div{border-inline:0;border-top:1px solid var(--color-border-default)}
   .service-signals__grid,.service-subservices__grid,.service-deliverables__list,.service-proof__grid{grid-template-columns:1fr}
+  .service-proof__grid[data-count]{grid-template-columns:1fr;max-width:none}
   .service-subservice{padding:var(--space-4) 0}
   .service-subservice:nth-child(odd){border-inline-end:0}
   .service-subservice h3{font-size:1rem}
