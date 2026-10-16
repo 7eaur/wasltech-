@@ -459,7 +459,7 @@ jobs:
             writeFileSync("/home/runner/work/wasltech-/wasltech-/route-screenshots/lab-diagnostics.json",JSON.stringify({
               test:"local static build, 390px, synthetic 180ms latency + 4x CPU + throughput limits",
               interpretation:"single synthetic trace; NOT CrUX, RUM, field p75 or proof of CWV acceptance",
-              measured:{domReadyMs,maxStartupLongTask,maxInteractionLongTask,maxScrollLongTask,lcpMs:metrics.labVitals?.lcpMs??null,cls:metrics.labVitals?.cls??null}
+              measured:{domReadyMs,maxStartupLongTask,maxInteractionLongTask,maxScrollLongTask,lcpMs:metrics.labVitals?.lcpMs??null,cls:metrics.labVitals?.cls??null,shifts:metrics.labVitals?.shifts??[]}
             },null,2));
             await context.close();
 
