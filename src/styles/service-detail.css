@@ -18,8 +18,8 @@
 .service-signal h2{margin-bottom:var(--space-2);font-size:clamp(1.08rem,1rem + .2vw,1.25rem)}
 .service-signal p{color:var(--color-text-secondary);font-size:var(--font-size-sm);line-height:1.72}
 
-.service-audience__grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(var(--space-8),7vw,var(--space-20));align-items:start}
-.service-audience h2{max-width:16ch;font-size:var(--font-size-2xl)}
+.service-audience__grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(var(--space-6),4vw,var(--space-12));align-items:start}
+.service-audience h2{max-width:24ch;font-size:var(--font-size-2xl)}
 .service-audience__list{display:flex;flex-wrap:wrap;gap:var(--space-2)}
 .service-audience__list li{padding:.55rem .8rem;background:var(--color-bg-soft);border:var(--border-thin) solid var(--color-border-subtle);border-radius:var(--radius-full);color:var(--color-text-secondary);font-size:var(--font-size-sm);font-weight:var(--font-weight-medium)}
 
@@ -47,7 +47,7 @@
 
 .service-process__steps{--process-columns:4}
 
-.service-detail-faq__grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(var(--space-8),7vw,var(--space-20));align-items:start}
+.service-detail-faq__grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(var(--space-6),4vw,var(--space-12));align-items:start}
 .service-detail-faq__grid>div:first-child h2{max-width:15ch;font-size:var(--font-size-2xl)}
 .service-detail-faq__list{border-top:var(--border-thin) solid var(--color-border-default)}
 .service-detail-faq details{border-bottom:var(--border-thin) solid var(--color-border-default)}
@@ -58,7 +58,7 @@
 .service-detail-faq details p{padding-bottom:var(--space-5);color:var(--color-text-secondary)}
 
 .service-constraints{padding-block:var(--section-space-compact);background:var(--color-bg-soft);border-block:var(--border-thin) solid var(--color-border-subtle)}
-.service-constraints__inner{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(var(--space-8),7vw,var(--space-20))}
+.service-constraints__inner{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(var(--space-6),4vw,var(--space-12))}
 .service-constraints h2{max-width:18ch;font-size:var(--font-size-xl)}
 .service-constraints ul{display:grid;gap:var(--space-3)}
 .service-constraints li{position:relative;padding-inline-start:1.1rem;color:var(--color-text-secondary);font-size:var(--font-size-sm)}
