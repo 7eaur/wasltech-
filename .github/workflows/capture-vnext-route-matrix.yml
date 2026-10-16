@@ -373,7 +373,7 @@ jobs:
               Object.defineProperty(navigator, "deviceMemory", { configurable: true, get: () => 2 });
               Object.defineProperty(navigator, "hardwareConcurrency", { configurable: true, get: () => 2 });
               window.__waslLongTasks = [];
-              window.__waslLabVitals = { lcpMs: null, cls: 0 };
+              window.__waslLabVitals = { lcpMs: null, cls: 0, shifts: [] };
               try {
                 new PerformanceObserver((list) => {
                   for(const entry of list.getEntries())window.__waslLabVitals.lcpMs=entry.startTime;
@@ -381,7 +381,16 @@ jobs:
               } catch {}
               try {
                 new PerformanceObserver((list) => {
-                  for(const entry of list.getEntries())if(!entry.hadRecentInput)window.__waslLabVitals.cls+=entry.value;
+                  for (const entry of list.getEntries()) if (!entry.hadRecentInput) {
+                    window.__waslLabVitals.cls += entry.value;
+                    window.__waslLabVitals.shifts.push({
+                      value: Number(entry.value.toFixed(5)),
+                      elements: (entry.sources ?? []).slice(0, 3).map((source) => {
+                        const node = source.node;
+                        return node?.getAttribute?.("class")?.split(" ")[0] || node?.tagName || "unknown";
+                      })
+                    });
+                  }
                 }).observe({type:"layout-shift",buffered:true});
               } catch {}
               try {
