@@ -95,6 +95,7 @@ for (const locale of ["ar","en"]) {
     }
 
     const related = getProjectsByService(service.id);
+    if (related.length && !html.includes(`class="service-proof__grid" data-count="${Math.min(3, related.length)}"`)) fail(file,"related-work grid must reflect actual card count");
     const hasProof = /class="[^"]*\bservice-proof\b[^"]*"/.test(html);
     if (Boolean(related.length) !== hasProof) {
       fail(file,`related proof visibility mismatch for service: ${service.id}`);
