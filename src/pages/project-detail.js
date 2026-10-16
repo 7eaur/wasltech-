@@ -132,7 +132,7 @@ function renderRelated(project,locale) {
           </div>
           <a class="text-link" href="${routes.portfolio(locale)}">${locale === "ar" ? "كل الأعمال" : "All work"}</a>
         </div>
-        <div class="project-related__grid">
+        <div class="project-related__grid" data-count="${related.length}">
           ${related.map((item)=>MediaCard({
             href:routes.project(item.slug,locale),
             image:{
