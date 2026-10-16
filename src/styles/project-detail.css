@@ -1,3 +1,5 @@
+.project-detail-hero--brand .project-detail-hero__media img,
+.project-detail-hero--marketing .project-detail-hero__media img{object-fit:contain;background:var(--color-bg-soft)}
 .project-breadcrumb{padding-top:var(--space-5)}
 .project-breadcrumb ol{display:flex;flex-wrap:wrap;gap:var(--space-2);align-items:center;color:var(--color-text-muted);font-size:var(--font-size-sm)}
 .project-breadcrumb li+li::before{content:"/";margin-inline-end:var(--space-2);color:var(--color-border-strong)}
