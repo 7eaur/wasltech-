@@ -128,8 +128,8 @@ const projectRecords = [
           ]
         },
         "seo": {
-          "title": "أبديت كارد للخدمات الرقمية | أعمال وصل تك",
-          "description": "موقع أبديت كارد للشحن الرقمي والبطاقات والاشتراكات الإلكترونية في اليمن، بواجهة عربية متجاوبة وتصنيفات واضحة."
+          "title": "تصميم وتطوير موقع أبديت كارد للخدمات الرقمية | وصل تك",
+          "description": "دراسة حالة تصميم وتطوير موقع أبديت كارد للخدمات الرقمية في اليمن: تنظيم خدمات الشحن والبطاقات والاشتراكات، وواجهات متجاوبة ومسار تواصل واضح."
         }
       },
       "en": {
@@ -157,8 +157,8 @@ const projectRecords = [
           ]
         },
         "seo": {
-          "title": "Update Card Digital Services | Wasl Tech Work",
-          "description": "The Update Card website for digital top-ups, cards, and subscriptions in Yemen, with responsive layouts and clear service categories."
+          "title": "Update Card Website Design & Development | Wasl Tech",
+          "description": "Case study of the Update Card website design and development in Yemen: organized top-up, card and subscription services, responsive pages and clear contact paths."
         }
       }
     },
