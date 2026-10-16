@@ -66,6 +66,7 @@ function renderHero(service, locale) {
 
 function renderSectionNav(service, locale) {
   const items = [
+    ...(service.content[locale].subservices?.length ? [{ id: "service-subservices", ar: "الخدمات الفرعية", en: "Subservices" }] : []),
     { id: "service-deliverables", ar: "ما نقدمه", en: "Deliverables" },
     ...(getProjectsByService(service.id).length
       ? [{ id: "service-proof", ar: "أعمال مرتبطة", en: "Related work" }]
@@ -124,7 +125,7 @@ function renderSubservices(service, locale) {
   if (!items.length) return "";
 
   return `
-    <section class="section service-subservices">
+    <section class="section service-subservices" id="service-subservices">
       <div class="container">
         ${SectionHeader({
           kicker:locale === "ar" ? "خدمات ضمن هذه الخدمة" : "Services within this area",
@@ -132,7 +133,7 @@ function renderSubservices(service, locale) {
         })}
         <div class="service-subservices__grid">
           ${items.map((item,index)=>`
-            <article class="service-subservice">
+            <article class="service-subservice" id="subservice-${escapeHtml(item.id)}">
               ${items.length > 3 ? `
                 <details class="service-disclosure service-subservice__details"${index===0 ? " open" : ""}>
                   <summary><h3>${escapeHtml(item.title)}</h3></summary>
