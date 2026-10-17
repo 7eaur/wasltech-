@@ -32,19 +32,31 @@ check("/index.html", routes.home("ar"));
 check("/en/index.html", routes.home("en"));
 check("/about.html", routes.about("ar"));
 check("/contact.html", routes.contact("ar"));
+const oldTopLevelPages = [
+  ["/services.html", routes.services("ar")],
+  ["/portfolio.html", routes.portfolio("ar")],
+  ["/process.html", routes.process("ar")],
+  ["/faq.html", routes.faq("ar")],
+  ["/blog.html", routes.insights("ar")]
+];
+for (const [source, destination] of oldTopLevelPages) check(source, destination);
 
 for (const locale of ["ar", "en"]) {
   const source = (locale === "ar" ? "" : "/en") + "/service-web";
-  for (const service of services) {
-    for (const alias of new Set([service.slug, service.id])) {
-      check(source, routes.service(service.slug, locale), alias);
+  for (const aliasSource of [source, source + ".html"]) {
+    for (const service of services) {
+      for (const alias of new Set([service.slug, service.id])) {
+        check(aliasSource, routes.service(service.slug, locale), alias);
+      }
     }
+    const fallbackSource = aliasSource.endsWith(".html")
+      ? aliasSource.replace(".html", "\\.html") : aliasSource + "/?";
+    const fallbacks = config.routes?.filter((rule) =>
+      rule.src === fallbackSource && rule.status === 404 &&
+      rule.dest === (locale === "ar" ? "/404.html" : "/en/404.html")
+    );
+    if (fallbacks?.length !== 1) fail(`unknown service fallback invalid: ${locale}, ${aliasSource}`);
   }
-  const fallback = config.routes?.filter((rule) =>
-    rule.src === source + "/?" && rule.status === 404 &&
-    rule.dest === (locale === "ar" ? "/404.html" : "/en/404.html")
-  );
-  if (fallback?.length !== 1) fail(`unknown service ID must not silently redirect to a different service: ${locale}`);
 }
 if (services.length !== 8) fail("Expected eight services");
 for (const r of redirects) {
@@ -67,4 +79,4 @@ if (errors.length) {
   process.exit(1);
 }
 console.log("LEGACY REDIRECT ROUTES: PASSED");
-console.log(`Checked ${redirects.length} explicit HTML/service 308s and unknown-ID 404 fallbacks against bilingual canonical services.`);
+console.log(`Checked ${redirects.length} canonical old-page/service 308s, two service URI formats and unknown ID 404s.`);
