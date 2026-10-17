@@ -13,6 +13,8 @@ on:
       - "src/**"
       - "scripts/**"
       - "package.json"
+      - "vercel.json"
+      - ".github/workflows/vnext-verify.yml"
       - "README.md"
       - "BRANCH_CLOSURE.md"
 
@@ -42,6 +44,9 @@ jobs:
 
       - name: Verify final media sources
         run: node scripts/check-final-media.mjs
+
+      - name: Detect redirect-manifest drift
+        run: node scripts/sync-legacy-redirects.mjs --check
 
       - name: Check legacy redirect routes
         run: node scripts/check-legacy-redirects.mjs
