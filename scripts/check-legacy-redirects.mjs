@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
-import { legacyPageAliases, legacyServicePathVariants } from "../src/seo/legacy-redirects.js";
+import { legacyStaticPageAliases, legacyCdnPageAliases, legacyServicePathVariants } from "../src/seo/legacy-redirects.js";
 import { resolveHistoricalService } from "../src/seo/resolve-historical-service.js";
 import { services } from "../src/data/services.js";
 import { routes } from "../src/config/routes.js";
@@ -15,11 +15,13 @@ const check=(condition,message)=>{if(!condition)errors.push(message)};
 const canonical=new Set(getIndexableEntries().map(item=>item.path));
 const routeList=vercel.routes??[];
 const fileAt=routeList.findIndex(x=>x.handle==="filesystem");
-const redirectRules=routeList.slice(2,2+legacyPageAliases.length);
+const redirectRules=routeList.slice(2,2+legacyStaticPageAliases.length);
 check(!vercel.redirects?.length,"Spike must avoid mixed 'redirects' and legacy 'routes' definitions");
 check(vercel.trailingSlash===true,"Existing trailing slash canonical policy must not change");
-check(fileAt===13,"Nine static redirect rules and two function rules must precede filesystem");
-for(const {source,destination} of legacyPageAliases){
+check(fileAt===11,"Seven static redirect rules and two function rules must precede filesystem");
+check(legacyCdnPageAliases.length===2,"CDN index aliases must remain separate");
+for(const cdn of legacyCdnPageAliases){check(!routeList.some(r=>r.src===cdn.source.replaceAll(".","\\.")),"CDN and vercel.json must not both own "+cdn.source);}
+for(const {source,destination} of legacyStaticPageAliases){
   const expectedSrc=source.replaceAll(".","\\.");
   const matches=redirectRules.filter(rule=>rule.src===expectedSrc && rule.status===308 && rule.headers?.Location===destination);
   check(matches.length===1,`Missing or duplicate HTML 308 ${source}`);
@@ -64,4 +66,4 @@ if(errors.length){
  errors.forEach(x=>console.error("- "+x));
  process.exit(1);
 }
-console.log(`LEGACY FUNCTION ROUTING SPIKE: PASSED (9 HTML aliases, 2 route matchers, ${services.length} × 2 locales × 2 aliases, unknown-ID 404); live Vercel acceptance still required.`);
+console.log(`LEGACY FUNCTION ROUTING SPIKE: PASSED (7 local + 2 CDN HTML aliases, 2 route matchers, ${services.length} × 2 locales × 2 aliases, unknown-ID 404); live Vercel acceptance still required.`);
