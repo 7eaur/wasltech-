@@ -46,7 +46,7 @@ function renderServiceRow(service, locale) {
       <a class="service-directory-row__media" href="${routes.service(service.slug,locale)}" aria-label="${escapeHtml(copy.title)}">
         <picture>
           <source type="image/avif" srcset="${escapeHtml(responsive.avif.srcset)}" sizes="${escapeHtml(responsive.avif.sizes)}">
-          <img src="${service.image}" srcset="${escapeHtml(responsive.fallback.srcset)}" sizes="${escapeHtml(responsive.fallback.sizes)}" alt="${escapeHtml(copy.title)}" width="1280" height="720" loading="lazy" decoding="async">
+          <img src="${service.image}" srcset="${escapeHtml(responsive.fallback.srcset)}" sizes="${escapeHtml(responsive.fallback.sizes)}" alt="" width="1280" height="720" loading="lazy" decoding="async">
         </picture>
       </a>
       <div class="service-directory-row__copy">
