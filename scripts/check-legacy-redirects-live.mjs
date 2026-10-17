@@ -48,7 +48,9 @@ async function assertResponse(pathname, expectedStatus, expectedDestination = ""
           continue;
         }
         const actual = new URL(location, target);
-        if (actual.origin !== parsed.origin || actual.pathname !== expectedDestination) {
+        // Vercel Preview currently emits an absolute apex host in Location;
+        // the exact destination pathname and authorized origin still must match.
+        if (![parsed.origin, "https://wasl-tech.com"].includes(actual.origin) || actual.pathname !== expectedDestination) {
           errors.push(`${method} ${target.pathname}${target.search}: unsafe/wrong redirect to ${actual.origin}${actual.pathname}`);
         }
       }
