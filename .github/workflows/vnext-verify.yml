@@ -43,6 +43,9 @@ jobs:
       - name: Verify final media sources
         run: node scripts/check-final-media.mjs
 
+      - name: Check legacy redirect routes
+        run: node scripts/check-legacy-redirects.mjs
+
       - name: Upload foundation preview
         uses: actions/upload-artifact@v4
         with:
