@@ -19,7 +19,12 @@ const fail = (x) => errors.push(x);
 const keys = new Set();
 const canonical = new Set(getIndexableEntries().map(({path}) => path));
 
-if (JSON.stringify(vercel.redirects ?? []) !== JSON.stringify(expected)) {
+const normalized = (value) => Array.isArray(value)
+  ? value.map(normalized)
+  : value && typeof value === "object"
+    ? Object.fromEntries(Object.keys(value).sort().map((key) => [key, normalized(value[key])]))
+    : value;
+if (JSON.stringify(normalized(vercel.redirects ?? [])) !== JSON.stringify(normalized(expected))) {
   fail("vercel.json redirects differ from canonical source (run sync-legacy-redirects --write)");
 }
 if (services.length !== 8) fail("Expected exactly eight independently addressable services");
