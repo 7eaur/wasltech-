@@ -16,6 +16,7 @@ const htmlAliases = new Map([
 
 export const config = {
   matcher: [
+    "/:path*", // experiment: does global matching intercept legacy paths?
     "/index.html", "/en/index.html", "/about.html", "/contact.html",
     "/services.html", "/portfolio.html", "/process.html", "/faq.html", "/blog.html",
     "/service-web", "/service-web/", "/service-web.html",
