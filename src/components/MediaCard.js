@@ -40,7 +40,7 @@ export function MediaCard({
   const attrs=renderAttributes(attributes);
   const width=Number(image.width ?? 1280);
   const height=Number(image.height ?? 720);
-  const alt=image.alt ?? title;
+  const alt=image.alt ?? ""; // Adjacent linked heading names the card; image is decorative unless described.
   const sizes=image.sizes ?? (compact ? IMAGE_SIZES.compactCard : featured ? IMAGE_SIZES.featuredCard : IMAGE_SIZES.card);
   const responsive=responsivePictureData(image.src,width,sizes);
   const imageMarkup=`<picture><source type="image/avif" srcset="${escapeHtml(responsive.avif.srcset)}" sizes="${escapeHtml(responsive.avif.sizes)}"><img src="${escapeHtml(image.src)}" srcset="${escapeHtml(responsive.fallback.srcset)}" sizes="${escapeHtml(responsive.fallback.sizes)}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async" width="${width}" height="${height}"></picture>`;
