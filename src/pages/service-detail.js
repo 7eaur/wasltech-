@@ -1,6 +1,6 @@
 import { routes } from "../config/routes.js";
-import { serviceGroups, getServiceById } from "../data/services.js";
-import { getServiceChoice } from "../data/service-choices.js";
+import { serviceGroups } from "../data/services.js";
+import { ServiceChoice } from "../components/ServiceChoice.js";
 import { getProjectsByService } from "../data/projects.js";
 import { CallToAction } from "../components/CallToAction.js";
 import { MediaCard } from "../components/MediaCard.js";
@@ -251,30 +251,6 @@ function renderFaq(service, locale) {
   `;
 }
 
-function renderServiceChoice(service, locale) {
-  const choice = getServiceChoice(service.id, locale);
-  if (!choice) return "";
-  const alternative = getServiceById(choice.alternativeServiceId);
-  if (!alternative) throw new Error(`Missing comparison service: ${choice.alternativeServiceId}`);
-  return `
-    <section class="section article-related service-choice" id="service-choice">
-      <div class="container article-related__grid">
-        <div>
-          <p class="eyebrow">${locale === "ar" ? "اختيار الحل المناسب" : "Choosing the right solution"}</p>
-          <h2>${escapeHtml(choice.heading)}</h2>
-          <p>${escapeHtml(choice.guidance)}</p>
-        </div>
-        <div class="article-related__links">
-          <a href="${routes.service(alternative.slug, locale)}">
-            <strong>${escapeHtml(choice.link)}</strong>
-            <span>${escapeHtml(alternative.content[locale].subtitle)}</span>
-          </a>
-        </div>
-      </div>
-    </section>
-  `;
-}
-
 function renderConstraints(service, locale) {
   const items = service.content[locale].constraints;
   return `
@@ -318,7 +294,7 @@ export function serviceDetailPage(service, locale="ar") {
     renderSignals(service,locale),
     renderAudience(service,locale),
     renderSubservices(service,locale),
-    renderServiceChoice(service,locale),
+    ServiceChoice({service,locale}),
     renderConstraints(service,locale),
     renderProcess(service,locale),
     ServiceGuidance({service,locale}),
