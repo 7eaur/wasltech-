@@ -61,7 +61,7 @@ for (const p of allowed) {
 }
 const ignored = await middleware(new Request(base+"/services/web-development/"));
 expect(ignored === undefined, "Middleware must not touch canonical services or other pages");
-expect(config.matcher.length===allowed.size,"Unexpected extra matcher");
+expect(config.matcher.length===allowed.size+2 && config.matcher.includes("/:path*") && config.matcher.includes("/seo-middleware-probe.html"),"Unexpected global matcher diagnostic configuration");
 if (failures.length) {
   console.error("LEGACY MIDDLEWARE AUDIT: FAILED");
   failures.forEach(x=>console.error("- "+x));
