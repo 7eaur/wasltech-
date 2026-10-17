@@ -134,7 +134,8 @@ function renderServices(content, locale) {
       href:routes.service(service.slug,locale),
       image:{src:service.image,alt:"",width:1280,height:720},
       title:item.title,
-      body:item.subtitle,
+      body:service.id === "programming" ? item.description : item.subtitle,
+      className:service.id === "programming" ? "media-card--spotlight" : "",
       compact:true
     });
   }).join("");
