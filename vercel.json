@@ -868,6 +868,390 @@
           "value": "marketing"
         }
       ]
+    },
+    {
+      "source": "/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "web-development"
+        }
+      ],
+      "destination": "/services/web-development/",
+      "permanent": true
+    },
+    {
+      "source": "/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "web"
+        }
+      ],
+      "destination": "/services/web-development/",
+      "permanent": true
+    },
+    {
+      "source": "/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "mobile-app-development"
+        }
+      ],
+      "destination": "/services/mobile-app-development/",
+      "permanent": true
+    },
+    {
+      "source": "/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "app"
+        }
+      ],
+      "destination": "/services/mobile-app-development/",
+      "permanent": true
+    },
+    {
+      "source": "/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "ecommerce"
+        }
+      ],
+      "destination": "/services/ecommerce/",
+      "permanent": true
+    },
+    {
+      "source": "/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "store"
+        }
+      ],
+      "destination": "/services/ecommerce/",
+      "permanent": true
+    },
+    {
+      "source": "/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "custom-software"
+        }
+      ],
+      "destination": "/services/custom-software/",
+      "permanent": true
+    },
+    {
+      "source": "/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "programming"
+        }
+      ],
+      "destination": "/services/custom-software/",
+      "permanent": true
+    },
+    {
+      "source": "/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "technical-solutions"
+        }
+      ],
+      "destination": "/services/technical-solutions/",
+      "permanent": true
+    },
+    {
+      "source": "/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "tech"
+        }
+      ],
+      "destination": "/services/technical-solutions/",
+      "permanent": true
+    },
+    {
+      "source": "/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "company-profiles"
+        }
+      ],
+      "destination": "/services/company-profiles/",
+      "permanent": true
+    },
+    {
+      "source": "/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "profiles"
+        }
+      ],
+      "destination": "/services/company-profiles/",
+      "permanent": true
+    },
+    {
+      "source": "/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "brand-design"
+        }
+      ],
+      "destination": "/services/brand-design/",
+      "permanent": true
+    },
+    {
+      "source": "/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "design"
+        }
+      ],
+      "destination": "/services/brand-design/",
+      "permanent": true
+    },
+    {
+      "source": "/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "digital-marketing"
+        }
+      ],
+      "destination": "/services/digital-marketing/",
+      "permanent": true
+    },
+    {
+      "source": "/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "marketing"
+        }
+      ],
+      "destination": "/services/digital-marketing/",
+      "permanent": true
+    },
+    {
+      "source": "/en/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "web-development"
+        }
+      ],
+      "destination": "/en/services/web-development/",
+      "permanent": true
+    },
+    {
+      "source": "/en/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "web"
+        }
+      ],
+      "destination": "/en/services/web-development/",
+      "permanent": true
+    },
+    {
+      "source": "/en/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "mobile-app-development"
+        }
+      ],
+      "destination": "/en/services/mobile-app-development/",
+      "permanent": true
+    },
+    {
+      "source": "/en/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "app"
+        }
+      ],
+      "destination": "/en/services/mobile-app-development/",
+      "permanent": true
+    },
+    {
+      "source": "/en/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "ecommerce"
+        }
+      ],
+      "destination": "/en/services/ecommerce/",
+      "permanent": true
+    },
+    {
+      "source": "/en/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "store"
+        }
+      ],
+      "destination": "/en/services/ecommerce/",
+      "permanent": true
+    },
+    {
+      "source": "/en/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "custom-software"
+        }
+      ],
+      "destination": "/en/services/custom-software/",
+      "permanent": true
+    },
+    {
+      "source": "/en/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "programming"
+        }
+      ],
+      "destination": "/en/services/custom-software/",
+      "permanent": true
+    },
+    {
+      "source": "/en/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "technical-solutions"
+        }
+      ],
+      "destination": "/en/services/technical-solutions/",
+      "permanent": true
+    },
+    {
+      "source": "/en/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "tech"
+        }
+      ],
+      "destination": "/en/services/technical-solutions/",
+      "permanent": true
+    },
+    {
+      "source": "/en/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "company-profiles"
+        }
+      ],
+      "destination": "/en/services/company-profiles/",
+      "permanent": true
+    },
+    {
+      "source": "/en/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "profiles"
+        }
+      ],
+      "destination": "/en/services/company-profiles/",
+      "permanent": true
+    },
+    {
+      "source": "/en/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "brand-design"
+        }
+      ],
+      "destination": "/en/services/brand-design/",
+      "permanent": true
+    },
+    {
+      "source": "/en/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "design"
+        }
+      ],
+      "destination": "/en/services/brand-design/",
+      "permanent": true
+    },
+    {
+      "source": "/en/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "digital-marketing"
+        }
+      ],
+      "destination": "/en/services/digital-marketing/",
+      "permanent": true
+    },
+    {
+      "source": "/en/service-web/",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "marketing"
+        }
+      ],
+      "destination": "/en/services/digital-marketing/",
+      "permanent": true
     }
   ]
 }
