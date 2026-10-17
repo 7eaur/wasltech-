@@ -3,8 +3,8 @@
   "purpose": "Project-level CDN routing only; this runs before vercel.json on every deployment",
   "routes": [
     {
-      "id": "canonical-www-to-apex",
-      "name": "Canonical www → apex",
+      "id": "287ef565-ba0f-41ea-a8b9-d055b39cb39e",
+      "name": "Canonical host: www to apex",
       "enabled": true,
       "route": {
         "src": "/(.*)",
@@ -18,7 +18,9 @@
             "value": "www.wasl-tech.com"
           }
         ]
-      }
+      },
+      "description": "Original production www→apex rule preserved as a regex route",
+      "srcSyntax": "regex"
     },
     {
       "id": "legacy-index-root",
