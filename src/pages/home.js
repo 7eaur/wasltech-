@@ -1,7 +1,7 @@
 import { routes } from "../config/routes.js";
 import { pages } from "../data/pages.js";
 import { services } from "../data/services.js";
-import { getProjectById } from "../data/projects.js";
+import { projects, getProjectById } from "../data/projects.js";
 import { faqs } from "../data/faq.js";
 import { ActionLink } from "../components/ActionLink.js";
 import { CallToAction } from "../components/CallToAction.js";
@@ -155,9 +155,10 @@ function renderServices(content, locale) {
 
 function renderProjects(content, locale) {
   const copy = section(content, "work");
-  const projects = featuredProjectIds.map(getProjectById).filter(Boolean);
+  const selected = featuredProjectIds.map(getProjectById).filter(Boolean);
+  const availableCount = projects.filter((item)=>item.localeStatus?.[locale]==="ready").length;
 
-  const cards = projects.map((project) => {
+  const cards = selected.map((project) => {
     const item = project.content[locale];
     const dimensions = project.imageDimensions;
     if (!dimensions) throw new Error(`Featured media dimensions missing: ${project.id}`);
@@ -176,7 +177,10 @@ function renderProjects(content, locale) {
       <div class="container">
         <div class="home-section-heading-row">
           ${SectionHeader({ kicker: copy.kicker, title: copy.title, supporting: copy.support })}
+          <div class="home-work__actions">
+            <span class="home-work__proof">${availableCount} ${locale==="ar"?"نموذج عمل معروض":"portfolio examples available"}</span>
           <a class="text-link" href="${routes.portfolio(locale)}">${locale === "ar" ? "استكشف دراسات الحالة" : "Explore case studies"}</a>
+          </div>
         </div>
         <div class="home-project-grid">${cards}</div>
       </div>
