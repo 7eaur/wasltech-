@@ -1,6 +1,7 @@
 import { routes } from "../config/routes.js";
 import { getServiceById } from "../data/services.js";
 import { CallToAction } from "../components/CallToAction.js";
+import { ArticleProjectExamples } from "../components/ArticleProjectExamples.js";
 import { HeroMedia } from "../components/HeroMedia.js";
 import { getArticleHeroMedia } from "../config/hero-media.js";
 import { documentTemplate } from "../templates/document.js";
@@ -116,6 +117,7 @@ export function articleDetailPage(article,locale="ar"){
     </article>
 
     ${renderRelatedServices(article,locale)}
+    ${ArticleProjectExamples({article,locale})}
 
     ${CallToAction({
       kicker:locale==="ar"?"خطوتك التالية":"Your next step",
