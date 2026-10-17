@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 import { routes } from "../src/config/routes.js";
 import { pages } from "../src/data/pages.js";
+import { services } from "../src/data/services.js";
 
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const DIST=path.join(ROOT,"dist");
@@ -39,6 +40,22 @@ for(const locale of ["ar","en"]){
       if(!html.includes(htmlText(item.title))) fail(file,`section title missing: ${sectionId}`);
     }
 
+    if(config.id==="about"){
+      const story=copy.sections.find(item=>item.id==="story");
+      const values=copy.sections.find(item=>item.id==="principles");
+      const groups=copy.sections.find(item=>item.id==="build")?.groups ?? [];
+      const approach=copy.sections.find(item=>item.id==="approach");
+      if(story?.facts?.length!==3 || !html.includes('class="about-story__facts"')) fail(file,"three factual company indicators required");
+      if(values?.items?.length!==4 || (html.match(/class="about-values__item"/g)??[]).length!==4) fail(file,"four designed values required");
+      if(groups.length!==3 || (html.match(/class="about-build__card"/g)??[]).length!==3) fail(file,"three distinct service families required");
+      const allIds=groups.flatMap(group=>group.serviceIds);
+      if(allIds.length!==services.length || new Set(allIds).size!==services.length || allIds.some(id=>!services.some(s=>s.id===id))) fail(file,"all eight actual services must appear exactly once");
+      for(const service of services) if(!html.includes(`href="${routes.service(service.slug,locale)}"`)) fail(file,`actual service link missing: ${service.id}`);
+      if(approach?.steps?.length!==4 || (html.match(/class="about-approach__index"/g)??[]).length!==4) fail(file,"four short approach stages required");
+      if(!html.includes(`href="${routes.process(locale)}"`)) fail(file,"How We Work link missing");
+      if(!html.includes(`href="${routes.contact(locale)}"`)) fail(file,"secondary contact CTA missing");
+      if(html.includes('class="about-hero__actions"')) fail(file,"inner page hero must not duplicate CTAs");
+    }
     for(const marker of config.forbidden){
       if(html.includes(marker)) fail(file,`cross-page presentation leaked: ${marker}`);
     }
