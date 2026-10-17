@@ -5,6 +5,268 @@
   "trailingSlash": true,
   "routes": [
     {
+      "src": "/index\\.html",
+      "status": 308,
+      "headers": {
+        "Location": "/"
+      }
+    },
+    {
+      "src": "/en/index\\.html",
+      "status": 308,
+      "headers": {
+        "Location": "/en/"
+      }
+    },
+    {
+      "src": "/about\\.html",
+      "status": 308,
+      "headers": {
+        "Location": "/about/"
+      }
+    },
+    {
+      "src": "/contact\\.html",
+      "status": 308,
+      "headers": {
+        "Location": "/contact/"
+      }
+    },
+    {
+      "src": "/service-web/?",
+      "status": 308,
+      "headers": {
+        "Location": "/services/web-development/"
+      },
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(web-development|web)"
+        }
+      ]
+    },
+    {
+      "src": "/service-web/?",
+      "status": 308,
+      "headers": {
+        "Location": "/services/mobile-app-development/"
+      },
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(mobile-app-development|app)"
+        }
+      ]
+    },
+    {
+      "src": "/service-web/?",
+      "status": 308,
+      "headers": {
+        "Location": "/services/ecommerce/"
+      },
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(ecommerce|store)"
+        }
+      ]
+    },
+    {
+      "src": "/service-web/?",
+      "status": 308,
+      "headers": {
+        "Location": "/services/custom-software/"
+      },
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(custom-software|programming)"
+        }
+      ]
+    },
+    {
+      "src": "/service-web/?",
+      "status": 308,
+      "headers": {
+        "Location": "/services/technical-solutions/"
+      },
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(technical-solutions|tech)"
+        }
+      ]
+    },
+    {
+      "src": "/service-web/?",
+      "status": 308,
+      "headers": {
+        "Location": "/services/company-profiles/"
+      },
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(company-profiles|profiles)"
+        }
+      ]
+    },
+    {
+      "src": "/service-web/?",
+      "status": 308,
+      "headers": {
+        "Location": "/services/brand-design/"
+      },
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(brand-design|design)"
+        }
+      ]
+    },
+    {
+      "src": "/service-web/?",
+      "status": 308,
+      "headers": {
+        "Location": "/services/digital-marketing/"
+      },
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(digital-marketing|marketing)"
+        }
+      ]
+    },
+    {
+      "src": "/en/service-web/?",
+      "status": 308,
+      "headers": {
+        "Location": "/en/services/web-development/"
+      },
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(web-development|web)"
+        }
+      ]
+    },
+    {
+      "src": "/en/service-web/?",
+      "status": 308,
+      "headers": {
+        "Location": "/en/services/mobile-app-development/"
+      },
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(mobile-app-development|app)"
+        }
+      ]
+    },
+    {
+      "src": "/en/service-web/?",
+      "status": 308,
+      "headers": {
+        "Location": "/en/services/ecommerce/"
+      },
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(ecommerce|store)"
+        }
+      ]
+    },
+    {
+      "src": "/en/service-web/?",
+      "status": 308,
+      "headers": {
+        "Location": "/en/services/custom-software/"
+      },
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(custom-software|programming)"
+        }
+      ]
+    },
+    {
+      "src": "/en/service-web/?",
+      "status": 308,
+      "headers": {
+        "Location": "/en/services/technical-solutions/"
+      },
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(technical-solutions|tech)"
+        }
+      ]
+    },
+    {
+      "src": "/en/service-web/?",
+      "status": 308,
+      "headers": {
+        "Location": "/en/services/company-profiles/"
+      },
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(company-profiles|profiles)"
+        }
+      ]
+    },
+    {
+      "src": "/en/service-web/?",
+      "status": 308,
+      "headers": {
+        "Location": "/en/services/brand-design/"
+      },
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(brand-design|design)"
+        }
+      ]
+    },
+    {
+      "src": "/en/service-web/?",
+      "status": 308,
+      "headers": {
+        "Location": "/en/services/digital-marketing/"
+      },
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(digital-marketing|marketing)"
+        }
+      ]
+    },
+    {
+      "src": "/service-web/?",
+      "status": 404,
+      "dest": "/404.html"
+    },
+    {
+      "src": "/en/service-web/?",
+      "status": 404,
+      "dest": "/en/404.html"
+    },
+    {
       "src": "/assets/fonts/(.*)",
       "headers": {
         "Cache-Control": "public, max-age=31536000, immutable"
