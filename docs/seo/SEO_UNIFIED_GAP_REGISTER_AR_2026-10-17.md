@@ -12,16 +12,18 @@
 - لا يرفع تغيير title وحده ترتيب Google ولا يحل عدم الفهرسة تلقائيًا.
 - تغيير أولويات/ترتيب التنفيذ يحتاج سببًا موثقًا، ولا يتم الانتقال دون «تم».
 
+> **مرحلة 01 قيد التنفيذ (17 أكتوبر):** دمج PR #66 وPR #65 ونُشرت تحسينات SEO في `main@65647baf`. أُعدت قواعد legacy 308 في PR #67 ونجح فحص GitHub البنيوي على SHA `e74f36...`، لكن Vercel يعيد `402 api-deployments-free-per-day` عند طلب Preview جديد؛ لا إغلاق لـ TECH-01/04 قبل التحقق الحي. [تقرير المرحلة 01](SEO_STAGE_01_REDIRECT_EXECUTION_AR_2026-10-17.md).
+
 ## سجل المشاكل الأساسي
 
 | ID | مرحلة | أولوية | الفجوة | الإثبات عند الاستلام | الحالة | شرط الإغلاق / الحل |
 |---|---|---|---|---|---|---|
 | REL-01 | 00 | P1 | فشل Capture route matrix على PR #65 | Run 38984458056 فشل؛ الإصلاح واختبار Keyboard و88 URL نجح على SHA bebfb9be ضمن run 38988199029 | **مُصلح ومُختبر في PR #65، غير منشور** | ✅ PASS: ترتيب روابط متوافق مع DOM، Keyboard AR/EN، 88 URL، المصفوفة كاملة؛ يُغلق إنتاجيًا بعد الدمج بإذن |
 | REL-02 | 00 | P1 | عدم دمج تحسينات SEO السابقة | PR #65 على SHA bebfb9be، mergeable true؛ جميع CI وPreview READY؛ main عند 371a23a | **جاهز لاعتماد الدمج، لم يُدمج** | موافقة المستخدم «تم» ثم دمج آمن، التأكد من Vercel Production وSEO live؛ لا نعلن النشر مسبقًا |
-| TECH-01 | 01 | P1 | نسخة الصفحة الرئيسية /index.html قابلة للوصول 200 | فحص إنتاج مباشر؛ canonical يشير / | مؤكد، لم يصلح | Permanent redirect إلى / على apex دون حلقات؛ اختبار GET/HEAD |
-| TECH-02 | 01 | P1 | /en/index.html نسخة مكررة 200 | فحص إنتاج مباشر؛ canonical يشير /en/ | مؤكد، لم يصلح | Permanent redirect إلى /en/ مع حفظ اللغة |
-| TECH-03 | 01 | P1 | روابط service-web?id تنتهي إلى دليل الخدمات | GET منتج الخدمة web/app أعاد محتوى /services/ | مؤكد، لم يصلح | خريطة معرفات صحيحة؛ خدمة مقصودة؛ unknown ID آمن؛ إزالة query القديم |
-| TECH-04 | 01 | P1 | www + HTTP + روابط .html قد تتسبب تعدد مسارات | إشارات GSC بالمراجعتين؛ سلسلة Location الكاملة لم تفحص بعد | يلزم توثيق HTTP | فحص Hop-by-hop دائم HTTPS apex؛ عدم تحويل لغة/خدمة خطأ |
+| TECH-01 | 01 | P1 | نسخة الصفحة الرئيسية /index.html قابلة للوصول 200 | فحص إنتاج مباشر؛ canonical يشير / | **إصلاح في فرع PR #67؛ النشر والـHTTP غير مثبت بسبب حصة Vercel** | Permanent redirect إلى / على apex دون حلقات؛ اختبار GET/HEAD |
+| TECH-02 | 01 | P1 | /en/index.html نسخة مكررة 200 | فحص إنتاج مباشر؛ canonical يشير /en/ | **إصلاح في فرع PR #67؛ النشر والـHTTP غير مثبت بسبب حصة Vercel** | Permanent redirect إلى /en/ مع حفظ اللغة |
+| TECH-03 | 01 | P1 | روابط service-web?id تنتهي إلى دليل الخدمات | GET منتج الخدمة web/app أعاد محتوى /services/ | **إصلاح في فرع PR #67؛ النشر والـHTTP غير مثبت بسبب حصة Vercel** | خريطة معرفات صحيحة؛ خدمة مقصودة؛ unknown ID آمن؛ إزالة query القديم |
+| TECH-04 | 01 | P1 | www + HTTP + روابط .html قد تتسبب تعدد مسارات | إشارات GSC بالمراجعتين؛ سلسلة Location الكاملة لم تفحص بعد | **إصلاح في فرع PR #67؛ النشر والـHTTP غير مثبت بسبب حصة Vercel** | فحص Hop-by-hop دائم HTTPS apex؛ عدم تحويل لغة/خدمة خطأ |
 | TECH-05 | 02 | P1 | فحص 88 URL على مستوى redirect/header/canonical/hreflang | 88 On-page HTTP 200، لكن HTTP headers/redirect hops ليست مُثبتة كلها | جزئي | مصفوفة كل مسار وفحص robots/canonical/hreflang reciprocity/alternates |
 | TECH-06 | 02 | P2 | التطابق بين Sitemap والصفحات القابلة للفهرسة | GSC Tracker 88؛ محتويات sitemap تعرض 88 submitted و0 indexed كحقل مجمع لا يساوي inspection | يلزم تحديث حي | تطابق sitemap مع indexable-routes/robots وعدم إدراج noindex |
 | TECH-07 | 02 | P2 | عمق الروابط والصفحات اليتيمة والمحتوى غير المقروء | HTML ثابت وروابط موجودة؛ لا يوجد تدقيق روابط داخلة منفصل لكل URL | لم يثبت | عدد inlinks لكل صفحة وعمق من home ومسارات تنقل صالحة |
