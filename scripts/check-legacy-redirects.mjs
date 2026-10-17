@@ -43,14 +43,15 @@ for (const [source, destination] of oldTopLevelPages) check(source, destination)
 
 for (const locale of ["ar", "en"]) {
   const source = (locale === "ar" ? "" : "/en") + "/service-web";
-  for (const aliasSource of [source, source + ".html"]) {
+  for (const aliasSource of [source, source + "/", source + ".html"]) {
     for (const service of services) {
       for (const alias of new Set([service.slug, service.id])) {
         check(aliasSource, routes.service(service.slug, locale), alias);
       }
     }
     const fallbackSource = aliasSource.endsWith(".html")
-      ? aliasSource.replace(".html", "\\.html") : aliasSource + "/?";
+      ? aliasSource.replace(".html", "\\.html")
+      : (aliasSource.endsWith("/") ? aliasSource.slice(0, -1) : aliasSource) + "/?";
     const fallbacks = config.routes?.filter((rule) =>
       rule.src === fallbackSource && rule.status === 404 &&
       rule.dest === (locale === "ar" ? "/404.html" : "/en/404.html")
