@@ -1,106 +1,80 @@
 /**
- * Read-only HTTP acceptance test for the release-candidate Vercel Preview.
- * Intentionally NOT triggered by CI until the user authorizes preview creation.
- * Example (when permission and an exact current-SHA preview exist):
- *   PREVIEW_BASE_URL=https://<preview-host>.vercel.app node scripts/check-legacy-redirects-live.mjs
- *
- * Never use the live site's custom domain: stage changes are not deployed there.
+ * Acceptance against a PREVIEW built from this exact experimental branch SHA.
+ * Run only after account deployment limits are available and with explicit
+ * permission to create a preview. Read-only HTTP, never runs against production.
  */
-import { readFile } from "node:fs/promises";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { legacyPageAliases, legacyServicePathVariants } from "../src/seo/legacy-redirects.js";
+import { services } from "../src/data/services.js";
+import { routes } from "../src/config/routes.js";
+import { site } from "../src/config/site.js";
 
-const configPath = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../vercel.json");
-const config = JSON.parse(await readFile(configPath,"utf8"));
-const root = process.env.PREVIEW_BASE_URL;
-if (!root) {
-  console.error("PREVIEW_BASE_URL is required. Run only against an authorized preview matching the PR SHA.");
+const raw=process.env.PREVIEW_BASE_URL;
+let preview;
+try { preview=new URL(raw); } catch { console.error("PREVIEW_BASE_URL is required"); process.exit(2); }
+if(preview.protocol!=="https:" || !preview.hostname.endsWith(".vercel.app") ||
+  preview.pathname!=="/" || preview.search || preview.hash){
+  console.error("PREVIEW_BASE_URL must be an exact HTTPS .vercel.app origin");
   process.exit(2);
 }
-let parsed;
-try { parsed = new URL(root); } catch {
-  console.error("Invalid PREVIEW_BASE_URL"); process.exit(2);
-}
-if (parsed.protocol !== "https:" || !parsed.hostname.endsWith(".vercel.app") ||
-  parsed.pathname !== "/" || parsed.search || parsed.hash) {
-  console.error("Only a clean, HTTPS .vercel.app preview origin is accepted.");
-  process.exit(2);
-}
-const errors = [];
-let checks = 0;
-
-async function assertResponse(pathname, expectedStatus, expectedDestination = "") {
-  const target = new URL(pathname, parsed.origin);
-  for (const method of ["GET","HEAD"]) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 10000);
+const errors=[];
+let count=0;
+async function check(pathname,status,expectedPath=null,expectedCleanQuery=false){
+  for(const method of ["GET","HEAD"]){
+    const controller=new AbortController();
+    const timeout=setTimeout(()=>controller.abort(),12000);
+    const url=new URL(pathname,preview.origin);
     try {
-      const response = await fetch(target, { method, redirect:"manual", signal:controller.signal });
-      checks++;
-      if (response.status !== expectedStatus) {
-        errors.push(`${method} ${target.pathname}${target.search} expected ${expectedStatus}, got ${response.status}`);
-        continue;
-      }
-      if (expectedDestination) {
-        const location = response.headers.get("location");
-        if (!location) {
-          errors.push(`${method} ${target.pathname}${target.search}: missing Location`);
-          continue;
+      const res=await fetch(url,{method,redirect:"manual",signal:controller.signal});
+      count++;
+      if(res.status!==status){ errors.push(`${method} ${pathname}: HTTP ${res.status} expected ${status}`);continue; }
+      if(expectedPath){
+        const location=res.headers.get("location");
+        if(!location){errors.push(`${method} ${pathname}: missing Location`);continue;}
+        const dest=new URL(location,url);
+        if(![preview.origin,site.origin].includes(dest.origin) || dest.pathname!==expectedPath){
+          errors.push(`${method} ${pathname}: incorrect destination ${dest.href}`);
         }
-        const actual = new URL(location, target);
-        // Vercel Preview currently emits an absolute apex host in Location;
-        // the exact destination pathname and authorized origin still must match.
-        if (![parsed.origin, "https://wasl-tech.com"].includes(actual.origin) || actual.pathname !== expectedDestination) {
-          errors.push(`${method} ${target.pathname}${target.search}: unsafe/wrong redirect to ${actual.origin}${actual.pathname}`);
-        }
+        if(expectedCleanQuery && dest.search){errors.push(`${method} ${pathname}: old query leaked into Location ${dest.search}`);}
       }
-    } catch (err) { errors.push(`${method} ${target}: ${err.message}`); }
-    finally { clearTimeout(timeout); }
+      if(status===404 && res.headers.get("location")) errors.push(`${method} ${pathname}: unknown ID must not redirect`);
+    }catch(error){errors.push(`${method} ${pathname}: ${error.message}`);}
+    finally{clearTimeout(timeout);}
   }
 }
-
-// Verify every canonical destination actually responds with the correct
-// self-canonical, not just that the first redirect points somewhere plausible.
-async function checkDestinations() {
-  const destinations = new Set((config.redirects ?? []).map((rule) => rule.destination));
-  for (const pathname of destinations) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 10000);
-    try {
-      const response = await fetch(new URL(pathname,parsed.origin),{
-        method:"GET",redirect:"manual",signal:controller.signal
-      });
-      checks++;
-      if (response.status !== 200) {
-        errors.push(`Destination ${pathname}: expected 200, got ${response.status}`);
-        continue;
+for(const alias of legacyPageAliases){await check(alias.source,308,alias.destination);}
+for(const locale of ["ar","en"]){
+  const prefix=locale==="ar"?"":"/en";
+  for(const suffix of legacyServicePathVariants){
+    for(const service of services){
+      for(const id of new Set([service.slug,service.id])){
+        await check(`${prefix}${suffix}?id=${encodeURIComponent(id)}`,308,routes.service(service.slug,locale),true);
       }
-      const html = await response.text();
-      const canonical = "https://wasl-tech.com" + pathname;
-      if (!html.includes('rel="canonical" href="' + canonical + '"')) {
-        errors.push(`Destination ${pathname}: missing expected canonical ${canonical}`);
-      }
-    } catch (err) { errors.push(`Destination ${pathname}: ${err.message}`); }
-    finally { clearTimeout(timeout); }
-  }
-}
-
-for (const rule of config.redirects ?? []) {
-  const id = rule.has?.find((condition) => condition.type === "query" && condition.key === "id")?.value;
-  const source = rule.source + (id ? "?id=" + encodeURIComponent(id) : "");
-  await assertResponse(source, 308, rule.destination);
-}
-for (const prefix of ["","/en"]) {
-  for (const source of ["/service-web","/service-web/","/service-web.html"]) {
-    for (const query of ["","?id=missing-service"]) {
-      await assertResponse(prefix + source + query, 404);
+    }
+    for(const query of ["","?id=does-not-exist","?id=web&id=app"]){
+      await check(prefix+suffix+query,404);
     }
   }
 }
-await checkDestinations();
-if (errors.length) {
-  console.error("LIVE LEGACY REDIRECT ACCEPTANCE: FAILED");
-  for (const error of errors) console.error("- " + error);
+for(const destination of new Set([
+  ...legacyPageAliases.map(alias=>alias.destination),
+  ...["ar","en"].flatMap(locale=>services.map(service=>routes.service(service.slug,locale)))
+])){
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),12000);
+  try {
+    const r=await fetch(new URL(destination,preview.origin),{redirect:"manual",signal:controller.signal});
+    count++;
+    if(r.status!==200){errors.push(destination+": target must respond 200 but got "+r.status);continue;}
+    const html=await r.text();
+    if(!html.includes('rel="canonical" href="'+site.origin+destination+'"')){
+      errors.push(destination+": destination must have its correct canonical");
+    }
+  }catch(e){errors.push(destination+": "+e.message);}
+  finally{clearTimeout(timeout);}
+}
+if(errors.length){
+  console.error("LIVE STAGE 01 EXPERIMENT ACCEPTANCE: FAILED");
+  errors.forEach(e=>console.error("- "+e));
   process.exit(1);
 }
-console.log(`LIVE LEGACY REDIRECT ACCEPTANCE: PASSED (${checks} GET/HEAD checks on ${parsed.hostname})`);
+console.log(`LIVE STAGE 01 EXPERIMENT ACCEPTANCE: PASSED (${count} checks, 9 HTML redirects and bilingual service aliases)`);
