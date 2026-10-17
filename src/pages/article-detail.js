@@ -14,13 +14,25 @@ function formatDate(date,locale){
   }).format(new Date(`${date}T00:00:00Z`));
 }
 
-function renderBody(copy){
-  return copy.sections.map((section)=>`
+function renderArticlePrompt(locale){
+  const ar=locale==="ar";
+  return `<aside class="article-inline-action" aria-label="${ar?"الخطوة العملية التالية":"Next practical step"}">
+    <p class="eyebrow">${ar?"هل تنطبق الفكرة على مشروعك؟":"Is this relevant to your project?"}</p>
+    <h3>${ar?"حوّل ما قرأته إلى متطلبات واضحة":"Turn the ideas into a practical brief"}</h3>
+    <p>${ar?"صف لنا احتياجك عبر نموذج المشروع، وسنساعدك على تحديد الخطوة المناسبة.":"Describe what you need using our project brief and start the conversation."}</p>
+    <a class="text-link" href="${routes.startProject(locale)}">${ar?"جهّز متطلبات مشروعك":"Prepare your project brief"}</a>
+  </aside>`;
+}
+
+function renderBody(copy,locale){
+  const midpoint=Math.floor(Math.max(0,copy.sections.length-1)/2);
+  return copy.sections.map((section,index)=>`
     <section class="article-body__section">
       <h2>${escapeHtml(section.heading)}</h2>
       ${(section.paragraphs??[]).map((item)=>`<p>${escapeHtml(item)}</p>`).join("")}
       ${section.bullets?.length ? `<ul>${section.bullets.map((item)=>`<li>${escapeHtml(item)}</li>`).join("")}</ul>` : ""}
     </section>
+    ${index===midpoint ? renderArticlePrompt(locale) : ""}
   `).join("");
 }
 
@@ -109,7 +121,7 @@ export function articleDetailPage(article,locale="ar"){
             <p>${escapeHtml(copy.intro)}</p>
           </div>
           <div class="article-body">
-            ${renderBody(copy)}
+            ${renderBody(copy,locale)}
           </div>
         </div>
       </section>
