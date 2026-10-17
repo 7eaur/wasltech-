@@ -44,15 +44,41 @@ async function assertResponse(pathname, expectedStatus, expectedDestination = ""
       if (expectedDestination) {
         const location = response.headers.get("location");
         if (!location) {
-          errors.push(`${method} ${target.pathname}${target.search}: no Location`);
+          errors.push(`${method} ${target.pathname}${target.search}: missing Location`);
           continue;
         }
-        const actualPath = new URL(location, target).pathname;
-        if (actualPath !== expectedDestination) {
-          errors.push(`${method} ${target.pathname}${target.search}: wrong Location path ${actualPath} instead of ${expectedDestination}`);
+        const actual = new URL(location, target);
+        if (actual.origin !== parsed.origin || actual.pathname !== expectedDestination) {
+          errors.push(`${method} ${target.pathname}${target.search}: unsafe/wrong redirect to ${actual.origin}${actual.pathname}`);
         }
       }
     } catch (err) { errors.push(`${method} ${target}: ${err.message}`); }
+    finally { clearTimeout(timeout); }
+  }
+}
+
+// Verify every canonical destination actually responds with the correct
+// self-canonical, not just that the first redirect points somewhere plausible.
+async function checkDestinations() {
+  const destinations = new Set((config.redirects ?? []).map((rule) => rule.destination));
+  for (const pathname of destinations) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000);
+    try {
+      const response = await fetch(new URL(pathname,parsed.origin),{
+        method:"GET",redirect:"manual",signal:controller.signal
+      });
+      checks++;
+      if (response.status !== 200) {
+        errors.push(`Destination ${pathname}: expected 200, got ${response.status}`);
+        continue;
+      }
+      const html = await response.text();
+      const canonical = "https://wasl-tech.com" + pathname;
+      if (!html.includes('rel="canonical" href="' + canonical + '"')) {
+        errors.push(`Destination ${pathname}: missing expected canonical ${canonical}`);
+      }
+    } catch (err) { errors.push(`Destination ${pathname}: ${err.message}`); }
     finally { clearTimeout(timeout); }
   }
 }
@@ -69,6 +95,7 @@ for (const prefix of ["","/en"]) {
     }
   }
 }
+await checkDestinations();
 if (errors.length) {
   console.error("LIVE LEGACY REDIRECT ACCEPTANCE: FAILED");
   for (const error of errors) console.error("- " + error);
