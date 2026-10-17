@@ -37,6 +37,12 @@ node scripts/check-final-media.mjs
 
 ## متابعة SEO وظهور الموقع في البحث والذكاء الاصطناعي
 
+**المرجع التنفيذي الأحدث (خطة موحدة تجمع المراجعة المستقلة وجميع مشاكل SEO السابقة):**
+
+- [الخطة التنفيذية الشاملة المرحلية — SEO/AEO/GEO](docs/seo/SEO_AEO_MASTER_EXECUTION_ROADMAP_AR_2026-10-17.md).
+- [سجل الفجوات الموحد ومراحلها وشروط الإغلاق](docs/seo/SEO_UNIFIED_GAP_REGISTER_AR_2026-10-17.md).
+- [المراجعة المستقلة لـSEO وAEO](docs/seo/INDEPENDENT_SEO_AEO_REVIEW_AR_2026-10-17.md).
+
 ملفات الاستلام والتدقيق الخاصة بالتحسين المستمر (لقطة 17 أكتوبر 2026؛ تُراجع مقابل النتائج الحية):
 
 - [ملف التسليم والحالة الفنية وبيانات GSC](docs/seo/SEO_AI_SEARCH_HANDOFF_AR.md).
