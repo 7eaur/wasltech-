@@ -22,6 +22,63 @@
       "continue": true
     },
     {
+      "src": "/about\\.html",
+      "headers": {
+        "Location": "/about/"
+      },
+      "status": 308
+    },
+    {
+      "src": "/contact\\.html",
+      "headers": {
+        "Location": "/contact/"
+      },
+      "status": 308
+    },
+    {
+      "src": "/services\\.html",
+      "headers": {
+        "Location": "/services/"
+      },
+      "status": 308
+    },
+    {
+      "src": "/portfolio\\.html",
+      "headers": {
+        "Location": "/portfolio/"
+      },
+      "status": 308
+    },
+    {
+      "src": "/process\\.html",
+      "headers": {
+        "Location": "/process/"
+      },
+      "status": 308
+    },
+    {
+      "src": "/faq\\.html",
+      "headers": {
+        "Location": "/faq/"
+      },
+      "status": 308
+    },
+    {
+      "src": "/blog\\.html",
+      "headers": {
+        "Location": "/insights/"
+      },
+      "status": 308
+    },
+    {
+      "src": "/en/service-web(?:\\.html|/)?",
+      "dest": "/api/legacy-service?language=en"
+    },
+    {
+      "src": "/service-web(?:\\.html|/)?",
+      "dest": "/api/legacy-service?language=ar"
+    },
+    {
       "handle": "filesystem"
     },
     {

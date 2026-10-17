@@ -129,7 +129,17 @@ if(vercel.buildCommand!=="npm run vnext:build:release"||vercel.outputDirectory!=
 // Vercel legacy routes API controls routing for the bilingual custom 404s.
 // Its first continuing route must own headers. Top-level headers did not reach
 // Preview HTTP responses alongside this explicit routes configuration.
-const [fontCacheRoute,headerRoute,filesystemRoute,...fallbackRoutes]=vercel.routes??[];
+const [fontCacheRoute,headerRoute,...remainingRoutes]=vercel.routes??[];
+const filesystemIndex=remainingRoutes.findIndex((route)=>route.handle==="filesystem");
+const legacyRedirectRoutes=filesystemIndex<0 ? [] : remainingRoutes.slice(0,filesystemIndex);
+const filesystemRoute=remainingRoutes[filesystemIndex];
+const fallbackRoutes=filesystemIndex<0 ? [] : remainingRoutes.slice(filesystemIndex+1);
+if (legacyRedirectRoutes.some((route)=>
+  (![308,404].includes(route.status) && !route.dest?.startsWith('/api/legacy-service?language=')) ||
+  !route.src ||
+  (route.status===308 && !route.headers?.Location) ||
+  (route.status===404 && !route.dest)
+)) fail("vercel.json","legacy redirects must be safe 308 destinations or explicit 404s before filesystem");
 if(fontCacheRoute?.src!=="/assets/fonts/(.*)" || fontCacheRoute?.continue!==true
   || fontCacheRoute?.headers?.["Cache-Control"]!=="public, max-age=31536000, immutable"){
   fail("vercel.json","versioned local fonts must keep a long-lived immutable browser cache");

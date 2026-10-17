@@ -1,0 +1,50 @@
+{
+  "projectId": "prj_tp7lDumOID2XusRHkPvYayybihVe",
+  "purpose": "Project-level CDN routing only; this runs before vercel.json on every deployment",
+  "routes": [
+    {
+      "id": "287ef565-ba0f-41ea-a8b9-d055b39cb39e",
+      "name": "Canonical host: www to apex",
+      "enabled": true,
+      "route": {
+        "src": "/(.*)",
+        "status": 308,
+        "headers": {
+          "Location": "https://wasl-tech.com/$1"
+        },
+        "has": [
+          {
+            "type": "host",
+            "value": "www.wasl-tech.com"
+          }
+        ]
+      },
+      "description": "Original production www→apex rule preserved as a regex route",
+      "srcSyntax": "regex"
+    },
+    {
+      "id": "legacy-index-root",
+      "name": "Legacy root index.html",
+      "enabled": true,
+      "route": {
+        "src": "/index.html",
+        "status": 308,
+        "headers": {
+          "Location": "https://wasl-tech.com/"
+        }
+      }
+    },
+    {
+      "id": "legacy-index-en",
+      "name": "Legacy English index.html",
+      "enabled": true,
+      "route": {
+        "src": "/en/index.html",
+        "status": 308,
+        "headers": {
+          "Location": "https://wasl-tech.com/en/"
+        }
+      }
+    }
+  ]
+}

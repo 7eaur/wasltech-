@@ -161,9 +161,14 @@ const routeList=routing.routes??[];
 // must remain terminal and localized after the filesystem handler.
 if(routeList[0]?.src!=="/assets/fonts/(.*)" || routeList[0]?.continue!==true || !routeList[0]?.headers?.["Cache-Control"]) fail("vercel.json","the first rule must cache local fonts and continue");
 if(routeList[1]?.src!=="/(.*)" || routeList[1]?.continue!==true || !routeList[1]?.headers) fail("vercel.json","the security-header rule must continue to filesystem");
-if(routeList[2]?.handle!=="filesystem") fail("vercel.json","static routes must resolve before 404 catchalls");
-if(routeList[3]?.src!=="/en(?:/.*)?" || routeList[3]?.status!==404 || routeList[3]?.dest!=="/en/404.html" || routeList[3]?.continue) fail("vercel.json","English 404 must be a terminal server-side 404");
-if(routeList[4]?.src!=="/.*" || routeList[4]?.status!==404 || routeList[4]?.dest!=="/404.html" || routeList[4]?.continue) fail("vercel.json","Arabic/default 404 must be a terminal server-side 404");
+const filesystemAt=routeList.findIndex((rule)=>rule.handle==="filesystem");
+if(filesystemAt<2) fail("vercel.json","static routes must resolve before 404 catchalls");
+if(filesystemAt<0 || routeList.slice(2,filesystemAt).some((rule)=>(![308,404].includes(rule.status) && !rule.dest?.startsWith('/api/legacy-service?language=')))){
+  fail("vercel.json","only validated legacy redirects/404s may precede the filesystem");
+}
+const terminal=filesystemAt<0 ? [] : routeList.slice(filesystemAt+1);
+if(terminal.length!==2 || terminal[0]?.src!=="/en(?:/.*)?" || terminal[0]?.status!==404 || terminal[0]?.dest!=="/en/404.html" || terminal[0]?.continue) fail("vercel.json","English 404 must be a terminal server-side 404");
+if(terminal.length!==2 || terminal[1]?.src!=="/.*" || terminal[1]?.status!==404 || terminal[1]?.dest!=="/404.html" || terminal[1]?.continue) fail("vercel.json","Arabic/default 404 must be a terminal server-side 404");
 
 
 const articleCss=await readFile(path.join(ROOT,"src/styles/insights-careers.css"),"utf8");
