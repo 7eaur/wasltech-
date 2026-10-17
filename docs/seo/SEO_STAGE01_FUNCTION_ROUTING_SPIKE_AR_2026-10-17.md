@@ -40,3 +40,27 @@
 3. شغّل `PREVIEW_BASE_URL=https://<preview>.vercel.app node scripts/check-legacy-redirects-live.mjs` من بيئة موثوقة بدون نشر أي أسرار.
 4. اختبر بشكل خاص `/index.html` و`/en/index.html` و`/en/service-web.html?id=store` و`/service-web?id=web-development` وunknown ID، ثم كل المصفوفة.
 5. إذا نجح، انقل التصميم المعماري **المثبت** إلى فرع PR #67، أعد CI/Preview، ثم يقرر المستخدم الدمج الرسمي.
+
+## نتيجة التحقق الحي بعد عودة حصة Vercel — 17 أكتوبر 2026 مساءً
+
+**معاينة PR #77:** `dpl_9MqJMiYr4xmoChhhfmBja2JGMWze`، `https://wasltech-qjzb20fn6-wasl15.vercel.app`، نفس SHA `b2a17a9...`، حالة READY.
+
+| الطلب | النتيجة المرصودة من أداة Vercel | قبول؟ |
+|---|---|---|
+| `/api/legacy-service?language=ar&id=unknown` | 404 من وظيفة التحويل | ✅ اختبار رفض ID مجهول مباشر |
+| `/api/legacy-service?language=ar&id=app` | ينتج صفحة التطبيق الصحيحة بعد متابعة التوجيه | ✅ دليل صحة resolver الوظيفي؛ فحص first-hop مطلوب |
+| `/service-web?id=web-development` | 308 إلى `https://wasl-tech.com/services/?id=web-development` | ❌ وجهة خطأ/تسريب query |
+| `/service-web?id=unknown` | 308 إلى دليل الخدمات بدل 404 | ❌ |
+| `/en/service-web.html?id=store` | 308 إلى `/services/ecommerce/?id=store` بدون `en/` | ❌ |
+| `/index.html` و`/en/index.html` | HTTP 200 بدل 308، مع self-canonical للصفحة الصحيحة | ⚠️ نسخ مكررة |
+| `/about.html` | 308 إلى `/about/` | ✅ |
+
+### ما كشفته التجارب المستقلة
+
+- مع معاينة `seo/stage01-edge-diagnostic-20261017` جرى إدراج مساري تشخيص قبل `handle:filesystem`، مع محاولات تعديل أولوية قواعد الخدمة؛ لم تتغير مخرجات الروابط التاريخية.
+- وفي `seo/stage01-routing-diagnostic-v2-20261017`، أُزيل تركيب regex المعقد واستُخدمت قواعد literal لمسارات الخدمة، وأُضيفت وجهة HTML اختبارية ووظيفة اختبارية مستقلة. جرى الوصول إلى `/about/` و`/en/services/ecommerce/` من المسارات الاختبارية، **لكن الروابط التاريخية بقيت خاطئة**.
+- الاستنتاج المثبت: **دالة resolver قابلة للاستدعاء، ومجرد تبسيط مسارات `routes`/تغيير ترتيبها لم يحل توجيه الروابط التاريخية**. سبب الاعتراض على هذه المسارات يحتاج تحليلًا إضافيًا لمخرجات Vercel Routing/Build Output (أو قاعدة تطبيق معاد توليدها) قبل النشر.
+- أدوات جلب المعاينات قد تتبع التحويلات، لذلك **يجب الاعتماد على اختبارات first-hop GET/HEAD وLocation بدون متابعة عبر سطر أوامر بيئة CI مسموح بها** حتى لا تختلط الحالة الأولى بالصفحة النهائية.
+
+**قرار صارم بعد عودة الحصة:** PR #77 وPR #67 **فاشلان في قبول HTTP وممنوعان من الدمج أو النشر** حتى يصلح السبب الحاسم. لا ينبغي تقديم حل وهمي يستند فقط إلى CI أخضر.
+
