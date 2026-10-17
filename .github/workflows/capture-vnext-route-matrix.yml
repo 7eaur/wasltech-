@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - "seo/integration-offline-gate-20261017"
       - "perf/**"
       - rebuild/vnext-foundation-20260921
       - fix/independent-site-recovery-20261010
