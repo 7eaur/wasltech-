@@ -9,7 +9,7 @@
 
 تم طلب **URL Inspection مباشر** للصفحات الأربع بتاريخ 17 أكتوبر باستخدام اتصال GSC Wizard الجديد. عادت الأربع بنجاح من API، بدون استنتاجات تخمينية.
 
-| URL | نتيجة Google المباشرة | آخر زحف/Canonical حسب Google | HTTP/On-page الإنتاج | روابط داخلية مشيرة من صفحات مفهرسة قابلة للفهرسة (بناء Release) |
+| URL | نتيجة Google المباشرة | آخر زحف/Canonical حسب Google | HTTP/On-page الإنتاج | روابط داخلة من صفحات قابلة للفهرسة (بناء Release؛ لا يثبت فهرستها Google) |
 |---|---|---|---|---:|
 | `/portfolio/aroma-cafe/` | URL is unknown to Google | لا توجد قيمة مُبلّغ عنها | 200، قابلة للفهرسة؛ تنبيه محتوى قصير Low (291 كلمة) | **5** |
 | `/portfolio/elite-electronics/` | URL is unknown to Google | لا توجد قيمة مُبلّغ عنها | 200، قابلة للفهرسة؛ Low (285 كلمة) | **5** |
