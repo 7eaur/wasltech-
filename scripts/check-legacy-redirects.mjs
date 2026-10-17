@@ -10,6 +10,7 @@ import functionHandler from "../api/legacy-service.js";
 
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const vercel=JSON.parse(await readFile(path.join(ROOT,"vercel.json"),"utf8"));
+const cdn=JSON.parse(await readFile(path.join(ROOT,"config/vercel-cdn-routes.json"),"utf8"));
 const errors=[];
 const check=(condition,message)=>{if(!condition)errors.push(message)};
 const canonical=new Set(getIndexableEntries().map(item=>item.path));
@@ -20,6 +21,16 @@ check(!vercel.redirects?.length,"Spike must avoid mixed 'redirects' and legacy '
 check(vercel.trailingSlash===true,"Existing trailing slash canonical policy must not change");
 check(fileAt===11,"Seven static redirect rules and two function rules must precede filesystem");
 check(legacyCdnPageAliases.length===2,"CDN index aliases must remain separate");
+check(cdn.routes?.length===3,"CDN must own precisely www and two index aliases");
+for (const {source,destination} of legacyCdnPageAliases) {
+  const matches=(cdn.routes??[]).filter(rule=>rule.route?.src===source &&
+    rule.route?.status===308 && rule.route?.headers?.Location==="https://wasl-tech.com"+destination);
+  check(matches.length===1,"CDN index rule missing or noncanonical for "+source);
+}
+const hostRule=(cdn.routes??[]).filter(rule=>rule.route?.has?.some(x=>x.type==="host" && x.value==="www.wasl-tech.com") &&
+  rule.route?.status===308 && rule.route?.headers?.Location==="https://wasl-tech.com/$1");
+check(hostRule.length===1,"www → apex host redirect must remain unique");
+
 for(const cdn of legacyCdnPageAliases){check(!routeList.some(r=>r.src===cdn.source.replaceAll(".","\\.")),"CDN and vercel.json must not both own "+cdn.source);}
 for(const {source,destination} of legacyStaticPageAliases){
   const expectedSrc=source.replaceAll(".","\\.");
