@@ -73,7 +73,7 @@
 
 ## سجل ملاحظات تدقيق On-page منخفضة الخطورة
 
-الملاحظات الآلية الـ27 تقع ضمن الأنواع التالية: `title-short` و`thin-content` و`no-structured-data`. ظهرت على بعض صفحات الوظائف والقانونية، ومشاريع مثل `aroma-cafe` و`elite-electronics` و`fakhri-marketing-campaign` وغيرها. قائمة الروابط التفصيلية في [تقرير العناوين](SEO_METADATA_KEYWORD_AUDIT_20261017_AR.md) على PR #65. **ليس كل تنبيه Low يستوجب تعديلًا**؛ مثال: عدم وجود JSON-LD لصفحة شروط قانونية ليس خطأً تقنيًا مستقلًا.
+الملاحظات الآلية الـ27 تقع ضمن الأنواع التالية: `title-short` و`thin-content` و`no-structured-data`. ظهرت على بعض صفحات الوظائف والقانونية، ومشاريع مثل `aroma-cafe` و`elite-electronics` و`fakhri-marketing-campaign` وغيرها. قائمة الروابط التفصيلية في [تقرير العناوين](https://github.com/7eaur/wasltech-/blob/seo/phase1-verified-onpage-20261017/docs/seo/SEO_METADATA_KEYWORD_AUDIT_20261017_AR.md) على PR #65. **ليس كل تنبيه Low يستوجب تعديلًا**؛ مثال: عدم وجود JSON-LD لصفحة شروط قانونية ليس خطأً تقنيًا مستقلًا.
 
 ## تقرير إنجاز المرحلة (يضاف أدناه بالتتابع فقط)
 
