@@ -43,6 +43,9 @@ jobs:
       - name: Verify final media sources
         run: node scripts/check-final-media.mjs
 
+      - name: Audit project evidence inventory
+        run: node scripts/audit-portfolio-evidence.mjs
+
       - name: Upload foundation preview
         uses: actions/upload-artifact@v4
         with:
