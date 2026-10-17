@@ -20,6 +20,8 @@
 
 .home-section-heading-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--space-8);align-items:end}
 .home-section-heading-row .section-header{margin-bottom:0}
+.home-work__actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:var(--space-3)}
+.home-work__proof{display:inline-flex;align-items:center;min-height:2rem;padding:.35rem .75rem;background:var(--color-brand-accent-soft);border-radius:var(--radius-full);color:var(--color-text-accent);font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold)}
 .home-project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4);margin-top:var(--space-6)}
 
 .home-about__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(var(--space-8),6vw,var(--space-20));align-items:center}
@@ -78,6 +80,7 @@
   .home-why .section-header,
   .home-process .section-header{margin-inline:0;text-align:start}
   .home-section-heading-row{grid-template-columns:1fr;gap:var(--space-3)}
+  .home-work__actions{justify-content:space-between}
   .home-service-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3)}
   .home-project-grid{grid-template-columns:1fr;gap:var(--space-5);margin-top:var(--space-5)}
   .home-about__grid{grid-template-columns:1fr;gap:var(--space-6)}
