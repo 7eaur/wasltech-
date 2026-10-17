@@ -48,6 +48,9 @@ export function documentTemplate({
   const preloadedFont = locale === "ar"
     ? "/assets/fonts/ibm-plex-sans-arabic-400.woff2"
     : "/assets/fonts/ibm-plex-sans-latin-400-700.woff2";
+  const headingFontPreload = locale === "ar"
+    ? '  <link rel="preload" href="/assets/fonts/ibm-plex-sans-arabic-700.woff2" as="font" type="font/woff2" crossorigin>\n'
+    : "";
 
   const seoLinks = buildSeoLinks({ canonicalPath, alternates: alternatePaths });
   const openGraph = buildOpenGraph({
@@ -99,7 +102,7 @@ ${nameMetaTag("twitter:description", openGraph.description)}
 ${nameMetaTag("twitter:image", openGraph.image)}
 ${structuredDataTags}
   <link rel="preload" href="${preloadedFont}" as="font" type="font/woff2" crossorigin>
-  <link rel="icon" href="${site.brand.assets.favicon}">
+${headingFontPreload}  <link rel="icon" href="${site.brand.assets.favicon}">
   <link rel="stylesheet" href="/assets/css/site.css">
 ${pageStyleTags}
 ${minimalShell ? "" : `  <script src="/assets/js/navigation.js" defer></script>\n  <script src="/assets/js/motion.js" defer></script>`}
