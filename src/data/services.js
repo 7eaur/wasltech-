@@ -111,7 +111,7 @@ const serviceRecords = [
           },
           {
             "title": "نماذج تواصل وربط بالقنوات المناسبة",
-            "description": "إعداد وسائل ونماذج تواصل مناسبة وربطها بالقنوات المتفق عليها دون ادعاء إرسال تلقائي غير موجود."
+            "description": "تصميم نماذج تواصل واضحة وربطها بوسائل التواصل المناسبة، لتسهيل انتقال الزائر من الاستفسار إلى التواصل مع فريقك."
           },
           {
             "title": "لوحة تحكم أو إدارة محتوى عند الحاجة",
@@ -243,7 +243,7 @@ const serviceRecords = [
           },
           {
             "title": "Contact forms and channel connections",
-            "description": "Preparing suitable contact tools and connecting them to agreed channels without promising unimplemented automatic sending."
+            "description": "Designing clear inquiry forms and connecting them to appropriate contact channels, making it easy for visitors to reach your team."
           },
           {
             "title": "CMS or admin experience when needed",
