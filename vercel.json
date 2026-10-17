@@ -22,22 +22,38 @@
       "continue": true
     },
     {
-      "src": "/__seo-route-308-probe",
+      "src": "/legacy-edge-check\\.html",
       "status": 308,
       "headers": {
         "Location": "/about/"
       }
     },
     {
-      "src": "/__seo-route-function-probe",
+      "src": "/legacy-func-check\\.html",
       "dest": "/api/legacy-service?language=en&id=store"
     },
     {
-      "src": "/en/service-web(?:\\.html|/)?",
+      "src": "/en/service-web",
       "dest": "/api/legacy-service?language=en"
     },
     {
-      "src": "/service-web(?:\\.html|/)?",
+      "src": "/en/service-web/",
+      "dest": "/api/legacy-service?language=en"
+    },
+    {
+      "src": "/en/service-web\\.html",
+      "dest": "/api/legacy-service?language=en"
+    },
+    {
+      "src": "/service-web",
+      "dest": "/api/legacy-service?language=ar"
+    },
+    {
+      "src": "/service-web/",
+      "dest": "/api/legacy-service?language=ar"
+    },
+    {
+      "src": "/service-web\\.html",
       "dest": "/api/legacy-service?language=ar"
     },
     {
