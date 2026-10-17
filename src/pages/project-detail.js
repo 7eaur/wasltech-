@@ -137,7 +137,7 @@ function renderRelated(project,locale) {
             href:routes.project(item.slug,locale),
             image:{
               src:item.image,
-              alt:item.content[locale].title,
+              alt:"",
               width:item.imageDimensions.width,
               height:item.imageDimensions.height
             },
