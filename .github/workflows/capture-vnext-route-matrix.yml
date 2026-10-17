@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - "perf/**"
+      - "design/**"
       - rebuild/vnext-foundation-20260921
       - fix/independent-site-recovery-20261010
     paths:
