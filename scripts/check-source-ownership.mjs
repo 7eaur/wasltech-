@@ -135,7 +135,7 @@ const legacyRedirectRoutes=filesystemIndex<0 ? [] : remainingRoutes.slice(0,file
 const filesystemRoute=remainingRoutes[filesystemIndex];
 const fallbackRoutes=filesystemIndex<0 ? [] : remainingRoutes.slice(filesystemIndex+1);
 if (legacyRedirectRoutes.some((route)=>
-  ![308,404].includes(route.status) ||
+  (![308,404].includes(route.status) && !route.dest?.startsWith('/api/legacy-service?language=')) ||
   !route.src ||
   (route.status===308 && !route.headers?.Location) ||
   (route.status===404 && !route.dest)
