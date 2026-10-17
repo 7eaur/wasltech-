@@ -43,6 +43,9 @@ jobs:
       - name: Verify final media sources
         run: node scripts/check-final-media.mjs
 
+      - name: Check factual article to project links
+        run: node scripts/check-article-project-links.mjs
+
       - name: Upload foundation preview
         uses: actions/upload-artifact@v4
         with:
