@@ -43,6 +43,9 @@ jobs:
       - name: Verify final media sources
         run: node scripts/check-final-media.mjs
 
+      - name: Audit all internal links and four non-indexed routes
+        run: node scripts/audit-internal-discovery.mjs
+
       - name: Upload foundation preview
         uses: actions/upload-artifact@v4
         with:
