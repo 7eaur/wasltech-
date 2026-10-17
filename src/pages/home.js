@@ -132,7 +132,7 @@ function renderServices(content, locale) {
     const item = service.content[locale];
     return MediaCard({
       href:routes.service(service.slug,locale),
-      image:{src:service.image,alt:item.title,width:1280,height:720},
+      image:{src:service.image,alt:"",width:1280,height:720},
       title:item.title,
       body:item.subtitle,
       compact:true
@@ -162,7 +162,7 @@ function renderProjects(content, locale) {
     if (!dimensions) throw new Error(`Featured media dimensions missing: ${project.id}`);
     return MediaCard({
       href:routes.project(project.slug,locale),
-      image:{src:project.image,alt:item.title,width:dimensions.width,height:dimensions.height},
+      image:{src:project.image,alt:"",width:dimensions.width,height:dimensions.height},
       kicker:project.platformType[locale],
       title:item.title,
       body:item.summary,
