@@ -16,8 +16,8 @@
 
 | ID | مرحلة | أولوية | الفجوة | الإثبات عند الاستلام | الحالة | شرط الإغلاق / الحل |
 |---|---|---|---|---|---|---|
-| REL-01 | 00 | P1 | فشل Capture route matrix على PR #65 | GitHub run 38984458056: ar keyboard anchor did not navigate to deliverables | مفتوح (مانع دمج) | إعادة Playwright وتشخيص أثر روابط subservices؛ إصلاح سلوك حقيقي دون تعطيل اختبار؛ جميع CI خضراء |
-| REL-02 | 00 | P1 | عدم دمج تحسينات SEO السابقة | PR #65 draft على SHA a8d01117؛ main عند 371a23a | منفذ على فرع غير مدمج | مراجعة diff/تعارض وتقرير ثم موافقة ودمج ونشر إنتاج لنفس SHA |
+| REL-01 | 00 | P1 | فشل Capture route matrix على PR #65 | Run 38984458056 فشل؛ الإصلاح واختبار Keyboard و88 URL نجح على SHA bebfb9be ضمن run 38988199029 | **مُصلح ومُختبر في PR #65، غير منشور** | ✅ PASS: ترتيب روابط متوافق مع DOM، Keyboard AR/EN، 88 URL، المصفوفة كاملة؛ يُغلق إنتاجيًا بعد الدمج بإذن |
+| REL-02 | 00 | P1 | عدم دمج تحسينات SEO السابقة | PR #65 على SHA bebfb9be، mergeable true؛ جميع CI وPreview READY؛ main عند 371a23a | **جاهز لاعتماد الدمج، لم يُدمج** | موافقة المستخدم «تم» ثم دمج آمن، التأكد من Vercel Production وSEO live؛ لا نعلن النشر مسبقًا |
 | TECH-01 | 01 | P1 | نسخة الصفحة الرئيسية /index.html قابلة للوصول 200 | فحص إنتاج مباشر؛ canonical يشير / | مؤكد، لم يصلح | Permanent redirect إلى / على apex دون حلقات؛ اختبار GET/HEAD |
 | TECH-02 | 01 | P1 | /en/index.html نسخة مكررة 200 | فحص إنتاج مباشر؛ canonical يشير /en/ | مؤكد، لم يصلح | Permanent redirect إلى /en/ مع حفظ اللغة |
 | TECH-03 | 01 | P1 | روابط service-web?id تنتهي إلى دليل الخدمات | GET منتج الخدمة web/app أعاد محتوى /services/ | مؤكد، لم يصلح | خريطة معرفات صحيحة؛ خدمة مقصودة؛ unknown ID آمن؛ إزالة query القديم |
@@ -75,11 +75,14 @@
 
 الملاحظات الآلية الـ27 تقع ضمن الأنواع التالية: `title-short` و`thin-content` و`no-structured-data`. ظهرت على بعض صفحات الوظائف والقانونية، ومشاريع مثل `aroma-cafe` و`elite-electronics` و`fakhri-marketing-campaign` وغيرها. قائمة الروابط التفصيلية في [تقرير العناوين](https://github.com/7eaur/wasltech-/blob/seo/phase1-verified-onpage-20261017/docs/seo/SEO_METADATA_KEYWORD_AUDIT_20261017_AR.md) على PR #65. **ليس كل تنبيه Low يستوجب تعديلًا**؛ مثال: عدم وجود JSON-LD لصفحة شروط قانونية ليس خطأً تقنيًا مستقلًا.
 
+**[تقرير المرحلة 00 الموثق بنتائج CI وPreview](SEO_STAGE_00_COMPLETION_AR_2026-10-17.md)** — إصلاحات PR #65 مكتملة فنيًا، ودمجها بانتظار اعتماد المستخدم.
+
 ## تقرير إنجاز المرحلة (يضاف أدناه بالتتابع فقط)
 
 | التاريخ | المرحلة | PR/SHA | ما أُغلق | CI/Preview | Production | Google/Bing/GA4 | موافقة المستخدم |
 |---|---|---|---|---|---|---|---|
 | 2026-10-17 | تخطيط فقط | docs branch | لا إغلاق للمشكلات التنفيذية؛ توحيد خطة وسجل 39 بندًا | غير مطلوب للتغييرات التنفيذية | غير متغير | baseline السابق | بانتظار «تم» |
+| 2026-10-17 | المرحلة 00 | PR #65 @ bebfb9be | REL-01 أصلح واختبر؛ REL-02 جاهز لاعتماد الدمج | Verify SUCCESS + Matrix SUCCESS (88) + Vercel Preview READY | **غير منشور** | 84/88 (لقطة قديمة؛ لم يُطلب إعادة فهرسة) | **بانتظار «تم»** |
 
 ## قائمة أول خطوة مباشرة
 
