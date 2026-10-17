@@ -1,5 +1,6 @@
 import { routes } from "../config/routes.js";
 import { serviceGroups } from "../data/services.js";
+import { ServiceChoice } from "../components/ServiceChoice.js";
 import { getProjectsByService } from "../data/projects.js";
 import { CallToAction } from "../components/CallToAction.js";
 import { MediaCard } from "../components/MediaCard.js";
@@ -293,6 +294,7 @@ export function serviceDetailPage(service, locale="ar") {
     renderSignals(service,locale),
     renderAudience(service,locale),
     renderSubservices(service,locale),
+    ServiceChoice({service,locale}),
     renderConstraints(service,locale),
     renderProcess(service,locale),
     ServiceGuidance({service,locale}),

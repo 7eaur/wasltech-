@@ -3,6 +3,7 @@ import { absoluteUrl } from "../config/seo.js";
 
 export const organizationEntityId = absoluteUrl("/#organization");
 export const websiteEntityId = absoluteUrl("/#website");
+export const editorialTeamEntityId = absoluteUrl("/#editorial-team");
 
 const organizationReference = () => Object.freeze({ "@id": organizationEntityId });
 const websiteReference = () => Object.freeze({ "@id": websiteEntityId });
@@ -118,10 +119,10 @@ export function articleSchema({
     dateModified: updatedAt || publishedAt || undefined,
     author: Object.freeze({
       "@type": "Organization",
-      "@id": organizationEntityId,
+      "@id": editorialTeamEntityId,
       name: author || site.brand.name[locale],
-      url: site.origin,
-      logo: absoluteUrl(site.brand.assets.logo)
+      url: absoluteUrl("/about/"),
+      parentOrganization: organizationReference()
     }),
     publisher: organizationReference(),
     isPartOf: websiteReference(),
