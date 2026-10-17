@@ -30,7 +30,8 @@ for(const route of ["/","/en/"]){
   if(!organization){fail(route,"Organization schema missing");continue;}
   if(organization["@id"]!==organizationEntityId) fail(route,"canonical Organization @id mismatch");
   if(organization.name!==site.brand.name.en) fail(route,"Organization name mismatch");
-  if(organization.alternateName!==site.brand.name.ar) fail(route,"Organization alternateName mismatch");
+  if(JSON.stringify(organization.alternateName)!==JSON.stringify(site.entity.alternateNames)) fail(route,"Organization alternateName mismatch");
+  if(!site.entity.alternateNames.includes(site.brand.name.ar) || new Set(site.entity.alternateNames).size!==site.entity.alternateNames.length) fail(route,"Organization aliases must include canonical Arabic name without duplicates");
   if(organization.url!==site.origin) fail(route,"Organization canonical URL mismatch");
   if(organization.description!==site.entity.description) fail(route,"Organization description mismatch");
   if(organization.disambiguatingDescription!==site.entity.disambiguatingDescription) fail(route,"Organization disambiguation text mismatch");
@@ -54,6 +55,7 @@ for(const route of ["/","/en/"]){
     if(website["@id"]!==websiteEntityId) fail(route,"canonical WebSite @id mismatch");
     if(website.publisher?.["@id"]!==organizationEntityId) fail(route,"WebSite publisher must reference canonical Organization");
     if(website.description!==site.entity.description) fail(route,"WebSite description mismatch");
+    if(JSON.stringify(website.alternateName)!==JSON.stringify(site.entity.alternateNames)) fail(route,"WebSite alternateName mismatch");
   }
 }
 

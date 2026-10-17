@@ -74,8 +74,34 @@ for (const locale of ["ar","en"]) {
     if (proofAt >= 0 && (proofAt < deliverablesAt || proofAt > signalAt)) fail(file,"related work must follow outcomes and precede support");
     if (processAt < signalAt) fail(file,"service process must follow supporting context");
 
-    for (const anchor of ["service-deliverables","service-process","service-faq"]) {
-      if (!html.includes(`id="${anchor}"`) || !html.includes(`href="#${anchor}"`)) fail(file,`service jump link missing: ${anchor}`);
+    // Match the keyboard jump menu to the physical reading order of the sections.
+    // A preceding subservices link used to break the route-matrix keyboard gate.
+    const nav = html.match(/<nav class="section-jump-nav"[^>]*>([\s\S]*?)<\/nav>/)?.[1] ?? "";
+    const navTargets = [...nav.matchAll(/href="#([^"]+)"/g)].map((item) => item[1]);
+    const expectedNavTargets = [
+      "service-deliverables",
+      ...(getProjectsByService(service.id).length ? ["service-proof"] : []),
+      ...((copy.subservices?.length ?? 0) ? ["service-subservices"] : []),
+      "service-process",
+      "service-faq"
+    ];
+    if (JSON.stringify(navTargets) !== JSON.stringify(expectedNavTargets)) {
+      fail(file,`section menu order/targets inconsistent: ${JSON.stringify(navTargets)}`);
+    }
+    for (const anchor of expectedNavTargets) {
+      if (!html.includes(`id="${anchor}"`) || !nav.includes(`href="#${anchor}"`)) {
+        fail(file,`service jump link target missing: ${anchor}`);
+      }
+    }
+    for (const subservice of copy.subservices ?? []) {
+      const anchor = `subservice-${subservice.id}`;
+      if ((html.match(new RegExp(`id="${anchor}"`, "g")) ?? []).length !== 1) {
+        fail(file,`subservice deep link should have exactly one target: ${anchor}`);
+      }
+    }
+    const sectionPositions = expectedNavTargets.map((id) => html.indexOf(`id="${id}"`));
+    if (sectionPositions.some((at, i) => at < 0 || (i && at <= sectionPositions[i - 1]))) {
+      fail(file, "service menu links must follow DOM section order");
     }
     if ((html.match(/class="service-disclosure service-deliverable__details"/g) ?? []).length !== copy.deliverables.length) {
       fail(file,"deliverables must use native accessible disclosure");

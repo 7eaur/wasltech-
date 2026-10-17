@@ -16,6 +16,7 @@ export const site = Object.freeze({
   market: Object.freeze({ ar: "اليمن + الخليج", en: "Yemen + Gulf" }),
   entity: Object.freeze({
     displayName: "وصل تك | Wasl Tech",
+    alternateNames: Object.freeze(["وصل تك", "وصلتك"]),
     description: "Wasl Tech (وصل تك) is a digital solutions team serving projects in Yemen and the Gulf through wasl-tech.com, with website, mobile app, e-commerce, custom software, technical solutions, company profile, brand identity, and digital marketing services.",
     disambiguatingDescription: "Wasl Tech (وصل تك) at wasl-tech.com — digital products, systems, brand, and marketing services for projects in Yemen and the Gulf.",
     sameAs: Object.freeze([

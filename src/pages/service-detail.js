@@ -65,10 +65,15 @@ function renderHero(service, locale) {
 
 
 function renderSectionNav(service, locale) {
+  // Keep jump links in the same reading order as the rendered sections.
+  // Deliverables and related work precede the subservices section in the DOM.
   const items = [
     { id: "service-deliverables", ar: "ما نقدمه", en: "Deliverables" },
     ...(getProjectsByService(service.id).length
       ? [{ id: "service-proof", ar: "أعمال مرتبطة", en: "Related work" }]
+      : []),
+    ...(service.content[locale].subservices?.length
+      ? [{ id: "service-subservices", ar: "الخدمات الفرعية", en: "Subservices" }]
       : []),
     { id: "service-process", ar: "طريقة العمل", en: "Process" },
     { id: "service-faq", ar: "الأسئلة الشائعة", en: "FAQs" }
@@ -124,7 +129,7 @@ function renderSubservices(service, locale) {
   if (!items.length) return "";
 
   return `
-    <section class="section service-subservices">
+    <section class="section service-subservices" id="service-subservices">
       <div class="container">
         ${SectionHeader({
           kicker:locale === "ar" ? "خدمات ضمن هذه الخدمة" : "Services within this area",
@@ -132,7 +137,7 @@ function renderSubservices(service, locale) {
         })}
         <div class="service-subservices__grid">
           ${items.map((item,index)=>`
-            <article class="service-subservice">
+            <article class="service-subservice" id="subservice-${escapeHtml(item.id)}">
               ${items.length > 3 ? `
                 <details class="service-disclosure service-subservice__details"${index===0 ? " open" : ""}>
                   <summary><h3>${escapeHtml(item.title)}</h3></summary>

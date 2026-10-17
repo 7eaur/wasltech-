@@ -532,8 +532,26 @@ jobs:
             const jump = navLinks.first();
             await jump.focus();
             await p.keyboard.press("Enter");
-            if (!new URL(p.url()).hash || new URL(p.url()).hash !== "#service-deliverables") {
+            if (new URL(p.url()).hash !== "#service-deliverables") {
               throw new Error(locale + ": keyboard anchor did not navigate to deliverables");
+            }
+            if (!(await p.locator("#service-deliverables").count())) {
+              throw new Error(locale + ": deliverables anchor target is missing");
+            }
+            // The added subservices navigation must work too, and be positioned
+            // after deliverables/proof to match the document's reading order.
+            const subservicesJump = navLinks.locator('xpath=..').locator('a[href="#service-subservices"]');
+            if (await subservicesJump.count() !== 1) {
+              throw new Error(locale + ": expected exactly one subservices jump link");
+            }
+            const ids = await navLinks.evaluateAll(links => links.map(link => link.getAttribute("href")));
+            if (ids.indexOf("#service-subservices") <= ids.indexOf("#service-deliverables")) {
+              throw new Error(locale + ": subservices jump order contradicts document sections");
+            }
+            await subservicesJump.focus();
+            await p.keyboard.press("Enter");
+            if (new URL(p.url()).hash !== "#service-subservices" || !(await p.locator("#service-subservices").count())) {
+              throw new Error(locale + ": keyboard anchor did not navigate to subservices");
             }
             const sections = p.locator(".service-deliverable__details");
             if (await sections.count() < 2) throw new Error(locale + ": deliverables not disclosed natively");

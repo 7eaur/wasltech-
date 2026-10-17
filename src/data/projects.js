@@ -48,8 +48,8 @@ const projectRecords = [
           ]
         },
         "seo": {
-          "title": "منصة هِمّة التعليمية | أعمال وصل تك",
-          "description": "منصة تعليمية تفاعلية لتطوير القراءة والكتابة تجمع التقييم القبلي والأنشطة ومسار تعلم الطالب ولوحة المتابعة."
+          "title": "هِمّة | تطوير منصة تعليمية للقراءة والكتابة | وصل تك",
+          "description": "دراسة حالة: منصة تعليمية تفاعلية لتطوير القراءة والكتابة تجمع التقييم القبلي والأنشطة ومسار تعلم الطالب ولوحة المتابعة."
         }
       },
       "en": {
@@ -77,8 +77,8 @@ const projectRecords = [
           ]
         },
         "seo": {
-          "title": "Himma Learning Platform | Wasl Tech Work",
-          "description": "An interactive reading and writing learning platform with initial assessment, activities, student journeys, and progress tracking."
+          "title": "Himma | Reading & Writing Learning Platform | Wasl Tech",
+          "description": "Case study: An interactive reading and writing learning platform with initial assessment, activities, student journeys, and progress tracking."
         }
       }
     },
@@ -128,8 +128,8 @@ const projectRecords = [
           ]
         },
         "seo": {
-          "title": "أبديت كارد للخدمات الرقمية | أعمال وصل تك",
-          "description": "موقع أبديت كارد للشحن الرقمي والبطاقات والاشتراكات الإلكترونية في اليمن، بواجهة عربية متجاوبة وتصنيفات واضحة."
+          "title": "تصميم وتطوير موقع أبديت كارد للخدمات الرقمية | وصل تك",
+          "description": "دراسة حالة تصميم وتطوير موقع أبديت كارد للخدمات الرقمية في اليمن: تنظيم خدمات الشحن والبطاقات والاشتراكات، وواجهات متجاوبة ومسار تواصل واضح."
         }
       },
       "en": {
@@ -157,8 +157,8 @@ const projectRecords = [
           ]
         },
         "seo": {
-          "title": "Update Card Digital Services | Wasl Tech Work",
-          "description": "The Update Card website for digital top-ups, cards, and subscriptions in Yemen, with responsive layouts and clear service categories."
+          "title": "Update Card Website Design & Development | Wasl Tech",
+          "description": "Case study of the Update Card website design and development in Yemen: organized top-up, card and subscription services, responsive pages and clear contact paths."
         }
       }
     },
@@ -201,8 +201,8 @@ const projectRecords = [
           "deliveredOutputs": ["إدارة مجموعات الصور","وصول مخصص للعملاء","تجربة تسليم ومشاركة داخل المنصة"]
         },
         "seo": {
-          "title": "منصة صوركم الرقمية | أعمال وصل تك",
-          "description": "منصة رقمية لإدارة وتسليم ومشاركة الصور بين المصورين والعملاء ضمن تجربة وصول منظمة."
+          "title": "صوركم | تطوير منصة إدارة وتسليم الصور | وصل تك",
+          "description": "دراسة حالة: منصة رقمية لإدارة وتسليم ومشاركة الصور بين المصورين والعملاء ضمن تجربة وصول منظمة."
         }
       },
       "en": {
@@ -222,8 +222,8 @@ const projectRecords = [
           "deliveredOutputs": ["Photo collection management","Dedicated client access","In-platform sharing and delivery experience"]
         },
         "seo": {
-          "title": "Suwarikum Digital Platform | Wasl Tech Work",
-          "description": "A digital platform for managing, delivering, and sharing photos between photographers and clients through organized private access."
+          "title": "Suwarikum | Photo Delivery Platform Development | Wasl Tech",
+          "description": "Case study: A digital platform for managing, delivering, and sharing photos between photographers and clients through organized private access."
         }
       }
     },
@@ -262,8 +262,8 @@ const projectRecords = [
           "deliveredOutputs": ["حسابات للعملاء ومقدمي الخدمات","نظام محادثات","تدفق مدفوعات داخل المنصة"]
         },
         "seo": {
-          "title": "منصة وصّل للعمل الحر | أعمال وصل تك",
-          "description": "منصة عربية للعمل الحر تربط العملاء بمقدمي الخدمات وتجمع التواصل والمدفوعات داخل تجربة رقمية واحدة."
+          "title": "منصة وصّل للعمل الحر | تصميم وتطوير منصة ويب | وصل تك",
+          "description": "دراسة حالة: منصة عربية للعمل الحر تربط العملاء بمقدمي الخدمات وتجمع التواصل والمدفوعات داخل تجربة رقمية واحدة."
         }
       },
       "en": {
@@ -283,8 +283,8 @@ const projectRecords = [
           "deliveredOutputs": ["Client and provider accounts","Messaging system","Transaction payment flow"]
         },
         "seo": {
-          "title": "Wasl Freelance Platform | Wasl Tech Work",
-          "description": "An Arabic freelance platform connecting clients with service providers while bringing communication and payments into one digital experience."
+          "title": "Wasl Freelance | Marketplace Web Platform | Wasl Tech",
+          "description": "Case study: An Arabic freelance platform connecting clients with service providers while bringing communication and payments into one digital experience."
         }
       }
     },
@@ -323,8 +323,8 @@ const projectRecords = [
           "deliveredOutputs": ["إدارة المستخدمين","توليد وإدارة الكروت","متابعة الجلسات"]
         },
         "seo": {
-          "title": "لوحة تحكم الميكروتيك | أعمال وصل تك",
-          "description": "نظام لإدارة مستخدمي شبكات الواي فاي وتوليد الكروت ومتابعة الجلسات من لوحة تحكم واحدة."
+          "title": "ميكروتيك | برمجة لوحة إدارة الشبكات والكروت | وصل تك",
+          "description": "دراسة حالة: نظام لإدارة مستخدمي شبكات الواي فاي وتوليد الكروت ومتابعة الجلسات من لوحة تحكم واحدة."
         }
       },
       "en": {
@@ -344,8 +344,8 @@ const projectRecords = [
           "deliveredOutputs": ["User management","Card generation and management","Session monitoring"]
         },
         "seo": {
-          "title": "MikroTik Control Dashboard | Wasl Tech Work",
-          "description": "A system for managing Wi-Fi network users, generating cards, and monitoring sessions from one control dashboard."
+          "title": "MikroTik | Network & Cards Admin Dashboard | Wasl Tech",
+          "description": "Case study: A system for managing Wi-Fi network users, generating cards, and monitoring sessions from one control dashboard."
         }
       }
     },
@@ -384,8 +384,8 @@ const projectRecords = [
           "deliveredOutputs": ["إدارة محتوى الصفحات","تحديثات ديناميكية","واجهة تحكم مركزية"]
         },
         "seo": {
-          "title": "لوحة إدارة محتوى CMS | أعمال وصل تك",
-          "description": "لوحة CMS مركزية لإدارة وتحديث محتوى المواقع ديناميكيًا من واجهة تحكم واحدة."
+          "title": "نظام إدارة محتوى CMS | برمجة لوحة تحكم | وصل تك",
+          "description": "دراسة حالة: لوحة CMS مركزية لإدارة وتحديث محتوى المواقع ديناميكيًا من واجهة تحكم واحدة."
         }
       },
       "en": {
@@ -405,8 +405,8 @@ const projectRecords = [
           "deliveredOutputs": ["Page content management","Dynamic updates","Centralized administration"]
         },
         "seo": {
-          "title": "CMS Content Management Dashboard | Wasl Tech Work",
-          "description": "A centralized CMS dashboard for managing and updating website content dynamically from one administration interface."
+          "title": "CMS | Content Management Dashboard Development | Wasl Tech",
+          "description": "Case study: A centralized CMS dashboard for managing and updating website content dynamically from one administration interface."
         }
       }
     },
@@ -445,8 +445,8 @@ const projectRecords = [
           "deliveredOutputs": ["كتالوج منتجات","سلة مشتريات","متابعة حالة الطلب"]
         },
         "seo": {
-          "title": "تيك زون الإلكتروني | أعمال وصل تك",
-          "description": "تجربة متجر إلكتروني عبر الجوال تشمل تصفح المنتجات والسلة ومتابعة الطلبات."
+          "title": "تيك زون | تطوير تطبيق متجر إلكتروني للجوال | وصل تك",
+          "description": "دراسة حالة: تجربة متجر إلكتروني عبر الجوال تشمل تصفح المنتجات والسلة ومتابعة الطلبات."
         }
       },
       "en": {
@@ -466,8 +466,8 @@ const projectRecords = [
           "deliveredOutputs": ["Product catalog","Shopping cart","Order status tracking"]
         },
         "seo": {
-          "title": "Tech Zone E-commerce App | Wasl Tech Work",
-          "description": "A mobile e-commerce experience covering product browsing, cart, and order tracking in one clear journey."
+          "title": "Tech Zone | Mobile E-commerce App Development | Wasl Tech",
+          "description": "Case study: A mobile e-commerce experience covering product browsing, cart, and order tracking in one clear journey."
         }
       }
     },
@@ -506,8 +506,8 @@ const projectRecords = [
           "deliveredOutputs": ["طلب القهوة عبر التطبيق","برنامج ولاء","خرائط الفروع"]
         },
         "seo": {
-          "title": "تطبيق أروما كافيه | أعمال وصل تك",
-          "description": "تطبيق جوال لأروما كافيه يجمع طلب القهوة وبرنامج الولاء ومعلومات الفروع داخل تجربة واحدة واضحة وسهلة الاستخدام."
+          "title": "أروما كافيه | تطوير تطبيق طلب القهوة والولاء | وصل تك",
+          "description": "دراسة حالة: تطبيق جوال لأروما كافيه يجمع طلب القهوة وبرنامج الولاء ومعلومات الفروع داخل تجربة واحدة واضحة وسهلة الاستخدام."
         }
       },
       "en": {
@@ -527,8 +527,8 @@ const projectRecords = [
           "deliveredOutputs": ["In-app coffee ordering","Loyalty program","Branch maps"]
         },
         "seo": {
-          "title": "Aroma Cafe App | Wasl Tech Work",
-          "description": "A mobile coffee ordering app with a loyalty program and branch maps in one customer experience."
+          "title": "Aroma Cafe | Coffee Ordering & Loyalty App | Wasl Tech",
+          "description": "Case study: A mobile coffee ordering app with a loyalty program and branch maps in one customer experience."
         }
       }
     },
@@ -567,8 +567,8 @@ const projectRecords = [
           "deliveredOutputs": ["صفحات للخدمات","عرض المشاريع","طلب عرض سعر"]
         },
         "seo": {
-          "title": "موقع البناء المتقن | أعمال وصل تك",
-          "description": "موقع تعريفي لشركة مقاولات وهندسة يعرض الخدمات والمشاريع ويسهّل طلب عروض الأسعار."
+          "title": "البناء المتقن | تصميم موقع شركة مقاولات | وصل تك",
+          "description": "دراسة حالة: موقع تعريفي لشركة مقاولات وهندسة يعرض الخدمات والمشاريع ويسهّل طلب عروض الأسعار."
         }
       },
       "en": {
@@ -588,8 +588,8 @@ const projectRecords = [
           "deliveredOutputs": ["Service pages","Project showcase","Quotation request flow"]
         },
         "seo": {
-          "title": "Al Benaa Al Motqin Website | Wasl Tech Work",
-          "description": "A construction and engineering company website that presents services and projects and makes quotation requests easier."
+          "title": "Al Benaa Al Motqin | Construction Website | Wasl Tech",
+          "description": "Case study: A construction and engineering company website that presents services and projects and makes quotation requests easier."
         }
       }
     },
@@ -628,8 +628,8 @@ const projectRecords = [
           "deliveredOutputs": ["كتالوج إلكترونيات","تصنيفات منتجات","تجربة إتمام الطلب"]
         },
         "seo": {
-          "title": "متجر النخبة للإلكترونيات | أعمال وصل تك",
-          "description": "متجر إلكتروني للأجهزة والإلكترونيات بتصنيفات منظمة وتجربة واضحة من التصفح إلى الطلب."
+          "title": "النخبة للإلكترونيات | تصميم متجر إلكتروني | وصل تك",
+          "description": "دراسة حالة: متجر إلكتروني للأجهزة والإلكترونيات بتصنيفات منظمة وتجربة واضحة من التصفح إلى الطلب."
         }
       },
       "en": {
@@ -649,8 +649,8 @@ const projectRecords = [
           "deliveredOutputs": ["Electronics catalog","Product categories","Order completion experience"]
         },
         "seo": {
-          "title": "Elite Electronics Store | Wasl Tech Work",
-          "description": "An electronics e-commerce store with organized categories and a clear experience from browsing to ordering."
+          "title": "Elite Electronics | Online Electronics Store | Wasl Tech",
+          "description": "Case study: An electronics e-commerce store with organized categories and a clear experience from browsing to ordering."
         }
       }
     },
@@ -689,8 +689,8 @@ const projectRecords = [
           "deliveredOutputs": ["تصميم الشعار","نظام ألوان","مطبوعات وتغليف"]
         },
         "seo": {
-          "title": "هوية مطعم الملكي | أعمال وصل تك",
-          "description": "هوية بصرية لمطعم الملكي تشمل الشعار والألوان والمطبوعات والتغليف ضمن نظام بصري واحد يعكس طابع العلامة."
+          "title": "مطعم الملكي | تصميم شعار وهوية بصرية | وصل تك",
+          "description": "دراسة حالة: هوية بصرية لمطعم الملكي تشمل الشعار والألوان والمطبوعات والتغليف ضمن نظام بصري واحد يعكس طابع العلامة."
         }
       },
       "en": {
@@ -710,8 +710,8 @@ const projectRecords = [
           "deliveredOutputs": ["Logo design","Color system","Print and packaging"]
         },
         "seo": {
-          "title": "Al Malaki Restaurant Brand Identity | Wasl Tech Work",
-          "description": "A visual identity for Al Malaki Restaurant covering logo, colors, printed materials, and packaging."
+          "title": "Al Malaki Restaurant | Brand Identity Design | Wasl Tech",
+          "description": "Case study: A visual identity for Al Malaki Restaurant covering logo, colors, printed materials, and packaging."
         }
       }
     },
@@ -750,8 +750,8 @@ const projectRecords = [
           "deliveredOutputs": ["تصميم الشعار","النظام البصري","تطبيقات الهوية"]
         },
         "seo": {
-          "title": "هوية شركة ميلانو | أعمال وصل تك",
-          "description": "هوية بصرية لشركة ميلانو تشمل الشعار والنظام البصري وتطبيقات العلامة ضمن اتجاه تقني حديث ومتناسق."
+          "title": "ميلانو | تصميم شعار وهوية بصرية لشركة | وصل تك",
+          "description": "دراسة حالة: هوية بصرية لشركة ميلانو تشمل الشعار والنظام البصري وتطبيقات العلامة ضمن اتجاه تقني حديث ومتناسق."
         }
       },
       "en": {
@@ -771,8 +771,8 @@ const projectRecords = [
           "deliveredOutputs": ["Logo design","Visual system","Brand applications"]
         },
         "seo": {
-          "title": "Milano Company Brand Identity | Wasl Tech Work",
-          "description": "A visual identity for Milano including a logo and modern technical visual system."
+          "title": "Milano | Company Logo & Brand Identity | Wasl Tech",
+          "description": "Case study: A visual identity for Milano including a logo and modern technical visual system."
         }
       }
     },
@@ -811,8 +811,8 @@ const projectRecords = [
           "deliveredOutputs": ["استراتيجية محتوى","تصاميم إعلانية","محتوى وحملات اجتماعية"]
         },
         "seo": {
-          "title": "حملة فخري للعطور | أعمال وصل تك",
-          "description": "حملة رقمية لمتجر فخري للعطور تشمل استراتيجية المحتوى والتصميم الإعلاني وحضور شبكات التواصل."
+          "title": "فخري للعطور | تصميم حملة تسويق رقمي ومحتوى | وصل تك",
+          "description": "دراسة حالة: حملة رقمية لمتجر فخري للعطور تشمل استراتيجية المحتوى والتصميم الإعلاني وحضور شبكات التواصل."
         }
       },
       "en": {
@@ -832,8 +832,8 @@ const projectRecords = [
           "deliveredOutputs": ["Content strategy","Advertising creatives","Social content and campaigns"]
         },
         "seo": {
-          "title": "Fakhri Perfumes Digital Campaign | Wasl Tech Work",
-          "description": "A digital campaign for Fakhri Perfumes covering content strategy, advertising design, and social media presence."
+          "title": "Fakhri Perfumes | Digital Campaign & Content | Wasl Tech",
+          "description": "Case study: A digital campaign for Fakhri Perfumes covering content strategy, advertising design, and social media presence."
         }
       }
     },
@@ -872,8 +872,8 @@ const projectRecords = [
           "deliveredOutputs": ["عرض منتجات العطور","تنظيم التصفح","مسار شراء"]
         },
         "seo": {
-          "title": "متجر فخري للعطور | أعمال وصل تك",
-          "description": "متجر إلكتروني للعطور بتجربة تركز على عرض المنتجات والتصفح والشراء بوضوح."
+          "title": "فخري للعطور | تصميم متجر إلكتروني للعطور | وصل تك",
+          "description": "دراسة حالة: متجر إلكتروني للعطور بتجربة تركز على عرض المنتجات والتصفح والشراء بوضوح."
         }
       },
       "en": {
@@ -893,8 +893,8 @@ const projectRecords = [
           "deliveredOutputs": ["Perfume product presentation","Organized browsing","Purchase flow"]
         },
         "seo": {
-          "title": "Fakhri Perfumes Store | Wasl Tech Work",
-          "description": "An online perfume store with a product-focused experience for clear browsing and purchasing."
+          "title": "Fakhri Perfumes | Online Perfume Store Design | Wasl Tech",
+          "description": "Case study: An online perfume store with a product-focused experience for clear browsing and purchasing."
         }
       }
     },
@@ -933,8 +933,8 @@ const projectRecords = [
           "deliveredOutputs": ["تصنيفات للمنتجات","عرض الكتالوج","تجربة طلب"]
         },
         "seo": {
-          "title": "متجر كيدي للملابس | أعمال وصل تك",
-          "description": "متجر إلكتروني لملابس الأطفال بتصنيفات واضحة وتجربة منظمة لتصفح المنتجات والطلب."
+          "title": "كيدي | تصميم متجر إلكتروني لملابس الأطفال | وصل تك",
+          "description": "دراسة حالة: متجر إلكتروني لملابس الأطفال بتصنيفات واضحة وتجربة منظمة لتصفح المنتجات والطلب."
         }
       },
       "en": {
@@ -954,8 +954,8 @@ const projectRecords = [
           "deliveredOutputs": ["Product categories","Catalog display","Ordering flow"]
         },
         "seo": {
-          "title": "Kiddy Clothing Store | Wasl Tech Work",
-          "description": "An online children's clothing store with clear categories and an organized product browsing and ordering experience."
+          "title": "Kiddy | Children's Clothing E-commerce Store | Wasl Tech",
+          "description": "Case study: An online children's clothing store with clear categories and an organized product browsing and ordering experience."
         }
       }
     },
@@ -994,8 +994,8 @@ const projectRecords = [
           "deliveredOutputs": ["عرض الخدمات القانونية","تنظيم المعلومات","مسار تواصل واضح"]
         },
         "seo": {
-          "title": "موقع مكتب الحباري للمحاماة | أعمال وصل تك",
-          "description": "موقع تعريفي لمكتب محاماة واستشارات قانونية يعرض الخدمات والمعلومات ضمن تجربة واضحة ومنظمة."
+          "title": "مكتب الحباري | تصميم موقع مكتب محاماة | وصل تك",
+          "description": "دراسة حالة: موقع تعريفي لمكتب محاماة واستشارات قانونية يعرض الخدمات والمعلومات ضمن تجربة واضحة ومنظمة."
         }
       },
       "en": {
@@ -1015,8 +1015,8 @@ const projectRecords = [
           "deliveredOutputs": ["Legal service presentation","Information organization","Clear contact path"]
         },
         "seo": {
-          "title": "Al Hobari Law Office Website | Wasl Tech Work",
-          "description": "A website for a law and legal consulting office that presents services and information in a clear, organized experience."
+          "title": "Al Hobari | Law Firm Website Design | Wasl Tech",
+          "description": "Case study: A website for a law and legal consulting office that presents services and information in a clear, organized experience."
         }
       }
     },
