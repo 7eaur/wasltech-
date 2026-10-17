@@ -140,8 +140,10 @@ function renderSubservices(service, locale) {
                   <p>${escapeHtml(item.description)}</p>
                 </details>
               ` : `
-                <h3>${escapeHtml(item.title)}</h3>
-                <p>${escapeHtml(item.description)}</p>
+                <div class="service-subservice__description">
+                  <h3>${escapeHtml(item.title)}</h3>
+                  <p>${escapeHtml(item.description)}</p>
+                </div>
               `}
             </article>
           `).join("")}
