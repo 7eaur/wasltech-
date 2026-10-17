@@ -19,13 +19,15 @@ export const config = {
     "/index.html", "/en/index.html", "/about.html", "/contact.html",
     "/services.html", "/portfolio.html", "/process.html", "/faq.html", "/blog.html",
     "/service-web", "/service-web/", "/service-web.html",
-    "/en/service-web", "/en/service-web/", "/en/service-web.html"
+    "/en/service-web", "/en/service-web/", "/en/service-web.html",
+    "/seo-middleware-probe.html"
   ]
 };
 
 /** Runs before the static file cache on Vercel, without 96 overlapping query redirects. */
 export default function middleware(request) {
   const url = new URL(request.url);
+  if (url.pathname === "/seo-middleware-probe.html") return new Response("middleware-active", { status: 202, headers: { "X-Wasl-Middleware": "active" } });
   const target = htmlAliases.get(url.pathname);
   const legacyService = /^\/(?:en\/)?service-web(?:\.html|\/)?$/.test(url.pathname);
   if (!target && !legacyService) return;
