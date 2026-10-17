@@ -93,6 +93,17 @@
       "dest": "/api/legacy-service?language=ar"
     },
     {
+      "src": "/__seo-route-308-probe",
+      "status": 308,
+      "headers": {
+        "Location": "/about/"
+      }
+    },
+    {
+      "src": "/__seo-route-function-probe",
+      "dest": "/api/legacy-service?language=en&id=store"
+    },
+    {
       "handle": "filesystem"
     },
     {
