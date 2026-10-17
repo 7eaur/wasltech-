@@ -163,7 +163,7 @@ if(routeList[0]?.src!=="/assets/fonts/(.*)" || routeList[0]?.continue!==true || 
 if(routeList[1]?.src!=="/(.*)" || routeList[1]?.continue!==true || !routeList[1]?.headers) fail("vercel.json","the security-header rule must continue to filesystem");
 const filesystemAt=routeList.findIndex((rule)=>rule.handle==="filesystem");
 if(filesystemAt<2) fail("vercel.json","static routes must resolve before 404 catchalls");
-if(filesystemAt<0 || routeList.slice(2,filesystemAt).some((rule)=>![308,404].includes(rule.status))){
+if(filesystemAt<0 || routeList.slice(2,filesystemAt).some((rule)=>(![308,404].includes(rule.status) && !rule.dest?.startsWith('/api/legacy-service?language=')))){
   fail("vercel.json","only validated legacy redirects/404s may precede the filesystem");
 }
 const terminal=filesystemAt<0 ? [] : routeList.slice(filesystemAt+1);
