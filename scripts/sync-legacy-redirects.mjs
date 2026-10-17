@@ -1,7 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { legacyPageAliases } from "../src/seo/legacy-redirects.js";
+import { legacyStaticPageAliases } from "../src/seo/legacy-redirects.js";
 
 const file = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../vercel.json");
 const flag=process.argv[2];
@@ -10,7 +10,7 @@ if(!["--check","--write"].includes(flag)||process.argv.length!==3){
   process.exit(2);
 }
 const config=JSON.parse(await readFile(file,"utf8"));
-const expected=legacyPageAliases.map(({source,destination})=>({
+const expected=legacyStaticPageAliases.map(({source,destination})=>({
   src:source.replaceAll(".","\\."),headers:{Location:destination},status:308
 }));
 const routes=config.routes??[];
@@ -25,7 +25,7 @@ if(flag==="--write"){
 if(config.redirects?.length)throw Error("The routing spike must not mix top-level redirects with legacy routes");
 const actual=config.routes.slice(start,start+expected.length);
 if(JSON.stringify(actual)!==JSON.stringify(expected)){
-  console.error("Nine legacy page redirects drifted from the documented canonical aliases");
+  console.error("Seven non-index legacy static redirects drifted from the documented canonical aliases");
   process.exit(1);
 }
 console.log(`ROUTES-ONLY PAGE SYNC: PASSED (${expected.length} HTML aliases)`);
