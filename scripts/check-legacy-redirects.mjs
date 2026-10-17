@@ -1,65 +1,67 @@
 import { readFile } from "node:fs/promises";
-import path from "node:path";
 import { fileURLToPath } from "node:url";
+import path from "node:path";
+import { legacyPageAliases, legacyServicePathVariants } from "../src/seo/legacy-redirects.js";
+import { resolveHistoricalService } from "../src/seo/resolve-historical-service.js";
 import { services } from "../src/data/services.js";
-import { site } from "../src/config/site.js";
+import { routes } from "../src/config/routes.js";
 import { getIndexableEntries } from "../src/seo/indexable-routes.js";
-import {
-  createLegacyRedirects,
-  legacyPageAliases,
-  legacyServicePathVariants,
-  legacyUnknownServiceRoutes
-} from "../src/seo/legacy-redirects.js";
+import functionHandler from "../api/legacy-service.js";
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const vercel = JSON.parse(await readFile(path.join(ROOT,"vercel.json"),"utf8"));
-const expected = createLegacyRedirects();
-const errors = [];
-const fail = (x) => errors.push(x);
-const keys = new Set();
-const canonical = new Set(getIndexableEntries().map(({path}) => path));
-
-const normalized = (value) => Array.isArray(value)
-  ? value.map(normalized)
-  : value && typeof value === "object"
-    ? Object.fromEntries(Object.keys(value).sort().map((key) => [key, normalized(value[key])]))
-    : value;
-if (JSON.stringify(normalized(vercel.redirects ?? [])) !== JSON.stringify(normalized(expected))) {
-  fail("vercel.json redirects differ from canonical source (run sync-legacy-redirects --write)");
+const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
+const vercel=JSON.parse(await readFile(path.join(ROOT,"vercel.json"),"utf8"));
+const errors=[];
+const check=(condition,message)=>{if(!condition)errors.push(message)};
+const canonical=new Set(getIndexableEntries().map(item=>item.path));
+const routeList=vercel.routes??[];
+const fileAt=routeList.findIndex(x=>x.handle==="filesystem");
+const redirectRules=routeList.slice(2,2+legacyPageAliases.length);
+check(!vercel.redirects?.length,"Spike must avoid mixed 'redirects' and legacy 'routes' definitions");
+check(vercel.trailingSlash===true,"Existing trailing slash canonical policy must not change");
+check(fileAt===13,"Nine static redirect rules and two function rules must precede filesystem");
+for(const {source,destination} of legacyPageAliases){
+  const expectedSrc=source.replaceAll(".","\\.");
+  const matches=redirectRules.filter(rule=>rule.src===expectedSrc && rule.status===308 && rule.headers?.Location===destination);
+  check(matches.length===1,`Missing or duplicate HTML 308 ${source}`);
+  check(canonical.has(destination),`HTML redirect ${source} targets a noncanonical URL`);
 }
-if (services.length !== 8) fail("Expected exactly eight independently addressable services");
-const expectedCount = legacyPageAliases.length + services.length * 2 * 2 * legacyServicePathVariants.length;
-if (expected.length !== expectedCount) fail("Unexpected redirect count");
-for (const redirect of expected) {
-  const { source, destination, has } = redirect;
-  const label = source + (has?.[0]?.key === "id" ? "?id=" + has[0].value : "");
-  if (keys.has(label)) fail("Duplicate alias: " + label);
-  keys.add(label);
-  if (!redirect.permanent) fail("Nonpermanent redirect: " + label);
-  if (!canonical.has(destination)) fail("Destination not in current indexable route manifest: " + destination);
-  if (destination === source || source === destination.replace(/\/$/,"")) fail("Self redirect: " + label);
-  if (source.includes("service-web")) {
-    if (has?.length !== 1 || has[0]?.type !== "query" || has[0]?.key !== "id" || !has[0]?.value) fail("Unscoped legacy service redirect: " + label);
-    if (!destination.includes("/services/")) fail("Legacy service must resolve to matching service details: " + label);
-  } else if (has?.length) fail("Nonservice alias unexpectedly contains query condition: " + label);
+for(const locale of ["ar","en"]){
+  const rule=routeList.find(r=>r.dest===`/api/legacy-service?language=${locale}`);
+  check(Boolean(rule),"No function route for "+locale);
+  const prefix=locale==="en"?"/en":"";
+  for(const suffix of legacyServicePathVariants){
+    check(Boolean(rule && new RegExp("^"+rule.src+"$").test(prefix+suffix)),`Missing match for ${prefix+suffix}`);
+  }
+  for(const service of services){
+    for(const id of new Set([service.id,service.slug])){
+      const result=resolveHistoricalService({id,locale});
+      check(result===routes.service(service.slug,locale),`Wrong target for ${locale}/${id}: ${result}`);
+      check(canonical.has(result),`Unindexable target for ${id}`);
+      const request=new Request(`https://wasl-tech.com/api/legacy-service?language=${locale}&id=${id}`);
+      const response=await functionHandler.fetch(request);
+      check(response.status===308 && response.headers.get("location")===result,`Incorrect HTTP result for ${locale}/${id}`);
+      check(!response.headers.get("location")?.includes("?id"),"Legacy ID must be removed from Location");
+    }
+  }
+  for(const bad of ["","bogus","wEb","../../admin","https://bad.example","web-development/", "a".repeat(120)]){
+    const request=new Request(`https://wasl-tech.com/api/legacy-service?language=${locale}&id=${encodeURIComponent(bad)}`);
+    const response=await functionHandler.fetch(request);
+    check(response.status===404,`Unknown ${locale}/${bad} must be 404, got ${response.status}`);
+  }
 }
-const routes = vercel.routes ?? [];
-const firstFilesystem = routes.findIndex((x) => x.handle === "filesystem");
-if (firstFilesystem < 0) fail("No filesystem stage");
-const prefix = firstFilesystem < 0 ? [] : routes.slice(0, firstFilesystem);
-const fallback = prefix.filter((r) => r.status === 404 && r.src.includes("service-web"));
-if (JSON.stringify(fallback) !== JSON.stringify(legacyUnknownServiceRoutes)) {
-  fail("Legacy unknown/missing service 404 rules drifted from canonical source");
+for(const request of [
+  "https://wasl-tech.com/api/legacy-service?language=ar",
+  "https://wasl-tech.com/api/legacy-service?language=ar&id=web&id=app",
+  "https://wasl-tech.com/api/legacy-service?language=fr&id=web"
+]){
+  const response=await functionHandler.fetch(new Request(request));
+  check(response.status===404,`Malformed parameter should not match: ${request}`);
 }
-if (prefix.some((r) => r.status === 308)) fail("Redirections must use top-level Vercel redirects before filesystem");
-if (!vercel.trailingSlash) fail("Canonical trailing-slash policy was changed");
-if (site.origin !== "https://wasl-tech.com") fail("Canonical host changed; verify intended strategy first");
-for (const r of routes.slice(firstFilesystem+1)) {
-  if (r.status !== 404) fail("Unexpected post-filesystem non-404 rule");
+check((await functionHandler.fetch(new Request("https://wasl-tech.com/api/legacy-service?language=ar&id=web",{method:"POST"}))).status===405,"POST should be disallowed");
+check((await functionHandler.fetch(new Request("https://wasl-tech.com/api/legacy-service?language=ar&id=web",{method:"HEAD"}))).status===308,"HEAD should follow redirect");
+if(errors.length){
+ console.error("LEGACY FUNCTION ROUTING SPIKE: FAILED");
+ errors.forEach(x=>console.error("- "+x));
+ process.exit(1);
 }
-if (errors.length) {
-  console.error("LEGACY REDIRECT SOURCE AUDIT: FAILED");
-  for (const error of errors) console.error("- " + error);
-  process.exit(1);
-}
-console.log(`LEGACY REDIRECT SOURCE AUDIT: PASSED (${expected.length} unique redirects, ${fallback.length} localized unknown-ID fallbacks, canonical destinations)`);
+console.log(`LEGACY FUNCTION ROUTING SPIKE: PASSED (9 HTML aliases, 2 route matchers, ${services.length} × 2 locales × 2 aliases, unknown-ID 404); live Vercel acceptance still required.`);
