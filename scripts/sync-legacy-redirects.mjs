@@ -22,7 +22,12 @@ if (args[0] === "--write") {
   console.log(`Updated vercel.json with ${expected.length} canonical redirect rules.`);
   process.exit(0);
 }
-if (JSON.stringify(config.redirects ?? []) !== JSON.stringify(expected)) {
+const normalized = (value) => Array.isArray(value)
+  ? value.map(normalized)
+  : value && typeof value === "object"
+    ? Object.fromEntries(Object.keys(value).sort().map((key) => [key, normalized(value[key])]))
+    : value;
+if (JSON.stringify(normalized(config.redirects ?? [])) !== JSON.stringify(normalized(expected))) {
   console.error("vercel.json redirect rules have drifted from src/seo/legacy-redirects.js. Run sync --write and commit the file.");
   process.exit(1);
 }
