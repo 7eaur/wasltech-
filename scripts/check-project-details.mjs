@@ -56,6 +56,7 @@ for(const locale of ["ar","en"]){
     }
 
     const related=getProjectsByCategory(project.category).filter((item)=>item.id!==project.id).slice(0,2);
+    if(related.length && !html.includes(`class="project-related__grid" data-count="${related.length}"`)) fail(file,"related case-study grid must match the actual item count");
     for(const item of related){
       const href=routes.project(item.slug,locale);
       if(!html.includes(`href="${href}"`)) fail(file,`related project link missing: ${href}`);

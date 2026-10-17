@@ -167,7 +167,7 @@ if(routeList[4]?.src!=="/.*" || routeList[4]?.status!==404 || routeList[4]?.dest
 
 
 const articleCss=await readFile(path.join(ROOT,"src/styles/insights-careers.css"),"utf8");
-if(!articleCss.includes(".article-content__layout{display:grid;grid-template-columns:minmax(0,52rem)")) {
+if(!articleCss.includes(".article-content__layout{display:grid;grid-template-columns:minmax(0,46rem)")) {
   fail("article","intro and body must be in a single readable editorial column");
 }
 const faqCss=await readFile(path.join(ROOT,"src/styles/secondary.css"),"utf8");
