@@ -22,20 +22,6 @@
       "continue": true
     },
     {
-      "src": "/index\\.html",
-      "headers": {
-        "Location": "/"
-      },
-      "status": 308
-    },
-    {
-      "src": "/en/index\\.html",
-      "headers": {
-        "Location": "/en/"
-      },
-      "status": 308
-    },
-    {
       "src": "/about\\.html",
       "headers": {
         "Location": "/about/"
