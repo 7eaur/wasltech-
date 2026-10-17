@@ -37,8 +37,8 @@
 .home-faq__item{border-bottom:var(--border-thin) solid var(--color-border-default)}
 .home-faq__item summary{position:relative;padding-block:var(--space-5);padding-inline-end:2.5rem;cursor:pointer;color:var(--color-text-brand);font-size:var(--font-size-md);font-weight:var(--font-weight-semibold);list-style:none}
 .home-faq__item summary::-webkit-details-marker{display:none}
-.home-faq__item summary::after{content:"+";position:absolute;inset-inline-end:.25rem;top:50%;translate:0 -50%;color:var(--color-text-accent);font-size:1.4rem;font-weight:var(--font-weight-regular)}
-.home-faq__item[open] summary::after{content:"−"}
+.home-faq__item summary::after{content:"";position:absolute;inset-inline-end:.45rem;top:50%;width:.6rem;height:.6rem;border-inline-end:2px solid var(--color-text-accent);border-block-end:2px solid var(--color-text-accent);transform:translateY(-65%) rotate(45deg);transition:transform var(--motion-base) var(--ease-standard)}
+.home-faq__item[open] summary::after{transform:translateY(-15%) rotate(225deg)}
 .home-faq__item p{max-width:48rem;padding:0 0 var(--space-5);color:var(--color-text-secondary);line-height:1.75}
 
 
