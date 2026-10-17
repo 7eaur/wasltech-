@@ -55,6 +55,8 @@ for (const locale of ["ar","en"]) {
     }
 
     const subserviceDisclosureCount=(html.match(/class="service-disclosure service-subservice__details"/g)??[]).length;
+    const shortOptionCount=(html.match(/class="service-subservice__description"/g)??[]).length;
+    if((copy.subservices?.length ?? 0)<=3 && shortOptionCount!==(copy.subservices?.length ?? 0)) fail(file,"short options must keep title and description together inside the content grid cell");
     if((copy.subservices?.length ?? 0)>3){
       if(subserviceDisclosureCount!==copy.subservices.length) fail(file,"long service options need native, JS-free disclosures");
       if(!html.includes('class="service-disclosure service-subservice__details" open')) fail(file,"first service option must show a visible explanation");
