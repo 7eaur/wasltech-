@@ -3,6 +3,7 @@ import { getProjectsByCategory } from "../data/projects.js";
 import { getServiceById } from "../data/services.js";
 import { CallToAction } from "../components/CallToAction.js";
 import { MediaCard } from "../components/MediaCard.js";
+import { ProjectDecisions } from "../components/ProjectDecisions.js";
 import { documentTemplate } from "../templates/document.js";
 import { breadcrumbSchema, creativeWorkSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
@@ -172,6 +173,7 @@ export function projectDetailPage(project,locale="ar") {
     renderHero(project,locale),
     renderStory(project,locale),
     renderScope(project,locale),
+    ProjectDecisions({decisions:copy.caseStudy.decisions ?? [],locale}),
     renderServices(project,locale),
     renderRelated(project,locale),
     renderCta(project,locale)
