@@ -11,7 +11,7 @@
 تُدمج هذه المراجع دون تكرار العمل:
 1. [المراجعة المستقلة](INDEPENDENT_SEO_AEO_REVIEW_AR_2026-10-17.md) (تحليل الموقع والكود دون الاعتماد على تقارير SEO القديمة).
 2. [تسليم SEO السابق](SEO_AI_SEARCH_HANDOFF_AR.md)، و[مصفوفة التدقيق القديمة](SEO_AUDIT_EXECUTION_PLAN_AR.md).
-3. [سجل 88 رابطًا من GSC](SEO_PHASE1_URL_AUDIT_20261017_AR.md) و[مراجعة العناوين والكلمات](SEO_METADATA_KEYWORD_AUDIT_20261017_AR.md)، وهما **موجودان في فرع PR #65 غير المدمج** عند إنشاء هذه الخطة.
+3. [سجل 88 رابطًا من GSC](https://github.com/7eaur/wasltech-/blob/seo/phase1-verified-onpage-20261017/docs/seo/SEO_PHASE1_URL_AUDIT_20261017_AR.md) و[مراجعة العناوين والكلمات](https://github.com/7eaur/wasltech-/blob/seo/phase1-verified-onpage-20261017/docs/seo/SEO_METADATA_KEYWORD_AUDIT_20261017_AR.md)، وهما **موجودان في فرع PR #65 غير المدمج** عند إنشاء هذه الخطة.
 4. أحدث `src/` و`scripts/` و`vercel.json` وبيانات Google Search Console/Bing/GA4 والإنتاج المباشر، ثم هذه الخطة. إذا اختلف المصدر الحي مع وثيقة سابقة تُحدّث الوثيقة؛ لا تُعامل الأرقام القديمة كحقيقة ثابتة.
 
 **الوضع المثبت عند التخطيط:**
