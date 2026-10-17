@@ -87,48 +87,82 @@ export const pages = Object.freeze([
   page({
     id: "about", routeKey: "about", state: CONTENT_STATE.READY, reviewed: true,
     fieldState:{purpose:CONTENT_STATE.READY,arabicCore:CONTENT_STATE.READY,sections:CONTENT_STATE.READY,cta:CONTENT_STATE.READY,seo:CONTENT_STATE.READY,businessFacts:CONTENT_STATE.READY,english:CONTENT_STATE.READY},
-    evidenceSources:["content:b87872d12adcc836018fe61a7ef1556f04aa5b86:إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md","legacy:https://www.wasl-tech.com/about"],
+    evidenceSources:["content:b87872d12adcc836018fe61a7ef1556f04aa5b86:إعادة-كتابة-نهائية-مختصرة-بدون-باقات.md","src/data/services.js","owner:approved-about-page-2026-10-17"],
     content:{
       ar:Object.freeze({
-        purpose:"تعريف وصل تك كفريق يربط الاستراتيجية والتصميم والبرمجة والهوية والتسويق حول احتياج المشروع الحقيقي.",
+        purpose:"تعريف وصل تك وقيمها وخدماتها وطريقة عملها مع معلومات موثوقة عن نطاق تقديم الخدمة.",
         kicker:"من نحن؟",
-        title:"نبني حضورك الرقمي باحتراف",
-        support:"في وصل تك نساعد العلامات التجارية والمشاريع على بناء حضور رقمي قوي واحترافي، من خلال التصميم الإبداعي، التقنية المتقدمة، والتسويق الذكي. نؤمن أن كل فكرة تستحق أن تُرى وتُحدث أثرًا.",
-        primaryCta:"ابدأ الحديث معنا",secondaryCta:"شاهد الأعمال",
+        title:"نبني حضورًا رقميًا يعكس قيمة مشروعك",
+        support:"في وصل تك نساعد أصحاب المشاريع والشركات على بناء مواقع، تطبيقات، متاجر إلكترونية وهويات رقمية، تُقدَّم باحتراف وتخدم أهدافهم بوضوح.",
+        primaryCta:"ابدأ مشروعك الآن",secondaryCta:"تواصل معنا",
         sections:Object.freeze([
-          Object.freeze({id:"story",kicker:"قصتنا",title:"رحلة بدأت من الشغف بالتقنية والإبداع",support:"بدأت رحلتنا من شغفنا بالتقنية والإبداع، ورؤيتنا لمساعدة الشركات والأفراد على الاستفادة من العالم الرقمي بأفضل طريقة ممكنة.",body:Object.freeze(["نحن شريكك في كل خطوة، من الفكرة إلى الإطلاق وما بعده.","نركز على الجودة، وضوح العمل، وبناء حلول رقمية تخدم هدف المشروع وتدعم نموه."])}),
-          Object.freeze({id:"vision",kicker:"اتجاهنا",title:"رؤيتنا",support:"أن نكون الخيار الأول في العالم العربي في تقديم الحلول الرقمية المتكاملة، وأن نصنع تأثيرًا إيجابيًا ومستدامًا في حياة عملائنا ومجتمعاتهم."}),
-          Object.freeze({id:"mission",kicker:"ما نقدمه",title:"رسالتنا",support:"تقديم حلول رقمية مبتكرة وفعالة تساعد عملاءنا على النمو والتطور في بيئة رقمية تنافسية، عبر فهم احتياجاتهم وتقديم تجارب تحقق قيمة حقيقية."}),
-          Object.freeze({id:"principles",kicker:"مبادئنا",title:"ماذا نؤمن؟",support:"مبادئ بسيطة تحكم طريقة تفكيرنا في التصميم والتقنية والعمل مع العميل.",items:Object.freeze([
-            Object.freeze({title:"الفكرة تستحق الظهور",body:"كل فكرة تحمل قيمة، ونحن هنا لنحولها إلى تجربة رقمية مميزة."}),
-            Object.freeze({title:"التصميم رسالة",body:"التصميم ليس مجرد شكل جميل؛ هو طريقة توصل المعنى وتبني علاقة."}),
-            Object.freeze({title:"التقنية وسيلة للنمو",body:"نستخدم التقنية لبناء حلول قابلة للتطوير وتخدم أهداف المشروع."}),
-            Object.freeze({title:"الوضوح يصنع الثقة",body:"نؤمن بالشفافية والتواصل الواضح في كل مرحلة من العمل."})
+          Object.freeze({id:"story",kicker:"قصتنا",title:"من الفكرة إلى حضور رقمي له قيمة",support:"بدأت وصل تك من إيمان واضح بأن الحضور الرقمي أصبح جزءًا أساسيًا من نجاح أي مشروع.",body:Object.freeze([
+            "نعمل على بناء حلول رقمية تساعد أصحاب المشاريع والشركات على عرض خدماتهم ومنتجاتهم بصورة أوضح وأكثر احترافية.",
+            "نجمع بين التخطيط والتصميم والتطوير والتسويق لنقدم تجربة مناسبة لكل مشروع، من الفكرة الأولى حتى الإطلاق."
+          ]),facts:Object.freeze([
+            Object.freeze({value:"8",label:"خدمات رقمية متكاملة"}),
+            Object.freeze({value:"حلول مخصصة",label:"بحسب طبيعة كل مشروع"}),
+            Object.freeze({value:"اليمن والخليج",label:"نطاق الخدمات المستهدف"})
           ])}),
-          Object.freeze({id:"build",kicker:"خدماتنا",title:"ماذا نصنع؟",support:"مواقع وتطبيقات، متاجر إلكترونية، هويات بصرية، بروفايلات، محتوى وتسويق، وأنظمة وحلول تقنية مخصصة."}),
-          Object.freeze({id:"final-cta",kicker:"ابدأ معنا",title:"لديك فكرة تستحق أن تظهر؟",support:"شاركنا فكرتك، ونساعدك على تحويلها إلى حضور رقمي احترافي يناسب مشروعك."})
+          Object.freeze({id:"vision",kicker:"إلى أين نتجه",title:"رؤيتنا",support:"أن نكون شريكًا رقميًا موثوقًا يساعد المشاريع والشركات على بناء حضور احترافي يعكس قيمتها ويواكب تطورها."}),
+          Object.freeze({id:"mission",kicker:"كيف نحقق ذلك",title:"رسالتنا",support:"نقدّم حلولًا رقمية عملية تجمع بين التصميم والتطوير والتسويق، مع اهتمام بالتفاصيل وتجربة الاستخدام ووضوح مراحل التنفيذ."}),
+          Object.freeze({id:"principles",kicker:"قيمنا",title:"مبادئ تُوجّه عملنا",support:"نعتمد على قيم واضحة في كل مرحلة، من فهم الاحتياج إلى التسليم والمتابعة.",items:Object.freeze([
+            Object.freeze({title:"الاحتراف",body:"نقدّم أعمالًا منظمة ومتقنة تعكس الاهتمام الحقيقي بجودة التنفيذ.",icon:"checklist"}),
+            Object.freeze({title:"الوضوح",body:"نحرص على فهم العميل والتواصل معه بوضوح طوال مراحل العمل.",icon:"message"}),
+            Object.freeze({title:"المرونة",body:"نختار الحلول المناسبة لطبيعة المشروع واحتياجاته وأهدافه.",icon:"plan"}),
+            Object.freeze({title:"التطوير المستمر",body:"نراجع ونحسّن ما نبنيه ونواكب ما يساعد على رفع جودة العمل.",icon:"launch"})
+          ])}),
+          Object.freeze({id:"build",kicker:"مجالات عملنا",title:"ماذا نصنع لعملائنا؟",support:"نساعدك على بناء حضور رقمي متكامل عبر خدمات مترابطة تغطي احتياجات المشروع الأساسية.",groups:Object.freeze([
+            Object.freeze({title:"بناء المنتجات الرقمية",description:"مواقع وتطبيقات وبرمجيات تساعدك على تقديم مشروعك بوضوح وكفاءة.",icon:"build",serviceIds:Object.freeze(["web","app","programming"])}),
+            Object.freeze({title:"البيع والنمو",description:"متاجر وتسويق وحلول تقنية لتنظيم العمل وتطوير حضور المشروع.",icon:"launch",serviceIds:Object.freeze(["store","marketing","tech"])}),
+            Object.freeze({title:"الهوية والعرض الاحترافي",description:"هويات بصرية وبروفايلات تقدم مشروعك بصورة متناسقة.",icon:"globe",serviceIds:Object.freeze(["design","profiles"])})
+          ])}),
+          Object.freeze({id:"approach",kicker:"طريقة عملنا",title:"خطوات واضحة من الفكرة إلى الإطلاق",support:"نختصر لك رحلة العمل في أربع مراحل، ويمكنك التعرف على تفاصيلها في صفحة طريقة العمل.",steps:Object.freeze([
+            Object.freeze({title:"نفهم احتياجك",icon:"discover"}),
+            Object.freeze({title:"نحدد الحل المناسب",icon:"plan"}),
+            Object.freeze({title:"نصمم ونطوّر",icon:"build"}),
+            Object.freeze({title:"نطلق وندعم",icon:"launch"})
+          ])}),
+          Object.freeze({id:"final-cta",kicker:"ابدأ معنا",title:"هل لديك مشروع وتبحث عن شريك رقمي يفهمك؟",support:"شاركنا فكرتك، ودعنا نساعدك على بناء حضور رقمي احترافي يخدم أهدافك."})
         ]),
-        seo:Object.freeze({title:"عن وصل تك | فريق حلول رقمية وتقنية",description:"تعرف على فريق وصل تك وطريقة عمله في ربط التخطيط والتصميم والبرمجة والهوية والتسويق حول احتياج المشروع الحقيقي."})
+        seo:Object.freeze({title:"من نحن | وصل تك للحلول الرقمية في اليمن والخليج",description:"تعرّف على وصل تك ورؤيتها وقيمها وخدماتها الثماني في المواقع والتطبيقات والمتاجر والبرمجيات والهوية والتسويق والحلول الرقمية."})
       }),
       en:Object.freeze({
-        purpose:"Introduce Wasl Tech as a team that connects strategy, design, software, identity, and marketing around a real project need.",
-        kicker:"About us",title:"We build your digital presence professionally",
-        support:"At Wasl Tech, we help brands and projects build a strong professional digital presence through creative design, advanced technology, and smart marketing. We believe every idea deserves to be seen and make an impact.",
-        primaryCta:"Start the conversation",secondaryCta:"View our work",
+        purpose:"Introduce Wasl Tech, our values, services, and approach using verifiable business facts.",
+        kicker:"About us",title:"Building a digital presence that reflects your project's value",
+        support:"Wasl Tech helps businesses and project owners build professional websites, apps, e-commerce experiences, and digital identities designed around clear goals.",
+        primaryCta:"Start your project",secondaryCta:"Contact us",
         sections:Object.freeze([
-          Object.freeze({id:"story",kicker:"Our story",title:"A journey that started with a passion for technology and creativity",support:"Our journey began with a passion for technology and creativity and a vision to help companies and individuals benefit from the digital world in the best possible way.",body:Object.freeze(["We stay with the project from the idea to launch and beyond.","We focus on quality, clarity, and digital solutions that serve the project goal and support growth."])}),
-          Object.freeze({id:"vision",kicker:"Our direction",title:"Our vision",support:"To become a leading choice in the Arab world for integrated digital solutions and create positive, sustainable impact for our clients and communities."}),
-          Object.freeze({id:"mission",kicker:"What we do",title:"Our mission",support:"To provide innovative and effective digital solutions that help clients grow in a competitive digital environment through understanding their needs and delivering valuable experiences."}),
-          Object.freeze({id:"principles",kicker:"Our principles",title:"What we believe",support:"Simple principles guide how we think about design, technology, and working with clients.",items:Object.freeze([
-            Object.freeze({title:"Every idea deserves to be seen",body:"Every idea carries value, and we help turn it into a distinctive digital experience."}),
-            Object.freeze({title:"Design is a message",body:"Design is not only appearance; it communicates meaning and builds a relationship."}),
-            Object.freeze({title:"Technology supports growth",body:"We use technology to build solutions that can evolve with the project."}),
-            Object.freeze({title:"Clarity builds trust",body:"We believe in transparent communication throughout every stage of the work."})
+          Object.freeze({id:"story",kicker:"Our story",title:"From an idea to a digital presence with purpose",support:"Wasl Tech started with a simple belief: a digital presence is an essential part of a project's success.",body:Object.freeze([
+            "We build digital solutions that help businesses present their products and services clearly and professionally.",
+            "Our work brings together planning, design, development, and marketing to create a fitting experience from the first idea through launch."
+          ]),facts:Object.freeze([
+            Object.freeze({value:"8",label:"Integrated digital services"}),
+            Object.freeze({value:"Tailored solutions",label:"Built around project needs"}),
+            Object.freeze({value:"Yemen & the Gulf",label:"Markets we serve"})
           ])}),
-          Object.freeze({id:"build",kicker:"Our services",title:"What we build",support:"Websites and apps, e-commerce, brand identity, company profiles, content and marketing, and custom technical solutions."}),
-          Object.freeze({id:"final-cta",kicker:"Start with us",title:"Have an idea that deserves to be seen?",support:"Share your idea and we will help turn it into a professional digital presence that fits your project."})
+          Object.freeze({id:"vision",kicker:"Where we are going",title:"Our vision",support:"To be a trusted digital partner helping businesses build a professional presence that reflects their value and evolves with them."}),
+          Object.freeze({id:"mission",kicker:"How we get there",title:"Our mission",support:"We deliver practical digital solutions across design, development, and marketing, with attention to detail, user experience, and clear delivery stages."}),
+          Object.freeze({id:"principles",kicker:"Our values",title:"Principles guiding our work",support:"Clear values shape our work, from understanding a need through delivery and follow-up.",items:Object.freeze([
+            Object.freeze({title:"Craft",body:"We build carefully structured, thoughtful work with attention to quality.",icon:"checklist"}),
+            Object.freeze({title:"Clarity",body:"We prioritize understanding and transparent communication at every stage.",icon:"message"}),
+            Object.freeze({title:"Flexibility",body:"We choose solutions that fit each project's goals and constraints.",icon:"plan"}),
+            Object.freeze({title:"Continuous improvement",body:"We review and improve our work as better methods and tools emerge.",icon:"launch"})
+          ])}),
+          Object.freeze({id:"build",kicker:"What we do",title:"What we build for our clients",support:"Our connected services help projects build a professional presence around their core needs.",groups:Object.freeze([
+            Object.freeze({title:"Digital products",description:"Websites, apps, and tailored software for clearer and more effective digital experiences.",icon:"build",serviceIds:Object.freeze(["web","app","programming"])}),
+            Object.freeze({title:"Commerce and growth",description:"E-commerce, marketing, and technical solutions to support better operations and reach.",icon:"launch",serviceIds:Object.freeze(["store","marketing","tech"])}),
+            Object.freeze({title:"Identity and presentation",description:"Brand identity and professional company profiles for a consistent presence.",icon:"globe",serviceIds:Object.freeze(["design","profiles"])})
+          ])}),
+          Object.freeze({id:"approach",kicker:"Our approach",title:"Clear steps from idea to launch",support:"We keep the journey simple. Discover the full process on our How We Work page.",steps:Object.freeze([
+            Object.freeze({title:"Understand your needs",icon:"discover"}),
+            Object.freeze({title:"Choose the right solution",icon:"plan"}),
+            Object.freeze({title:"Design and build",icon:"build"}),
+            Object.freeze({title:"Launch and support",icon:"launch"})
+          ])}),
+          Object.freeze({id:"final-cta",kicker:"Start with us",title:"Looking for a digital partner who understands your project?",support:"Share your idea and let us build a professional digital presence around your goals."})
         ]),
-        seo:Object.freeze({title:"About Wasl Tech | Digital Solutions Team",description:"Meet the Wasl Tech team and how we connect planning, design, software, identity, and marketing around real project needs."})
+        seo:Object.freeze({title:"About Wasl Tech | Digital Solutions in Yemen & the Gulf",description:"Get to know Wasl Tech, our story, values, four-step approach and eight services spanning websites, apps, online stores, software, branding and marketing."})
       })
     }
   }),
