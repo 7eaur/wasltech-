@@ -7,67 +7,64 @@ import { site } from "../src/config/site.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const config = JSON.parse(await readFile(path.join(ROOT, "vercel.json"), "utf8"));
+const redirects = config.redirects ?? [];
 const errors = [];
-const fail = (message) => errors.push(message);
-const redirects = config.routes ?? [];
-const filesystemAt = redirects.findIndex((entry) => entry.handle === "filesystem");
-if (filesystemAt < 0) fail("filesystem fallback missing");
-if (!config.trailingSlash) fail("canonical URLs require consistent trailing slashes");
+const fail = (msg) => errors.push(msg);
+const seen = new Set();
+const expected = new Set();
 
-function expectRule(src, dest, id = null) {
-  const matched = redirects.filter((rule, index) =>
-    index < filesystemAt &&
-    rule.src === src &&
-    rule.status === 308 &&
-    rule.headers?.Location === dest &&
-    (!id || (rule.has?.length === 1 &&
-      rule.has[0].type === "query" &&
-      rule.has[0].key === "id" &&
-      new RegExp(`^(?:${rule.has[0].value})$`).test(id)))
+function check(source, destination, id = null) {
+  const tag = source + (id ? `?id=${id}` : "");
+  expected.add(tag);
+  const matches = redirects.filter((rule) =>
+    rule.source === source &&
+    rule.destination === destination &&
+    rule.permanent === true &&
+    (id === null ? !rule.has?.length
+      : rule.has?.length === 1 &&
+        rule.has[0].type === "query" &&
+        rule.has[0].key === "id" &&
+        rule.has[0].value === id)
   );
-  if (matched.length !== 1) fail(`expected one 308 redirect: ${src} + ${id ?? ""} -> ${dest} (found ${matched.length})`);
+  if (matches.length !== 1) fail(`missing or duplicate permanent redirect: ${tag} -> ${destination}`);
 }
-expectRule("/index\\.html", routes.home("ar"));
-expectRule("/en/index\\.html", routes.home("en"));
-expectRule("/about\\.html", routes.about("ar"));
-expectRule("/contact\\.html", routes.contact("ar"));
+check("/index.html", routes.home("ar"));
+check("/en/index.html", routes.home("en"));
+check("/about.html", routes.about("ar"));
+check("/contact.html", routes.contact("ar"));
 
 for (const locale of ["ar", "en"]) {
-  const prefix = locale === "ar" ? "" : "/en";
-  const src = `${prefix}/service-web/?`;
+  const source = (locale === "ar" ? "" : "/en") + "/service-web";
   for (const service of services) {
-    const dest = routes.service(service.slug, locale);
-    expectRule(src, dest, service.slug);
-    expectRule(src, dest, service.id);
-  }
-  const fallbacks = redirects.filter((rule, i) =>
-    i < filesystemAt &&
-    rule.src === src &&
-    rule.status === 404 &&
-    rule.dest === (locale === "ar" ? "/404.html" : "/en/404.html")
-  );
-  if (fallbacks.length !== 1) fail(`unexpected unknown-service fallback: ${locale}`);
-  const fallbackIdx = redirects.indexOf(fallbacks[0]);
-  for (const [i, rule] of redirects.entries()) {
-    if (rule.src === src && rule.status === 308 && i >= fallbackIdx) {
-      fail(`known service redirect must precede unknown id 404: ${locale}`);
+    for (const alias of new Set([service.slug, service.id])) {
+      check(source, routes.service(service.slug, locale), alias);
     }
   }
+  const fallback = config.routes?.filter((rule) =>
+    rule.src === source + "/?" && rule.status === 404 &&
+    rule.dest === (locale === "ar" ? "/404.html" : "/en/404.html")
+  );
+  if (fallback?.length !== 1) fail(`unknown service ID must not silently redirect to a different service: ${locale}`);
 }
-if (services.length !== 8) fail(`expected eight service definitions, received ${services.length}`);
-if (new Set(services.map(({ slug }) => slug)).size !== services.length) fail("duplicate service slug");
-if (site.origin !== "https://wasl-tech.com") fail("unexpected canonical host: review redirects before shipping");
-for (const entry of redirects) {
-  if (entry.status === 308 && entry.headers?.Location) {
-    const dest = entry.headers.Location;
-    if (!dest.startsWith("/") || dest.startsWith("//")) fail(`invalid redirect destination: ${dest}`);
-    if (dest.includes("service-web")) fail(`redirect loop destination: ${dest}`);
-  }
+if (services.length !== 8) fail("Expected eight services");
+for (const r of redirects) {
+  const tag = r.source + (r.has?.[0]?.key === "id" ? `?id=${r.has[0].value}` : "");
+  if (seen.has(tag)) fail(`duplicate source/condition: ${tag}`);
+  seen.add(tag);
+  if (!expected.has(tag)) fail(`unexpected redirect entry: ${tag}`);
+  if (!r.permanent || !r.destination?.startsWith("/") || r.destination.startsWith("//")) fail(`unsafe/temporary destination: ${tag}`);
+  if (r.destination.includes("service-web")) fail(`redirect destination loop: ${tag}`);
 }
+if (!config.trailingSlash) fail("Canonical trailing-slash policy changed");
+if (site.origin !== "https://wasl-tech.com") fail("Canonical origin has changed");
+if (redirects.length !== expected.size) fail("Incorrect permanent redirect count");
+const filesystemAt = (config.routes ?? []).findIndex((route) => route.handle === "filesystem");
+if (filesystemAt < 0 || (config.routes ?? []).slice(0, filesystemAt).some((route) =>
+  route.status === 308)) fail("Legacy 308s must use priority redirects, not static-fallback routing");
 if (errors.length) {
   console.error("LEGACY REDIRECT ROUTES: FAILED");
   for (const error of errors) console.error("- " + error);
   process.exit(1);
 }
 console.log("LEGACY REDIRECT ROUTES: PASSED");
-console.log("Checked HTML aliases, 8 services × Arabic/English × old slug/ID, unknown-ID fallbacks, order and destinations.");
+console.log(`Checked ${redirects.length} explicit HTML/service 308s and unknown-ID 404 fallbacks against bilingual canonical services.`);
