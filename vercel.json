@@ -22,6 +22,25 @@
       "continue": true
     },
     {
+      "src": "/__seo-route-308-probe",
+      "status": 308,
+      "headers": {
+        "Location": "/about/"
+      }
+    },
+    {
+      "src": "/__seo-route-function-probe",
+      "dest": "/api/legacy-service?language=en&id=store"
+    },
+    {
+      "src": "/en/service-web(?:\\.html|/)?",
+      "dest": "/api/legacy-service?language=en"
+    },
+    {
+      "src": "/service-web(?:\\.html|/)?",
+      "dest": "/api/legacy-service?language=ar"
+    },
+    {
       "src": "/index\\.html",
       "headers": {
         "Location": "/"
@@ -83,25 +102,6 @@
         "Location": "/insights/"
       },
       "status": 308
-    },
-    {
-      "src": "/en/service-web(?:\\.html|/)?",
-      "dest": "/api/legacy-service?language=en"
-    },
-    {
-      "src": "/service-web(?:\\.html|/)?",
-      "dest": "/api/legacy-service?language=ar"
-    },
-    {
-      "src": "/__seo-route-308-probe",
-      "status": 308,
-      "headers": {
-        "Location": "/about/"
-      }
-    },
-    {
-      "src": "/__seo-route-function-probe",
-      "dest": "/api/legacy-service?language=en&id=store"
     },
     {
       "handle": "filesystem"
