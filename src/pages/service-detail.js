@@ -194,7 +194,7 @@ function renderProof(service, locale) {
             href:routes.project(project.slug,locale),
             image:{
               src:project.image,
-              alt:project.content[locale].title,
+              alt:"",
               width:project.imageDimensions.width,
               height:project.imageDimensions.height
             },
