@@ -22,6 +22,27 @@
       "continue": true
     },
     {
+      "src": "/index\\.html",
+      "status": 308,
+      "headers": {
+        "Location": "/"
+      }
+    },
+    {
+      "src": "/service-web/?",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "web-development"
+        }
+      ],
+      "status": 308,
+      "headers": {
+        "Location": "/services/web-development/"
+      }
+    },
+    {
       "src": "/service-web/?",
       "status": 404,
       "dest": "/404.html"
@@ -56,11 +77,6 @@
     }
   ],
   "redirects": [
-    {
-      "source": "/index.html",
-      "destination": "/",
-      "permanent": true
-    },
     {
       "source": "/en/index.html",
       "destination": "/en/",
@@ -99,18 +115,6 @@
     {
       "source": "/blog.html",
       "destination": "/insights/",
-      "permanent": true
-    },
-    {
-      "source": "/service-web",
-      "has": [
-        {
-          "type": "query",
-          "key": "id",
-          "value": "web-development"
-        }
-      ],
-      "destination": "/services/web-development/",
       "permanent": true
     },
     {
