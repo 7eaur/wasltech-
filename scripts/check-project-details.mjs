@@ -47,6 +47,20 @@ for(const locale of ["ar","en"]){
     for(const value of [...copy.caseStudy.scope,...copy.caseStudy.deliveredOutputs]){
       if(!html.includes(htmlText(value))) fail(file,`scope/output missing: ${value}`);
     }
+    const decisions = copy.caseStudy.decisions ?? [];
+    if(project.slug === "update-card-digital-services") {
+      if(decisions.length !== 3) fail(file,"Update Card must have three source-grounded decisions in each locale");
+    } else if(decisions.length) {
+      fail(file,"do not invent unverified decision data for other projects");
+    }
+    if(Boolean(decisions.length) !== html.includes('class="section section--subtle project-scope project-decisions"')){
+      fail(file,"project decisions section count and data disagree");
+    }
+    for(const decision of decisions) {
+      for(const field of ["title","reason","implementation"]){
+        if(!decision[field] || !html.includes(htmlText(decision[field]))) fail(file,`project decision missing: ${field}`);
+      }
+    }
 
     for(const serviceId of project.serviceIds){
       const service=getServiceById(serviceId);
