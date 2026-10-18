@@ -33,9 +33,9 @@ const projectRecords = [
           "لوحة لإدارة الطلاب ومتابعة التقدم"
         ],
         "caseStudy": {
-          "overview": "منصة تعليمية عربية تقدّم للطالب مسارًا منظمًا للتعلم والتدريب على مهارات القراءة والكتابة، مع أدوات للإدارة والمتابعة.",
-          "context": "تختلف احتياجات الطلاب ومستوياتهم؛ لذلك يحتاج المسار التعليمي إلى تقييم أولي وأنشطة واضحة ومتدرجة ووسيلة لمتابعة تقدم كل طالب.",
-          "contribution": "تطوير واجهات تجربة الطالب والتعلم التفاعلي وربطها بلوحة إدارة لمتابعة الطلاب والأنشطة.",
+          "overview": "منصة تعليمية عربية تقدّم للطالب مسارًا منظمًا للتعلم والتدريب على مهارات القراءة والكتابة، مع أدوات للإدارة والمتابعة. منصة هِمّة موجّهة لتقديم تجربة تعلم عربية تركز على مهارات القراءة والكتابة وتربط تقييم مستوى الطالب بالأنشطة والتدريب والمتابعة. الفكرة ليست جمع أسئلة عشوائية، بل بناء رحلة لها تسلسل واضح يساعد الطالب والمعلم على فهم ما يُدرّس وما يُراجع.",
+          "context": "تختلف احتياجات الطلاب ومستوياتهم؛ لذلك يحتاج المسار التعليمي إلى تقييم أولي وأنشطة واضحة ومتدرجة ووسيلة لمتابعة تقدم كل طالب. الفروق الفردية بين الطلاب تجعل الاعتماد على النشاط نفسه للجميع أقل ملاءمة؛ لذلك يتضمن تصور المنصة اختبارًا قبليًا ومسارًا تدريجيًا للمهارات مع دعم وتقوية حسب الحاجة. يجب التفريق هنا بين المحتوى التربوي المخطط والوظائف التي اكتمل تنفيذها في النسخة المعتمدة وقت النشر.",
+          "contribution": "تطوير واجهات تجربة الطالب والتعلم التفاعلي وربطها بلوحة إدارة لمتابعة الطلاب والأنشطة. وفق بيانات المستودع الحالي يشمل المشروع واجهات الطالب وأنشطة القراءة والكتابة ولوحة إدارة ومتابعة. أما تفاصيل التحليل الصوتي بالذكاء الاصطناعي، ومعدلات التحسن الدراسي، أو جاهزية جميع الأنشطة والفيديوهات للنشر فهي بنود تحتاج إثباتًا واختبارًا منفصلًا قبل إعلانها.",
           "scope": [
             "التقييم القبلي ومسار الطالب",
             "أنشطة القراءة والكتابة والتدريبات",
@@ -45,6 +45,23 @@ const projectRecords = [
             "واجهة تعلم تفاعلية للطالب",
             "مسار مهارات وأنشطة تعليمية",
             "لوحة إدارة لمتابعة الطلاب"
+          ],
+          "decisions": [
+            {
+              "title": "تقييم يمهد للمسار",
+              "reason": "تحديد احتياج المتعلم قبل تقديم الأنشطة يساعد على ترتيب التعلّم.",
+              "implementation": "إدراج التقييم القبلي ضمن الرحلة التعليمية الموثقة."
+            },
+            {
+              "title": "تدرج المهارات",
+              "reason": "التعلم القرائي يحتاج مسارًا لا مجموعة أسئلة متفرقة.",
+              "implementation": "تنظيم أنشطة القراءة والكتابة بحسب مهارات واضحة ومستويات مناسبة."
+            },
+            {
+              "title": "المتابعة والدعم",
+              "reason": "يحتاج المشرف إلى رؤية ما يكمله الطالب وما يحتاج مراجعة.",
+              "implementation": "ربط تجربة الطالب بمساحة متابعة، مع انتظار التحقق من تفاصيل التكيف والتحليل الصوتي."
+            }
           ]
         },
         "seo": {
@@ -62,9 +79,9 @@ const projectRecords = [
           "Student management and progress tracking"
         ],
         "caseStudy": {
-          "overview": "An Arabic learning platform with a structured path for students to practice reading and writing skills, supported by management and tracking tools.",
-          "context": "Students have different learning needs and skill levels, calling for initial assessment, guided activities, and a clear way to follow individual progress.",
-          "contribution": "Developed the student learning interface and interactive practice experience alongside an administration interface for following students and activities.",
+          "overview": "An Arabic learning platform with a structured path for students to practice reading and writing skills, supported by management and tracking tools. Himma is an Arabic learning platform focused on reading and writing skills, bringing together an initial skill assessment, structured learning activities and follow-up. The concept emphasizes a coherent learning journey rather than a disconnected collection of questions.",
+          "context": "Students have different learning needs and skill levels, calling for initial assessment, guided activities, and a clear way to follow individual progress. Different learners may need different kinds of support, so the proposed experience includes an initial check and progressive skill practice, with reinforcement where appropriate. It is important to distinguish the approved educational plan from features fully implemented and released at publication time.",
+          "contribution": "Developed the student learning interface and interactive practice experience alongside an administration interface for following students and activities. Current portfolio records describe the student interface, reading and writing practice and an administration and tracking area. Speech analysis, quantified learning gains and production readiness of every media asset are not claimed without separate evidence.",
           "scope": [
             "Initial assessment and student journey",
             "Reading and writing learning activities",
@@ -74,6 +91,23 @@ const projectRecords = [
             "Interactive student learning interface",
             "Structured skills and activities",
             "Student administration interface"
+          ],
+          "decisions": [
+            {
+              "title": "Assessment informs the path",
+              "reason": "Initial skill needs provide context for choosing activities.",
+              "implementation": "Include baseline assessment within the documented learning journey."
+            },
+            {
+              "title": "Skill progression",
+              "reason": "Reading practice is more useful as a coherent path than isolated questions.",
+              "implementation": "Organize reading and writing activities into a structured skill sequence."
+            },
+            {
+              "title": "Follow-up and support",
+              "reason": "Educators need a way to see progress and potential gaps.",
+              "implementation": "Connect student activity to an administration view without asserting unverified AI assessment features."
+            }
           ]
         },
         "seo": {
@@ -1178,11 +1212,28 @@ const projectRecords = [
                   "محتوى لشبكات التواصل"
         ],
         "caseStudy": {
-          "overview": "مشروع تسويقي يركز على توحيد الرسائل والتصميم والحملات حول منتجات العطور بدل التعامل مع كل منشور أو إعلان بشكل منفصل.",
-          "context": "المشروع يجمع الرسالة والتصميم والحملات الاجتماعية في اتجاه واحد بدل التعامل مع المحتوى كمنشورات منفصلة.",
-          "contribution": "بناء اتجاه للحملة يشمل استراتيجية المحتوى والتصميم الإعلاني ومحتوى شبكات التواصل.",
+          "overview": "مشروع تسويقي يركز على توحيد الرسائل والتصميم والحملات حول منتجات العطور بدل التعامل مع كل منشور أو إعلان بشكل منفصل. الحملة الرقمية لفخري للعطور تستهدف تقديم المنتجات برسائل وتصاميم تتبع اتجاهًا واحدًا، بدل إنتاج منشورات منفصلة لا تتصل بفكرة مشتركة. وتظهر قيمة التخطيط عندما يعرف الفريق ما الذي يريد إيصاله وما الذي يتغير بين المنشورات وما الذي يجب أن يبقى ثابتًا في العلامة.",
+          "context": "المشروع يجمع الرسالة والتصميم والحملات الاجتماعية في اتجاه واحد بدل التعامل مع المحتوى كمنشورات منفصلة. تحتاج منتجات العطور إلى محتوى يوضح الاختلاف بين المنتجات دون إغراق المتلقي بالتفاصيل أو تغيير أسلوب العلامة كل مرة. لذلك يجمع نطاق المشروع بين تخطيط الرسائل وإعداد المواد الإعلانية والمحتوى الاجتماعي وفق هدف الحملة.",
+          "contribution": "بناء اتجاه للحملة يشمل استراتيجية المحتوى والتصميم الإعلاني ومحتوى شبكات التواصل. يشمل نطاق العمل المعلن تخطيط المحتوى والتصميم الإعلاني وإعداد مواد للشبكات الاجتماعية. ولا يثبت ملف الصور وحده إطلاق حملات مدفوعة أو ميزانية أو وصولًا أو نسبة تحويل؛ هذه النتائج تحتاج سجلات منصة الإعلان وتقارير معتمدة.",
           "scope": ["تخطيط المحتوى","تصميم الإعلانات","حملات ومحتوى اجتماعي"],
-          "deliveredOutputs": ["استراتيجية محتوى","تصاميم إعلانية","محتوى وحملات اجتماعية"]
+          "deliveredOutputs": ["استراتيجية محتوى","تصاميم إعلانية","محتوى وحملات اجتماعية"],
+          "decisions": [
+            {
+              "title": "رسالة متسقة",
+              "reason": "اختلاف أساليب المنشورات يشتت حضور المتجر.",
+              "implementation": "تحديد اتجاه للمحتوى والرسائل المتصلة بفئات العطور."
+            },
+            {
+              "title": "تصميم يخدم المنتج",
+              "reason": "الإعلان يحتاج إبراز المنتج دون طغيان الزخارف.",
+              "implementation": "إعداد مواد إعلانية ترتبط بالفكرة التسويقية نفسها."
+            },
+            {
+              "title": "حدود قياس النتائج",
+              "reason": "إنتاج مادة إعلانية ليس دليلًا على تحقيق مبيعات.",
+              "implementation": "تقديم مخرجات المحتوى الحقيقية وتأجيل أرقام الأداء إلى تقارير معتمدة."
+            }
+          ]
         },
         "seo": {
           "title": "فخري للعطور | تصميم حملة تسويق رقمي ومحتوى | وصل تك",
@@ -1199,11 +1250,28 @@ const projectRecords = [
                   "Social media content"
         ],
         "caseStudy": {
-          "overview": "A marketing project focused on bringing messaging, design, and campaigns around perfume products into one direction instead of treating every post or ad as a separate piece.",
-          "context": "The project needed messaging, design, and social campaigns to work together rather than appear as disconnected content.",
-          "contribution": "Built the campaign direction across content strategy, advertising design, and social media content.",
+          "overview": "A marketing project focused on bringing messaging, design, and campaigns around perfume products into one direction instead of treating every post or ad as a separate piece. The Fakhri Perfumes campaign brings product messaging, advertising design and social content under one creative direction. The value of planning lies in knowing what each piece should communicate while keeping the brand recognizable across the campaign.",
+          "context": "The project needed messaging, design, and social campaigns to work together rather than appear as disconnected content. Perfume promotion needs a clear way to present individual products without producing disconnected posts. A shared content direction helps the team organize messages, recurring visual elements and the relationship between campaign pieces.",
+          "contribution": "Built the campaign direction across content strategy, advertising design, and social media content. The project record covers content planning, ad creative and social campaign materials. It does not establish paid campaign spend, impressions, conversion rates or measurable growth; those results require verified account reporting.",
           "scope": ["Content planning","Advertising design","Social content and campaigns"],
-          "deliveredOutputs": ["Content strategy","Advertising creatives","Social content and campaigns"]
+          "deliveredOutputs": ["Content strategy","Advertising creatives","Social content and campaigns"],
+          "decisions": [
+            {
+              "title": "Consistent campaign message",
+              "reason": "Disconnected posts can weaken recognition of the store.",
+              "implementation": "Use a common messaging direction around perfume offerings."
+            },
+            {
+              "title": "Product-led creative",
+              "reason": "Ad design should help explain what is being presented.",
+              "implementation": "Develop advertising materials aligned with the campaign concept."
+            },
+            {
+              "title": "Results need evidence",
+              "reason": "Producing creative does not prove resulting sales or reach.",
+              "implementation": "Show actual creative deliverables, not unverified performance figures."
+            }
+          ]
         },
         "seo": {
           "title": "Fakhri Perfumes | Digital Campaign & Content | Wasl Tech",
@@ -1239,11 +1307,28 @@ const projectRecords = [
                   "واجهة تركز على المنتج"
         ],
         "caseStudy": {
-          "overview": "متجر متخصص في العطور صُمم حول المنتج نفسه، من طريقة العرض والتصفح إلى الانتقال نحو الشراء داخل تجربة متماسكة.",
-          "context": "المشروع يركز على تقديم منتجات العطور داخل تجربة شراء يكون فيها المنتج هو العنصر الأساسي في التصفح والقرار.",
-          "contribution": "تصميم وبناء متجر إلكتروني يركز على عرض العطور وتنظيم التصفح ومسار الشراء.",
+          "overview": "متجر متخصص في العطور صُمم حول المنتج نفسه، من طريقة العرض والتصفح إلى الانتقال نحو الشراء داخل تجربة متماسكة. متجر فخري للعطور يضع المنتج في مركز تجربة التسوق؛ فالمستخدم يبدأ باستكشاف العطور ثم ينتقل إلى الاختيار والشراء. لذلك يحتاج الموقع إلى عرض بصري واضح وطريقة تنقل لا تفصل فئات المنتجات عن التفاصيل التي تساعد على اتخاذ القرار.",
+          "context": "المشروع يركز على تقديم منتجات العطور داخل تجربة شراء يكون فيها المنتج هو العنصر الأساسي في التصفح والقرار. منتجات العطور تعتمد بدرجة كبيرة على طريقة تقديم الاسم والصورة والمعلومات المرتبطة بها، مع اختلاف ما يبحث عنه كل زائر. تنظيم التصفح يتيح الوصول إلى فئة مناسبة ثم منتج بعينه دون تشتيت بين خطوات غير ضرورية.",
+          "contribution": "تصميم وبناء متجر إلكتروني يركز على عرض العطور وتنظيم التصفح ومسار الشراء. يشمل العمل الموثق تصميم وعرض المنتجات وتنظيم صفحات التصفح ومسار الشراء. لم تُثبت تفاصيل تكامل المخزون والشحن أو طريقة الدفع ولا يجوز إضافتها بوصفها جزءًا مسلّمًا من المشروع دون دليل.",
           "scope": ["عرض المنتجات","تنظيم التصفح","مسار الشراء"],
-          "deliveredOutputs": ["عرض منتجات العطور","تنظيم التصفح","مسار شراء"]
+          "deliveredOutputs": ["عرض منتجات العطور","تنظيم التصفح","مسار شراء"],
+          "decisions": [
+            {
+              "title": "عرض يبرز العطر",
+              "reason": "قرار الزائر يحتاج تمييز المنتج بصورة واضحة.",
+              "implementation": "إعطاء صور ومعلومات المنتجات أولوية في واجهة المتجر."
+            },
+            {
+              "title": "تصفح متدرج",
+              "reason": "وجود فئات مختلفة يجعل القائمة العامة غير كافية.",
+              "implementation": "ربط تصنيف العطور بصفحات المنتجات في مسار مفهوم."
+            },
+            {
+              "title": "رحلة شراء مختصرة",
+              "reason": "على الخطوة التالية أن تبقى واضحة بعد اختيار المنتج.",
+              "implementation": "تنظيم مسار الشراء وفق النطاق المسجل دون افتراض وسائل دفع محددة."
+            }
+          ]
         },
         "seo": {
           "title": "فخري للعطور | تصميم متجر إلكتروني للعطور | وصل تك",
@@ -1260,11 +1345,28 @@ const projectRecords = [
                   "Product-focused interface"
         ],
         "caseStudy": {
-          "overview": "A perfume-focused e-commerce experience designed around the product itself, from presentation and browsing through the path to purchase.",
-          "context": "The project focuses on presenting perfume products in a shopping experience where the product remains central to browsing and purchase decisions.",
-          "contribution": "Designed and built an online store focused on perfume presentation, organized browsing, and the buying journey.",
+          "overview": "A perfume-focused e-commerce experience designed around the product itself, from presentation and browsing through the path to purchase. The Fakhri Perfumes store puts the product at the center of browsing and purchase decisions. Visitors move from discovering perfumes to choosing a specific product, so presentation and navigation must work together instead of competing for attention.",
+          "context": "The project focuses on presenting perfume products in a shopping experience where the product remains central to browsing and purchase decisions. Perfume browsing depends heavily on product names, images and descriptive information. A clear hierarchy helps visitors move from broader categories to an individual item without losing context on the way to ordering.",
+          "contribution": "Designed and built an online store focused on perfume presentation, organized browsing, and the buying journey. The documented scope covers product presentation, browsing organization and the purchase path. Stock synchronization, delivery integrations and specific payment methods remain subject to review.",
           "scope": ["Product presentation","Browsing organization","Buying journey"],
-          "deliveredOutputs": ["Perfume product presentation","Organized browsing","Purchase flow"]
+          "deliveredOutputs": ["Perfume product presentation","Organized browsing","Purchase flow"],
+          "decisions": [
+            {
+              "title": "Product-forward design",
+              "reason": "Visitors need to recognize and distinguish the perfume they want.",
+              "implementation": "Prioritize product images and information in the store layout."
+            },
+            {
+              "title": "Structured browsing",
+              "reason": "Different offerings are easier to explore through a hierarchy.",
+              "implementation": "Connect perfume categories and product detail views."
+            },
+            {
+              "title": "A clear purchase path",
+              "reason": "The next step should be understandable after selection.",
+              "implementation": "Support the documented purchase journey without guessing payment providers."
+            }
+          ]
         },
         "seo": {
           "title": "Fakhri Perfumes | Online Perfume Store Design | Wasl Tech",
@@ -1300,11 +1402,28 @@ const projectRecords = [
                   "تجربة تصفح وطلب"
         ],
         "caseStudy": {
-          "overview": "متجر متخصص في ملابس الأطفال يركز على تبسيط اكتشاف المنتجات والتنقل بين الفئات حتى الوصول إلى المنتج والطلب.",
-          "context": "المشروع ينظم ملابس الأطفال ضمن فئات واضحة ويبسّط اكتشاف المنتجات والوصول إلى الطلب.",
-          "contribution": "تصميم وبناء متجر متخصص يربط التصنيفات بعرض المنتج وتجربة الطلب.",
+          "overview": "متجر متخصص في ملابس الأطفال يركز على تبسيط اكتشاف المنتجات والتنقل بين الفئات حتى الوصول إلى المنتج والطلب. متجر كيدي لملابس الأطفال يركز على مساعدة المتسوق في الوصول إلى النوع المناسب من الملابس دون المرور على جميع المنتجات. ويمتد ذلك من تصنيفات المتجر إلى طريقة عرض القطع واختيار المنتج ثم الانتقال إلى الطلب.",
+          "context": "المشروع ينظم ملابس الأطفال ضمن فئات واضحة ويبسّط اكتشاف المنتجات والوصول إلى الطلب. تختلف طريقة البحث بين من يعرف نوع القطعة المطلوبة ومن يتصفح لاكتشاف الخيارات. لهذا يحتاج المتجر إلى فئات يفهمها الزائر بسهولة، مع إبقاء تفاصيل المنتج والخطوة التالية واضحة على شاشة الهاتف أيضًا.",
+          "contribution": "تصميم وبناء متجر متخصص يربط التصنيفات بعرض المنتج وتجربة الطلب. تشمل مساهمة المشروع الموثقة تنظيم تصنيفات المنتجات وعرض الكتالوج وتجربة الطلب. أما وجود مرشحات مقاسات محددة أو مزامنة المخزون أو العروض الآلية فلا يمكن نسبها للمشروع اعتمادًا على وصف عام فقط.",
           "scope": ["تصنيفات المنتجات","عرض الكتالوج","تجربة الطلب"],
-          "deliveredOutputs": ["تصنيفات للمنتجات","عرض الكتالوج","تجربة طلب"]
+          "deliveredOutputs": ["تصنيفات للمنتجات","عرض الكتالوج","تجربة طلب"],
+          "decisions": [
+            {
+              "title": "تصنيفات مفهومة",
+              "reason": "المشتري يحتاج الوصول إلى نوع القطعة دون البحث في كامل الكتالوج.",
+              "implementation": "تنظيم المنتجات ضمن مجموعات مناسبة لطبيعة متجر الملابس."
+            },
+            {
+              "title": "تقديم تفاصيل المنتج",
+              "reason": "القرار يبدأ من فهم القطعة المعروضة ومعلوماتها.",
+              "implementation": "إبراز صفحات المنتجات ضمن رحلة التصفح."
+            },
+            {
+              "title": "استمرار رحلة التسوق",
+              "reason": "التنقل بين الفئات لا ينبغي أن يقطع طريق الطلب.",
+              "implementation": "ربط استكشاف المنتج بتجربة الطلب الواردة في النطاق."
+            }
+          ]
         },
         "seo": {
           "title": "كيدي | تصميم متجر إلكتروني لملابس الأطفال | وصل تك",
@@ -1321,11 +1440,28 @@ const projectRecords = [
                   "Browsing and ordering experience"
         ],
         "caseStudy": {
-          "overview": "A children's clothing store focused on simplifying product discovery and movement between categories through to product selection and ordering.",
-          "context": "The project organizes children's clothing into clear categories and simplifies product discovery and ordering.",
-          "contribution": "Designed and built a specialized store connecting product categories, presentation, and ordering.",
+          "overview": "A children's clothing store focused on simplifying product discovery and movement between categories through to product selection and ordering. The Kiddy clothing store is organized around helping shoppers find the relevant type of children's clothing without reviewing every item. The experience connects categories, item presentation and a clear path to placing an order.",
+          "context": "The project organizes children's clothing into clear categories and simplifies product discovery and ordering. Some visitors know exactly what clothing item they need; others browse for options. The navigation has to support both approaches with understandable categories, informative product views and a mobile-friendly next step.",
+          "contribution": "Designed and built a specialized store connecting product categories, presentation, and ordering. The established project scope includes product categorization, catalog presentation and ordering. Specific size-filter features, live stock synchronization and promotional automation are not asserted without direct evidence.",
           "scope": ["Product categories","Catalog display","Ordering experience"],
-          "deliveredOutputs": ["Product categories","Catalog display","Ordering flow"]
+          "deliveredOutputs": ["Product categories","Catalog display","Ordering flow"],
+          "decisions": [
+            {
+              "title": "Understandable categories",
+              "reason": "Shoppers should not need to scan an entire mixed catalog.",
+              "implementation": "Group clothing products into a navigable structure."
+            },
+            {
+              "title": "Product information",
+              "reason": "Choosing an item depends on understanding what is shown.",
+              "implementation": "Give individual product presentation a clear role in browsing."
+            },
+            {
+              "title": "Continuity to ordering",
+              "reason": "Moving across categories should still lead to the order step.",
+              "implementation": "Connect discovery with the documented ordering flow."
+            }
+          ]
         },
         "seo": {
           "title": "Kiddy | Children's Clothing E-commerce Store | Wasl Tech",
@@ -1361,11 +1497,28 @@ const projectRecords = [
                   "تجربة واضحة للتصفح والتواصل"
         ],
         "caseStudy": {
-          "overview": "موقع تعريفي لمكتب قانوني يركز على تقديم الخدمات والمعلومات بطريقة مباشرة ومنظمة تساعد الزائر على فهم ما يقدمه المكتب والوصول للتواصل.",
-          "context": "المشروع يقدّم خدمات المكتب القانونية في واجهة رسمية ومباشرة تساعد الزائر على الفهم والوصول للتواصل.",
-          "contribution": "تصميم وتطوير موقع تعريفي ينظم الخدمات والمعلومات ومسار التواصل للمكتب.",
+          "overview": "موقع تعريفي لمكتب قانوني يركز على تقديم الخدمات والمعلومات بطريقة مباشرة ومنظمة تساعد الزائر على فهم ما يقدمه المكتب والوصول للتواصل. موقع مكتب الحباري للمحاماة يهدف إلى تقديم نشاط المكتب وخدماته القانونية بأسلوب رسمي وواضح. لا يحتاج زائر مثل هذا الموقع إلى واجهة مزدحمة بقدر حاجته إلى فهم نوع الخدمات المقدمة وكيف يمكنه التواصل للحصول على المعلومات المناسبة.",
+          "context": "المشروع يقدّم خدمات المكتب القانونية في واجهة رسمية ومباشرة تساعد الزائر على الفهم والوصول للتواصل. الخدمات القانونية تحتاج صياغة دقيقة وتفريقًا بين مجالات العمل، مع الحرص على عدم تقديم وعود بنتائج القضايا. لذلك يخدم التصميم محتوى منظمًا ونقاط تواصل واضحة ويترك التفاصيل القانونية للمكتب المختص.",
+          "contribution": "تصميم وتطوير موقع تعريفي ينظم الخدمات والمعلومات ومسار التواصل للمكتب. النطاق المنشور يتضمن تصميم موقع تعريفي وتنظيم الخدمات والمعلومات ومسار التواصل. ولا يُعد الموقع بحد ذاته نظامًا لإدارة القضايا أو منصة استشارات آلية؛ هذه القدرات غير موجودة ضمن الأدلة الحالية.",
           "scope": ["عرض الخدمات القانونية","تنظيم المعلومات","مسار تواصل واضح"],
-          "deliveredOutputs": ["عرض الخدمات القانونية","تنظيم المعلومات","مسار تواصل واضح"]
+          "deliveredOutputs": ["عرض الخدمات القانونية","تنظيم المعلومات","مسار تواصل واضح"],
+          "decisions": [
+            {
+              "title": "وضوح الخدمات",
+              "reason": "الزائر يريد معرفة مجال الخدمة القانونية المناسبة.",
+              "implementation": "تنظيم الخدمات في صفحات ومحتوى يمكن قراءته بسهولة."
+            },
+            {
+              "title": "لغة رسمية منضبطة",
+              "reason": "المجال القانوني لا يحتمل وعودًا بنتائج غير مؤكدة.",
+              "implementation": "اعتماد عرض تعريفي محايد يركز على نطاق خدمات المكتب."
+            },
+            {
+              "title": "تواصل بلا تعقيد",
+              "reason": "تحتاج الاستفسارات إلى طريقة وصول مباشرة للمكتب.",
+              "implementation": "إبراز مسار التواصل دون الادعاء بتقديم استشارة قانونية آلية."
+            }
+          ]
         },
         "seo": {
           "title": "مكتب الحباري | تصميم موقع مكتب محاماة | وصل تك",
@@ -1382,11 +1535,28 @@ const projectRecords = [
                   "Clear browsing and contact experience"
         ],
         "caseStudy": {
-          "overview": "A company website for a legal office focused on presenting services and information directly and helping visitors understand the office and reach the right contact path.",
-          "context": "The project presents the office's legal services through a professional and direct interface that helps visitors understand the offering and move toward contact.",
-          "contribution": "Designed and developed a company website that organizes legal services, information, and the office's contact path.",
+          "overview": "A company website for a legal office focused on presenting services and information directly and helping visitors understand the office and reach the right contact path. Al Hobari Law Office's website presents legal services and office information in a measured, professional format. Visitors need to understand the kinds of services offered and how to contact the office, rather than navigate an unnecessarily complex interface.",
+          "context": "The project presents the office's legal services through a professional and direct interface that helps visitors understand the offering and move toward contact. Legal service descriptions demand clarity and careful boundaries. The presentation should distinguish service areas without promising legal outcomes or presenting generic website information as individualized advice.",
+          "contribution": "Designed and developed a company website that organizes legal services, information, and the office's contact path. The documented work includes a company website, organized service information and contact routes. A case-management system or automated legal advice platform is not part of the verified scope.",
           "scope": ["Legal service presentation","Information organization","Clear contact path"],
-          "deliveredOutputs": ["Legal service presentation","Information organization","Clear contact path"]
+          "deliveredOutputs": ["Legal service presentation","Information organization","Clear contact path"],
+          "decisions": [
+            {
+              "title": "Service clarity",
+              "reason": "Visitors want to identify the relevant legal practice area.",
+              "implementation": "Present legal services through readable, organized information."
+            },
+            {
+              "title": "Appropriate tone",
+              "reason": "Legal services should not promise particular outcomes.",
+              "implementation": "Keep the presentation factual and professionally restrained."
+            },
+            {
+              "title": "Direct enquiry path",
+              "reason": "People need a simple route to contact the office.",
+              "implementation": "Make contact discoverable without suggesting automated legal advice."
+            }
+          ]
         },
         "seo": {
           "title": "Al Hobari | Law Firm Website Design | Wasl Tech",
