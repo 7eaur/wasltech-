@@ -31,7 +31,7 @@ export const articles = Object.freeze([
     coverHeight: 961,
     coverTemporary: false,
     publishedAt: "2026-09-22",
-    updatedAt: "2026-09-22",
+    updatedAt: "2026-10-19",
     relatedServiceIds: ["web", "programming"],
     relatedProjectIds: ["project-07","project-04"],
     content: {
