@@ -228,11 +228,12 @@ const projectRecords = [
                   "تجربة مخصصة للمصور والعميل"
         ],
         "caseStudy": {
-          "overview": "مشروع يركز على تحويل عملية مشاركة الصور من تبادل ملفات متفرق إلى تجربة رقمية منظمة تجمع العرض والوصول والتسليم في مكان واحد.",
-          "context": "المشروع يعالج حاجة المصور إلى تنظيم تسليم الصور للعملاء داخل مساحة خاصة بدل الاعتماد على مشاركة الملفات بشكل متفرق.",
-          "contribution": "تصميم وبناء تجربة منصة تجمع إدارة الصور والوصول الخاص بالعميل ضمن مسار واحد.",
+          "overview": "تعالج «صوركم» جانبًا عمليًا من عمل المصور: كيف ينتقل المحتوى من جلسة التصوير إلى العميل دون ضياع الصور بين روابط ورسائل وملفات متفرقة؟ يعرض المشروع مفهوم منصة ويب تجمع مجموعات الصور ومسار المشاركة والتسليم في تجربة واحدة، مع فصل ما يديره المصور عما يصل إليه العميل. التركيز هنا على تنظيم الرحلة ووضوح المسؤوليات، وليس على الادعاء بوجود تخزين سحابي أو خصائص حماية لم يتم توثيقها.",
+          "context": "عند مشاركة الصور بصورة يدوية قد يصعب معرفة المجموعة المرسلة أو الشخص المقصود بها أو أين يعود العميل لاحقًا إلى المحتوى. يحتاج المصور واجهة تمكنه من تنظيم المجموعات، بينما يحتاج العميل طريقًا مباشرًا إلى الصور المخصصة له. التحدي التصميمي يتمثل في تبسيط عمليتين مختلفتين داخل تجربة مترابطة: الإدارة من جهة والاستلام من جهة أخرى.",
+          "contribution": "يركز نطاق العمل المسجل على تصميم تجربة منصة تضم إدارة مجموعات الصور ومشاركة المحتوى مع العملاء وتنظيم الوصول بحسب المستخدم. وفي عرض دراسة الحالة فصلنا مسار إدارة المحتوى عن مسار الاستلام حتى يكون الغرض من كل شاشة مفهومًا. تظهر المخرجات في سجل المشروع بوصفها إدارة للمجموعات، ووصولًا مخصصًا للعملاء، وتجربة لتسليم الصور ومشاركتها. أما آليات الصلاحيات التفصيلية وطرق تخزين الملفات فتحتاج مراجعة قبل وصفها باعتبارها منفذة.",
           "scope": ["إدارة مجموعات الصور","مشاركة المحتوى مع العملاء","تنظيم الوصول لكل مستخدم"],
-          "deliveredOutputs": ["إدارة مجموعات الصور","وصول مخصص للعملاء","تجربة تسليم ومشاركة داخل المنصة"]
+          "deliveredOutputs": ["إدارة مجموعات الصور","وصول مخصص للعملاء","تجربة تسليم ومشاركة داخل المنصة"],
+          "decisions": [{"title":"تجميع الصور في مجموعات","reason":"التسليم يعتمد على معرفة الصور المرتبطة بكل عميل أو جلسة بدل البحث بين ملفات مشتتة.","implementation":"يعرض نطاق المشروع إدارة مجموعات يمكن تقديمها كوحدات واضحة داخل واجهة المصور."},{"title":"تمييز دور المصور والعميل","reason":"احتياجات منشئ المجموعة تختلف عن احتياجات الشخص الذي يراجع الصور ويتسلمها.","implementation":"تنظيم مسارين مفهومين للإدارة والوصول المخصص ضمن تجربة واحدة."},{"title":"تبسيط خطوة التسليم","reason":"العميل يحتاج معرفة أين يجد المحتوى المرتبط به بعد استلام رابط المشاركة.","implementation":"ربط إدارة المجموعات بمسار وصول ومشاركة بدلاً من عرض ملفات بلا سياق."}]
         },
         "seo": {
           "title": "صوركم | تطوير منصة إدارة وتسليم الصور | وصل تك",
@@ -249,11 +250,12 @@ const projectRecords = [
                   "A dedicated photographer-client experience"
         ],
         "caseStudy": {
-          "overview": "A project focused on turning scattered photo sharing into an organized digital experience that brings presentation, access, and delivery into one place.",
-          "context": "The platform addresses the photographer's need to deliver images to clients in a private, structured space instead of relying on fragmented file sharing.",
-          "contribution": "Designed and built a platform experience that connects photo management with private client access in one flow.",
+          "overview": "Suwarikum addresses a practical photography workflow: getting images from the photographer to the right client without scattering them across messages, links and folders. The recorded product concept is a web platform that brings photo groups, controlled client access and sharing into one experience. The case focuses on a clear hand-off between the person managing the collection and the person receiving it; it does not assert an unverified storage provider or security certification.",
+          "context": "Manual file sharing can make it hard to track which collection was delivered or where a client should return to view it. Photographers need to organize collections, while clients need straightforward access to the material intended for them. The product challenge is to connect these different tasks without forcing both audiences through the same management-heavy interface.",
+          "contribution": "The documented scope covers photo collection management, sharing with customers and organizing access for each user. Our presentation of the work separates the management journey from the delivery journey, giving each screen a defined purpose. Recorded outputs include organized photo groups, client-specific access and an in-platform sharing experience. Exact authorization controls, file hosting technology and delivery outcomes require independent confirmation before being stated as verified implementation details.",
           "scope": ["Manage photo collections","Share content with clients","Organize access per user"],
-          "deliveredOutputs": ["Photo collection management","Dedicated client access","In-platform sharing and delivery experience"]
+          "deliveredOutputs": ["Photo collection management","Dedicated client access","In-platform sharing and delivery experience"],
+          "decisions": [{"title":"Group related images","reason":"A hand-off is easier to understand when images for one customer or session are kept together.","implementation":"Structure the experience around manageable photo collections rather than scattered files."},{"title":"Separate user journeys","reason":"Photographers manage collections; clients primarily locate and receive selected content.","implementation":"Provide distinct management and client-access flows within the same product concept."},{"title":"Make delivery understandable","reason":"Recipients need a clear destination for the collection shared with them.","implementation":"Connect collection management to a recognizable sharing and access path."}]
         },
         "seo": {
           "title": "Suwarikum | Photo Delivery Platform Development | Wasl Tech",
@@ -289,11 +291,12 @@ const projectRecords = [
                   "مدفوعات مرتبطة بالمعاملات"
         ],
         "caseStudy": {
-          "overview": "منصة عربية للعمل الحر صُممت لتنظيم الرحلة بين العميل ومقدم الخدمة من اكتشاف الخدمة والتواصل إلى متابعة التعامل داخل نظام واحد.",
-          "context": "المشروع يجمع طرفي العمل الحر داخل نظام واحد يحتاج إلى تنظيم الحسابات والتواصل والتعاملات بين العميل ومقدم الخدمة.",
-          "contribution": "تصميم وبناء تجربة منصة تربط اكتشاف الخدمات بالتواصل والمتابعة والدفع داخل نفس المسار.",
+          "overview": "تقدم منصة «وصّل» للعمل الحر تصورًا لتجميع خطوات التعامل بين طالب الخدمة ومقدمها ضمن مساحة واحدة: اكتشاف الخدمة، وإنشاء الحساب، والتواصل، ثم متابعة التعامل. ليست قيمة المشروع في صفحة تعرض أسماء المستقلين فحسب، بل في فهم احتياجات طرفين يختلفان في أهدافهما وصلاحياتهما خلال رحلة الاتفاق والتنفيذ. تصف دراسة الحالة النطاق المسجل في المشروع دون نسب حجم مستخدمين أو معاملات تشغيلية فعلية إليه.",
+          "context": "في سوق الخدمات المستقلة يحتاج العميل إلى الوصول إلى مقدم خدمة مناسب وفهم كيفية بدء التواصل، بينما يحتاج مقدم الخدمة إلى عرض ما يقدمه وإدارة التفاعلات الواردة. وإذا توزعت المحادثات والمتابعة على أكثر من مكان تتعقد تجربة الطرفين. من هنا تبرز أهمية تصميم تدفق واضح للحسابات والاتصال والمتابعة مع تحديد ما تنجزه النسخة المعروضة فعليًا وما يحتاج إثباتًا إضافيًا.",
+          "contribution": "يشمل النطاق المدون حسابات للعملاء ومقدمي الخدمات ونظامًا للمحادثات ومسارًا للمدفوعات داخل المنصة. تُعرض هذه العناصر بوصفها أجزاء من رحلة مترابطة: اكتشاف الخدمة، بدء العلاقة، ثم متابعة تفاصيلها. لا نفترض من وجود مسار دفع أنه مرتبط ببوابة مالية بعينها أو اجتاز اختبارات معاملات حقيقية؛ فهذه التفاصيل تحتاج دليلًا فنيًا منفصلًا قبل نشرها.",
           "scope": ["حسابات لمقدمي الخدمات والعملاء","تواصل ومحادثات","تدفق دفع داخل المنصة"],
-          "deliveredOutputs": ["حسابات للعملاء ومقدمي الخدمات","نظام محادثات","تدفق مدفوعات داخل المنصة"]
+          "deliveredOutputs": ["حسابات للعملاء ومقدمي الخدمات","نظام محادثات","تدفق مدفوعات داخل المنصة"],
+          "decisions": [{"title":"تنظيم الطرفين","reason":"العميل يطلب خدمة، ومقدم الخدمة يعرض مهاراته ويتعامل مع الطلبات.","implementation":"صياغة تجربة حسابات تراعي اختلاف أهداف كل طرف."},{"title":"ربط الاكتشاف بالتواصل","reason":"العثور على خدمة لا يكفي إذا كانت الخطوة التالية غير واضحة.","implementation":"وضع المراسلة ضمن رحلة التعامل بدل جعلها نشاطًا منفصلًا عن الخدمة."},{"title":"تحديد حدود التدفق المالي","reason":"النطاق يذكر وجود تدفق دفع، لكن تفاصيل مزود الدفع وحالة تشغيله ليست موثقة هنا.","implementation":"عرض مسار المدفوعات ضمن نطاق المشروع مع ترك تكاملاته ونتائجه للمراجعة."}]
         },
         "seo": {
           "title": "منصة وصّل للعمل الحر | تصميم وتطوير منصة ويب | وصل تك",
@@ -310,11 +313,12 @@ const projectRecords = [
                   "Payments tied to transactions"
         ],
         "caseStudy": {
-          "overview": "An Arabic freelance platform designed to organize the journey between the client and service provider from service discovery and communication through ongoing transactions inside one system.",
-          "context": "The project brings both sides of freelance work into one system that needs to organize accounts, communication, and transactions between clients and service providers.",
-          "contribution": "Designed and built a platform experience that connects service discovery, communication, follow-up, and payment within one flow.",
+          "overview": "Wasl Freelance is a platform concept that brings the relationship between customers and independent providers into one structured journey: finding a service, accessing an account, communicating and following the engagement. Its purpose is broader than a directory of freelancers because the two participants have different goals and responsibilities. This case describes the project scope on record without inventing active-user figures or completed financial transactions.",
+          "context": "A customer needs to understand what a provider offers and how to start an enquiry; a provider needs a way to present their services and manage incoming interactions. When conversation and follow-up are scattered, neither side has a clear journey. The design question is how to connect discovery, accounts and conversations while distinguishing documented features from integration claims that still need proof.",
+          "contribution": "The current project record lists accounts for customers and providers, conversations and a payment flow. The intended experience connects these pieces into a coherent service relationship, from discovery through follow-up. Mentioning a payment path does not establish which gateway was integrated or whether real transactions were tested; those points require technical verification before being treated as delivered operational evidence.",
           "scope": ["Accounts for clients and service providers","Communication and messaging","In-platform payment flow"],
-          "deliveredOutputs": ["Client and provider accounts","Messaging system","Transaction payment flow"]
+          "deliveredOutputs": ["Client and provider accounts","Messaging system","Transaction payment flow"],
+          "decisions": [{"title":"Design for two audiences","reason":"Buyers and service providers perform different tasks and need different views.","implementation":"Organize account journeys around each participant's responsibility."},{"title":"Connect discovery to dialogue","reason":"Finding a provider is incomplete without a recognizable next step.","implementation":"Place conversations within the service journey instead of isolating them."},{"title":"Describe payments precisely","reason":"A recorded payment flow is not proof of a live gateway or verified transactions.","implementation":"Include the payment stage in scope while leaving its provider and status for validation."}]
         },
         "seo": {
           "title": "Wasl Freelance | Marketplace Web Platform | Wasl Tech",
@@ -350,11 +354,12 @@ const projectRecords = [
                   "متابعة الجلسات"
         ],
         "caseStudy": {
-          "overview": "نظام إداري موجه لتبسيط التعامل مع عمليات الميكروتيك المتكررة وإعطاء المشرف واجهة أوضح لإدارة المستخدمين والكروت والجلسات.",
-          "context": "المشروع يركز على تبسيط إدارة عمليات الميكروتيك اليومية بدل التعامل معها من أكثر من نقطة أو خطوة منفصلة.",
-          "contribution": "بناء لوحة تجمع المستخدمين والكروت والجلسات في واجهة إدارية واحدة.",
+          "overview": "لوحة تحكم الميكروتيك مشروع إداري يستهدف جمع الإجراءات المتكررة لإدارة الشبكة في واجهة واحدة. يتضمن نطاقه التعامل مع المستخدمين والكروت والجلسات، وهي عناصر يحتاجها المشرف للوصول إلى المعلومة وتنفيذ الإجراء المناسب دون التنقل المستمر بين مسارات متفرقة. يركز عرض المشروع على تنظيم العمل الإداري وإبراز الوظائف المسجلة، من غير ادعاء زيادة سرعة الشبكة أو خفض الأعطال دون قياس.",
+          "context": "تحتاج إدارة مستخدمي الشبكات إلى متابعة سجلات مختلفة وتنفيذ مهام متكررة في سياق واحد، مثل إنشاء كرت أو مراجعة حالة جلسة. عندما تكون الخطوات غير مترابطة يصعب على المشرف الحفاظ على صورة واضحة للعمل. المشكلة التي تتناولها هذه الواجهة هي تحسين وضوح الأدوات وتنظيمها بحسب مهمة المشرف، لا تغيير بنية أجهزة الشبكة أو ضمان استقرار الاتصال.",
+          "contribution": "يشمل نطاق الحل لوحة تجمع إدارة المستخدمين وتوليد وإدارة الكروت ومتابعة الجلسات والعمليات. وقد نُظمت دراسة الحالة بحسب هذه المسؤوليات حتى يكون كل جزء مرتبطًا بإجراء مفهوم للمشرف. تفاصيل ربط الواجهة بواجهات MikroTik أو النظام المحاسبي، وآليات الصلاحيات الدقيقة، وأثر الحل على الوقت والتشغيل، تحتاج الرجوع إلى الكود أو صور التشغيل قبل اعتماد ادعاءات محددة عنها.",
           "scope": ["إدارة المستخدمين","توليد الكروت","متابعة الجلسات والعمليات"],
-          "deliveredOutputs": ["إدارة المستخدمين","توليد وإدارة الكروت","متابعة الجلسات"]
+          "deliveredOutputs": ["إدارة المستخدمين","توليد وإدارة الكروت","متابعة الجلسات"],
+          "decisions": [{"title":"واجهة موحدة للمهام","reason":"المشرف يحتاج رؤية المستخدمين والكروت والجلسات بوصفها أجزاء من عمل إداري واحد.","implementation":"تجميع الوظائف المسجلة داخل لوحة إدارة مترابطة."},{"title":"ترتيب العمليات حسب وظيفتها","reason":"إنشاء الكروت يختلف عن مراجعة الجلسات أو إدارة حساب مستخدم.","implementation":"فصل المجموعات الوظيفية مع إبقاء الوصول بينها مباشرًا."},{"title":"عدم المبالغة في القياس","reason":"وجود لوحة تحكم لا يثبت تحسن أداء الشبكة أو تخفيض وقت العمل.","implementation":"وصف الوظائف والمخرجات الظاهرة فقط حتى تتوفر مؤشرات موثقة."}]
         },
         "seo": {
           "title": "ميكروتيك | برمجة لوحة إدارة الشبكات والكروت | وصل تك",
@@ -371,11 +376,12 @@ const projectRecords = [
                   "Session monitoring"
         ],
         "caseStudy": {
-          "overview": "An administrative system built to simplify recurring MikroTik operations and give administrators a clearer interface for managing users, cards, and sessions.",
-          "context": "The project focuses on simplifying daily MikroTik management instead of handling the same operational tasks across multiple disconnected steps.",
-          "contribution": "Built a dashboard that brings users, cards, and sessions into one administrative interface.",
+          "overview": "The MikroTik Dashboard is an administrative interface intended to collect recurring network-management tasks in one place. Its documented scope includes users, access cards and session monitoring—areas an administrator needs to navigate while carrying out daily operations. The case study is about organizing those tasks and making the recorded functions understandable, not claiming unmeasured network speed or uptime improvements.",
+          "context": "Running a network service involves different kinds of records and repeatable actions, such as creating a card or reviewing a user session. When these tasks are spread across unrelated screens, administrators can lose track of the operational context. The interface addresses clarity of navigation and task grouping; it is not evidence of modifications to the network infrastructure itself.",
+          "contribution": "The recorded deliverables cover user management, card generation and management, and visibility into sessions. The presentation groups these activities by administrator intent so their purpose is understandable. The exact MikroTik integration mechanism, accounting-system connection, granular access rules and measurable operational impact need source-code or runtime evidence before stronger claims can be made.",
           "scope": ["User management","Card generation","Session and operation monitoring"],
-          "deliveredOutputs": ["User management","Card generation and management","Session monitoring"]
+          "deliveredOutputs": ["User management","Card generation and management","Session monitoring"],
+          "decisions": [{"title":"One place for related tasks","reason":"Users, cards and sessions form connected parts of network administration.","implementation":"Organize the documented functions in a coherent management dashboard."},{"title":"Separate operational functions","reason":"Creating cards is different from reviewing sessions or maintaining user records.","implementation":"Give each function a recognizable area while keeping navigation direct."},{"title":"Keep performance claims evidence-based","reason":"A management interface by itself does not demonstrate faster networks or reduced downtime.","implementation":"Describe observable capabilities without inventing performance improvements."}]
         },
         "seo": {
           "title": "MikroTik | Network & Cards Admin Dashboard | Wasl Tech",
@@ -411,11 +417,12 @@ const projectRecords = [
                   "واجهة تحكم للإدارة"
         ],
         "caseStudy": {
-          "overview": "لوحة CMS بُنيت لتجميع إدارة محتوى الموقع داخل مساحة واحدة تساعد الفريق على تحديث النصوص والأقسام والمعلومات بدون الدخول في تفاصيل الكود.",
-          "context": "المشروع يسهّل تحديث محتوى الموقع من قبل الإدارة بدون الرجوع إلى تعديل الكود في كل تغيير.",
-          "contribution": "بناء لوحة CMS مركزية تربط محتوى الصفحات بواجهة إدارة مخصصة.",
+          "overview": "لوحة إدارة المحتوى CMS تحوّل تحديث نصوص الموقع وأقسامه من تعديل مباشر في الملفات البرمجية إلى مهمة يمكن تنفيذها من مساحة إدارية مخصصة. يركز هذا النوع من الحلول على فصل المحتوى عن طريقة عرضه، حتى تكون مراجعة البيانات وتحديثها أكثر وضوحًا لمن يدير الموقع. دراسة الحالة تتناول إدارة الصفحات والتحديثات الديناميكية ولوحة التحكم المركزية وفق نطاق المشروع، ولا تنسب لها نظام نشر معقدًا أو صلاحيات تفصيلية غير موثقة.",
+          "context": "عندما يحتاج فريق العمل إلى تعديل عنوان أو وصف أو معلومات خدمة بصورة متكررة، يصبح ربط كل تحديث بتعديل كود أمرًا مرهقًا للتشغيل. المطلوب هو مسار إداري مفهوم يساعد المسؤول على العثور على المحتوى المطلوب وتغييره ثم مشاهدة أثره في الموقع. وهذا يختلف عن موقع ثابت لا يتغير محتواه، كما يختلف عن منصة تشغيلية تشمل معاملات العملاء.",
+          "contribution": "بُنيت واجهة لإدارة محتوى الصفحات وتحديث البيانات ديناميكيًا من لوحة تحكم مركزية بحسب سجل المشروع. في عرض التجربة نميّز بين المحتوى الذي يديره المسؤول وبين الواجهة العامة التي يراه فيها الزائر. أما تفاصيل سجل النسخ والموافقات وتعدد الأدوار فلا نعدها جزءًا منفذًا قبل التحقق من وجودها في الكود أو صور لوحة الإدارة.",
           "scope": ["إدارة محتوى الصفحات","تحديث البيانات ديناميكيًا","لوحة تحكم للإدارة"],
-          "deliveredOutputs": ["إدارة محتوى الصفحات","تحديثات ديناميكية","واجهة تحكم مركزية"]
+          "deliveredOutputs": ["إدارة محتوى الصفحات","تحديثات ديناميكية","واجهة تحكم مركزية"],
+          "decisions": [{"title":"فصل التحرير عن العرض","reason":"المسؤول يريد تحديث المعلومة دون الدخول إلى بنية ملفات الموقع.","implementation":"تخصيص واجهة إدارة للمحتوى مرتبطة بالصفحات المعروضة."},{"title":"تجميع الأقسام في مكان واحد","reason":"تعديل أجزاء متفرقة من الموقع يحتاج نقطة تحكم مفهومة.","implementation":"تصميم لوحة مركزية لإدارة بيانات وأقسام الصفحات."},{"title":"تحديد الصلاحيات بدقة","reason":"مصطلح CMS لا يثبت تلقائيًا وجود مراجعات نشر متعددة أو سجل نسخ.","implementation":"حصر العرض في قدرات التحرير والتحديث التي يشير إليها نطاق المشروع."}]
         },
         "seo": {
           "title": "نظام إدارة محتوى CMS | برمجة لوحة تحكم | وصل تك",
@@ -432,11 +439,12 @@ const projectRecords = [
                   "Administration dashboard"
         ],
         "caseStudy": {
-          "overview": "A CMS dashboard built to bring website content management into one workspace so teams can update text, sections, and information without working directly in the code.",
-          "context": "The project makes it easier for the team to update website content without returning to code for every change.",
-          "contribution": "Built a centralized CMS dashboard that connects page content with a dedicated administration interface.",
+          "overview": "The CMS Dashboard makes website content maintenance an administrative task rather than requiring code edits for each headline, description or page section. This kind of project separates editable content from its public presentation so responsible staff can locate and update information more directly. The recorded scope includes page content management, dynamic updates and a central dashboard; it does not establish an unverified publishing approval workflow or extensive role system.",
+          "context": "Frequent content changes become difficult to maintain when every adjustment depends on editing source files. Teams need a clear place to locate content, make changes and understand what the public page will show. This is a different problem from a mostly static informational site and also different from a transaction-heavy customer operations platform.",
+          "contribution": "The project record documents an administration screen for page content, dynamic data updates and a centralized control surface. Our presentation distinguishes the editor's task from the visitor-facing page and focuses on the documented editing journey. Version history, approval chains and detailed access permissions would need evidence from the implemented dashboard before being described as delivered features.",
           "scope": ["Page content management","Dynamic data updates","Administration dashboard"],
-          "deliveredOutputs": ["Page content management","Dynamic updates","Centralized administration"]
+          "deliveredOutputs": ["Page content management","Dynamic updates","Centralized administration"],
+          "decisions": [{"title":"Separate editing from presentation","reason":"Content owners need to change information without navigating the codebase.","implementation":"Provide a dedicated management interface connected to public page content."},{"title":"Centralize related page sections","reason":"Distributed edits are hard to track without a recognizable control point.","implementation":"Organize content and page data within a single dashboard."},{"title":"Avoid unsupported workflow claims","reason":"Having a CMS does not automatically mean there are review gates or version histories.","implementation":"Describe confirmed management and update functions rather than assumed enterprise features."}]
         },
         "seo": {
           "title": "CMS | Content Management Dashboard Development | Wasl Tech",
@@ -472,11 +480,12 @@ const projectRecords = [
                   "متابعة حالة الطلب"
         ],
         "caseStudy": {
-          "overview": "تطبيق متجر يركز على جعل رحلة التسوق عبر الجوال مباشرة من استكشاف المنتجات إلى إضافة السلة ومتابعة الطلب.",
-          "context": "المشروع ينقل تجربة التسوق إلى الجوال ويجمع استكشاف المنتجات والسلة ومتابعة الطلب في رحلة واحدة.",
-          "contribution": "تصميم وتطوير تجربة تطبيق متجر تركز على التصفح والشراء ومتابعة الطلبات.",
+          "overview": "تيك زون تطبيق للتسوق عبر الجوال يركز على رحلة متصلة تبدأ من استعراض المنتجات وتمر بالسلة ثم متابعة حالة الطلب. في هذا المشروع لا يكفي عرض صور المنتجات بصورة جميلة؛ فالمستخدم يحتاج معرفة ما اختاره، وكيف ينتقل للخطوة التالية، وأين يعود لمراجعة طلبه. تتناول دراسة الحالة تنظيم هذه الرحلة كما يصفها نطاق المشروع، دون افتراض طرق دفع أو شحن أو إشعارات لم تُوثق.",
+          "context": "قد ينتقل المتسوق بين عدة منتجات قبل اتخاذ القرار، ولذلك يحتاج إلى فئات وواجهات عرض واضحة، مع سلة تجمع اختياراته. وبعد إنشاء الطلب تتغير حاجته من البحث إلى المتابعة. التحدي هنا تنظيم انتقال المستخدم بين ثلاث حالات مختلفة من دون فقد السياق: الاكتشاف والاختيار والمتابعة.",
+          "contribution": "يشمل سجل المشروع تصميم وتطوير تجربة تطبيق متجر، وكتالوج منتجات، وسلة مشتريات، وآلية لعرض حالة الطلب. تركّز صياغة الدراسة على ترتيب المهام حسب رحلة المستخدم بدل حشد كل وظائف التجارة في شاشة واحدة. ولم نضف ادعاءات عن التكامل مع شركات توصيل أو بوابات دفع أو تحقيق مبيعات؛ أي من ذلك يحتاج شهادة تشغيل موثقة.",
           "scope": ["عرض وتصفح المنتجات","إدارة السلة","متابعة الطلبات"],
-          "deliveredOutputs": ["كتالوج منتجات","سلة مشتريات","متابعة حالة الطلب"]
+          "deliveredOutputs": ["كتالوج منتجات","سلة مشتريات","متابعة حالة الطلب"],
+          "decisions": [{"title":"كتالوج موجه للاكتشاف","reason":"العميل يقرر بناءً على فهم المنتجات والتنقل بينها.","implementation":"إبراز عرض المنتجات قبل الانتقال إلى خطوة السلة."},{"title":"سلة تحفظ سياق الاختيار","reason":"الانتقال من منتج إلى آخر يجب ألا يجعل اختيارات العميل غير واضحة.","implementation":"جعل السلة خطوة مستقلة ومفهومة ضمن رحلة الشراء."},{"title":"متابعة بعد الطلب","reason":"اهتمام العميل لا ينتهي عند تأكيد الاختيار بل يستمر بالسؤال عن الحالة.","implementation":"تقديم مسار لعرض حالة الطلب بحسب النطاق المسجل."}]
         },
         "seo": {
           "title": "تيك زون | تطوير تطبيق متجر إلكتروني للجوال | وصل تك",
@@ -493,11 +502,12 @@ const projectRecords = [
                   "Order status tracking"
         ],
         "caseStudy": {
-          "overview": "A store app focused on making the mobile shopping journey direct from product discovery through cart and order tracking.",
-          "context": "The project brings shopping to mobile and connects product discovery, cart, and order tracking in one journey.",
-          "contribution": "Designed and developed a mobile store experience focused on browsing, purchasing, and tracking orders.",
+          "overview": "Tech Zone is a mobile shopping application built around a continuous journey: discovering products, reviewing a cart and following an order. A useful shopping experience does more than display product images; users need to understand their selections, move to the next step and return for updates. The case study covers the journey recorded in the project scope, without assuming payment methods, shipping partnerships or notifications that have not been verified.",
+          "context": "Shoppers may compare several items before deciding, so category browsing and product presentation need to connect naturally to a cart. Once an order is placed, their main question changes from what to buy to what happens next. The design challenge is keeping discovery, selection and order follow-up distinct but connected.",
+          "contribution": "The recorded work includes a mobile store interface, a product catalog, a cart and order-status tracking. The project story explains the responsibilities of these steps rather than listing unrelated commerce features. No sales figures, payment gateway providers or delivery integrations are claimed without separate implementation evidence.",
           "scope": ["Product browsing","Cart management","Order tracking"],
-          "deliveredOutputs": ["Product catalog","Shopping cart","Order status tracking"]
+          "deliveredOutputs": ["Product catalog","Shopping cart","Order status tracking"],
+          "decisions": [{"title":"Present products for discovery","reason":"People need to understand the catalog before deciding what belongs in the cart.","implementation":"Make product browsing the starting point of the shopping journey."},{"title":"Keep selections clear","reason":"Moving between products should not obscure what the shopper has chosen.","implementation":"Give the cart a recognizable step within the experience."},{"title":"Support post-order follow-up","reason":"A customer needs information after submitting an order, not only before it.","implementation":"Include an order-status journey as documented in the scope."}]
         },
         "seo": {
           "title": "Tech Zone | Mobile E-commerce App Development | Wasl Tech",
