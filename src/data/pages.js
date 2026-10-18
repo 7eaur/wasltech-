@@ -532,8 +532,8 @@ export const pages = Object.freeze([
           Object.freeze({
             id: "tracking",
             kicker: "التحليلات والكوكيز",
-            title: "التحليلات اختيارية، ولا تبدأ إلا بموافقتك.",
-            support: "لا يتم تحميل Google Analytics 4 قبل موافقتك واختيار السماح بالتحليلات. عند الموافقة قد يستخدم ملفات تعريف ارتباط لقياس استخدام الموقع، ويمكنك رفضه أو تعديل اختيارك من إعدادات التحليلات في تذييل الصفحة. يُحفظ تفضيلك على جهازك ولا تُرسل حقول مخطط المشروع أو نصوص رسائلك إلى Analytics."
+            title: "يستخدم الموقع قياسًا أساسيًا للزيارات عبر Google Analytics 4.",
+            support: "يعمل القياس بإعدادات تمنع تخزين ملفات تعريف الارتباط الخاصة بالتحليلات والإعلانات، ولا يرسل الموقع بيانات مخطط المشروع أو محتوى الرسائل إلى Analytics."
           }),
           Object.freeze({
             id: "contact",
@@ -570,8 +570,8 @@ export const pages = Object.freeze([
           Object.freeze({
             id: "tracking",
             kicker: "Analytics and cookies",
-            title: "Analytics are optional and only start after you agree.",
-            support: "Google Analytics 4 is not loaded until you choose to allow analytics. After consent, analytics cookies may be used to measure site usage. You can decline or change your preference using Analytics preferences in the footer. Your choice is stored on your device; project-planner fields and message content are not sent to Analytics."
+            title: "The site uses basic traffic measurement through Google Analytics 4.",
+            support: "Analytics and advertising storage are disabled, and the site does not send project-planner fields or message content to Analytics."
           }),
           Object.freeze({
             id: "contact",

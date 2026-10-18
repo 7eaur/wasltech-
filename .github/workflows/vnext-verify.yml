@@ -45,11 +45,11 @@ jobs:
       - name: Verify final media sources
         run: node scripts/check-final-media.mjs
 
+      - name: Keep analytics invisible to visitors
+        run: node scripts/check-analytics-no-ui.mjs
+
       - name: Audit portfolio case-study evidence
         run: node scripts/audit-portfolio-evidence.mjs
-
-      - name: Verify privacy-first analytics choices
-        run: node scripts/check-analytics-consent.mjs
 
       - name: Verify article to project editorial evidence links
         run: node scripts/check-article-project-links.mjs

@@ -41,7 +41,6 @@ const cssSources = [
   "src/styles/base.css",
   "src/styles/layout.css",
   "src/styles/components.css",
-  "src/styles/analytics-consent.css",
   "src/styles/media.css",
   "src/styles/text-flow.css",
   "src/styles/motion.css"
