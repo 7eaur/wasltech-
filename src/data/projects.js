@@ -656,9 +656,9 @@ const projectRecords = [
           "متابعة حالة الطلب"
         ],
         "caseStudy": {
-          "overview": "تطبيق متجر يركز على جعل رحلة التسوق عبر الجوال مباشرة من استكشاف المنتجات إلى إضافة السلة ومتابعة الطلب.",
-          "context": "المشروع ينقل تجربة التسوق إلى الجوال ويجمع استكشاف المنتجات والسلة ومتابعة الطلب في رحلة واحدة.",
-          "contribution": "تصميم وتطوير تجربة تطبيق متجر تركز على التصفح والشراء ومتابعة الطلبات.",
+          "overview": "تيك زون تجربة تسوق عبر الجوال ترتب علاقة المستخدم بالمنتج من الاكتشاف إلى السلة ومتابعة الطلب. في هذا النوع من التطبيقات تتشكل جودة الاستخدام من ترابط الخطوات الصغيرة، لا من عرض منتجات كثيرة على الشاشة الرئيسية فحسب.",
+          "context": "عند التسوق على الهاتف، يتنقل العميل بين قائمة المنتجات وصفحة المنتج والسلة وحالة الطلب ضمن مساحة شاشة محدودة. التحدي هو الحفاظ على فهم مكانه في هذه الرحلة وأن تكون كل خطوة ذات غرض واضح، لا الانتقال إلى شاشة جديدة من دون سياق.",
+          "contribution": "ركز نطاق التنفيذ على كتالوج المنتجات وسلة المشتريات ومتابعة الطلبات، مع ربط هذه الوظائف في مسار واحد داخل التطبيق. تصف الدراسة تجربة التسوق الموثقة بالمشروع، دون الادعاء بتكاملات دفع معينة أو أحجام مبيعات غير متاحة.",
           "scope": [
             "عرض وتصفح المنتجات",
             "إدارة السلة",
@@ -668,6 +668,18 @@ const projectRecords = [
             "كتالوج منتجات",
             "سلة مشتريات",
             "متابعة حالة الطلب"
+          ],
+          "decisions": [
+            {
+              "title": "تدرج رحلة الشراء",
+              "reason": "الدخول مباشرة إلى السلة قبل معرفة المنتجات يجعل المسار أقل وضوحًا.",
+              "implementation": "تنظيم الرحلة حول استكشاف المنتج ثم اختياره وإضافته للسلة ومتابعة الطلب."
+            },
+            {
+              "title": "متابعة الطلب ضمن التطبيق",
+              "reason": "لا تنتهي تجربة المتجر بمجرد اختيار المنتجات.",
+              "implementation": "إبراز متابعة حالة الطلب كجزء من تجربة المستخدم المسجلة في نطاق المشروع."
+            }
           ]
         },
         "seo": {
@@ -685,9 +697,9 @@ const projectRecords = [
           "Order status tracking"
         ],
         "caseStudy": {
-          "overview": "A store app focused on making the mobile shopping journey direct from product discovery through cart and order tracking.",
-          "context": "The project brings shopping to mobile and connects product discovery, cart, and order tracking in one journey.",
-          "contribution": "Designed and developed a mobile store experience focused on browsing, purchasing, and tracking orders.",
+          "overview": "Tech Zone is a mobile shopping experience connecting product discovery, cart management and order tracking. The value of the app lies in a coherent sequence of everyday shopping actions, not merely the number of products displayed on its home screen.",
+          "context": "On a phone, customers move between the catalog, product details, cart and order status with limited screen space. The challenge is maintaining a clear sense of progress so that each screen serves an understandable step.",
+          "contribution": "The documented implementation covers a product catalog, shopping cart and order tracking, organized as one app journey. This description does not assert specific payment integrations or sales volumes that have not been evidenced.",
           "scope": [
             "Product browsing",
             "Cart management",
@@ -697,6 +709,18 @@ const projectRecords = [
             "Product catalog",
             "Shopping cart",
             "Order status tracking"
+          ],
+          "decisions": [
+            {
+              "title": "A clear purchase sequence",
+              "reason": "A cart only makes sense once customers can discover and select the right products.",
+              "implementation": "Structure the journey from browsing and selection to the cart and order tracking."
+            },
+            {
+              "title": "Follow-up after selection",
+              "reason": "A shopping experience continues after products have been chosen.",
+              "implementation": "Include order status tracking as part of the documented mobile journey."
+            }
           ]
         },
         "seo": {
@@ -733,9 +757,9 @@ const projectRecords = [
           "خرائط ومعلومات الفروع"
         ],
         "caseStudy": {
-          "overview": "تجربة جوال لمقهى تجمع الطلب والولاء والوصول إلى الفروع في مسار واحد يخدم العميل قبل وأثناء الشراء.",
-          "context": "المشروع يجمع احتياجات عميل المقهى في تطبيق واحد: الطلب، الولاء، والوصول إلى الفروع.",
-          "contribution": "تصميم وتطوير تجربة طلب عبر الجوال مرتبطة ببرنامج ولاء ومعلومات الفروع.",
+          "overview": "أروما كافيه تطبيق جوال يجمع خدمات مرتبطة بزيارة المقهى والطلب منه: استكشاف المنتجات وطلب القهوة وبرنامج الولاء ومعرفة مواقع الفروع. الفكرة أن يجد العميل احتياجاته المتكررة في تجربة واحدة بدلاً من البحث عن كل خدمة في قناة مختلفة.",
+          "context": "سلوك عميل المقهى يختلف عن التسوق العام؛ قد يرغب في طلب منتج سريعًا، أو معرفة أقرب فرع، أو متابعة مزايا الولاء. التحدي هو جمع هذه المهام دون أن تربك الوظائف الإضافية المسار الأساسي الخاص بالطلب.",
+          "contribution": "يتناول نطاق العمل تجربة طلب المنتجات وبرنامج الولاء وعرض الفروع على الخريطة. ركز وصف التنفيذ على تنظيم هذه المحاور في تطبيق واحد، ولا يقدم ادعاءً عن حجم الطلبات أو تكاملات الدفع أو آليات احتساب نقاط لم تُثبت تفاصيلها.",
           "scope": [
             "طلب المنتجات",
             "برنامج ولاء",
@@ -745,6 +769,18 @@ const projectRecords = [
             "طلب القهوة عبر التطبيق",
             "برنامج ولاء",
             "خرائط الفروع"
+          ],
+          "decisions": [
+            {
+              "title": "جعل الطلب مهمة واضحة",
+              "reason": "عميل المقهى يريد الوصول إلى المنتج وإتمام خطوة الطلب دون تنقل غير ضروري.",
+              "implementation": "تخصيص مسار مفهوم للمنتجات والطلب باعتباره المحور الرئيسي للتجربة."
+            },
+            {
+              "title": "الولاء والفروع في السياق المناسب",
+              "reason": "برنامج الولاء ومعلومات الفروع وظيفتان مساندتان للطلب وليستا بديلًا عنه.",
+              "implementation": "تقديم الوظائف المرتبطة بالولاء والفروع ضمن تجربة العميل نفسها."
+            }
           ]
         },
         "seo": {
@@ -762,9 +798,9 @@ const projectRecords = [
           "Branch maps and information"
         ],
         "caseStudy": {
-          "overview": "A mobile cafe experience that brings ordering, loyalty, and branch access into one journey before and during purchase.",
-          "context": "The project combines key customer needs in one app: ordering, loyalty, and reaching the right branch.",
-          "contribution": "Designed and developed a mobile ordering experience connected to a loyalty program and branch information.",
+          "overview": "Aroma Cafe is a mobile experience combining coffee ordering, a loyalty program and branch information. It brings recurring cafe-related tasks into one product instead of leaving customers to find each function through a separate channel.",
+          "context": "Cafe customers may want to place an order quickly, find a branch or access loyalty features. The challenge is accommodating these distinct needs without letting supporting features overwhelm the central ordering journey.",
+          "contribution": "The recorded scope covers product ordering, loyalty features and branches on a map. The case study describes how these areas relate within the app, without asserting unverified order volume, payment integrations or loyalty-point calculation rules.",
           "scope": [
             "Product ordering",
             "Loyalty program",
@@ -774,6 +810,18 @@ const projectRecords = [
             "In-app coffee ordering",
             "Loyalty program",
             "Branch maps"
+          ],
+          "decisions": [
+            {
+              "title": "Keep ordering easy to find",
+              "reason": "Customers need a clear route from product selection to the ordering step.",
+              "implementation": "Make the product and order journey a primary part of the app."
+            },
+            {
+              "title": "Support the visit beyond ordering",
+              "reason": "Loyalty and branch details address different customer questions.",
+              "implementation": "Keep those supporting functions accessible within the same experience."
+            }
           ]
         },
         "seo": {
@@ -810,9 +858,9 @@ const projectRecords = [
           "مسار لطلب عرض سعر"
         ],
         "caseStudy": {
-          "overview": "موقع شركة يضع أعمال المقاولات والخدمات الهندسية في واجهة منظمة تساعد الزائر على فهم النشاط والانتقال من الاستكشاف إلى التواصل.",
-          "context": "المشروع يقدّم شركة المقاولات وخدماتها وأعمالها في تجربة تساعد الزائر على فهم النشاط والانتقال إلى طلب عرض سعر.",
-          "contribution": "تصميم وتطوير موقع تعريفي يربط الخدمات والمشاريع بمسار تواصل واضح.",
+          "overview": "البناء المتقن موقع تعريفي لشركة تعمل في المقاولات والهندسة، وينظّم تقديم الخدمات والمشاريع السابقة ومعلومات التواصل. دوره أن يساعد الزائر على تكوين صورة واضحة عن نطاق نشاط الشركة قبل الانتقال إلى طلب عرض سعر.",
+          "context": "في قطاع المقاولات يهتم العميل بفهم أنواع الخدمات وطبيعة الأعمال المعروضة قبل التواصل. عرض هذه المعلومات في صفحات متفرقة دون تسلسل واضح قد يجعل العثور على المشروع أو الخدمة المطلوبة أصعب.",
+          "contribution": "يشمل نطاق تصميم الموقع صفحات الخدمات ومعرض المشاريع ومسار طلب عرض السعر. ركزت بنية المحتوى على تقديم النشاط ثم إبراز الأعمال المرتبطة به وفتح خطوة تواصل واضحة، دون إضافة اعتماد هندسي أو تفاصيل مشاريع لم يقدمها السجل.",
           "scope": [
             "عرض الخدمات",
             "معرض المشاريع",
@@ -822,6 +870,18 @@ const projectRecords = [
             "صفحات للخدمات",
             "عرض المشاريع",
             "طلب عرض سعر"
+          ],
+          "decisions": [
+            {
+              "title": "ربط الخدمات بالأعمال",
+              "reason": "الأمثلة البصرية تساعد في فهم طبيعة خدمة المقاولات المعروضة.",
+              "implementation": "تنظيم تجربة التصفح بحيث يمكن الانتقال بين الخدمات ومعرض المشاريع."
+            },
+            {
+              "title": "خطوة تواصل محددة",
+              "reason": "مجرد عرض الأعمال لا يوضح للزائر ماذا يفعل عندما يريد مناقشة مشروعه.",
+              "implementation": "توفير مسار لطلب عرض سعر متصل بتجربة التعرف على الشركة."
+            }
           ]
         },
         "seo": {
@@ -839,9 +899,9 @@ const projectRecords = [
           "Quotation request path"
         ],
         "caseStudy": {
-          "overview": "A company website that organizes construction and engineering services and projects so visitors can understand the business and move from exploration to contact.",
-          "context": "The project presents the construction company, its services, and its work in an experience that helps visitors understand the business and request a quotation.",
-          "contribution": "Designed and developed a company website that connects services and projects to a clear contact path.",
+          "overview": "Al Benaa Al Motqin is a company website for construction and engineering services. It organizes the business introduction, services, project examples and contact information so visitors can understand the offer before requesting a quotation.",
+          "context": "Construction clients often want to understand the types of work and services involved before making contact. Scattered pages without a clear sequence can make it harder to connect a service with the relevant project examples.",
+          "contribution": "The published scope includes service pages, a project portfolio and a quotation enquiry path. The site content was organized around introducing the work and guiding visitors toward contact, without inventing certifications or project details not present in the record.",
           "scope": [
             "Service presentation",
             "Project showcase",
@@ -851,6 +911,18 @@ const projectRecords = [
             "Service pages",
             "Project showcase",
             "Quotation request flow"
+          ],
+          "decisions": [
+            {
+              "title": "Connect services with examples",
+              "reason": "Project examples help visitors understand the character of a construction service.",
+              "implementation": "Organize navigation between the service descriptions and the portfolio."
+            },
+            {
+              "title": "Provide a next step",
+              "reason": "Showing work alone does not tell someone how to discuss their project.",
+              "implementation": "Connect the company introduction with a clear quotation enquiry route."
+            }
           ]
         },
         "seo": {
@@ -887,9 +959,9 @@ const projectRecords = [
           "مسار لإتمام الطلب"
         ],
         "caseStudy": {
-          "overview": "متجر متخصص في الإلكترونيات يركز على تنظيم الكتالوج وتسهيل الانتقال بين الأقسام والمنتجات حتى إكمال الطلب.",
-          "context": "المشروع ينظم كتالوج الأجهزة والإلكترونيات ويجعل الوصول إلى المنتج والطلب أكثر مباشرة.",
-          "contribution": "تصميم وبناء متجر يرتب المنتجات ضمن تصنيفات ويقود العميل من التصفح إلى الطلب.",
+          "overview": "النخبة للإلكترونيات متجر يعرض الأجهزة ومنتجات الإلكترونيات في تصنيفات منظمة، ويقود العميل من البحث عن المنتج إلى مسار الطلب. نجاح التجربة هنا يعتمد على أن يفهم المتسوق أين يجد النوع الذي يبحث عنه وكيف يصل إلى تفاصيله.",
+          "context": "المنتجات الإلكترونية قد تتشابه بصريًا لكنها تختلف في النوع والاستخدام؛ لذلك يحتاج المتجر إلى تصنيفات قابلة للتصفح وعرض منتج واضح. التحدي هو الموازنة بين كثافة الكتالوج وبساطة الانتقال إلى الطلب دون افتراض خصائص تقنية لم يثبت وجودها.",
+          "contribution": "يشمل النطاق عرض المنتجات والتصنيفات وتجربة الطلب. بُني وصف الحالة حول رحلة استكشاف الكتالوج والانتقال إلى المنتج ثم إتمام الخطوة المطلوبة، دون ذكر بوابات دفع أو مخزون لحظي أو مؤشرات تحويل لم توثق.",
           "scope": [
             "عرض المنتجات",
             "التصنيفات",
@@ -899,6 +971,18 @@ const projectRecords = [
             "كتالوج إلكترونيات",
             "تصنيفات منتجات",
             "تجربة إتمام الطلب"
+          ],
+          "decisions": [
+            {
+              "title": "توضيح فئات الأجهزة",
+              "reason": "التصفح يصبح أصعب إذا ظهرت الأنواع المختلفة ضمن قائمة واحدة طويلة.",
+              "implementation": "استخدام تصنيفات تساعد على تضييق مساحة البحث والوصول إلى المنتج."
+            },
+            {
+              "title": "المنتج ثم الطلب",
+              "reason": "المتسوق يحتاج أن يفهم ما اختاره قبل الانتقال للإجراء التالي.",
+              "implementation": "ربط عرض تفاصيل المنتج بمسار الطلب ضمن نطاق المتجر."
+            }
           ]
         },
         "seo": {
@@ -916,9 +1000,9 @@ const projectRecords = [
           "Order completion flow"
         ],
         "caseStudy": {
-          "overview": "A specialized electronics store focused on organizing the catalog and making it easier to move between categories and products through to ordering.",
-          "context": "The project organizes an electronics catalog and makes finding products and placing orders more direct.",
-          "contribution": "Designed and built a store that organizes products into categories and guides customers from browsing to ordering.",
+          "overview": "Elite Electronics is an online store presenting devices and electronics through organized product categories. Its journey takes shoppers from discovering a product to the ordering step, with discoverability and clear product presentation at the center.",
+          "context": "Electronic products can look similar while serving different purposes. Shoppers need understandable categories and product information, and the store must balance a broad catalog with straightforward navigation toward an order.",
+          "contribution": "The documented scope consists of catalog display, categories and the ordering experience. This case study follows that journey without claiming unverified payment providers, live inventory integrations or conversion metrics.",
           "scope": [
             "Product display",
             "Categories",
@@ -928,6 +1012,18 @@ const projectRecords = [
             "Electronics catalog",
             "Product categories",
             "Order completion experience"
+          ],
+          "decisions": [
+            {
+              "title": "Make device categories understandable",
+              "reason": "Finding products is difficult when unlike items appear in one long unstructured list.",
+              "implementation": "Use browsing categories that help shoppers narrow their search."
+            },
+            {
+              "title": "Connect product information to ordering",
+              "reason": "Shoppers need to understand their selection before moving to the next action.",
+              "implementation": "Keep the product presentation connected to the documented order journey."
+            }
           ]
         },
         "seo": {
@@ -964,9 +1060,9 @@ const projectRecords = [
           "مطبوعات وتغليف"
         ],
         "caseStudy": {
-          "overview": "مشروع هوية يهدف إلى توحيد شكل العلامة عبر الشعار والألوان والتطبيقات التي يراها العميل داخل المطعم وخارجه.",
-          "context": "المشروع يحتاج نظامًا بصريًا موحدًا يربط الشعار بالألوان والمطبوعات والتغليف بدل ظهور كل مادة بأسلوب مستقل.",
-          "contribution": "بناء هوية بصرية لمطعم الملكي تشمل الشعار والنظام اللوني والتطبيقات الأساسية.",
+          "overview": "هوية مطعم الملكي مشروع تصميم يربط الشعار بالألوان والتطبيقات المطبوعة والتغليف ضمن مظهر واحد للعلامة. لا يقتصر أثر الهوية على ملف الشعار، بل يظهر في المواد المختلفة التي يراها الزائر أو يحملها معه.",
+          "context": "يحتاج المطعم إلى صورة يمكن التعرف عليها في الواجهة والمطبوعات والتغليف، وإلا أصبحت كل مادة تعبيرًا منفصلًا عن النشاط. التحدي هو جعل عناصر الهوية متسقة دون أن تفقد مرونتها بين المقاسات والاستخدامات.",
+          "contribution": "يضم نطاق المشروع تصميم الشعار والنظام اللوني وتطبيقات مطبوعة وتغليف. تتناول الدراسة كيفية التعامل مع الهوية كنظام مترابط من عناصر مرئية، ولا تنسب للطباعة أو التغليف مواصفات تصنيع أو نتائج تسويقية لم توثق.",
           "scope": [
             "تصميم الشعار",
             "بناء النظام اللوني",
@@ -976,6 +1072,18 @@ const projectRecords = [
             "تصميم الشعار",
             "نظام ألوان",
             "مطبوعات وتغليف"
+          ],
+          "decisions": [
+            {
+              "title": "الشعار ضمن نظام بصري",
+              "reason": "الشعار وحده لا يضمن أن تظهر المواد المختلفة كعلامة واحدة.",
+              "implementation": "وضع الشعار والألوان في اتجاه تصميمي واحد يدعم تطبيقات الهوية."
+            },
+            {
+              "title": "الهوية عبر نقاط التواصل",
+              "reason": "اختلاف مساحة الاستخدام بين المطبوعات والتغليف يحتاج اتساقًا مرنًا.",
+              "implementation": "تطبيق الاتجاه البصري على مواد مطبوعة وتغليف ضمن نطاق التصميم."
+            }
           ]
         },
         "seo": {
@@ -993,9 +1101,9 @@ const projectRecords = [
           "Print and packaging"
         ],
         "caseStudy": {
-          "overview": "A brand identity project created to unify how the restaurant appears through the logo, colors, and customer-facing applications inside and outside the venue.",
-          "context": "The project needed one visual system connecting the logo, colors, print materials, and packaging instead of each item appearing in a separate style.",
-          "contribution": "Built a visual identity for Al Malaki Restaurant including the logo, color system, and key applications.",
+          "overview": "Al Malaki restaurant identity work connects the logo, color system, printed materials and packaging into one visual direction. A brand identity extends beyond the logo file to the different materials customers encounter.",
+          "context": "Restaurants need recognizable presentation across signage, printed items and packaging. When each surface is treated separately, the visual system can become inconsistent. The challenge is to keep a coherent character across different formats.",
+          "contribution": "The recorded deliverables include a logo, color system, print applications and packaging designs. This account treats identity as a connected design system without claiming manufacturing specifications or marketing outcomes that are not documented.",
           "scope": [
             "Logo design",
             "Color system",
@@ -1005,6 +1113,18 @@ const projectRecords = [
             "Logo design",
             "Color system",
             "Print and packaging"
+          ],
+          "decisions": [
+            {
+              "title": "A logo supported by a visual system",
+              "reason": "A logo alone cannot ensure consistency across every brand material.",
+              "implementation": "Develop the logo and colors as one recognizable design direction."
+            },
+            {
+              "title": "Consistency across touchpoints",
+              "reason": "Packaging and printed materials have different spatial constraints.",
+              "implementation": "Apply the visual direction to the documented print and packaging outputs."
+            }
           ]
         },
         "seo": {
