@@ -48,10 +48,9 @@ for(const locale of ["ar","en"]){
       if(!html.includes(htmlText(value))) fail(file,`scope/output missing: ${value}`);
     }
     const decisions = copy.caseStudy.decisions ?? [];
-    if(project.slug === "update-card-digital-services") {
-      if(decisions.length !== 3) fail(file,"Update Card must have three source-grounded decisions in each locale");
-    } else if(decisions.length) {
-      fail(file,"do not invent unverified decision data for other projects");
+    if(decisions.length !== 3) fail(file,"Every editorial draft must include three reviewable design decisions");
+    if(new Set(decisions.map(item=>item.title)).size !== decisions.length) {
+      fail(file,"Repeated decision titles are not allowed");
     }
     if(Boolean(decisions.length) !== html.includes('class="section section--subtle project-scope project-decisions"')){
       fail(file,"project decisions section count and data disagree");

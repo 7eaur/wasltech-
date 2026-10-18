@@ -54,6 +54,12 @@ jobs:
       - name: Verify article to project editorial evidence links
         run: node scripts/check-article-project-links.mjs
 
+      - name: Validate editorial case-study and guide drafts
+        run: node scripts/check-editorial-review-drafts.mjs
+
+      - name: Validate fifteen client-review case files and translated article
+        run: node scripts/check-editorial-drafts.mjs
+
       - name: Audit crawlable internal route discovery
         run: node scripts/audit-internal-discovery.mjs
 
