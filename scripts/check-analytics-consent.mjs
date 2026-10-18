@@ -73,6 +73,24 @@ check(state.head.children.length===0,"Preview QA must never send analytics");
 state=simulate({hostname:"preview.vercel.app"});
 check(state.body.children.length===0 && state.head.children.length===0,"Ordinary previews remain free of analytics/overlay");
 
+// A consent panel without defined design tokens could become unreadable in production.
+const tokens = await readFile(new URL("../src/styles/tokens.css",import.meta.url),"utf8");
+const css = await readFile(new URL("../src/styles/analytics-consent.css",import.meta.url),"utf8");
+const declared = new Set([...tokens.matchAll(/(--[a-z0-9-]+)\s*:/g)].map(m=>m[1]));
+for(const token of [...css.matchAll(/var\((--[a-z0-9-]+)/g)].map(m=>m[1])){
+  if(!declared.has(token)) failures.push("Undefined theme token used by consent UI: "+token);
+}
+const { pages } = await import("../src/data/pages.js");
+const privacy = pages.find(page=>page.id==="privacy");
+check(Boolean(privacy),"Privacy policy page must exist");
+for(const locale of ["ar","en"]){
+  const tracking=privacy?.content?.[locale]?.sections?.find(section=>section.id==="tracking");
+  check(Boolean(tracking),"Privacy policy must contain analytics notice for "+locale);
+  check(Boolean(tracking?.support?.includes("Google Analytics 4")),"Privacy notice must identify GA4 in "+locale);
+  check(locale==="ar" ? tracking?.support?.includes("موافقت") : tracking?.support?.includes("consent"),
+    "Privacy notice must explain consent in "+locale);
+}
+
 if(failures.length){
   console.error("PRIVACY SAFE ANALYTICS: FAILED");
   failures.forEach(x=>console.error("- "+x));
