@@ -48,11 +48,13 @@ for(const locale of ["ar","en"]){
       if(!html.includes(htmlText(value))) fail(file,`scope/output missing: ${value}`);
     }
     const decisions = copy.caseStudy.decisions ?? [];
-    if(project.slug === "update-card-digital-services") {
-      if(decisions.length !== 3) fail(file,"Update Card must have three source-grounded decisions in each locale");
-    } else if(decisions.length) {
-      fail(file,"do not invent unverified decision data for other projects");
-    }
+    // Owner review: drafts must include project-specific decision rationale,
+    // but assertions about external impact remain disallowed without evidence.
+    if(decisions.length !== 3) fail(file,"every bilingual draft must present three scope-based editorial decisions");
+    if(new Set(decisions.map(item=>item.title)).size !== decisions.length) fail(file,"duplicated decision title");
+    const narrative = [copy.caseStudy.overview,copy.caseStudy.context,copy.caseStudy.contribution].join(" ");
+    const words = narrative.trim().split(/\\s+/).length;
+    if(words < (locale === "ar" ? 95 : 105)) fail(file,"case-study narrative is too brief for editorial review ("+words+" words)");
     if(Boolean(decisions.length) !== html.includes('class="section section--subtle project-scope project-decisions"')){
       fail(file,"project decisions section count and data disagree");
     }
