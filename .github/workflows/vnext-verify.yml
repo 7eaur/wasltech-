@@ -45,6 +45,9 @@ jobs:
       - name: Verify final media sources
         run: node scripts/check-final-media.mjs
 
+      - name: Verify full editorial article and client-review case drafts
+        run: node scripts/check-editorial-drafts.mjs
+
       - name: Keep analytics invisible to visitors
         run: node scripts/check-analytics-no-ui.mjs
 
