@@ -48,6 +48,9 @@ jobs:
       - name: Audit portfolio case-study evidence
         run: node scripts/audit-portfolio-evidence.mjs
 
+      - name: Verify article to project editorial evidence links
+        run: node scripts/check-article-project-links.mjs
+
       - name: Audit crawlable internal route discovery
         run: node scripts/audit-internal-discovery.mjs
 
