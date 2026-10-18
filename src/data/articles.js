@@ -33,7 +33,7 @@ export const articles = Object.freeze([
     publishedAt: "2026-09-22",
     updatedAt: "2026-09-22",
     relatedServiceIds: ["web", "programming"],
-    relatedProjectIds: [],
+    relatedProjectIds: ["project-07","project-04"],
     content: {
       ar: {
         categoryLabel: "تخطيط رقمي",
@@ -168,7 +168,7 @@ export const articles = Object.freeze([
     publishedAt: "2026-09-22",
     updatedAt: "2026-09-22",
     relatedServiceIds: ["store"],
-    relatedProjectIds: [],
+    relatedProjectIds: ["project-08","project-12"],
     content: {
       ar: {
         categoryLabel: "التجارة الإلكترونية",
@@ -285,7 +285,7 @@ export const articles = Object.freeze([
     publishedAt: "2026-09-22",
     updatedAt: "2026-09-22",
     relatedServiceIds: ["web", "profiles", "design"],
-    relatedProjectIds: [],
+    relatedProjectIds: ["project-07","project-14"],
     content: {
       ar: {
         categoryLabel: "المحتوى والهوية",
@@ -380,7 +380,7 @@ export const articles = Object.freeze([
     publishedAt: "2026-10-14",
     updatedAt: "2026-10-14",
     relatedServiceIds: ["app"],
-    relatedProjectIds: [],
+    relatedProjectIds: ["project-06","project-05"],
     content: {
       ar: {
         categoryLabel: "تطبيقات الجوال",
@@ -473,7 +473,7 @@ export const articles = Object.freeze([
     publishedAt: "2026-10-14",
     updatedAt: "2026-10-14",
     relatedServiceIds: ["programming", "tech"],
-    relatedProjectIds: [],
+    relatedProjectIds: ["project-03","project-04"],
     content: {
       ar: {
         categoryLabel: "الأنظمة والحلول التقنية",
@@ -566,7 +566,7 @@ export const articles = Object.freeze([
     publishedAt: "2026-10-14",
     updatedAt: "2026-10-14",
     relatedServiceIds: ["design"],
-    relatedProjectIds: [],
+    relatedProjectIds: ["project-09","project-10"],
     content: {
       ar: {
         categoryLabel: "الهوية البصرية",
@@ -752,7 +752,7 @@ export const articles = Object.freeze([
     publishedAt: "2026-10-14",
     updatedAt: "2026-10-14",
     relatedServiceIds: ["marketing"],
-    relatedProjectIds: [],
+    relatedProjectIds: ["project-11"],
     content: {
       ar: {
         categoryLabel: "التسويق والمحتوى",
