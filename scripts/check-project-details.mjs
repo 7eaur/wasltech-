@@ -53,7 +53,7 @@ for(const locale of ["ar","en"]){
     if(decisions.length !== 3) fail(file,"every bilingual draft must present three scope-based editorial decisions");
     if(new Set(decisions.map(item=>item.title)).size !== decisions.length) fail(file,"duplicated decision title");
     const narrative = [copy.caseStudy.overview,copy.caseStudy.context,copy.caseStudy.contribution].join(" ");
-    const words = narrative.trim().split(/\\s+/).length;
+    const words = narrative.trim().split(/\s+/).length;
     if(words < (locale === "ar" ? 95 : 105)) fail(file,"case-study narrative is too brief for editorial review ("+words+" words)");
     if(Boolean(decisions.length) !== html.includes('class="section section--subtle project-scope project-decisions"')){
       fail(file,"project decisions section count and data disagree");
