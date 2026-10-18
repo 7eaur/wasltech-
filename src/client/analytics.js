@@ -39,6 +39,8 @@
   catch { consent = null; }
   if (!["granted","denied"].includes(consent)) consent = null;
 
+  // Disable measurement at source until consent, including after a later opt-out.
+  window[`ga-disable-${measurementId}`] = consent !== "granted";
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function gtag() {
     window.dataLayer.push(arguments);
@@ -55,6 +57,7 @@
   function beginMeasurement() {
     if (!canMeasure || started) return;
     started = true;
+    window[`ga-disable-${measurementId}`] = false;
     window.gtag("consent","update",{
       ...denied,
       analytics_storage: "granted"
@@ -88,6 +91,7 @@
     try { localStorage.setItem(storageKey,value); } catch { /* Optional; future pages ask again. */ }
     if (value === "granted") beginMeasurement();
     else {
+      window[`ga-disable-${measurementId}`] = true;
       window.gtag("consent","update",denied);
       clearAnalyticsCookies();
     }
