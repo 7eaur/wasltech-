@@ -54,7 +54,7 @@ The existing portfolio lists ordering, a loyalty programme and mapped branches. 
 ## سجل الأدلة والقيود
 
 - سجل المشروع في `src/data/projects.js` (project-06): يثبت أن **وصف العمل مسجل**، ولا يكفي منفردًا لإثبات أن كل وظيفة منشورة أو عاملة.
-- [صورة العرض الحالية](../../../assets/works/project_6.webp): دليل بصري على مادة العرض، لا على النتائج والأرقام أو عمل الخادم.
+- [صورة العرض الحالية](../../../../assets/works/project_6.webp): دليل بصري على مادة العرض، لا على النتائج والأرقام أو عمل الخادم.
 - مراجع المصدر القديمة المسجلة: `main:js/portfolio.js`، `main:/assets/works/project_6.webp`. **المرجع `main:js/portfolio.js` غير موجود في HEAD الحالي**، لذا ينبغي الحصول على النسخة التاريخية إن لزم إثبات تفاصيله.
 
 ## أسئلة المراجعة قبل النشر
