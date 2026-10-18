@@ -6,7 +6,7 @@ import { articles } from "../src/data/articles.js";
 import { services, getServiceById } from "../src/data/services.js";
 import { routes } from "../src/config/routes.js";
 import { absoluteUrl } from "../src/config/seo.js";
-import { organizationEntityId } from "../src/seo/structured-data.js";
+import { organizationEntityId, editorialTeamEntityId } from "../src/seo/structured-data.js";
 
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const DIST=path.join(ROOT,"dist-release");
@@ -66,7 +66,9 @@ for(const locale of ["ar","en"]){
     if(schema.mainEntityOfPage!==absoluteUrl(route)) fail(route,"Article mainEntityOfPage must match canonical route");
     if(schema.datePublished!==article.publishedAt) fail(route,"Article datePublished mismatch");
     if(schema.publisher?.["@id"]!==organizationEntityId) fail(route,"Article publisher must reference canonical Organization");
-    if(schema.author?.["@id"]!==organizationEntityId) fail(route,"Article author must reference canonical Organization");
+    if(schema.author?.["@id"]!==editorialTeamEntityId) fail(route,"Article author must reference the editorial team entity");
+    if(schema.author?.parentOrganization?.["@id"]!==organizationEntityId) fail(route,"Editorial author must reference the official parent Organization");
+    if(schema.author?.name!==article.author[locale]) fail(route,"Article author entity must match the visible byline");
 
     const related=(article.relatedServiceIds??[]).map(getServiceById).filter(Boolean);
     const about=Array.isArray(schema.about)?schema.about:[];
