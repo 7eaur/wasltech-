@@ -48,6 +48,9 @@ jobs:
       - name: Audit portfolio case-study evidence
         run: node scripts/audit-portfolio-evidence.mjs
 
+      - name: Verify privacy-first analytics choices
+        run: node scripts/check-analytics-consent.mjs
+
       - name: Verify article to project editorial evidence links
         run: node scripts/check-article-project-links.mjs
 
