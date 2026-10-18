@@ -45,6 +45,9 @@ jobs:
       - name: Verify final media sources
         run: node scripts/check-final-media.mjs
 
+      - name: Keep analytics invisible to visitors
+        run: node scripts/check-analytics-no-ui.mjs
+
       - name: Audit portfolio case-study evidence
         run: node scripts/audit-portfolio-evidence.mjs
 
