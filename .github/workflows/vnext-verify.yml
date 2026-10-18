@@ -45,6 +45,9 @@ jobs:
       - name: Verify final media sources
         run: node scripts/check-final-media.mjs
 
+      - name: Audit crawlable internal route discovery
+        run: node scripts/audit-internal-discovery.mjs
+
       - name: Detect redirect-manifest drift
         run: node scripts/sync-legacy-redirects.mjs --check
 
