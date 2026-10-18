@@ -24,146 +24,146 @@
 
 ### 1. هِمّة — `himma-learning-platform`
 
-**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ `assets/works/himma.webp` (الصورة المستخدمة في معرض الأعمال).
+**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ [عرض صورة المشروع المعتمدة في المستودع](https://github.com/7eaur/wasltech-/blob/main/assets/works/himma.webp) (الصورة المستخدمة في معرض الأعمال).
 **ما يدعم المسودة:** الوصف الحالي للتقييم الأولي والأنشطة ولوحة المتابعة، وصورة قدمها مالك المشروع.
 **ما لا تثبته الصورة أو البيانات الحالية ويحتاج مراجعتك:** حالة V2 المنشورة مقابل قيد التطوير؛ الوظائف المفعّلة؛ لقطات رحلة الطالب؛ أي قياس تعلم.
 **المطلوب قبل اعتمادها للنشر:** [ ] صحة الدور المنسوب لوصل تك  [ ] تفاصيل الإجراءات والميزات  [ ] صحة الصورة وحق عرضها  [ ] حذف أي تعبير مبالغ فيه  [ ] الموافقة على النسخة العربية والإنجليزية.
-**روابط صفحات المعاينة بعد بناء الفرع:** `/portfolio/himma-learning-platform/` و`/en/portfolio/himma-learning-platform/`.
+**صفحات المراجعة:** [عربي](https://wasltech-3yc0xiy5o-wasl15.vercel.app/portfolio/himma-learning-platform/) — [English](https://wasltech-3yc0xiy5o-wasl15.vercel.app/en/portfolio/himma-learning-platform/).
 
 
 ### 2. أبديت كارد — `update-card-digital-services`
 
-**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ `assets/works/update-card.webp` (الصورة المستخدمة في معرض الأعمال).
+**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ [عرض صورة المشروع المعتمدة في المستودع](https://github.com/7eaur/wasltech-/blob/main/assets/works/update-card.webp) (الصورة المستخدمة في معرض الأعمال).
 **ما يدعم المسودة:** واجهة عرض الفئات ومسار التواصل والصورة المقدمة من المالك.
 **ما لا تثبته الصورة أو البيانات الحالية ويحتاج مراجعتك:** نطاق نظام الطلب أو الدفع إن وجد؛ لقطات الهاتف والكمبيوتر؛ بيانات التشغيل الفعلية.
 **المطلوب قبل اعتمادها للنشر:** [ ] صحة الدور المنسوب لوصل تك  [ ] تفاصيل الإجراءات والميزات  [ ] صحة الصورة وحق عرضها  [ ] حذف أي تعبير مبالغ فيه  [ ] الموافقة على النسخة العربية والإنجليزية.
-**روابط صفحات المعاينة بعد بناء الفرع:** `/portfolio/update-card-digital-services/` و`/en/portfolio/update-card-digital-services/`.
+**صفحات المراجعة:** [عربي](https://wasltech-3yc0xiy5o-wasl15.vercel.app/portfolio/update-card-digital-services/) — [English](https://wasltech-3yc0xiy5o-wasl15.vercel.app/en/portfolio/update-card-digital-services/).
 
 
 ### 3. صوركم — `suwarikum-platform`
 
-**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ `assets/works/project_1.webp` (الصورة المستخدمة في معرض الأعمال).
+**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ [عرض صورة المشروع المعتمدة في المستودع](https://github.com/7eaur/wasltech-/blob/main/assets/works/project_1.webp) (الصورة المستخدمة في معرض الأعمال).
 **ما يدعم المسودة:** الوصف السابق لتجميع الصور ومشاركتها وملف صورة المشروع.
 **ما لا تثبته الصورة أو البيانات الحالية ويحتاج مراجعتك:** صلاحيات العميل وحماية مجموعاته؛ التنزيل؛ حالة التطبيق المنشورة.
 **المطلوب قبل اعتمادها للنشر:** [ ] صحة الدور المنسوب لوصل تك  [ ] تفاصيل الإجراءات والميزات  [ ] صحة الصورة وحق عرضها  [ ] حذف أي تعبير مبالغ فيه  [ ] الموافقة على النسخة العربية والإنجليزية.
-**روابط صفحات المعاينة بعد بناء الفرع:** `/portfolio/suwarikum-platform/` و`/en/portfolio/suwarikum-platform/`.
+**صفحات المراجعة:** [عربي](https://wasltech-3yc0xiy5o-wasl15.vercel.app/portfolio/suwarikum-platform/) — [English](https://wasltech-3yc0xiy5o-wasl15.vercel.app/en/portfolio/suwarikum-platform/).
 
 
 ### 4. وصّل للعمل الحر — `wasl-freelance-platform`
 
-**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ `assets/works/project_2.webp` (الصورة المستخدمة في معرض الأعمال).
+**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ [عرض صورة المشروع المعتمدة في المستودع](https://github.com/7eaur/wasltech-/blob/main/assets/works/project_2.webp) (الصورة المستخدمة في معرض الأعمال).
 **ما يدعم المسودة:** وصف المنصة للأطراف والمحادثات ومسار الدفع وصورة المعرض.
 **ما لا تثبته الصورة أو البيانات الحالية ويحتاج مراجعتك:** نوع بوابة الدفع ومراحل تشغيلها؛ صلاحيات الحسابات؛ ما اكتمل بالفعل.
 **المطلوب قبل اعتمادها للنشر:** [ ] صحة الدور المنسوب لوصل تك  [ ] تفاصيل الإجراءات والميزات  [ ] صحة الصورة وحق عرضها  [ ] حذف أي تعبير مبالغ فيه  [ ] الموافقة على النسخة العربية والإنجليزية.
-**روابط صفحات المعاينة بعد بناء الفرع:** `/portfolio/wasl-freelance-platform/` و`/en/portfolio/wasl-freelance-platform/`.
+**صفحات المراجعة:** [عربي](https://wasltech-3yc0xiy5o-wasl15.vercel.app/portfolio/wasl-freelance-platform/) — [English](https://wasltech-3yc0xiy5o-wasl15.vercel.app/en/portfolio/wasl-freelance-platform/).
 
 
 ### 5. لوحة MikroTik — `mikrotik-dashboard`
 
-**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ `assets/works/project_3.webp` (الصورة المستخدمة في معرض الأعمال).
+**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ [عرض صورة المشروع المعتمدة في المستودع](https://github.com/7eaur/wasltech-/blob/main/assets/works/project_3.webp) (الصورة المستخدمة في معرض الأعمال).
 **ما يدعم المسودة:** أوصاف إدارة المستخدمين والكروت والجلسات وصورة الواجهة.
 **ما لا تثبته الصورة أو البيانات الحالية ويحتاج مراجعتك:** طريقة الربط وإصدارات RouterOS؛ سجلات الجلسات؛ لقطات الإدارة.
 **المطلوب قبل اعتمادها للنشر:** [ ] صحة الدور المنسوب لوصل تك  [ ] تفاصيل الإجراءات والميزات  [ ] صحة الصورة وحق عرضها  [ ] حذف أي تعبير مبالغ فيه  [ ] الموافقة على النسخة العربية والإنجليزية.
-**روابط صفحات المعاينة بعد بناء الفرع:** `/portfolio/mikrotik-dashboard/` و`/en/portfolio/mikrotik-dashboard/`.
+**صفحات المراجعة:** [عربي](https://wasltech-3yc0xiy5o-wasl15.vercel.app/portfolio/mikrotik-dashboard/) — [English](https://wasltech-3yc0xiy5o-wasl15.vercel.app/en/portfolio/mikrotik-dashboard/).
 
 
 ### 6. لوحة CMS — `cms-dashboard`
 
-**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ `assets/works/project_4.webp` (الصورة المستخدمة في معرض الأعمال).
+**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ [عرض صورة المشروع المعتمدة في المستودع](https://github.com/7eaur/wasltech-/blob/main/assets/works/project_4.webp) (الصورة المستخدمة في معرض الأعمال).
 **ما يدعم المسودة:** أوصاف إدارة محتوى الصفحات والبيانات وصورة الواجهة.
 **ما لا تثبته الصورة أو البيانات الحالية ويحتاج مراجعتك:** صلاحيات التحرير؛ أمثلة قبل/بعد تعديل المحتوى؛ سجل النشر.
 **المطلوب قبل اعتمادها للنشر:** [ ] صحة الدور المنسوب لوصل تك  [ ] تفاصيل الإجراءات والميزات  [ ] صحة الصورة وحق عرضها  [ ] حذف أي تعبير مبالغ فيه  [ ] الموافقة على النسخة العربية والإنجليزية.
-**روابط صفحات المعاينة بعد بناء الفرع:** `/portfolio/cms-dashboard/` و`/en/portfolio/cms-dashboard/`.
+**صفحات المراجعة:** [عربي](https://wasltech-3yc0xiy5o-wasl15.vercel.app/portfolio/cms-dashboard/) — [English](https://wasltech-3yc0xiy5o-wasl15.vercel.app/en/portfolio/cms-dashboard/).
 
 
 ### 7. تيك زون — `tech-zone`
 
-**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ `assets/works/project_5.webp` (الصورة المستخدمة في معرض الأعمال).
+**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ [عرض صورة المشروع المعتمدة في المستودع](https://github.com/7eaur/wasltech-/blob/main/assets/works/project_5.webp) (الصورة المستخدمة في معرض الأعمال).
 **ما يدعم المسودة:** رحلة تصفح المنتجات والسلة ومتابعة الطلب في السجل وصورة التطبيق.
 **ما لا تثبته الصورة أو البيانات الحالية ويحتاج مراجعتك:** أسماء مزودي الدفع/الشحن إن استُخدموا؛ تشغيل الطلبات؛ صور شاشات فعلية.
 **المطلوب قبل اعتمادها للنشر:** [ ] صحة الدور المنسوب لوصل تك  [ ] تفاصيل الإجراءات والميزات  [ ] صحة الصورة وحق عرضها  [ ] حذف أي تعبير مبالغ فيه  [ ] الموافقة على النسخة العربية والإنجليزية.
-**روابط صفحات المعاينة بعد بناء الفرع:** `/portfolio/tech-zone/` و`/en/portfolio/tech-zone/`.
+**صفحات المراجعة:** [عربي](https://wasltech-3yc0xiy5o-wasl15.vercel.app/portfolio/tech-zone/) — [English](https://wasltech-3yc0xiy5o-wasl15.vercel.app/en/portfolio/tech-zone/).
 
 
 ### 8. أروما كافيه — `aroma-cafe`
 
-**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ `assets/works/project_6.webp` (الصورة المستخدمة في معرض الأعمال).
+**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ [عرض صورة المشروع المعتمدة في المستودع](https://github.com/7eaur/wasltech-/blob/main/assets/works/project_6.webp) (الصورة المستخدمة في معرض الأعمال).
 **ما يدعم المسودة:** نطاق واجهات الطلب والولاء والفروع وصورة العرض.
 **ما لا تثبته الصورة أو البيانات الحالية ويحتاج مراجعتك:** حالة تشغيل الولاء؛ قواعد النقاط؛ الخرائط والطلب؛ صور التفاعل.
 **المطلوب قبل اعتمادها للنشر:** [ ] صحة الدور المنسوب لوصل تك  [ ] تفاصيل الإجراءات والميزات  [ ] صحة الصورة وحق عرضها  [ ] حذف أي تعبير مبالغ فيه  [ ] الموافقة على النسخة العربية والإنجليزية.
-**روابط صفحات المعاينة بعد بناء الفرع:** `/portfolio/aroma-cafe/` و`/en/portfolio/aroma-cafe/`.
+**صفحات المراجعة:** [عربي](https://wasltech-3yc0xiy5o-wasl15.vercel.app/portfolio/aroma-cafe/) — [English](https://wasltech-3yc0xiy5o-wasl15.vercel.app/en/portfolio/aroma-cafe/).
 
 
 ### 9. البناء المتقن — `albenaa-almotqin`
 
-**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ `assets/works/project_13.webp` (الصورة المستخدمة في معرض الأعمال).
+**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ [عرض صورة المشروع المعتمدة في المستودع](https://github.com/7eaur/wasltech-/blob/main/assets/works/project_13.webp) (الصورة المستخدمة في معرض الأعمال).
 **ما يدعم المسودة:** نطاق خدمات المقاولات والمشاريع وطلب عرض السعر مع صورة العرض.
 **ما لا تثبته الصورة أو البيانات الحالية ويحتاج مراجعتك:** نسخة الموقع المنشورة؛ طريقة إرسال طلب السعر؛ موافقة العميل على عرض الأعمال.
 **المطلوب قبل اعتمادها للنشر:** [ ] صحة الدور المنسوب لوصل تك  [ ] تفاصيل الإجراءات والميزات  [ ] صحة الصورة وحق عرضها  [ ] حذف أي تعبير مبالغ فيه  [ ] الموافقة على النسخة العربية والإنجليزية.
-**روابط صفحات المعاينة بعد بناء الفرع:** `/portfolio/albenaa-almotqin/` و`/en/portfolio/albenaa-almotqin/`.
+**صفحات المراجعة:** [عربي](https://wasltech-3yc0xiy5o-wasl15.vercel.app/portfolio/albenaa-almotqin/) — [English](https://wasltech-3yc0xiy5o-wasl15.vercel.app/en/portfolio/albenaa-almotqin/).
 
 
 ### 10. النخبة للإلكترونيات — `elite-electronics`
 
-**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ `assets/works/project_10.webp` (الصورة المستخدمة في معرض الأعمال).
+**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ [عرض صورة المشروع المعتمدة في المستودع](https://github.com/7eaur/wasltech-/blob/main/assets/works/project_10.webp) (الصورة المستخدمة في معرض الأعمال).
 **ما يدعم المسودة:** تصنيفات الأجهزة وعرض المنتجات وطلب العميل وصورة المعرض.
 **ما لا تثبته الصورة أو البيانات الحالية ويحتاج مراجعتك:** صور منتجات حقيقية؛ آلية المخزون/الطلبات/الدفع؛ سجل تشغيل.
 **المطلوب قبل اعتمادها للنشر:** [ ] صحة الدور المنسوب لوصل تك  [ ] تفاصيل الإجراءات والميزات  [ ] صحة الصورة وحق عرضها  [ ] حذف أي تعبير مبالغ فيه  [ ] الموافقة على النسخة العربية والإنجليزية.
-**روابط صفحات المعاينة بعد بناء الفرع:** `/portfolio/elite-electronics/` و`/en/portfolio/elite-electronics/`.
+**صفحات المراجعة:** [عربي](https://wasltech-3yc0xiy5o-wasl15.vercel.app/portfolio/elite-electronics/) — [English](https://wasltech-3yc0xiy5o-wasl15.vercel.app/en/portfolio/elite-electronics/).
 
 
 ### 11. مطعم الملكي — `almalaki-brand-identity`
 
-**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ `assets/works/project_7.webp` (الصورة المستخدمة في معرض الأعمال).
+**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ [عرض صورة المشروع المعتمدة في المستودع](https://github.com/7eaur/wasltech-/blob/main/assets/works/project_7.webp) (الصورة المستخدمة في معرض الأعمال).
 **ما يدعم المسودة:** الشعار والنظام اللوني ونماذج المطبوعات والتغليف في السجل والصورة.
 **ما لا تثبته الصورة أو البيانات الحالية ويحتاج مراجعتك:** ملفات الهوية المعتمدة؛ التطبيقات المطبوعة المنفذة بالفعل؛ إذن عرض التغليف.
 **المطلوب قبل اعتمادها للنشر:** [ ] صحة الدور المنسوب لوصل تك  [ ] تفاصيل الإجراءات والميزات  [ ] صحة الصورة وحق عرضها  [ ] حذف أي تعبير مبالغ فيه  [ ] الموافقة على النسخة العربية والإنجليزية.
-**روابط صفحات المعاينة بعد بناء الفرع:** `/portfolio/almalaki-brand-identity/` و`/en/portfolio/almalaki-brand-identity/`.
+**صفحات المراجعة:** [عربي](https://wasltech-3yc0xiy5o-wasl15.vercel.app/portfolio/almalaki-brand-identity/) — [English](https://wasltech-3yc0xiy5o-wasl15.vercel.app/en/portfolio/almalaki-brand-identity/).
 
 
 ### 12. شركة ميلانو — `milano-brand-identity`
 
-**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ `assets/works/project_9.webp` (الصورة المستخدمة في معرض الأعمال).
+**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ [عرض صورة المشروع المعتمدة في المستودع](https://github.com/7eaur/wasltech-/blob/main/assets/works/project_9.webp) (الصورة المستخدمة في معرض الأعمال).
 **ما يدعم المسودة:** الشعار والنظام البصري وتطبيقات الهوية وصورة المعرض.
 **ما لا تثبته الصورة أو البيانات الحالية ويحتاج مراجعتك:** ملفات الشعار النهائية؛ دليل الهوية إن وجد؛ التطبيقات المسلّمة.
 **المطلوب قبل اعتمادها للنشر:** [ ] صحة الدور المنسوب لوصل تك  [ ] تفاصيل الإجراءات والميزات  [ ] صحة الصورة وحق عرضها  [ ] حذف أي تعبير مبالغ فيه  [ ] الموافقة على النسخة العربية والإنجليزية.
-**روابط صفحات المعاينة بعد بناء الفرع:** `/portfolio/milano-brand-identity/` و`/en/portfolio/milano-brand-identity/`.
+**صفحات المراجعة:** [عربي](https://wasltech-3yc0xiy5o-wasl15.vercel.app/portfolio/milano-brand-identity/) — [English](https://wasltech-3yc0xiy5o-wasl15.vercel.app/en/portfolio/milano-brand-identity/).
 
 
 ### 13. حملة فخري للعطور — `fakhri-marketing-campaign`
 
-**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ `assets/works/project_12.webp` (الصورة المستخدمة في معرض الأعمال).
+**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ [عرض صورة المشروع المعتمدة في المستودع](https://github.com/7eaur/wasltech-/blob/main/assets/works/project_12.webp) (الصورة المستخدمة في معرض الأعمال).
 **ما يدعم المسودة:** خطة المحتوى والتصاميم الإعلانية في السجل وصورة المعرض.
 **ما لا تثبته الصورة أو البيانات الحالية ويحتاج مراجعتك:** هل نُشرت حملات مدفوعة؟ المواد المعتمدة؛ أرقام المنصة إن سمح العميل.
 **المطلوب قبل اعتمادها للنشر:** [ ] صحة الدور المنسوب لوصل تك  [ ] تفاصيل الإجراءات والميزات  [ ] صحة الصورة وحق عرضها  [ ] حذف أي تعبير مبالغ فيه  [ ] الموافقة على النسخة العربية والإنجليزية.
-**روابط صفحات المعاينة بعد بناء الفرع:** `/portfolio/fakhri-marketing-campaign/` و`/en/portfolio/fakhri-marketing-campaign/`.
+**صفحات المراجعة:** [عربي](https://wasltech-3yc0xiy5o-wasl15.vercel.app/portfolio/fakhri-marketing-campaign/) — [English](https://wasltech-3yc0xiy5o-wasl15.vercel.app/en/portfolio/fakhri-marketing-campaign/).
 
 
 ### 14. متجر فخري للعطور — `fakhri-perfumes-store`
 
-**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ `assets/works/project_8.webp` (الصورة المستخدمة في معرض الأعمال).
+**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ [عرض صورة المشروع المعتمدة في المستودع](https://github.com/7eaur/wasltech-/blob/main/assets/works/project_8.webp) (الصورة المستخدمة في معرض الأعمال).
 **ما يدعم المسودة:** عرض العطور ومسار التصفح والشراء في السجل وصورة المتجر.
 **ما لا تثبته الصورة أو البيانات الحالية ويحتاج مراجعتك:** خطوات الدفع والشحن الحقيقية؛ حالة الكتالوج؛ لقطات صفحات المنتج.
 **المطلوب قبل اعتمادها للنشر:** [ ] صحة الدور المنسوب لوصل تك  [ ] تفاصيل الإجراءات والميزات  [ ] صحة الصورة وحق عرضها  [ ] حذف أي تعبير مبالغ فيه  [ ] الموافقة على النسخة العربية والإنجليزية.
-**روابط صفحات المعاينة بعد بناء الفرع:** `/portfolio/fakhri-perfumes-store/` و`/en/portfolio/fakhri-perfumes-store/`.
+**صفحات المراجعة:** [عربي](https://wasltech-3yc0xiy5o-wasl15.vercel.app/portfolio/fakhri-perfumes-store/) — [English](https://wasltech-3yc0xiy5o-wasl15.vercel.app/en/portfolio/fakhri-perfumes-store/).
 
 
 ### 15. كيدي للملابس — `kiddy-clothing-store`
 
-**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ `assets/works/project_14.webp` (الصورة المستخدمة في معرض الأعمال).
+**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ [عرض صورة المشروع المعتمدة في المستودع](https://github.com/7eaur/wasltech-/blob/main/assets/works/project_14.webp) (الصورة المستخدمة في معرض الأعمال).
 **ما يدعم المسودة:** تصنيفات الملابس والكتالوج والطلب في الوصف وصورة المشروع.
 **ما لا تثبته الصورة أو البيانات الحالية ويحتاج مراجعتك:** حالة الطلب الحقيقية؛ مرشحات القياسات إن كانت موجودة؛ صور تفاصيل المنتج.
 **المطلوب قبل اعتمادها للنشر:** [ ] صحة الدور المنسوب لوصل تك  [ ] تفاصيل الإجراءات والميزات  [ ] صحة الصورة وحق عرضها  [ ] حذف أي تعبير مبالغ فيه  [ ] الموافقة على النسخة العربية والإنجليزية.
-**روابط صفحات المعاينة بعد بناء الفرع:** `/portfolio/kiddy-clothing-store/` و`/en/portfolio/kiddy-clothing-store/`.
+**صفحات المراجعة:** [عربي](https://wasltech-3yc0xiy5o-wasl15.vercel.app/portfolio/kiddy-clothing-store/) — [English](https://wasltech-3yc0xiy5o-wasl15.vercel.app/en/portfolio/kiddy-clothing-store/).
 
 
 ### 16. مكتب الحباري — `alhobari-law-office`
 
-**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ `assets/works/project_11.webp` (الصورة المستخدمة في معرض الأعمال).
+**أصول حالية قابلة للفحص:** `src/data/projects.js` (وصف ومخرجات ونطاق المشروع AR/EN)؛ [عرض صورة المشروع المعتمدة في المستودع](https://github.com/7eaur/wasltech-/blob/main/assets/works/project_11.webp) (الصورة المستخدمة في معرض الأعمال).
 **ما يدعم المسودة:** صفحات الخدمات القانونية وتنظيم المعلومات والتواصل في السجل والصورة.
 **ما لا تثبته الصورة أو البيانات الحالية ويحتاج مراجعتك:** موافقة المكتب على المحتوى؛ رابط الإنتاج إن وجد؛ معلومات التواصل المعتمدة.
 **المطلوب قبل اعتمادها للنشر:** [ ] صحة الدور المنسوب لوصل تك  [ ] تفاصيل الإجراءات والميزات  [ ] صحة الصورة وحق عرضها  [ ] حذف أي تعبير مبالغ فيه  [ ] الموافقة على النسخة العربية والإنجليزية.
-**روابط صفحات المعاينة بعد بناء الفرع:** `/portfolio/alhobari-law-office/` و`/en/portfolio/alhobari-law-office/`.
+**صفحات المراجعة:** [عربي](https://wasltech-3yc0xiy5o-wasl15.vercel.app/portfolio/alhobari-law-office/) — [English](https://wasltech-3yc0xiy5o-wasl15.vercel.app/en/portfolio/alhobari-law-office/).
 
 
 
@@ -180,3 +180,11 @@
 ## طريقة التسليم
 
 يمكنك مراجعة معاينة الفرع في Vercel وملف المستودع هذا ثم إعطائي ملاحظات على أسماء المشاريع أو العبارات التي تراها غير صحيحة. المحتوى الحالي **مسودة مكتملة كتابةً، وليس موافقة نهائية على الوقائع التقنية**.
+
+## نتيجة فحص النسخة التجريبية (18 أكتوبر 2026)
+
+- تطابقت معاينة Vercel `READY` مع آخر SHA تحريري المفحوص عند إعداد هذا الملحق (`c5380ed4ebf849893dc41bcbe0a664a2833eb9a5`).
+- نجحت اختبارات GitHub Actions النهائية على نفس SHA، بما فيها Build وRelease وفحص تفاصيل المشروع، وتدقيق الروابط والبيانات المنظمة وحارس عمق المحتوى.
+- نجح فحص HTTP وCanonical وظهور 3 قرارات تصميم في **31 صفحة مشروع من أصل 32**. لم تكتمل قراءة الصفحة الإنجليزية لـAroma Cafe بواسطة أداة HTTP بسبب حظر على الأداة، وليس نتيجة HTTP خاطئة؛ وقد نجح بناء الصفحة في اختبارات المشروع الشاملة. تبقى المراجعة البصرية اليدوية متاحة في الرابط أعلاه.
+- المقال بالعربية والإنجليزية: HTTP 200 وCanonical صحيح، و9 أقسام ظاهرة في كل لغة، وروابط الأعمال الداعمة موجودة.
+- **لا نشر إنتاج ولا دمج قبل أن يراجع المالك صحة التفاصيل، خصوصًا ميزات المشاريع التي قد تكون نماذج أو قيد التطوير.**
