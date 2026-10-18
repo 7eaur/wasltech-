@@ -54,7 +54,7 @@ The portfolio records logo design, colors, print and packaging applications. The
 ## سجل الأدلة والقيود
 
 - سجل المشروع في `src/data/projects.js` (project-09): يثبت أن **وصف العمل مسجل**، ولا يكفي منفردًا لإثبات أن كل وظيفة منشورة أو عاملة.
-- [صورة العرض الحالية](../../../assets/works/project_7.webp): دليل بصري على مادة العرض، لا على النتائج والأرقام أو عمل الخادم.
+- [صورة العرض الحالية](../../../../assets/works/project_7.webp): دليل بصري على مادة العرض، لا على النتائج والأرقام أو عمل الخادم.
 - مراجع المصدر القديمة المسجلة: `main:js/portfolio.js`، `main:/assets/works/project_7.webp`. **المرجع `main:js/portfolio.js` غير موجود في HEAD الحالي**، لذا ينبغي الحصول على النسخة التاريخية إن لزم إثبات تفاصيله.
 
 ## أسئلة المراجعة قبل النشر
