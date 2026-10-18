@@ -39,6 +39,7 @@ function simulate({ hostname="wasl-tech.com", search="", lang="ar", stored=null 
 
 let state=simulate();
 check(state.head.children.length===0,"No Google requests before consent");
+check(state.window["ga-disable-G-WVH08BTS6C"]===true,"GA4 must be disabled before the visitor opts in");
 check(state.panel && !state.panel.hidden,"Consent choice must be visible for first-time visitors");
 check(state.actions.length===2,"Allow and decline actions must both exist");
 check(state.footer.children.length===1,"Preferences must be available in the footer");
@@ -50,6 +51,10 @@ check(!state.panel.hidden,"Settings control must reopen the choices");
 state.actions[0]?.events.click?.();
 check(state.store.get("wasltech-analytics-preference-v1")==="granted","Opt-in persisted");
 check(state.head.children.length===1,"Opt-in must load analytics once");
+check(state.window["ga-disable-G-WVH08BTS6C"]===false,"Opt-in must explicitly enable measurement");
+state.footer.children[0]?.events.click?.();
+state.actions[1]?.events.click?.();
+check(state.window["ga-disable-G-WVH08BTS6C"]===true,"Revoking consent must disable further GA4 collection");
 check(state.window.dataLayer.some(x=>x[0]==="config"),"GA4 config only after opt-in");
 
 state=simulate({stored:"granted",lang:"en"});
@@ -58,6 +63,7 @@ check(state.head.children.length===1,"Previously consented visitor may load anal
 
 state=simulate({stored:"denied"});
 check(state.panel.hidden && state.head.children.length===0,"Stored decline must keep analytics disabled");
+check(state.window["ga-disable-G-WVH08BTS6C"]===true,"Stored rejection must retain GA4 disable flag");
 
 state=simulate({hostname:"preview.vercel.app",search:"?previewAnalyticsConsent=1"});
 check(!state.panel.hidden,"Explicit preview QA can display consent UI");
