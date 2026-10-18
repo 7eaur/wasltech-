@@ -48,5 +48,5 @@ if(errors.length) {
   errors.forEach(line=>console.error("- "+line));
   process.exit(1);
 }
-console.log("EDITORIAL DRAFT REVIEW: PASSED (16 projects × 2 locales, 3 choices each; core article 9 sections × 2 locales)");
+console.log("EDITORIAL DRAFT REVIEW: PASSED (16 projects × 2 locales, 3 choices each; core article 10 sections × 2 locales)");
 console.log("Drafts require owner approval; source-image existence is not independent proof of results.");
