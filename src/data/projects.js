@@ -1161,9 +1161,9 @@ const projectRecords = [
           "طابع تقني حديث"
         ],
         "caseStudy": {
-          "overview": "هوية بصرية بُنيت حول طابع تقني واضح، مع نظام يساعد الشركة على الظهور بصورة متسقة في موادها المختلفة.",
-          "context": "المشروع يحتاج مظهرًا تقنيًا واضحًا يمكن تطبيقه بصورة متسقة عبر مواد الشركة المختلفة.",
-          "contribution": "بناء شعار ونظام بصري لشركة ميلانو بطابع تقني حديث.",
+          "overview": "هوية شركة ميلانو صُممت حول طابع بصري تقني يساعد على توحيد تقديم الشركة عبر استخدامات مختلفة. يتمثل نطاقها في شعار ونظام مرئي وتطبيقات للعلامة، بما يجعل المواد امتدادًا لأسلوب واحد بدل تصاميم متباعدة.",
+          "context": "عندما تظهر شركة تقنية عبر قنوات ومواد متعددة، لا يكفي أن يبدو كل تصميم جيدًا منفردًا؛ المهم أن يتعرف المتلقي على العلامة من عنصر إلى آخر. كان التحدي تحديد لغة مرئية قابلة للاستمرار وليست مرتبطة بتصميم منشور واحد.",
+          "contribution": "شمل العمل تصميم الشعار وبناء نظام بصري وتطبيقات الهوية الموصوفة في نطاق المشروع. ركزت المعالجة على الترابط بين العلامة وعناصرها، ولم تُضف افتراضات عن نتائج إعادة العلامة أو حجم نشاط الشركة.",
           "scope": [
             "تصميم الشعار",
             "النظام البصري",
@@ -1173,6 +1173,18 @@ const projectRecords = [
             "تصميم الشعار",
             "النظام البصري",
             "تطبيقات الهوية"
+          ],
+          "decisions": [
+            {
+              "title": "اتجاه تقني واضح",
+              "reason": "المظهر التقني يحتاج هوية يمكن التعرف عليها لا زخارف عشوائية.",
+              "implementation": "وضع الشعار ضمن لغة بصرية موحدة تلائم طبيعة الشركة الموصوفة."
+            },
+            {
+              "title": "قابلية إعادة الاستخدام",
+              "reason": "الهوية الجيدة يجب أن تبقى متسقة عبر مواد أكثر من نموذج واحد.",
+              "implementation": "تنظيم الألوان والعناصر والتطبيقات ضمن اتجاه متكرر الاستخدام."
+            }
           ]
         },
         "seo": {
@@ -1190,9 +1202,9 @@ const projectRecords = [
           "Modern technical character"
         ],
         "caseStudy": {
-          "overview": "A visual identity built around a clear technical character, giving the company a consistent system for use across different materials.",
-          "context": "The project needed a clear technical visual language that could be applied consistently across the company's materials.",
-          "contribution": "Built the logo and visual system for Milano around a modern technical direction.",
+          "overview": "The Milano company identity uses a technology-oriented visual language to present the business consistently across different applications. Its scope includes a logo, visual system and identity materials rather than a collection of unrelated designs.",
+          "context": "When a technology business appears across multiple channels and materials, each asset should remain recognizable as part of the same brand. The challenge is a design language that can outlast a single campaign or post.",
+          "contribution": "The project covers logo creation, a visual system and documented identity applications. This case study focuses on their consistency without assuming measurable rebranding outcomes or claims about the company's scale.",
           "scope": [
             "Logo design",
             "Visual system",
@@ -1202,6 +1214,18 @@ const projectRecords = [
             "Logo design",
             "Visual system",
             "Brand applications"
+          ],
+          "decisions": [
+            {
+              "title": "A recognizable technology character",
+              "reason": "A technical look should be coherent, not a collection of decorative effects.",
+              "implementation": "Connect the logo with a consistent visual direction reflecting the recorded business category."
+            },
+            {
+              "title": "Reusable identity elements",
+              "reason": "The brand must remain recognizable in more than one layout.",
+              "implementation": "Organize colors, graphic elements and applications for consistent repeated use."
+            }
           ]
         },
         "seo": {
@@ -1238,9 +1262,9 @@ const projectRecords = [
           "محتوى لشبكات التواصل"
         ],
         "caseStudy": {
-          "overview": "مشروع تسويقي يركز على توحيد الرسائل والتصميم والحملات حول منتجات العطور بدل التعامل مع كل منشور أو إعلان بشكل منفصل.",
-          "context": "المشروع يجمع الرسالة والتصميم والحملات الاجتماعية في اتجاه واحد بدل التعامل مع المحتوى كمنشورات منفصلة.",
-          "contribution": "بناء اتجاه للحملة يشمل استراتيجية المحتوى والتصميم الإعلاني ومحتوى شبكات التواصل.",
+          "overview": "حملة فخري للعطور مشروع تسويقي يربط الرسالة بمحتوى شبكات التواصل والتصاميم الإعلانية. الفكرة الأساسية أن يكون تقديم منتجات العطور واضحًا ومتسقًا، بدل إنتاج منشورات منفصلة دون علاقة بين موضوعاتها وأسلوب عرضها.",
+          "context": "المحتوى التسويقي المتكرر يحتاج إلى اتجاه معروف يمكن تنويعه دون فقدان شخصية المتجر. التحدي هو الموازنة بين تقديم المنتج ورسائل المحتوى وعناصر التصميم، حتى تبدو الحملة سلسلة مترابطة لا مجموعة مواد عشوائية.",
+          "contribution": "تناول نطاق العمل تخطيط المحتوى، والتصميم الإعلاني، ومواد الحملات والتواصل الاجتماعي. يشرح هذا العرض منهج تنظيم الرسائل والمخرجات البصرية فقط؛ فلا توجد في سجل المشروع أرقام وصول أو إنفاق إعلاني أو مبيعات تسمح بنسب نتائج محددة.",
           "scope": [
             "تخطيط المحتوى",
             "تصميم الإعلانات",
@@ -1250,6 +1274,18 @@ const projectRecords = [
             "استراتيجية محتوى",
             "تصاميم إعلانية",
             "محتوى وحملات اجتماعية"
+          ],
+          "decisions": [
+            {
+              "title": "رسائل متسقة",
+              "reason": "الحملة تفقد وضوحها عندما يتغير أسلوب المنتج والرسالة في كل منشور دون اتجاه.",
+              "implementation": "ربط موضوعات المحتوى بإطار بصري ورسائلي واضح للحملة."
+            },
+            {
+              "title": "قابلية تنويع المحتوى",
+              "reason": "الاكتفاء بنموذج منشور واحد قد يضعف تنوع العرض.",
+              "implementation": "توزيع المخرجات على تصاميم ومواد اجتماعية مرتبطة بخطة المحتوى."
+            }
           ]
         },
         "seo": {
@@ -1267,9 +1303,9 @@ const projectRecords = [
           "Social media content"
         ],
         "caseStudy": {
-          "overview": "A marketing project focused on bringing messaging, design, and campaigns around perfume products into one direction instead of treating every post or ad as a separate piece.",
-          "context": "The project needed messaging, design, and social campaigns to work together rather than appear as disconnected content.",
-          "contribution": "Built the campaign direction across content strategy, advertising design, and social media content.",
+          "overview": "The Fakhri Perfumes marketing campaign brings together messaging, social content and advertising visuals. Its purpose in the documented scope is to present perfume products through a coherent communication direction rather than as unrelated posts.",
+          "context": "Repeated marketing content needs a recognizable approach that can vary from post to post without losing the store's character. The challenge is balancing product presentation, messages and visual assets as parts of the same campaign.",
+          "contribution": "The recorded work includes content planning, promotional designs and social campaign assets. This case study explains how those outputs are related; it does not attribute reach, advertising spend, sales or return-on-investment figures without evidence.",
           "scope": [
             "Content planning",
             "Advertising design",
@@ -1279,6 +1315,18 @@ const projectRecords = [
             "Content strategy",
             "Advertising creatives",
             "Social content and campaigns"
+          ],
+          "decisions": [
+            {
+              "title": "Consistent campaign messages",
+              "reason": "Unrelated presentation styles can obscure what a campaign is trying to communicate.",
+              "implementation": "Connect content themes to one recognizable messaging and visual direction."
+            },
+            {
+              "title": "Variation within a plan",
+              "reason": "Repeating only one template may limit the range of content.",
+              "implementation": "Prepare varied social and promotional outputs under the documented content plan."
+            }
           ]
         },
         "seo": {
@@ -1315,9 +1363,9 @@ const projectRecords = [
           "واجهة تركز على المنتج"
         ],
         "caseStudy": {
-          "overview": "متجر متخصص في العطور صُمم حول المنتج نفسه، من طريقة العرض والتصفح إلى الانتقال نحو الشراء داخل تجربة متماسكة.",
-          "context": "المشروع يركز على تقديم منتجات العطور داخل تجربة شراء يكون فيها المنتج هو العنصر الأساسي في التصفح والقرار.",
-          "contribution": "تصميم وبناء متجر إلكتروني يركز على عرض العطور وتنظيم التصفح ومسار الشراء.",
+          "overview": "متجر فخري للعطور تجربة تجارة إلكترونية تضع المنتج في مركز قرار الشراء. يهتم المشروع بتنظيم عرض أصناف العطور وانتقال الزائر بينها، ثم الوصول إلى مسار الطلب بصورة متصلة ومفهومة.",
+          "context": "منتجات العطور تتطلب عرضًا يساعد الزائر على التمييز بين الأصناف، من دون أن تضيع تفاصيل المنتج وسط ازدحام الواجهة. التحدي أن يظل استكشاف المنتجات واضحًا وأن تكون خطوة الانتقال للشراء امتدادًا طبيعيًا للتصفح.",
+          "contribution": "يشمل نطاق المتجر صفحات عرض المنتجات وتنظيم التصفح ومسار الشراء. يعكس وصف التنفيذ وظيفة الواجهة والكتالوج كما هي مسجلة في المشروع، ولا يضيف ادعاءات عن طرق الدفع أو إدارة المخزون أو نتائج المبيعات لم يتم توثيقها.",
           "scope": [
             "عرض المنتجات",
             "تنظيم التصفح",
@@ -1327,6 +1375,18 @@ const projectRecords = [
             "عرض منتجات العطور",
             "تنظيم التصفح",
             "مسار شراء"
+          ],
+          "decisions": [
+            {
+              "title": "المنتج أولًا",
+              "reason": "في متجر العطور تؤثر طريقة عرض الأصناف في قدرة العميل على الاستكشاف.",
+              "implementation": "إعطاء عرض المنتج ومسارات التنقل بين الأصناف أولوية داخل المتجر."
+            },
+            {
+              "title": "الانتقال الطبيعي للطلب",
+              "reason": "انفصال مسار الطلب عن تجربة العرض يجعل الخطوة التالية أقل وضوحًا.",
+              "implementation": "ربط تصفح العطور بمرحلة الشراء ضمن نطاق المتجر الموثق."
+            }
           ]
         },
         "seo": {
@@ -1344,9 +1404,9 @@ const projectRecords = [
           "Product-focused interface"
         ],
         "caseStudy": {
-          "overview": "A perfume-focused e-commerce experience designed around the product itself, from presentation and browsing through the path to purchase.",
-          "context": "The project focuses on presenting perfume products in a shopping experience where the product remains central to browsing and purchase decisions.",
-          "contribution": "Designed and built an online store focused on perfume presentation, organized browsing, and the buying journey.",
+          "overview": "Fakhri Perfumes is an e-commerce experience built around the product as the center of the buying decision. Its documented scope organizes perfume presentation and browsing before guiding a visitor toward the order journey.",
+          "context": "Perfume products benefit from presentation that helps customers distinguish offerings without burying the product under a crowded interface. The challenge is keeping discovery understandable and the next step to purchase connected to browsing.",
+          "contribution": "The recorded work covers product presentation, browsing structure and the purchase path. This description does not claim specific payment methods, inventory integrations or sales outcomes that have not been documented.",
           "scope": [
             "Product presentation",
             "Browsing organization",
@@ -1356,6 +1416,18 @@ const projectRecords = [
             "Perfume product presentation",
             "Organized browsing",
             "Purchase flow"
+          ],
+          "decisions": [
+            {
+              "title": "Let the products lead",
+              "reason": "Shoppers need to explore perfume offerings without unnecessary interface clutter.",
+              "implementation": "Prioritize clear product presentation and category browsing."
+            },
+            {
+              "title": "A connected purchase step",
+              "reason": "Ordering is easier to understand when it follows logically from product selection.",
+              "implementation": "Link browsing and the documented checkout journey within the store scope."
+            }
           ]
         },
         "seo": {
@@ -1392,9 +1464,9 @@ const projectRecords = [
           "تجربة تصفح وطلب"
         ],
         "caseStudy": {
-          "overview": "متجر متخصص في ملابس الأطفال يركز على تبسيط اكتشاف المنتجات والتنقل بين الفئات حتى الوصول إلى المنتج والطلب.",
-          "context": "المشروع ينظم ملابس الأطفال ضمن فئات واضحة ويبسّط اكتشاف المنتجات والوصول إلى الطلب.",
-          "contribution": "تصميم وبناء متجر متخصص يربط التصنيفات بعرض المنتج وتجربة الطلب.",
+          "overview": "كيدي متجر إلكتروني لملابس الأطفال ينظم رحلة العميل من استكشاف الأقسام إلى اختيار المنتج ثم الطلب. تتمثل القيمة الوظيفية في مساعدة المتسوق على الانتقال بين أنواع الملابس دون أن يضيع في كتالوج طويل.",
+          "context": "منتجات الملابس قد تتنوع بحسب الفئة والمقاس واللون والمناسبة؛ لكن لا يجوز افتراض أن جميع أدوات التصفية متاحة في المشروع ما لم توثق. التحدي الظاهر هو تصنيف المنتجات وعرضها بطريقة يسهل تصفحها ويُفهم معها أين يبدأ اختيار المنتج.",
+          "contribution": "يتناول النطاق تصنيفات المنتجات وعرض الكتالوج وتجربة الطلب. استند تنظيم الدراسة إلى هذه المخرجات المسجلة، دون نسبة تكاملات شحن أو مخزون أو فلاتر متقدمة لم يؤكدها وصف المشروع.",
           "scope": [
             "تصنيفات المنتجات",
             "عرض الكتالوج",
@@ -1404,6 +1476,18 @@ const projectRecords = [
             "تصنيفات للمنتجات",
             "عرض الكتالوج",
             "تجربة طلب"
+          ],
+          "decisions": [
+            {
+              "title": "بداية من التصنيفات",
+              "reason": "التصفح عبر قائمة طويلة لا يساعد العميل على الوصول السريع إلى نوع الملابس.",
+              "implementation": "تقديم أقسام المنتجات باعتبارها مدخلًا واضحًا للكتالوج."
+            },
+            {
+              "title": "مسار اختيار ثم طلب",
+              "reason": "صفحة المنتج هي نقطة فهم الاختيار قبل إتمام الإجراء.",
+              "implementation": "ربط الكتالوج بعرض المنتج وتجربة الطلب ضمن المسار الموصوف."
+            }
           ]
         },
         "seo": {
@@ -1421,9 +1505,9 @@ const projectRecords = [
           "Browsing and ordering experience"
         ],
         "caseStudy": {
-          "overview": "A children's clothing store focused on simplifying product discovery and movement between categories through to product selection and ordering.",
-          "context": "The project organizes children's clothing into clear categories and simplifies product discovery and ordering.",
-          "contribution": "Designed and built a specialized store connecting product categories, presentation, and ordering.",
+          "overview": "Kiddy is an online children's clothing store structured around moving from categories to products and then an order. The practical goal is to let shoppers explore clothing types without getting lost in a long catalog.",
+          "context": "Clothing can vary by type, size, color and use, but specific filtering capabilities should not be assumed without project evidence. The documented challenge centers on category organization and a product presentation journey that is easy to follow.",
+          "contribution": "The published scope includes product categories, catalog display and an ordering experience. This account does not add unverified shipping integrations, inventory systems or advanced filters.",
           "scope": [
             "Product categories",
             "Catalog display",
@@ -1433,6 +1517,18 @@ const projectRecords = [
             "Product categories",
             "Catalog display",
             "Ordering flow"
+          ],
+          "decisions": [
+            {
+              "title": "Start with categories",
+              "reason": "An unstructured product list makes it harder to find relevant items.",
+              "implementation": "Use clothing categories as the primary entrance to the catalog."
+            },
+            {
+              "title": "Selection before ordering",
+              "reason": "Customers need a clear product view before they take the next step.",
+              "implementation": "Connect catalog browsing, product viewing and the documented order journey."
+            }
           ]
         },
         "seo": {
@@ -1469,9 +1565,9 @@ const projectRecords = [
           "تجربة واضحة للتصفح والتواصل"
         ],
         "caseStudy": {
-          "overview": "موقع تعريفي لمكتب قانوني يركز على تقديم الخدمات والمعلومات بطريقة مباشرة ومنظمة تساعد الزائر على فهم ما يقدمه المكتب والوصول للتواصل.",
-          "context": "المشروع يقدّم خدمات المكتب القانونية في واجهة رسمية ومباشرة تساعد الزائر على الفهم والوصول للتواصل.",
-          "contribution": "تصميم وتطوير موقع تعريفي ينظم الخدمات والمعلومات ومسار التواصل للمكتب.",
+          "overview": "موقع مكتب الحباري للمحاماة يعرض الخدمات والمعلومات القانونية الأساسية في تجربة تعريفية هادئة. وظيفة الموقع هنا مساعدة الزائر على فهم مجالات خدمة المكتب وكيف يصل إلى التواصل، دون أن يحل الموقع محل المشورة القانونية المهنية.",
+          "context": "الخدمات القانونية تحتاج صياغة واضحة وواجهة تمنح المحتوى المساحة المناسبة بعيدًا عن ازدحام المؤثرات. التحدي هو تقديم العناوين والمعلومات بصورة منظمة تساعد الزائر على معرفة الخطوة التالية مع المحافظة على الطابع المهني للنشاط.",
+          "contribution": "تضمن نطاق التطوير صفحات عرض الخدمات القانونية وتنظيم المعلومات ومسار التواصل مع المكتب. ركز التصميم على القراءة والتنقل ومكان معلومات الاتصال، دون تضمين استشارات آلية أو وعود بنتائج قضايا أو معلومات قانونية جديدة خارج المراجع المعتمدة.",
           "scope": [
             "عرض الخدمات القانونية",
             "تنظيم المعلومات",
@@ -1481,6 +1577,18 @@ const projectRecords = [
             "عرض الخدمات القانونية",
             "تنظيم المعلومات",
             "مسار تواصل واضح"
+          ],
+          "decisions": [
+            {
+              "title": "المعلومة قبل الزخرفة",
+              "reason": "الزائر يحتاج معرفة نوع الخدمة وكيفية التواصل أكثر من حاجته إلى مؤثرات مشتتة.",
+              "implementation": "استخدام عرض هادئ للمعلومات والخدمات ضمن واجهة رسمية."
+            },
+            {
+              "title": "تواصل واضح ومهني",
+              "reason": "بعد قراءة الخدمة يجب معرفة الطريق الصحيح لبدء الاستفسار.",
+              "implementation": "ربط صفحات التعريف بمسار تواصل واضح دون تقديم استشارات قانونية داخل الواجهة."
+            }
           ]
         },
         "seo": {
@@ -1498,9 +1606,9 @@ const projectRecords = [
           "Clear browsing and contact experience"
         ],
         "caseStudy": {
-          "overview": "A company website for a legal office focused on presenting services and information directly and helping visitors understand the office and reach the right contact path.",
-          "context": "The project presents the office's legal services through a professional and direct interface that helps visitors understand the offering and move toward contact.",
-          "contribution": "Designed and developed a company website that organizes legal services, information, and the office's contact path.",
+          "overview": "The Al Hobari Law Office website presents legal services and essential office information through a restrained professional experience. Its role is to help visitors understand what the office offers and how to make contact, not to replace professional legal advice.",
+          "context": "Legal service pages benefit from clear wording and focused layouts rather than distracting visual effects. The challenge is to present information in a recognizable structure and make the next step evident without weakening the professional tone.",
+          "contribution": "The documented scope includes service presentation, organized office information and contact paths. It emphasizes readability and navigation without inventing legal advisory automation, case outcomes or legal claims outside the original project record.",
           "scope": [
             "Legal service presentation",
             "Information organization",
@@ -1510,6 +1618,18 @@ const projectRecords = [
             "Legal service presentation",
             "Information organization",
             "Clear contact path"
+          ],
+          "decisions": [
+            {
+              "title": "Put information first",
+              "reason": "Visitors need to understand the available services more than they need decorative effects.",
+              "implementation": "Use a calm, structured layout for service descriptions and office information."
+            },
+            {
+              "title": "A professional contact journey",
+              "reason": "After reading about a service, visitors need a clear way to ask questions.",
+              "implementation": "Connect service pages to a visible contact path without pretending to provide legal advice in the interface."
+            }
           ]
         },
         "seo": {
