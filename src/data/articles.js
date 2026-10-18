@@ -42,50 +42,84 @@ export const articles = Object.freeze([
         intro: "قبل أن تبدأ بالتصميم أو تسأل عن التقنية، حدد أولًا وظيفة المنتج. أحيانًا يحتاج المشروع موقعًا واضحًا يشرح الخدمة ويقود الزائر إلى التواصل، وأحيانًا يحتاج نظامًا يدير بيانات وصلاحيات وعمليات متكررة.",
         sections: [
           {
-            heading: "ابدأ من الوظيفة وليس من الاسم",
-            paragraphs: [
-              "كلمة «موقع» قد تُستخدم لوصف أشياء مختلفة جدًا. لذلك السؤال الأدق هو: ماذا يجب أن يستطيع المستخدم أن يفعل بعد الدخول؟",
-              "إذا كانت المهمة الأساسية هي فهم المشروع والخدمات والوصول إلى تواصل أو طلب بسيط، فغالبًا أنت أقرب إلى موقع. أما إذا كانت هناك حسابات وصلاحيات وحالات عمل وبيانات تتغير باستمرار، فأنت أقرب إلى نظام ويب."
+            "heading": "الفرق في جملة واحدة",
+            "paragraphs": [
+              "الموقع الإلكتروني يقدّم معلومات أو خدمات ويقود الزائر إلى خطوة واضحة، مثل الاطلاع على الأعمال أو طلب تواصل. أما نظام الويب فيمكّن مستخدمين مختلفين من إنجاز مهام وتشغيل إجراءات مع حفظ البيانات وتحديثها وفق صلاحيات.",
+              "ليس الفاصل هو لغة البرمجة أو شكل الشاشة أو عدد الصفحات. يمكن للموقع أن يحتوي نموذجًا وقاعدة بيانات بسيطة، ويمكن لنظام الويب أن يعرض صفحات تعريفية. الفارق الأهم هو هل القيمة الأساسية في عرض المحتوى أم في إدارة العمل المستمر؟"
             ]
           },
           {
-            heading: "متى يكون الموقع هو الخيار الأنسب؟",
-            paragraphs: ["الموقع مناسب عندما تكون الأولوية للحضور الواضح والمحتوى وسهولة الوصول إلى الإجراء التالي."],
-            bullets: [
-              "تعريف الشركة أو المشروع والخدمات.",
-              "عرض أعمال أو حالات استخدام.",
-              "محتوى يمكن إدارته وتحديثه.",
-              "نماذج تواصل أو طلب مبدئي.",
-              "صفحات تسويقية أو معلوماتية مهيأة للبحث."
+            "heading": "ابدأ بمهمة المستخدم قبل اختيار التقنية",
+            "paragraphs": [
+              "اكتب ثلاثة سيناريوهات واقعية: من سيدخل؟ ما الذي يريد إنجازه؟ وما النتيجة التي ينبغي أن تظهر بعد الضغط على الزر؟ إذا كان السيناريو ينتهي بقراءة خدمة وطلب عرض سعر، فتفكير الموقع أولًا مناسب. وإذا احتاج إلى إنشاء طلب برقم مرجعي، ومراجعته من موظف، ثم تغيير حالته وإصدار تقرير، فهذه ملامح نظام.",
+              "افصل بين دور الزائر والعميل والموظف والمدير. اختلاف الصلاحيات ليس مجرد اختلاف ألوان الواجهة؛ إنه يغيّر تصميم البيانات والأمان والتجربة واختبارات القبول."
             ]
           },
           {
-            heading: "ومتى يتحول الاحتياج إلى نظام ويب؟",
-            paragraphs: ["النظام يصبح منطقيًا عندما تكون القيمة الأساسية في تنفيذ عمليات متكررة وإدارة بيانات، لا في عرض المعلومات فقط."],
-            bullets: [
-              "تسجيل مستخدمين وحسابات متعددة.",
-              "صلاحيات مختلفة بين الإدارة والموظفين والعملاء.",
-              "لوحات متابعة وتقارير وحالات عمل.",
-              "ربط بيانات أو خدمات خارجية.",
-              "عمليات تحتاج حفظًا ومراجعةً وتحديثًا مستمرًا."
+            "heading": "متى تختار موقعًا تعريفيًا؟",
+            "paragraphs": [
+              "يناسب الموقع الشركات والمكاتب والمتخصصين الذين يحتاجون شرح الخدمات، وبناء الثقة، وعرض المشاريع، وإتاحة الوصول السريع إلى التواصل. ويمكن إدارة محتواه من لوحة بسيطة دون تحويل جميع زواره إلى مستخدمين مسجلين.",
+              "مثال عملي من معرض أعمالنا: موقع «البناء المتقن» يعرض الخدمات والمشاريع ومسار طلب عرض السعر. الاستفادة من هذا النموذج تأتي من وضوح العرض واتخاذ خطوة التواصل، لا من افتراض وجود نظام إدارة مشاريع داخلي خلفه."
+            ],
+            "bullets": [
+              "تعريف واضح بالخدمات والفئات المستهدفة.",
+              "نماذج تواصل أو طلب استفسار.",
+              "صفحات أعمال وأسئلة شائعة ومقالات قابلة للفهرسة.",
+              "تحديث المحتوى ومراعاة تجربة الهاتف وسرعة الوصول."
             ]
           },
           {
-            heading: "أسئلة تساعدك على حسم الاتجاه",
-            paragraphs: ["اكتب الإجابة على هذه الأسئلة قبل تحديد النطاق، لأنها تكشف بسرعة إن كان المطلوب حضورًا رقميًا أم منتجًا تشغيليًا."],
-            bullets: [
-              "هل سيقرأ المستخدم معلومات أم سينفذ مهمة داخل المنصة؟",
-              "هل يحتاج إلى حساب وتسجيل دخول؟",
-              "هل توجد بيانات تتغير لكل مستخدم أو لكل عملية؟",
-              "هل هناك فريق داخلي يحتاج لوحة إدارة؟",
-              "هل نجاح المشروع يعتمد على تدفق عمل مستمر بعد أول زيارة؟"
+            "heading": "متى تحتاج نظام ويب مخصصًا؟",
+            "paragraphs": [
+              "اختر دراسة نظام عندما لا يكفي عرض المعلومات: موظف يراجع طلبًا، وعميل يتابع حالة، ومدير يشاهد مؤشرات، وكل دور لديه إجراءات وبيانات تختلف عن الآخر. هنا تصبح آليات الدخول والصلاحيات وسجل التغييرات وجودة البيانات جزءًا أساسيًا من المنتج.",
+              "من أعمالنا «لوحة إدارة المحتوى (CMS)» التي يتركز نطاقها على تعديل بيانات الصفحات عبر لوحة إدارة بدل تغيير الكود لكل تحديث. هذا مثال على وظيفة تشغيلية للإدارة، لكن وجود لوحة محتوى لا يعني تلقائيًا أن كل موقع يحتاج نظامًا مخصصًا كبيرًا."
+            ],
+            "bullets": [
+              "حسابات وأدوار وصلاحيات على مستوى العملية والبيانات.",
+              "طلبات متعددة الحالات وموافقات ومهام متكررة.",
+              "سجلات قابلة للبحث والتحديث والتصدير عند الحاجة.",
+              "تكاملات مع أنظمة قائمة بعد التحقق من توفر واجهات الربط."
             ]
           },
           {
-            heading: "لا تبدأ بنظام أكبر مما تحتاج",
-            paragraphs: [
-              "قد يكون المشروع النهائي كبيرًا، لكن هذا لا يعني أن النسخة الأولى يجب أن تحتوي كل شيء. الأفضل تحديد الجزء الذي يثبت الفكرة أو يحل المشكلة الأساسية ثم بناء بقية النطاق على أساس واضح.",
-              "اختيار المسار الصحيح من البداية يقلل إعادة العمل ويجعل التصميم والتطوير مرتبطين بهدف مفهوم بدل تجميع خصائص لا يحتاجها المستخدم."
+            "heading": "قد تحتاج موقعًا ونظامًا معًا",
+            "paragraphs": [
+              "كثير من الأعمال تحتاج واجهتين مترابطتين: موقعًا عامًا يشرح العرض ويجلب الاستفسارات، ومساحة تشغيل خاصة للموظفين أو العملاء. ليس مطلوبًا دمجهما في تجربة واحدة مزدحمة، ويمكن أن يشتركا في البيانات أو إدارة المحتوى بحسب الحاجة الفعلية.",
+              "مثال توضيحي: موقع لخدمات الصيانة يشرح الخدمات والمناطق التي يغطيها العمل، بينما تتولى لوحة داخلية إسناد الطلبات وتتبع حالة التنفيذ. هذا سيناريو تخطيطي وليس وصفًا لمشروع منفذ لدى وصل تك."
+            ]
+          },
+          {
+            "heading": "خمسة أسئلة قبل إعداد عرض السعر",
+            "paragraphs": [
+              "إجابات هذه الأسئلة تساعد على مقارنة عروض التنفيذ بصورة عادلة. فصفحة تعريفية بخمس خدمات ليست في النطاق نفسه لمنصة تحتاج إدارة مستخدمين وطلبات وصلاحيات وتقارير."
+            ],
+            "bullets": [
+              "ما الإجراء الأهم للزائر أو المستخدم؟ وما معنى نجاحه؟",
+              "من سيعدل المحتوى أو البيانات، وبأي صلاحية؟",
+              "ما البيانات التي يجب حفظها؟ وهل هي حساسة؟",
+              "هل هناك تكاملات فعلية مع بوابات أو أدوات أخرى؟",
+              "ما المطلوب في النسخة الأولى، وما الذي يمكن تأجيله؟"
+            ]
+          },
+          {
+            "heading": "الفرق في التكلفة والوقت والصيانة",
+            "paragraphs": [
+              "لا توجد تكلفة أو مدة ثابتة تصلح لكل المشاريع. يتأثر التقدير بعدد الأدوار والشاشات وتدفقات العمل وبيانات الإدخال والتكاملات وآليات الاستضافة والاختبار والدعم. عادةً تكون إدارة الصلاحيات والبيانات والعمليات أكثر تعقيدًا من صفحات المحتوى الثابت، لكن الحكم يتم بعد فهم النطاق.",
+              "اطلب في العرض تحديدًا للمخرجات والصفحات والصلاحيات وعمليات التسليم والاختبارات ومن المسؤول عن المحتوى والاستضافة والصيانة. المقارنة بالسعر وحده قد تخفي اختلافًا كبيرًا في نطاق التنفيذ."
+            ]
+          },
+          {
+            "heading": "ابدأ بنسخة أولى قابلة للاختبار",
+            "paragraphs": [
+              "إذا كانت الفكرة واسعة، فحدد مسارًا واحدًا مكتملًا بدل بناء عشرات الخصائص غير المرتبطة. مثلًا: تسجيل الطلب، ومراجعته من المسؤول، وإبلاغ صاحبه بالحالة. اختبر هذا المسار أولًا ثم أضف التقارير والتكاملات وفق الاستخدام الفعلي.",
+              "وفي الموقع التعريفي يمكن أن تشمل البداية صفحات الخدمات الأساسية ومعرض الأعمال ووسيلة تواصل واضحة، ثم توسيع المحتوى والمقالات بناءً على أسئلة العملاء. هكذا تبقى القرارات قابلة للمراجعة دون بناء نظام أكبر من حاجة المشروع."
+            ]
+          },
+          {
+            "heading": "قرار سريع: أيهما أقرب إلى مشروعك؟",
+            "paragraphs": [
+              "إذا كانت أهم قيمة للزائر هي فهم ما تقدمه الشركة والتواصل معها، فابدأ بتخطيط موقع إلكتروني جيد. وإذا كانت القيمة تتطلب أن ينفذ مستخدمون مهامًا متتابعة ببيانات وصلاحيات وحالات عمل، فابدأ بتحليل نظام ويب.",
+              "إذا اجتمع النوعان، فقسّم النطاق إلى واجهة عامة ومسارات تشغيل خاصة، وحدد كيف تتكاملان. قبل طلب التنفيذ اكتب الوظائف والأدوار والمخرجات المتوقعة، ثم ناقش الحل التقني المناسب بدل اختيار اسم «موقع» أو «نظام» بشكل مسبق."
             ]
           }
         ],
@@ -101,50 +135,84 @@ export const articles = Object.freeze([
         intro: "Before choosing a design style or technology, define the product's job. Some projects need a clear website that explains the offer and guides visitors to an action. Others need a system that manages data, roles, and repeatable workflows.",
         sections: [
           {
-            heading: "Start with the job, not the label",
-            paragraphs: [
-              "The word “website” is often used for very different products. A better question is: what should a user be able to do after arriving?",
-              "If the main task is understanding the business, exploring services, and reaching a simple contact or request path, you are likely closer to a website. If the product needs accounts, roles, changing records, and repeatable workflows, you are closer to a web system."
+            "heading": "The difference in one sentence",
+            "paragraphs": [
+              "A website primarily explains an offering and helps visitors take a clear next step, such as exploring services or making an enquiry. A web system helps different users perform ongoing tasks while saving and updating records under appropriate access rules.",
+              "Programming language, screen appearance and page count do not define the distinction. A website can use a basic database, and a web system can display marketing pages. The more useful question is whether the main value is publishing information or running workflows."
             ]
           },
           {
-            heading: "When is a website the better fit?",
-            paragraphs: ["A website fits when the priority is clear presence, content, discovery, and moving visitors toward the next action."],
-            bullets: [
-              "Present the business and its services.",
-              "Show work or use cases.",
-              "Publish and manage content.",
-              "Collect simple inquiries or requests.",
-              "Support search-focused informational and marketing pages."
+            "heading": "Start with a user task, not a technology",
+            "paragraphs": [
+              "Write three realistic scenarios: who arrives, what they want to accomplish, and what happens when they take action. Reading a service page and requesting a quote usually suggests a website. Creating a numbered request, having staff review it, updating its status and producing a report points toward an operational system.",
+              "Separate the roles of visitor, customer, employee and administrator. Access control affects data architecture, security, interface behavior and acceptance tests—not merely the visual design."
             ]
           },
           {
-            heading: "When does the need become a web system?",
-            paragraphs: ["A system makes sense when the core value comes from managing ongoing operations and data rather than mainly presenting information."],
-            bullets: [
-              "User registration and multiple account types.",
-              "Different permissions for admins, staff, and customers.",
-              "Dashboards, reports, and workflow states.",
-              "External data or service integrations.",
-              "Processes that need to be saved, reviewed, and updated continuously."
+            "heading": "When a business website is the better choice",
+            "paragraphs": [
+              "A website works well for organizations that need to explain services, build credibility, present completed work and make contact easy. Content can be maintained with a lightweight editing tool without requiring every visitor to have an account.",
+              "A portfolio example is the Al Benaa Al Motqin company website, whose recorded scope covers services, projects and a quote enquiry path. It demonstrates a content-and-contact purpose, not evidence of a hidden internal project-management system."
+            ],
+            "bullets": [
+              "Clear service descriptions aimed at real audiences.",
+              "Contact and initial enquiry paths.",
+              "Project pages, FAQs and searchable informational content.",
+              "Manageable content and a mobile-friendly reading experience."
             ]
           },
           {
-            heading: "Questions that clarify the direction",
-            paragraphs: ["Answer these before fixing the scope. They quickly reveal whether you need a digital presence or an operational product."],
-            bullets: [
-              "Will users mainly read information or complete tasks inside the product?",
-              "Do they need accounts and sign-in?",
-              "Does the data change per user or transaction?",
-              "Does an internal team need an admin area?",
-              "Does success depend on an ongoing workflow after the first visit?"
+            "heading": "When to consider a custom web system",
+            "paragraphs": [
+              "Consider a system when publishing information is no longer enough: employees review requests, customers track progress and managers supervise operations, each with different permissions and changing records. Sign-in, data integrity, status changes and security become core parts of the product.",
+              "Our CMS Dashboard project illustrates a focused operational need: updating website content through a management interface rather than editing code for every change. It does not imply that every company website requires a large custom platform."
+            ],
+            "bullets": [
+              "User roles and permissions over actions and records.",
+              "Requests with statuses, approvals and recurring work.",
+              "Records that need updates, search or export.",
+              "Integration with existing software where compatible APIs exist."
             ]
           },
           {
-            heading: "Do not start with a system larger than the need",
-            paragraphs: [
-              "The final product may be large, but the first version does not need to contain everything. Define the part that proves the idea or solves the core problem, then expand from a clearer base.",
-              "Choosing the right path early reduces rework and keeps design and development tied to a real objective instead of accumulating features."
+            "heading": "Sometimes you need both",
+            "paragraphs": [
+              "Some businesses need a public website for discovery and enquiries alongside a private workspace for customers or staff. Those experiences can have separate interfaces while sharing selected data or content management where necessary.",
+              "For example, a service company might explain its offering publicly while employees assign and track cases in a private dashboard. This is a planning illustration, not a claim about an existing Wasl Tech client project."
+            ]
+          },
+          {
+            "heading": "Five questions to settle before asking for a quote",
+            "paragraphs": [
+              "These questions help compare proposals with a consistent scope. A small informational site is not equivalent to a platform managing accounts, permissions, requests and reporting."
+            ],
+            "bullets": [
+              "What is the single most important user action and how is success recognized?",
+              "Who updates content or records, and with which access rights?",
+              "What information must be stored, and is any of it sensitive?",
+              "Are there actual integrations with payment, messaging or existing business software?",
+              "What belongs in the first release, and what can wait?"
+            ]
+          },
+          {
+            "heading": "Cost, timelines and ongoing maintenance",
+            "paragraphs": [
+              "There is no reliable fixed price or timeline for every website or system. Estimates depend on user roles, workflows, interfaces, data, integrations, hosting, testing and support. Operational systems frequently add complexity through permissions and changing records, but any estimate needs a defined scope.",
+              "Ask proposals to state the expected pages and screens, permissions, deliverables, review process, acceptance tests and responsibility for content, hosting and maintenance. Price-only comparisons can hide major differences in what is included."
+            ]
+          },
+          {
+            "heading": "Plan a small but complete first release",
+            "paragraphs": [
+              "For a broad system concept, define one end-to-end workflow first—for instance, submitting a request, having staff review it and reporting its status to the requester. Test that journey before adding complex reports and integrations.",
+              "For an informational site, start with essential services, relevant work and a clear contact route, then extend the content based on genuine customer questions. A focused first release helps prevent unnecessary complexity and rework."
+            ]
+          },
+          {
+            "heading": "A practical final decision",
+            "paragraphs": [
+              "If visitors mainly need to understand a business and reach out, plan a well-structured website. If users must complete repeatable actions across accounts, records and access rules, start by analyzing a web system.",
+              "If the project needs both, separate the public experience from private operations and define how they communicate. Document actors, tasks and outcomes before choosing tools or deciding what to call the product."
             ]
           }
         ],
