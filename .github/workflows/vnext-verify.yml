@@ -45,6 +45,9 @@ jobs:
       - name: Verify final media sources
         run: node scripts/check-final-media.mjs
 
+      - name: Audit portfolio case-study evidence
+        run: node scripts/audit-portfolio-evidence.mjs
+
       - name: Audit crawlable internal route discovery
         run: node scripts/audit-internal-discovery.mjs
 
