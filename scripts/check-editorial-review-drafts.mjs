@@ -38,7 +38,7 @@ if (!target) fail("article", "missing core comparison article");
 for(const locale of ["ar","en"]){
   const content=target?.content?.[locale];
   if(!content) { fail("article/"+locale,"missing translation"); continue; }
-  if(content.sections?.length !== 9) fail("article/"+locale,"expect nine practical sections");
+  if(content.sections?.length !== 10) fail("article/"+locale,"expect ten practical sections");
   if((content.intro?.length ?? 0) < 250) fail("article/"+locale,"intro needs direct answer and context");
   const prose=(content.sections??[]).flatMap(section=>[...(section.paragraphs??[]),...(section.bullets??[])]).join(" ");
   if(prose.length < 3800) fail("article/"+locale,"insufficiently developed guide");
