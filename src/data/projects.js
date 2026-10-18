@@ -113,9 +113,9 @@ const projectRecords = [
           "واجهة متجاوبة للهاتف والكمبيوتر"
         ],
         "caseStudy": {
-          "overview": "موقع لخدمات رقمية متنوعة، ينظم عرض البطاقات والاشتراكات وخدمات الشحن ضمن واجهة عربية سهلة التصفح.",
-          "context": "تعدد أنواع الخدمات الرقمية يحتاج إلى تصنيف واضح ومسار يساعد الزائر على معرفة الخدمة المناسبة والوصول للتواصل.",
-          "contribution": "تصميم وتطوير واجهة الموقع وصفحات عرض الخدمات بما يناسب التصفح على الهاتف والكمبيوتر.",
+          "overview": "أبديت كارد موقع لعرض خدمات الشحن الرقمي والبطاقات والاشتراكات في اليمن. تتمثل وظيفة الموقع في مساعدة الزائر على استكشاف أصناف الخدمات ضمن فئات واضحة، بدلاً من التعامل مع كل خدمة على أنها صفحة معزولة؛ وتوضح الواجهة كيفية الوصول إلى التواصل بعد اختيار ما يناسبه.",
+          "context": "الخدمات المعروضة ليست من نوع واحد: فخدمات الشحن تختلف عن البطاقات والاشتراكات في طريقة بحث الزائر عنها. لذلك كان التحدي تنظيم هذا التنوع دون ازدحام بصري، مع إبقاء أسماء الفئات والخطوة التالية مفهومة على شاشة الهاتف كما على الكمبيوتر.",
+          "contribution": "شمل عمل وصل تك تصميم واجهة الموقع وتطوير عرض الفئات والخدمات وربطها بمسار تواصل واضح، مع تهيئة توزيع العناصر للشاشات الصغيرة والكبيرة. نطاق دراسة الحالة هنا هو تصميم تجربة عرض الخدمات والوصول إليها؛ ولا تنسب للمشروع نتائج مبيعات أو أنظمة دفع أو تسليم لم تُوثق.",
           "scope": [
             "تنظيم أقسام وخدمات الشحن الرقمي",
             "واجهة عرض للخدمات والفئات",
@@ -125,6 +125,23 @@ const projectRecords = [
             "موقع لخدمات الشحن والبطاقات الرقمية",
             "عرض منظم لفئات الخدمات",
             "واجهات مناسبة للجوال والكمبيوتر"
+          ],
+          "decisions": [
+            {
+              "title": "فصل أنواع الخدمات",
+              "reason": "تجميع الشحن والبطاقات والاشتراكات في قائمة واحدة يجعل المقارنة والاستكشاف أصعب.",
+              "implementation": "تنظيم الخدمات ضمن فئات معروضة بوضوح داخل تجربة الموقع."
+            },
+            {
+              "title": "مسار تواصل مفهوم",
+              "reason": "الزائر يريد أن يعرف الخدمة أولاً ثم يجد كيفية الاستفسار عنها.",
+              "implementation": "عرض الخدمات مع خطوة تواصل واضحة دون الادعاء بوجود نظام دفع أو طلبات لم يوثّق."
+            },
+            {
+              "title": "قراءة مناسبة للجوال",
+              "reason": "تعدد عناصر الخدمات يحتاج توزيعًا قابلًا للقراءة على الشاشات الصغيرة.",
+              "implementation": "واجهات متجاوبة للحاسوب والهاتف تراعي تنظيم المحتوى وأولوية الفئات."
+            }
           ]
         },
         "seo": {
@@ -142,9 +159,9 @@ const projectRecords = [
           "Responsive desktop and mobile experience"
         ],
         "caseStudy": {
-          "overview": "A digital services website that brings top-up, card, and subscription offerings together in an easy-to-browse Arabic interface.",
-          "context": "A diverse range of digital products requires clear categories and a simple way for visitors to find services and get in touch.",
-          "contribution": "Designed and developed the website interface and service presentation pages for desktop and mobile browsing.",
+          "overview": "Update Card is a website presenting digital top-ups, cards, and subscriptions in Yemen. It helps visitors browse distinct kinds of services through recognizable categories and find a clear contact path once they know what they need, rather than treating every offering as an isolated page.",
+          "context": "Top-ups, cards, and subscriptions serve different visitor needs and are not interchangeable search tasks. The design challenge was to keep that variety understandable without overwhelming visitors, while making category names and the next step clear on both phone and desktop screens.",
+          "contribution": "Wasl Tech designed and developed the site's service presentation and category browsing experience, with responsive layouts and a clear path to contact. This case study documents the presentation and navigation work; it does not claim unverified sales growth, checkout systems or automated digital delivery.",
           "scope": [
             "Digital service category structure",
             "Service browsing and presentation",
@@ -154,6 +171,23 @@ const projectRecords = [
             "Digital top-up and cards website",
             "Organized service categories",
             "Mobile and desktop interfaces"
+          ],
+          "decisions": [
+            {
+              "title": "Distinct service categories",
+              "reason": "Putting top-ups, cards and subscriptions in one undifferentiated list would make browsing harder.",
+              "implementation": "Service groups presented in clear categories within the website interface."
+            },
+            {
+              "title": "Clear contact path",
+              "reason": "Visitors need to identify the right offering before knowing where to enquire.",
+              "implementation": "Service presentation with a visible way to reach out, without claiming an unverified payment or ordering system."
+            },
+            {
+              "title": "Readable on mobile",
+              "reason": "A varied service catalog needs a layout visitors can scan on smaller screens.",
+              "implementation": "Responsive arrangements for phone and desktop that prioritize categories and readable content."
+            }
           ]
         },
         "seo": {
