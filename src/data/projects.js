@@ -327,7 +327,10 @@ const projectRecords = [
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن مشروع منصة مشابهة لصوركم الرقمية."
-    }
+    },
+    "evidenceSources": [
+      "main:/assets/works/project_1.webp"
+    ]
   },
   {
     "id": "project-02",
@@ -428,7 +431,10 @@ const projectRecords = [
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن مشروع منصة مشابهة لوصّل."
-    }
+    },
+    "evidenceSources": [
+      "main:/assets/works/project_2.webp"
+    ]
   },
   {
     "id": "project-03",
@@ -529,7 +535,10 @@ const projectRecords = [
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن مشروع نظام مشابه للوحة الميكروتيك."
-    }
+    },
+    "evidenceSources": [
+      "main:/assets/works/project_3.webp"
+    ]
   },
   {
     "id": "project-04",
@@ -630,7 +639,10 @@ const projectRecords = [
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن نظام لوحة تحكم CMS مشابهة."
-    }
+    },
+    "evidenceSources": [
+      "main:/assets/works/project_4.webp"
+    ]
   },
   {
     "id": "project-05",
@@ -731,7 +743,10 @@ const projectRecords = [
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن تصميم متجر إلكتروني مشابه لتيك زون."
-    }
+    },
+    "evidenceSources": [
+      "main:/assets/works/project_5.webp"
+    ]
   },
   {
     "id": "project-06",
@@ -832,7 +847,10 @@ const projectRecords = [
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن برمجة تطبيق مشابه لأروما كافيه."
-    }
+    },
+    "evidenceSources": [
+      "main:/assets/works/project_6.webp"
+    ]
   },
   {
     "id": "project-07",
@@ -933,7 +951,10 @@ const projectRecords = [
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن مشروع موقع مشابه للبناء المتقن."
-    }
+    },
+    "evidenceSources": [
+      "main:/assets/works/project_13.webp"
+    ]
   },
   {
     "id": "project-08",
@@ -1034,7 +1055,10 @@ const projectRecords = [
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن مشروع متجر إلكتروني مشابه."
-    }
+    },
+    "evidenceSources": [
+      "main:/assets/works/project_10.webp"
+    ]
   },
   {
     "id": "project-09",
@@ -1135,7 +1159,10 @@ const projectRecords = [
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن تصميم هوية بصرية."
-    }
+    },
+    "evidenceSources": [
+      "main:/assets/works/project_7.webp"
+    ]
   },
   {
     "id": "project-10",
@@ -1236,7 +1263,10 @@ const projectRecords = [
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن تصميم هوية بصرية."
-    }
+    },
+    "evidenceSources": [
+      "main:/assets/works/project_9.webp"
+    ]
   },
   {
     "id": "project-11",
@@ -1337,7 +1367,10 @@ const projectRecords = [
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن حملة تسويقية."
-    }
+    },
+    "evidenceSources": [
+      "main:/assets/works/project_12.webp"
+    ]
   },
   {
     "id": "project-12",
@@ -1438,7 +1471,10 @@ const projectRecords = [
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن متجر إلكتروني."
-    }
+    },
+    "evidenceSources": [
+      "main:/assets/works/project_8.webp"
+    ]
   },
   {
     "id": "project-13",
@@ -1539,7 +1575,10 @@ const projectRecords = [
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن متجر إلكتروني مشابه لكيدي."
-    }
+    },
+    "evidenceSources": [
+      "main:/assets/works/project_14.webp"
+    ]
   },
   {
     "id": "project-14",
@@ -1640,7 +1679,10 @@ const projectRecords = [
     },
     "links": {
       "inquiry": "https://wa.me/967775377979?text=مرحباً، أود الاستفسار عن برمجة موقع مشابه لمكتب الحباري."
-    }
+    },
+    "evidenceSources": [
+      "main:/assets/works/project_11.webp"
+    ]
   }
 ];
 
