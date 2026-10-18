@@ -48,10 +48,17 @@ for(const locale of ["ar","en"]){
       if(!html.includes(htmlText(value))) fail(file,`scope/output missing: ${value}`);
     }
     const decisions = copy.caseStudy.decisions ?? [];
-    if(project.slug === "update-card-digital-services") {
-      if(decisions.length !== 3) fail(file,"Update Card must have three source-grounded decisions in each locale");
-    } else if(decisions.length) {
-      fail(file,"do not invent unverified decision data for other projects");
+    const expectedDecisions = project.slug === "update-card-digital-services" ? 3 : 2;
+    if(decisions.length !== expectedDecisions){
+      fail(file,`expected ${expectedDecisions} project-specific editorial decisions, got ${decisions.length}`);
+    }
+    if(new Set(decisions.map(item => item.title)).size !== decisions.length){
+      fail(file,"duplicate project decision headings");
+    }
+    for(const field of ["overview","context","contribution"]){
+      if(copy.caseStudy[field].trim().length < (locale === "ar" ? 160 : 175)){
+        fail(file,`case-study ${field} needs a useful project-specific explanation`);
+      }
     }
     if(Boolean(decisions.length) !== html.includes('class="section section--subtle project-scope project-decisions"')){
       fail(file,"project decisions section count and data disagree");
