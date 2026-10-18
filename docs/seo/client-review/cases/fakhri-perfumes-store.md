@@ -54,7 +54,7 @@ The published scope lists perfume product presentation, browsing organization an
 ## الأدلة
 
 - `src/data/projects.js`، السجل `project-12`: وصف نشاط المشروع ونطاقه، لا دليل على أرقام نجاح أو جميع الوظائف.
-- [صورة المشروع في المستودع](../../../assets/works/project_8.webp): مرجع بصري يثبت وجود صورة عرض للمشروع، لا نتائج التشغيل.
+- [صورة المشروع في المستودع](../../../../assets/works/project_8.webp): مرجع بصري يثبت وجود صورة عرض للمشروع، لا نتائج التشغيل.
 - المصادر القديمة المذكورة في السجل: `main:js/portfolio.js`، `main:/assets/works/project_8.webp`. تنبيه: `main:js/portfolio.js` غير موجود في أحدث HEAD، فلا يستخدم كدليل حي.
 
 ## ما يحتاج مراجعتك قبل اعتماد النشر
