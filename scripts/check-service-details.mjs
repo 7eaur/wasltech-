@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { routes } from "../src/config/routes.js";
 import { site } from "../src/config/site.js";
 import { services } from "../src/data/services.js";
+import { getServiceChoice, serviceChoices } from "../src/data/service-choices.js";
 import { getProjectsByService } from "../src/data/projects.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -39,6 +40,17 @@ for (const locale of ["ar","en"]) {
 
     if (!html.includes(htmlText(copy.decision.problemNeed))) fail(file,"problem/need content missing");
     if (!html.includes(htmlText(copy.decision.scopeSummary))) fail(file,"scope summary missing");
+    const comparison = getServiceChoice(service.id, locale);
+    if (!comparison) fail(file, "missing service-specific intent guidance for locale");
+    else {
+      const counterpart = services.find((item) => item.id === comparison.alternativeServiceId);
+      if (!counterpart || counterpart.id === service.id) fail(file, "invalid related comparison service");
+      else if (!html.includes(`href="${routes.service(counterpart.slug,locale)}"`)) fail(file,"commercial comparison must link to the correct localized service");
+      for (const field of ["heading","guidance","link"]) {
+        if (!comparison[field] || !html.includes(htmlText(comparison[field]))) fail(file, `intent guidance missing: ${field}`);
+      }
+      if (!html.includes('id="service-choice"')) fail(file, "intent guidance landmark missing");
+    }
 
     // Keep every substantive field when removing repeated template copy (UXR-03).
     for (const item of copy.heroCards) {
@@ -166,6 +178,7 @@ for(const file of ["hero-pages.css","hero-responsive.css"]){
   }
 }
 
+if (Object.keys(serviceChoices).length !== services.length) fail("service choices","all eight canonical services must have decision guidance");
 if (errors.length) {
   console.error("VNEXT SERVICE DETAIL CHECK: FAILED");
   for (const error of errors) console.error(`- ${error}`);
