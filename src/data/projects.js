@@ -543,11 +543,12 @@ const projectRecords = [
                   "خرائط ومعلومات الفروع"
         ],
         "caseStudy": {
-          "overview": "تجربة جوال لمقهى تجمع الطلب والولاء والوصول إلى الفروع في مسار واحد يخدم العميل قبل وأثناء الشراء.",
-          "context": "المشروع يجمع احتياجات عميل المقهى في تطبيق واحد: الطلب، الولاء، والوصول إلى الفروع.",
-          "contribution": "تصميم وتطوير تجربة طلب عبر الجوال مرتبطة ببرنامج ولاء ومعلومات الفروع.",
+          "overview": "أروما كافيه تجربة تطبيق جوال مخصصة لعميل المقهى، تجمع الاطلاع على المنتجات والطلب وبرنامج الولاء والوصول إلى معلومات الفروع. يركز المشروع على جعل الخدمات التي يحتاجها الزائر أثناء التعامل مع المقهى متاحة من مكان واحد، بدل أن يبحث عن قائمة المنتجات في مكان، والموقع الجغرافي في مكان آخر. تصف هذه الدراسة المجالات الثلاثة المدرجة في سجل العمل؛ ولا تنسب للتطبيق انتشارًا أو معدلات استخدام لا تتوفر قياساتها.",
+          "context": "تختلف حاجة زائر المقهى بحسب اللحظة: قد يريد اختيار طلب، أو معرفة ما يتاح له في الولاء، أو الوصول إلى فرع قريب. جمع هذه الاحتياجات في تطبيق واحد يتطلب وضوحًا في بداية الرحلة، وفي المسار الذي يتبعه المستخدم للوصول إلى المهمة دون تشتيت. التحدي هنا ليس تعدد الشاشات بحد ذاته، بل تنظيم خدمات المقهى حول أهداف مفهومة.",
+          "contribution": "يتضمن النطاق المسجل واجهة لطلب المنتجات، وبرنامجًا للولاء، وعرض الفروع على الخريطة. تناول التصميم رحلة استخدام الجوال بوصفها مجموعة مهام واضحة: التصفح والطلب، مراجعة ما يخص الولاء، ثم استكشاف الفروع. تفاصيل الدفع داخل التطبيق، وطريقة حساب نقاط الولاء، والتكاملات مع نظام نقاط البيع لا تُنشر باعتبارها حقائق دون مراجعة التطبيق أو وثائقه.",
           "scope": ["طلب المنتجات","برنامج ولاء","عرض الفروع على الخريطة"],
-          "deliveredOutputs": ["طلب القهوة عبر التطبيق","برنامج ولاء","خرائط الفروع"]
+          "deliveredOutputs": ["طلب القهوة عبر التطبيق","برنامج ولاء","خرائط الفروع"],
+          "decisions": [{"title":"ترتيب نقطة بدء الاستخدام","reason":"زائر المقهى غالبًا ما يبحث عن مهمة مباشرة، لا قائمة طويلة من خصائص التطبيق.","implementation":"تقديم مسارات الطلب والولاء والفروع بوصفها خيارات خدمة واضحة."},{"title":"فصل الولاء عن الطلب","reason":"متابعة مزايا الولاء تختلف عن اختيار المنتجات وإرسال الطلب.","implementation":"إبقاء برنامج الولاء مجالًا مفهومًا داخل تجربة التطبيق."},{"title":"إظهار الفروع في سياقها","reason":"قد يرغب العميل بالوصول إلى فرع قبل أن يقرر الاستفادة من الخدمة.","implementation":"ربط معلومات الفروع بواجهة مناسبة للاستكشاف عبر الخريطة."}]
         },
         "seo": {
           "title": "أروما كافيه | تطوير تطبيق طلب القهوة والولاء | وصل تك",
@@ -564,11 +565,12 @@ const projectRecords = [
                   "Branch maps and information"
         ],
         "caseStudy": {
-          "overview": "A mobile cafe experience that brings ordering, loyalty, and branch access into one journey before and during purchase.",
-          "context": "The project combines key customer needs in one app: ordering, loyalty, and reaching the right branch.",
-          "contribution": "Designed and developed a mobile ordering experience connected to a loyalty program and branch information.",
+          "overview": "Aroma Cafe is a mobile experience connecting the tasks a café customer may need: viewing products and ordering, accessing a loyalty program and finding branches. The project aims to keep these related activities together instead of making visitors look in separate places for a menu, rewards or locations. The case describes the three areas present in the source record, not unmeasured adoption figures or customer behavior.",
+          "context": "A café visitor's immediate goal can change: placing an order, checking loyalty information or locating a branch. Bringing these experiences into one app requires a clear starting point and routes to individual tasks. The design challenge is not the number of screens but how naturally customers can identify the function they came to use.",
+          "contribution": "The recorded work includes a mobile ordering experience, loyalty functions and a branch map. This case organizes the contribution around product selection, loyalty access and location discovery. Details of in-app payments, reward calculations and point-of-sale integrations need a demonstrable app flow or technical source before they are presented as confirmed features.",
           "scope": ["Product ordering","Loyalty program","Branch map display"],
-          "deliveredOutputs": ["In-app coffee ordering","Loyalty program","Branch maps"]
+          "deliveredOutputs": ["In-app coffee ordering","Loyalty program","Branch maps"],
+          "decisions": [{"title":"Lead with user tasks","reason":"Customers generally arrive with an immediate need, not to inspect every app capability.","implementation":"Present ordering, loyalty and branch discovery as understandable service journeys."},{"title":"Keep loyalty distinct","reason":"Reward information serves a different purpose from composing a product order.","implementation":"Give the loyalty experience a recognizable place within the application."},{"title":"Make branches discoverable","reason":"Visitors may need a location before choosing how to use a café service.","implementation":"Connect branch information to an accessible map-focused discovery path."}]
         },
         "seo": {
           "title": "Aroma Cafe | Coffee Ordering & Loyalty App | Wasl Tech",
@@ -604,11 +606,12 @@ const projectRecords = [
                   "مسار لطلب عرض سعر"
         ],
         "caseStudy": {
-          "overview": "موقع شركة يضع أعمال المقاولات والخدمات الهندسية في واجهة منظمة تساعد الزائر على فهم النشاط والانتقال من الاستكشاف إلى التواصل.",
-          "context": "المشروع يقدّم شركة المقاولات وخدماتها وأعمالها في تجربة تساعد الزائر على فهم النشاط والانتقال إلى طلب عرض سعر.",
-          "contribution": "تصميم وتطوير موقع تعريفي يربط الخدمات والمشاريع بمسار تواصل واضح.",
+          "overview": "«البناء المتقن» موقع تعريفي لشركة مقاولات وخدمات هندسية. تتمثل وظيفته في مساعدة الزائر على فهم مجالات عمل الشركة، والاطلاع على نماذج مشاريعها، ثم الوصول إلى إجراء طلب عرض سعر أو تواصل. لهذا يركز عرض المشروع على المحتوى والخدمات والأعمال بدل وصفه كنظام تشغيل داخلي لمشاريع المقاولات. قيمة التجربة هنا في ترتيب المعلومات التي يحتاجها العميل قبل التواصل.",
+          "context": "في قطاع المقاولات لا يكتفي العميل غالبًا باسم الخدمة؛ فهو يريد تصور طبيعة الأعمال المنفذة، والتمييز بين أنواع الخدمات الهندسية، ومعرفة كيف يبدأ الاستفسار. إذا توزعت هذه المعلومات دون ترابط سيصعب تكوين صورة واضحة عن الشركة. لذلك يحتاج الموقع إلى مسار يصل التعريف والخدمات بالأعمال ثم يعرض خطوة تواصل مناسبة.",
+          "contribution": "يشمل النطاق المسجل تصميم وتطوير صفحات للخدمات، ومعرضًا للمشاريع، ومسار طلب عرض سعر. بنيت قصة المشروع حول انتقال الزائر من الاطلاع على الخدمة إلى الاستدلال على نوع العمل ثم التواصل. لا ندّعي أن الموقع ينفذ إدارة عقود أو حساب كميات أو متابعة مواقع البناء؛ إذ لا يتضمن السجل دليلًا على تلك الأنظمة.",
           "scope": ["عرض الخدمات","معرض المشاريع","طلب عرض سعر"],
-          "deliveredOutputs": ["صفحات للخدمات","عرض المشاريع","طلب عرض سعر"]
+          "deliveredOutputs": ["صفحات للخدمات","عرض المشاريع","طلب عرض سعر"],
+          "decisions": [{"title":"إيضاح مجال الخدمات","reason":"العنوان العام «مقاولات» لا يوضح وحده ما يمكن للعميل طلبه.","implementation":"تنظيم خدمات الشركة في صفحات قابلة للاكتشاف."},{"title":"جعل الأعمال دليلًا بصريًا","reason":"العميل يحتاج الاطلاع على أمثلة من طبيعة أعمال الشركة.","implementation":"ربط عرض المشاريع بسياق الخدمات المقدمة."},{"title":"وضوح طريق عرض السعر","reason":"المعلومات لا تحقق هدفها إذا لم يعرف المهتم كيف يبدأ الاستفسار.","implementation":"تهيئة مسار تواصل وطلب عرض سعر بعد استكشاف المحتوى."}]
         },
         "seo": {
           "title": "البناء المتقن | تصميم موقع شركة مقاولات | وصل تك",
@@ -625,11 +628,12 @@ const projectRecords = [
                   "Quotation request path"
         ],
         "caseStudy": {
-          "overview": "A company website that organizes construction and engineering services and projects so visitors can understand the business and move from exploration to contact.",
-          "context": "The project presents the construction company, its services, and its work in an experience that helps visitors understand the business and request a quotation.",
-          "contribution": "Designed and developed a company website that connects services and projects to a clear contact path.",
+          "overview": "Al Benaa Al Motqin is a company website for construction and engineering services. It helps visitors understand the firm's work, explore projects and reach a quote or contact path. The project is presented as a content and enquiry experience rather than an internal construction management platform. The value of the website lies in organizing the information a prospective client may want before making contact.",
+          "context": "In construction, a service name alone rarely answers every question. Prospective clients may want to understand the types of work the firm does, review project examples and find a clear starting point for a conversation. If these details are spread across unrelated pages, the business is harder to understand. The design challenge is connecting services, proof of work and enquiries.",
+          "contribution": "The recorded scope covers service pages, a portfolio section and a quote-request route. The case story follows the visitor from service discovery through browsing relevant work to the next contact step. It does not attribute contract administration, quantity surveying or on-site construction tracking systems to this website without supporting records.",
           "scope": ["Service presentation","Project showcase","Quotation requests"],
-          "deliveredOutputs": ["Service pages","Project showcase","Quotation request flow"]
+          "deliveredOutputs": ["Service pages","Project showcase","Quotation request flow"],
+          "decisions": [{"title":"Make services legible","reason":"The broad term 'construction' does not tell visitors which work they can request.","implementation":"Give individual service areas clear places in the site."},{"title":"Use projects as context","reason":"Prospective clients often need examples to understand the firm's type of work.","implementation":"Connect portfolio presentation to the service story."},{"title":"Provide a quote pathway","reason":"Useful information needs an equally clear next action.","implementation":"Place enquiry and quotation access after discovery and evaluation."}]
         },
         "seo": {
           "title": "Al Benaa Al Motqin | Construction Website | Wasl Tech",
@@ -665,11 +669,12 @@ const projectRecords = [
                   "مسار لإتمام الطلب"
         ],
         "caseStudy": {
-          "overview": "متجر متخصص في الإلكترونيات يركز على تنظيم الكتالوج وتسهيل الانتقال بين الأقسام والمنتجات حتى إكمال الطلب.",
-          "context": "المشروع ينظم كتالوج الأجهزة والإلكترونيات ويجعل الوصول إلى المنتج والطلب أكثر مباشرة.",
-          "contribution": "تصميم وبناء متجر يرتب المنتجات ضمن تصنيفات ويقود العميل من التصفح إلى الطلب.",
+          "overview": "«النخبة للإلكترونيات» متجر إلكتروني يعتمد على تنظيم كتالوج الأجهزة والإلكترونيات داخل تجربة تسوق مفهومة. يواجه هذا النوع من المتاجر تحديًا في تنوع المنتجات والفئات والمواصفات، ولذلك تبرز أهمية انتقال الزائر من اختيار التصنيف إلى معاينة المنتج ثم متابعة الطلب. تصف الدراسة نطاق العرض والتصنيف ومسار الطلب كما ورد في بيانات المشروع، ولا تدّعي وجود تكامل مخزون أو مدفوعات لم تُوثق.",
+          "context": "قد يدخل العميل وهو يعرف فئة المنتج لا اسمه النهائي؛ وقد يحتاج مقارنة أكثر من خيار قبل الطلب. عرض المنتجات دون تصنيف واضح يستهلك وقت التصفح ويجعل الوصول للمنتج المناسب أصعب. من هنا يتمحور التحدي حول ترتيب الأقسام وتوفير تسلسل مفهوم للانتقال إلى تفاصيل المنتج والإجراء التالي.",
+          "contribution": "يشمل العمل تصميم وبناء متجر ينظم الكتالوج في تصنيفات مع تجربة وصول إلى الطلب. وقد فُصّلت دراسة الحالة لتوضح وظيفة كل جزء من الرحلة: استكشاف الفئة، فهم ما تعرضه صفحة المنتج، ثم الاتجاه إلى خطوة الطلب. لا نضيف إلى هذا النطاق نظام مخزون مباشرًا أو شروط شحن ودفع أو نتائج مبيعات بلا دليل.",
           "scope": ["عرض المنتجات","التصنيفات","تجربة الطلب"],
-          "deliveredOutputs": ["كتالوج إلكترونيات","تصنيفات منتجات","تجربة إتمام الطلب"]
+          "deliveredOutputs": ["كتالوج إلكترونيات","تصنيفات منتجات","تجربة إتمام الطلب"],
+          "decisions": [{"title":"تصنيفات تسبق التفاصيل","reason":"كثرة أنواع الأجهزة تجعل التصنيف نقطة دخول عملية للمتسوق.","implementation":"عرض كتالوج الإلكترونيات ضمن فئات مفهومة."},{"title":"تفاصيل واضحة للمنتج","reason":"العميل يحتاج معرفة العنصر الذي اختاره قبل طلبه.","implementation":"جعل صفحة العرض امتدادًا طبيعيًا للانتقال من القسم إلى المنتج."},{"title":"مسار طلب متصل","reason":"بعد اختيار المنتج لا ينبغي أن تنقطع رحلة المستخدم عن الهدف.","implementation":"ربط الاستكشاف بخطوة الطلب المسجلة في نطاق المتجر."}]
         },
         "seo": {
           "title": "النخبة للإلكترونيات | تصميم متجر إلكتروني | وصل تك",
@@ -686,11 +691,12 @@ const projectRecords = [
                   "Order completion flow"
         ],
         "caseStudy": {
-          "overview": "A specialized electronics store focused on organizing the catalog and making it easier to move between categories and products through to ordering.",
-          "context": "The project organizes an electronics catalog and makes finding products and placing orders more direct.",
-          "contribution": "Designed and built a store that organizes products into categories and guides customers from browsing to ordering.",
+          "overview": "Elite Electronics is an e-commerce storefront organized around a catalog of electronic devices and related products. This kind of store needs visitors to move from broad categories to individual products and then toward an order. The case focuses on browsing structure, product presentation and the documented ordering journey; it does not claim a live inventory integration, payment provider or sales result that has not been verified.",
+          "context": "A shopper may know which category they need without knowing the exact model, or may explore several alternatives before deciding. A large catalog becomes harder to use when categories do not support discovery. The design challenge is to arrange the offering in a way that makes navigation, product selection and the next step understandable.",
+          "contribution": "The recorded work covers building a categorized electronics catalog and an order experience. Our case study explains the purpose of each stage—category exploration, product review and movement toward a request. Warehouse synchronization, shipping rules, payment gateway details and conversion performance are outside the demonstrated source record.",
           "scope": ["Product display","Categories","Ordering experience"],
-          "deliveredOutputs": ["Electronics catalog","Product categories","Order completion experience"]
+          "deliveredOutputs": ["Electronics catalog","Product categories","Order completion experience"],
+          "decisions": [{"title":"Organize by category","reason":"Different device types make category navigation a useful starting point.","implementation":"Present the electronics catalog within clear product groups."},{"title":"Maintain product context","reason":"Customers should know what they selected before moving on.","implementation":"Connect category browsing to an understandable product presentation."},{"title":"Keep ordering connected","reason":"Once an item is selected, the journey needs a recognizable next action.","implementation":"Link catalog discovery to the documented ordering experience."}]
         },
         "seo": {
           "title": "Elite Electronics | Online Electronics Store | Wasl Tech",
@@ -726,11 +732,12 @@ const projectRecords = [
                   "مطبوعات وتغليف"
         ],
         "caseStudy": {
-          "overview": "مشروع هوية يهدف إلى توحيد شكل العلامة عبر الشعار والألوان والتطبيقات التي يراها العميل داخل المطعم وخارجه.",
-          "context": "المشروع يحتاج نظامًا بصريًا موحدًا يربط الشعار بالألوان والمطبوعات والتغليف بدل ظهور كل مادة بأسلوب مستقل.",
-          "contribution": "بناء هوية بصرية لمطعم الملكي تشمل الشعار والنظام اللوني والتطبيقات الأساسية.",
+          "overview": "هوية مطعم «الملكي» مشروع تصميم يهدف إلى بناء حضور بصري متسق يتجاوز تصميم شعار منفرد. يركز نطاقه على الشعار والألوان والتطبيقات المطبوعة والتغليف، وهي عناصر يراها العميل في سياقات مختلفة ولكن يفترض أن يتعرف عليها بوصفها علامة واحدة. تسلط دراسة الحالة الضوء على نظام الاستخدام والاتساق، من غير نسبة تغير في المبيعات أو شهرة العلامة إلى التصميم.",
+          "context": "إذا اختلف شكل الشعار أو تدرجات اللون أو أسلوب العناصر بين التغليف والمواد المطبوعة، قد تبدو كل قطعة وكأنها صادرة عن جهة مختلفة. يحتاج المشروع إلى قاعدة بصرية مشتركة يمكن تطبيقها على مواد تحمل وظائف وأحجامًا مختلفة، مع مراعاة وضوح اسم المطعم وتماسك الأسلوب العام.",
+          "contribution": "يشمل نطاق العمل تصميم الشعار وبناء النظام اللوني وتطبيقات مطبوعة وتغليف. نعرض المشروع كمنظومة متكاملة: علامة بصرية أساسية، اختيارات لونية تدعمها، ثم أمثلة استخدام تساعد على اختبار اتساقها في المواد المحيطة بتجربة المطعم. تفاصيل مقاسات العبوات والمطبوعات التنفيذية ودليل الهوية الكامل تحتاج تأكيدًا من ملفات التصميم الأصلية.",
           "scope": ["تصميم الشعار","بناء النظام اللوني","تطبيقات مطبوعة وتغليف"],
-          "deliveredOutputs": ["تصميم الشعار","نظام ألوان","مطبوعات وتغليف"]
+          "deliveredOutputs": ["تصميم الشعار","نظام ألوان","مطبوعات وتغليف"],
+          "decisions": [{"title":"علامة أساسية قابلة للتعرف","reason":"التطبيقات المختلفة تحتاج عنصرًا يربطها بصريًا.","implementation":"العمل على شعار يكون مرجعًا لبقية عناصر الهوية."},{"title":"انسجام النظام اللوني","reason":"اختلاف الألوان بلا قاعدة مشتركة يضعف اتساق المواد.","implementation":"تحديد نظام ألوان ضمن نطاق الهوية."},{"title":"اختبار الهوية في التطبيق","reason":"الهوية لا تُقاس بصورة الشعار وحدها، بل بكيفية ظهوره في المواد.","implementation":"عرض تطبيقات مطبوعة وتغليف تعكس العناصر الأساسية نفسها."}]
         },
         "seo": {
           "title": "مطعم الملكي | تصميم شعار وهوية بصرية | وصل تك",
@@ -747,11 +754,12 @@ const projectRecords = [
                   "Print and packaging"
         ],
         "caseStudy": {
-          "overview": "A brand identity project created to unify how the restaurant appears through the logo, colors, and customer-facing applications inside and outside the venue.",
-          "context": "The project needed one visual system connecting the logo, colors, print materials, and packaging instead of each item appearing in a separate style.",
-          "contribution": "Built a visual identity for Al Malaki Restaurant including the logo, color system, and key applications.",
+          "overview": "Al Malaki Restaurant's brand identity goes beyond a standalone logo. The recorded work covers the symbol, colors, print applications and packaging—places where customers encounter the same brand in different formats. The case highlights the consistency of those components without claiming measurable sales growth, awareness or customer preference changes resulting from the design.",
+          "context": "A restaurant brand can look fragmented when packaging, printed items and promotional materials use unrelated treatments. A shared visual basis is needed across pieces with different sizes and purposes while preserving recognition and legibility. The design challenge is to build a reusable visual language rather than styling each item in isolation.",
+          "contribution": "The scope records logo design, a color system and print and packaging applications. We present them as a connected identity: a primary visual mark, supporting color decisions and examples that demonstrate consistency across uses. Production-ready packaging specifications, precise print dimensions and a comprehensive brand manual would require the original deliverable files before being claimed.",
           "scope": ["Logo design","Color system","Print and packaging applications"],
-          "deliveredOutputs": ["Logo design","Color system","Print and packaging"]
+          "deliveredOutputs": ["Logo design","Color system","Print and packaging"],
+          "decisions": [{"title":"Establish a recognizable mark","reason":"Different touchpoints need one consistent point of recognition.","implementation":"Use the logo as the core reference for the visual identity."},{"title":"Define color relationships","reason":"Uncontrolled color choices can make applications appear unrelated.","implementation":"Set a consistent color system for the brand."},{"title":"Show practical applications","reason":"The identity must work beyond a logo on a blank background.","implementation":"Connect printed and packaging examples to the same visual principles."}]
         },
         "seo": {
           "title": "Al Malaki Restaurant | Brand Identity Design | Wasl Tech",
@@ -787,11 +795,12 @@ const projectRecords = [
                   "طابع تقني حديث"
         ],
         "caseStudy": {
-          "overview": "هوية بصرية بُنيت حول طابع تقني واضح، مع نظام يساعد الشركة على الظهور بصورة متسقة في موادها المختلفة.",
-          "context": "المشروع يحتاج مظهرًا تقنيًا واضحًا يمكن تطبيقه بصورة متسقة عبر مواد الشركة المختلفة.",
-          "contribution": "بناء شعار ونظام بصري لشركة ميلانو بطابع تقني حديث.",
+          "overview": "الهوية البصرية لشركة «ميلانو» تركز على تقديم الشركة بطابع تقني متماسك عبر الشعار والنظام البصري وتطبيقات الهوية. الهدف من العرض ليس الادعاء بأن الشكل وحده يثبت كفاءة الشركة، بل توضيح كيف يمكن لنظام بصري ثابت أن يجعل المواد المختلفة جزءًا من علامة واحدة. تنطلق دراسة الحالة من نطاق العمل المسجل ولا تفترض هوية لفظية أو استراتيجية تسويق مكتملة ما لم تتوفر ملفاتها.",
+          "context": "عندما تُصمم كل مادة للشركة من جديد بلا مرجع مشترك، يصعب المحافظة على شكل موحد بين العروض والمنشورات والمطبوعات. يحتاج المشروع إلى عناصر يسهل إعادة استخدامها مع بقاء الاسم واضحًا وطابع العلامة متسقًا. لهذا تتعامل الدراسة مع الهوية بوصفها نظامًا لا تجميعة صور منفصلة.",
+          "contribution": "يشمل نطاق العمل تصميم الشعار والنظام البصري وتطبيقات الهوية. وقد صيغت المخرجات حول العلاقة بين هذه الأجزاء: الشعار أصل، والنظام يحدد القواعد المرئية، والتطبيقات تظهر إمكانية استخدامها عمليًا. الألوان الدقيقة، وتفاصيل الخطوط، وملفات الاستخدام النهائية تنتظر مراجعة مصدر التصميم قبل إضافتها بوصفها مواصفات رسمية.",
           "scope": ["تصميم الشعار","النظام البصري","تطبيقات الهوية"],
-          "deliveredOutputs": ["تصميم الشعار","النظام البصري","تطبيقات الهوية"]
+          "deliveredOutputs": ["تصميم الشعار","النظام البصري","تطبيقات الهوية"],
+          "decisions": [{"title":"شعار يحدد نقطة التعرف","reason":"العلامة تحتاج عنصرًا يمكن أن يظل مميزًا عبر أحجام واستخدامات مختلفة.","implementation":"إعداد الشعار ضمن نطاق نظام هوية متكامل."},{"title":"نظام بصري قابل لإعادة الاستخدام","reason":"ثبات المظهر يحتاج قواعد بين العناصر لا قرارات منفصلة في كل مادة.","implementation":"ربط مكونات الهوية داخل اتجاه تقني واضح."},{"title":"تطبيقات توضح الاتساق","reason":"تجربة الهوية الحقيقية تظهر عند انتقالها من النموذج إلى الاستخدام.","implementation":"عرض تطبيقات تستند إلى الأسلوب البصري ذاته."}]
         },
         "seo": {
           "title": "ميلانو | تصميم شعار وهوية بصرية لشركة | وصل تك",
@@ -808,11 +817,12 @@ const projectRecords = [
                   "Modern technical character"
         ],
         "caseStudy": {
-          "overview": "A visual identity built around a clear technical character, giving the company a consistent system for use across different materials.",
-          "context": "The project needed a clear technical visual language that could be applied consistently across the company's materials.",
-          "contribution": "Built the logo and visual system for Milano around a modern technical direction.",
+          "overview": "Milano's visual identity project focuses on a consistent technology-oriented appearance across its logo, visual system and brand applications. The case does not suggest that a polished identity alone proves a company's technical capability; it explains how shared design choices can make separate materials recognizable as one brand. The description follows the recorded scope without inventing an unverified messaging strategy or marketing rollout.",
+          "context": "When each company asset is designed independently, its appearance may drift between presentations, printed materials and digital posts. The project therefore needs reusable visual principles that maintain recognition and readable branding across formats. This case treats the identity as a system, not a set of unrelated decorative images.",
+          "contribution": "The documented work comprises logo development, a visual system and identity applications. We describe the relationship between them: the mark establishes recognition, the visual system connects components and the applications show how they can be used together. Exact font names, color specifications and production deliverable formats need review of original design files before publication as official facts.",
           "scope": ["Logo design","Visual system","Brand applications"],
-          "deliveredOutputs": ["Logo design","Visual system","Brand applications"]
+          "deliveredOutputs": ["Logo design","Visual system","Brand applications"],
+          "decisions": [{"title":"Create a consistent focal mark","reason":"The brand needs recognizable elements across different sizes and media.","implementation":"Treat the logo as the anchor of a reusable identity."},{"title":"Define shared visual rules","reason":"A consistent look requires relationships between elements, not isolated styling.","implementation":"Organize the design components around a coherent technical character."},{"title":"Demonstrate reuse","reason":"An identity becomes meaningful when it can be applied outside the concept board.","implementation":"Present applications that follow the same core visual system."}]
         },
         "seo": {
           "title": "Milano | Company Logo & Brand Identity | Wasl Tech",
