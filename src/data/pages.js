@@ -62,7 +62,7 @@ export const pages = Object.freeze([
           Object.freeze({id:"faq",kicker:"الأسئلة الشائعة",title:"إجابات تساعدك قبل أن تبدأ",support:"أهم الأسئلة حول الخدمات، التنفيذ، وما الذي تحتاجه للبدء معنا."}),
           Object.freeze({id:"final-cta",kicker:"ابدأ مشروعك",title:"لا تعرف من أين تبدأ؟",support:"راسلنا بفكرة مشروعك، وسنساعدك على اختيار الحل المناسب حسب احتياجك وميزانيتك."})
         ]),
-        seo: Object.freeze({title:"تصميم مواقع وتطبيقات ومتاجر وأنظمة | وصل تك",description:"وصل تك (وصلتك) لتصميم وتطوير مواقع إلكترونية وتطبيقات الجوال والمتاجر والأنظمة، مع خدمات الهوية والتسويق الرقمي للمشاريع في اليمن والخليج."})
+        seo: Object.freeze({title:"تصميم مواقع وتطبيقات ومتاجر وأنظمة | وصل تك",description:"وصل تك لتصميم وتطوير مواقع إلكترونية وتطبيقات الجوال والمتاجر والأنظمة، مع خدمات الهوية والتسويق الرقمي للمشاريع في اليمن والخليج."})
       }),
       en: Object.freeze({
         purpose: "Position Wasl Tech as a partner that turns real business needs into usable, evolvable digital products, systems, and brand presence.",
@@ -108,7 +108,7 @@ export const pages = Object.freeze([
           Object.freeze({id:"build",kicker:"خدماتنا",title:"ماذا نصنع؟",support:"مواقع وتطبيقات، متاجر إلكترونية، هويات بصرية، بروفايلات، محتوى وتسويق، وأنظمة وحلول تقنية مخصصة."}),
           Object.freeze({id:"final-cta",kicker:"ابدأ معنا",title:"لديك فكرة تستحق أن تظهر؟",support:"شاركنا فكرتك، ونساعدك على تحويلها إلى حضور رقمي احترافي يناسب مشروعك."})
         ]),
-        seo:Object.freeze({title:"من نحن | وصل تك لتصميم المواقع والبرمجة والحلول الرقمية",description:"تعرف على فريق وصل تك (وصلتك)، الذي يصمم المواقع ويبرمج التطبيقات والمتاجر والأنظمة المخصصة ويقدم حلول الهوية البصرية والتسويق في اليمن والخليج."})
+        seo:Object.freeze({title:"من نحن | وصل تك لتصميم المواقع والبرمجة والحلول الرقمية",description:"تعرف على فريق وصل تك، الذي يصمم المواقع ويبرمج التطبيقات والمتاجر والأنظمة المخصصة ويقدم حلول الهوية البصرية والتسويق في اليمن والخليج."})
       }),
       en:Object.freeze({
         purpose:"Introduce Wasl Tech as a team that connects strategy, design, software, identity, and marketing around a real project need.",
@@ -209,7 +209,7 @@ export const pages = Object.freeze([
         Object.freeze({id:"project",kicker:"لديك مشروع؟",title:"شاركنا تفاصيل مشروعك",support:"استخدم مخطط المشروع لترتيب الهدف والمرحلة والأولوية والمتطلبات الأساسية قبل التواصل، حتى تبدأ المحادثة بصورة أوضح وتقل الأسئلة المتكررة."}),
         Object.freeze({id:"context",kicker:"غير متأكد من الخدمة؟",title:"سنساعدك على اختيار الأنسب",support:"اشرح فكرتك أو احتياجك كما هو حتى لو لم تعرف اسم الخدمة أو التقنية المناسبة؛ سنساعدك على تحويل المشكلة إلى مسار أقرب للتنفيذ. وإذا كان المشروع قائمًا، أخبرنا بما يعمل حاليًا وما الذي تريد تحسينه حتى نفهم نقطة البداية بدقة أكبر."}),
         Object.freeze({id:"final-cta",kicker:"ابدأ الآن",title:"ابدأ الحديث معنا",support:"راسلنا وسنناقش معك فكرتك واحتياجك والخطوة المناسبة للبدء."})
-      ]),seo:Object.freeze({title:"تواصل مع وصل تك (وصلتك) | تصميم مواقع وبرمجة تطبيقات",description:"تواصل مع وصل تك (وصلتك) لمناقشة تصميم موقع إلكتروني أو برمجة تطبيق أو متجر أو نظام مخصص. طرق التواصل عبر واتساب والبريد الإلكتروني ومخطط المشروع."})}),
+      ]),seo:Object.freeze({title:"تواصل مع وصل تك | تصميم مواقع وبرمجة تطبيقات",description:"تواصل مع وصل تك لمناقشة تصميم موقع إلكتروني أو برمجة تطبيق أو متجر أو نظام مخصص. طرق التواصل عبر واتساب والبريد الإلكتروني ومخطط المشروع."})}),
       en:Object.freeze({purpose:"Make it easy to contact Wasl Tech and start discussing a project.",kicker:"Contact us",title:"We are here to help",support:"Whether you have a new idea or an existing project, share the goal, current situation, and what you want to improve. We will help identify the right starting point, the closest service path, and the information needed before scope is defined.",primaryCta:"Contact us on WhatsApp",secondaryCta:"Start your project",sections:Object.freeze([
         Object.freeze({id:"direct",kicker:"Direct contact",title:"Choose the best way to reach us",support:"Use WhatsApp or email for a direct question or a short project idea. We start by understanding the need before suggesting the next step or delivery path."}),
         Object.freeze({id:"project",kicker:"Have a project?",title:"Share your project details",support:"Use the project planner to organize the goal, stage, priority, and essential requirements before contacting us so the first conversation starts with clearer context."}),
