@@ -74,6 +74,11 @@ for (const entry of getIndexableEntries()) {
 
   const title = decode(matchOne(html, /<title>([\s\S]*?)<\/title>/i));
   const description = decode(matchOne(html, /<meta\s+name="description"\s+content="([^"]*)"/i));
+  // Public search snippets must use the official brand, not the awkward
+  // parenthesized spelling variant. The alias stays in structured entity data.
+  if (/\\(\\s*وصلتك\\s*\\)/.test(title) || /\\(\\s*وصلتك\\s*\\)/.test(description)) {
+    fail(route, "title/meta description must not expose parenthesized وصلتك");
+  }
   registerUnique(seenTitles, title, route, "title");
   registerUnique(seenDescriptions, description, route, "meta description");
 
