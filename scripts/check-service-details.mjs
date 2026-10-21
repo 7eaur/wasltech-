@@ -67,6 +67,8 @@ for (const locale of ["ar","en"]) {
     }
 
     const subserviceDisclosureCount=(html.match(/class="service-disclosure service-subservice__details"/g)??[]).length;
+    const shortOptionCount=(html.match(/class="service-subservice__description"/g)??[]).length;
+    if((copy.subservices?.length ?? 0)<=3 && shortOptionCount!==(copy.subservices?.length ?? 0)) fail(file,"short options must keep title and description together inside the content grid cell");
     if((copy.subservices?.length ?? 0)>3){
       if(subserviceDisclosureCount!==copy.subservices.length) fail(file,"long service options need native, JS-free disclosures");
       if(!html.includes('class="service-disclosure service-subservice__details" open')) fail(file,"first service option must show a visible explanation");
@@ -133,6 +135,7 @@ for (const locale of ["ar","en"]) {
     }
 
     const related = getProjectsByService(service.id);
+    if (related.length && !html.includes(`class="service-proof__grid" data-count="${Math.min(3, related.length)}"`)) fail(file,"related-work grid must reflect actual card count");
     const hasProof = /class="[^"]*\bservice-proof\b[^"]*"/.test(html);
     if (Boolean(related.length) !== hasProof) {
       fail(file,`related proof visibility mismatch for service: ${service.id}`);
@@ -168,6 +171,10 @@ for (const duplicate of [
 }
 
 const serviceCss=await readFile(path.join(ROOT,"src/styles/service-detail.css"),"utf8");
+const serviceGuidance=await readFile(path.join(ROOT,"src/components/ServiceGuidance.js"),"utf8");
+if(!serviceGuidance.includes('class="container service-guidance__grid"') || serviceGuidance.includes("article-related__grid")) fail("ServiceGuidance.js","service guidance must not depend on unloaded article page styles");
+if(!serviceCss.includes(".service-guidance__grid{display:grid") || !serviceCss.includes(".service-guidance__links a{display:grid")) fail("service-detail.css","service guidance layout and linked article cards need local route styles");
+
 if(!serviceCss.includes(".service-decision-panel{grid-template-columns:1fr}")) fail("service-detail.css","mobile decision summaries must stack for readable reflow");
 
 // Descriptions are real service content and must be visible at narrow widths too.

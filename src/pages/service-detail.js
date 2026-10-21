@@ -139,14 +139,17 @@ function renderSubservices(service, locale) {
         <div class="service-subservices__grid">
           ${items.map((item,index)=>`
             <article class="service-subservice" id="subservice-${escapeHtml(item.id)}">
+              <span class="service-subservice__index" aria-hidden="true">${String(index + 1).padStart(2,"0")}</span>
               ${items.length > 3 ? `
                 <details class="service-disclosure service-subservice__details"${index===0 ? " open" : ""}>
                   <summary><h3>${escapeHtml(item.title)}</h3></summary>
                   <p>${escapeHtml(item.description)}</p>
                 </details>
               ` : `
-                <h3>${escapeHtml(item.title)}</h3>
-                <p>${escapeHtml(item.description)}</p>
+                <div class="service-subservice__description">
+                  <h3>${escapeHtml(item.title)}</h3>
+                  <p>${escapeHtml(item.description)}</p>
+                </div>
               `}
             </article>
           `).join("")}
@@ -192,12 +195,12 @@ function renderProof(service, locale) {
           kicker:locale === "ar" ? "أعمال مرتبطة" : "Related work",
           title:locale === "ar" ? "نماذج من أعمال مرتبطة بالخدمة" : "Related work examples"
         })}
-        <div class="service-proof__grid">
+        <div class="service-proof__grid" data-count="${projects.length}">
           ${projects.map((project)=>MediaCard({
             href:routes.project(project.slug,locale),
             image:{
               src:project.image,
-              alt:project.content[locale].title,
+              alt:"",
               width:project.imageDimensions.width,
               height:project.imageDimensions.height
             },

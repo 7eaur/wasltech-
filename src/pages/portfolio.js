@@ -39,7 +39,7 @@ function renderProject(project,locale,index) {
   const copy=project.content[locale];
   return MediaCard({
     href:routes.project(project.slug,locale),
-    image:{src:project.image,alt:copy.title,width:project.imageDimensions.width,height:project.imageDimensions.height},
+    image:{src:project.image,alt:"",width:project.imageDimensions.width,height:project.imageDimensions.height},
     kicker:project.platformType[locale],
     title:copy.title,
     body:copy.summary,

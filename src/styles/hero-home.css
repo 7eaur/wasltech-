@@ -70,8 +70,10 @@
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:0;
   margin:0;
-  padding:.75rem .35rem .125rem;
-  border-top:var(--border-thin) solid var(--color-border-default);
+  padding:.8rem .45rem;
+  background:var(--color-bg-subtle);
+  border:var(--border-thin) solid var(--color-border-default);
+  border-radius:var(--radius-card);
 }
 .home-hero__signal{
   display:grid;

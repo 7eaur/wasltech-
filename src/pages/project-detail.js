@@ -28,7 +28,7 @@ function renderBreadcrumb(project,locale) {
 function renderHero(project,locale) {
   const copy=project.content[locale];
   return `
-    <section class="project-detail-hero">
+    <section class="project-detail-hero project-detail-hero--${escapeHtml(project.category)}">
       <div class="container project-detail-hero__grid">
         <div class="project-detail-hero__copy">
           <p class="eyebrow">${escapeHtml(project.platformType[locale])}</p>
@@ -133,12 +133,12 @@ function renderRelated(project,locale) {
           </div>
           <a class="text-link" href="${routes.portfolio(locale)}">${locale === "ar" ? "كل الأعمال" : "All work"}</a>
         </div>
-        <div class="project-related__grid">
+        <div class="project-related__grid" data-count="${related.length}">
           ${related.map((item)=>MediaCard({
             href:routes.project(item.slug,locale),
             image:{
               src:item.image,
-              alt:item.content[locale].title,
+              alt:"",
               width:item.imageDimensions.width,
               height:item.imageDimensions.height
             },

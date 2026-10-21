@@ -13,11 +13,21 @@ for(const contract of ["export function CallToAction","site-cta__inner","site-ct
 
 for(const file of [
   "home.js","about.js","process.js","services.js","service-detail.js","portfolio.js",
-  "project-detail.js","contact.js","insights.js","article-detail.js","job-detail.js"
+  "project-detail.js","insights.js","article-detail.js","job-detail.js"
 ]){
   const source=await readFile(path.join(ROOT,"src/pages",file),"utf8");
   if(!source.includes("CallToAction")) fail(file,"closing CTA must use CallToAction");
 }
+
+// Contact is the destination for action, so repeating a closing WhatsApp CTA
+// after two decision paths and three direct channels adds no new destination.
+const contactSource=await readFile(path.join(ROOT,"src/pages/contact.js"),"utf8");
+if(!contactSource.includes('class="container contact-paths__grid"') ||
+   !contactSource.includes('class="contact-channels"') ||
+   !contactSource.includes('href="${whatsappHref(locale)}"')) {
+  fail("contact.js","contact must retain explicit decision paths and direct contact channels");
+}
+if(contactSource.includes("CallToAction")) fail("contact.js","duplicate closing action returned after contact choices");
 
 // Inner-page hero actions are intentionally absent from rendered HTML and source.
 for(const file of ["services.js","service-detail.js","contact.js","process.js","faq.js","insights.js"]){

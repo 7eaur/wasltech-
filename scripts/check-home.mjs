@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import { routes } from "../src/config/routes.js";
 import { pages } from "../src/data/pages.js";
 import { services } from "../src/data/services.js";
-import { getProjectById } from "../src/data/projects.js";
+import { getProjectById, projects } from "../src/data/projects.js";
 import { featuredProjectIds } from "../src/pages/home.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -73,9 +73,13 @@ for (const locale of ["ar", "en"]) {
     }
   }
 
-  if ((html.match(/<article class="media-card media-card--compact">/g) ?? []).length !== services.length) {
+  if ((html.match(/<article class="media-card media-card--compact(?: media-card--spotlight)?">/g) ?? []).length !== services.length) {
     fail(file, `Home must show exactly ${services.length} service cards`);
   }
+
+  if ((html.match(/class="media-card media-card--compact media-card--spotlight"/g)??[]).length!==1) fail(file,"one desktop-emphasized software service card required");
+  const availableCount=projects.filter(item=>item.localeStatus?.[locale]==="ready").length;
+  if(!html.includes(`class="home-work__proof">${availableCount} `)) fail(file,"portfolio proof must reflect published projects rather than invented metrics");
 
   for (const projectId of featuredIds) {
     const project = getProjectById(projectId);
@@ -125,6 +129,7 @@ for (const locale of ["ar", "en"]) {
 }
 
 const homeCss=await readFile(path.join(ROOT,"src/styles/home.css"),"utf8");
+if(!homeCss.includes(".home-service-grid>.media-card--spotlight")) fail("home.css","software spotlight must be scoped to the home directory");
 if(!homeCss.includes(".home-process__steps{--process-columns:4}")) fail("home.css","4-column desktop process missing");
 if(!homeCss.includes(".home-why__grid{grid-template-columns:repeat(3,minmax(0,1fr))")) fail("home.css","3-column desktop strengths missing");
 if(!homeCss.includes(".home-service-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3)}")) fail("home.css","mobile services must stay in a visible two-column grid");
