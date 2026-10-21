@@ -7,6 +7,7 @@ on:
       - main
       - "seo/**"
       - "perf/**"
+      - "design/**"
       - fix/independent-site-recovery-20261010
   pull_request:
     paths:

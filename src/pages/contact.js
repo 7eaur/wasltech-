@@ -1,7 +1,6 @@
 import { routes } from "../config/routes.js";
 import { site } from "../config/site.js";
 import { pages } from "../data/pages.js";
-import { CallToAction } from "../components/CallToAction.js";
 import { documentTemplate } from "../templates/document.js";
 import { organizationSchema } from "../seo/structured-data.js";
 import { escapeHtml } from "../lib/html.js";
@@ -38,12 +37,9 @@ export function contactPage(locale="ar"){
   const direct=section(content,"direct");
   const project=section(content,"project");
   const context=section(content,"context");
-  const finalCta=section(content,"final-cta");
 
   const body=`
     ${PageIntro({kicker:content.kicker,title:content.title,supporting:content.support,variant:"contact"})}
-
-
 
     <section class="section section--subtle contact-paths">
       <div class="container contact-paths__grid">
@@ -66,7 +62,6 @@ export function contactPage(locale="ar"){
         <div>
           <p class="eyebrow">${escapeHtml(direct.kicker)}</p>
           <h2>${escapeHtml(direct.title)}</h2>
-          <p>${escapeHtml(direct.support)}</p>
         </div>
         <div class="contact-channels">
           ${renderChannel({label:locale==="ar"?"واتساب":"WhatsApp",value:site.contact.phoneDisplay,href:whatsappHref(locale),iconName:"whatsapp",external:true,valueDir:"ltr"})}
@@ -80,12 +75,6 @@ export function contactPage(locale="ar"){
       <p>${escapeHtml(context.support)} <a class="text-link" href="${routes.services(locale)}">${locale === "ar" ? "تصفح خدماتنا" : "Explore services"}</a></p>
     </div>
 
-    ${CallToAction({
-      kicker:finalCta.kicker,
-      title:finalCta.title,
-      description:finalCta.support,
-      action:{href:whatsappHref(locale),label:content.primaryCta}
-    })}
   `;
 
   return documentTemplate({

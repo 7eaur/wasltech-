@@ -83,6 +83,7 @@ for(const locale of ["ar","en"]){
     if(!articleHtml.includes(`<h1>${htmlText(articleCopy.title)}</h1>`)) fail(articleFile,"article H1 missing");
     if(!articleHtml.includes(htmlText(articleCopy.seo.title))) fail(articleFile,"article SEO title missing");
     if(!articleHtml.includes('"@type":"Article"')) fail(articleFile,"Article structured data missing");
+    if(!articleHtml.includes('class="article-inline-action"') || !articleHtml.includes(`href="${routes.startProject(locale)}"`)) fail(articleFile,"article must provide a real mid-content project brief link");
   }
 
   const openJobs=jobs.filter((item)=>item.status==="open" && item.localeStatus?.[locale]==="ready");
@@ -172,10 +173,11 @@ if(terminal.length!==2 || terminal[1]?.src!=="/.*" || terminal[1]?.status!==404 
 
 
 const articleCss=await readFile(path.join(ROOT,"src/styles/insights-careers.css"),"utf8");
-if(!articleCss.includes(".article-content__layout{display:grid;grid-template-columns:minmax(0,52rem)")) {
+if(!articleCss.includes(".article-content__layout{display:grid;grid-template-columns:minmax(0,46rem)")) {
   fail("article","intro and body must be in a single readable editorial column");
 }
 const faqCss=await readFile(path.join(ROOT,"src/styles/secondary.css"),"utf8");
+if(!faqCss.includes("rotate(225deg)") || !faqCss.includes(".faq-item[open]")) fail("faq","native disclosure indicator must animate without JavaScript");
 if(!faqCss.includes("padding-inline-end:2.5rem") || !faqCss.includes(".faq-group{display:grid")) {
   fail("faq","logical RTL/LTR disclosure space and grouped layout are required");
 }

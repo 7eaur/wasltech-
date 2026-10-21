@@ -44,6 +44,9 @@ for (const locale of ["ar", "en"]) {
     const html = await readFile(path.join(DIST, file), "utf8");
 
     if (count(html, /data-site-header/g) !== 1) fail(file, "expected exactly one shared site header");
+    if (count(html, /class="floating-contact"/g) !== 1) fail(file,"single global floating contact shortcut required");
+    if (!html.includes(`href="${site.contact.whatsapp}?text=`)) fail(file,"localized WhatsApp shortcut missing");
+
     if (count(html, /<footer\b/g) !== 1) fail(file, "expected exactly one shared footer");
     if (!html.includes("data-menu-toggle")) fail(file, "mobile menu toggle missing");
     if (!html.includes("data-primary-nav")) fail(file, "primary navigation contract missing");
@@ -104,7 +107,11 @@ for (const locale of ["ar", "en"]) {
   }
 }
 
+const quickContact=await readFile(path.join(ROOT,"src/components/FloatingContact.js"),"utf8");
+if(!quickContact.includes("encodeURIComponent(copy.message)") || !quickContact.includes('rel="noopener noreferrer"')) fail("FloatingContact.js","safe encoded bilingual contact link required");
+
 const layoutCss=await readFile(path.join(ROOT,"src/styles/layout.css"),"utf8");
+if(!layoutCss.includes(".site-header{position:sticky;top:0;z-index:var(--z-header)")) fail("layout.css","the header must remain sticky");
 if(!layoutCss.includes(".footer-links a{display:inline-flex;align-items:center;min-height:1.5rem}")) {
   fail("src/styles/layout.css","footer link targets must be at least 24px tall in English and Arabic");
 }

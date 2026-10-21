@@ -7,9 +7,9 @@ export function ServiceGuidance({ service, locale = "ar" } = {}) {
   if (!items.length) return "";
 
   return `
-    <section class="section article-related service-guidance" id="service-guidance">
-      <div class="container article-related__grid">
-        <div>
+    <section class="section service-guidance" id="service-guidance">
+      <div class="container service-guidance__grid">
+        <div class="service-guidance__intro">
           <p class="eyebrow">${locale === "ar" ? "أدلة مرتبطة" : "Related guidance"}</p>
           <h2>${locale === "ar"
             ? "محتوى يساعدك على اتخاذ القرار قبل التنفيذ"
@@ -18,7 +18,7 @@ export function ServiceGuidance({ service, locale = "ar" } = {}) {
             ? "مقالات عملية مرتبطة بهذه الخدمة تساعدك على ترتيب النطاق والأسئلة قبل بدء المشروع."
             : "Practical articles related to this service that help clarify scope and key questions before you start."}</p>
         </div>
-        <div class="article-related__links">
+        <div class="service-guidance__links">
           ${items.map((article)=>`
             <a href="${routes.article(article.slug,locale)}">
               <strong>${escapeHtml(article.content[locale].title)}</strong>

@@ -72,7 +72,7 @@ for(const locale of ["ar","en"]){
 
   const aboutHtml=await htmlFor(routes.about(locale));
   if(aboutHtml.includes(`<strong>${projects.length}</strong>`)) fail(routes.about(locale),"About must not expose project count");
-  if(aboutHtml.includes("<strong>8</strong>")) fail(routes.about(locale),"About must not expose service count");
+  if(!aboutHtml.includes(`<dt>${services.length}</dt>`)) fail(routes.about(locale),"About company facts must use actual catalog service count");
 }
 
 for(const [file,locale] of [["404.html","ar"],["en/404.html","en"]]){
@@ -101,8 +101,6 @@ const approvedFooterTrustCopy=[
 const forbiddenPublicPatterns=[
   { pattern:/مشروعًا موثقًا|مشاريع موثقة/i, label:"unsupported project-proof copy" },
   { pattern:/verified projects/i, label:"unsupported project-proof copy" },
-  { pattern:/\b8\s+خدمات\b|ثمان(?:ي|ية)\s+خدمات/i, label:"public service count" },
-  { pattern:/\b8\s+services\b|\beight\s+services\b/i, label:"public service count" },
   { pattern:/رضا العملاء|مشاريع ناجحة|فريق ذو خبرة|جودة وموثوقية/i, label:"unsupported trust claim" },
   { pattern:/client satisfaction|successful projects|experienced team|quality and reliability/i, label:"unsupported trust claim" },
   { pattern:/\bVNext\b/i, label:"internal release terminology" },
@@ -128,4 +126,4 @@ if(errors.length){
 }
 
 console.log("VNEXT PUBLIC SURFACES CHECK: PASSED");
-console.log("Hero media, public counter removal, and editorial surface contracts verified.");
+console.log("Hero media, verified company facts, and unsupported-public-claim guards verified.");

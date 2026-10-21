@@ -10,8 +10,8 @@
 .faq-item{border-bottom:var(--border-thin) solid var(--color-border-default)}
 .faq-item summary{position:relative;padding-block:var(--space-5);padding-inline-end:2.5rem;cursor:pointer;color:var(--color-text-brand);font-size:var(--font-size-md);font-weight:var(--font-weight-semibold);list-style:none}
 .faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:"+";position:absolute;inset-inline-end:.25rem;top:50%;translate:0 -50%;color:var(--color-text-accent);font-size:1.5rem}
-.faq-item[open] summary::after{content:"−"}
+.faq-item summary::after{content:"";position:absolute;inset-inline-end:.45rem;top:50%;width:.6rem;height:.6rem;border-inline-end:2px solid var(--color-text-accent);border-block-end:2px solid var(--color-text-accent);transform:translateY(-65%) rotate(45deg);transition:transform var(--motion-base) var(--ease-standard)}
+.faq-item[open] summary::after{transform:translateY(-15%) rotate(225deg)}
 .faq-item p{max-width:50rem;padding-bottom:var(--space-5);color:var(--color-text-secondary)}
 
 .empty-surface__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(var(--space-6),5vw,var(--space-12))}

@@ -1,19 +1,22 @@
 .service-family{padding-block:clamp(var(--space-8),5vw,var(--section-space));border-top:var(--border-thin) solid var(--color-border-subtle)}
 .service-family:nth-child(even){background:var(--color-bg-subtle)}
-.service-family__header .section-header{margin-bottom:var(--space-7)}
+.service-family__header .section-header{max-width:50rem;margin-bottom:var(--space-7)}
+.service-family__header .section-header h2{font-size:clamp(1.55rem,1.2rem + 1.25vw,2.25rem);text-wrap:balance}
+.service-family__header .section-header p{max-width:49rem}
 .service-directory-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-5)}
-.service-directory-row{min-width:0;overflow:hidden;background:var(--color-bg-canvas);border:var(--border-thin) solid var(--color-border-default);border-radius:var(--radius-card)}
-.service-directory-row__media{display:block;aspect-ratio:16/8.8;overflow:hidden;background:var(--color-bg-soft)}
+.service-directory-row{display:flex;flex-direction:column;min-width:0;overflow:hidden;background:var(--color-bg-canvas);border:var(--border-thin) solid var(--color-border-default);border-radius:var(--radius-card)}
+.service-directory-row__media{display:block;flex:none;aspect-ratio:16/9;overflow:hidden;background:var(--color-bg-soft)}
 .service-directory-row__media img{width:100%;height:100%;object-fit:cover;transition:transform var(--motion-slow) var(--ease-standard)}
 .service-directory-row:hover .service-directory-row__media img{transform:scale(1.015)}
-.service-directory-row__copy{padding:var(--space-5)}
+.service-directory-row__copy{display:flex;flex:1;flex-direction:column;align-items:stretch;min-width:0;padding:var(--space-5)}
 .service-directory-row__subtitle{margin-bottom:.4rem;color:var(--color-text-accent);font-size:clamp(.82rem,.79rem + .08vw,.88rem);font-weight:var(--font-weight-semibold);line-height:1.55}
-.service-directory-row__copy h3{margin-bottom:.65rem;font-size:clamp(1.18rem,1.08rem + .3vw,1.42rem);line-height:1.4}
-.service-directory-row__summary{color:var(--color-text-secondary);font-size:clamp(.9rem,.86rem + .1vw,.96rem);line-height:1.72}
+.service-directory-row__copy h3{margin-bottom:.55rem;font-size:clamp(1.18rem,1.08rem + .3vw,1.42rem);line-height:1.4}
+.service-directory-row__summary{max-width:60ch;color:var(--color-text-secondary);font-size:clamp(.9rem,.86rem + .1vw,.96rem);line-height:1.72}
 .service-directory-row__features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem var(--space-4);margin:var(--space-4) 0;padding:var(--space-4) 0;border-block:var(--border-thin) solid var(--color-border-subtle);list-style:none}
 .service-directory-row__features li{position:relative;padding-inline-start:1rem;color:var(--color-text-secondary);font-size:var(--font-size-sm);line-height:1.55}
 .service-directory-row__features li::before{content:"";position:absolute;inset-inline-start:0;top:.65em;width:.35rem;height:.35rem;background:var(--color-brand-accent);border-radius:50%}
-.service-directory-row .text-link{font-size:var(--font-size-sm)}
+.service-directory-row .text-link{align-self:flex-start;display:inline-flex;align-items:center;min-height:2.75rem;margin-top:auto;padding-top:var(--space-2);font-size:var(--font-size-sm);font-weight:var(--font-weight-bold)}
+.service-directory-row:focus-within{border-color:var(--color-border-accent);box-shadow:var(--shadow-sm)}
 @media(min-width:64.0625rem){
  .service-directory-list--three{grid-template-columns:repeat(3,minmax(0,1fr))}
  .service-directory-list--three .service-directory-row__features{grid-template-columns:1fr}
@@ -35,7 +38,7 @@
  .service-directory-row__copy h3{margin:0;font-size:clamp(1rem,.92rem + .32vw,1.16rem);line-height:1.35}
  .service-directory-row__summary{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;margin:0;font-size:.875rem;line-height:1.5}
  .service-directory-row__features{display:none}
- .service-directory-row .text-link{margin-top:.2rem;font-size:.875rem}
+ .service-directory-row .text-link{min-height:2.75rem;margin-top:.1rem;padding-top:0;font-size:.875rem}
  .service-family{padding-block:var(--space-7)}
  .service-family__header .section-header{margin-bottom:var(--space-4)}
 }

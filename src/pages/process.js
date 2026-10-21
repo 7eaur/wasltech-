@@ -33,11 +33,11 @@ function renderPhases(content,locale){
   return `
     <section class="section process-phases">
       <div class="container">
-        <div class="process-phases__list">
+        <ol class="process-phases__list" aria-label="${locale === "ar" ? "مراحل تنفيذ المشروع" : "Project delivery stages"}">
           ${phaseIds.map((id,index)=>{
             const item=section(content,id);
             return `
-              <article class="process-phase" id="phase-${id}">
+              <li class="process-phase" id="phase-${id}">
                 <div class="process-phase__number">0${index+1}</div>
                 <div class="process-phase__main">
                   <p class="eyebrow">${escapeHtml(item.kicker)}</p>
@@ -48,10 +48,10 @@ function renderPhases(content,locale){
                   <span>${locale==="ar"?"ما الذي يصبح أوضح":"What becomes clearer"}</span>
                   <p>${escapeHtml(item.outcome)}</p>
                 </div>
-              </article>
+              </li>
             `;
           }).join("")}
-        </div>
+        </ol>
       </div>
     </section>
   `;
