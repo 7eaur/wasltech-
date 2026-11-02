@@ -1,62 +1,4 @@
 @media(min-width:42.5625rem){
-  .home-hero{
-    padding-block:.875rem .625rem;
-  }
-  .home-hero__grid{
-    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-    gap:.75rem 1.875rem;
-    align-items:center;
-    min-height:25rem;
-    padding:1.625rem;
-  }
-  .home-hero__media{
-    grid-column:1;
-    grid-row:1/4;
-    align-self:stretch;
-    display:flex;
-    align-items:center;
-    margin:0;
-    border-radius:1.125rem;
-  }
-  .home-hero__copy{
-    grid-column:2;
-    grid-row:1;
-    align-self:end;
-    text-align:start;
-  }
-  .home-hero .eyebrow{
-    margin-bottom:.7rem;
-  }
-  .home-hero h1{
-    max-width:12ch;
-    margin:0 0 .75rem;
-    font-size:clamp(2.45rem,3.7vw,3.45rem);
-  }
-  .home-hero__support{
-    margin-inline:0;
-    font-size:.95rem;
-  }
-  .home-hero__actions{
-    grid-column:2;
-    grid-row:2;
-    display:flex;
-    align-self:center;
-  }
-  .home-hero__actions .button{
-    width:auto;
-  }
-  .home-hero__signals{
-    grid-column:2;
-    grid-row:3;
-    align-self:start;
-  }
-  .home-hero__signal strong{
-    font-size:.875rem;
-  }
-  .home-hero__signal small{
-    font-size:.8125rem;
-  }
-
   :is(
     .services-hero,
     .service-detail-hero,
@@ -156,21 +98,6 @@
 }
 
 @media(min-width:62.5625rem){
-  .home-hero{
-    padding-block:1.125rem .75rem;
-  }
-  .home-hero__grid{
-    gap:1rem 2.625rem;
-    min-height:26.875rem;
-    padding:2rem 2.125rem;
-  }
-  .home-hero h1{
-    font-size:clamp(2.65rem,3.6vw,3.65rem);
-  }
-  .home-hero__support{
-    max-width:37rem;
-    font-size:1rem;
-  }
   :is(
     .services-hero__grid,
     .service-detail-hero__grid,
@@ -205,28 +132,7 @@
   }
 }
 
-@media(max-width:40rem){
-  .home-hero__signals{grid-template-columns:1fr;padding:.5rem 0 0}
-  .home-hero__signal{grid-template-columns:1.5rem minmax(0,1fr);align-items:start;justify-items:stretch;gap:.65rem;padding:.55rem .15rem;text-align:start}
-  .home-hero__signal+ .home-hero__signal{border-inline-start:0;border-top:var(--border-thin) solid var(--color-border-default)}
-  .home-hero__signal-icon{width:1rem;height:1rem;margin-top:.15rem}
-  .home-hero__signal strong{font-size:.875rem}
-  .home-hero__signal small{font-size:.8125rem;line-height:1.45}
-}
-
 @media(max-width:22.5rem){
-  .home-hero__grid{
-    padding:.95rem .75rem .75rem;
-  }
-  .home-hero h1{
-    font-size:1.9rem;
-  }
-  .home-hero__support{
-    font-size:.875rem;
-  }
-  .home-hero__signals{gap:.2rem}
-  .home-hero__signal{padding:.4rem 0}
-  .home-hero__signal small{display:block;font-size:.8125rem;line-height:1.5}
   :is(
     .services-hero,
     .service-detail-hero,

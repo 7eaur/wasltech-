@@ -134,6 +134,15 @@ if(!homeCss.includes(".home-process__steps{--process-columns:4}")) fail("home.cs
 if(!homeCss.includes(".home-why__grid{grid-template-columns:repeat(3,minmax(0,1fr))")) fail("home.css","3-column desktop strengths missing");
 if(!homeCss.includes(".home-service-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3)}")) fail("home.css","mobile services must stay in a visible two-column grid");
 if(!homeCss.includes(".home-project-grid .media-card{display:grid;grid-template-columns:7rem minmax(0,1fr)")) fail("home.css","mobile work cards must use the compact horizontal layout");
+// Regression: the homepage has its own responsive bundle, including desktop media sizing.
+const heroHomeCss=await readFile(path.join(ROOT,"src/styles/hero-home.css"),"utf8");
+const builtHomeCss=await readFile(path.join(DIST,"assets/css/home.css"),"utf8");
+for (const [source, css] of [["hero-home.css",heroHomeCss],["dist/assets/css/home.css",builtHomeCss]]) {
+  if (!css.includes("@media(min-width:48.0625rem)")) fail(source,"desktop two-column homepage hero breakpoint is missing");
+  if (!css.includes(".home-hero__media picture{")) fail(source,"hero picture must be sized to its media frame");
+  if (!css.includes("max-width:32rem")) fail(source,"hero image must remain bounded on desktop");
+  if (!css.includes("grid-column:2")) fail(source,"desktop hero copy must occupy its own column");
+}
 const heroResponsiveCss=await readFile(path.join(ROOT,"src/styles/hero-responsive.css"),"utf8");
 for(const [file,css] of [["home.css",homeCss],["hero-responsive.css",heroResponsiveCss]]){
   for(const selector of [".home-about__value span",".home-hero__signal small"]){
