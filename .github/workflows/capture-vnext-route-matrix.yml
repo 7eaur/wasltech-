@@ -191,6 +191,7 @@ jobs:
               locale: locale === "ar" ? "ar-YE" : "en-US",
               reducedMotion: "reduce"
             });
+            await context.addInitScript(() => { localStorage.setItem("wasl-tech-intro-v1", "seen"); });
             const page = await context.newPage();
             await page.goto(base + path, { waitUntil: "networkidle" });
             await page.evaluate(async () => {
@@ -286,6 +287,59 @@ jobs:
               await ctx.close();
             }
             console.log("HOME HERO RESPONSIVE GEOMETRY: PASSED ("+locale+")");
+          }
+
+          async function verifyBrandIntroFlow(locale) {
+            const path = locale === "ar" ? "/" : "/en/";
+            const context = await browser.newContext({viewport:{width:390,height:844},
+              locale:locale==="ar"?"ar-YE":"en-US",reducedMotion:"no-preference"});
+            const page = await context.newPage();
+            await page.goto(base+path,{waitUntil:"domcontentloaded"});
+            await page.waitForFunction(() => document.documentElement.classList.contains("brand-intro-active"),null,{timeout:7000});
+            const originalLogo = await page.locator(".brand-intro__layer--finished").getAttribute("src");
+            if(originalLogo!=="/assets/brand/wasl-tech-horizontal.svg"){
+              throw new Error(locale+": intro must use the official Wasl Tech SVG");
+            }
+            if(await page.locator(".brand-intro").evaluate(el=>getComputedStyle(el).animationName)!=="wt-intro-out"){
+              throw new Error(locale+": branded reveal and exit animations missing");
+            }
+            await page.waitForFunction(() => !document.querySelector("[data-brand-intro]"),null,{timeout:7000});
+            const seen=await page.evaluate(()=>localStorage.getItem("wasl-tech-intro-v1"));
+            if(seen!=="seen")throw new Error(locale+": completed intro did not persist");
+            await page.reload({waitUntil:"domcontentloaded"});
+            await page.waitForFunction(() => !document.querySelector("[data-brand-intro]"),null,{timeout:3000});
+            await page.goto(base+(locale==="ar"?"/services/":"/en/services/"),{waitUntil:"domcontentloaded"});
+            await page.waitForFunction(() => !document.querySelector("[data-brand-intro]"),null,{timeout:3000});
+            await context.close();
+
+            const reduced=await browser.newContext({viewport:{width:390,height:844},
+              locale:locale==="ar"?"ar-YE":"en-US",reducedMotion:"reduce"});
+            const reducedPage=await reduced.newPage();
+            await reducedPage.goto(base+path,{waitUntil:"domcontentloaded"});
+            await reducedPage.waitForFunction(() => document.documentElement.classList.contains("brand-intro-static"),null,{timeout:7000});
+            await reducedPage.waitForFunction(() => !document.querySelector("[data-brand-intro]"),null,{timeout:4000});
+            await reduced.close();
+
+            const skipping=await browser.newContext({viewport:{width:390,height:844},
+              locale:locale==="ar"?"ar-YE":"en-US"});
+            const skipPage=await skipping.newPage();
+            await skipPage.goto(base+path,{waitUntil:"domcontentloaded"});
+            await skipPage.waitForFunction(() => document.documentElement.classList.contains("brand-intro-active"),null,{timeout:7000});
+            await skipPage.keyboard.press("Escape");
+            await skipPage.waitForFunction(() => !document.querySelector("[data-brand-intro]"),null,{timeout:1500});
+            if((await skipPage.evaluate(()=>localStorage.getItem("wasl-tech-intro-v1")))!=="seen"){
+              throw new Error(locale+": skip must not replay the intro on the next page");
+            }
+            await skipping.close();
+
+            const noJs=await browser.newContext({viewport:{width:390,height:844},javascriptEnabled:false});
+            const noJsPage=await noJs.newPage();
+            await noJsPage.goto(base+path,{waitUntil:"domcontentloaded"});
+            if(await noJsPage.locator(".brand-intro").evaluate(el=>getComputedStyle(el).display)!=="none"){
+              throw new Error(locale+": intro must never block a visitor without JS");
+            }
+            await noJs.close();
+            console.log("ONE-TIME BRAND INTRO, RELOAD, INNER PAGE, REDUCED MOTION, SKIP, NO-JS: PASSED ("+locale+")");
           }
 
           async function verifyInteractions(locale) {
@@ -880,6 +934,8 @@ jobs:
 
           await verifyHomeHeroGeometry("ar");
           await verifyHomeHeroGeometry("en");
+          await verifyBrandIntroFlow("ar");
+          await verifyBrandIntroFlow("en");
           const axeFindings=[
             ...await verifyAutomatedAccessibility("ar"),
             ...await verifyAutomatedAccessibility("en")

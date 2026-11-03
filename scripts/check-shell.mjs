@@ -43,6 +43,13 @@ for (const locale of ["ar", "en"]) {
     const file = outputPath(route);
     const html = await readFile(path.join(DIST, file), "utf8");
 
+    if (count(html, /data-brand-intro/g) !== 1) fail(file, "one shared brand intro required on each normal page");
+    if (!html.includes('src="/assets/js/brand-intro-bootstrap.js"') ||
+        !html.includes('src="/assets/js/brand-intro.js" defer')) fail(file, "first-visit logo policy JS missing");
+    if (!html.includes('class="brand-intro__layer brand-intro__layer--finished"')) {
+      fail(file, "approved Wasl Tech logo intro layer missing");
+    }
+
     if (count(html, /data-site-header/g) !== 1) fail(file, "expected exactly one shared site header");
     if (count(html, /class="floating-contact"/g) !== 1) fail(file,"single global floating contact shortcut required");
     if (!html.includes(`href="${site.contact.whatsapp}?text=`)) fail(file,"localized WhatsApp shortcut missing");
@@ -129,6 +136,16 @@ for (const contract of [
   }
 }
 
+// The intro is progressive enhancement: disabled JS must never cover page content.
+const introCss=await readFile(path.join(DIST,"assets/css/site.css"),"utf8");
+const introBootstrap=await readFile(path.join(DIST,"assets/js/brand-intro-bootstrap.js"),"utf8");
+const introController=await readFile(path.join(DIST,"assets/js/brand-intro.js"),"utf8");
+for(const token of [".brand-intro-pending .brand-intro", ".brand-intro-active .brand-intro", "wt-intro-symbol", "wt-intro-wordmark"]){
+  if(!introCss.includes(token)) fail("site.css","missing Update Card-compatible Signature Reveal: "+token);
+}
+if(!introBootstrap.includes('localStorage.getItem("wasl-tech-intro-v1")')) fail("brand-intro-bootstrap.js","first-visit persistent eligibility decision missing");
+if(!introController.includes('localStorage.setItem("wasl-tech-intro-v1", "seen")')) fail("brand-intro.js","one-time completion marker missing");
+if(!introController.includes('"brand-intro-static"') || !introController.includes("3000")) fail("brand-intro.js","reduced-motion/image timeout protection missing");
 const motionClient=await readFile(path.join(ROOT,"src/client/motion.js"),"utf8");
 if(!motionClient.includes('"DOMContentLoaded", scheduleReveals')) fail("motion.js","reveal scheduling should not wait for full image load");
 const componentCss=await readFile(path.join(ROOT,"src/styles/components.css"),"utf8");

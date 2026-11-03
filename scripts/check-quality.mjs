@@ -88,7 +88,7 @@ for (const file of cssFiles) {
   if (bytes > budgets.cssGzip) fail(file, `single CSS bundle gzip budget exceeded: ${bytes} > ${budgets.cssGzip}`);
 }
 
-const jsFiles = ["assets/js/navigation.js", "assets/js/motion.js", "assets/js/analytics.js", "assets/js/portfolio-filter.js", "assets/js/project-planner.js"];
+const jsFiles = ["assets/js/brand-intro-bootstrap.js", "assets/js/brand-intro.js", "assets/js/navigation.js", "assets/js/motion.js", "assets/js/analytics.js", "assets/js/portfolio-filter.js", "assets/js/project-planner.js"];
 let jsGzipTotal = 0;
 for (const file of jsFiles) {
   const source = await readFile(path.join(DIST, file));

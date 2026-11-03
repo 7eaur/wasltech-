@@ -6,6 +6,7 @@ import { Header } from "../components/Header.js";
 import { publicRobots } from "../config/release.js";
 import { Footer } from "../components/Footer.js";
 import { FloatingContact } from "../components/FloatingContact.js";
+import { BrandIntro } from "../components/BrandIntro.js";
 import { escapeHtml } from "../lib/html.js";
 
 const copy = Object.freeze({
@@ -103,12 +104,14 @@ ${nameMetaTag("twitter:image", openGraph.image)}
 ${structuredDataTags}
   <link rel="preload" href="${preloadedFont}" as="font" type="font/woff2" crossorigin>
 ${headingFontPreload}  <link rel="icon" href="${site.brand.assets.favicon}">
+${minimalShell ? "" : '  <script src="/assets/js/brand-intro-bootstrap.js"></script>\n'}
   <link rel="stylesheet" href="/assets/css/site.css">
 ${pageStyleTags}
-${minimalShell ? "" : `  <script src="/assets/js/navigation.js" defer></script>\n  <script src="/assets/js/motion.js" defer></script>`}
+${minimalShell ? "" : `  <script src="/assets/js/brand-intro.js" defer></script>\n  <script src="/assets/js/navigation.js" defer></script>\n  <script src="/assets/js/motion.js" defer></script>`}
 ${minimalShell ? "" : `  <script src="/assets/js/analytics.js" data-analytics-host="${escapeHtml(site.analytics.host)}" data-measurement-id="${escapeHtml(site.analytics.measurementId)}" defer></script>`}
 </head>
 <body>
+  ${minimalShell ? "" : BrandIntro({ locale })}
   <a class="skip-link" href="#main-content">${copy[locale].skip}</a>
   ${minimalShell ? "" : Header({ activePath, locale, alternatePath })}
   <main id="main-content" tabindex="-1">${body}</main>

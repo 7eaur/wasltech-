@@ -43,7 +43,8 @@ const cssSources = [
   "src/styles/components.css",
   "src/styles/media.css",
   "src/styles/text-flow.css",
-  "src/styles/motion.css"
+  "src/styles/motion.css",
+  "src/styles/brand-intro.css"
 ];
 
 const pageCssBundles = Object.freeze({
@@ -141,6 +142,12 @@ async function buildAssets() {
     }
   }
 
+  for (const name of ["brand-intro-bootstrap", "brand-intro"]) {
+    await writeOutput(
+      `assets/js/${name}.js`,
+      await readFile(path.join(ROOT, `src/client/${name}.js`), "utf8")
+    );
+  }
   const navigation = await readFile(path.join(ROOT, "src/client/navigation.js"), "utf8");
   await writeOutput("assets/js/navigation.js", navigation);
   const motion = await readFile(path.join(ROOT, "src/client/motion.js"), "utf8");
