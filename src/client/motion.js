@@ -52,16 +52,23 @@ if (canAnimate) {
     });
   };
 
+  // Do not wait for slow media loads before preparing subtle scroll reveals.
+  let revealScheduled = false;
   const scheduleReveals = () => {
+    if (revealScheduled) return;
+    revealScheduled = true;
     if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(initializeReveals, { timeout: 1200 });
+      window.requestIdleCallback(initializeReveals, { timeout: 600 });
     } else {
-      window.setTimeout(initializeReveals, 320);
+      window.setTimeout(initializeReveals, 0);
     }
   };
 
-  if (document.readyState === "complete") scheduleReveals();
-  else window.addEventListener("load", scheduleReveals, { once: true });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", scheduleReveals, { once: true });
+  } else {
+    scheduleReveals();
+  }
 
   reducedMotion.addEventListener?.("change", (event) => {
     if (!event.matches) return;

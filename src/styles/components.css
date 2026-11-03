@@ -14,7 +14,7 @@
 .text-link{display:inline-flex;align-items:center;gap:.35rem;color:var(--color-text-accent);font-weight:var(--font-weight-semibold)}
 .text-link:hover{text-decoration:underline;text-underline-offset:.18em}
 
-.nav-link{position:relative;color:var(--color-text-brand);font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold)}
+.nav-link{position:relative;display:inline-flex;min-height:2.75rem;align-items:center;color:var(--color-text-brand);font-size:var(--font-size-sm);font-weight:var(--font-weight-semibold)}
 .nav-link:hover{color:var(--color-text-accent)}
 .nav-link.is-active{color:var(--color-text-accent)}
 .nav-link.is-active::after{content:"";position:absolute;inset-inline:0;bottom:-.55rem;height:2px;background:var(--color-brand-accent);border-radius:var(--radius-full)}
@@ -57,6 +57,7 @@
 .media-card__title{margin:0 0 .4rem;font-size:clamp(1rem,.94rem + .18vw,1.14rem);line-height:1.42}
 .media-card__title a::after{content:"";position:absolute;z-index:1;inset:0;border-radius:var(--radius-card)}
 .media-card__title a:hover{color:var(--color-text-accent)}
+.media-card__title a:focus-visible::after{outline:3px solid var(--color-focus);outline-offset:2px}
 .media-card__body{display:-webkit-box;margin:0 0 var(--space-3);color:var(--color-text-secondary);font-size:clamp(.9rem,.87rem + .1vw,.96rem);line-height:1.68;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
 .media-card__action{font-size:var(--font-size-sm)}
 .media-card--featured{grid-column:span 2;display:grid;grid-template-columns:minmax(0,1.16fr) minmax(0,.84fr);align-items:stretch}
@@ -159,9 +160,10 @@
 .floating-contact:focus-visible{outline:3px solid var(--color-brand-accent);outline-offset:3px}
 .floating-contact__icon{display:block;width:1.55rem;height:1.55rem}
 .floating-contact .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
-@media(prefers-reduced-motion:no-preference){
-  .floating-contact::after{content:"";position:absolute;inset:-3px;border:2px solid #137D55;border-radius:inherit;opacity:0;pointer-events:none;animation:contact-halo 7s ease-out infinite}
-  @keyframes contact-halo{0%,69%,100%{opacity:0;transform:scale(1)}71%{opacity:.45}77%{opacity:0;transform:scale(1.2)}}
+/* Keep the floating contact button static instead of continuously repainting a halo. */
+@media(hover:none){
+  .button:hover,.card--interactive:hover,.floating-contact:hover{transform:none}
+  .media-card:hover .media-card__media img{transform:none}
 }
 @media(max-width:40rem){.floating-contact{width:3.1rem;height:3.1rem;inset-inline-end:var(--space-3);bottom:calc(var(--space-3) + env(safe-area-inset-bottom,0px))}}
 

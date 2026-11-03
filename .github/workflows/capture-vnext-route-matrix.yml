@@ -253,6 +253,41 @@ jobs:
             console.log(`VNEXT ALL INDEXABLE ROUTES @ 390/1440: PASSED (${uniquePaths.length} routes)`);
           }
 
+          async function verifyHomeHeroGeometry(locale) {
+            const widths=[320,390,768,900,1024,1440,1920];
+            for(const width of widths){
+              const ctx=await browser.newContext({
+                viewport:{width,height:900},
+                locale:locale==="ar"?"ar-YE":"en-US",
+                reducedMotion:"reduce"
+              });
+              const page=await ctx.newPage();
+              await page.goto(base+(locale==="ar"?"/":"/en/"),{waitUntil:"domcontentloaded"});
+              const state=await page.evaluate(()=>{
+                const copy=document.querySelector(".home-hero__copy")?.getBoundingClientRect();
+                const media=document.querySelector(".home-hero__media")?.getBoundingClientRect();
+                const img=document.querySelector(".home-hero__media img");
+                const rect=r=>r&&({left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width});
+                return {viewport:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth,
+                        copy:rect(copy),media:rect(media),fit:img&&getComputedStyle(img).objectFit};
+              });
+              if(!state.copy||!state.media||state.scroll>state.viewport+2){
+                throw new Error(locale+": home hero missing/overflows at "+width+"px "+JSON.stringify(state));
+              }
+              if(width<=768){
+                if(state.media.top<state.copy.bottom-2) throw new Error(locale+": mobile hero overlaps text at "+width+"px");
+              }else{
+                if(state.media.width>512.5||state.fit!=="contain"){
+                  throw new Error(locale+": desktop image oversized/distorted at "+width+"px "+JSON.stringify(state));
+                }
+                const overlap=Math.min(state.media.right,state.copy.right)-Math.max(state.media.left,state.copy.left);
+                if(overlap>2) throw new Error(locale+": desktop hero columns overlap at "+width+"px");
+              }
+              await ctx.close();
+            }
+            console.log("HOME HERO RESPONSIVE GEOMETRY: PASSED ("+locale+")");
+          }
+
           async function verifyInteractions(locale) {
             const context = await browser.newContext({
               viewport: { width: 390, height: 844 },
@@ -284,6 +319,11 @@ jobs:
               throw new Error(`${locale}: Mobile navigation did not restore focus after Escape.`);
             }
 
+            await toggle.click();
+            await page.locator(".home-hero__actions a").first().focus();
+            if (await toggle.getAttribute("aria-expanded") !== "false") {
+              throw new Error(`${locale}: Navigation stayed open after keyboard focus entered page content.`);
+            }
             await page.goto(base + portfolioPath, { waitUntil: "domcontentloaded" });
             await page.waitForFunction(() => document.querySelector("[data-portfolio-more-wrap]")?.hidden === false);
             const visibleFirst = await page.locator("[data-project-card]:visible").count();
@@ -561,8 +601,11 @@ jobs:
             }
             await subservicesJump.focus();
             await p.keyboard.press("Enter");
+            // Navigation may update the hash on the next browser task; retain a real failure if it does not.
+            await p.waitForFunction(() => location.hash === "#service-subservices", null, { timeout: 2500 }).catch(() => {});
             if (new URL(p.url()).hash !== "#service-subservices" || !(await p.locator("#service-subservices").count())) {
-              throw new Error(locale + ": keyboard anchor did not navigate to subservices");
+              const focused = await p.evaluate(() => document.activeElement?.getAttribute?.("href") || "none");
+              throw new Error(locale + ": keyboard anchor did not navigate to subservices (hash=" + new URL(p.url()).hash + ", focused=" + focused + ")");
             }
             const sections = p.locator(".service-deliverable__details");
             if (await sections.count() < 2) throw new Error(locale + ": deliverables not disclosed natively");
@@ -835,6 +878,8 @@ jobs:
             console.log("EFFECTIVE REFLOW WIDTHS 640/320 (1280 at 200/400%): PASS "+locale+"; NOT ACTUAL BROWSER ZOOM");
           }
 
+          await verifyHomeHeroGeometry("ar");
+          await verifyHomeHeroGeometry("en");
           const axeFindings=[
             ...await verifyAutomatedAccessibility("ar"),
             ...await verifyAutomatedAccessibility("en")

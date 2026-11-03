@@ -121,6 +121,7 @@ for (const contract of [
   'setAttribute("aria-label"',
   'event.key === "Escape"',
   '"pointerdown"',
+  '"focusin"',
   'matchMedia("(min-width: 53.8125rem)")'
 ]) {
   if (!navigationClient.includes(contract)) {
@@ -128,6 +129,11 @@ for (const contract of [
   }
 }
 
+const motionClient=await readFile(path.join(ROOT,"src/client/motion.js"),"utf8");
+if(!motionClient.includes('"DOMContentLoaded", scheduleReveals')) fail("motion.js","reveal scheduling should not wait for full image load");
+const componentCss=await readFile(path.join(ROOT,"src/styles/components.css"),"utf8");
+if(componentCss.includes("contact-halo 7s") || componentCss.includes("@keyframes contact-halo")) fail("components.css","fixed contact shortcut must not pulse continuously");
+if(!componentCss.includes(".media-card__title a:focus-visible::after")) fail("components.css","full-card keyboard focus style is missing");
 if (errors.length) {
   console.error("VNEXT SHELL CHECK: FAILED");
   for (const error of errors) console.error(`- ${error}`);

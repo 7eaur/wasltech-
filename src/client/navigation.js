@@ -38,6 +38,11 @@ if (toggle && nav && header) {
     }
   });
 
+  // Close when the keyboard moves into page content.
+  document.addEventListener("focusin", (event) => {
+    if (isOpen() && !header.contains(event.target)) setOpenState(false);
+  });
+
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && isOpen()) {
       setOpenState(false, { restoreFocus: true });
