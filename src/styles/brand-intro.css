@@ -9,10 +9,10 @@ html.brand-intro-pending .brand-intro[hidden]{display:grid}
 .brand-intro-pending .brand-intro{
   display:grid;
   /* If JavaScript fails, the overlay visually disappears by itself. */
-  animation:wt-intro-pending-out .18s ease-out 5s both;
+  animation:wt-intro-pending-out .18s ease-out 2.5s both;
 }
 .brand-intro-active .brand-intro{
-  display:grid;animation:wt-intro-out .4s ease-in-out 1.26s both;
+  display:grid;animation:wt-intro-out .32s ease-in-out .82s both;
 }
 .brand-intro-static .brand-intro,.brand-intro-fallback .brand-intro{display:grid}
 html.brand-intro-active,html.brand-intro-static,html.brand-intro-fallback{overflow:hidden}
@@ -29,7 +29,7 @@ html.brand-intro-active,html.brand-intro-static,html.brand-intro-fallback{overfl
   animation:wt-intro-wordmark .68s cubic-bezier(.22,.7,.2,1) .46s both;
 }
 .brand-intro-active .brand-intro__layer--finished{
-  animation:wt-intro-final .22s ease-out 1.10s both;
+  animation:wt-intro-final .18s ease-out .72s both;
 }
 .brand-intro__line{
   position:absolute;bottom:-7px;left:20%;right:20%;height:2px;background:#0E8889;
@@ -47,7 +47,7 @@ html.brand-intro-active,html.brand-intro-static,html.brand-intro-fallback{overfl
   color:#14305F;font-size:clamp(22px,5vw,32px);font-weight:700;
 }
 .brand-intro-fallback .brand-intro__fallback{display:grid}
-.brand-intro-fallback .brand-intro{animation:wt-intro-fallback-out .25s ease-out .95s both}
+.brand-intro-fallback .brand-intro{animation:wt-intro-fallback-out .25s ease-out .55s both}
 @keyframes wt-intro-symbol{
   0%{opacity:1;clip-path:inset(0 0 0 100%)}
   100%{opacity:1;clip-path:inset(0 0 0 51%)}

@@ -72,13 +72,13 @@ if (intro) {
       root.classList.remove("brand-intro-pending");
       if (!ready) {
         root.classList.add("brand-intro-fallback");
-        timeout = window.setTimeout(() => disposeIntro(true), 1500);
+        timeout = window.setTimeout(() => disposeIntro(true), 900);
         return;
       }
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       root.classList.add(reduced ? "brand-intro-static" : "brand-intro-active");
       // Guaranteed cleanup if animationend is suppressed or CSS fails.
-      timeout = window.setTimeout(() => disposeIntro(true), reduced ? 1100 : 2100);
+      timeout = window.setTimeout(() => disposeIntro(true), reduced ? 700 : 1350);
     };
     void startIntro();
   }

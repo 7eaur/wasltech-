@@ -1,6 +1,6 @@
 *,*::before,*::after{box-sizing:border-box}
 html{min-width:20rem;background:var(--color-bg-canvas)}
-body{min-width:20rem;margin:0;background:var(--color-bg-canvas);color:var(--color-text-primary);font-family:var(--font-ar);line-height:var(--line-body);-webkit-font-smoothing:antialiased}
+body{min-width:20rem;margin:0;overflow-x:clip;background:var(--color-bg-canvas);color:var(--color-text-primary);font-family:var(--font-ar);line-height:var(--line-body);-webkit-font-smoothing:antialiased}
 body,button,input,textarea,select{font:inherit}
 img,svg,video{display:block;max-width:100%}
 img{height:auto}
