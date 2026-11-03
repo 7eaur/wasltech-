@@ -335,8 +335,11 @@ jobs:
             const noJs=await browser.newContext({viewport:{width:390,height:844},javascriptEnabled:false});
             const noJsPage=await noJs.newPage();
             await noJsPage.goto(base+path,{waitUntil:"domcontentloaded"});
-            if(await noJsPage.locator(".brand-intro").evaluate(el=>getComputedStyle(el).display)!=="none"){
-              throw new Error(locale+": intro must never block a visitor without JS");
+            const noJsIntro=await noJsPage.locator(".brand-intro").evaluate(el=>({
+              display:getComputedStyle(el).display,hidden:el.hidden,rootClass:document.documentElement.className
+            }));
+            if(noJsIntro.display!=="none"){
+              throw new Error(locale+": intro must never block a visitor without JS: "+JSON.stringify(noJsIntro));
             }
             await noJs.close();
             console.log("ONE-TIME BRAND INTRO, RELOAD, INNER PAGE, REDUCED MOTION, SKIP, NO-JS: PASSED ("+locale+")");

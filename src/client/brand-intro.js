@@ -10,6 +10,8 @@ if (intro) {
     root.classList.remove("brand-intro-pending");
     intro.remove();
   } else {
+    // Expose the first-visit overlay only after its progressive enhancement is active.
+    intro.hidden = false;
     let disposed = false;
     let timeout;
     let imageTimeout;

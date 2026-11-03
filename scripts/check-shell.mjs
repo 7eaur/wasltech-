@@ -44,6 +44,7 @@ for (const locale of ["ar", "en"]) {
     const html = await readFile(path.join(DIST, file), "utf8");
 
     if (count(html, /data-brand-intro/g) !== 1) fail(file, "one shared brand intro required on each normal page");
+    if (!html.includes('data-brand-intro aria-hidden="true" hidden')) fail(file, "first-visit overlay must be hidden without JS");
     if (!html.includes('src="/assets/js/brand-intro-bootstrap.js"') ||
         !html.includes('src="/assets/js/brand-intro.js" defer')) fail(file, "first-visit logo policy JS missing");
     if (!html.includes('class="brand-intro__layer brand-intro__layer--finished"')) {

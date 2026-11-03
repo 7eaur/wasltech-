@@ -4,6 +4,8 @@
   display:none;position:fixed;inset:0;z-index:9998;padding:20px;
   place-items:center;background:#fff;opacity:1;pointer-events:auto;touch-action:none;
 }
+/* Pending is only set by the first-visit head bootstrap. No-JS stays hidden. */
+html.brand-intro-pending .brand-intro[hidden]{display:grid!important}
 .brand-intro-pending .brand-intro{
   display:grid;
   /* If JavaScript fails, the overlay visually disappears by itself. */
