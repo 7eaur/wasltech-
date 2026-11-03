@@ -97,6 +97,8 @@ for(const file of clients){
 // A module copied by build but never loaded (or accidentally loaded twice) is not
 // considered owned.
 const clientOwners = new Map([
+  ["brand-intro-bootstrap.js","src/templates/document.js"],
+  ["brand-intro.js","src/templates/document.js"],
   ["navigation.js","src/templates/document.js"],
   ["motion.js","src/templates/document.js"],
   ["analytics.js","src/templates/document.js"],

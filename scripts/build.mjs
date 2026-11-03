@@ -142,12 +142,10 @@ async function buildAssets() {
     }
   }
 
-  for (const name of ["brand-intro-bootstrap", "brand-intro"]) {
-    await writeOutput(
-      `assets/js/${name}.js`,
-      await readFile(path.join(ROOT, `src/client/${name}.js`), "utf8")
-    );
-  }
+  const brandIntroBootstrap = await readFile(path.join(ROOT, "src/client/brand-intro-bootstrap.js"), "utf8");
+  await writeOutput("assets/js/brand-intro-bootstrap.js", brandIntroBootstrap);
+  const brandIntro = await readFile(path.join(ROOT, "src/client/brand-intro.js"), "utf8");
+  await writeOutput("assets/js/brand-intro.js", brandIntro);
   const navigation = await readFile(path.join(ROOT, "src/client/navigation.js"), "utf8");
   await writeOutput("assets/js/navigation.js", navigation);
   const motion = await readFile(path.join(ROOT, "src/client/motion.js"), "utf8");
