@@ -332,7 +332,7 @@ jobs:
             }
             await skipping.close();
 
-            const noJs=await browser.newContext({viewport:{width:390,height:844},javascriptEnabled:false});
+            const noJs=await browser.newContext({viewport:{width:390,height:844},javaScriptEnabled:false});
             const noJsPage=await noJs.newPage();
             await noJsPage.goto(base+path,{waitUntil:"domcontentloaded"});
             const noJsIntro=await noJsPage.locator(".brand-intro").evaluate(el=>({
